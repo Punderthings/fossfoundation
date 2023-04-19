@@ -1,8 +1,14 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: FOSS Foundations Directory
+description: Comprehensive metadata directory about non-profit FOSS Foundations.
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+# url: https://fossfoundation.info
 
-aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+author: Shane Curcuru
+twitter:
+  username: shanecurcuru
+  card: summary
+
+# Just-the-docs configuration
+search_enabled: true
+heading_anchors: true
