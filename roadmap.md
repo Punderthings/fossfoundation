@@ -8,13 +8,14 @@ This site is meant to be high-level resource for anyone interested in FOSS proje
 
 ## Version 0.1 plans
 
-Overview homepage - what is this project.
-Resources page - point to the key resources already out there about governance, sustainability, and other non-technical open source concepts.
-`/listing/` directory - a friendly listing of all FOSS Foundations in our dataset, with simple categorization/sorting/search features.
-`/data/` directory - metadata about foundations, as YAML/JSON files, one per foundation, like: fsf.yaml
-More?
+- Overview homepage - what is this project.
+- Resources page - point to the key resources already out there about governance, sustainability, and other non-technical open source concepts.
+- `/listing/` directory - a friendly listing of all FOSS Foundations in our dataset, with simple categorization/sorting/search features.
+- `/data/` directory - metadata about foundations, as YAML/JSON files, one per foundation, like: fsf.yaml
+- Basic build/lint tooling
+- Provide auto-build of alternate formats (like .csv out of .yaml)
 
-# Tasks
+## Tasks
 
 - [ ] Organize homepage & sketch nav structure
 - [ ] Resources page

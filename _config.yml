@@ -21,3 +21,19 @@ nav_external_links:
     url: https://fossfunding.com/
   - title: Shane Curcuru / Punderthings
     url: https://punderthings.com/
+
+# Jekyll setup and collections
+collections:
+  foundations:
+    output: true
+    sort_by: name
+    permalink: /:collection/:path
+
+# Defaults
+defaults:
+  - 
+    scope:
+      path: ""
+      type: "foundations"
+    values:
+      layout: foundation

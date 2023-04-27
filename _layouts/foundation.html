@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<article class="foundation_single" itemscope itemtype="http://schema.org/Organization">
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: '%B %d, %Y' }}">{% endif %}
+  <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a> 
+    {{ page.name }}
+  </h1>
+  {% if page.website %}<p><abbr title="Primary website homepage.">Website</abbr>: <a itemprop="url" href="{{ page.website }}">{{ page.website }}</a></p>{% endif %}
+  {% if page.nonprofitStatus %}<p><abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: <span itemprop="nonprofitStatus">{{ page.nonprofitStatus }}</span></p>{% endif %}
+  <hr id="details"/>
+  {{ content }}
+</article>
