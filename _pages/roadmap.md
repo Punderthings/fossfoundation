@@ -1,6 +1,7 @@
 ---
 title: Roadmap and Plans
 layout: default
+permalink: /roadmap
 ---
 # Roadmap for FOSS Foundations website
 

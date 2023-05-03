@@ -23,6 +23,9 @@ nav_external_links:
     url: https://punderthings.com/
 
 # Jekyll setup and collections
+include:
+  - _pages
+
 collections:
   foundations:
     output: true

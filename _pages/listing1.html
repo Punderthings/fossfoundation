@@ -1,0 +1,17 @@
+---
+title: All Foundation Listing
+excerpt: Lists all Foundations
+permalink: /listing1
+layout: default
+---
+
+<h1>Foundations Listing</h1>
+
+A brief listing of all non-profit FOSS-hosting or significant related Foundations included here.  Note that commercial entities and projects that aren't represented directly by a legal entity are not listed here.
+
+<hr id="listing"/>
+<dl class="foundation_list">
+{% for fdn in site.foundations %}
+  {% include foundation-single.html %}
+{% endfor %}
+</dl>
