@@ -9,15 +9,16 @@ permalink: /listing2
 
 <hr id="listing"/>
 <ul>
-{% for fdn in site.foundations %}
+  {% for fdn in site.foundations %}
   <li>
     <h2>
-      <a id="{{ f.identifier }}" href="{{ f.permalink | absolute_url }}">{{ fdn.legalName }}</a><hr/>
-      <abbr title="Primary website homepage.">Website</abbr>: <a href="{{ fdn.website }}">{{ fdn.website }}</a><br/>
-      <abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: {{ fdn.nonprofitStatus }}      
+      <a id="{{ fdn.identifier }}" href="/foundations/{{ fdn.identifier }}">{{ fdn.legalName }}</a>
     </h2>
+    {{ fdn.commonName }}<br/>
+    <abbr title="Primary website homepage.">Website</abbr>: <a href="{{ fdn.website }}">{{ fdn.website }}</a><br/>
+    <abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: {{ fdn.nonprofitStatus }}      
   </li>
-{% endfor %}
+  {% endfor %}
 </ul>
 
 
