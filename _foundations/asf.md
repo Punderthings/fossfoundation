@@ -1,8 +1,8 @@
 ---
 identifier: asf
-name: Apache Software Foundation
+commonName: Apache Software Foundation
 legalName: Apache Software Foundation
-url: https://www.apache.org/
+website: https://www.apache.org/
 foundingDate: '1999'
 location: US
 newProjects: 'yes'

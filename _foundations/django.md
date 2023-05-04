@@ -1,6 +1,6 @@
 ---
 identifier: django
-name: Django
+commonName: Django
 legalName: Django Software Foundation
 website: https://www.djangoproject.com/
 foundingDate:

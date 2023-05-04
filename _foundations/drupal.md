@@ -1,6 +1,6 @@
 ---
 identifier: drupal
-name: Drupal
+commonName: Drupal
 legalName: Drupal Association
 website: https://www.drupal.org/
 foundingDate:
