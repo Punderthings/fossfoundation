@@ -1,9 +1,9 @@
 ---
 title: Roadmap and Plans
+excerpt: We are building a rich metadata source about open source foundations for use by researchers.
 layout: default
 permalink: /roadmap
 ---
-# Roadmap for FOSS Foundations website
 
 This site is meant to be high-level resource for anyone interested in FOSS project governance, especially those hosted at non-profit foundations or similar organizations.  Along with some introductory info - mainly pointers to existing "what is FOSS" websites out there! - it will also include a rich metadata directory of major FOSS non-profits.  This resource is meant to be collaborative, and of use to researchers, project leaders, and anyone interested in sustainability.
 
@@ -30,6 +30,7 @@ This site is meant to be high-level resource for anyone interested in FOSS proje
 - [ ] Category lists of foundations
 - [ ] Metadata search page
 - [ ] Connections to other metadata directories
+
 ## Site Governance
 
-This site is run by Shane Curcuru, with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.
+This site is run by Shane Curcuru, with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.  The long-term plan is to build a community of equal maintainers to ensure site longevity.

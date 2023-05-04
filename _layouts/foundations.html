@@ -1,11 +1,8 @@
 ---
 layout: default
-permalink: /listing2
 ---
 
-<h1>Foundations Listing</h1>
-
-<p>A brief listing of all non-profit FOSS-hosting or significant related Foundations included here.  Note that commercial entities and projects that aren't represented directly by a legal entity are not listed here.</p>
+{{ content }}
 
 <hr id="listing"/>
 <ul>
@@ -14,9 +11,9 @@ permalink: /listing2
     <h2>
       <a id="{{ fdn.identifier }}" href="/foundations/{{ fdn.identifier }}">{{ fdn.legalName }}</a>
     </h2>
-    {{ fdn.commonName }}<br/>
     <abbr title="Primary website homepage.">Website</abbr>: <a href="{{ fdn.website }}">{{ fdn.website }}</a><br/>
-    <abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: {{ fdn.nonprofitStatus }}      
+    <abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: {{ fdn.nonprofitStatus }}<br/>
+    {{ fdn.description }}
   </li>
   {% endfor %}
 </ul>

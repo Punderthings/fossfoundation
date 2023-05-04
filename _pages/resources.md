@@ -1,10 +1,9 @@
 ---
 title: Resources
+excerpt: Overviews and helpful links about open source governance and foundations.
 layout: default
 permalink: /resources
 ---
-
-# Resources
 
 Want to understand more about open source projects, governance, and foundations?  We've picked out some of the best places out there to learn from.  As with most of open source, we're building on the work of many, many other excellent contributors out there.
 
@@ -26,7 +25,7 @@ Want to understand more about open source projects, governance, and foundations?
 
 Sustainability is about maintaining a healthy open source ecosystem for individuals, projects, and software users alike.  The word "sustainable" means so many different things, and this space is evolving quickly with new research, funding, and governance models.
 
-Start with a [curated list of sustainability research papers, practical how-tos, and financial hosting examples](https://www.zotero.org/groups/5030713/foss-sustainability/items) and more.
+Shane has a [curated list of sustainability research papers, practical how-tos, and financial hosting examples](https://www.zotero.org/groups/5030713/foss-sustainability/items) and more.
 
 ## Research
 
