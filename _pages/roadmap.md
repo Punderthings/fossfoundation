@@ -3,6 +3,7 @@ title: Roadmap and Plans
 excerpt: We are building a rich metadata source about open source foundations for use by researchers.
 layout: default
 permalink: /roadmap
+nav_order: 10
 ---
 
 This site is meant to be high-level resource for anyone interested in FOSS project governance, especially those hosted at non-profit foundations or similar organizations.  Along with some introductory info - mainly pointers to existing "what is FOSS" websites out there! - it will also include a rich metadata directory of major FOSS non-profits.  This resource is meant to be collaborative, and of use to researchers, project leaders, and anyone interested in sustainability.

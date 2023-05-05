@@ -3,6 +3,7 @@ title: Resources
 excerpt: Overviews and helpful links about open source governance and foundations.
 layout: default
 permalink: /resources
+nav_order: 20
 ---
 
 Want to understand more about open source projects, governance, and foundations?  We've picked out some of the best places out there to learn from.  As with most of open source, we're building on the work of many, many other excellent contributors out there.

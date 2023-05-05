@@ -13,7 +13,15 @@ twitter:
 search_enabled: true
 heading_anchors: true
 gh_edit_link: true
+callouts:
+  note:
+    title: NOTE
+    color: green
 
+aux_links:
+  "FOSS Foundations On GitHub":
+    - "https://github.com/ShaneCurcuru/fossfoundation"
+    
 nav_external_links:
   - title: Choose A Foundation
     url: https://chooseafoundation.com/

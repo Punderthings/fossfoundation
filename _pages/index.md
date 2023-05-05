@@ -1,12 +1,14 @@
 ---
-title: FOSS Foundations Metadata Directory
+title: Welcome And Introduction
 excerpt: A rich metadata directory of open source foundations, useful for research and FOSS developers alike.
 layout: home
 permalink: /
+nav_order: 1
 ---
 
 Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich common metadata about the many excellent non-profit Foundations that either host or help open source projects.
 
+- See the current [directory of foundation metadata](listing). 
 - Read the [roadmap to see where we're headed](roadmap).
 - Useful [resources to learn about FOSS Foundations](resources).
 - How to [contribute to this site](CONTRIBUTING.md).
@@ -27,4 +29,5 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 - Tracking commercial entities.
 - Tracking non-entity projects; i.e. open source projects without legal entities.
 - Fancy features, UI, or hard to maintain visualizations.
+- Volunteers are welcomed to help turn non-goals into goals!
   

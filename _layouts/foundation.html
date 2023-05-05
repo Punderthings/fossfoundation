@@ -11,9 +11,10 @@ layout: default
   {% if page.nonprofitStatus %}<p><abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: <span itemprop="nonprofitStatus">{{ page.nonprofitStatus }}</span></p>{% endif %}
   <hr id="details"/>
 
+<p class="note">
+The individual listing for each foundation is in progress; it will provide a human-readable version of all metadata available in each individual foundation's YAML data in the _foundations directory.
+</p>
+
   {{ content }}
 
-  <hr id="debug"/>
-  {{ page.inspect }}
 </article>
-

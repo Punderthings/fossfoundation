@@ -11,6 +11,7 @@ require 'json'
 # Transform original spreadsheet with all columns into Jekyll-readable frontmatter files
 # Note: currently requires manual check/update of outputs
 # TODO: ensure stable output format for field ordering, line wrapping
+# BUG: .md files output must have a closing --- document end marker added
 def csv2jekyll(infile, outdir, outext)
   lines = 0
   CSV.foreach(File.open(infile), {:headers => true}) do |row|
