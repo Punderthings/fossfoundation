@@ -21,7 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.drupal.org/association/supporters/partners
 sponsorList:
-licenses:
+licenses:  	GPL-2.0-or-later
 claPolicy:
 ethicsPolicy:
 governanceOrg:
@@ -45,3 +45,6 @@ conductSource: Ubuntu
 conductLinked:
 diversityPolicy: https://www.drupaldiversity.com/docs
 diversityDescription: Program and Initiatives
+---
+
+The Drupal Association works to foster the growth of the Drupal community, supporting the project's vision to create a safe, secure, and open web for everyone.

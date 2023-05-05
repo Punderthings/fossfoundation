@@ -49,4 +49,4 @@ diversityPolicy: https://lists.apache.org/list.html?diversity@apache.org
 diversityDescription: Mailing list
 ---
 
-DEBUG Test Data for content inclusion.
+The ASF exists to serve the many like-minded project communities who join, and to ensure all software developed is preserved permanently.

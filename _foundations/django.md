@@ -21,7 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.djangoproject.com/fundraising/
 sponsorList:
-licenses:
+licenses: BSD-3-Clause
 claPolicy:
 ethicsPolicy:
 governanceOrg:
@@ -43,3 +43,6 @@ conductSource: Speak Up! Project
 conductLinked: footer
 diversityPolicy: https://www.djangoproject.com/diversity/
 diversityDescription: Statement supporting diversity
+---
+
+The Django Software Foundation promotes, supports, and advances the goals of the Django Python web framework.
