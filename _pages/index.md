@@ -30,4 +30,14 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 - Tracking non-entity projects; i.e. open source projects without legal entities.
 - Fancy features, UI, or hard to maintain visualizations.
 - Volunteers are welcomed to help turn non-goals into goals!
-  
+
+## Data
+
+- Store basic metadata in _foundations/*asf*.md frontmatter, parseable as YAML
+  - Individual files makes PRs very simple and limited to the organization you're updating
+  - Most data fields are purely optional, since we rely on volunteers to research data
+- Store unstructured data as the body of the .md documents, meaning they can be self-describing
+- Workflow expects to maintain _foundations files, and then use Actions to auto-build alternate data formats
+- Using flat files / GitHub Pages means zero maintenance
+- Will store a subset of metadata for commercial organizations and independent projects
+  - People searching for a project will see if it's a non-profit (in main data source) or not 

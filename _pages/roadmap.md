@@ -17,6 +17,16 @@ This site is meant to be high-level resource for anyone interested in FOSS proje
 - Basic build/lint tooling
 - Provide auto-build of alternate formats (like .csv out of .yaml)
 
+## Example
+
+```ruby
+require 'yaml'
+require 'open-uri'
+# Future plans: have more stable programmatic URL and listing features; offer CSV and other formats
+asf = YAML.load(URI.open("https://raw.githubusercontent.com/ShaneCurcuru/fossfoundation/main/_foundations/asf.md"))
+puts asf['legalName']
+```
+
 ## Tasks
 
 - [ ] Organize homepage & sketch nav structure
