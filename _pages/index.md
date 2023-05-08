@@ -6,12 +6,13 @@ permalink: /
 nav_order: 1
 ---
 
-Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich common metadata about the many excellent non-profit Foundations that either host or help open source projects.
+Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich common metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
 
-- See the current [directory of foundation metadata](listing). 
+- Discover the [directory of foundation metadata](listing). 
 - Read the [roadmap to see where we're headed](roadmap).
-- Useful [resources to learn about FOSS Foundations](resources).
-- How to [contribute to this site](CONTRIBUTING.md).
+- See the [starting philosophy around data design](data).
+- Find useful [resources to learn about FOSS Foundations](resources).
+- Learn how to [contribute to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
 - Be nice and respect our [Code of Conduct](CODE_OF_CONDUCT).
 - We can help you [Choose A Foundation](https://chooseafoundation.com) for your project to join.
 - Learn about your current host, [Shane Curcuru](https://shanecurcuru.org).
@@ -32,6 +33,8 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 - Volunteers are welcomed to help turn non-goals into goals!
 
 ## Data
+
+Read more about our [data philosophy](data).
 
 - Store basic metadata in _foundations/*asf*.md frontmatter, parseable as YAML
   - Individual files makes PRs very simple and limited to the organization you're updating

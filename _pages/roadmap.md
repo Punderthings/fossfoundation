@@ -23,7 +23,7 @@ This site is meant to be high-level resource for anyone interested in FOSS proje
 require 'yaml'
 require 'open-uri'
 # Future plans: have more stable programmatic URL and listing features; offer CSV and other formats
-asf = YAML.load(URI.open("https://raw.githubusercontent.com/ShaneCurcuru/fossfoundation/main/_foundations/asf.md"))
+asf = YAML.load(URI.open("https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_foundations/asf.md"))
 puts asf['legalName']
 ```
 
@@ -44,4 +44,4 @@ puts asf['legalName']
 
 ## Site Governance
 
-This site is run by Shane Curcuru, with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.  The long-term plan is to build a community of equal maintainers to ensure site longevity.
+This site is run by [Shane Curcuru](https://shanecurcuru.org), with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.  The long-term plan is to build a community of equal maintainers to ensure site longevity.
