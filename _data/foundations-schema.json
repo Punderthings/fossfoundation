@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://fossfoundation.info/foundations/asf.json",
+  "type": "object",
+  "title": "FOSS Foundation Schema",
+  "required": [
+    "identifier",
+    "commonName",
+    "legalName",
+    "website"
+  ],
+  "properties": {
+    "identifier": {
+      "title": "Used as filename or fragment reference",
+      "description": "Common name; lowercased; used for lookups.",
+      "type": "string"
+    },
+    "commonName": {
+      "title": "Common Name",
+      "description": "Commonly used name in public.",
+      "type": "string"
+    },
+    "legalName": {
+      "title": "Legal Name",
+      "description": "Official name of the organization.",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "description": "One sentence brief overview of organization.",
+      "type": "string"
+    },
+    "website": {
+      "title": "Website",
+      "description": "Primary website homepage.",
+      "type": "string",
+      "format": "uri"
+    },
+    "foundingDate": {
+      "title": "Founding Date",
+      "description": "Date organization was legally incorporated (or similar).",
+      "type": "string",
+      "format": "date"
+    },
+    "dissolutionDate": {
+      "title": "Dissolution Date",
+      "description": "Date organization was dissolved (if applicable).",
+      "type": "string",
+      "format": "date"
+    },
+    "location": {
+      "title": "Location",
+      "description": "Country or specific location organization is based.",
+      "type": "string"
+    },
+    "newProjects": {
+      "title": "Accepts new projects?",
+      "description": "Does this organization actively accept new projects for hosting?",
+      "type": "string"
+    },
+    "softwareType": {
+      "title": "Software Types",
+      "description": "What general kind(s) of software does this org create? May be 'various'.",
+      "type": "string"
+    },
+    "wikidataId": {
+      "title": "Wikidata ID",
+      "description": "Wikidata ID for lookups.",
+      "type": "string"
+    },
+    "boardSize": {
+      "title": "Board Size",
+      "description": "Number of board of director seats.",
+      "type": "number"
+    },
+    "boardType": {
+      "title": "Board Type",
+      "description": "Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.",
+      "type": "string"
+    },
+    "boardurl": {
+      "title": "Board Website",
+      "description": "Official board information URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "bylawsurl": {
+      "title": "Bylaws Website",
+      "description": "Corporate bylaws URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "numberOfEmployees": {
+      "title": "Approx Number Of Paid Staff",
+      "description": "Approximate number of paid employees or equivalents.",
+      "type": "number"
+    },
+    "taxID": {
+      "title": "Tax Authority ID",
+      "description": "US IRS taxID, or other country's tax identifier (if any).",
+      "type": "string"
+    },
+    "nonprofitStatus": {
+      "title": "Nonprofit Type",
+      "description": "Specific type of non-profit; US or other country type.",
+      "type": "string"
+    },
+    "funding": {
+      "title": "Funding Sources",
+      "description": "Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.",
+      "type": "array"
+    },
+    "budgetUsd": {
+      "title": "Budget in USD",
+      "description": "Approximate annual budget in USD.",
+      "type": "string"
+    },
+    "budgetYear": {
+      "title": "Budget Year",
+      "description": "Year budgetUsd number was entered.",
+      "type": "string"
+    },
+    "budgeturl": {
+      "title": "Budget Website",
+      "description": "Official budget or other financial information URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "budgetTransparent": {
+      "title": "Budget Transparency",
+      "description": "Is the official budget shared publicly and fully, or is it opaque?",
+      "type": "string"
+    },
+    "sponsorurl": {
+      "title": "Sponsor List Website",
+      "description": "Official listing of sponsors URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "sponsorList": {
+      "title": "Example Sponsors",
+      "description": "Example listing of top-level annual recurring sponsors.",
+      "type": "string"
+    },
+    "licenses": {
+      "title": "Licenses Used",
+      "description": "Licenses used on software provided; use SPDX Identifiers.",
+      "type": "string"
+    },
+    "claPolicy": {
+      "title": "CLA Policy",
+      "description": "Does the organization use CLAs, DCOs, or other required incoming grants from developers?",
+      "type": "string"
+    },
+    "ethicsPolicy": {
+      "title": "Ethics/COI Policy",
+      "description": "Link to any primary ethics or COI policies posted.",
+      "type": "string",
+      "format": "url"
+    },
+    "governanceOrg": {
+      "title": "Governance Description",
+      "description": "Brief description of corporate or organizational governance.",
+      "type": "string"
+    },
+    "governanceTech": {
+      "title": "Project Governance Description",
+      "description": "Brief description of project-level technical governance.",
+      "type": "string"
+    },
+    "projectsNotable": {
+      "title": "Example Projects Hosted",
+      "description": "Example list of highly notable software products.",
+      "type": "string"
+    },
+    "projectsList": {
+      "title": "Project List Website",
+      "description": "Official URL listing of sub-projects hosted.",
+      "type": "string",
+      "format": "url"
+    },
+    "projectsServices": {
+      "title": "Services Provided",
+      "description": "Brief description of services offered to hosted projects.",
+      "type": "string"
+    },
+    "logo": {
+      "title": "Official Logo Link",
+      "description": "Official organizational logo URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "logoReg": {
+      "title": "Is Logo Registered?",
+      "description": "Is the official logo a registered trademark? (yes/no/or major countries registered in).",
+      "type": "string"
+    },
+    "brandPrimary": {
+      "title": "Primary Brand Name",
+      "description": "What is the primary brand name/mark of the organization?",
+      "type": "string"
+    },
+    "brandSecondary": {
+      "title": "Secondary Brand Name(s)",
+      "description": "Example listing of any major secondary brand names/marks.",
+      "type": "string"
+    },
+    "brandReg": {
+      "title": "Is Primary Brand Registered?",
+      "description": "Is the primary brand a registered trademark in at least one jurisdiction?",
+      "type": "string"
+    },
+    "brandPolicy": {
+      "title": "Trademark Policy Website",
+      "description": "Link to official trademark usage policies.",
+      "type": "string",
+      "format": "url"
+    },
+    "brandUse": {
+      "title": "Trademark Usage Website",
+      "description": "Link to official trademark FAQ or other policies.",
+      "type": "string",
+      "format": "url"
+    },
+    "brandComments": {
+      "title": "Trademark Policy Description",
+      "description": "Brief description of trademark usage policies",
+      "type": "string"
+    },
+    "conducturl": {
+      "title": "Code Of Conduct Website",
+      "description": "Link to official Code of Conduct.",
+      "type": "string",
+      "format": "url"
+    },
+    "conductEvents": {
+      "title": "Event Code Of Conduct Website",
+      "description": "Link to official event-related Code of Conduct.",
+      "type": "string",
+      "format": "url"
+    },
+    "conductSource": {
+      "title": "Source Of Code Of Conduct",
+      "description": "Cited source or inspiration for Code of Conduct policy.",
+      "type": "string"
+    },
+    "conductLinked": {
+      "title": "Where Code Of Conduct Linked",
+      "description": "Where is the Code of Conduct linked from the organization's homepage?",
+      "type": "string"
+    },
+    "diversityPolicy": {
+      "title": "Diversity Policy Website",
+      "description": "Diversity, inclusion, or other related policies or informational page.",
+      "type": "string",
+      "format": "url"
+    },
+    "diversityDescription": {
+      "title": "Description Of Diversity Policy",
+      "description": "Brief description of the diversityPolicy link.",
+      "type": "string"
+    },
+    "parentOrganization": {
+      "title": "Parent Organization",
+      "description": "Legal organization or foundation this project belongs to.",
+      "type": "string"
+    },
+    "subOrganization": {
+      "title": "Sub Projects Listed",
+      "description": "Unused: should this be used instead of projectList?",
+      "type": "string"
+    }
+  }
+}

@@ -58,13 +58,36 @@ def csv2jsonschema(infile, outfile)
 return lines
 end
 
+# Transform JSON Schema into Jekyll Liquid templates
+# NOTE: only creates partial template; manual tweaking necessary
+def schema2liquid(infile, linesep)
+  liquid = ''
+  schema = JSON.parse(File.read(infile))
+  properties = schema['properties']
+  properties.each do |fieldName, hash|
+    liquid << "{% if page.#{fieldName} %}"
+    liquid << "<abbr title=\"#{hash['description']}\">#{hash['title']}</abbr>: "
+    if 'url'.eql?(hash.fetch('format', ''))
+      liquid << "<a itemprop=\"#{fieldName}\" href=\"{{ page.#{fieldName} }}\">{{ page.#{fieldName} }}</a>"
+    else
+      liquid << "<span itemprop=\"#{fieldName}\">{{ page.#{fieldName} }}</span>"
+    end
+    liquid << linesep if linesep
+    liquid << "{% endif %}\n"
+  end
+  return liquid
+end
 
-# puts "BEGIN #{__FILE__}(#{infile}, #{outdir}, #{outext})"
+# puts "BEGIN #{__FILE__}.csv2jekyll(#{infile}, #{outdir}, #{outext})"
 # lines = csv2jekyll(infile, outdir, outext)
 # puts "END parsed csv rows: #{lines}"
 
-# infile = '_data/foundations-schema.csv'
-# outfile = '_data/foundations-schema.json'
-# puts "BEGIN #{__FILE__}(#{infile}, #{outfile})"
+# puts "BEGIN #{__FILE__}.csv2jsonschema(#{infile}, #{outfile})"
 # lines = csv2jsonschema(infile, outfile)
 # puts "END parsed csv rows: #{lines}"
+
+infile = '_data/foundations-schema.json'
+linesep = "<br/>"
+puts "BEGIN #{__FILE__}.schema2liquid(#{infile}, #{linesep})"
+lines = schema2liquid(infile, linesep)
+File.write('foundation-liquid.html', lines)
