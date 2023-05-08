@@ -13,6 +13,10 @@ twitter:
 search_enabled: true
 heading_anchors: true
 gh_edit_link: true
+gh_edit_link_text: Edit this page on GitHub.
+gh_edit_repository: https://github.com/Punderthings/fossfoundation
+gh_edit_branch: main
+gh_edit_view_mode: tree
 callouts:
   note:
     title: NOTE
@@ -20,7 +24,7 @@ callouts:
 
 aux_links:
   "FOSS Foundations On GitHub":
-    - "https://github.com/ShaneCurcuru/fossfoundation"
+    - "https://github.com/Punderthings/fossfoundation"
     
 nav_external_links:
   - title: Choose A Foundation
