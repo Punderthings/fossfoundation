@@ -1,5 +1,5 @@
-identifier,legalName,url,softwareType,wikidataId,projectsNotable,description
-chef,Progress Chef,https://www.chef.io/,devops,Q24479,Chef; Progress,"Progress Chef is the new Chef Software, Inc., "
+identifier,legalName,website,softwareType,wikidataId,projectsNotable,description
+chef,Progress Chef,https://www.chef.io/,devops,Q24479,Chef; Progress,"Progress Chef is the new Chef Software, Inc., main driver of the Chef line of defops tools."
 redhat,"Red Hat, Inc.",https://www.redhat.com/,distro,Q485593,RHEL; Fedora,Red Hat Enterprise Linux (RHEL) is the commercially supported version built atop the open source Fedora project.
 docker,"Docker, Inc.",https://www.docker.com/,container,Q21892650,Docker,Docker has always been a commerical company with a number of open source provided tools.
 mozillacorp,Mozilla Corporation,https://www.mozilla.org/,browser,Q169925,Firefox,"Mozilla Corporation is a for-profit, wholly owned subsidiary of the Mozilla Foundation, a 501(c)3 non-profit."

@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<hr id="listing"/>
+<ul>
+  {% for item in site.data.commercial %}
+    {% include commercial-single.html %}
+  {% endfor %}
+</ul>
