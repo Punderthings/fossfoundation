@@ -6,9 +6,20 @@ permalink: /colophon
 nav_order: 99
 ---
 
+<details markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
+
 ## Impress / License
 
 Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+
+Additional content provided by many great open source people - to be listed soon via AllContributors.
 
 ## Tools
 
@@ -24,3 +35,12 @@ Original site data by Shane and various open source volunteers.  More maintainer
 ## Trademarks
 
 Names, logos, and various other indicia of various open source projects are their trademarks.
+
+## Privacy
+
+This website uses [Google Analytics 4](https://support.google.com/analytics/answer/10089681) with the following settings, in an attempt to limit unneeded data collection:
+
+- Granular location and device data collection is off.
+- Advanced Settings to Allow for Ads Personalization is off.
+- User and even data retention is 2 months.
+- Reporting Identity is Observed.

@@ -29,19 +29,21 @@ puts asf['legalName']
 
 ## Tasks
 
-- [ ] Organize homepage & sketch nav structure
-- [ ] Resources page
-- [ ] Colophon
+- [x] Organize homepage & sketch nav structure -sc
+- [x] Resources page - sc (started)
+- [x] Colophon - sc
 - [ ] CONTRIBUTING
 - [ ] Tweak theme / logo?
-- [ ] Metadata schema (format?)
-- [ ] csv2yaml converter & checkin data
-- [ ] /listing/ directory page: name/url, nonprofitStatus / taxID, accepts new projects, description? boardType? other?
+- [x] Metadata schema (format?) -sc ('good-enough' level)
+- [x] csv2yaml converter & checkin data -sc
+- [x] /listing/ directory page: name/url, nonprofitStatus / taxID, accepts new projects, description? boardType? other?
 - [ ] Individual foundation data page, with all fields, read from schema
 - [ ] Category lists of foundations
 - [ ] Metadata search page
 - [ ] Connections to other metadata directories
+- [ ] Automated linting
+- [ ] Semi-automated data format conversion (i.e. auto-create foundations.csv upon any update to a .md file)
 
 ## Site Governance
 
-This site is run by [Shane Curcuru](https://shanecurcuru.org), with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.  The long-term plan is to build a community of equal maintainers to ensure site longevity.
+This site is maintained by [Shane Curcuru](https://shanecurcuru.org), with the intention of attracting contributors and other co-maintainers who are interested in helping FOSS foundations, projects who might want to come to foundations, and academic researchers alike.  The long-term plan is to build a community of equal maintainers to ensure site longevity.  Read the [Colophon](colophon) for how this site is built.
