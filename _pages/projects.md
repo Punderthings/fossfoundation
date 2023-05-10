@@ -15,6 +15,6 @@ These listings are updated on a best-effort basis, and provide a snapshot into t
 - Eclipse Foundation projects.
 - Software Freedom Conservancy projects.
 - NumFocus projects.
-- Software In The Public Interest projects.
+- [Software In The Public Interest](projects-spi) projects.
 
 Project listings may not be current.  Various helper scripts in [assets/ruby/scrapers.rb](https://github.com/Punderthings/fossfoundation/tree/main/assets/ruby/scrapers.rb) are used to semi-automate enumerating foundation projects and creating a simplified per-foundation `.csv` listing.

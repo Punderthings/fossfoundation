@@ -19,7 +19,7 @@ funding: donations
 budgetUsd: 200K
 budgetYear:
 budgeturl: https://www.spi-inc.org/corporate/annual-reports/2016.pdf
-sponsorurl:
+sponsorurl: https://www.spi-inc.org/sponsors/
 sponsorList:
 licenses: GPL, various
 claPolicy:
@@ -29,7 +29,7 @@ governanceTech:
 projectsNotable: Debian, Jenkins, PostgreSQL
 projectsList: https://www.spi-inc.org/projects/
 projectsServices: SPI acts as a financial steward for earmarked donations and intangible
-  assets.
+  assets as noted at https://www.spi-inc.org/projects/services/
 logo:
 logoReg: 'no'
 brandPrimary: SPI

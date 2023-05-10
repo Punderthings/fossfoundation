@@ -7,7 +7,10 @@ require 'csv'
 require 'yaml'
 require 'json'
 require 'open-uri'
+require 'nokogiri'
+require 'uri'
 
+# Common headers used for all foundation listings
 HEADERS = %w( identifier commonName description website foundingDate parentOrganization )
 
 # Transform ASF's project listing into simple csv structure
@@ -17,8 +20,34 @@ def scrape_asf_projects(outfile)
   projects = asf['committees'] # asf['last_updated'] is when the ASF structure was last created
   lines = 0
   CSV.open(outfile, "w", headers: HEADERS, write_headers: true) do |csv|
-    projects.each do |project, h|
-      csv << [h['display_name'].downcase.gsub(/\s+/, ''), "Apache #{h['display_name']}", h['description'], h['site'], h['established'], 'asf']
+    projects.each do |key, h|
+      csv << [key.downcase.gsub(/\W+/, ''), "Apache #{h['display_name']}", h['description'], h['site'], h['established'], 'asf']
+      lines += 1
+    end
+  end
+  return lines
+end
+
+# Transform SPI, Inc. project listing into simple csv structure
+# TODO: Read individual project subpages for more data
+def scrape_spi_projects(outfile)
+  spi_url = 'https://www.spi-inc.org/projects/'
+  doc = Nokogiri::HTML(URI.open(spi_url))
+  table = doc.at('.projects')
+  cells = table.search('td')
+  projects = {}
+  ctr = 0
+  cells.each do |cell|
+    a = cell.search('a')
+    projects[cell.text.downcase.gsub(/\W+/, '')] = {
+      'commonName' => cell.text.strip,
+      'website' => spi_url + a[0]['href']
+    }
+  end
+  lines = 0
+  CSV.open(outfile, "w", headers: HEADERS, write_headers: true) do |csv|
+    projects.each do |key, h|
+      csv << [key, h['commonName'], h['description'], h['website'], h['foundingDate'], 'spi']
       lines += 1
     end
   end
@@ -26,7 +55,12 @@ def scrape_asf_projects(outfile)
 end
 
 ### Command line use
-# outfile = '_data/projects-asf.csv'
-# puts "BEGIN #{__FILE__}.scrape_asf_projects(#{outfile})"
-# lines = scrape_asf_projects(outfile)
-# puts "END wrote #{lines} lines"
+outfile = '_data/projects-asf.csv'
+puts "BEGIN #{__FILE__}.scrape_asf_projects(#{outfile})"
+lines = scrape_asf_projects(outfile)
+puts "END wrote #{lines} lines"
+
+outfile = '_data/projects-spi.csv'
+puts "BEGIN #{__FILE__}.scrape_spi_projects(#{outfile})"
+lines = scrape_spi_projects(outfile)
+puts "END wrote #{lines} lines"

@@ -36,7 +36,7 @@ celix,Apache Celix,Implementation of the OSGi specification adapted to C,http://
 cloudstack,Apache CloudStack,Infrastructure as a Service solution,http://cloudstack.apache.org/,03/2013,asf
 cocoon,Apache Cocoon,"Web development framework: separation of concerns, component-based",http://cocoon.apache.org/,01/2003,asf
 commons,Apache Commons,Reusable Java components,http://commons.apache.org/,06/2007,asf
-communitydevelopment,Apache Community Development,Resources to help people become involved with Apache projects,http://community.apache.org/,11/2009,asf
+comdev,Apache Community Development,Resources to help people become involved with Apache projects,http://community.apache.org/,11/2009,asf
 cordova,Apache Cordova,"Platform for building native mobile applications using HTML, CSS and JavaScript",http://cordova.apache.org/,10/2012,asf
 couchdb,Apache CouchDB,RESTful document database,http://couchdb.apache.org/,11/2008,asf
 creadur,Apache Creadur,Comprehension and auditing of software distributions,http://creadur.apache.org/,04/2012,asf
@@ -55,7 +55,7 @@ drill,Apache Drill,"Schema-free SQL Query Engine for Apache Hadoop, NoSQL and Cl
 druid,Apache Druid,analytical database software,http://druid.apache.org,12/2019,asf
 dubbo,Apache Dubbo,"a high-performance, lightweight, java based RPC framework.",http://dubbo.apache.org/,05/2019,asf
 echarts,Apache ECharts,a charting and data visualization library written in JavaScript,http://echarts.apache.org,12/2020,asf
-empire-db,Apache Empire-db,Relational Data Persistence,http://empire-db.apache.org/,01/2012,asf
+empiredb,Apache Empire-db,Relational Data Persistence,http://empire-db.apache.org/,01/2012,asf
 eventmesh,Apache EventMesh,a fully serverless platform used to build distributed event-driven applications,http://eventmesh.apache.org,03/2023,asf
 felix,Apache Felix,OSGi Framework and components.,http://felix.apache.org/,03/2007,asf
 fineract,Apache Fineract,Platform for Digital Financial Services,http://fineract.apache.org/,04/2017,asf
@@ -80,7 +80,7 @@ hbase,Apache HBase,Apache Hadoop Database,http://hbase.apache.org/,04/2010,asf
 helix,Apache Helix,A cluster management framework for partitioned and replicated distributed resources,http://helix.apache.org/,12/2013,asf
 hive,Apache Hive,Data warehouse infrastructure using the Apache Hadoop Database,http://hive.apache.org/,09/2010,asf
 hop,Apache Hop,a platform for data orchestration,http://hop.apache.org,12/2021,asf
-httpserver,Apache HTTP Server,Apache Web Server (httpd),http://httpd.apache.org/,02/1995,asf
+httpd,Apache HTTP Server,Apache Web Server (httpd),http://httpd.apache.org/,02/1995,asf
 httpcomponents,Apache HttpComponents,Java toolset of low level HTTP components,http://hc.apache.org/,11/2007,asf
 hudi,Apache Hudi,providing atomic upserts and incremental data streams on Big Data,http://hudi.apache.org,05/2020,asf
 iceberg,Apache Iceberg,managing huge analytic datasets using a standard at-rest table format that is designed for high performance and ease of use,http://iceberg.apache.org,05/2020,asf
@@ -106,9 +106,9 @@ kylin,Apache Kylin,Extreme OLAP Engine for Big Data,http://kylin.apache.org/,11/
 kyuubi,Apache Kyuubi,a distributed and multi-tenant gateway to provide serverless SQL on data warehouses and lakehouses,http://kyuubi.apache.org,12/2022,asf
 libcloud,Apache Libcloud,Unified interface to the cloud,http://libcloud.apache.org/,05/2011,asf
 linkis,Apache Linkis,"a distributed computation middleware to facilitate connection, governance and orchestration between the upper applications and the underlying data engines",http://linkis.apache.org,12/2022,asf
-loggingservices,Apache Logging Services,Cross-language logging services,http://logging.apache.org/,12/2003,asf
+logging,Apache Logging Services,Cross-language logging services,http://logging.apache.org/,12/2003,asf
 lucene,Apache Lucene,Search engine library,http://lucene.apache.org/,01/2005,asf
-lucene.net,Apache Lucene.Net,Search engine library targeted at .NET runtime users.,http://lucenenet.apache.org/,08/2012,asf
+lucenenet,Apache Lucene.Net,Search engine library targeted at .NET runtime users.,http://lucenenet.apache.org/,08/2012,asf
 madlib,Apache MADlib,"Scalable, Big Data, SQL-driven machine learning framework for Data Scientists",http://madlib.apache.org/,07/2017,asf
 mahout,Apache Mahout,Scalable machine learning library,http://mahout.apache.org/,04/2010,asf
 manifoldcf,Apache ManifoldCF,Framework for connecting source content repositories to target repositories or indexes.,http://manifoldcf.apache.org/,05/2012,asf
@@ -144,7 +144,7 @@ pinot,Apache Pinot,distributed OLAP data store to provide Real-time Analytics to
 pivot,Apache Pivot,Rich Internet applications in Java,http://pivot.apache.org/,12/2009,asf
 plc4x,Apache PLC4X,a set of libraries for communicating with industrial programmable logic controllers (PLCs) using a variety of protocols but with a shared API,http://plc4x.apache.org/,04/2019,asf
 poi,Apache POI,Java API for OLE 2 Compound and OOXML Documents,http://poi.apache.org/,05/2007,asf
-portableruntime(apr),Apache Portable Runtime (APR),Apache Portable Runtime libraries,http://apr.apache.org/,"12/2000, reestablished 10/2002",asf
+apr,Apache Portable Runtime (APR),Apache Portable Runtime libraries,http://apr.apache.org/,"12/2000, reestablished 10/2002",asf
 portals,Apache Portals,Portal technology,http://portals.apache.org/,02/2004,asf
 pulsar,Apache Pulsar,"highly scalable, low latency messaging platform running on commodity hardware",http://pulsar.apache.org/,09/2018,asf
 qpid,Apache Qpid,Multiple language implementation of the latest Advanced Message Queuing Protocol (AMQP),http://qpid.apache.org/,11/2008,asf
@@ -197,7 +197,7 @@ uima,Apache UIMA,Framework and annotators for unstructured information analysis,
 unomi,Apache Unomi,providing a reference implementation of the OASIS Customer Data Platform specification currently being worked on by the OASIS Context Server Technical Committee,http://unomi.apache.org/,02/2019,asf
 vcl,Apache VCL,Virtual Computing Lab,http://vcl.apache.org/,06/2012,asf
 velocity,Apache Velocity,A Java Templating Engine,http://velocity.apache.org/,10/2006,asf
-webservices,Apache Web Services,Projects related to Web Services,http://ws.apache.org/,01/2003,asf
+ws,Apache Web Services,Projects related to Web Services,http://ws.apache.org/,01/2003,asf
 whimsy,Apache Whimsy,Tools that help automate various administrative tasks or information lookup activities,http://whimsical.apache.org/,05/2015,asf
 wicket,Apache Wicket,Component-based Java Web Application Framework.,http://wicket.apache.org/,06/2007,asf
 xalan,Apache Xalan,XSLT processors in Java and C++,http://xalan.apache.org/,"10/2004, rebooted 07/2011, rebooted again 02/2019",asf
@@ -207,12 +207,12 @@ yetus,Apache Yetus,Collection of libraries and tools that enable contribution an
 yunikorn,Apache YuniKorn,a standalone resource scheduler responsible for scheduling batch jobs and long-running services on large scale distributed systems running in on-premises environments as well as different public clouds,http://yunikorn.apache.org,03/2022,asf
 zeppelin,Apache Zeppelin,A web-based notebook that enables interactive data analytics,http://zeppelin.apache.org/,05/2016,asf
 zookeeper,Apache ZooKeeper,Centralized service for maintaining configuration information,http://zookeeper.apache.org/,11/2010,asf
-legalaffairs,Apache Legal Affairs,,,03/2007,asf
-securityteam,Apache Security Team,Security Team,http://www.apache.org/security/,"09/2002, re-established 2006-09-20",asf
-brandmanagement,Apache Brand Management,,,11/2009,asf
-conferences,Apache Conferences,,,,asf
-diversityandinclusion,Apache Diversity and Inclusion,,,05/2019,asf
+legal,Apache Legal Affairs,,,03/2007,asf
+security,Apache Security Team,Security Team,http://www.apache.org/security/,"09/2002, re-established 2006-09-20",asf
+brand,Apache Brand Management,,,11/2009,asf
+concom,Apache Conferences,,,,asf
+diversity,Apache Diversity and Inclusion,,,05/2019,asf
 fundraising,Apache Fundraising,Fund Raising,http://www.apache.org/foundation/contributing.html,11/2009,asf
 marketingandpublicity,Apache Marketing and Publicity,public relations and for the press-related issues,http://www.apache.org/press/,,asf
-travelassistance,Apache Travel Assistance,Travel Assistance Committee,http://www.apache.org/travel/,01/2007; terminated 12/2007; re-est. 09/2008; => Pres. Ctte 10/2012,asf
+tac,Apache Travel Assistance,Travel Assistance Committee,http://www.apache.org/travel/,01/2007; terminated 12/2007; re-est. 09/2008; => Pres. Ctte 10/2012,asf
 dataprivacy,Apache Data Privacy,,,06/2021,asf

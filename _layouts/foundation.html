@@ -16,7 +16,7 @@ layout: default
   {% if page.location %}<abbr title="Country or specific location organization is based.">Location</abbr>: <span itemprop="location">{{ page.location }}</span><br/>{% endif %}
   {% if page.newProjects %}<abbr title="Does this organization actively accept new projects for hosting?">Accepts new projects?</abbr>: <span itemprop="newProjects">{{ page.newProjects }}</span><br/>{% endif %}
   {% if page.softwareType %}<abbr title="What general kind(s) of software does this org create? May be 'various'.">Software Types</abbr>: <span itemprop="softwareType">{{ page.softwareType }}</span><br/>{% endif %}
-  {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <span itemprop="wikidataId">{{ page.wikidataId }}</span><br/>{% endif %}
+  {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <a href="https://www.wikidata.org/wiki/{{ page.wikidataId }}"><span itemprop="wikidataId">{{ page.wikidataId }}</span></a><br/>{% endif %}
   <h2 id="governance">Governance</h2>
   {% if page.boardSize %}<abbr title="Number of board of director seats.">Board Size</abbr>: <span itemprop="boardSize">{{ page.boardSize }}</span><br/>{% endif %}
   {% if page.boardType %}<abbr title="Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.">Board Type</abbr>: <span itemprop="boardType">{{ page.boardType }}</span><br/>{% endif %}
