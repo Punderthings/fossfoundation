@@ -1,0 +1,218 @@
+identifier,commonName,description,website,foundingDate,parentOrganization
+accumulo,Apache Accumulo,"Sorted, distributed key/value store",http://accumulo.apache.org/,03/2012,asf
+activemq,Apache ActiveMQ,Distributed Messaging System,http://activemq.apache.org/,01/2007,asf
+age,Apache AGE,a multi-model database that enables graph and relational models built on PostgreSQL,http://age.apache.org,05/2022,asf
+airavata,Apache Airavata,Workflow and Computational Job Management Middleware,http://airavata.apache.org/,09/2012,asf
+airflow,Apache Airflow,workflow automation and scheduling that can be used to author and manage data pipelines,http://airflow.apache.org/,12/2018,asf
+allura,Apache Allura,Forge software for hosting software projects,http://allura.apache.org/,03/2014,asf
+ambari,Apache Ambari,Hadoop cluster management,http://ambari.apache.org/,06/2022,asf
+ant,Apache Ant,Java-based build tool,http://ant.apache.org/,11/2002,asf
+any23,Apache Any23,Anything to Triples,http://any23.apache.org/,08/2012,asf
+apisix,Apache APISIX,a cloud-native microservices API gateway,http://apisix.apache.org,07/2020,asf
+archiva,Apache Archiva,Build Artifact Repository Manager,http://archiva.apache.org/,03/2008,asf
+aries,Apache Aries,Enterprise OSGi application programming model,http://aries.apache.org/,12/2010,asf
+arrow,Apache Arrow,Powering Columnar In-Memory Analytics,http://arrow.apache.org/,01/2016,asf
+asterixdb,Apache AsterixDB,open source Big Data Management System,http://asterixdb.apache.org/,04/2016,asf
+atlas,Apache Atlas,scalable and extensible set of core foundational governance services,http://atlas.apache.org/,06/2017,asf
+attic,Apache Attic,A home for dormant projects,http://attic.apache.org/,11/2008,asf
+avro,Apache Avro,A Serialization System,http://avro.apache.org/,04/2010,asf
+axis,Apache Axis,Java SOAP Engine,http://axis.apache.org/,12/2009,asf
+bahir,Apache Bahir,Extensions to distributed analytic platforms such as Apache Spark,http://bahir.apache.org/,05/2016,asf
+beam,Apache Beam,"Programming model, SDKs, and runners for defining and executing data processing pipelines",http://beam.apache.org/,12/2016,asf
+bigtop,Apache Bigtop,Apache Hadoop ecosystem integration and distribution project,http://bigtop.apache.org/,09/2012,asf
+bloodhound,Apache Bloodhound,"Issue tracking, wiki and repository browser",http://bloodhound.apache.org/,03/2013,asf
+bookkeeper,Apache BookKeeper,Replicated log service which can be used to build replicated state machines,http://bookkeeper.apache.org/,11/2014,asf
+brooklyn,Apache Brooklyn,"Framework for modeling, monitoring, and managing applications through autonomic blueprints",http://brooklyn.apache.org/,11/2015,asf
+brpc,Apache bRPC,an industrial-grade RPC framework for building reliable and high-performance services,http://brpc.apache.org,12/2022,asf
+buildstream,Apache BuildStream,"efficiently and correctly developing, building and integrating software stacks",http://buildstream.apache.org,09/2022,asf
+bval,Apache BVal,JSR-303 Bean Validation Implementation and Extensions,http://bval.apache.org/,02/2012,asf
+calcite,Apache Calcite,Dynamic data management framework,http://calcite.apache.org/,10/2015,asf
+camel,Apache Camel,Spring based Integration Framework which implements the Enterprise Integration Patterns,http://camel.apache.org/,12/2008,asf
+carbondata,Apache CarbonData,indexed columnar data format for fast analytics on big data platform,http://carbondata.apache.org/,04/2017,asf
+cassandra,Apache Cassandra,Highly scalable second-generation distributed database,http://cassandra.apache.org/,02/2010,asf
+causeway,Apache Causeway,Framework for rapidly developing domain-driven apps in Java,http://causeway.apache.org/,10/2012,asf
+cayenne,Apache Cayenne,User-friendly Java ORM with Tools,http://cayenne.apache.org/,12/2006,asf
+celix,Apache Celix,Implementation of the OSGi specification adapted to C,http://celix.apache.org/,07/2014,asf
+cloudstack,Apache CloudStack,Infrastructure as a Service solution,http://cloudstack.apache.org/,03/2013,asf
+cocoon,Apache Cocoon,"Web development framework: separation of concerns, component-based",http://cocoon.apache.org/,01/2003,asf
+commons,Apache Commons,Reusable Java components,http://commons.apache.org/,06/2007,asf
+communitydevelopment,Apache Community Development,Resources to help people become involved with Apache projects,http://community.apache.org/,11/2009,asf
+cordova,Apache Cordova,"Platform for building native mobile applications using HTML, CSS and JavaScript",http://cordova.apache.org/,10/2012,asf
+couchdb,Apache CouchDB,RESTful document database,http://couchdb.apache.org/,11/2008,asf
+creadur,Apache Creadur,Comprehension and auditing of software distributions,http://creadur.apache.org/,04/2012,asf
+ctakes,Apache cTAKES,Natural language processing (NLP) tool for information extraction from electronic medical record clinical free-text,http://ctakes.apache.org/,03/2013,asf
+curator,Apache Curator,Java libraries that make using Apache ZooKeeper easier,http://curator.apache.org/,09/2013,asf
+cxf,Apache CXF,Service Framework,http://cxf.apache.org/,04/2008,asf
+daffodil,Apache Daffodil,an implementation of the Data Format Description Language (DFDL) used to convert between fixed format data and more readily processed forms such as XML or JSON,http://daffodil.apache.org,02/2021,asf
+datafu,Apache DataFu,well-tested libraries that help developers solve common data problems in Hadoop and similar distributed systems,http://datafu.apache.org/,02/2018,asf
+datasketches,Apache DataSketches,"an open source, high-performance library of streaming algorithms commonly called ""sketches"" in the data sciences. Sketches are small, stateful programs that process massive data as a stream and can provide approximate answers, with mathematical guarantees, to computationally difficult queries orders-of-magnitude faster than traditional, exact methods",http://datasketches.apache.org,12/2020,asf
+db,Apache DB,Database access,http://db.apache.org/,07/2002,asf
+deltaspike,Apache DeltaSpike,Portable CDI extensions that provide useful features for Java application developers,http://deltaspike.apache.org/,04/2013,asf
+directory,Apache Directory,Apache Directory Server,http://directory.apache.org/,02/2005,asf
+dolphinscheduler,Apache DolphinScheduler,a distributed and extensible workflow scheduler platform with powerful DAG visual interfaces,http://dolphinscheduler.apache.org,03/2021,asf
+doris,Apache Doris,a MPP-based interactive SQL data warehousing for reporting and analysis,http://doris.apache.org,06/2022,asf
+drill,Apache Drill,"Schema-free SQL Query Engine for Apache Hadoop, NoSQL and Cloud Storage",http://drill.apache.org/,11/2014,asf
+druid,Apache Druid,analytical database software,http://druid.apache.org,12/2019,asf
+dubbo,Apache Dubbo,"a high-performance, lightweight, java based RPC framework.",http://dubbo.apache.org/,05/2019,asf
+echarts,Apache ECharts,a charting and data visualization library written in JavaScript,http://echarts.apache.org,12/2020,asf
+empire-db,Apache Empire-db,Relational Data Persistence,http://empire-db.apache.org/,01/2012,asf
+eventmesh,Apache EventMesh,a fully serverless platform used to build distributed event-driven applications,http://eventmesh.apache.org,03/2023,asf
+felix,Apache Felix,OSGi Framework and components.,http://felix.apache.org/,03/2007,asf
+fineract,Apache Fineract,Platform for Digital Financial Services,http://fineract.apache.org/,04/2017,asf
+flagon,Apache Flagon,"thin-client behavioral logging capability useful for business analytics, usage analytics, usability and user testing",http://flagon.apache.org,03/2023,asf
+flex,Apache Flex,"Application framework for expressive web applications that deploy to all major browsers, desktops and devices.",http://flex.apache.org/,12/2012,asf
+flink,Apache Flink,platform for scalable batch and stream data processing,http://flink.apache.org/,12/2014,asf
+flume,Apache Flume,"A reliable service for efficiently collecting, aggregating, and moving large amounts of log data",http://flume.apache.org/,06/2012,asf
+fluo,Apache Fluo,Storage and incremental processing of large data sets,http://fluo.apache.org/,07/2017,asf
+freemarker,Apache FreeMarker,a template engine.,http://freemarker.apache.org/,03/2018,asf
+geode,Apache Geode,"Low latency, high concurrency data management solutions",http://geode.apache.org/,11/2016,asf
+geronimo,Apache Geronimo,"Java2, Enterprise Edition (J2EE) container",http://geronimo.apache.org/,05/2004,asf
+giraph,Apache Giraph,Iterative graph processing system built for high scalability,http://giraph.apache.org/,05/2012,asf
+gobblin,Apache Gobblin,"a distributed data integration framework that simplifies common aspects of big data integration such as data ingestion, replication, organization and lifecycle management for both streaming and batch data ecosystems",http://gobblin.apache.org,01/2021,asf
+gora,Apache Gora,ORM framework for column stores such as Apache HBase and Apache Cassandra with a specific focus on Hadoop,http://gora.apache.org/,01/2012,asf
+griffin,Apache Griffin,"a data quality solution for big data, including both streaming and batch mode. It offers an unified process to measure data quality from different perspectives.",http://griffin.apache.org/,11/2018,asf
+groovy,Apache Groovy,A multi-faceted language for the Java platform,http://groovy.apache.org/,11/2015,asf
+guacamole,Apache Guacamole,"providing performant, browser-based remote access",http://guacamole.apache.org/,11/2017,asf
+gump,Apache Gump,Continuous integration of open source projects,http://gump.apache.org/,02/2004,asf
+hadoop,Apache Hadoop,Distributed computing platform,http://hadoop.apache.org/,01/2008,asf
+hawq,Apache HAWQ,a Hadoop native SQL query engine that combines the key technological advantages of an MPP database with the scalability and convenience of Hadoop,http://hawq.apache.org/,08/2018,asf
+hbase,Apache HBase,Apache Hadoop Database,http://hbase.apache.org/,04/2010,asf
+helix,Apache Helix,A cluster management framework for partitioned and replicated distributed resources,http://helix.apache.org/,12/2013,asf
+hive,Apache Hive,Data warehouse infrastructure using the Apache Hadoop Database,http://hive.apache.org/,09/2010,asf
+hop,Apache Hop,a platform for data orchestration,http://hop.apache.org,12/2021,asf
+httpserver,Apache HTTP Server,Apache Web Server (httpd),http://httpd.apache.org/,02/1995,asf
+httpcomponents,Apache HttpComponents,Java toolset of low level HTTP components,http://hc.apache.org/,11/2007,asf
+hudi,Apache Hudi,providing atomic upserts and incremental data streams on Big Data,http://hudi.apache.org,05/2020,asf
+iceberg,Apache Iceberg,managing huge analytic datasets using a standard at-rest table format that is designed for high performance and ease of use,http://iceberg.apache.org,05/2020,asf
+ignite,Apache Ignite,"High-performance, integrated and distributed in-memory platform for computing and transacting on large-scale data sets in real-time",http://ignite.apache.org/,08/2015,asf
+impala,Apache Impala,a high-performance distributed SQL engine,http://impala.apache.org/,11/2017,asf
+incubator,Apache Incubator,Entry path for projects and codebases wishing to become part of the Foundation's efforts,http://incubator.apache.org/,10/2002,asf
+inlong,Apache InLong,"a one-stop data integration framework that provides automatic, secure, and reliable data transmission capabilities. InLong supports both batch and stream data processing at the same time, which offers great power to build data analysis, modeling, and other real-time applications based on streaming data",http://inlong.apache.org,06/2022,asf
+iotdb,Apache IoTDB,an IoT native database with high performance for data management and analysis,http://iotdb.apache.org,09/2020,asf
+jackrabbit,Apache Jackrabbit,Content Repository for Java,http://jackrabbit.apache.org/,03/2006,asf
+james,Apache James,Java Apache Mail Enterprise Server,http://james.apache.org/,01/2003,asf
+jclouds,Apache jclouds,Java cloud APIs and abstractions,http://jclouds.apache.org/,10/2013,asf
+jena,Apache Jena,Java framework for building Semantic Web applications,http://jena.apache.org/,04/2012,asf
+jmeter,Apache JMeter,Java performance and functional testing,http://jmeter.apache.org/,10/2011,asf
+johnzon,Apache Johnzon,JSR-353 compliant JSON parsing; modules to help with JSR-353 as well as JSR-374 and JSR-367,http://johnzon.apache.org/,04/2016,asf
+jspwiki,Apache JSPWiki,"Leading open source WikiWiki engine, feature-rich and built around standard J2EE components (Java, servlets, JSP)",http://jspwiki.apache.org/,07/2013,asf
+juneau,Apache Juneau,"a toolkit for marshalling POJOs to a wide variety of content types using a common framework, and for creating sophisticated self-documenting REST interfaces and microservices using VERY little code",http://juneau.apache.org/,10/2017,asf
+kafka,Apache Kafka,Distributed publish-subscribe messaging system,http://kafka.apache.org/,11/2012,asf
+karaf,Apache Karaf,Server-side OSGi distribution,http://karaf.apache.org/,06/2010,asf
+kibble,Apache Kibble,an interactive project activity analyzer and aggregator,http://kibble.apache.org/,10/2017,asf
+knox,Apache Knox,Simplify and normalize the deployment and implementation of secure Hadoop clusters,http://knox.apache.org/,02/2014,asf
+kudu,Apache Kudu,A distributed columnar storage engine built for the Apache Hadoop ecosystem,http://kudu.apache.org/,07/2016,asf
+kylin,Apache Kylin,Extreme OLAP Engine for Big Data,http://kylin.apache.org/,11/2015,asf
+kyuubi,Apache Kyuubi,a distributed and multi-tenant gateway to provide serverless SQL on data warehouses and lakehouses,http://kyuubi.apache.org,12/2022,asf
+libcloud,Apache Libcloud,Unified interface to the cloud,http://libcloud.apache.org/,05/2011,asf
+linkis,Apache Linkis,"a distributed computation middleware to facilitate connection, governance and orchestration between the upper applications and the underlying data engines",http://linkis.apache.org,12/2022,asf
+loggingservices,Apache Logging Services,Cross-language logging services,http://logging.apache.org/,12/2003,asf
+lucene,Apache Lucene,Search engine library,http://lucene.apache.org/,01/2005,asf
+lucene.net,Apache Lucene.Net,Search engine library targeted at .NET runtime users.,http://lucenenet.apache.org/,08/2012,asf
+madlib,Apache MADlib,"Scalable, Big Data, SQL-driven machine learning framework for Data Scientists",http://madlib.apache.org/,07/2017,asf
+mahout,Apache Mahout,Scalable machine learning library,http://mahout.apache.org/,04/2010,asf
+manifoldcf,Apache ManifoldCF,Framework for connecting source content repositories to target repositories or indexes.,http://manifoldcf.apache.org/,05/2012,asf
+maven,Apache Maven,Java project management and comprehension tools,http://maven.apache.org/,03/2003,asf
+mesos,Apache Mesos,a cluster manager that provides efficient resource isolation and sharing across distributed applications,http://mesos.apache.org/,06/2013,asf
+mina,Apache MINA,Multipurpose Infrastructure for Network Application,http://mina.apache.org/,10/2006,asf
+mnemonic,Apache Mnemonic,"a transparent nonvolatile hybrid memory oriented library for Big data, High-performance computing, and Analytics",http://mnemonic.apache.org/,12/2020,asf
+mxnet,Apache MXNet,a flexible and efficient library for Deep Learning,http://mxnet.apache.org,09/2022,asf
+myfaces,Apache MyFaces,JavaServer(tm) Faces implementation and components,http://myfaces.apache.org/,02/2005,asf
+mynewt,Apache Mynewt,embedded OS optimized for networking and built for remote management of constrained devices,http://mynewt.apache.org/,06/2017,asf
+netbeans,Apache NetBeans,"development environment, tooling platform, and application framework",http://netbeans.apache.org/,04/2019,asf
+nifi,Apache NiFi,"Easy to use, powerful, and reliable system to process and distribute data",http://nifi.apache.org/,07/2015,asf
+nutch,Apache Nutch,Open Source Web Search Software,http://nutch.apache.org/,04/2010,asf
+nuttx,Apache NuttX,"a mature, real-time embedded operating system (RTOS)",http://nuttx.apache.org,11/2022,asf
+ofbiz,Apache OFBiz,Enterprise automation software,http://ofbiz.apache.org/,12/2006,asf
+olingo,Apache Olingo,OASIS OData protocol libraries,http://olingo.apache.org/,03/2014,asf
+oozie,Apache Oozie,A workflow scheduler system to manage Apache Hadoop jobs.,http://oozie.apache.org/,08/2012,asf
+openjpa,Apache OpenJPA,Object Relational Mapping for Java,http://openjpa.apache.org/,05/2007,asf
+openmeetings,Apache OpenMeetings,Web-Conferencing and real-time collaboration,http://openmeetings.apache.org/,01/2013,asf
+opennlp,Apache OpenNLP,Machine learning based toolkit for the processing of natural language text,http://opennlp.apache.org/,02/2012,asf
+openoffice,Apache OpenOffice,"An open-source, office-document productivity suite",http://openoffice.apache.org/,10/2012,asf
+openwebbeans,Apache OpenWebBeans,JSR-299 Context and Dependency Injection for Java EE Platform Implementation,http://openwebbeans.apache.org/,12/2009,asf
+openwhisk,Apache OpenWhisk,a platform for building serverless applications with functions,http://openwhisk.apache.org/,07/2019,asf
+orc,Apache ORC,"the smallest, fastest columnar storage for Hadoop workloads",http://orc.apache.org/,04/2015,asf
+ozone,Apache Ozone,a distributed object store for Hadoop-based and Cloud-native environments,http://ozone.apache.org,10/2020,asf
+parquet,Apache Parquet,columnar storage format available to any project in the Apache Hadoop ecosystem,http://parquet.apache.org/,04/2015,asf
+pdfbox,Apache PDFBox,Java library for working with PDF documents,http://pdfbox.apache.org/,10/2009,asf
+perl,Apache Perl,Dynamic websites using Perl,http://perl.apache.org/,03/2000,asf
+petri,Apache Petri,"assessment of, education in, and adoption of the Foundation's policies and procedures for collaborative development and the pros and cons of joining the Foundation",http://petri.apache.org,11/2019,asf
+phoenix,Apache Phoenix,High performance relational database layer over Apache HBase for low latency applications,http://phoenix.apache.org/,05/2014,asf
+pig,Apache Pig,Platform for analyzing large data sets,http://pig.apache.org/,09/2010,asf
+pinot,Apache Pinot,distributed OLAP data store to provide Real-time Analytics to power wide variety of analytical use case,http://pinot.apache.org,07/2021,asf
+pivot,Apache Pivot,Rich Internet applications in Java,http://pivot.apache.org/,12/2009,asf
+plc4x,Apache PLC4X,a set of libraries for communicating with industrial programmable logic controllers (PLCs) using a variety of protocols but with a shared API,http://plc4x.apache.org/,04/2019,asf
+poi,Apache POI,Java API for OLE 2 Compound and OOXML Documents,http://poi.apache.org/,05/2007,asf
+portableruntime(apr),Apache Portable Runtime (APR),Apache Portable Runtime libraries,http://apr.apache.org/,"12/2000, reestablished 10/2002",asf
+portals,Apache Portals,Portal technology,http://portals.apache.org/,02/2004,asf
+pulsar,Apache Pulsar,"highly scalable, low latency messaging platform running on commodity hardware",http://pulsar.apache.org/,09/2018,asf
+qpid,Apache Qpid,Multiple language implementation of the latest Advanced Message Queuing Protocol (AMQP),http://qpid.apache.org/,11/2008,asf
+ranger,Apache Ranger,"framework to enable, monitor and manage comprehensive data security across the Hadoop platform.",http://ranger.apache.org/,01/2017,asf
+ratis,Apache Ratis,a highly customizable Raft protocol implementation in Java,http://ratis.apache.org,02/2021,asf
+rocketmq,Apache RocketMQ,"a fast, low latency, reliable, scalable, distributed, easy to use message-oriented middleware, especially for processing large amounts of streaming data",http://rocketmq.apache.org/,09/2017,asf
+roller,Apache Roller,Java blog server,http://roller.apache.org/,02/2007,asf
+royale,Apache Royale,improving developer productivity in creating applications for wherever Javascript runs (and other runtimes),http://royale.apache.org/,09/2017,asf
+rya,Apache Rya,"scalable storage, retrieval, and analysis of RDF data",http://rya.apache.org/,09/2019,asf
+samza,Apache Samza,distributed stream processing framework,http://samza.apache.org/,01/2015,asf
+santuario,Apache Santuario,XML Security in Java and C++,http://santuario.apache.org/,06/2006,asf
+sedona,Apache Sedona,"a big geospatial data processing engine. It provides an easy to use APIs for spatial data scientists to manage, wrangle, and process geospatial data",http://sedona.apache.org,12/2022,asf
+serf,Apache Serf,High performance C-based HTTP client library built upon the Apache Portable Runtime (APR) library,http://serf.apache.org/,08/2015,asf
+servicecomb,Apache ServiceComb,a microservice framework that provides a set of tools and components to make development and deployment of cloud applications easier.,http://servicecomb.apache.org/,10/2018,asf
+servicemix,Apache ServiceMix,Enterprise Service Bus,http://servicemix.apache.org/,09/2007,asf
+shardingsphere,Apache ShardingSphere,"a database clustering system providing data sharding, distributed transactions, and distributed database management",http://shardingsphere.apache.org,04/2020,asf
+shenyu,Apache ShenYu,"a Java native API Gateway for service proxy, protocol conversion and API governance",http://shenyu.apache.org,07/2022,asf
+shiro,Apache Shiro,Powerful and easy-to-use application security framework,http://shiro.apache.org/,09/2010,asf
+singa,Apache SINGA,a distributed deep learning platform,http://singa.apache.org/,10/2019,asf
+sis,Apache SIS,Spatial Information System,http://sis.apache.org/,09/2012,asf
+skywalking,Apache SkyWalking,application performance management and monitoring (APM),http://skywalking.apache.org/,04/2019,asf
+sling,Apache Sling,Web Framework for JCR Content Repositories,http://sling.apache.org/,06/2009,asf
+solr,Apache Solr,highly scalable distributed document search and analytics,http://solr.apache.org,02/2021,asf
+spamassassin,Apache SpamAssassin,Mail filter to identify spam,http://spamassassin.apache.org/,06/2004,asf
+spark,Apache Spark,Fast and general engine for large-scale data processing,http://spark.apache.org/,02/2014,asf
+steve,Apache Steve,Python based single transferable vote software system,http://steve.apache.org/,07/2012,asf
+storm,Apache Storm,"Distributed, real-time computation system",http://storm.apache.org/,09/2014,asf
+streampipes,Apache StreamPipes,"a self-service Industrial IoT toolbox which enables non-technical users to connect, analyze and explore IoT data streams",http://streampipes.apache.org,11/2022,asf
+streams,Apache Streams,interoperability of online profiles and activity feeds,http://streams.apache.org/,07/2017,asf
+struts,Apache Struts,Model 2 framework for building Java web applications,http://struts.apache.org/,03/2004,asf
+submarine,Apache Submarine,"allowing infrastructure engineers and data scientists to build deep learning applications (TensorFlow, PyTorch, etc.) end to end on cluster management platforms (like YARN/K8s)",http://submarine.apache.org/,10/2019,asf
+subversion,Apache Subversion,Version Control,http://subversion.apache.org/,02/2010,asf
+superset,Apache Superset,"data exploration, analysis, visualization, and dashboarding",http://superset.apache.org,11/2020,asf
+synapse,Apache Synapse,Enterprise Service Bus and Mediation Framework,http://synapse.apache.org/,12/2007,asf
+syncope,Apache Syncope,Managing digital identities in enterprise environments,http://syncope.apache.org/,11/2012,asf
+systemds,Apache SystemDS,A machine learning platform optimal for big data,http://systemds.apache.org/,05/2017,asf
+tapestry,Apache Tapestry,Component-based Java Web Application Framework,http://tapestry.apache.org/,02/2006,asf
+tcl,Apache Tcl,Dynamic websites using TCL,http://tcl.apache.org/,07/2000,asf
+tez,Apache Tez,High-performance and scalable distributed data processing framework,http://tez.apache.org/,07/2014,asf
+thrift,Apache Thrift,Framework for scalable cross-language services development,http://thrift.apache.org/,10/2010,asf
+tika,Apache Tika,Content Analysis and Detection Toolkit,http://tika.apache.org/,04/2010,asf
+tinkerpop,Apache TinkerPop,A graph computing framework for both graph databases (OLTP) and graph analytic systems (OLAP),http://tinkerpop.apache.org/,05/2016,asf
+tomcat,Apache Tomcat,A Java Servlet and JSP Container,http://tomcat.apache.org/,05/2005,asf
+tomee,Apache TomEE,Java EE Web Profile built on Apache Tomcat,http://tomee.apache.org/,05/2007,asf
+trafficcontrol,Apache Traffic Control,"building, monitoring, configuring, and provisioning a large scale content delivery network (CDN)",http://trafficcontrol.apache.org/,05/2018,asf
+trafficserver,Apache Traffic Server,"A fast, scalable and extensible HTTP/1.1 compliant caching proxy server",http://trafficserver.apache.org/,04/2010,asf
+turbine,Apache Turbine,A Java Servlet Web Application Framework and associated component library,http://turbine.apache.org/,05/2007,asf
+tvm,Apache TVM,compilation of machine learning models to run on a wide range of hardware platforms,http://tvm.apache.org,11/2020,asf
+uima,Apache UIMA,Framework and annotators for unstructured information analysis,http://uima.apache.org/,03/2010,asf
+unomi,Apache Unomi,providing a reference implementation of the OASIS Customer Data Platform specification currently being worked on by the OASIS Context Server Technical Committee,http://unomi.apache.org/,02/2019,asf
+vcl,Apache VCL,Virtual Computing Lab,http://vcl.apache.org/,06/2012,asf
+velocity,Apache Velocity,A Java Templating Engine,http://velocity.apache.org/,10/2006,asf
+webservices,Apache Web Services,Projects related to Web Services,http://ws.apache.org/,01/2003,asf
+whimsy,Apache Whimsy,Tools that help automate various administrative tasks or information lookup activities,http://whimsical.apache.org/,05/2015,asf
+wicket,Apache Wicket,Component-based Java Web Application Framework.,http://wicket.apache.org/,06/2007,asf
+xalan,Apache Xalan,XSLT processors in Java and C++,http://xalan.apache.org/,"10/2004, rebooted 07/2011, rebooted again 02/2019",asf
+xerces,Apache Xerces,"XML parsers in Java, C++ and Perl",http://xerces.apache.org/,02/2005,asf
+xmlgraphics,Apache XML Graphics,Conversion from XML to graphical output,http://xmlgraphics.apache.org/,10/2004,asf
+yetus,Apache Yetus,Collection of libraries and tools that enable contribution and release processes for software projects,http://yetus.apache.org/,09/2015,asf
+yunikorn,Apache YuniKorn,a standalone resource scheduler responsible for scheduling batch jobs and long-running services on large scale distributed systems running in on-premises environments as well as different public clouds,http://yunikorn.apache.org,03/2022,asf
+zeppelin,Apache Zeppelin,A web-based notebook that enables interactive data analytics,http://zeppelin.apache.org/,05/2016,asf
+zookeeper,Apache ZooKeeper,Centralized service for maintaining configuration information,http://zookeeper.apache.org/,11/2010,asf
+legalaffairs,Apache Legal Affairs,,,03/2007,asf
+securityteam,Apache Security Team,Security Team,http://www.apache.org/security/,"09/2002, re-established 2006-09-20",asf
+brandmanagement,Apache Brand Management,,,11/2009,asf
+conferences,Apache Conferences,,,,asf
+diversityandinclusion,Apache Diversity and Inclusion,,,05/2019,asf
+fundraising,Apache Fundraising,Fund Raising,http://www.apache.org/foundation/contributing.html,11/2009,asf
+marketingandpublicity,Apache Marketing and Publicity,public relations and for the press-related issues,http://www.apache.org/press/,,asf
+travelassistance,Apache Travel Assistance,Travel Assistance Committee,http://www.apache.org/travel/,01/2007; terminated 12/2007; re-est. 09/2008; => Pres. Ctte 10/2012,asf
+dataprivacy,Apache Data Privacy,,,06/2021,asf

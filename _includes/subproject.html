@@ -1,0 +1,7 @@
+<hr id="listing"/>
+<ul>
+  {% assign projlist = include.subproject %}
+  {% for item in projlist %}
+    {% include subproject-single.html %}
+  {% endfor %}
+</ul>
