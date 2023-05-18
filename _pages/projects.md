@@ -8,7 +8,7 @@ nav_order: 55
 
 Many major open source projects are hosted at some of the key FOSS Foundations, like the ASF, Linux Foundation, Software Freedom Conservancy, and more.  These projects aren't individual legal entities, but may follow governance, release, financial, or other policies at their host foundation.
 
-These listings are updated on a best-effort basis, and provide a snapshot into the kinds of projects that are hosted at different foundations.
+These listings are updated on a best-effort basis, and provide just a snapshot into the kinds of projects that are hosted at just a few foundations out there today. 
 
 - [Apache Software Foundation](projects-asf) projects.
 - Linux Foundation projects.

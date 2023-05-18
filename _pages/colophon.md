@@ -23,14 +23,15 @@ Additional content provided by many great open source people - to be listed soon
 
 ## Tools
 
-- Website structure by [Jekyll](https://jekyllrb.com/)
-- Theme by [just-the-docs](https://github.com/just-the-docs/just-the-docs)
-- Hosted by [GitHub Pages](https://pages.github.com/)
+- Website structure by [Jekyll](https://jekyllrb.com/).
+- Theme by [just-the-docs](https://github.com/just-the-docs/just-the-docs).
+- Hosted by [GitHub Pages](https://pages.github.com/).
+- Using [AllContributors](https://allcontributors.org/) to recognize contributions.
 - Powered by caffeine from [Peet's Coffee and Tea](http://www.whyilovepeets.com/).
 
 ## Content
 
-Original site data by Shane and various open source volunteers.  More maintainers welcomed!
+Original site data by Shane and various open source volunteers.  [More maintainers welcomed](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
 
 ## Trademarks
 
