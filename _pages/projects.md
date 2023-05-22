@@ -13,7 +13,7 @@ These listings are updated on a best-effort basis, and provide just a snapshot i
 - [Apache Software Foundation](projects-asf) projects.
 - Linux Foundation projects.
 - Eclipse Foundation projects.
-- Software Freedom Conservancy projects.
+- [Software Freedom Conservancy](projects-sfc) projects.
 - NumFocus projects.
 - [Software In The Public Interest](projects-spi) projects.
 
