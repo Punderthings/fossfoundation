@@ -17,9 +17,19 @@ nav_order: 99
 
 ## Impress / License
 
-Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).  Various contributions also accepted under Apache-2.0 or similar permissive licenses.
 
-Additional content provided by many great open source people - to be listed soon via AllContributors.
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 ## Tools
 
