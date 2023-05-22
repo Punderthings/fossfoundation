@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "lydiapintscher",
+      "name": "Lydia Pintscher",
+      "avatar_url": "https://avatars.githubusercontent.com/u/550412?v=4",
+      "profile": "http://blog.lydiapintscher.de",
+      "contributions": [
+        "data"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "fossfoundation",
+  "projectOwner": "Punderthings"
+}
