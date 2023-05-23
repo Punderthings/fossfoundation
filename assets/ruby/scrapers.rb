@@ -54,6 +54,37 @@ end
 #   return lines
 # end
 
+# def scrape_numfocus_projects(outfile)
+#   numfocus_url = 'https://numfocus.org/sponsored-projects'
+#   doc = Nokogiri::HTML(URI.open(numfocus_url))
+#   results = doc.css('.search-filter-results .search-result-item h2 a')
+#   projects = {}
+#   results.each do |result|
+#     puts "#{result.text} #{result['href']}"
+#     project_doc = Nokogiri::HTML(URI.open(result['href']))
+#     projects[result.text.downcase.gsub(/\W+/, '')] = {
+#       'commonName' => result.text,
+#       'website' => numfocus_website(project_doc, result['href']),
+#       'description' => project_doc.css('.et_pb_header_content_wrapper p:first').text,
+#       'foundingDate' => project_doc.at('.et_pb_fullwidth_header_subhead').text.split('since ')[-1]
+#     }
+#   end
+#   lines = 0
+#   CSV.open(outfile, "w", headers: HEADERS, write_headers: true) do |csv|
+#     projects.each do |key, h|
+#       csv << [key, h['commonName'], h['description'], h['website'], h['foundingDate'], 'numfocus']
+#       lines += 1
+#     end
+#   end
+#   return lines
+# end
+
+# def numfocus_website(project_doc, fallback_url)
+#   project_doc.at('a:contains("Website")')['href']
+# rescue
+#   fallback_url
+# end
+
 ### Command line use
 outfile = '_data/projects-asf.csv'
 puts "BEGIN #{__FILE__}.scrape_asf_projects(#{outfile})"
@@ -63,4 +94,9 @@ puts "END wrote #{lines} lines"
 # outfile = '_data/projects-spi.csv'
 # puts "BEGIN #{__FILE__}.scrape_spi_projects(#{outfile})"
 # lines = scrape_spi_projects(outfile)
+# puts "END wrote #{lines} lines"
+
+# outfile = '_data/projects-numfocus.csv'
+# puts "BEGIN #{__FILE__}.scrape_numfocus_projects(#{outfile})"
+# lines = scrape_numfocus_projects(outfile)
 # puts "END wrote #{lines} lines"
