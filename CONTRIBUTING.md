@@ -8,9 +8,8 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
 
 ## Issues vs. PRs
 
--  a question, see a problem, or want to add new datafields/change the structure: please open a GitHub Issue with a detailed description.
 -  a specific fix or improvement: please open a GitHub Pull Request with the change.
--  a larger change to propose or new idea: please open a GitHub Issue to **start** a discussion before doing more work.
+-  a larger change to propose or new idea, add new data fields, or the like: please open a GitHub Issue to **start** a discussion before doing more work.
 
 ## How To Add A New Foundation
 
