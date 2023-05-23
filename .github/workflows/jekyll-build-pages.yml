@@ -2,7 +2,7 @@
 name: Build And Deploy Jekyll to Pages
 on:
  push:
-   branches: ["main"]
+   branches: ["test"] # Comment out
 permissions:
   contents: read
   pages: write
