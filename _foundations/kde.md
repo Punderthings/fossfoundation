@@ -3,33 +3,33 @@ identifier: kde
 commonName: KDE
 legalName: KDE e.V.
 website: https://ev.kde.org/
-foundingDate:
+foundingDate: 27 November 1997
 location: Germany
-newProjects:
-softwareType: distro
+newProjects: yes
+softwareType: various
 wikidataId: Q1431
-taxID:
+taxID: 
 nonprofitStatus: charitable
-boardSize:
-boardType:
+boardSize: 5
+boardType: elected
 boardurl: https://ev.kde.org/corporate/board/
 bylawsurl: https://ev.kde.org/corporate/statutes/
-numberOfEmployees:
-funding:
+numberOfEmployees: 2
+funding: sponsors, donations, memberships
 budgetUsd:
 budgetYear:
 budgeturl:
 sponsorurl: https://ev.kde.org/supporting-members/
 sponsorList:
 licenses: GPL; LGPL; various
-claPolicy:
-ethicsPolicy:
-governanceOrg: https://ev.kde.org/rules/ConflictofInterestPolicy.pdf
+claPolicy: https://ev.kde.org/rules/fla/
+ethicsPolicy: https://ev.kde.org/rules/ConflictofInterestPolicy.pdf
+governanceOrg: 
 governanceTech:
-projectsNotable:
-projectsList:
+projectsNotable: Plasma, Krita, Kdenlive, KDE Frameworks
+projectsList: https://kde.org/products/
 projectsServices:
-logo:
+logo: https://ev.kde.org/images/ev_large.png
 logoReg: 'yes'
 brandPrimary: KDE
 brandSecondary:

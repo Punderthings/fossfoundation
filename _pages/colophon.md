@@ -17,9 +17,26 @@ nav_order: 99
 
 ## Impress / License
 
-Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).
+Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0.html).  Various contributions also accepted under Apache-2.0 or similar permissive licenses.
 
-Additional content provided by many great open source people - to be listed soon via AllContributors.
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://blog.lydiapintscher.de"><img src="https://avatars.githubusercontent.com/u/550412?v=4?s=100" width="100px;" alt="Lydia Pintscher"/><br /><sub><b>Lydia Pintscher</b></sub></a><br /><a href="#data-lydiapintscher" title="Data">🔣</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
 
 ## Tools
 
