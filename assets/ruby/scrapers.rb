@@ -29,7 +29,6 @@ def scrape_asf_projects(outfile)
 end
 
 # Transform SPI, Inc. project listing into simple csv structure
-# TODO: Read individual project subpages for more data
 # def scrape_spi_projects(outfile)
 #   spi_url = 'https://www.spi-inc.org/projects/'
 #   doc = Nokogiri::HTML(URI.open(spi_url))
@@ -39,9 +38,11 @@ end
 #   ctr = 0
 #   cells.each do |cell|
 #     a = cell.search('a')
+#     project_doc = Nokogiri::HTML(URI.open(spi_url + a[0]['href']))
 #     projects[cell.text.downcase.gsub(/\W+/, '')] = {
 #       'commonName' => cell.text.strip,
-#       'website' => spi_url + a[0]['href']
+#       'website' => spi_website(project_doc, spi_url + a[0]['href']),
+#       'description' => project_doc.css('div#content p').text.strip,
 #     }
 #   end
 #   lines = 0
@@ -54,6 +55,13 @@ end
 #   return lines
 # end
 
+# def spi_website(doc, fallback_url)
+#   a = doc.css('div#content p a')
+#   if a.length > 0
+#     return a[0]['href']
+#   else
+#     return fallback_url
+#   end
 # def scrape_numfocus_projects(outfile)
 #   numfocus_url = 'https://numfocus.org/sponsored-projects'
 #   doc = Nokogiri::HTML(URI.open(numfocus_url))

@@ -1,42 +1,336 @@
 identifier,commonName,description,website,foundingDate,parentOrganization
-0ad,0 A.D.,,https://www.spi-inc.org/projects/0ad,,spi
-adlielinux,Adélie Linux,,https://www.spi-inc.org/projects/adelielinux,,spi
-ankurorgin,ankur.org.in,,https://www.spi-inc.org/projects/ankur.org.in,,spi
-aptosid,aptosid,,https://www.spi-inc.org/projects/aptosid,,spi
-archlinux,Arch Linux,,https://www.spi-inc.org/projects/archlinux,,spi
-archlinux32,Arch Linux 32,,https://www.spi-inc.org/projects/archlinux32,,spi
-ardupilot,ArduPilot,,https://www.spi-inc.org/projects/ardupilot,,spi
-battleforwesnoth,Battle for Wesnoth,,https://www.spi-inc.org/projects/wesnoth,,spi
-compilefarm,Compile Farm,,https://www.spi-inc.org/projects/cfarm,,spi
-debian,Debian,,https://www.spi-inc.org/projects/debian,,spi
-ffmpeg,FFmpeg,,https://www.spi-inc.org/projects/ffmpeg,,spi
-fluxbox,Fluxbox,,https://www.spi-inc.org/projects/fluxbox,,spi
-gallery,Gallery,,https://www.spi-inc.org/projects/gallery,,spi
-ganeti,Ganeti,,https://www.spi-inc.org/projects/ganeti,,spi
-gnustep,GNUstep,,https://www.spi-inc.org/projects/gnustep,,spi
-gnutexmacs,GNU TeXmacs,,https://www.spi-inc.org/projects/gnu-texmacs,,spi
-haskellorg,haskell.org,,https://www.spi-inc.org/projects/haskell,,spi
-libreoffice,LibreOffice,,https://www.spi-inc.org/projects/libreoffice,,spi
-mingw,MinGW,,https://www.spi-inc.org/projects/mingw,,spi
-mpiforum,MPI Forum,,https://www.spi-inc.org/projects/mpi-forum,,spi
-ntpsec,NTPsec,,https://www.spi-inc.org/projects/ntpsec,,spi
-ns3,ns-3,,https://www.spi-inc.org/projects/ns-3,,spi
-oftc,OFTC,,https://www.spi-inc.org/projects/oftc,,spi
-openbioinformaticsfoundation,Open Bioinformatics Foundation,,https://www.spi-inc.org/projects/obf,,spi
-openmpi,Open MPI,,https://www.spi-inc.org/projects/open-mpi,,spi
-openvotingfoundation,Open Voting Foundation,,https://www.spi-inc.org/projects/open-voting-foundation,,spi
-openembedded,OpenEmbedded,,https://www.spi-inc.org/projects/openembedded,,spi
-opensaf,OpenSAF,,https://www.spi-inc.org/projects/opensaf,,spi
-openvas,OpenVAS,,https://www.spi-inc.org/projects/openvas,,spi
-openzfs,OpenZFS,,https://www.spi-inc.org/projects/openzfs,,spi
-pmix,PMIx,,https://www.spi-inc.org/projects/pmix,,spi
-postgresql,PostgreSQL,,https://www.spi-inc.org/projects/postgresql,,spi
-privoxy,Privoxy,,https://www.spi-inc.org/projects/privoxy,,spi
-sproutcore,SproutCore,,https://www.spi-inc.org/projects/sproutcore,,spi
-swathanthramalayalamcomputing,Swathanthra Malayalam Computing,,https://www.spi-inc.org/projects/smc,,spi
-systemd,systemd,,https://www.spi-inc.org/projects/systemd,,spi
-themanaworld,The Mana World,,https://www.spi-inc.org/projects/tmw,,spi
-translatewikinet,translatewiki.net,,https://www.spi-inc.org/projects/translatewiki.net,,spi
-tux4kids,Tux4Kids,,https://www.spi-inc.org/projects/tux4kids,,spi
-xorg,X.Org,,https://www.spi-inc.org/projects/x.org,,spi
-yafaray,YafaRay,,https://www.spi-inc.org/projects/yafaray,,spi
+0ad,0 A.D.,"0 A.D. (pronounced ""zero ey-dee"") is a
+cross-platform, real-time strategy (RTS) game of ancient warfare. It's a
+historically-based war/economy game, in which the player must lead an
+ancient civilization, gather resources from the map, and raise a
+military force to conquer enemy factions.0 A.D. is open source software licensed under the GPL, and its art and
+sound assets are licensed under CC BY-SA. It is developed by Wildfire
+Games, a global community of game developers.Aviv Sharon",https://play0ad.com,,spi
+adlielinux,Adélie Linux,"Adélie is an independent Linux distribution committed to integrity, privacy, and user freedom.Adélie is lightweight and supports many 32- and 64- bit computer architectures including ARM, POWER, and x86, with RISC-V and SPARC on the way. Adélie is designed for both desktop and server use.Its guided installer takes the hassle out of operating system installation, ideal for all types of users.Focused on providing a reliable Linux platform based on musl libc, Adélie finds itself used by software professionals, content creators, businesses, web surfers, as well as in data centers.Adélie isn't satisfied with just being a Linux distribution.  We care deeply about bringing industry-leading software to musl, and musl to the forefront of science. We are pursuing partnerships and collaborations with universities and research organizations to solve tomorrow's problems.",https://www.adelielinux.org/,,spi
+ankurorgin,ankur.org.in,"Ankur.org.in is a group of volunteers who collaborate
+to promote localization and internationalization with the specific aim of
+improving usage of Bengali in Free and Open Source Software projects.  The
+group is involved in internationalization and localization especially
+translations, content development, development of tools, utilities, widgets
+and APIs that help facilitate a wider community of like minded collaborators
+to participate in a community building process.""Sankarshan Mukhopadhyay",http://ankur.org.in,,spi
+aptosid,aptosid,"aptosid is an operating system based on Debian
+GNU/Linux.Building upon Debian's unstable branch, aptosid releases a set of images 4
+times a year suitable for live use and focusing on hard disk
+installations. These images contain only free software meeting Debian's
+Free Software Guidelines (DFSG), come in KDE and XFCE editions for both
+the 686 and amd64 architectures and extend Debian with aptosid's own
+packages, scripts and kernel for detection of very recent hardware.aptosid aims for a simple and fast installation process and to provide a
+reliable entry to the unstable branch of Debian.   The aptosid software
+repository also provides temporary packages to help protect its users
+from some of the issues which can arise from using Debian's unstable
+repository. aptosid.com and the associated IRC channels also provide a
+means for users of aptosid to provide assistance to one another as well as
+to discuss and develop aptosid's own software and tools.Trevor WalkleyThe temporary liaison in the event that the project liaison becomes
+unavailable is Kel Moderman.",http://www.aptosid.com/,,spi
+archlinux,Arch Linux,"Arch Linux is an independently developed,
+i686/x86-64 general purpose GNU/Linux distribution versatile enough to
+suit any role. Development focuses on simplicity, minimalism, and code
+elegance. Arch is installed as a minimal base system, configured by the
+user upon which their own ideal environment is assembled by installing
+only what is required or desired for their unique purposes. GUI
+configuration utilities are not officially provided, and most system
+configuration is performed from the shell by editing simple text files.
+Arch strives to stay bleeding edge, and typically offers the latest
+stable versions of most software.Arch Linux uses its own Pacman package manager, which couples simple
+binary packages with an easy-to-use package build system. This allows
+users to easily manage and customize packages ranging from official Arch
+software to the user's own personal packages to packages from 3rd party
+sources. The repository system also allows users to easily build and
+maintain their own custom build scripts, packages, and repositories,
+encouraging community growth and contribution.The minimal Arch base package set resides in the streamlined [core]
+repository. In addition, the official [extra], [community], and
+[testing] repositories provide several thousand high-quality, packages
+to meet your software demands. Arch also offers an [unsupported] section
+in the Arch Linux User Repository (AUR), which contains over 9,000 build
+scripts, for compiling installable packages from source using the Arch
+Linux makepkg application.Arch Linux uses a ""rolling release"" system which allows one-time
+installation and perpetual software upgrades. It is not generally
+necessary to reinstall or upgrade your Arch Linux system from one
+""version"" to the next. By issuing one command, an Arch system is kept
+up-to-date and on the bleeding edge.Arch strives to keep its packages as close to the original upstream
+software as possible. Patches are applied only when necessary to ensure
+an application compiles and runs correctly with the other packages
+installed on an up-to-date Arch system.To summarize: Arch Linux is a versatile, and simple distribution
+designed to fit the needs of the competent Linux® user. It is both
+powerful and easy to manage, making it an ideal distro for servers and
+workstations. Take it in any direction you like. If you share this
+vision of what a GNU/Linux distribution should be, then you are welcomed
+and encouraged to use it freely, get involved, and contribute to the
+community.Levente Polyak",https://archlinux.org,,spi
+archlinux32,Arch Linux 32,"Arch Linux 32 is a community driven fork of
+Arch Linux, adding 32-bit support to the general purpose GNU/Linux
+distribution versatile enough to suit any role. Development focuses on
+simplicity, minimalism, and code elegance. Arch is installed as a
+minimal base system, configured by the user upon which their own ideal
+environment is assembled by installing only what is required or
+desired for their unique purposes. GUI configuration utilities are not
+officially provided, and most system configuration is performed from
+the shell by editing simple text files. Arch strives to stay bleeding
+edge, and typically offers the latest stable versions of most
+software.Arch Linux uses its own Pacman package manager, which couples simple
+binary packages with an easy-to-use package build system. This allows
+users to easily manage and customize packages ranging from official
+Arch software to the user's own personal packages to packages from 3rd
+party sources. The repository system also allows users to easily build
+and maintain their own custom build scripts, packages, and
+repositories, encouraging community growth and contribution.The minimal Arch base package set resides in the streamlined [core]
+repository. In addition, the official [extra], [community], and
+[testing] repositories provide several thousand high-quality, packages
+to meet your software demands. Arch also offers an [unsupported]
+section in the Arch Linux User Repository (AUR), which contains over
+9,000 build scripts, for compiling installable packages from source
+using the Arch Linux makepkg application.Arch Linux 32 uses a ""rolling release"" system which allows one-time
+installation and perpetual software upgrades. It is not generally
+necessary to reinstall or upgrade your Arch Linux 32 system from one
+""version"" to the next. By issuing one command, an Arch Linux 32 system
+is kept up-to-date and on the bleeding edge.Arch Linux 32 strives to keep its packages as close to Arch Linux and
+thus to the original upstream software as possible. Patches are
+applied only when necessary to ensure an application compiles and runs
+correctly with the other packages installed on an up-to-date Arch
+Linux 32 system.To summarize: Arch Linux 32 is a versatile, and simple distribution
+designed to fit the needs of the competent Linux user. It is both
+powerful and easy to manage, making it an ideal distro for servers and
+workstations. Take it in any direction you like. If you share this
+vision of what a GNU/Linux distribution should be, then you are
+welcomed and encouraged to use it freely, get involved, and contribute
+to the community.Erich Eckner",https://archlinux32.org,,spi
+ardupilot,ArduPilot,"ArduPilot is a cross-platform free software
+autopilot project for all types of small robotic vehicles. With a very
+active developer and user community ArduPilot provides sophisticated
+navigation and control for all types of flying vehicles, boats and
+ground vehicles.James PattisonThe main community forums for ArduPilot are on our discourse
+server. Our main IM chat system in on
+our gitter channel. Feel free
+to drop in and say hello.We host our source code on github.",https://ardupilot.org/,,spi
+battleforwesnoth,Battle for Wesnoth,"Battle for Wesnoth is an open source, turn-based strategy game with a high fantasy theme. It features both singleplayer and online/hotseat multiplayer combat. The game also allows its users to create their own ""campaigns"" and make them publicly available, as well as collaborating with the core team to expand the open source gaming ecosystem.Brian Kirkwood",https://www.wesnoth.org/,,spi
+compilefarm,Compile Farm,"Compile Farm is a volunteer-run project that maintains a distributed network of diverse computing resources for developers of software with OSI-approved licenses. Machines are owned and hosted by third party sponsors.The Compile Farm Project traces its roots to a 2005 initiative by Laurent Guerby to make a wide range of computers with numerous architectures available to GCC developers. FSF France was an early sponsor.Today, it remains a 100% independent and volunteer-driven project, not affiliated with any sponsors or projects such as FSF, GNU, LLVM, GCC, BSD, Linux, ARM, Intel, AMD, or IBM.We maintain a vast collection of 32- and 64- bit hardware, big- and little- endian, as well as diversity in operating systems across over 800 cores of riscv64, mips64, LoongArch64, ARM, x86, POWER, and SPARC.",https://cfarm.tetaneutral.net/,,spi
+debian,Debian,"Debian GNU/Linux is a free operating system (OS) for
+your computer. An operating system is the set of basic programs and utilities
+that make your computer run. Debian uses the Linux
+kernel (the core of an operating system), but most of the basic OS tools come
+from the GNU project; hence the name GNU/Linux.The Debian operating system is POSIX based, freely distributable, and
+includes features such as true multitasking, virtual memory, shared
+libraries, demand loading, proper memory management, TCP/IP networking,
+and other features consistent with Unix-type systems. It is used by
+individuals and organizations worldwide.Jonathan Carter (Debian Project Leader)",https://www.debian.org/,,spi
+ffmpeg,FFmpeg,"FFmpeg is a leading multimedia framework, able
+to decode, encode, transcode, mux, demux, stream, filter and play pretty
+much anything that humans and machines have created. It supports the
+most obscure ancient formats up to the cutting edge, no matter if they
+were designed by some standards committee, the community, or a
+corporation. It contains libavcodec, libavutil, libavformat,
+libavdevice, libswscale and libswresample which can be used by
+applications, along with ffmpeg, ffserver, ffplay and ffprobe programs
+which can be used directly by end users for transcoding, streaming and playing.Stefano Sabatini",https://ffmpeg.org/,,spi
+fluxbox,Fluxbox,"Fluxbox is a windowmanager for X that was based on the
+Blackbox 0.61.1 code. It is very light on resources and easy to handle but yet
+full of features to make an easy, and extremely fast, desktop experience. It
+is built using C++ and licensed under the MIT-License.Mathias Gumz",http://fluxbox.org/,,spi
+gallery,Gallery,"Gallery is the next generation of open source
+photo sharing web applications. Gallery gives you an intuitive way to
+blend photo management seamlessly into your own website whether you're
+running a small personal site or a large community site. Hundreds of
+thousands of people and organizations are using Gallery to create
+personalized photo albums on their websites.Gallery is open source software licensed under the GPL, and is
+maintained and developed by a community of users and developers. The
+development is a distributed effort, with collaboration from around the
+globe. The team is well organized, with weekly meetings, and constant
+communication. Serving millions worldwide, the Gallery project is the
+most widely used system of its kind.Bharat Mediratta",http://galleryproject.org/,,spi
+ganeti,Ganeti,"Ganeti is a virtual machine cluster management tool built on top of existing virtualization technologies such as Xen or KVM and other open source software. Ganeti requires pre-installed virtualization software on your servers in order to function. Once installed, the tool assumes management of the virtual instances (Xen DomU). Ganeti controlsGaneti is designed to facilitate cluster management of virtual servers and to provide fast and simple recovery after physical failures using commodity hardware.",https://www.ganeti.org/,,spi
+gnustep,GNUstep,"GNUstep is a cross-platform, object-oriented
+framework for desktop application development. Based on the OpenStep
+specification originally created by NeXT (now Apple) Inc., GNUstep
+enables developers to rapidly build sophisticated software by employing
+a large library of reusable software components. GNUstep is used in
+production environments at several organizations.Gregory Casamento",http://www.gnustep.org/,,spi
+gnutexmacs,GNU TeXmacs,"GNU TeXmacs is a free scientific text editor,
+which was both inspired by TeX and GNU Emacs. The editor allows you to
+write structured documents via a WYSIWYG (what you see is what you get)
+and user-friendly interface.Joris van der Hoeven",https://www.texmacs.org/,,spi
+haskellorg,haskell.org,"Haskell is an advanced
+purely-functional
+programming language. An open-source product of more than twenty years
+of cutting-edge research,
+it allows rapid development of robust, concise, correct
+software. With strong support for
+integration with other languages,
+built-in
+concurrency and parallelism,
+debuggers, profilers,
+rich libraries
+and an active community, Haskell makes
+it easier to produce flexible, maintainable,
+high-quality software.Haskell.org
+is the organisation representing the Open Source Haskell community.Ryan Trinkle",https://www.haskell.org,,spi
+libreoffice,LibreOffice,"LibreOffice is the free software power-packed
+personal productivity suite for Windows, Macintosh and Linux, provided under
+the LGPLv3/MPL license.It is made available by
+The Document Foundation, which is an
+independent self-governing meritocratic Foundation.Sophie Gautier",https://www.libreoffice.org/,,spi
+mingw,MinGW,"MinGW provides a complete Open Source
+programming tool set which is suitable for the development of native
+MS-Windows applications, and which do not depend on any 3rd-party
+C-Runtime DLLs. (It does depend on a number of DLLs provided by
+Microsoft themselves, as components of the operating system; most
+notable among these is MSVCRT.DLL, the Microsoft C runtime library.
+Additionally, threaded applications must ship with a freely
+distributable thread support DLL, provided as part of MinGW itself).",https://mingw.osdn.io/,,spi
+mpiforum,MPI Forum,"The MPI Forum is the standardization body for the Message Passing Interface (MPI), a hardware agnostic interface for passing messages for parallel and distributed computing. MPI is implemented in a number of open-source and proprietary libraries and widely used in academic, corporate, and research institutions. The MPI Forum meets regularly to discuss and design the next version of the MPI Standard. The work of the MPI Forum happens in our public GitHub repositories, and anyone is welcome to participate by joining the MPI Forum's mailing list and attending our virtual and physical meetings.The MPI Forum also helps organize the annual EuroMPI conference. This conference is the preeminent meeting for users, developers and researchers to interact and discuss new developments and applications of MPI.",https://www.mpi-forum.org/,,spi
+ntpsec,NTPsec,"The NTPsec project is a more secure, hardened,
+and improved implementation of Network Time Protocol derived from NTP
+Classic, Dave Mills's original.  We employ best practices and state-of-the
+art technology in code auditing, verification, and testing to deliver code
+that can be used with confidence in deployments with the most stringent
+security, availability, and assurance requirements.Mark Atwood",https://www.ntpsec.org/,,spi
+ns3,ns-3,"ns-3 is a discrete-event, packet-level
+network simulator with an emphasis on networking research and
+education. Users of ns-3 can construct simulations of computer
+networks using models of traffic generators, protocols such as TCP/IP,
+and devices and channels such as Wi-Fi and LTE, and analyze or
+visualize the results. Simulation plays a vital role in the research
+and education process, because of the ability for simulations to
+obtain reproducible results (particularly for wireless protocol
+design), scale to large networks, and study systems that have not yet
+been implemented. A particular emphasis in ns-3 is a high degree of
+realism in the models (including frameworks for using real application
+and kernel code) and integration of the tool with virtual machine
+environments and testbeds. Very large scale simulations are possible;
+simulations of hundreds of millions of nodes have been published.Tom Henderson",https://www.nsnam.org,,spi
+oftc,OFTC,"Open and Free Technology Community is an
+organization aiming to provide stable and effective collaboration
+services to members of the community in any part of the world, while
+closely listening to their needs and desires.Tom Wesley (OFTC chair)",https://www.oftc.net/,,spi
+openbioinformaticsfoundation,Open Bioinformatics Foundation,"The Open Bioinformatics Foundation (OBF) is a non-profit, volunteer-run group dedicated to promoting the practice and philosophy of Open Source software development and Open Science within the biological research community. OBF functions as an umbrella organization for its member projects, which include the Bio* projects, some of the most widely used open-source programming toolkits in bioinformatics.Their main activities include the following:Heather Wiencko",https://open-bio.org/,,spi
+openmpi,Open MPI,"The Open MPI Project is an open source
+Message Passing Interface implementation
+that is developed and maintained by a consortium of academic, research,
+and industry partners. Open MPI is therefore able to combine the
+expertise, technologies, and resources from all across the High
+Performance Computing community in order to build the best MPI library
+available. Open MPI's plugin-based architecture offers advantages for
+system and software vendors, application developers and computer science
+researchers.",https://www.open-mpi.org/,,spi
+openvotingfoundation,Open Voting Foundation,"The Open Voting Foundation aims
+to educate the public and governmental officials and entities concerning
+elections systems based upon open source software, and further to
+promote the adoption of open source voting and elections solutions
+worldwide.Alan Dechert",https://www.spi-inc.org/projects/open-voting-foundation,,spi
+openembedded,OpenEmbedded,"OpenEmbedded, is a build framework for
+embedded Linux. OpenEmbedded offers a best-in-class cross-compile
+environment. It allows developers to create a complete Linux Distribution
+for embedded systems. Some of the OpenEmbedded advantages include:Philip Balister",https://www.openembedded.org/,,spi
+opensaf,OpenSAF,"OpenSAF is an open source
+project that implements a high availability (HA) middleware solution
+based on Service Availability Forum specifications.OpenSAF provides the following services required for maintaining 99.999%
+availability in a distributed computing environment: full
+fault-management of an application, cluster membership services,
+checkpointing services for maintaining application state, distributed
+locking, logging and alarms, cluster wide messaging, in-service software
+upgrades, hardware management, and more.Nagendra Kumar",https://opensaf.sourceforge.io/,,spi
+openvas,OpenVAS,"[OpenVAS](OpenVAS] is a full-featured vulnerability scanner. Its
+capabilities include unauthenticated testing, authenticated testing,
+various high level and low level Internet and industrial protocols,
+performance tuning for large-scale scans and a powerful internal
+programming language to implement any type of vulnerability test.Tim Brown, Sean Baumann and Robert Berkowitz",https://www.spi-inc.org/projects/openvas,,spi
+openzfs,OpenZFS,"OpenZFS is an umbrella project which brings together
+individuals and companies that use and improve the ZFS file system, and
+encourages the widespread use of ZFS and its development in a true
+open-source manner.ZFS is storage software which combines the functionality of traditional
+filesystems, volume manager, and more.  ZFS include protection against data
+corruption, support for high storage capacities, efficient data
+compression, snapshots and copy-on-write clones, continuous integrity
+checking and automatic repair, remote replication with ZFS send and
+receive, and RAID-Z.OpenZFS brings together developers from the illumos, Linux, FreeBSD and OS
+X platforms, and a wide range of companies -- both online and at the annual
+OpenZFS Developer Summit. High-level goals of the project include raising
+awareness of the quality, utility and availability of open-source
+implementations of ZFS, encouraging open communication about ongoing
+efforts toward improving open-source variants of ZFS, and ensuring
+consistent reliability, functionality and performance of all distributions
+of ZFS.Matthew Ahrens",https://openzfs.org/,,spi
+pmix,PMIx,"The PMIx Standard Community Project is governed by the PMIx Administrative Steering Committee (ASC). The ASC is a formal body that manages the PMIx Standard, PMIx Governance, and associated documents. The PMIx Standard document defines an API that provides libraries, tools, and resource managers with portable and well-defined access to commonly needed services in high-performance distributed and parallel computing systems. The PMIx Standard is available on GitHub. The PMIx Standard Community, represented by the ASC, is an international body with member organizations spanning industry, government, and academia.",https://pmix.org/,,spi
+postgresql,PostgreSQL,"PostgreSQL is an enterprise-grade
+relational database system with over 20 years of development starting at
+the University of California, Berkeley. PostgreSQL raises funds through
+SPI in the United States, FFIS in Germany, and through other non-profits
+elsewhere.PostgreSQL's involvement in SPI is governed by the Fundraising Group.The current liaisons are:",https://www.postgresql.org/,,spi
+privoxy,Privoxy,"Privoxy is a non-caching web proxy with
+advanced filtering capabilities for enhancing privacy, modifying web
+page data, managing HTTP cookies, controlling access, and removing ads,
+banners, pop-ups and other obnoxious Internet junk. Privoxy has a
+flexible configuration and can be customized to suit individual needs
+and tastes.Privoxy is Free Software and licensed under the GPL2 or later.Fabian Keil",https://www.privoxy.org/,,spi
+sproutcore,SproutCore,"SproutCore is a web development framework for
+creating complex web applications that need to be fast, reliable and
+maintainable. It is very well suited for building rich web client
+applications demanding interactivity and state-management. SproutCore is
+written in JavaScript.SproutCore is open source software licensed under the MIT license.Maurits Lamers",https://sproutcore.com/,,spi
+swathanthramalayalamcomputing,Swathanthra Malayalam Computing,"Swathanthra Malayalam Computing (SMC) is a free
+software project engaged in development, localization, standardization
+and popularization of various Free and Open Source Software in Indian
+Languages with a special emphasis on Malayalam Language. SMC has been
+active since October 2002 and has been working to provide various
+language tools that work on all layers of computing including and not
+limited to rendering fixes, fonts, input mechanisms, translations
+(localization), text-to-speech engines, dictionaries, spell checkers and
+other indic script based language computing specific tools across
+operating systems. SMC also maintains projects such as a generic web
+based Indic language computation framework called
+SILPA,
+Dhvani TTS etc.Anivar Aravind",https://smc.org.in/,,spi
+systemd,systemd,"systemd is a suite
+of basic building blocks for a Linux system. It provides a system and
+service manager that runs as PID 1 and starts the rest of the system.
+systemd provides aggressive parallelization capabilities, uses socket
+and D-Bus activation for starting services, offers on-demand starting of
+daemons, keeps track of processes using Linux control groups, maintains
+mount and automount points, and implements an elaborate transactional
+dependency-based service control logic. systemd supports SysV and LSB
+init scripts and works as a replacement for sysvinit.",https://www.freedesktop.org/wiki/Software/systemd/,,spi
+themanaworld,The Mana World,"The Mana World (TMW) is a serious effort
+to create an innovative free and open source MMORPG. TMW uses 2D graphics
+and aims to create a large and diverse interactive world. It is licensed
+under the GPL, making sure this game can't ever run away from you.Explore this large, ever expanding world to defeat monsters, help NPCs
+and team up with friends as you achieve your goals. Get your weapons,
+armor and equipment through quests, monsters or crafting. Play
+mini-games, go on complex investigations or slay powerful bosses. Hang
+out in town, socialize or attend player organized events. Wear your
+boots and grab your sword, adventure waits for you!William PineSuccessors will be appointed by the sitting project liaison, or by a
+simple majority of the existing TMW Committee members, as defined in
+https://forums.themanaworld.org/viewtopic.php?f=1&t=17166",https://www.themanaworld.org/,,spi
+translatewikinet,translatewiki.net,"Translatewiki.net is a translation
+community and a localization platform for free and open source projects.
+It started out with localization for MediaWiki. Later support was added
+for MediaWiki extensions, FreeCol and other free and open source
+projects.Niklas Laxström",https://translatewiki.net/,,spi
+tux4kids,Tux4Kids,"Tux4Kids develops high-quality
+software for kids, with the goal of combining fun and learning into an
+irresistible package. Our software is free: you can download it for use
+at home or onto hundreds of computers in a school. We support all major
+platforms, including Windows, Macintosh, and Linux/Unix. Our programs
+are used by people around the globe, and they have been translated into
+dozens of different languages. As open-source software, these programs
+can be freely extended or customized, and they are supported by active
+communities of volunteer developers.Bill KendrickIn the event of a disagreement between them, Bill Kendrick's views take precedence.",https://github.com/tux4kids,,spi
+xorg,X.Org,"The X.Org community creates a free and open accelerated graphics stack with
+the major components:The X.Org Foundation itself aims
+to support the community as much as possible by organizing and sponsoring
+student internships, sponsoring travel to conferences, selecting a new
+location and organizers for the annual X.Org Developer
+Summit, and providing hosting services
+via freedesktop.org.Lyude Paul (Secretary of the X.Org board)",https://www.x.org/wiki/XorgFoundation/,,spi
+yafaray,YafaRay,"YafaRay is a free open-source raytracing
+engine. Raytracing is a rendering technique for generating realistic
+images by tracing the path of light through a 3D scene. A render engine
+consists of a ""faceless"" computer program that interacts with a host 3D
+application to provide specific raytracing capabilities ""on demand"".
+Blender 3D is the host application of YafaRay.YafaRay is currently used by a great community of professionals, proud
+hobbyists, students and academic institutions. YafaRay is released under
+the LGPL 2.1 license.Alvaro Luna Bautista",http://www.yafaray.org/,,spi
