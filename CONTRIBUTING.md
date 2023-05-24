@@ -11,6 +11,14 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
 -  a specific fix or improvement: please open a GitHub Pull Request with the change.
 -  a larger change to propose or new idea, add new data fields, or the like: please open a GitHub Issue to **start** a discussion before doing more work.
 
+## How To Update Existing Data
+
+- Ensure you are adding/updating accurate data.  Metadata should all be traceable back to an organization's official web presence, even if it's not a specific URL for each item.
+- Markdown at tne end of each foundation.md file should only include factual and general descriptions, not marketing materials.
+- Ensure any "last update" fields are filled in (this is an open design question: how do we annotate when various metadata fields were last updated/verified?)
+- Submit a GitHub PR for the foundation.md file.
+-  
+
 ## How To Add A New Foundation
 
 - Copy `[_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md)` as the base for a file.
@@ -20,5 +28,6 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
   - Use [Schema.org NonprofitType](https://schema.org/NonprofitType) values, or leave blank if you're not sure
   - Leave both `---` YAML document separators, and update the body of the Markdown document with a single factual sentence that describes the foundation.
 - Submit your PR!
+- If you are adding a foundation that acts as a host for multiple open source projects, feel free to add a projects listing for that organization as a separate PR.  See examples in `_pages/projects.md` and scrapers in `assets/ruby/scrapers.rb`
   
-Reminder: Please be [excellent to each other](CODE_OF_CONDUCT.md).
+Reminder: Please be [excellent to each other](CODE_OF_CONDUCT.md)!
