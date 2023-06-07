@@ -3,44 +3,44 @@ identifier: osi
 commonName: Open Source Initiative
 legalName: Open Source Initiative
 website: http://opensource.org/
-foundingDate:
-location: US
-newProjects:
+foundingDate: 1998
+location: CA
+newProjects: no
 softwareType: non-code
 wikidataId: Q845918
 taxID: 91-2037395
 nonprofitStatus: Nonprofit501c3
-boardSize:
-boardType:
-boardurl:
-bylawsurl:
-numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl:
+boardSize: 10
+boardType: elected
+boardurl: https://opensource.org/about/board-of-directors/
+bylawsurl: https://opensource.org/bylaws/
+numberOfEmployees: 6
+funding: sponsors, donations
+budgetUsd: 406576
+budgetYear: 2021
+budgeturl: https://gitlab.com/floss-foundations/npo-public-filings/-/blob/master/Form990s/osi_2021_form-990_from-org.pdf
 sponsorurl: https://opensource.org/sponsors
 sponsorList:
-licenses:
+licenses: various
 claPolicy:
-ethicsPolicy:
+ethicsPolicy: https://opensource.org/conflict_of_interest_policy/
 governanceOrg:
 governanceTech:
 projectsNotable:
-projectsList:
+projectsList: https://opensource.org/programs/
 projectsServices:
-logo:
+logo: https://i0.wp.com/opensource.org/wp-content/uploads/2009/08/osi_standard_logo_0.png?resize=1280%2C1536&ssl=1
 logoReg: 'yes'
 brandPrimary: OSI
-brandSecondary: OSI logos
+brandSecondary: OSD; OSI logos
 brandPolicy: http://opensource.org/trademark-guidelines
-brandReg:
+brandReg: 'yes'
 brandUse:
 brandComments: Applies to their "approved licenses" trademarks/logos.
 conducturl: https://opensource.org/codeofconduct
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: no
 diversityPolicy:
 diversityDescription:
 ---
