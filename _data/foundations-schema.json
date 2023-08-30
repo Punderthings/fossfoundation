@@ -11,6 +11,7 @@
   ],
   "properties": {
     "identifier": {
+      "section": "general",
       "title": "Used as filename or fragment reference",
       "description": "Common name; lowercased; used for lookups.",
       "type": "string"
