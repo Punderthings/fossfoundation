@@ -8,7 +8,7 @@ location: DE
 newProjects: no
 softwareType: language
 wikidataId: Q105394699
-taxID: 85‐4376974
+taxID: 85-4376974
 nonprofitStatus: Nonprofit501c6
 boardSize: 12
 boardType: 
