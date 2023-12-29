@@ -7,6 +7,7 @@ HEREDOC
 require 'csv'
 require 'yaml'
 require 'json'
+require 'optparse'
 
 # Transform original spreadsheet with all columns into Jekyll-readable frontmatter files
 # Note: currently requires manual check/update of outputs
@@ -31,7 +32,7 @@ def csv2jsonschema(infile, outfile)
   lines = 0
   props = {}
   jsonschema =  {
-    '$schema': 'http://json-schema.org/draft-06/schema#', 
+    '$schema': 'http://json-schema.org/draft-06/schema#',
     '$id': 'https://fossfoundation.info/foundations/asf.json',
     'type': 'object',
     'title': 'FOSS Foundation Schema',
@@ -78,16 +79,57 @@ def schema2liquid(infile, linesep)
   return liquid
 end
 
-# puts "BEGIN #{__FILE__}.csv2jekyll(#{infile}, #{outdir}, #{outext})"
-# lines = csv2jekyll(infile, outdir, outext)
-# puts "END parsed csv rows: #{lines}"
+# ## ### #### ##### ######
+# Check commandline options
+def parse_commandline
+  options = {}
+  OptionParser.new do |opts|
+    opts.on('-h', '--help') { puts "#{DESCRIPTION}\n#{opts}"; exit }
+    opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation') do |out|
+      options[:out] = out
+    end
+    opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
+      options[:infile] = infile
+    end
+    opts.on('-ACTION', '--action ACTION', 'What action/operation to do: jekyll, json, liquid') do |action|
+      options[:action] = action
+    end
+    begin
+      opts.parse!
+    rescue OptionParser::ParseError => e
+      $stderr.puts e
+      $stderr.puts opts
+      exit 1
+    end
+  end
+  return options
+end
 
-# puts "BEGIN #{__FILE__}.csv2jsonschema(#{infile}, #{outfile})"
-# lines = csv2jsonschema(infile, outfile)
-# puts "END parsed csv rows: #{lines}"
+# ### #### ##### ######
+# Main method for command line use
+if __FILE__ == $PROGRAM_NAME
+  options = parse_commandline
+  options[:infile] ||= '_data/foundations-schema.json'
+  options[:out] ||= 'foundation-liquid.html'
+  options[:action] ||= 'liquid'
+  outext = '.md'
 
-infile = '_data/foundations-schema.json'
-linesep = "<br/>"
-puts "BEGIN #{__FILE__}.schema2liquid(#{infile}, #{linesep})"
-lines = schema2liquid(infile, linesep)
-File.write('foundation-liquid.html', lines)
+  case options[:action]
+  when 'jekyll'
+    puts "BEGIN #{__FILE__}.csv2jekyll(#{options[:infile]}, #{options[:out]}, #{outext})"
+    lines = csv2jekyll(infile, outdir, outext)
+    puts "END parsed csv rows: #{lines}"
+  when 'json'
+    puts "BEGIN #{__FILE__}.csv2jsonschema(#{options[:infile]}, #{options[:out]})"
+    lines = csv2jsonschema(options[:infile], outfile)
+    puts "END parsed csv rows: #{lines}"
+
+  when 'liquid'
+    LINESEP = "<br/>"
+    puts "BEGIN #{__FILE__}.schema2liquid(#{options[:infile]}, #{LINESEP})"
+    lines = schema2liquid(options[:infile], LINESEP)
+    File.write(options[:out], lines)
+  else
+    puts "Sorry, only support jekyll|json|liquid options."
+  end
+end
