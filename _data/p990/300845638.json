@@ -1,0 +1,47 @@
+{
+  "organization": {
+    "id": 300845638,
+    "ein": 300845638,
+    "name": "F Software Foundation",
+    "careofname": null,
+    "address": "3773 HOWARD HUGHES PKWY STE 500",
+    "city": "Las Vegas",
+    "state": "NV",
+    "zipcode": "89169-5940",
+    "exemption_number": 0,
+    "subsection_code": 3,
+    "affiliation_code": 3,
+    "classification_codes": "2000",
+    "ruling_date": "2015-12-01",
+    "deductibility_code": 1,
+    "foundation_code": 15,
+    "activity_codes": "000000000",
+    "organization_code": 1,
+    "exempt_organization_status_code": 1,
+    "tax_period": "2021-12-01",
+    "asset_code": 0,
+    "income_code": 0,
+    "filing_requirement_code": 2,
+    "pf_filing_requirement_code": 0,
+    "accounting_period": 12,
+    "asset_amount": 0,
+    "income_amount": 0,
+    "revenue_amount": 0,
+    "ntee_code": "U41",
+    "sort_name": null,
+    "created_at": "2023-05-09T20:37:13.378Z",
+    "updated_at": "2024-01-04T01:34:44.876Z",
+    "data_source": "current_2024_01_04",
+    "have_extracts": null,
+    "have_pdfs": null,
+    "latest_object_id": null
+  },
+  "filings_with_data": [
+
+  ],
+  "filings_without_data": [
+
+  ],
+  "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
+  "api_version": 2
+}
