@@ -51,7 +51,7 @@ module SponsorUtils
     'fourth' => '.Silver-sponsors  a',
     'fifth' => '.Bronze-sponsors a'
   }
-  DRUPAL_SPONSOR_CSS = {
+  DRUPAL_SPONSOR_CSS = { # TODO sponsor links are on separate page
     'first' => '.sponsors--signature a',
     'second' => '.view-display-id-attachment_6 a',
     'third' => '.view-display-id-attachment_3 a',
@@ -59,19 +59,38 @@ module SponsorUtils
     'community' => '.view-display-id-attachment_9 a'
   }
   DRUPAL_SPONSOR_PAGE = '.org-link a'
+  PYTHON_SPONSOR_CSS = { # TODO Uses ethicalads.io to disintermediate sponsor links/logos; requires custom processing
+    'first' => 'div[title="visionary Sponsors"] div[data-internal-year]',
+    'second' => 'div[title="sustainability Sponsors"] div[data-internal-year]',
+    'third' => 'div[title="maintaining Sponsors"] div[data-internal-year]',
+    'fourth' => 'div[title="contributing Sponsors"] div[data-internal-year]',
+    'fifth' => 'div[title="supporting Sponsors"] div[data-internal-year]',
+    'sixth' => 'div[title="partner Sponsors"] div[data-internal-year]',
+    'seventh' => 'div[title="participating Sponsors"] div[data-internal-year]',
+    'eighth' => 'div[title="associate Sponsors"] div[data-internal-year]'
+  }
+  FOUNDATION_MAP = {
+    'asf' => [ASF_SPONSOR_CSS, 'href'],
+    'numfocus' => [NUMFOCUS_SPONSOR_CSS, 'href'],
+    'osgeo' => [OSGEO_SPONSOR_CSS, 'href'],
+    'drupal' => [DRUPAL_SPONSOR_CSS, 'href'],
+    'python' => [PYTHON_SPONSOR_CSS, 'id']
+  }
 
   # Scrape sponsor listing defined by css selectors
   # @param io input stream of html to parse
+  # @param shortname of foundation map to parse
   # @return hash of sponsors by approximate map-defined levels
-  def scrape_bycss(io, baseurl, selectors)
+  def scrape_bycss(io, foundation)
     sponsors = {}
+    cssmap = FOUNDATION_MAP.fetch(foundation, nil)
     doc = Nokogiri::HTML5(io)
     body = doc.xpath('/html/body')
-    selectors.each do | key, selector |
+    cssmap[0].each do | key, selector |
       nodelist = body.css(selector)
       sponsors[key] = []
       nodelist.each do | node |
-        sponsors[key] << node['href']
+        sponsors[key] << node[cssmap[1]]
       end
     end
     return sponsors
@@ -81,9 +100,9 @@ end
 # ### #### ##### ######
 # Main method for command line use
 if __FILE__ == $PROGRAM_NAME
-  filename = '../../../sponsors-drupal.html'
+  filename = '../../../sponsors-asf.html'
   baseurl = ''
   io = File.open(filename)
-  sponsors = SponsorUtils.scrape_bycss(io, baseurl, SponsorUtils::DRUPAL_SPONSOR_CSS)
+  sponsors = SponsorUtils.scrape_bycss(io, 'asf')
   puts JSON.pretty_generate(sponsors)
 end
