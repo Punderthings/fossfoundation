@@ -1,9 +1,9 @@
 {
   "20240101": {
-    "sponsorurl": "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml",
-    "levelurl": "https://www.cncf.io/about/join/",
+    "sponsorurl": "TODO",
+    "levelurl": "https://openjsf.org/join",
     "normalize": "true",
-    "landscape": "CNCF Members",
+    "landscape": "JSF Members",
     "levels": {
       "first": {
         "name": "Platinum",
@@ -16,7 +16,7 @@
           "events": "KubeCon keynote slot",
           "services": "Multiple training/certification discounts",
           "marketing": "Press release; Can host/run live branded webinars",
-          "logo": "Featured prominently, (note: this level requires 3 year commitment)y"
+          "logo": "Featured prominentl, (note: this level requires 3 year commitment)y"
         }
       },
       "second": {

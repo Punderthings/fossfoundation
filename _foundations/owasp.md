@@ -22,6 +22,7 @@ budgeturl: https://www.owasp.org/index.php/About_OWASP/Financial_Transparency
 sponsorurl: https://www.owasp.org/index.php/Acknowledgements
 sponsorList: Adobe, CME Group, Fortify, Qualys, Salesforce, Security Innovation, Signal
   Sciences, waratek
+sponsorship: owasp.json
 licenses: various
 claPolicy: CLA
 ethicsPolicy:

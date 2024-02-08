@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 module FoundationReporter
   DESCRIPTION = <<-HEREDOC
-  Reporter: Various reporting utilities.
+  FoundationReporter: Various reporting utilities.
   HEREDOC
   module_function
   require 'yaml'
@@ -9,6 +9,18 @@ module FoundationReporter
   require 'csv'
   require 'pathname'
   require '../propublica990/propublica990'
+
+  # Get a list of all foundation files
+  # @param dir pointing to _foundations
+  # @return hash of org => yaml frontmatter hash
+  def get_foundations(dir)
+    foundations = {}
+    Pathname.glob(File.join(dir, "*.md")) do |file|
+      foundation = YAML.load_file(file)
+      foundations[foundation['identifier']] = foundation
+    end
+    return foundations
+  end
 
   # Get a list of all available EINs (for US-based Nonprofit501c* only).
   # @param dir pointing to _foundations

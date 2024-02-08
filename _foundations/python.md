@@ -21,6 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl:
 sponsorList:
+sponsorship: python.json
 licenses:
 claPolicy:
 ethicsPolicy:

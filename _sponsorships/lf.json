@@ -1,0 +1,57 @@
+{
+  "20240101": {
+    "sponsorurl": "https://lf-landscape.netlify.app/pages/members",
+    "levelurl": "https://www.linuxfoundation.org/hubfs/lf_member_benefits_122723a.pdf?hsLang=en",
+    "normalize": "true",
+    "levels": {
+      "first": {
+        "name": "platinum",
+        "amount": "500000",
+        "selector": "div[data-section-id=\"lf-members-platinum\"] > div",
+        "attr": "data-id",
+        "benefits": {
+          "governance": "",
+          "events": "",
+          "marketing": "",
+          "logo": ""
+        }
+      },
+      "second": {
+        "name": "gold",
+        "amount": "100000",
+        "selector": "div[data-section-id=\"lf-members-gold\"] > div",
+        "attr": "data-id",
+        "benefits": {
+          "governance": "",
+          "events": "",
+          "marketing": "",
+          "logo": ""
+        }
+      },
+      "third": {
+        "name": "silver",
+        "amount": "20000",
+        "selector": "div[data-section-id=\"lf-members-silver\"] > div",
+        "attr": "data-id",
+        "benefits": {
+          "governance": "",
+          "events": "",
+          "marketing": "",
+          "logo": ""
+        }
+      },
+      "fourth": {
+        "name": "associate",
+        "amount": "TBD",
+        "selector": "div[data-section-id=\"lf-members-platinum\"] > div",
+        "attr": "data-id",
+        "benefits": {
+          "governance": "",
+          "events": "",
+          "marketing": "",
+          "logo": ""
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ budgetYear:
 budgeturl: https://whimsy.apache.org/board/minutes/Budget.html
 sponsorurl: https://www.apache.org/foundation/thanks.html
 sponsorList: Cloudera, Comcast, Facebook, Google, Leaseweb, Microsoft, Pivotal, Yahoo!
+sponsorship: asf.json
 licenses: Apache-2.0
 claPolicy: CLA
 ethicsPolicy:

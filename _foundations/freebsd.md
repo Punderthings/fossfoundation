@@ -21,6 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.freebsdfoundation.org/donors/
 sponsorList:
+sponsorship: freebsd.json
 licenses: BSD-2-Clause
 claPolicy:
 ethicsPolicy:

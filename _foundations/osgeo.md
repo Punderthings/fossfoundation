@@ -21,6 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl:
 sponsorList:
+sponsorship: osgeo.json
 licenses:
 claPolicy:
 ethicsPolicy:

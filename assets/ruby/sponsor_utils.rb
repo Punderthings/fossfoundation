@@ -10,6 +10,8 @@ module SponsorUtils
   require 'json'
   require 'open-uri'
   require 'nokogiri'
+  require 'date'
+  require_relative 'foundation_reporter'
 
   # NOTE OWASP parsing css may be fragile; relies on nth-of-type
   # TODO: Eclipse dom parsing:
@@ -18,10 +20,11 @@ module SponsorUtils
 
   # Map all sponsorships to common-ish levels
   # - Ordinals are cash sponsorships in order
-  # - inkind is services donations (i.e. not just cash)
+  # - inkind is services donations (primarily services, not cash)
   # - community is widely used as a separate level
   # - grants covers any sort of government/institution grants
   SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners grants ]
+  CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
 
   # Return a normalized domain name for mapping to a single sponsor org
   # HACK note several special casees mapping down to single org
@@ -39,50 +42,51 @@ module SponsorUtils
       ).authority
   end
 
-  SELECTOR_OFFSET = 2 # TODO change to using per-org sponsor levels
-  ATTR_OFFSET = 3
-  ATTR_HREF = 'href'
   # Scrape html sponsor listing defined by css selectors
   # @param io input stream of html to parse
   # @param sponsor level map of organization
   # @return hash of sponsors by approximate map-defined levels
-  def scrape_bycss(io, orgmap)
+  def scrape_bycss(io, sponsorship)
     sponsors = {}
-    normalize = orgmap.fetch('normalize', nil)
-    cssmap = orgmap['levels']
+    normalize = sponsorship.fetch('normalize', nil)
+    cssmap = sponsorship['levels']
     doc = Nokogiri::HTML5(io)
     body = doc.xpath('/html/body')
-    cssmap.each do | key, selectors |
-      nodelist = body.css(selectors[SELECTOR_OFFSET])
-      sponsors[key] = []
-      attr = selectors[ATTR_OFFSET]
-      nodelist.each do | node |
-        if ATTR_HREF.eql?(attr) && normalize
-          sponsors[key] << normalize_href(node[attr])
-        else
-          sponsors[key] << node[attr]
+    cssmap.each do | lvl, lvldata |
+      sponsors[lvl] = []
+      begin
+        nodelist = body.css(lvldata['selector'])
+        attr = lvldata['attr']
+        nodelist.each do | node |
+          if 'href'.eql?(attr) && normalize
+            sponsors[lvl] << normalize_href(node[attr])
+          else
+            sponsors[lvl] << node[attr]
+          end
         end
+      rescue StandardError => e
+        sponsors[lvl] << "ERROR: scrape_bycss(...#{lvl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
       end
     end
     return sponsors
   end
 
-  # Read a CNCF style landscape for a sponsor list
+  # Parse a CNCF style landscape.yml for a sponsor list
   # @param io input stream of YAML to parse
   # @param sponsor level map of organization
   # @return hash of sponsors by approximate map-defined levels
-  def parse_landscape(io, orgmap)
+  def parse_landscape(io, sponsorship)
+    category = sponsorship['landscape']
     landscape = YAML.safe_load(io, aliases: true)
     landscape = landscape['landscape'] # will be array
-    category = orgmap['selector']
-    landscape = landscape.select{ | h |  category.eql?(h.fetch('name', ''))}
+    landscape = landscape.select{ | h | category.eql?(h.fetch('name', '')) }
     groups = landscape.first.fetch('subcategories', nil)
     sponsors = {}
     if groups
       groups.each do | group |
         levelname = group['name']
         level = ''
-        orgmap['levels'].each do | lvl, h |
+        sponsorship['levels'].each do | lvl, h |
           if levelname.eql?(h.fetch('name', ''))
             level = lvl
             break
@@ -117,7 +121,6 @@ module SponsorUtils
 
   DRUPAL_SPONSOR_CSS = '.org-link a' # Sponsor is kept on a separate page
   DRUPAL_SPONSOR_URL = 'https://www.drupal.org'
-
   # Cleanup drupal sponsor list, since they use separate files
   # @param sponsors hash of detected sponsor links
   # @return sponsors hash normalized to domain names
@@ -164,19 +167,94 @@ module SponsorUtils
     return counts
   end
 
+  # Future use: allow parsing historical sponsorships
+  def get_current_sponsorship(sponsorship)
+    return sponsorship[CURRENT_SPONSORSHIP]
+  end
+
+  # Process single sponsorship maps
+  # Includes special casing for specific orgs with unusual parsing
+  # @param sponsorship parsed _sponsorship hash defining what to do
+  # @return processed hash of sponsors
+  def parse_sponsorship(org, sponsorship)
+    io = nil
+    sponsors = {}
+    sponsorurl = sponsorship['sponsorurl']
+    begin
+      io = URI.open(sponsorurl).read
+    rescue StandardError => e
+      sponsors['error'] = "ERROR: parse_sponsorship(#{sponsorurl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
+      return sponsors
+    end
+    if sponsorship.fetch('landscape', nil)
+      sponsors = SponsorUtils.parse_landscape(io, sponsorship)
+    else
+      sponsors = SponsorUtils.scrape_bycss(io, sponsorship)
+    end
+    # Custom processing for some orgs
+    case org
+    when 'drupal'
+      sponsors = cleanup_drupal(sponsors)
+    when 'python'
+      sponsors = cleanup_with_map(sponsors, '_data/python_map.json')
+    when 'lf'
+      sponsors = cleanup_with_map(sponsors, '_data/lf_map.json')
+    else
+      # No-op
+    end
+    return sponsors
+  end
+
+  # Process a list of sponsorship maps
+  # Includes special casing for specific orgs with unusual parsing
+  # @param sponsorships array org => of _sponsorship hashes
+  # @return hash of orgs = {sponsors...}
+  def parse_sponsorships(sponsorships)
+    parse_date = DateTime.now.strftime('%Y%m%d')
+    all_sponsors = {}
+    sponsorships.each do | org, sponsorship |
+      all_sponsors[org] = parse_sponsorship(org, get_current_sponsorship(sponsorship))
+      all_sponsors[org]['parseDate'] = parse_date
+    end
+    return all_sponsors
+  end
+
+  # Convenience method; assumes run from project root
+  def parse_all_sponsorships()
+    foundations = FoundationReporter.get_foundations('_foundations')
+    sponsorships = {}
+    foundations.each do | org, foundation |
+      sponsorship = foundation.fetch('sponsorship', nil)
+      if sponsorship
+        sponsorships[org] = JSON.parse(File.read("_sponsorships/#{sponsorship}"))
+      end
+    end
+    sponsorships = sponsorships.select{ | k, v | ('asf'.eql?(k) || 'cncf'.eql?(k))}    # HACK
+    all_sponsors = parse_sponsorships(sponsorships)
+    return all_sponsors
+  end
+
+
   # ### #### ##### ######
   # Main method for command line use
   if __FILE__ == $PROGRAM_NAME
-    # TODO: default dir? Command line params? Load each sponsor level by org?
-    orgmap = JSON.parse(File.read('_sponsors/cncf.json'))
-    io = File.read('../../../../f/cncf-landscape/landscape.yml') # TODO parse url from the json
-    orgmap = orgmap['20240101'] # HACK: select current one TODO allow different dates/versions
-    sponsors = parse_landscape(io, orgmap)
-    File.open('cncfout.json', "w") do |f|
-      f.write(JSON.pretty_generate(sponsors))
+   # TODO: default dir? Command line params? Load each sponsor level by org?
+   sponsorship = JSON.parse(File.read('_sponsorships/cncf.json'))
+   sponsorships = { 'cncf' => sponsorship }
+   sponsors = parse_sponsorships(sponsorships)
+   File.open('parsecncf.json', "w") do |f|
+     f.write(JSON.pretty_generate(sponsors))
+   end
+   puts "DEBUG - done testing parse just cncf list"
+   exit 1
+
+    alldata = parse_all_sponsorships()
+    File.open('parseall.json', "w") do |f|
+      f.write(JSON.pretty_generate(alldata))
     end
-    puts "DEBUG - done testing parse_landscape"
+    puts "DEBUG - done testing parse_all_sponsorships"
     exit 1
+
 
     infile = 'sponsor_levels.json'
     outfile = 'sponsor_utils.json'
