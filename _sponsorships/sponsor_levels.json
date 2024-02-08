@@ -1,0 +1,310 @@
+{
+  "asf": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://apache.org/foundation/sponsors",
+      "levelurl": "https://apache.org/foundation/sponsorship",
+      "normalize": "true",
+      "levels": {
+        "first": [
+          "platinum",
+          "125000",
+          "#platinum li a",
+          "href"
+        ],
+        "second": [
+          "gold",
+          "50000",
+          "#gold li a",
+          "href"
+        ],
+        "third": [
+          "silver",
+          "25000",
+          "#silver li a",
+          "href"
+        ],
+        "fourth": [
+          "bronze",
+          "6000",
+          "#bronze li a",
+          "href"
+        ],
+        "firstinkind": [
+          "targeted platinum",
+          "125000",
+          "#targetedplatinum li a",
+          "href"
+        ],
+        "secondinkind": [
+          "targeted gold",
+          "50000",
+          "#targetedgold li a",
+          "href"
+        ],
+        "thirdinkind": [
+          "targeted silver",
+          "25000",
+          "#targetedsilver li a",
+          "href"
+        ],
+        "fourthinkind": [
+          "targeted bronze",
+          "6000",
+          "#targetedbronze li a",
+          "href"
+        ]
+      }
+    }
+  ],
+  "numfocus": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://numfocus.org/sponsors",
+      "levelurl": "https://numfocus.org/sponsors/become-a-sponsor",
+      "normalize": "true",
+      "levels": {
+        "first": [
+          "principal",
+          "100000",
+          ".et_pb_section_1 .et_pb_row_1 div > a",
+          "href"
+        ],
+        "second": [
+          "sustaining",
+          "50000",
+          ".et_pb_section_1 .et_pb_row_4 div > a",
+          "href"
+        ],
+        "third": [
+          "contributing",
+          "10000",
+          ".et_pb_section_1 .et_pb_row_7 div > a",
+          "href"
+        ],
+        "community": [
+          "platinum",
+          "1000",
+          ".et_pb_section_1 .et_pb_row_10 div > a",
+          "href"
+        ],
+        "startuppartners": [
+          "startuppartners",
+          "0",
+          ".et_pb_section_1 .et_pb_row_13 a",
+          "href"
+        ],
+        "grants": [
+          "grants",
+          "0",
+          ".et_pb_section_2 a",
+          "href"
+        ]
+      }
+    }
+  ],
+  "osgeo": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://www.osgeo.org/sponsors/",
+      "levelurl": "https://www.osgeo.org/sponsors/",
+      "normalize": "true",
+      "levels": {
+        "first": [
+          "diamond",
+          "30000",
+          ".Diamond-sponsors a",
+          "href"
+        ],
+        "second": [
+          "platinum",
+          "20000",
+          ".Platinum-sponsors a",
+          "href"
+        ],
+        "third": [
+          "gold",
+          "10000",
+          ".Gold-sponsors  a",
+          "href"
+        ],
+        "fourth": [
+          "silver",
+          "3000",
+          ".Silver-sponsors  a",
+          "href"
+        ],
+        "fifth": [
+          "bronze",
+          "500",
+          ".Bronze-sponsors a",
+          "href"
+        ]
+      }
+    }
+  ],
+  "drupal": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://www.drupal.org/supporters/partners",
+      "levelurl": "https://www.drupal.org/association/supporters",
+      "levels": {
+        "first": [
+          "enterprise",
+          "25000",
+          ".sponsors--signature a",
+          "href"
+        ],
+        "second": [
+          "signature",
+          "15000",
+          ".view-display-id-attachment_6 a",
+          "href"
+        ],
+        "third": [
+          "premium",
+          "7500",
+          ".view-display-id-attachment_3 a",
+          "href"
+        ],
+        "fourth": [
+          "classic",
+          "2500",
+          ".view-display-id-attachment_1 a",
+          "href"
+        ],
+        "community": [
+          "community",
+          "1000",
+          ".view-display-id-attachment_9 a",
+          "href"
+        ]
+      }
+    }
+  ],
+  "python": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://www.python.org/psf/sponsors/",
+      "levelurl": "https://www.python.org/sponsors/application/",
+      "levels": {
+        "first": [
+          "visionary",
+          "150000",
+          "div[title=\"visionary Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "second": [
+          "sustainability",
+          "90000",
+          "div[title=\"sustainability Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "third": [
+          "maintaining",
+          "60000",
+          "div[title=\"maintaining Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "fourth": [
+          "contributing",
+          "30000",
+          "div[title=\"contributing Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "fifth": [
+          "supporting",
+          "15000",
+          "div[title=\"supporting Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "sixth": [
+          "partner",
+          "10000",
+          "div[title=\"partner Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "seventh": [
+          "participating",
+          "3750",
+          "div[title=\"participating Sponsors\"] div[data-internal-year]",
+          "id"
+        ],
+        "eighth": [
+          "associate",
+          "1500",
+          "div[title=\"associate Sponsors\"] div[data-internal-year]",
+          "id"
+        ]
+      }
+    }
+  ],
+  "owasp": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://owasp.org/supporters/list",
+      "levelurl": "https://owasp.org/supporters/packages",
+      "normalize": "true",
+      "levels": {
+        "first": [
+          "diamond",
+          "25000",
+          "section#sec-main ul:first-of-type a",
+          "href"
+        ],
+        "second": [
+          "platinum",
+          "25000",
+          "section#sec-main ul:nth-of-type(2) a",
+          "href"
+        ],
+        "third": [
+          "gold",
+          "15000",
+          "section#sec-main ul:nth-of-type(3) a",
+          "href"
+        ],
+        "fourth": [
+          "silver",
+          "5000",
+          "section#sec-main ul:nth-of-type(4) a",
+          "href"
+        ]
+      }
+    }
+  ],
+  "lf": [
+    {
+      "startDate": "20240101",
+      "sponsorurl": "https://lf-landscape.netlify.app/pages/members",
+      "levelurl": "https://www.linuxfoundation.org/hubfs/lf_member_benefits_122723a.pdf?hsLang=en",
+      "normalize": "true",
+      "levels": {
+        "first": [
+          "platinum",
+          "500000",
+          "div[data-section-id=\"lf-members-platinum\"] > div",
+          "data-id"
+        ],
+        "second": [
+          "gold",
+          "100000",
+          "div[data-section-id=\"lf-members-gold\"] > div",
+          "data-id"
+        ],
+        "third": [
+          "silver",
+          "20000",
+          "div[data-section-id=\"lf-members-silver\"] > div",
+          "data-id"
+        ],
+        "fourth": [
+          "associate",
+          "TBD",
+          "div[data-section-id=\"lf-members-platinum\"] > div",
+          "data-id"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "20240101": {
+    "sponsorurl": "https://github.com/cncf/landscape/blob/master/landscape.yml",
+    "levelurl": "https://www.cncf.io/about/join/",
+    "normalize": "true",
+    "selector": "CNCF Members",
+    "levels": {
+      "first": {
+        "name": "Platinum",
+        "amount": "370000",
+        "selector": "",
+        "attr": "homepage_url",
+        "benefits": "TODO: this should be structured data"
+      },
+      "second": {
+        "name": "Gold",
+        "amount": "120000",
+        "selector": "",
+        "attr": "homepage_url",
+        "benefits": "TODO: this should be structured data"
+      },
+      "third": {
+        "name": "Silver",
+        "amount": "50000",
+        "selector": "",
+        "attr": "homepage_url",
+        "benefits": "TODO: this should be structured data"
+      },
+      "academic": {
+        "name": "Academic",
+        "amount": "1000",
+        "selector": "",
+        "attr": "homepage_url",
+        "benefits": "TODO: this should be structured data"
+      },
+      "community": {
+        "name": "Nonprofit",
+        "amount": "1000",
+        "selector": "",
+        "attr": "homepage_url",
+        "benefits": "TODO: this should be structured data"
+      },
+      "enduser": {
+        "name": "End User Supporter",
+        "amount": "0",
+        "selector": "",
+        "attr": "",
+        "benefits": "TODO: this should be structured data"
+      }
+    }
+  }
+}
