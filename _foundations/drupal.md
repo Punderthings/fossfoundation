@@ -21,7 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.drupal.org/association/supporters/partners
 sponsorList:
-sponsorship: drupal.json
+sponsorship: drupal
 licenses: GPL-2.0-or-later
 claPolicy:
 ethicsPolicy:

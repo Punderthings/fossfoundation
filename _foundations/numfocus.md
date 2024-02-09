@@ -21,7 +21,7 @@ budgetYear:
 budgeturl: https://numfocus.org/legal
 sponsorurl: 
 sponsorList: https://numfocus.org/sponsors
-sponsorship: numfocus.json
+sponsorship: numfocus
 licenses: various
 claPolicy: 
 ethicsPolicy:

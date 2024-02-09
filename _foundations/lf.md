@@ -21,7 +21,7 @@ budgetYear: 2019
 budgeturl: https://projects.propublica.org/nonprofits/organizations/460503801
 sponsorurl: https://www.linuxfoundation.org/members
 sponsorList:
-sponsorship: lf.json
+sponsorship: lf
 licenses: various
 claPolicy:
 ethicsPolicy:

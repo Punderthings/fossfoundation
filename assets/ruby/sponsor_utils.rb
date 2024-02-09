@@ -20,10 +20,12 @@ module SponsorUtils
 
   # Map all sponsorships to common-ish levels
   # - Ordinals are cash sponsorships in order
-  # - inkind is services donations (primarily services, not cash)
+  # - 'inkind'* is services donations (primarily services, not cash)
   # - community is widely used as a separate level
   # - grants covers any sort of government/institution grants
-  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners grants ]
+  # TODO: Define a more rigorous and smaller set of categories,
+  #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
+  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
   CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
 
   # Return a normalized domain name for mapping to a single sponsor org
@@ -138,33 +140,11 @@ module SponsorUtils
             sponsors[level] << itm
           end
         rescue StandardError => e
-          puts "ERROR: cleanup_drupal(...#{itm}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
-          sponsors[level] << itm # HACK: leave as-is, will be obvious to reader
+          sponsors[level] << "ERROR: cleanup_drupal(...#{itm}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
         end
       end
     end
     return sponsors
-  end
-
-  # Rough count of number of times different urls appear at levels
-  # @param sponsors hash returned from scrape_bycss or cleanup
-  # @return hash of counts of how often domain names appear
-  def report_counts(sponsors)
-    counts = {}
-    SPONSOR_METALEVELS.each do | lvl |
-      counts[lvl] = Hash.new(0)
-    end
-    counts['all'] = Hash.new(0)
-    sponsors.each do | org, sponsorhash |
-      sponsorhash.each do | level, ary |
-        ary.each do | url |
-          counts['all'][url] += 1
-          counts[level][url] += 1
-        end
-      end
-    end
-    counts['all'] = Hash[counts['all'].sort_by { |k, v| -v }]
-    return counts
   end
 
   # Future use: allow parsing historical sponsorships
@@ -226,74 +206,26 @@ module SponsorUtils
     foundations.each do | org, foundation |
       sponsorship = foundation.fetch('sponsorship', nil)
       if sponsorship
-        sponsorships[org] = JSON.parse(File.read("_sponsorships/#{sponsorship}"))
+        sponsorships[org] = get_sponsorship_file(sponsorship)
       end
     end
-    sponsorships = sponsorships.select{ | k, v | ('asf'.eql?(k) || 'cncf'.eql?(k))}    # HACK
+    sponsorships['cncf'] = get_sponsorship_file('cncf') # HACK: Add in cncf as a test subject, since it's not a separate org
     all_sponsors = parse_sponsorships(sponsorships)
     return all_sponsors
   end
 
+  # Convenience method to get sponsorship file
+  def get_sponsorship_file(org)
+    return JSON.parse(File.read("_sponsorships/#{org}.json"))
+  end
 
   # ### #### ##### ######
   # Main method for command line use
   if __FILE__ == $PROGRAM_NAME
-   # TODO: default dir? Command line params? Load each sponsor level by org?
-   sponsorship = JSON.parse(File.read('_sponsorships/cncf.json'))
-   sponsorships = { 'cncf' => sponsorship }
-   sponsors = parse_sponsorships(sponsorships)
-   File.open('parsecncf.json', "w") do |f|
-     f.write(JSON.pretty_generate(sponsors))
-   end
-   puts "DEBUG - done testing parse just cncf list"
-   exit 1
-
+    # TODO: default dir? Command line params?
     alldata = parse_all_sponsorships()
-    File.open('parseall.json', "w") do |f|
+    File.open('_data/allsponsorships.json', "w") do |f|
       f.write(JSON.pretty_generate(alldata))
-    end
-    puts "DEBUG - done testing parse_all_sponsorships"
-    exit 1
-
-
-    infile = 'sponsor_levels.json'
-    outfile = 'sponsor_utils.json'
-    io = nil
-    sponsors = {}
-    maps = JSON.parse(File.read(infile))
-    maps.each do | org, map |
-      map = map[0] # HACK: just use first map on list; by date for future use historical scans
-      if true
-        filename = "../../../sponsors-#{org}.html"
-        baseurl = ''
-        io = File.open(filename)
-      else
-        sponsorurl = map['sponsorurl']
-        begin
-          io = URI.open(sponsorurl).read
-        rescue StandardError => e
-          puts "ERROR: #{sponsorurl}: #{e.message}\n\n#{e.backtrace.join("\n\t")}"
-          next
-        end
-      end
-      sponsors[org] = SponsorUtils.scrape_bycss(io, map)
-      case org
-      when 'python'
-        sponsors[org] = cleanup_with_map(sponsors[org], 'python_map.json')
-      when 'drupal'
-        sponsors[org] = cleanup_drupal(sponsors[org])
-      when 'lf'
-        sponsors[org] = cleanup_with_map(sponsors[org], 'lf_map.json')
-      else
-        # No-op
-      end
-    end
-    File.open(outfile, "w") do |f|
-      f.write(JSON.pretty_generate(sponsors))
-    end
-    counts = report_counts(sponsors)
-    File.open('sponsor_metacount.json', "w") do |f|
-      f.write(JSON.pretty_generate(counts))
     end
   end
 end
