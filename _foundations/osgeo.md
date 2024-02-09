@@ -23,7 +23,7 @@ sponsorurl: https://www.osgeo.org/sponsors/
 sponsorList: opengis.ch, GeoCat, Wherobots, CamptoCamp, MapGears, WIGeoGIS, WhereGroup, GAIA3D, Terrestris
 sponsorship: osgeo
 licenses: various
-claPolicy:
+claPolicy: https://www.osgeo.org/about/licenses/
 ethicsPolicy: https://wiki.osgeo.org/wiki/Conflict_Of_Interest_Policy
 governanceOrg:
 governanceTech:
