@@ -2,7 +2,8 @@
 module SponsorUtils
   DESCRIPTION = <<-HEREDOC
   SponsorUtils: good-enough scrapers and detectors of FOSS sponsors.
-  Default to run from project root directory.
+    Default to run from project root directory; will find and
+    parse all available foundation/sponsorship mappings.
   HEREDOC
   module_function
   require 'csv'
@@ -11,6 +12,7 @@ module SponsorUtils
   require 'open-uri'
   require 'nokogiri'
   require 'date'
+  require 'optparse'
   require_relative 'foundation_reporter'
 
   # NOTE OWASP parsing css may be fragile; relies on nth-of-type
@@ -27,6 +29,7 @@ module SponsorUtils
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
   SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
   CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
+  DEFAULT_OUTFILE = '_data/allsponsorships-new.json' # Default to producing report of everything
 
   # Return a normalized domain name for mapping to a single sponsor org
   # HACK note several special casees mapping down to single org
@@ -154,6 +157,7 @@ module SponsorUtils
 
   # Process single sponsorship maps
   # Includes special casing for specific orgs with unusual parsing
+  # @param org id of org being parsed
   # @param sponsorship parsed _sponsorship hash defining what to do
   # @return processed hash of sponsors
   def parse_sponsorship(org, sponsorship)
@@ -214,18 +218,49 @@ module SponsorUtils
     return all_sponsors
   end
 
-  # Convenience method to get sponsorship file
+  # Convenience method to get a sponsorship file by org id
   def get_sponsorship_file(org)
     return JSON.parse(File.read("_sponsorships/#{org}.json"))
+  end
+
+  # ## ### #### ##### ######
+  # Check commandline options
+  def parse_commandline
+    options = {}
+    OptionParser.new do |opts|
+      opts.on('-h', '--help') { puts "#{DESCRIPTION}\n#{opts}"; exit }
+      opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation.') do |out|
+        options[:out] = out
+      end
+      opts.on('-oORGID', '--one ORGID', 'Input org id (asf, python, etc.) to parse one.') do |orgid|
+        options[:orgid] = orgid
+      end
+      begin
+        opts.parse!
+      rescue OptionParser::ParseError => e
+        $stderr.puts e
+        $stderr.puts opts
+        exit 1
+      end
+    end
+    return options
   end
 
   # ### #### ##### ######
   # Main method for command line use
   if __FILE__ == $PROGRAM_NAME
-    # TODO: default dir? Command line params?
-    alldata = parse_all_sponsorships()
-    File.open('_data/allsponsorships.json', "w") do |f|
-      f.write(JSON.pretty_generate(alldata))
+    options = parse_commandline
+    orgid = options.fetch(:orgid, nil)
+    parsed = {}
+    if orgid
+      options[:outfile] ||= "_data/#{orgid}-new.json"
+      parsed = parse_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
+    else
+      options[:outfile] ||= DEFAULT_OUTFILE
+      parsed = parse_all_sponsorships()
+    end
+    File.open(options[:outfile], "w") do |f|
+      f.write(JSON.pretty_generate(parsed))
     end
   end
 end
