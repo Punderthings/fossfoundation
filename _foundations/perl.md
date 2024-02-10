@@ -8,9 +8,9 @@ location: MI
 newProjects:
 softwareType: devtool
 wikidataId: Q941805
-taxID:
+taxID: 38-3536536
 nonprofitStatus: Nonprofit501c3
-boardSize:
+boardSize: 5
 boardType:
 boardurl: https://www.perlfoundation.org/the-board.html
 bylawsurl: https://www.perlfoundation.org/bylaws.html
@@ -19,10 +19,10 @@ funding:
 budgetUsd:
 budgetYear:
 budgeturl:
-sponsorurl:
-sponsorList:
+sponsorurl: https://www.perlfoundation.org/our-donors.html
+sponsorList: https://www.perlfoundation.org/how-do-sponsors-benefit.html
 licenses:
-claPolicy:
+claPolicy: https://www.perlfoundation.org/license-faq.html
 ethicsPolicy: https://www.perlfoundation.org/conflict-of-interest-policy.html
 governanceOrg:
 governanceTech:

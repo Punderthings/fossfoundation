@@ -8,7 +8,7 @@ location: US
 newProjects:
 softwareType: various
 wikidataId: Q55672
-taxID:
+taxID: 20-0097189
 nonprofitStatus: Nonprofit501c3
 boardSize:
 boardType:
@@ -19,7 +19,7 @@ funding:
 budgetUsd:
 budgetYear:
 budgeturl:
-sponsorurl:
+sponsorurl: https://foundation.mozilla.org/en/what-we-fund/fellowships-and-awards-partners/
 sponsorList:
 licenses: MPL-2.0
 claPolicy:

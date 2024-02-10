@@ -4,11 +4,11 @@ commonName: ISC
 legalName: Internet Systems Consortium, Inc.
 website: https://www.isc.org/
 foundingDate: 2004
-location: DE
+location: NH
 newProjects:
 softwareType: network
-wikidataId: 
-taxID: 
+wikidataId: Q1668008
+taxID: 20-0141248
 nonprofitStatus: Nonprofit501c3
 boardSize: 4
 boardType:
