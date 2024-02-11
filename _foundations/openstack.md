@@ -21,6 +21,7 @@ budgetYear:
 budgeturl: 
 sponsorurl: https://openinfra.dev/members/
 sponsorList: https://openinfra.dev/join/members/
+sponsorship: openstack
 licenses: 
 claPolicy: https://openinfra.dev/cla/
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy

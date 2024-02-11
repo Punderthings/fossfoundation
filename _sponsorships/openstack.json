@@ -2,8 +2,7 @@
   "20240101": {
     "sponsorurl": "https://openinfra.dev/members/",
     "levelurl": "https://openinfra.dev/join/members/",
-    "mapping": "TODO",
-    "subpage": "a.company-profile-link",
+    "sponsormap": "_data/openstack_map.json",
     "levels": {
       "first": {
         "name": "platinum",

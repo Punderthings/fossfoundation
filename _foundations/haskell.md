@@ -10,7 +10,7 @@ softwareType: language
 wikidataId: 
 taxID: 47-5236502
 nonprofitStatus: Nonprofit501c3
-boardSize: 7
+boardSize: 15
 boardType:
 boardurl: https://www.haskell.org/haskell-org-committee/
 bylawsurl:
@@ -19,15 +19,16 @@ funding:
 budgetUsd:
 budgetYear:
 budgeturl:
-sponsorurl:
+sponsorurl: https://haskell.foundation/donations/
 sponsorList:
+sponsorship: haskell
 licenses:
 claPolicy:
 ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
-projectsList:
+projectsList: https://haskell.foundation/projects/
 projectsServices:
 logo:
 logoReg:

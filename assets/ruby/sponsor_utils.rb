@@ -35,6 +35,7 @@ module SponsorUtils
   # HACK note several special casees mapping down to single org
   # @return a good enough normalized hostname
   def normalize_href(href)
+    begin
     return URI(href.strip.downcase.sub('www.', '')
       .sub('opensource.google', 'google.com')
       .sub('techatbloomberg.com', 'bloomberg.com')
@@ -45,6 +46,9 @@ module SponsorUtils
       # TODO: consider removing ^group. from mercedes-benz
       # TODO: consider removing ^en. from various urls
       ).authority
+    rescue StandardError => e
+      return href
+    end
   end
 
   # Scrape html sponsor listing defined by css selectors
@@ -118,7 +122,8 @@ module SponsorUtils
     links.each do | level, ary |
       sponsors[level] = []
       ary.each do | itm |
-        sponsors[level] << map.fetch(itm, itm)
+        newitm = map.fetch(itm, nil)
+        newitm ? sponsors[level] << newitm : sponsors[level] << normalize_href(itm)
       end
     end
     return sponsors
@@ -150,6 +155,39 @@ module SponsorUtils
     return sponsors
   end
 
+  # Parse separate per-sponsor pages used by some orgs
+  # @param sponsors hash of previously detected sponsor links
+  # @param sponsorship definition hash
+  # @return sponsors hash normalized to domain names
+  def parse_subpages(existing_sponsors, sponsorship)
+    sponsors = {}
+    rooturl = sponsorship['sponsorroot']
+    selector = sponsorship['sponsorselector']
+    existing_sponsors.each do | level, ary |
+      next unless ary.is_a?(Array) # Skip dates, errors, etc
+      sponsors[level] = []
+      ary.each do | itm |
+        # Either store a normalized URL if present, or go parse the subpage
+        if itm.downcase.start_with?('http')
+          sponsors[level] << itm
+        else
+          begin
+            doc = Nokogiri::HTML5(URI.open("#{rooturl}#{itm}").read)
+            node = doc.at_css(selector)
+            if node
+              sponsors[level] << normalize_href(node['href'])
+            else
+              sponsors[level] << itm
+            end
+          rescue StandardError => e
+            sponsors[level] << "ERROR: parse_subpages(...#{itm}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
+          end
+        end
+      end
+    end
+    return sponsors
+  end
+
   # Future use: allow parsing historical sponsorships
   def get_current_sponsorship(sponsorship)
     return sponsorship[CURRENT_SPONSORSHIP]
@@ -170,21 +208,20 @@ module SponsorUtils
       sponsors['error'] = "ERROR: parse_sponsorship(#{sponsorurl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
       return sponsors
     end
+    # Parse a landscape.yml, or scrape a webpage by css
     if sponsorship.fetch('landscape', nil)
       sponsors = SponsorUtils.parse_landscape(io, sponsorship)
     else
       sponsors = SponsorUtils.scrape_bycss(io, sponsorship)
     end
-    # Custom processing for some orgs
-    case org
-    when 'drupal'
-      sponsors = cleanup_drupal(sponsors)
-    when 'python'
-      sponsors = cleanup_with_map(sponsors, '_data/python_map.json')
-    when 'lf'
-      sponsors = cleanup_with_map(sponsors, '_data/lf_map.json')
-    else
-      # No-op
+    # Custom post-processing for various orgs
+    subpage = sponsorship.fetch('sponsorselector', nil)
+    if subpage
+      sponsors = SponsorUtils.parse_subpages(sponsors, sponsorship)
+    end
+    mapping = sponsorship.fetch('sponsormap', nil)
+    if mapping
+      sponsors = SponsorUtils.cleanup_with_map(sponsors, mapping)
     end
     return sponsors
   end

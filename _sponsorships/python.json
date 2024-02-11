@@ -2,6 +2,7 @@
   "20240101": {
     "sponsorurl": "https://www.python.org/psf/sponsors/",
     "levelurl": "https://www.python.org/sponsors/application/",
+    "sponsormap": "_data/python_map.json",
     "levels": {
       "first": {
         "name": "visionary",
