@@ -37,7 +37,7 @@
           "logo": "yes"
         }
       },
-      "nonprofit": {
+      "academic": {
         "name": "associate",
         "amount": "0",
         "selector": "div#associate div.company-level-associate a",
