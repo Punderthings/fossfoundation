@@ -246,11 +246,14 @@ module SponsorUtils
     sponsorships = {}
     foundations.each do | org, foundation |
       sponsorship = foundation.fetch('sponsorship', nil)
-      if sponsorship
+      if sponsorship && sponsorship.is_a?(String)
         sponsorships[org] = get_sponsorship_file(sponsorship)
+      elsif sponsorship && sponsorship.is_a?(Array)
+        sponsorship.each do | sponsormap | # Allows multiple sponsorship maps per org; see lf.md
+          sponsorships[sponsormap] = get_sponsorship_file(sponsormap)
+        end
       end
     end
-    sponsorships['cncf'] = get_sponsorship_file('cncf') # HACK: Add in cncf as a test subject, since it's not a separate org
     all_sponsors = parse_sponsorships(sponsorships)
     return all_sponsors
   end

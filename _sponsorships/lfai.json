@@ -5,7 +5,7 @@
     "landscape": "LF AI & Data Member Company",
     "levels": {
       "first": {
-        "name": "Premiere",
+        "name": "Premier",
         "amount": "120000",
         "selector": "",
         "attr": "homepage_url",
@@ -16,7 +16,7 @@
         }
       },
       "second": {
-        "name": "general",
+        "name": "General",
         "amount": "45000",
         "amountvaries": "sliding scale by number employees",
         "selector": "",
@@ -29,7 +29,7 @@
         }
       },
       "third": {
-        "name": "Academic/Nonprofit",
+        "name": "Associate",
         "amount": "0",
         "selector": "",
         "attr": "homepage_url",
