@@ -114,7 +114,7 @@ module SponsorUtils
 
   # Cleanup sponsor lists that are IDs not domains
   # @param sponsors hash of detected sponsor ids
-  # @param filename of json mapping to read
+  # @param filename of json mapping to read, from 'sponsormap'
   # @return sponsors hash normalized to domain names
   def cleanup_with_map(links, mapname)
     sponsors = {}
@@ -157,7 +157,7 @@ module SponsorUtils
 
   # Parse separate per-sponsor pages used by some orgs
   # @param sponsors hash of previously detected sponsor links
-  # @param sponsorship definition hash
+  # @param sponsorship definition hash with 'sponsorroot', 'sponsorselector'
   # @return sponsors hash normalized to domain names
   def parse_subpages(existing_sponsors, sponsorship)
     sponsors = {}
