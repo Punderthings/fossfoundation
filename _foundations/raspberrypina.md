@@ -1,27 +1,24 @@
 ---
-identifier: raspberrypi
-commonName: Raspberry Pi
-legalName: Raspberry Pi Foundation
+identifier: raspberrypina
+commonName: Raspberry Pi NA
+legalName: Raspberry Pi Foundation North America Inc
 website: https://www.raspberrypi.org/about/
 foundingDate:
-location: UK
+location: CA
 newProjects:
 softwareType: hardware
-wikidataId: Q7295195
-taxID: '1129409'
-nonprofitStatus: LimitedByGuaranteeCharity
-subOrganization: 
-  - Raspberry Pi Ltd wikidata:Q65518082 
-  - Raspberry Pi Foundation North America Inc
-boardSize: '8'
-boardType: elected
+wikidataId: 
+taxID: 81-5480308
+nonprofitStatus: Nonprofit501c3
+boardSize: '2'
+boardType:
 boardurl: https://www.raspberrypi.org/about/governance/
 bylawsurl:
-numberOfEmployees:
+numberOfEmployees: 6
 funding:
-budgetUsd: 12M
-budgetYear: '2020'
-budgeturl: https://static.raspberrypi.org/files/about/RaspberryPiFoundationAnnualReview2022.pdf
+budgetUsd:
+budgetYear:
+budgeturl:
 sponsorurl: https://www.raspberrypi.org/about/supporters/
 sponsorList:
 licenses: BSD-3-Clause, various
@@ -48,4 +45,4 @@ diversityPolicy:
 diversityDescription:
 ---
 
-The Raspberry Pi Foundation is a UK-based charity with the mission to enable young people to realise their full potential through the power of computing and digital technologies.
+The Raspberry Pi Foundation North America Inc. is the US nonprofit subsidiary of the popular Raspberry Pi charity in the UK.

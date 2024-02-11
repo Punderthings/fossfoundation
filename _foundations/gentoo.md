@@ -9,17 +9,18 @@ newProjects:
 softwareType: distro
 wikidataId: Q75837444
 taxID:
-nonprofitStatus: charitable
-boardSize:
-boardType:
-boardurl:
+taxIDLocal: '2463313'
+nonprofitStatus: New Mexico non profit
+boardSize: 5
+boardType: elected
+boardurl: https://wiki.gentoo.org/wiki/Foundation:Main_Page
 bylawsurl: https://wiki.gentoo.org/wiki/Foundation:Bylaws
 numberOfEmployees:
 funding:
 budgetUsd:
 budgetYear:
 budgeturl: https://wiki.gentoo.org/wiki/Foundation:Financial_Reports
-sponsorurl:
+sponsorurl: https://www.gentoo.org/inside-gentoo/sponsors/
 sponsorList:
 licenses: GPL-2.0-only
 claPolicy:
@@ -45,4 +46,4 @@ diversityPolicy:
 diversityDescription:
 ---
 
-The Gentoo Foundation provides support for development of the Gentoo distribution.
+The Gentoo Foundation provides support for development of the Gentoo distribution.  It is a New Mexico non-profit corporation, but does not have US IRS non-profit status.

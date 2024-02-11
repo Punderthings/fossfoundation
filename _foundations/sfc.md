@@ -22,6 +22,7 @@ budgeturl: https://sfconservancy.org/about/filings/
 sponsorurl: https://sfconservancy.org/sponsors/
 sponsorList: Collabora, Google, HP, Linux Australia, Linux Foundation, Mozilla, Private
   InternetAccess, Redhat, Savoir-Faire Linux, Target
+sponsorship: sfc
 licenses: various, GPL
 claPolicy:
 ethicsPolicy:

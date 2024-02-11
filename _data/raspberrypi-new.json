@@ -1,0 +1,33 @@
+{
+  "first": [
+    "google.org"
+  ],
+  "second": [
+    "atlassian.com"
+  ],
+  "third": [
+    "bnymellon.com"
+  ],
+  "fourth": [
+    "oracle.com",
+    "workday.com",
+    "bloomfieldtrust.co.uk",
+    "expo2020dubai.com",
+    "blizzard.com",
+    "broadcomfoundation.org",
+    "spglobal.com",
+    "infosys.org"
+  ],
+  "fifth": [
+    "dogpatchlabs.com",
+    "mythic-beasts.com",
+    "tech.allianz.com"
+  ],
+  "sixth": [
+    "libertyglobal.com",
+    "logmeininc.com",
+    "micron.com",
+    "about.facebook.com",
+    "humblebundle.com"
+  ]
+}
