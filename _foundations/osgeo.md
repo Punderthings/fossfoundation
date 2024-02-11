@@ -43,7 +43,7 @@ conductEvents:
 conductSource: Berlin Code of Conduct and Contributor Convenant
 conductLinked:
 diversityPolicy: https://www.osgeo.org/code_of_conduct/
-diversityDescription: OSGeo welcomes and encourages participation by everyone. We are committed to being a community that everyone feels good about joining, and we will always work to treat everyone well. No matter how you identify yourself or how others perceive you: we welcome you.
+diversityDescription: "OSGeo welcomes and encourages participation by everyone. We are committed to being a community that everyone feels good about joining, and we will always work to treat everyone well. No matter how you identify yourself or how others perceive you: we welcome you."
 ---
 
 OSGeo holds a passionate belief in open source as the best way to build software.
