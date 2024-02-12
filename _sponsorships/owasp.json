@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "c3",
     "sponsorurl": "https://owasp.org/supporters/list",
     "levelurl": "https://owasp.org/supporters/packages",
     "normalize": "true",

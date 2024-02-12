@@ -1,9 +1,10 @@
 {
   "20240101": {
+    "nonprofit": "c3",
+    "staticmap": "20240212",
     "sponsorurl": "https://plone.org/foundation/sponsorship/sponsors",
     "levelurl": "https://plone.org/foundation/sponsorship",
     "normalize": "true",
-    "comment": "FIXME: plone only loads listings via js, so plain html parse fails"
     "levels": {
       "first": {
         "name": "Premium",
@@ -13,7 +14,14 @@
         "attr": "href",
         "benefits": {
           "logo": "featured on homepage"
-        }
+        },
+        "sponsors": [
+          "syslab.com",
+          "enfoldsystems.com",
+          "quaivecloud.com",
+          "jazkarta.com",
+          "starzel.de"
+        ]
       },
       "second": {
         "name": "Standard",
@@ -23,7 +31,15 @@
         "attr": "href",
         "benefits": {
           "logo": "yes"
-        }
+        },
+        "sponsors": [
+          "cloud19.at",
+          "kombinat.at",
+          "kitconcept.com",
+          "zopyx.com",
+          "thomasschorr.de",
+          "redturtle.it"
+        ]
       }
     }
   }

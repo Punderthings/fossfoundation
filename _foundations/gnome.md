@@ -21,6 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl:
 sponsorList:
+sponsorship: gnome
 licenses: GPL-2.0-only
 claPolicy:
 ethicsPolicy:

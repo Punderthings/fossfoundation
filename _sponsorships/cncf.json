@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "lf",
     "sponsorurl": "https://raw.githubusercontent.com/cncf/landscape/master/landscape.yml",
     "levelurl": "https://www.cncf.io/about/join/",
     "normalize": "true",

@@ -1,9 +1,11 @@
 {
   "20240101": {
-    "sponsorurl": "TODO",
+    "nonprofit": "lf",
+    "staticmap": "20240212",
+    "sponsorurl": "https://openjsf.org/members",
     "levelurl": "https://openjsf.org/join",
     "normalize": "true",
-    "landscape": "JSF Members",
+    "comment": "Uses JS loading so just use a staticmap",
     "levels": {
       "first": {
         "name": "Platinum",
@@ -16,8 +18,14 @@
           "events": "KubeCon keynote slot",
           "services": "Multiple training/certification discounts",
           "marketing": "Press release; Can host/run live branded webinars",
-          "logo": "Featured prominentl, (note: this level requires 3 year commitment)y"
-        }
+          "logo": "Featured prominently, (note: this level requires 3 year commitment)y"
+        },
+        "sponsors": [
+          "ibm.com",
+          "joyent.com",
+          "microsoft.com",
+          "sovereigntechfund.de"
+        ]
       },
       "second": {
         "name": "Gold",
@@ -28,10 +36,13 @@
           "governance": "",
           "advisory": "Quarterly meeting with execs",
           "events": "Improved event access",
-          "services": "50 seats training subscription",
-          "marketing": "",
-          "logo": ""
-        }
+          "services": "50 seats training subscription"
+        },
+        "sponsors": [
+          "godaddy.com",
+          "google.com",
+          "herodevs.com"
+        ]
       },
       "third": {
         "name": "Silver",
@@ -43,9 +54,33 @@
           "advisory": "",
           "events": "",
           "services": "10 seats training subscriptions",
-          "marketing": "Submit vendor-neutral content to social medias",
-          "logo": ""
-        }
+          "marketing": "Submit vendor-neutral content to social medias"
+        },
+        "sponsors": [
+          "americanexpress.com",
+          "theblogstarter.com",
+          "bloomberg.com",
+          "capitalone.com",
+          "cargurus.com",
+          "flowfuse.com",
+          "foursquare.com",
+          "github.com",
+          "greyshore.com",
+          "groupon.com",
+          "hackerone.com",
+          "jobyaviation.com",
+          "livingspec.com",
+          "fb.com",
+          "www.nearform.com",
+          "netflix.com",
+          "nodesource.com",
+          "platformatic.dev",
+          "redhat.com",
+          "saucelabs.com",
+          "sentry.io",
+          "www.tafsol.com",
+          "www.uber.com"
+       ]
       },
       "academic": {
         "name": "Academic",
@@ -53,11 +88,7 @@
         "selector": "",
         "attr": "homepage_url",
         "benefits":  {
-          "governance": "",
-          "advisory": "",
           "events": "Event discounts",
-          "services": "",
-          "marketing": "",
           "logo": "Logo display included"
         }
       },

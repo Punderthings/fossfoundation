@@ -21,6 +21,7 @@ budgetYear:
 budgeturl: 
 sponsorurl: https://rubyonrails.org/foundation
 sponsorList: Cookpad, Doximity, Fleetio, GitHub, Intercom, Procore, Shopify, 37signals
+sponsorship: rails
 licenses: MIT
 claPolicy: 
 ethicsPolicy:

@@ -25,9 +25,11 @@ sponsorship:
   - lf
   - aswf
   - cd
+  - cncf
   - finos
   - graphql
   - hyperledger
+  - jsfoundation
   - lfai
   - lfenergy
   - llvm

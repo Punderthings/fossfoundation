@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "lf",
     "sponsorurl": "https://raw.githubusercontent.com/hyperledger-dlt-landscape/hyperledger-dlt-landscape/main/landscape.yml",
     "levelurl": "https://www.hyperledger.org/join-us",
     "landscape": "Hyperledger Members",

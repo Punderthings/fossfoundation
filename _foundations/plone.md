@@ -21,6 +21,7 @@ budgetYear:
 budgeturl:
 sponsorurl: https://plone.org/sponsors
 sponsorList:
+sponsorship: plone
 licenses:
 claPolicy:
 ethicsPolicy:

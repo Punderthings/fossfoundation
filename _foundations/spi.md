@@ -21,6 +21,12 @@ budgetYear:
 budgeturl: https://www.spi-inc.org/corporate/annual-reports/2016.pdf
 sponsorurl: https://www.spi-inc.org/sponsors/
 sponsorList:
+sponsorships:
+  - spi
+  - debian
+  - adelielinux
+  - archlinux
+  - postgresql
 licenses: GPL, various
 claPolicy:
 ethicsPolicy:

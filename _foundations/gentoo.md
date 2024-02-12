@@ -22,6 +22,7 @@ budgetYear:
 budgeturl: https://wiki.gentoo.org/wiki/Foundation:Financial_Reports
 sponsorurl: https://www.gentoo.org/inside-gentoo/sponsors/
 sponsorList:
+sponsorship: gentoo
 licenses: GPL-2.0-only
 claPolicy:
 ethicsPolicy:

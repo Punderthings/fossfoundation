@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "lf",
     "sponsorurl": "https://raw.githubusercontent.com/ossf/ossf-landscape/main/landscape.yml",
     "levelurl": "TODO",
     "normalize": "true",

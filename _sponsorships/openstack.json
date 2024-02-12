@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "c6",
     "sponsorurl": "https://openinfra.dev/members/",
     "levelurl": "https://openinfra.dev/join/members/",
     "sponsormap": "_data/openstack_map.json",

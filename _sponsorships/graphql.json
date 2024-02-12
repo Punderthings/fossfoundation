@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "lf",
     "sponsorurl": "https://raw.githubusercontent.com/graphql/graphql-landscape/main/landscape.yml",
     "levelurl": "https://graphql.org/foundation/join/",
     "landscape": "GraphQL Foundation Member",

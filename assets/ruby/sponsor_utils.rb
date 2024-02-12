@@ -15,6 +15,10 @@ module SponsorUtils
   require 'optparse'
   require_relative 'foundation_reporter'
 
+  attr_accessor :verbose
+  def verbose(s)
+    puts s if @verbose
+  end
   # NOTE OWASP parsing css may be fragile; relies on nth-of-type
   # TODO: Eclipse dom parsing:
   #   div.eclipsefdn-members-list ... a with href and title that has sponsor name
@@ -129,32 +133,6 @@ module SponsorUtils
     return sponsors
   end
 
-  DRUPAL_SPONSOR_CSS = '.org-link a' # Sponsor is kept on a separate page
-  DRUPAL_SPONSOR_URL = 'https://www.drupal.org'
-  # Cleanup drupal sponsor list, since they use separate files
-  # @param sponsors hash of detected sponsor links
-  # @return sponsors hash normalized to domain names
-  def cleanup_drupal(links)
-    sponsors = {}
-    links.each do | level, ary |
-      sponsors[level] = []
-      ary.each do | itm |
-        begin
-          doc = Nokogiri::HTML5(URI.open("#{DRUPAL_SPONSOR_URL}#{itm}").read)
-          node = doc.at_css(DRUPAL_SPONSOR_CSS)
-          if node
-            sponsors[level] << normalize_href(node['href'])
-          else
-            sponsors[level] << itm
-          end
-        rescue StandardError => e
-          sponsors[level] << "ERROR: cleanup_drupal(...#{itm}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
-        end
-      end
-    end
-    return sponsors
-  end
-
   # Parse separate per-sponsor pages used by some orgs
   # @param sponsors hash of previously detected sponsor links
   # @param sponsorship definition hash with 'sponsorroot', 'sponsorselector'
@@ -193,8 +171,8 @@ module SponsorUtils
     return sponsorship[CURRENT_SPONSORSHIP]
   end
 
-  # Process single sponsorship maps
-  # Includes special casing for specific orgs with unusual parsing
+  # Process single sponsorship lookup
+  # Processing varies depending on landscape, sponsorselector, sponsormap attrs
   # @param org id of org being parsed
   # @param sponsorship parsed _sponsorship hash defining what to do
   # @return processed hash of sponsors
@@ -226,22 +204,50 @@ module SponsorUtils
     return sponsors
   end
 
+  # Copy over a static map of sponsors for an org
+  # @param org id of org being parsed
+  # @param sponsorship parsed _sponsorship hash with static sponsor arys
+  # @return processed hash of sponsors
+  def mapped_sponsorship(org, sponsorship)
+    sponsors = {}
+    sponsorship['levels'].each do | lvl, hash |
+      sponsors[lvl] = hash['sponsors']
+    end
+    return sponsors
+  end
+
+  # Process one sponsorship mapping
+  # @param org id of org being processed
+  # @param sponsorship parsed _sponsorship hash
+  # @return processed hash of sponsors
+  def process_sponsorship(org, sponsorship)
+    sponsors = {}
+    staticmap = sponsorship.fetch('staticmap', nil)
+    verbose("process_sponsorship(#{org}...) #{staticmap ? 'static map' : 'parsing url'}")
+    if staticmap
+      sponsors = mapped_sponsorship(org, sponsorship)
+      sponsors['parseDate'] = staticmap
+    else
+      sponsors = parse_sponsorship(org, sponsorship)
+      sponsors['parseDate'] = DateTime.now.strftime('%Y%m%d')
+    end
+    return sponsors
+  end
+
   # Process a list of sponsorship maps
-  # Includes special casing for specific orgs with unusual parsing
+  # TODO future use: allow historical sponsorship maps via get_current_sponsorship
   # @param sponsorships array org => of _sponsorship hashes
   # @return hash of orgs = {sponsors...}
-  def parse_sponsorships(sponsorships)
-    parse_date = DateTime.now.strftime('%Y%m%d')
+  def process_sponsorships(sponsorships)
     all_sponsors = {}
     sponsorships.each do | org, sponsorship |
-      all_sponsors[org] = parse_sponsorship(org, get_current_sponsorship(sponsorship))
-      all_sponsors[org]['parseDate'] = parse_date
+      all_sponsors[org] = process_sponsorship(org, get_current_sponsorship(sponsorship))
     end
     return all_sponsors
   end
 
   # Convenience method; assumes run from project root
-  def parse_all_sponsorships()
+  def process_all_sponsorships()
     foundations = FoundationReporter.get_foundations('_foundations')
     sponsorships = {}
     foundations.each do | org, foundation |
@@ -254,7 +260,7 @@ module SponsorUtils
         end
       end
     end
-    all_sponsors = parse_sponsorships(sponsorships)
+    all_sponsors = process_sponsorships(sponsorships)
     return all_sponsors
   end
 
@@ -275,6 +281,10 @@ module SponsorUtils
       opts.on('-oORGID', '--one ORGID', 'Input org id (asf, python, etc.) to parse one.') do |orgid|
         options[:orgid] = orgid
       end
+      opts.on("-v", "--[no-]verbose", "Verbose output to stdout.") do |v|
+        options[:verbose] = v
+        @verbose = v
+      end
       begin
         opts.parse!
       rescue OptionParser::ParseError => e
@@ -294,10 +304,10 @@ module SponsorUtils
     parsed = {}
     if orgid
       options[:outfile] ||= "_data/#{orgid}-new.json"
-      parsed = parse_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
+      parsed = process_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
     else
       options[:outfile] ||= DEFAULT_OUTFILE
-      parsed = parse_all_sponsorships()
+      parsed = process_all_sponsorships()
     end
     File.open(options[:outfile], "w") do |f|
       f.write(JSON.pretty_generate(parsed))

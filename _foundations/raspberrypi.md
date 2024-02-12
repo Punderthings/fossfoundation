@@ -23,6 +23,7 @@ budgetUsd: 12M
 budgetYear: '2020'
 budgeturl: https://static.raspberrypi.org/files/about/RaspberryPiFoundationAnnualReview2022.pdf
 sponsorurl: https://www.raspberrypi.org/about/supporters/
+sponsorship: raspberrypi
 sponsorList:
 licenses: BSD-3-Clause, various
 claPolicy:

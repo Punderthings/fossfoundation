@@ -21,6 +21,7 @@ budgetYear: 2021
 budgeturl: https://gitlab.com/floss-foundations/npo-public-filings/-/blob/master/Form990s/osi_2021_form-990_from-org.pdf
 sponsorurl: https://opensource.org/sponsors
 sponsorList:
+sponsorship: osi
 licenses: various
 claPolicy:
 ethicsPolicy: https://opensource.org/conflict_of_interest_policy/

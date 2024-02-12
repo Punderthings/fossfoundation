@@ -1,5 +1,6 @@
 {
   "20240101": {
+    "nonprofit": "c3",
     "sponsorurl": "https://foundation.llvm.org/docs/sponsors/",
     "levelurl": "https://foundation.llvm.org/documents/sponsorship/LLVMFoundation-Sponsorship-20190802.pdf",
     "normalize": "true",

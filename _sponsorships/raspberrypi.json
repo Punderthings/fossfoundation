@@ -1,8 +1,10 @@
 {
   "20240101": {
+    "nonprofit": "c3",
     "sponsorurl": "https://www.raspberrypi.org/about/supporters/",
     "levelurl": "https://www.raspberrypi.org/about/supporters/",
     "normalize": "true",
+    "comment": "Raspberry Pi includes UK charity, US c3, and a subsidiary corp; but count as c3 for reporting purposes.",
     "levels": {
       "first": {
         "name": "First",
