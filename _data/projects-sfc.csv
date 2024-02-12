@@ -1,0 +1,239 @@
+identifier,commonName,description,website,foundingDate,parentOrganization
+argouml,ArgoUML,"ArgoUML is the leading open source UML modeling tool and includes
+support for all standard UML 1.4 diagrams. It runs on any Java platform
+and is available in ten languages. See the feature list for more details.",http://argouml.tigris.org/,,sfc
+backdropcms,Backdrop CMS,"Backdrop CMS is a Drupal fork with a focus on features, performance,
+and usability. Backdrop puts the needs of the small to medium sized
+businesses and non-profits first. Backdrop contains more of the
+features this audience wants—and fewer they don’t—to ensure they
+can still afford a fantastic Open Source Content Management System.",https://backdropcms.org/,,sfc
+bongo,Bongo,"The Bongo Project is creating fun and simple mail, calendaring and
+contacts software: on top of a standards-based server stack; we're
+innovating fresh and interesting web user interfaces for managing
+personal communications. Bongo is providing an entirely free software
+solution which is less concerned with the corporate mail scenario and
+much more focused on how people want to organize their lives.",http://bongo-project.org/,,sfc
+buildbot,Buildbot,"Buildbot is a freely-licensed framework which enables software
+developers to automate software build, test, and release processes for their
+software projects.  First released in 2003, Buildbot is used by leading
+software projects around the world to automate all aspects of their
+software development cycle.",http://buildbot.net/,,sfc
+busybox,BusyBox,"BusyBox combines tiny versions of many common UNIX utilities into a
+single small executable. It provides replacements for most of the
+utilities you usually find in GNU fileutils, shellutils, etc. The
+utilities in BusyBox generally have fewer options than their
+full-featured GNU cousins; however, the options that are included
+provide the expected functionality and behave very much like their GNU
+counterparts. BusyBox provides a fairly complete environment for any
+small or embedded system.",https://busybox.net/,,sfc
+commonworkflowlanguage,Common Workflow Language,"The Common Workflow Language (CWL) is a specification for describing
+analysis workflows and tools in a way that makes them portable and scalable
+across a variety of software and hardware environments, from workstations to
+cluster, cloud, and high performance computing (HPC) environments. CWL is
+designed to meet the needs of data-intensive science, such as
+bioinformatics, medical imaging, astronomy, physics, and chemistry.",https://www.commonwl.org/,,sfc
+coreboot,coreboot,"coreboot is an extended firmware platform that delivers lightning fast
+secure boot on modern computers and embedded systems. As an open source
+project it provides auditability and maximum control over the computers that
+run it.  It is industrial-strength firmware that secures more 30 million
+shipped devices, including personal computers, headless servers, tablets,
+and Internet of Things devices.",https://www.coreboot.org/,,sfc
+darcs,Darcs,"Darcs is a distributed revision control system written in Haskell. In
+Darcs, every copy of your source code is a full repository, which allows for
+full operation in a disconnected environment, and also allows anyone with
+read access to a Darcs repository to easily create their own branch and
+modify it with the full power of Darcs' revision control. Darcs is based on
+an underlying theory of patches, which allows for safe reordering and
+merging of patches even in complex scenarios. For all its power, Darcs
+remains a very easy to use tool for every day use because it follows the
+principle of keeping simple things simple.  Darcs is free software
+licensed under the GNU GPL.",http://darcs.net/,,sfc
+debiancopyrightaggregationproject,Debian Copyright Aggregation Project,"The Debian Copyright Aggregation Project offers contributors to
+  the Debian project the optional
+  opportunity, regarding their works contributed to Debian, to assign
+  copyrights or sign a license enforcement agreement (which delegates to
+  Conservancy the authority of license enforcement).  The Project also
+  creates an ongoing relationship between Conservancy and Debian, wherein
+  Conservancy offers Debian its expertise and advice on software licensing,
+  enforcement, and related issues.",https://sfconservancy.org/news/2015/aug/17/debian/,,sfc
+etherpad,Etherpad,"Etherpad is is a highly customizable web-based editor providing
+collaborative real-time editing.",http://etherpad.org/,,sfc
+freedv,FreeDV,"FreeDV is a suite of open source software and accompanying hardware for
+digital voice communication over HF radio. It consists of a voice codec
+(Codec 2), HF data modems, framing, and forward error correction software.
+It is implemented as a software library (libcodec2), that can be linked
+with 3rd party digital voice applications or embedded inside software
+defined radios.",https://freedv.org/,,sfc
+gevent,Gevent,"Gevent is a fast, coroutine-based networking library for Python.
+Gevent is used in network applications, including servers that scale
+up to tens thousands of connections but without the complexity usually
+associated with event-driven architecture.",http://www.gevent.org/,,sfc
+git,Git,"Git is a free and open source distributed version control system
+  designed to handle everything from small to very large projects with
+  speed and efficiency.",https://git-scm.com/,,sfc
+gplcomplianceprojectforlinuxdevelopers,GPL Compliance Project for Linux Developers,"The GPL Compliance Project for Linux Developers is comprised of
+copyright holders in the kernel, Linux, who have contributed to Linux
+under its license, the GPLv2. These copyright holders have formally asked
+Conservancy to engage in compliance efforts for their copyrights in the
+Linux kernel.",https://sfconservancy.org/copyleft-compliance/,,sfc
+harveyos,Harvey OS,"Harvey is a new operating system. It’s most directly descended from Plan 9, the research operating system developed at Bell Labs as a successor to Unix. This influence spans from its distributed application architecture all the way down to much of its code. However, Harvey aims to be a more practical, general-purpose operating system, so it also uses ideas and code from other systems.",http://harvey-os.org/,,sfc
+houdini,Houdini,"Houdini is an all-in-one fundraising platform developed in Ruby on Rails. It’s licensed under AGPL/LGPL
+and is available, without cost, to anyone in the world. We help nonprofits, people, and movements thrive and
+maintain themselves.",https://houdiniproject.org,,sfc
+inkscape,Inkscape,"Inkscape is an Open Source vector graphics editor, with capabilities
+similar to Illustrator, Freehand, CorelDraw, or Xara X using the
+open-standard Scalable Vector Graphics (SVG) file format. Inkscape's
+main goal is to create a powerful and convenient drawing tool fully
+compliant with XML, SVG, and CSS standards.",https://inkscape.org/,,sfc
+instituteforcomputinginresearch,Institute for Computing in Research,"The Institute for Computing in Research runs a mentoring program that
+trains students finishing 10th, 11th and 12th grade to do rigorous
+scientific research using free software. The Institute recruits students who
+might not otherwise have access to scientific apprenticeships, offers them a
+stipend and pairs them with volunteer mentors who train them to use free
+software operating systems and research tools.",https://computinginresearch.org/,,sfc
+k3d,K-3D,"K-3D is the free-as-in-freedom 3D modeling, animation, and rendering
+system for GNU/Linux, MacOSX, and Windows operating systems. K-3D is based
+on a powerful Visualization Pipeline that enables procedural modeling and
+a robust plugin architecture, and is designed to scale to the needs of
+professional artists.",http://www.k-3d.org,,sfc
+kallithea,Kallithea,"Kallithea is a free software source code management system supporting two
+leading version control systems, Mercurial and Git.  Kallithea hosts your
+code, manages access control lists and provides an easy web interface to the
+version control system of your choice.",https://kallithea-scm.org/,,sfc
+librehealth,LibreHealth,"LibreHealth is the foundation of a worldwide ecosystem of free and open
+source Health IT innovation, and is a place where people can come together
+to build tools that enhance the quality of healthcare around the
+world. LibreHealth projects currently include: LibreHealth Toolkit, a
+foundational base for building Health IT tools; LibreHealth EHR, an
+electronic health record derived from best practices and technology from
+leading open source systems; and LibreHealth Radiology, a specialized
+distribution of Toolkit customized for radiology health care
+professionals.",http://librehealth.io/,,sfc
+linuxxia,Linux XIA,"Linux XIA is a new protocol stack for Linux built using eXpress Internet
+Architecture (XIA), an interoperable meta network architecture. Linux XIA is
+designed to meet unfulfilled demands of real-world networking. The project's
+roadmap includes the development of a DDoS protection system, and the
+addition of state-of-the-art algorithms and data structures to increase
+Linux XIA's speed and flexibility.",https://github.com/AltraMayor/XIA-for-Linux/wiki,,sfc
+mercurial,Mercurial,"Mercurial is a fast, lightweight Source Control Management system
+which can track revisions to software during development.  Since its
+conception in April 2005, Mercurial has been adopted by many projects
+for revision control, including Xen, One Laptop Per Child, and the
+Advanced Linux Sound Architecture (ALSA).  Mercurial runs on Unix-like systems, Mac
+OS X, and Windows computers, and it is licensed under the GNU General
+Public License.",https://www.mercurial-scm.org/,,sfc
+metalink,Metalink,"Metalink is dedicated to improving downloads. Metalink makes it much
+easier for people — especially those in areas with inferior Internet
+connections — to download Open Source and Free Software. Metalink
+increases the effectiveness and efficiency of downloads by combining the
+speed, bandwidth distribution, and redundancy of an optimized hybrid
+mirror/peer-to-peer network, without any questions of legality, integrity,
+or safety.",http://www.metalinker.org/,,sfc
+microblocks,MicroBlocks,"MicroBlocks is a new programming language that runs right inside microcontroller boards such as the micro:bit, the NodeMCU and many Arduino boards. The MicroBlocks system allows for dynamic, parallel and interactive programming, but with the twist of letting your projects run autonomously inside the board without being tethered to a computer.",http://microblocks.fun/,,sfc
+northbaypython,North Bay Python,"North Bay Python is a community-organized conference in Petaluma,
+California that brings together professionals, enthusiasts, and
+students interested in the Python programming language.",https://www.northbaypython.org/,,sfc
+opentripplanner,OpenTripPlanner,"OpenTripPlanner is the leading open source platform for multimodal trip
+itinerary planning and network analysis.  Launched in 2009, OpenTripPlanner
+has since attracted a thriving community of users and developers, with live
+deployments now found in twelve countries.  OpenTripPlanner provides a
+multimodal trip planner allowing users to plan trips using a variety of
+transportation modes. Additionally, OpenTripPlanner has features for
+transportation analysis, including measures of mobility and accessibility.",http://www.opentripplanner.org/,,sfc
+openwrt,OpenWrt,"The OpenWrt Project is a Linux-based operating system targeting embedded
+devices. Instead of trying to create a single, static firmware, OpenWrt
+provides a fully writable filesystem with package management. This frees you
+from the application selection and configuration provided by the vendor and
+allows you to customize the device through the use of packages to suit any
+application. For developers, OpenWrt is the framework to build an
+application without having to build a complete firmware around it; for users
+this means the ability for full customization, to use the device in ways
+never envisioned.",https://openwrt.org/,,sfc
+outreachy,Outreachy,"Outreachy helps people from groups underrepresented in free and open
+source software get involved by providing a supportive community for
+newcomers to contribute to throughout the year, and by offering focused
+internship opportunities twice a year with many free software organizations.",https://www.outreachy.org/,,sfc
+phpmyadmin,phpMyAdmin,"phpMyAdmin is a free and open source web interface for the MySQL and
+MariaDB database systems. Frequently used operations
+(managing databases, tables, columns, relations, indexes, users,
+permissions, etc) can be performed via the user interface, while you
+still have the ability to directly execute any SQL statement.",https://phpmyadmin.net/,,sfc
+qemu,QEMU,"QEMU is a generic and open source machine emulator and
+        virtualizer. When used as a machine emulator, QEMU can run OSes and
+        programs made for one machine (e.g. an ARM board) on a different
+        machine (e.g. your own PC). By using dynamic translation, it achieves
+        very good performance. When used as a virtualizer, QEMU achieves near
+        native performances by executing the guest code directly on the host
+        CPU. QEMU supports
+ virtualization when executing under the Xen hypervisor or using the
+        KVM kernel module in Linux. When using KVM, QEMU can virtualize x86,
+        server and embedded PowerPC, and S390 guests.",http://qemu.org,,sfc
+racket,Racket,"Racket is a general-purpose programming language as well as the world’s
+first ecosystem for language-oriented programming. Make your dream language,
+or use one of the dozens already available.",https://racket-lang.org,,sfc
+reproduciblebuilds,Reproducible Builds,"Reproducible Builds are a set of software development practices that create an independently verifiable path
+from source code to the binary code used by computers. This is especially useful for developers collaborating
+on privacy or security software employed by politically sensitive targets such as dissidents, journalists and
+whistleblowers, or anyone wishing to communicate securely under a repressive regime.",https://reproducible-builds.org,,sfc
+samba,Samba,"Samba is a FOSS suite that provides seamless file and print
+services to SMB/CIFS clients, namely, to Microsoft Windows. Samba is
+freely available, unlike other SMB/CIFS implementations, and allows
+for interoperability between Linux/Unix servers and Windows-based
+clients.  Samba is software that can be run on a platform other than
+Microsoft Windows. For example, Samba runs on Unix, GNU/Linux, IBM
+System z, Solaris, Mac OS X, and OpenVMS, among others. It is
+standard on virtually all distributions of GNU/Linux and is commonly
+included as a basic system service on other UNIX-based systems as
+well. Samba uses the TCP/IP protocol that is installed on the host
+server.",https://www.samba.org/samba/,,sfc
+selenium,Selenium,"Selenium is a suite of tools for browser automation. It is composed of
+“IDE”, a recording and playback mechanism,
+“WebDriver” and “RC” which provide APIs for
+browser automation in a wide variety of languages, and “Grid”,
+which allows many tests using the APIs to be run in parallel. It works
+with most browsers, including Firefox, Internet Explorer, Google Chrome,
+Safari and Opera.",http://seleniumhq.org,,sfc
+sourceware,Sourceware,"Sourceware is a Free Software hosting project for toolchain and
+developer tools.  Free Software needs Free Infrastructure.  It is
+our goal to offer a worry-free, friendly home for Free Software
+projects.",http://sourceware.org/,,sfc
+squeak,Squeak,"Squeak is a modern, open source, full-featured implementation of
+the powerful Smalltalk programming language and environment. Squeak is
+highly-portable - even its virtual machine is written entirely in
+Smalltalk making it easy to debug, analyze, and change. Squeak is the
+vehicle for a wide range of projects from multimedia applications,
+educational platforms to commercial web application development.",http://squeak.org/,,sfc
+surveyos,SurveyOS,"The Survey Open Source (SurveyOS) Project is a non-profit project of
+the Software Freedom Conservancy dedicated to fostering cooperation
+between land surveyors and GIS professionals through the development of
+open source software and open technology standards. The SurveyOS Project
+currently devotes programming efforts and source code to the open source
+desktop GIS program known as OpenJUMP. It also dedicates a set of AutoLISP
+source code via the GPL that can be used to add surveying and geospatial
+functionality to other software.",http://surveyos.sourceforge.net/,,sfc
+swig,SWIG,"SWIG is a software development tool that connects programs written in C
+and C++ with a variety of high-level programming languages.  SWIG is used
+with different types of languages including common scripting languages
+such as Perl, PHP, Python, Tcl and Ruby. The list of supported languages
+also includes C#, Java, Lua, Octave and R amongst others. SWIG is most
+commonly used to create high-level interpreted or compiled programming
+environments, user interfaces, and as a tool for testing and prototyping
+C/C++ software.",http://www.swig.org/,,sfc
+teachingopensource,Teaching Open Source,"Teaching Open Source (TOS) exists to support instructors and FLOSS community
+members who desire to support student involvement in FLOSS projects
+within academic institutions.  The TOS community is supported by a web
+site, mailing list, and planet and welcomes new community members from
+both academia and FLOSS projects.",http://teachingopensource.org/,,sfc
+wine,Wine,"Wine is an Open Source implementation of the Windows API on top of
+X and Unix.  It is a compatibility layer for running Windows
+programs. Wine does not require Microsoft Windows, as it is a
+completely free alternative implementation of the Windows API
+consisting of 100% non-Microsoft code, however Wine can optionally use
+native Windows DLLs if they are available. Wine provides both a
+development toolkit for porting Windows source code to Unix as well as
+a program loader, allowing many unmodified Windows programs to run on
+x86-based Unixes, including Linux, Mac OS X, FreeBSD, and Solaris.",http://www.winehq.org/,,sfc
+xapian,Xapian,"Xapian is a highly adaptable toolkit which allows developers to
+easily add advanced indexing and search facilities to their own
+applications. It has built-in support for several families of weighting
+models and also supports a rich set of boolean query operators.",https://xapian.org/,,sfc

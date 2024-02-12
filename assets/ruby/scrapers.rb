@@ -1,14 +1,14 @@
 #!/usr/bin/env ruby
 DESCRIPTION = <<HEREDOC
-Various web scrapers and utilities for importing 'good-enough' data from 
+Various web scrapers and utilities for importing 'good-enough' data from
 multi-project foundation project listing pages.
 HEREDOC
 require 'csv'
 require 'yaml'
 require 'json'
 require 'open-uri'
-# require 'nokogiri' # Voodoo: attempt to fix GH Pages workflow fails: https://github.com/Punderthings/fossfoundation/actions/runs/5013763951/jobs/8993067589
-# require 'uri'
+require 'nokogiri' # Voodoo: attempt to fix GH Pages workflow fails: https://github.com/Punderthings/fossfoundation/actions/runs/5013763951/jobs/8993067589
+require 'uri'
 
 # Common headers used for all foundation listings
 HEADERS = %w( identifier commonName description website foundingDate parentOrganization )
@@ -26,6 +26,53 @@ def scrape_asf_projects(outfile)
     end
   end
   return lines
+end
+
+# Transform Software Freedom Conservancy project listing into simple csv structure
+def scrape_sfc_projects(outfile)
+  sfc_url = 'https://sfconservancy.org/projects/current/'
+  doc = Nokogiri::HTML(URI.open(sfc_url))
+  element = doc.css('#mainContent h2')
+  projects = {}
+  element.each do |e|
+    p e.text
+    projects[e.text.downcase.gsub(/\W+/, '')] = {
+      'commonName' => e.text.strip,
+      'website' => sfc_project_url(e),
+      'description' => sfc_description(e)
+    }
+  end
+  lines = 0
+  CSV.open(outfile, "w", headers: HEADERS, write_headers: true) do |csv|
+    projects.each do |key, h|
+      csv << [key, h['commonName'], h['description'], h['website'], h['foundingDate'], 'sfc']
+      lines += 1
+    end
+  end
+  return lines
+end
+
+def sfc_project_url(doc)
+  url = doc.css('a')[0]['href']
+  if url.start_with?('http')
+    return url
+  else
+    return 'https://sfconservancy.org' + url
+  end
+end
+
+def sfc_description(doc)
+  e = doc.next_element
+  if e.name == 'p'
+    return e.text.strip
+  else
+    e = e.next_element
+    if e.name == 'p'
+      return e.text.strip
+    else
+      e.next_element.text.strip
+    end
+  end
 end
 
 # Transform SPI, Inc. project listing into simple csv structure
@@ -94,10 +141,10 @@ end
 # end
 
 ### Command line use
-outfile = '_data/projects-asf.csv'
-puts "BEGIN #{__FILE__}.scrape_asf_projects(#{outfile})"
-lines = scrape_asf_projects(outfile)
-puts "END wrote #{lines} lines"
+# outfile = '_data/projects-asf.csv'
+# puts "BEGIN #{__FILE__}.scrape_asf_projects(#{outfile})"
+# lines = scrape_asf_projects(outfile)
+# puts "END wrote #{lines} lines"
 
 # outfile = '_data/projects-spi.csv'
 # puts "BEGIN #{__FILE__}.scrape_spi_projects(#{outfile})"
@@ -108,3 +155,8 @@ puts "END wrote #{lines} lines"
 # puts "BEGIN #{__FILE__}.scrape_numfocus_projects(#{outfile})"
 # lines = scrape_numfocus_projects(outfile)
 # puts "END wrote #{lines} lines"
+
+outfile = '_data/projects-sfc.csv'
+puts "BEGIN #{__FILE__}.scrape_sfc_projects(#{outfile})"
+lines = scrape_sfc_projects(outfile)
+puts "END wrote #{lines} lines"
