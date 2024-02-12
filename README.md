@@ -1,6 +1,6 @@
 # FOSS Foundations Metadata Directory
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](colophon#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Welcome to our [directory of non-profit FOSS Foundations](https://fossfoundation.info) published at [https://fossfoundation.info](https://fossfoundation.info)  This is meant to be a resource both for open source practitioners and academic researchers alike. 
@@ -20,6 +20,7 @@ Welcome to our [directory of non-profit FOSS Foundations](https://fossfoundation
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://blog.lydiapintscher.de"><img src="https://avatars.githubusercontent.com/u/550412?v=4?s=100" width="100px;" alt="Lydia Pintscher"/><br /><sub><b>Lydia Pintscher</b></sub></a><br /><a href="#data-lydiapintscher" title="Data">🔣</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://nesbitt.io"><img src="https://avatars.githubusercontent.com/u/1060?v=4?s=100" width="100px;" alt="Andrew Nesbitt"/><br /><sub><b>Andrew Nesbitt</b></sub></a><br /><a href="https://github.com/Punderthings/fossfoundation/commits?author=andrew" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
