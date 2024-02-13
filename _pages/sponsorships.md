@@ -1,7 +1,7 @@
 ---
 title: Sponsorship Models
 excerpt: Modeling sponsorship programs across the FOSS landscape.
-layout: default
+layout: sponsorships
 permalink: /sponsorships
 nav_order: 22
 ---
@@ -10,7 +10,7 @@ To provide context for financial sustainability around FOSS organizations, we've
 
 ## Modeling Foundation Sponsorship Programs
 
-Data is stored per entity (a foundation or a project) as a single `asf.json` file in the [`_sponsorships` directory](https://github.com/Punderthings/fossfoundation/tree/main/_sponsorships).  Each file is a set of factual references to the entity's published sponsorship policies and levels, and provides metadata to scrape web pages of actual sponsor listings at the current date.  Some entries will provide a dated static map of manually compiled list of current sponsors listed.
+Data is stored per entity (a foundation or a project) as a single `asf.md` file in `_sponsorships`, see a [listing below](#listing).  Each file is a set of factual references to the entity's published sponsorship policies and levels, and provides metadata to scrape web pages of actual sponsor listings at the current date.  Some entries will provide a dated static map of manually compiled list of current sponsors listed.
 
 ## Inclusion Criteria
 
@@ -46,7 +46,7 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
   - *amountvaries:* If present, describe how the sponsorship cash amount varies; we list the highest part of the range in *amount* above.
   - *selector:* CSS selector to find a nodelist of elements that are sponsor listings.
   - *attr:* Attribute to copy from the selector's nodelist.
-  - *benefits:* A rough guide to the kinds of benefits the entity provides at this sponsorship level.  Higher levels assume all benefits from lower levels unless noted otherwise.
+  - **benefits:** A rough guide to the kinds of benefits the entity provides at this sponsorship level.  Higher levels assume all benefits from lower levels unless noted otherwise.
     - *governance:* If the sponsor gets direct rights in entity governance: typically sponsors can either appoint a board seat, or are eligible to vote in board elections.
     - *advisory:* If the sponsor gets access to an advisory council, the entity leadership or other committees, or the like.
     - *events:* Event tickets, discounts, or additional sponsorship opportunities.

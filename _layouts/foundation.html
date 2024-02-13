@@ -26,8 +26,8 @@ layout: default
   {% if page.bylawsurl %}<abbr title="Corporate bylaws URL.">Bylaws Website</abbr>: <a itemprop="bylawsurl" href="{{ page.bylawsurl }}">{{ page.bylawsurl }}</a><br/>{% endif %}
   {% if page.numberOfEmployees %}<abbr title="Approximate number of paid employees or equivalents.">Approx Number Of Paid Staff</abbr>: <span itemprop="numberOfEmployees">{{ page.numberOfEmployees }}</span><br/>{% endif %}
   </section>
-  <section id="finance-section"> 
-  <h2 id="finance">Finance</h2>
+  <section id="funding-section"> 
+  <h2 id="funding">Funding</h2>
   {% if page.taxID %}<abbr title="US IRS taxID, or other country's tax identifier (if any).">Tax Authority ID</abbr>: <span itemprop="taxID">{{ page.taxID }}</span><br/>{% endif %}
   {% if page.taxIDLocal %}<abbr title="Per-state, province, or similar tax ID for the corporate entity.">Local Tax Authority ID</abbr>: <span itemprop="taxIDLocal">{{ page.taxIDLocal }}</span><br/>{% endif %}
   {% if page.nonprofitStatus %}<abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: <span itemprop="nonprofitStatus">{{ page.nonprofitStatus }}</span><br/>{% endif %}
@@ -77,6 +77,26 @@ layout: default
   {% if page.parentOrganization %}<abbr title="Legal organization or foundation this project belongs to.">Parent Organization</abbr>: <span itemprop="parentOrganization">{{ page.parentOrganization }}</span><br/>{% endif %}
   {% if page.subOrganization %}<abbr title="Unused: should this be used instead of projectList?">Sub Projects Listed</abbr>: <span itemprop="subOrganization">{{ page.subOrganization }}</span><br/>{% endif %}
   </section>
+
+  {% if page.taxID %}
+    {% assign pein = page.taxID | remove: "-" %}{% assign pp = site.data.p990[pein] %}
+    {% if pp %}
+      <section id="taxes-section"> 
+        <h2 id="taxes">Tax Financial Data</h2>
+        <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
+        <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
+        <div id="approx-990-data">
+          <strong>Approximate</strong> financial status from <a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">ProPublica JSON data</a><br/>
+          <abbr title="Most recent filed tax period.">Tax Period</abbr>: <span itemprop="tax_period">{{ pp.organization.tax_period }}</span><br/>
+          <abbr title="Total assets at end of year.">Assets EOY</abbr>: <span itemprop="asset_amount">{{ pp.organization.asset_amount }}</span><br/>
+          <abbr title="Total revenue for year.">Revenue</abbr>: <span itemprop="revenue_amount">{{ pp.organization.revenue_amount }}</span><br/>
+        </div>
+      </section>
+    {% endif %}
+  {% endif %}
+
+
+
   <hr id="details"/>
 
   {{ content }}

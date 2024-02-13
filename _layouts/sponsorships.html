@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<hr id="listing"/>
+<ul>
+  {% for fdn in site.sponsorships %}
+  <li><a id="{{ fdn.identifier }}" href="/sponsorships/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>
+  {% endfor %}
+</ul>
