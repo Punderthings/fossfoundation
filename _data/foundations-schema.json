@@ -101,6 +101,11 @@
       "description": "US IRS taxID, or other country's tax identifier (if any).",
       "type": "string"
     },
+    "taxIDLocal": {
+      "title": "Local Tax Authority ID",
+      "description": "Per-state, province, or similar tax ID for the corporate entity.",
+      "type": "string"
+    },
     "nonprofitStatus": {
       "title": "Nonprofit Type",
       "description": "Specific type of non-profit; US or other country type.",
@@ -141,6 +146,11 @@
     "sponsorList": {
       "title": "Example Sponsors",
       "description": "Example listing of top-level annual recurring sponsors.",
+      "type": "string"
+    },
+    "sponsorship": {
+      "title": "Sponsorship Program Mapping",
+      "description": "If present, name of a mapping file defining sponsorship levels, listings, etc.  May be an array thereof.",
       "type": "string"
     },
     "licenses": {
