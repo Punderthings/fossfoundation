@@ -15,14 +15,15 @@ require 'optparse'
 # BUG: .md files output must have a closing --- document end marker added
 def csv2jekyll(infile, outdir, outext)
   lines = 0
-  CSV.foreach(File.open(infile), {:headers => true}) do |row|
+  puts "DEBUG #{infile}, #{outdir}, #{outext}"
+  CSV.foreach(File.open(infile), :headers => true) do |row|
     lines += 1
     File.open(File.join(outdir, "#{row['identifier']}#{outext}"), 'w') do |file|
       file.write(YAML.dump(row.to_h))
     end
-    File.open(File.join(outdir, "#{row['identifier']}.json"), 'w') do |file|
-      file.write(JSON.dump(row.to_h))
-    end
+    # File.open(File.join(outdir, "#{row['identifier']}.json"), 'w') do |file|
+    #   file.write(JSON.dump(row.to_h))
+    # end
   end
   return lines
 end
@@ -59,22 +60,63 @@ def csv2jsonschema(infile, outfile)
 return lines
 end
 
+# HACK simplistic processing of hash/array schema objects (recursive)
+# @param parentname string of this schema object that contains other objects
+# @param schema hash to process and emit liquid for
+# @param linesep to use if needed
+# @return multiline string of liquid statements
+def emit_schema_object(parentname, childname, schema, linesep)
+  liquid = ''
+  name_hack = parentname ? "#{parentname}.#{childname}" : childname
+  properties = schema['properties']
+  properties.each do |itmname, hash|
+    if 'object'.eql?(hash['type'])
+      liquid << "{% if page.#{name_hack}.#{childname}.#{itmname} %}\n"
+      liquid << emit_schema_object(name_hack, itmname, hash, linesep)
+      liquid << linesep if linesep
+      liquid << "{% endif %}\n"
+    else
+      liquid << emit_schema_scalar(name_hack, itmname, hash, linesep)
+    end
+  end
+  return liquid
+end
+
+# Simplistic processing of scalar schema objects
+# @param fieldname string of this schema object
+# @param schema hash to process and emit liquid for
+# @param linesep to use if needed
+# @return multiline string of liquid statements
+def emit_schema_scalar(parentname, fieldname, schema, linesep)
+  name_hack = parentname ? "#{parentname}.#{fieldname}" : fieldname
+  liquid = "{% if page.#{name_hack} %}"
+  liquid << "<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>: "
+  if 'url'.eql?(schema.fetch('format', ''))
+    liquid << "<a itemprop=\"#{name_hack}\" href=\"{{ page.#{name_hack} }}\">{{ page.#{name_hack} }}</a>"
+  else
+    liquid << "<span itemprop=\"#{name_hack}\">{{ page.#{name_hack} }}</span>"
+  end
+  liquid << linesep if linesep
+  liquid << "{% endif %}\n"
+  return liquid
+end
+
 # Transform JSON Schema into Jekyll Liquid templates
 # NOTE: only creates partial template; manual tweaking necessary
 def schema2liquid(infile, linesep)
-  liquid = ''
+  liquid = <<~LIQUID_HEADER
+  ---
+  layout: default
+  ---
+  LIQUID_HEADER
   schema = JSON.parse(File.read(infile))
   properties = schema['properties']
-  properties.each do |fieldName, hash|
-    liquid << "{% if page.#{fieldName} %}"
-    liquid << "<abbr title=\"#{hash['description']}\">#{hash['title']}</abbr>: "
-    if 'url'.eql?(hash.fetch('format', ''))
-      liquid << "<a itemprop=\"#{fieldName}\" href=\"{{ page.#{fieldName} }}\">{{ page.#{fieldName} }}</a>"
+  properties.each do |fieldname, hash|
+    if 'object'.eql?(hash['type'])
+      liquid << emit_schema_object(nil, fieldname, hash, linesep)
     else
-      liquid << "<span itemprop=\"#{fieldName}\">{{ page.#{fieldName} }}</span>"
+      liquid << emit_schema_scalar(nil, fieldname, hash, linesep)
     end
-    liquid << linesep if linesep
-    liquid << "{% endif %}\n"
   end
   return liquid
 end
@@ -91,7 +133,7 @@ def parse_commandline
     opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
       options[:infile] = infile
     end
-    opts.on('-ACTION', '--action ACTION', 'What action/operation to do: jekyll, json, liquid') do |action|
+    opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, json, liquid') do |action|
       options[:action] = action
     end
     begin
@@ -117,11 +159,11 @@ if __FILE__ == $PROGRAM_NAME
   case options[:action]
   when 'jekyll'
     puts "BEGIN #{__FILE__}.csv2jekyll(#{options[:infile]}, #{options[:out]}, #{outext})"
-    lines = csv2jekyll(infile, outdir, outext)
+    lines = csv2jekyll(options[:infile], options[:out], outext)
     puts "END parsed csv rows: #{lines}"
   when 'json'
     puts "BEGIN #{__FILE__}.csv2jsonschema(#{options[:infile]}, #{options[:out]})"
-    lines = csv2jsonschema(options[:infile], outfile)
+    lines = csv2jsonschema(options[:infile], options[:out])
     puts "END parsed csv rows: #{lines}"
 
   when 'liquid'
