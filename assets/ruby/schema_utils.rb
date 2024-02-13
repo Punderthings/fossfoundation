@@ -121,6 +121,21 @@ def schema2liquid(infile, linesep)
   return liquid
 end
 
+# Transform JSON into Jekyll frontmatter
+def json2jekyll(infile, outfile)
+  jekyll = '' # NOTE: YAML.dump outputs document separator
+  olddata = JSON.parse(File.read(infile))
+  json = {}
+  json['identifier'] = File.basename(infile, '.json') # Force to be first
+  json['commonName'] = File.basename(infile, '.json')
+  json = json.merge(olddata['20240101']) # Hack for CURRENT_SPONSORSHIP
+  jekyll << YAML.dump(json)
+  jekyll << "---\n"
+  File.open(outfile, 'w') do |file|
+    file.write(jekyll)
+  end
+end
+
 # ## ### #### ##### ######
 # Check commandline options
 def parse_commandline
@@ -133,7 +148,7 @@ def parse_commandline
     opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
       options[:infile] = infile
     end
-    opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, json, liquid') do |action|
+    opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, csv, liquid, json') do |action|
       options[:action] = action
     end
     begin
@@ -161,17 +176,27 @@ if __FILE__ == $PROGRAM_NAME
     puts "BEGIN #{__FILE__}.csv2jekyll(#{options[:infile]}, #{options[:out]}, #{outext})"
     lines = csv2jekyll(options[:infile], options[:out], outext)
     puts "END parsed csv rows: #{lines}"
-  when 'json'
+  when 'csv'
     puts "BEGIN #{__FILE__}.csv2jsonschema(#{options[:infile]}, #{options[:out]})"
     lines = csv2jsonschema(options[:infile], options[:out])
     puts "END parsed csv rows: #{lines}"
-
   when 'liquid'
     LINESEP = "<br/>"
     puts "BEGIN #{__FILE__}.schema2liquid(#{options[:infile]}, #{LINESEP})"
     lines = schema2liquid(options[:infile], LINESEP)
     File.write(options[:out], lines)
+  when 'json'
+    puts "BEGIN #{__FILE__}.json2jekyll(#{options[:infile]}, #{options[:out]})"
+    if File.directory?(options[:infile])
+      puts "BEGIN #{__FILE__}.json2jekyll(#{options[:infile]}) directory *.json processing"
+      Dir["#{options[:infile]}/*.json"].each do |f|
+        json2jekyll(f, f.sub('.json', '.md'))
+      end
+    else
+      puts "BEGIN #{__FILE__}.json2jekyll(#{options[:infile]}) file processing"
+      json2jekyll(options[:infile], options[:out])
+    end
   else
-    puts "Sorry, only support jekyll|json|liquid options."
+    puts "Sorry, only support jekyll|csv|liquid|json options."
   end
 end

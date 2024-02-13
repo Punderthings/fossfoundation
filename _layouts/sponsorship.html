@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<article class="sponsorship_single" itemscope itemtype="http://schema.org/Organization">
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: '%B %d, %Y' }}">{% endif %}
+  <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a> 
+    {{ page.commonName }} - Sponsorship Program Model
+  </h1>
+  {% if page.fiscalHost %}
+  {% assign fiscalhost_map = site.data.fiscalhost-map %}
+  <abbr title="A Fiscal Host handles financial matters for this project.">Fiscal Host</abbr>: <a href="/foundations/{{ page.fiscalHost }}"><span itemprop="fiscalHost">{{ fiscalhost_map[page.fiscalHost] }}</span></a><br/>
+  {% else %}
+  <i><a href="/foundations/{{ page.identifier }}">See main foundation page</a></i><br/>
+  {% endif %}
+  {% if page.nonprofit %}<abbr title="US IRS c3, c6, subproject of lf (linux foundation), or other.">Kind of nonprofit</abbr>: <span itemprop="nonprofit">{{ page.nonprofit }}</span><br/>{% endif %}
+  {% if page.sponsorurl %}<abbr title="URL to read list of current entity sponsors.">Sponsor URL</abbr>: <a href="{{ page.sponsorurl }}"><span itemprop="sponsorurl">{{ page.sponsorurl }}</span></a><br/>{% endif %}
+  {% if page.levelurl %}<abbr title="URL to review for entity definition of sponsorship levels.">Levels URL</abbr>: <a href="{{ page.levelurl }}"><span itemprop="levelurl">{{ page.levelurl }}</span></a><br/>{% endif %}
+  {% if page.landscape %}<abbr title="If set, treat sponsorurl as a landscape.yml file and parse as per CNCF standard.">Is Landscape Flag</abbr>: <a href="{{ page.landscape }}"><span itemprop="landscape">{{ page.landscape }}</span></a><br/>{% endif %}
+  {% if page.staticmap %}<abbr title="If present, is ISO8601 date from which we use included static map of sponsors (i.e. we will not parse sponsorul live).">Static Sponsor Map Built</abbr>: <span itemprop="staticmap">{{ page.staticmap }}</span><br/>{% endif %}
+  {% if page.sponsormap %}<abbr title="If present, read a mapping file of complex URL fragments to sponsor hostnames (to simplify parsing).">Custom URL Mapping File</abbr>: <span itemprop="sponsormap">{{ page.sponsormap }}</span><br/>{% endif %}
+  {% if page.normalize %}<abbr title="If we should explicitly normalize URLs to hostnames or not.">Normalize URL Flag</abbr>: <span itemprop="normalize">{{ page.normalize }}</span><br/>{% endif %}
+
+  <h2 id="levels">Sponsorship Level Model</h2>
+  <div class="highlight"><a href="/sponsorships/">See sponsorship model definitions</a></div>
+  {% assign level_map = site.data.sponsorship-levels %}
+  {% assign levels = page.levels %}
+  {% for level in levels %}
+  {% assign levelname = level[0] %}
+  <section id="level-{{ levelname }}" class="sponsorship-level">    
+    <h3>{{ level_map[levelname] }}</h3>
+      <abbr title="Name of the level the entity uses.">Name of Level</abbr>: <span itemprop="name">{{ level[1].name | capitalize }}</span><br/>
+      <abbr title="USD cash amount the entity notes for a typical sponsorship.">Amount</abbr>: <span itemprop="amount">{{ level[1].amount }}</span><br/>
+      {% if level[1].amountvaries %}<abbr title="If present, describe how the sponsorship cash amount varies; we list the highest part of the range in amount field.">Amount Varies?</abbr>: <span itemprop="amountvaries">{{ level[1].amountvaries }}</span><br/>{% endif %}
+      {% if level[1].selector %}<abbr title="CSS selector to find a nodelist of elements that are sponsor listings.">CSS Selector</abbr>: <span itemprop="selector">{{ level[1].selector }}</span><br/>{% endif %}
+      {% if level[1].attr %}<abbr title="Attribute to copy from the selector's nodelist.">Attribute</abbr>: <span itemprop="attr">{{ level[1].attr }}</span><br/>{% endif %}
+      {% if level[1].benefits %}
+      <div class="level-benefits">
+        <h4>Level Benefits</h4>
+        {% if level[1].benefits.governance %}<abbr title="If the sponsor gets direct rights in entity governance: typically sponsors can either appoint a board seat, or are eligible to vote in board elections.">Governance Benefits</abbr>: <span itemprop="benefits.governance">{{ level[1].benefits.governance }}</span><br/>{% endif %}
+        {% if level[1].benefits.advisory %}<abbr title="If the sponsor gets access to an advisory council, the entity leadership or other committees, or the like.">Advisory Benefits</abbr>: <span itemprop="benefits.advisory">{{ level[1].benefits.advisory }}</span><br/>{% endif %}
+        {% if level[1].benefits.events %}<abbr title="Event tickets, discounts, or additional sponsorship opportunities.">Events Benefits</abbr>: <span itemprop="benefits.events">{{ level[1].benefits.events }}</span><br/>{% endif %}
+        {% if level[1].benefits.services %}<abbr title="Training or other services provided or discounted.">Services Benefits</abbr>: <span itemprop="benefits.services">{{ level[1].benefits.services }}</span><br/>{% endif %}
+        {% if level[1].benefits.marketing %}<abbr title="Any outreach, marketing, or similar that the entity will provide for or work with the sponsor in conjunction on, like shared press releases.">Marketing Benefits</abbr>: <span itemprop="benefits.marketing">{{ level[1].benefits.marketing }}</span><br/>{% endif %}
+        {% if level[1].benefits.logo %}<abbr title="Any specific notes on how a sponsor's logo is displayed (or not displayed).">Logo Display</abbr>: <span itemprop="benefits.logo">{{ level[1].benefits.logo }}</span><br/>{% endif %}
+      </div>
+      {% endif %}
+  </section>
+  {% endfor %}
+
+<hr id="details"/>
+
+{{ content }}
+
+</article>
