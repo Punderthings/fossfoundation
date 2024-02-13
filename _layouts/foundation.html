@@ -38,7 +38,11 @@ layout: default
   {% if page.budgetTransparent %}<abbr title="Is the official budget shared publicly and fully, or is it opaque?">Budget Transparency</abbr>: <span itemprop="budgetTransparent">{{ page.budgetTransparent }}</span><br/>{% endif %}
   {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
   {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
-  {% if page.sponsorship %}<abbr title="Modeling sponsorship program levels.">Sponsorship Model</abbr>: <a itemprop="sponsorship" href="/sponsorships/{{ page.sponsorship }}">{{ page.sponsorship }}</a><br/>{% endif %}
+  {% if page.sponsorship %}
+    {% for model in page.sponsorship %}
+      <abbr title="Modeling sponsorship program levels.">Sponsorship Model(s)</abbr>: <a itemprop="sponsorship" href="/sponsorships/{{ model }}">{{ model }}</a><br/>
+    {% endfor %}
+  {% endif %}
   </section>
   <section id="policy-section"> 
   <h2 id="policy">Policy</h2>
