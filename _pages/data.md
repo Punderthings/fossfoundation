@@ -8,7 +8,11 @@ nav_order: 20
 
 This foundation directory should curate metadata rigorously organized enough for academic research, and should be easy enough to maintain and use for any open source organizers who find it valuable.  We [encourage contributions](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
 
-## Data Organization Philosophy 
+## Data Organization Philosophy
+
+All data, basic instructions and explanations about the site, and basic visualizations or listings should be stored in human-editable formats, and should be served statically with minimal dependencies.  This ensures that maintenance issues don't break things, and that people with limited browsing clients can still participate.  Advanced features or larger data analysis tools should seek to minimize dependencies or any regular required maintenance.  Our data should also strive to be consistent and persistent.  This helps both casual users find the data, and helps researchers by keeping stable URLs and formats.
+
+### Primary Data Store: FOSS Foundations
 
 Data is stored per foundation as a single `asf.md` file per organization in the `_foundations` directory.  Each file is a standard Jekyll document with a [leading YAML frontmatter](https://jekyllrb.com/docs/front-matter/) document with structured metadata, followed by a `---` YAML document separator, followed by unstructured Markdown content.
 
@@ -16,7 +20,7 @@ Data is stored per foundation as a single `asf.md` file per organization in the 
 - **Enough Structured Data** Metadata follows a [simple schema](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json), with a goal to be "good enough" for common research cases.  Researchers needing more structured data are welcome to collaborate and add new fields or features.
 - **Human Readable Formats** Using YAML and Markdown with GitHub Pages ensures the directory can be simple to understand for anyone, and can be a resource for anyone in open source who wants to learn about Foundations.
 
-## Inclusion Criteria
+### FOSS Foundations Inclusion Criteria
 
 Our focus is on legal organizations that host, organize, and help sustain major open source projects around the world - commonly called Foundations.  Since there are many, many variations of important organizations in the FOSS world, we are currently focusing on some specific criteria.
 
@@ -27,9 +31,18 @@ Our focus is on legal organizations that host, organize, and help sustain major 
 
 Things that aren't included: [commercial companies](commercial) (of any kind), and the many non-incorporated open source projects without legal organizations.  Limited listings of [individual open source projects](projects) hosted at Foundations are included to help provide context.
 
+### Other FOSS Related Data
+
+We also plan to incorporate other quantifiable data about the FOSS ecosystem, especially finances, sponsorships, and structural relationships - i.e. foundations with subprojects; governance structures; and the like.
+
+- **Entities** are self-organized and funded projects that are not legal corporations; they typically use a fiscal host.  Key examples are CNCF (a division of the Linux Foundation) and Debian (with a clear governance and budget structure, but uses SPI as a fiscal host).  This work is starting on [capturing data for key project entities](entities).
+- **Sponsorships** are modeled based on ordinal levels of recurring sponsorship payments (or inkind services).  Data is drawn directly from FOSS organizations themselves.  See the [sponsorships schema and current dataset](sponsorships).
+- **US 990 Tax Data** is drawn from Propublica's digested IRS 990 filings, and quickly gives a solid financial overview of many US-based foundations.  We [host organizational 990 JSON data](taxes) as a convenience (but expect to keep URLs permanently). 
+- **Budgets** are planned to be modeled as financial figures based on organizations' actual budgets, or estimated figures based on annual reports or similar materials from the organizations themselves.  This work is [just starting on definitions](budgets) (summer 2024).
+
 ## Schemas And Validation
 
-A simplistic [schema for foundation metadata](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json) is checked in.  Suggestions for improvements to make the data more useful are appreciated!
+A simplistic [schema for foundation metadata](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json) is checked in.  Suggestions for improvements to make the data more useful are appreciated!  See also schemas and datastore notes for [sponsorships](sponsorships), [taxes](taxes), and [budgets](budgets).
 
 The [roadmap](roadmap) includes building linting and data consistency checks.  Currently, these are done manually, or via using semi-automated ruby scripts in the `assets/ruby` directory.  For example:
 

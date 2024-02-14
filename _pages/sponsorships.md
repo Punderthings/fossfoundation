@@ -28,9 +28,9 @@ Since many projects with well-known sponsorship programs use separate entities a
 - **Only Public Data** We track the actual sponsorships listed by entities themselves, not press releases or statements by sponsors.
 - **Financial Figures Are Approximate** While sponsorship level amounts are taken directly from entity programs, the actual funds a specific sponsor may pay any year could vary.  All financial numbers, especially top-line reports, are estimates only.
 
-## Sponsorship Model Structure
+### Sponsorship Model Structure
 
-Sponsorships are dated, to enable future review of sponsorships over time via using the [Wayback Machine](https://archive.org/) or similar tools to capture past listed sponsors.  Other fields used include:
+Sponsorships are dated, to enable future review of sponsorships over time via using the [Wayback Machine](https://archive.org/) or similar tools to capture past listed sponsors.  Other fields used include: (see also [prototype sponsorships-schema.json](https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json))
 
 - *nonprofit:* what type of US nonprofit: c3, c6, or `lf` for Linux Foundation projects.
 - *sponsorurl:* URL listing current entity sponsors to scrape programmatically.
@@ -61,9 +61,8 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
 - [`sponsor_utils`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_utils.rb) reads sponsorship models, and then parses either html or yml (or a staticmap) to scrape a sponsor listing and produce a hash mapping for that entity.
 - [`sponsor_reports`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_reports.rb) reads the output above, and creates simple reports.  Reports focus on mapping sponsors to entities and vice-versa, as well as totaling approximate sponsorship values shown for all tracked entities.
 
-Data is typically output as .json into the `_data` directory.
 
-### Roadmap / Contributions Wanted
+## Roadmap / Contributions Wanted
 
 There are many improvements we'd love to see contributed, especially in terms of helping to clearly explain the limitations of this model.  In particular, the actual cash amounts are only approximations valid for general statistical purposes.
 
@@ -72,4 +71,4 @@ There are many improvements we'd love to see contributed, especially in terms of
 - [ ] Validate various entity models.
 - [ ] Build historical scraping tools for entities we can use Wayback Machine on their websites.
 - [ ] Improve reports and add visualizations.
-- [ ] Build comparisons with other financial data or US IRS 990 figures; i.e. rough sponsorship income from a model vs. the 990's contributions amount.
+- [ ] Build comparisons with other financial data or [US IRS 990 figures](taxes); i.e. rough sponsorship income from a model vs. the 990's contributions amount.
