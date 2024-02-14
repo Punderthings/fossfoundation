@@ -47,6 +47,10 @@ collections:
     output: true
     sort_by: name
     permalink: /:collection/:path
+  entities:
+    output: true
+    sort_by: name
+    permalink: /:collection/:path
 
 # Defaults
 defaults:
@@ -60,3 +64,8 @@ defaults:
       type: "sponsorships"
     values:
       layout: sponsorship
+  - scope:
+      path: ""
+      type: "entities"
+    values:
+      layout: entity
