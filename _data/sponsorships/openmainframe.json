@@ -1,0 +1,47 @@
+{
+  "first": [
+    "adp.com",
+    "broadcom.com",
+    "ibm.com",
+    "rocketsoftware.com",
+    "suse.com"
+  ],
+  "second": [
+    "canonical.com",
+    "convergetp.com",
+    "phoenixsoftware.com",
+    "precisely.com",
+    "bizapedia.com"
+  ],
+  "academic": [
+    "asurams.edu",
+    "bit.edu.cn",
+    "hs-coburg.de",
+    "ecu.edu",
+    "hogent.be",
+    "htl-donaustadt.at",
+    "goethe-university-frankfurt.de",
+    "informatik.uni-leipzig.de",
+    "marist.edu",
+    "ncat.edu",
+    "scut.edu.cn",
+    "beds.ac.uk",
+    "washington.edu",
+    "wlv.ac.uk",
+    "vcu.edu",
+    "uwo.ca",
+    "wpunj.edu",
+    "xidian.edu.cn",
+    "epsi.fr"
+  ],
+  "community": [
+    "amc-ev.org",
+    "mainframe-academy.de",
+    "forbladi.org",
+    "gse.org.uk",
+    "gse.org",
+    "myhsts.org",
+    "share.org"
+  ],
+  "parseDate": "20240215"
+}

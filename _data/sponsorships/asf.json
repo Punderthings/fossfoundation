@@ -1,0 +1,88 @@
+{
+  "first": [
+    "apple.com",
+    "aws.amazon.com",
+    "facebook.com",
+    "google.com",
+    "huawei.com",
+    "microsoft.com",
+    "news.apache.org",
+    "yahooinc.com"
+  ],
+  "second": [
+    "aiven.io",
+    "apache.org",
+    "baidu.com",
+    "bloomberg.com",
+    "cloudera.com",
+    "confluent.io",
+    "ibm.com",
+    "union-investment.de",
+    "visa.com",
+    "workday.com"
+  ],
+  "third": [
+    "aetna.com",
+    "capitalone.com",
+    "indeed.com",
+    "linecorp.com",
+    "redhat.com",
+    "salesforce.com",
+    "snowflake.com",
+    "target.com"
+  ],
+  "fourth": [
+    "canva.com",
+    "engineering.cerner.com",
+    "curity.io",
+    "datastrato.com",
+    "dimealley.com",
+    "dollarhand.com",
+    "gridgain.com",
+    "getgrist.com",
+    "libriciel.fr",
+    "rx-m.com",
+    "renre.com",
+    "sentry.io",
+    "theblogstarter.com"
+  ],
+  "firstinkind": [
+    "aws.amazon.com",
+    "cloudbees.com",
+    "dlapiper.com",
+    "gradle.com",
+    "leaseweb.com",
+    "jfrog.com",
+    "microsoft.com",
+    "osuosl.org",
+    "yahooinc.com",
+    "sonatype.com",
+    "jetbrains.com",
+    "fastly.com",
+    "github.com"
+  ],
+  "secondinkind": [
+    "atlassian.com",
+    "datadoghq.com",
+    "docker.com",
+    "phoenixnap.com",
+    "dinosource.co"
+  ],
+  "thirdinkind": [
+    "instaclustr.com",
+    "mi.com"
+  ],
+  "fourthinkind": [
+    "bloomberg.com",
+    "ena.com",
+    "google.com",
+    "hopsie.com",
+    "noip.com",
+    "pagerduty.com",
+    "pccc.com",
+    "sonic.com",
+    "surfnet.nl",
+    "virtru.com"
+  ],
+  "parseDate": "20240215"
+}

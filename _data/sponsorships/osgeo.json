@@ -1,0 +1,32 @@
+{
+  "first": [
+    "wherobots.ai",
+    "opengis.ch",
+    "geocat.net"
+  ],
+  "second": [
+    "camptocamp.com",
+    "mapgears.com"
+  ],
+  "third": [
+    "wigeogis.com",
+    "wheregroup.com",
+    "gaia3d.com"
+  ],
+  "fourth": [
+    "uk.osgeo.org",
+    "terrestris.de"
+  ],
+  "fifth": [
+    "sjgeophysics.com",
+    "illustreets.com",
+    "ip2location.com",
+    "merginmaps.com",
+    "mammothgeospatial.com",
+    "kaplanopensource.co.il",
+    "line-45.com",
+    "arxit.com",
+    "how2map.com"
+  ],
+  "parseDate": "20240215"
+}

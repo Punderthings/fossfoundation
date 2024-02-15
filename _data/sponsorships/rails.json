@@ -1,0 +1,20 @@
+{
+  "first": [
+    "cookpad.com",
+    "doximity.com",
+    "fleetio.com",
+    "github.com",
+    "intercom.com",
+    "procore.com",
+    "shopify.com",
+    "37signals.com"
+  ],
+  "second": [
+    "appsignal.com",
+    "bigbinary.com",
+    "cedarcode.com",
+    "planetargon.com",
+    "renuo.ch"
+  ],
+  "parseDate": "20240212"
+}

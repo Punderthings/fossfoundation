@@ -1,0 +1,64 @@
+{
+  "first": [
+    "google.com",
+    "bloomberg.com"
+  ],
+  "second": [
+    "ansys.com",
+    "microsoft"
+  ],
+  "third": [
+    "american-express",
+    "capitalone.com",
+    "python-software-foundation",
+    "aws"
+  ],
+  "fourth": [
+    "indeed.com",
+    "redhat.com",
+    "openedg.org"
+  ],
+  "fifth": [
+    "crunchy-data",
+    "pydantic.dev",
+    "sentry.io",
+    "janestreet.com",
+    "jetbrains.com"
+  ],
+  "sixth": [
+    "rezoomex",
+    "elastic.co",
+    "lerner.co.il",
+    "deepset.ai",
+    "temporal.io",
+    "endor-labs",
+    "anvil",
+    "capeprivacy.com",
+    "akamai.com",
+    "telemetryhub.com",
+    "noteable.io",
+    "datadog.com",
+    "nostarch.com",
+    "usds.gov",
+    "hudsonrivertrading.com"
+  ],
+  "seventh": [
+    "sixfeetup.com",
+    "astral",
+    "pythonic-exam.com",
+    "stickermule.com",
+    "guidebook.com",
+    "twosigma.com",
+    "netflix.com",
+    "quansight.com",
+    "lincolnloop.com"
+  ],
+  "eighth": [
+    "devitjobs",
+    "minimumdepositcasinos.org",
+    "dm-jobs.com",
+    "easeus.com",
+    "roboflow.com"
+  ],
+  "parseDate": "20240215"
+}

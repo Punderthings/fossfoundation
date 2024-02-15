@@ -1,0 +1,21 @@
+{
+  "first": [
+    "apple.com",
+    "quicinc.com"
+  ],
+  "second": [
+    "google.com",
+    "fastly.com",
+    "ibm.com"
+  ],
+  "third": [
+    "arm.com",
+    "intel.com",
+    "accesssoftek.com"
+  ],
+  "fourth": [
+    "mathworks.com",
+    "reservoir.com"
+  ],
+  "parseDate": "20240215"
+}

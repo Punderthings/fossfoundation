@@ -1,0 +1,42 @@
+{
+  "first": [
+    "ibm.com",
+    "joyent.com",
+    "microsoft.com",
+    "sovereigntechfund.de"
+  ],
+  "second": [
+    "godaddy.com",
+    "google.com",
+    "herodevs.com"
+  ],
+  "third": [
+    "americanexpress.com",
+    "theblogstarter.com",
+    "bloomberg.com",
+    "capitalone.com",
+    "cargurus.com",
+    "flowfuse.com",
+    "foursquare.com",
+    "github.com",
+    "greyshore.com",
+    "groupon.com",
+    "hackerone.com",
+    "jobyaviation.com",
+    "livingspec.com",
+    "fb.com",
+    "www.nearform.com",
+    "netflix.com",
+    "nodesource.com",
+    "platformatic.dev",
+    "redhat.com",
+    "saucelabs.com",
+    "sentry.io",
+    "www.tafsol.com",
+    "www.uber.com"
+  ],
+  "academic": null,
+  "community": null,
+  "enduser": null,
+  "parseDate": "20240212"
+}

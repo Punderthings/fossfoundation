@@ -1,0 +1,31 @@
+{
+  "first": [
+    "airbnb.com",
+    "amazon.com",
+    "apollographql.com",
+    "atlassian.com",
+    "copilottravel.com",
+    "elementl.com",
+    "escape.tech",
+    "gatsbyjs.org",
+    "goldmansachs.com",
+    "grafbase.com",
+    "hasura.io",
+    "hygraph.com",
+    "inigo.io",
+    "ibm.com",
+    "intuit.com",
+    "microsoft.com",
+    "neo4j.com",
+    "platformatic.dev",
+    "postman.com",
+    "saleor.io",
+    "salsify.com",
+    "shopify.com",
+    "solo.io",
+    "graphcdn.io",
+    "the-guild.dev",
+    "tyk.io"
+  ],
+  "parseDate": "20240215"
+}

@@ -33,7 +33,7 @@ module SponsorUtils
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
   SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
   CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
-  DEFAULT_OUTFILE = '_data/allsponsorships-new.json' # Default to producing report of everything
+  DEFAULT_OUTDIR = '_data/sponsorships'
 
   # Return a normalized domain name for mapping to a single sponsor org
   # HACK note several special casees mapping down to single org
@@ -168,7 +168,7 @@ module SponsorUtils
 
   # Future use: allow parsing historical sponsorships
   def get_current_sponsorship(sponsorship)
-    return sponsorship[CURRENT_SPONSORSHIP]
+    return sponsorship # TODO refactor for use with yaml frontmatter in .md files (or drop feature)
   end
 
   # Process single sponsorship lookup
@@ -266,7 +266,7 @@ module SponsorUtils
 
   # Convenience method to get a sponsorship file by org id
   def get_sponsorship_file(org)
-    return JSON.parse(File.read("_sponsorships/#{org}.json"))
+    return YAML.safe_load(File.read("_sponsorships/#{org}.md"), aliases: true)
   end
 
   # ## ### #### ##### ######
@@ -275,7 +275,7 @@ module SponsorUtils
     options = {}
     OptionParser.new do |opts|
       opts.on('-h', '--help') { puts "#{DESCRIPTION}\n#{opts}"; exit }
-      opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation.') do |out|
+      opts.on('-oOUTFILE', '--out OUTFILE', 'Output dir or filename for operation.') do |out|
         options[:out] = out
       end
       opts.on('-oORGID', '--one ORGID', 'Input org id (asf, python, etc.) to parse one.') do |orgid|
@@ -303,14 +303,16 @@ module SponsorUtils
     orgid = options.fetch(:orgid, nil)
     parsed = {}
     if orgid
-      options[:outfile] ||= "_data/#{orgid}-new.json"
+      options[:outfile] ||= File.join(DEFAULT_OUTDIR, "#{orgid}.json")
       parsed = process_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
     else
-      options[:outfile] ||= DEFAULT_OUTFILE
+      options[:outfile] ||= DEFAULT_OUTDIR
       parsed = process_all_sponsorships()
     end
-    File.open(options[:outfile], "w") do |f|
-      f.write(JSON.pretty_generate(parsed))
+    parsed.each do | org, sponsorship |
+      File.open(File.join(options[:outfile], "#{org}.json"), "w") do |f|
+        f.write(JSON.pretty_generate(sponsorship))
+      end
     end
   end
 end

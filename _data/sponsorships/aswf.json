@@ -1,0 +1,46 @@
+{
+  "first": [
+    "oscars.org",
+    "adobe.com",
+    "amazon.com",
+    "autodesk.com",
+    "dneg.com",
+    "dreamworks.com",
+    "epicgames.com",
+    "google.com",
+    "intel.com",
+    "microsoft.com",
+    "netflix.com",
+    "nvidia.com",
+    "sonypictures.com",
+    "disney.com",
+    "wetafx.co.nz"
+  ],
+  "second": [
+    "animallogic.com",
+    "bolt.graphics",
+    "canonical.com",
+    "coreweave.com",
+    "framestore.com",
+    "ftrack.com",
+    "hp.com",
+    "maxon.net",
+    "modtechlabs.com",
+    "otoy.com",
+    "redhat.com",
+    "rodeofx.com",
+    "sidefx.com",
+    "foundry.com",
+    "warnerbros.com",
+    "wevr.com"
+  ],
+  "third": [
+    "blender.org",
+    "etcenter.org",
+    "movielabs.com",
+    "smpte.org",
+    "khronos.org",
+    "vesglobal.org"
+  ],
+  "parseDate": "20240215"
+}

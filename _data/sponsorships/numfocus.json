@@ -1,0 +1,43 @@
+{
+  "first": [
+    "bloomberg.com",
+    "troweprice.com",
+    "ibm.biz",
+    "anaconda.com",
+    "posit.co",
+    "google.com"
+  ],
+  "second": [
+    "microsoft.com",
+    "holoceneadvisors.com",
+    "nvidia.com",
+    "qube-rt.com",
+    "twosigma.com",
+    "esri.com",
+    "planet.com"
+  ],
+  "third": [
+    "imc.com",
+    "shopify.com",
+    "safe.com"
+  ],
+  "community": [
+    "koordinates.com",
+    "snowflake.com",
+    "block.science",
+    "mapgears.com",
+    "taipy.io",
+    "noteable.io",
+    "corporate.comcast.com",
+    "tesseratherapeutics.com"
+  ],
+  "startuppartners": [
+    "bytewax.io"
+  ],
+  "grants": [
+    "moore.org",
+    "chanzuckerberg.com",
+    "sloan.org"
+  ],
+  "parseDate": "20240215"
+}

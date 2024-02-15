@@ -1,0 +1,31 @@
+{
+  "first": [
+    "google.com"
+  ],
+  "second": [
+    "amazon.com"
+  ],
+  "third": [
+    "bloomberg.com",
+    "capitalone.com",
+    "cisco.com",
+    "github.com",
+    "intel.com",
+    "fb.com",
+    "redhat.com"
+  ],
+  "fourth": [
+    "ferretdb.io",
+    "microsoft.com",
+    "openlogic.com",
+    "salesforce.com",
+    "tidelift.com"
+  ],
+  "fifth": [
+    "blindsidenetworks.com",
+    "sentry.io",
+    "www.slim.ai",
+    "sysdig.com"
+  ],
+  "parseDate": "20240212"
+}

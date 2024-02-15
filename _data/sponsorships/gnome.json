@@ -1,0 +1,16 @@
+{
+  "first": [
+    "canonical.com",
+    "google.com",
+    "redhat.com",
+    "system76.com"
+  ],
+  "second": [
+    "debian.org",
+    "documentfoundation.org",
+    "endlessos.org",
+    "sugarlabs.org",
+    "opensuse.org"
+  ],
+  "parseDate": "20240212"
+}

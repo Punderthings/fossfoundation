@@ -1,0 +1,29 @@
+{
+  "first": [
+    "github.com",
+    "iohk.io",
+    "juspay.in",
+    "meta.com"
+  ],
+  "second": [
+    "carboncloud.com",
+    "digitalasset.com",
+    "exfreight.com",
+    "mercury.com",
+    "obsidian.systems",
+    "platonic.systems",
+    "tweag.io",
+    "well-typed.com"
+  ],
+  "third": [
+    "artificial.io",
+    "channable.com",
+    "flipstone.com",
+    "freckle.com",
+    "google.com",
+    "herp.co.jp",
+    "mlabs.city",
+    "tripshot.com"
+  ],
+  "parseDate": "20240215"
+}
