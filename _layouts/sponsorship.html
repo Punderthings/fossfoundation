@@ -48,6 +48,21 @@ layout: default
   </section>
   {% endfor %}
 
+  {% assign reports = site.data.sponsorships.org-funding.orgs %}
+  {% if reports[page.identifier] %}
+    <h2 id="income">Sponsorship Income (Incomplete Estimate)</h2>
+    <div class="highlight">IMPORTANT: this is only a rough estimate of the organization's annual sponsorship income, based purely on the stated full-price levels of each sponsorship.  Many factors change the actual amounts expected.</a></div>
+    <section id="sponsorship-income" class="sponsorship-income">
+      <ul>
+      {% for report in reports[page.identifier] %}
+        {% assign level_name = report[0] %}
+        {% assign level_display = level_map[level_name] %}
+        <li>{{ level_display | default: 'Overall Total' }} annually (USD): {{ report[1] }} </li>
+      {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
 <hr id="details"/>
 
 {{ content }}
