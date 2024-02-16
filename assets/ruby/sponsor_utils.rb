@@ -124,6 +124,7 @@ module SponsorUtils
     sponsors = {}
     map = JSON.parse(File.read(mapname))
     links.each do | level, ary |
+      next unless ary.is_a?(Array) # Skip dates, errors, etc
       sponsors[level] = []
       ary.each do | itm |
         newitm = map.fetch(itm, nil)
@@ -281,6 +282,9 @@ module SponsorUtils
       opts.on('-oORGID', '--one ORGID', 'Input org id (asf, python, etc.) to parse one.') do |orgid|
         options[:orgid] = orgid
       end
+      opts.on('-mMAPID', '--map MAPID', 'Lint one existing sponsorship with its map.') do |mapid|
+        options[:mapid] = mapid
+      end
       opts.on("-v", "--[no-]verbose", "Verbose output to stdout.") do |v|
         options[:verbose] = v
         @verbose = v
@@ -301,8 +305,18 @@ module SponsorUtils
   if __FILE__ == $PROGRAM_NAME
     options = parse_commandline
     orgid = options.fetch(:orgid, nil)
+    mapid = options.fetch(:mapid, nil)
     parsed = {}
-    if orgid
+    if mapid
+      sponsor_file = File.join('_data/sponsorships', "#{mapid}.json")
+      links = JSON.parse(File.read(sponsor_file))
+      mapname = File.join('_data', "#{mapid}_map.json")
+      newfile = cleanup_with_map(links, mapname)
+      File.open(sponsor_file, "w") do |f|
+        f.write(JSON.pretty_generate(newfile))
+      end
+      exit 0
+    elsif orgid
       options[:outfile] ||= File.join(DEFAULT_OUTDIR, "#{orgid}.json")
       parsed = process_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
     else

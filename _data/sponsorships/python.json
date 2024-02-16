@@ -5,13 +5,13 @@
   ],
   "second": [
     "ansys.com",
-    "microsoft"
+    "microsoft.com"
   ],
   "third": [
-    "american-express",
+    "americanexpress.com",
     "capitalone.com",
-    "python-software-foundation",
-    "aws"
+    "python.org",
+    "amazon.com"
   ],
   "fourth": [
     "indeed.com",
@@ -19,20 +19,20 @@
     "openedg.org"
   ],
   "fifth": [
-    "crunchy-data",
+    "crunchydata.com",
     "pydantic.dev",
     "sentry.io",
     "janestreet.com",
     "jetbrains.com"
   ],
   "sixth": [
-    "rezoomex",
+    "rezoomex.com",
     "elastic.co",
     "lerner.co.il",
     "deepset.ai",
     "temporal.io",
     "endor-labs",
-    "anvil",
+    "anvil.works",
     "capeprivacy.com",
     "akamai.com",
     "telemetryhub.com",
@@ -44,7 +44,7 @@
   ],
   "seventh": [
     "sixfeetup.com",
-    "astral",
+    "astral.sh",
     "pythonic-exam.com",
     "stickermule.com",
     "guidebook.com",
@@ -54,11 +54,10 @@
     "lincolnloop.com"
   ],
   "eighth": [
-    "devitjobs",
+    "devitjobs.com",
     "minimumdepositcasinos.org",
     "dm-jobs.com",
     "easeus.com",
     "roboflow.com"
-  ],
-  "parseDate": "20240215"
+  ]
 }
