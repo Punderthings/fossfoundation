@@ -78,7 +78,7 @@ module SponsorUtils
           end
         end
       rescue StandardError => e
-        sponsors[lvl] << "ERROR: scrape_bycss(...#{lvl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
+        sponsors[lvl] << "ERROR: scrape_bycss(...#{lvl}, ... #{lvldata['selector']})" # Leaving Nokigiri error may cause GH Pages build issues
       end
     end
     return sponsors
