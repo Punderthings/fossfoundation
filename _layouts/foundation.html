@@ -7,96 +7,98 @@ layout: default
   <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a> 
     {{ page.legalName }}
   </h1>
-  {% if page.commonName %}<abbr title="Commonly used name in public.">Common Name</abbr>: <span itemprop="commonName">{{ page.commonName }}</span><br/>{% endif %}
-  {% if page.legalName %}<abbr title="Official name of the organization.">Legal Name</abbr>: <span itemprop="legalName">{{ page.legalName }}</span><br/>{% endif %}
-  {% if page.description %}<abbr title="One sentence brief overview of organization.">Description</abbr>: <span itemprop="description">{{ page.description }}</span><br/>{% endif %}
-  {% if page.website %}<abbr title="Primary website homepage.">Website</abbr>: <span itemprop="website">{{ page.website }}</span><br/>{% endif %}
-  {% if page.foundingDate %}<abbr title="Date organization was legally incorporated (or similar).">Founding Date</abbr>: <span itemprop="foundingDate">{{ page.foundingDate }}</span><br/>{% endif %}
-  {% if page.dissolutionDate %}<abbr title="Date organization was dissolved (if applicable).">Dissolution Date</abbr>: <span itemprop="dissolutionDate">{{ page.dissolutionDate }}</span><br/>{% endif %}
-  {% if page.location %}<abbr title="Country or specific location organization is based.">Location</abbr>: <span itemprop="location">{{ page.location }}</span><br/>{% endif %}
-  {% if page.newProjects %}<abbr title="Does this organization actively accept new projects for hosting?">Accepts new projects?</abbr>: <span itemprop="newProjects">{{ page.newProjects }}</span><br/>{% endif %}
-  {% if page.softwareType %}<abbr title="What general kind(s) of software does this org create? May be 'various'.">Software Types</abbr>: <span itemprop="softwareType">{{ page.softwareType }}</span><br/>{% endif %}
-  {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <a href="https://www.wikidata.org/wiki/{{ page.wikidataId }}"><span itemprop="wikidataId">{{ page.wikidataId }}</span></a><br/>{% endif %}
-  
-  <section id="governance-section"> 
-  <h2 id="governance">Governance</h2>
-  {% if page.boardSize %}<abbr title="Number of board of director seats.">Board Size</abbr>: <span itemprop="boardSize">{{ page.boardSize }}</span><br/>{% endif %}
-  {% if page.boardType %}<abbr title="Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.">Board Type</abbr>: <span itemprop="boardType">{{ page.boardType }}</span><br/>{% endif %}
-  {% if page.boardurl %}<abbr title="Official board information URL.">Board Website</abbr>: <a itemprop="boardurl" href="{{ page.boardurl }}">{{ page.boardurl }}</a><br/>{% endif %}
-  {% if page.bylawsurl %}<abbr title="Corporate bylaws URL.">Bylaws Website</abbr>: <a itemprop="bylawsurl" href="{{ page.bylawsurl }}">{{ page.bylawsurl }}</a><br/>{% endif %}
-  {% if page.numberOfEmployees %}<abbr title="Approximate number of paid employees or equivalents.">Approx Number Of Paid Staff</abbr>: <span itemprop="numberOfEmployees">{{ page.numberOfEmployees }}</span><br/>{% endif %}
+  <section id="general-section">
+    <h2 id="general">General</h2>
+    {% if page.identifier %}<abbr title="Common name; lowercased; used for lookups.">Used as filename or fragment reference</abbr>: <span itemprop="identifier">{{ page.identifier }}</span><br/>{% endif %}
+    {% if page.commonName %}<abbr title="Commonly used name in public.">Common Name</abbr>: <span itemprop="commonName">{{ page.commonName }}</span><br/>{% endif %}
+    {% if page.legalName %}<abbr title="Official name of the organization.">Legal Name</abbr>: <span itemprop="legalName">{{ page.legalName }}</span><br/>{% endif %}
+    {% if page.description %}<abbr title="One sentence brief overview of organization.">Description</abbr>: <span itemprop="description">{{ page.description }}</span><br/>{% endif %}
+    {% if page.website %}<abbr title="Primary website homepage.">Website</abbr>: <span itemprop="website">{{ page.website }}</span><br/>{% endif %}
+    {% if page.foundingDate %}<abbr title="Date organization was legally incorporated (or similar).">Founding Date</abbr>: <span itemprop="foundingDate">{{ page.foundingDate }}</span><br/>{% endif %}
+    {% if page.dissolutionDate %}<abbr title="Date organization was dissolved (if applicable).">Dissolution Date</abbr>: <span itemprop="dissolutionDate">{{ page.dissolutionDate }}</span><br/>{% endif %}
+    {% if page.addressCountry %}<abbr title="Country organization is incorporated in; ISO 3166-1 alpha-2.">Location</abbr>: <span itemprop="addressCountry">{{ page.addressCountry }}</span><br/>{% endif %}
+    {% if page.addressRegion %}<abbr title="State, Province, District, or similar region organization is incorporated in.">State</abbr>: <span itemprop="addressRegion">{{ page.addressRegion }}</span><br/>{% endif %}
+    {% if page.newProjects %}<abbr title="Does this organization actively accept new projects for hosting?">Accepts new projects?</abbr>: <span itemprop="newProjects">{{ page.newProjects }}</span><br/>{% endif %}
+    {% if page.softwareType %}<abbr title="What general kind(s) of software does this org create? May be 'various'.">Software Types</abbr>: <span itemprop="softwareType">{{ page.softwareType }}</span><br/>{% endif %}
+    {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <a href="https://www.wikidata.org/wiki/{{ page.wikidataId }}"><span itemprop="wikidataId">{{ page.wikidataId }}</span></a><br/>{% endif %}
+  </section>  
+  <section id="governance-section">
+    <h2 id="governance">Governance</h2>
+    {% if page.boardSize %}<abbr title="Number of board of director seats.">Board Size</abbr>: <span itemprop="boardSize">{{ page.boardSize }}</span><br/>{% endif %}
+    {% if page.boardType %}<abbr title="Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.">Board Type</abbr>: <span itemprop="boardType">{{ page.boardType }}</span><br/>{% endif %}
+    {% if page.boardurl %}<abbr title="Official board information URL.">Board Website</abbr>: <a itemprop="boardurl" href="{{ page.boardurl }}">{{ page.boardurl }}</a><br/>{% endif %}
+    {% if page.bylawsurl %}<abbr title="Corporate bylaws URL.">Bylaws Website</abbr>: <a itemprop="bylawsurl" href="{{ page.bylawsurl }}">{{ page.bylawsurl }}</a><br/>{% endif %}
+    {% if page.numberOfEmployees %}<abbr title="Approximate number of paid employees or equivalents.">Approx Number Of Paid Staff</abbr>: <span itemprop="numberOfEmployees">{{ page.numberOfEmployees }}</span><br/>{% endif %}
+    {% if page.governanceOrg %}<abbr title="Brief description of corporate or organizational governance.">Governance Description</abbr>: <span itemprop="governanceOrg">{{ page.governanceOrg }}</span><br/>{% endif %}
+    {% if page.governanceTech %}<abbr title="Brief description of project-level technical governance.">Project Governance Description</abbr>: <span itemprop="governanceTech">{{ page.governanceTech }}</span><br/>{% endif %}
+    {% if page.projectsNotable %}<abbr title="Example list of highly notable software products.">Example Projects Hosted</abbr>: <span itemprop="projectsNotable">{{ page.projectsNotable }}</span><br/>{% endif %}
+    {% if page.projectsList %}<abbr title="Official URL listing of sub-projects hosted.">Project List Website</abbr>: <a itemprop="projectsList" href="{{ page.projectsList }}">{{ page.projectsList }}</a><br/>{% endif %}
+    {% if page.projectsServices %}<abbr title="Brief description of services offered to hosted projects.">Services Provided</abbr>: <span itemprop="projectsServices">{{ page.projectsServices }}</span><br/>{% endif %}
+    {% if page.nonprofitStatus %}<abbr title="Specific type of non-profit; types: https://schema.org/NonprofitType">Nonprofit Type</abbr>: <span itemprop="nonprofitStatus">{{ page.nonprofitStatus }}</span><br/>{% endif %}
+    <abbr title="FOSS Governance hosts copies of many foundation governance rules and policies.">Governance documentation (when available)</abbr>: <a itemprop="governanceSearch" href="https://www.zotero.org/groups/2310183/foss_governance/search/{{ page.commonName }}/titleCreatorYear/">Search for docs on FOSS Governance</a><br/>
   </section>
-  <section id="funding-section"> 
-  <h2 id="funding">Funding</h2>
-  {% if page.taxID %}<abbr title="US IRS taxID, or other country's tax identifier (if any).">Tax Authority ID</abbr>: <span itemprop="taxID">{{ page.taxID }}</span><br/>{% endif %}
-  {% if page.taxIDLocal %}<abbr title="Per-state, province, or similar tax ID for the corporate entity.">Local Tax Authority ID</abbr>: <span itemprop="taxIDLocal">{{ page.taxIDLocal }}</span><br/>{% endif %}
-  {% if page.nonprofitStatus %}<abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: <span itemprop="nonprofitStatus">{{ page.nonprofitStatus }}</span><br/>{% endif %}
-  {% if page.funding %}<abbr title="Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.">Funding Sources</abbr>: <span itemprop="funding">{{ page.funding }}</span><br/>{% endif %}
-  {% if page.budgetUsd %}<abbr title="Approximate annual budget in USD.">Budget in USD</abbr>: <span itemprop="budgetUsd">{{ page.budgetUsd }}</span><br/>{% endif %}
-  {% if page.budgetYear %}<abbr title="Year budgetUsd number was entered.">Budget Year</abbr>: <span itemprop="budgetYear">{{ page.budgetYear }}</span><br/>{% endif %}
-  {% if page.budgeturl %}<abbr title="Official budget or other financial information URL.">Budget Website</abbr>: <a itemprop="budgeturl" href="{{ page.budgeturl }}">{{ page.budgeturl }}</a><br/>{% endif %}
-  {% if page.budgetTransparent %}<abbr title="Is the official budget shared publicly and fully, or is it opaque?">Budget Transparency</abbr>: <span itemprop="budgetTransparent">{{ page.budgetTransparent }}</span><br/>{% endif %}
-  {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
-  {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
-  {% if page.sponsorship %}
-    {% for model in page.sponsorship %}
+  <section id="funding-section">
+    <h2 id="funding">Funding</h2>
+    {% if page.taxID %}<abbr title="US IRS EIN/TIN, or other country's tax identifier (if any).">Tax Authority ID</abbr>: <span itemprop="taxID">{{ page.taxID }}</span><br/>{% endif %}
+    {% if page.taxIDLocal %}<abbr title="Per-state, province, or similar tax ID for the corporate entity.">Local Tax Authority ID</abbr>: <span itemprop="taxIDLocal">{{ page.taxIDLocal }}</span><br/>{% endif %}
+    {% if page.budgetUsd %}<abbr title="Approximate annual budget in USD.">Budget in USD</abbr>: <span itemprop="budgetUsd">{{ page.budgetUsd }}</span><br/>{% endif %}
+    {% if page.budgetYear %}<abbr title="Year budgetUsd number was entered.">Budget Year</abbr>: <span itemprop="budgetYear">{{ page.budgetYear }}</span><br/>{% endif %}
+    {% if page.budgeturl %}<abbr title="Official budget or other financial information URL.">Budget Website</abbr>: <a itemprop="budgeturl" href="{{ page.budgeturl }}">{{ page.budgeturl }}</a><br/>{% endif %}
+    {% if page.budgetTransparent %}<abbr title="Is the official budget shared publicly and fully on a regular schedule?">Budget Transparency</abbr>: <span itemprop="budgetTransparent">{{ page.budgetTransparent }}</span><br/>{% endif %}
+    {% if page.funding %}<abbr title="Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.">Funding Sources</abbr>: <span itemprop="funding">{{ page.funding }}</span><br/>{% endif %}
+    {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
+    {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
+    {% if page.sponsorships %}
+      {% for model in page.sponsorships %}
       <abbr title="Modeling sponsorship program levels.">Sponsorship Model(s)</abbr>: <a itemprop="sponsorship" href="/sponsorships/{{ model }}">{{ model }}</a><br/>
-    {% endfor %}
+      {% endfor %}
+    <br/>{% endif %}
+  </section>
+  <section id="policy-section">
+    <h2 id="policy">Policy</h2>
+    {% if page.licenses %}<abbr title="Licenses used on software provided if there is a policy; SPDX Identifiers.">Licenses Used</abbr>: <span itemprop="licenses">{{ page.licenses }}</span><br/>{% endif %}
+    {% if page.claPolicy %}<abbr title="Does the organization use CLAs, DCOs, or other required incoming grants from developers?">CLA Policy</abbr>: <span itemprop="claPolicy">{{ page.claPolicy }}</span><br/>{% endif %}
+    {% if page.ethicsPolicy %}<abbr title="Link to any primary ethics or COI policies posted.">Ethics/COI Policy</abbr>: <a itemprop="ethicsPolicy" href="{{ page.ethicsPolicy }}">{{ page.ethicsPolicy }}</a><br/>{% endif %}
+    {% if page.conducturl %}<abbr title="Link to official Code of Conduct.">Code Of Conduct Website</abbr>: <a itemprop="conducturl" href="{{ page.conducturl }}">{{ page.conducturl }}</a><br/>{% endif %}
+    {% if page.conductEvents %}<abbr title="Link to official event-related Code of Conduct.">Event Code Of Conduct Website</abbr>: <a itemprop="conductEvents" href="{{ page.conductEvents }}">{{ page.conductEvents }}</a><br/>{% endif %}
+    {% if page.conductSource %}<abbr title="Cited source or inspiration for Code of Conduct policy.">Source Of Code Of Conduct</abbr>: <span itemprop="conductSource">{{ page.conductSource }}</span><br/>{% endif %}
+    {% if page.conductLinked %}<abbr title="Where is the Code of Conduct linked from the organization's homepage?">Where Code Of Conduct Linked</abbr>: <span itemprop="conductLinked">{{ page.conductLinked }}</span><br/>{% endif %}
+    {% if page.diversityPolicy %}<abbr title="Diversity, inclusion, or other related policies or informational page.">Diversity Policy Website</abbr>: <a itemprop="diversityPolicy" href="{{ page.diversityPolicy }}">{{ page.diversityPolicy }}</a><br/>{% endif %}
+    {% if page.diversityDescription %}<abbr title="Brief description of the diversityPolicy link.">Description Of Diversity Policy</abbr>: <span itemprop="diversityDescription">{{ page.diversityDescription }}</span><br/>{% endif %}
+  </section>
+  <section id="trademark-section">
+    <h2 id="trademark">Trademark</h2>
+    {% if page.brandPrimary %}<abbr title="What is the primary brand name/mark of the organization?">Primary Brand Name</abbr>: <span itemprop="brandPrimary">{{ page.brandPrimary }}</span><br/>{% endif %}
+    {% if page.brandSecondary %}<abbr title="Example listing of any major secondary brand names/marks.">Secondary Brand Name(s)</abbr>: <span itemprop="brandSecondary">{{ page.brandSecondary }}</span><br/>{% endif %}
+    {% if page.brandReg %}<abbr title="Is the primary brand a registered trademark in at least one jurisdiction?">Is Primary Brand Registered?</abbr>: <span itemprop="brandReg">{{ page.brandReg }}</span><br/>{% endif %}
+    {% if page.brandPolicy %}<abbr title="Link to official trademark usage policies.">Trademark Policy Website</abbr>: <a itemprop="brandPolicy" href="{{ page.brandPolicy }}">{{ page.brandPolicy }}</a><br/>{% endif %}
+    {% if page.brandUse %}<abbr title="Link to official trademark FAQ or other policies.">Trademark Usage Website</abbr>: <a itemprop="brandUse" href="{{ page.brandUse }}">{{ page.brandUse }}</a><br/>{% endif %}
+    {% if page.brandComments %}<abbr title="Brief description of trademark usage policies">Trademark Policy Description</abbr>: <span itemprop="brandComments">{{ page.brandComments }}</span><br/>{% endif %}
+    {% if page.logo %}<abbr title="Official organizational logo URL.">Official Logo Link</abbr>: <a itemprop="logo" href="{{ page.logo }}">{{ page.logo }}</a><br/>{% endif %}
+    {% if page.logoReg %}<abbr title="Is the official logo a registered trademark? (yes/no/or major countries registered in).">Is Logo Registered?</abbr>: <span itemprop="logoReg">{{ page.logoReg }}</span><br/>{% endif %}
+    {% if page.subOrganization %}
+      {% for entity in page.subOrganization %}
+        <abbr title="Identifiers of subprojects tracked in _entities data.">Sub Entities/Projects</abbr>: <a itemprop="subOrganization" href="/entities/{{ entity }}">{{ entity }}</a><br/>
+      {% endfor %}
+    <br/>{% endif %}
+  </section>
+    
+{% if page.taxID %}
+  {% assign pein = page.taxID | remove: "-" %}{% assign pp = site.data.p990[pein] %}
+  {% if pp %}
+    <section id="taxes-section"> 
+      <h2 id="taxes">Tax Financial Data</h2>
+      <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
+      <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
+      <div id="approx-990-data">
+        <strong>Approximate</strong> financial status from <a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">ProPublica JSON data</a><br/>
+        <abbr title="Most recent filed tax period.">Tax Period</abbr>: <span itemprop="tax_period">{{ pp.organization.tax_period }}</span><br/>
+        <abbr title="Total assets at end of year.">Assets EOY</abbr>: <span itemprop="asset_amount">{{ pp.organization.asset_amount }}</span><br/>
+        <abbr title="Total revenue for year.">Revenue</abbr>: <span itemprop="revenue_amount">{{ pp.organization.revenue_amount }}</span><br/>
+      </div>
+    </section>
   {% endif %}
-  </section>
-  <section id="policy-section"> 
-  <h2 id="policy">Policy</h2>
-  {% if page.licenses %}<abbr title="Licenses used on software provided; use SPDX Identifiers.">Licenses Used</abbr>: <span itemprop="licenses">{{ page.licenses }}</span><br/>{% endif %}
-  {% if page.claPolicy %}<abbr title="Does the organization use CLAs, DCOs, or other required incoming grants from developers?">CLA Policy</abbr>: <span itemprop="claPolicy">{{ page.claPolicy }}</span><br/>{% endif %}
-  {% if page.ethicsPolicy %}<abbr title="Link to any primary ethics or COI policies posted.">Ethics/COI Policy</abbr>: <a itemprop="ethicsPolicy" href="{{ page.ethicsPolicy }}">{{ page.ethicsPolicy }}</a><br/>{% endif %}
-  {% if page.governanceOrg %}<abbr title="Brief description of corporate or organizational governance.">Governance Description</abbr>: <span itemprop="governanceOrg">{{ page.governanceOrg }}</span><br/>{% endif %}
-  {% if page.governanceTech %}<abbr title="Brief description of project-level technical governance.">Project Governance Description</abbr>: <span itemprop="governanceTech">{{ page.governanceTech }}</span><br/>{% endif %}
-  {% if page.projectsNotable %}<abbr title="Example list of highly notable software products.">Example Projects Hosted</abbr>: <span itemprop="projectsNotable">{{ page.projectsNotable }}</span><br/>{% endif %}
-  {% if page.projectsList %}<abbr title="Official URL listing of sub-projects hosted.">Project List Website</abbr>: <a itemprop="projectsList" href="{{ page.projectsList }}">{{ page.projectsList }}</a><br/>{% endif %}
-  {% if page.projectsServices %}<abbr title="Brief description of services offered to hosted projects.">Services Provided</abbr>: <span itemprop="projectsServices">{{ page.projectsServices }}</span><br/>{% endif %}
-  <abbr title="FOSS Governance hosts copies of many foundation governance rules and policies.">Governance documentation (when available)</abbr>: <a itemprop="governanceSearch" href="https://www.zotero.org/groups/2310183/foss_governance/search/{{ page.commonName }}/titleCreatorYear/">Search for docs on FOSS Governance</a><br/>
-  </section>
-  <section id="trademark-section"> 
-  <h2 id="trademark">Trademark</h2>
-  {% if page.logo %}<abbr title="Official organizational logo URL.">Official Logo Link</abbr>: <a itemprop="logo" href="{{ page.logo }}">{{ page.logo }}</a><br/>{% endif %}
-  {% if page.logoReg %}<abbr title="Is the official logo a registered trademark? (yes/no/or major countries registered in).">Is Logo Registered?</abbr>: <span itemprop="logoReg">{{ page.logoReg }}</span><br/>{% endif %}
-  {% if page.brandPrimary %}<abbr title="What is the primary brand name/mark of the organization?">Primary Brand Name</abbr>: <span itemprop="brandPrimary">{{ page.brandPrimary }}</span><br/>{% endif %}
-  {% if page.brandSecondary %}<abbr title="Example listing of any major secondary brand names/marks.">Secondary Brand Name(s)</abbr>: <span itemprop="brandSecondary">{{ page.brandSecondary }}</span><br/>{% endif %}
-  {% if page.brandReg %}<abbr title="Is the primary brand a registered trademark in at least one jurisdiction?">Is Primary Brand Registered?</abbr>: <span itemprop="brandReg">{{ page.brandReg }}</span><br/>{% endif %}
-  {% if page.brandPolicy %}<abbr title="Link to official trademark usage policies.">Trademark Policy Website</abbr>: <a itemprop="brandPolicy" href="{{ page.brandPolicy }}">{{ page.brandPolicy }}</a><br/>{% endif %}
-  {% if page.brandUse %}<abbr title="Link to official trademark FAQ or other policies.">Trademark Usage Website</abbr>: <a itemprop="brandUse" href="{{ page.brandUse }}">{{ page.brandUse }}</a><br/>{% endif %}
-  {% if page.brandComments %}<abbr title="Brief description of trademark usage policies">Trademark Policy Description</abbr>: <span itemprop="brandComments">{{ page.brandComments }}</span><br/>{% endif %}
-  </section>
-  <section id="other-section"> 
-  <h2 id="other">Other Policies</h2>
-  {% if page.conducturl %}<abbr title="Link to official Code of Conduct.">Code Of Conduct Website</abbr>: <a itemprop="conducturl" href="{{ page.conducturl }}">{{ page.conducturl }}</a><br/>{% endif %}
-  {% if page.conductEvents %}<abbr title="Link to official event-related Code of Conduct.">Event Code Of Conduct Website</abbr>: <a itemprop="conductEvents" href="{{ page.conductEvents }}">{{ page.conductEvents }}</a><br/>{% endif %}
-  {% if page.conductSource %}<abbr title="Cited source or inspiration for Code of Conduct policy.">Source Of Code Of Conduct</abbr>: <span itemprop="conductSource">{{ page.conductSource }}</span><br/>{% endif %}
-  {% if page.conductLinked %}<abbr title="Where is the Code of Conduct linked from the organization's homepage?">Where Code Of Conduct Linked</abbr>: <span itemprop="conductLinked">{{ page.conductLinked }}</span><br/>{% endif %}
-  {% if page.diversityPolicy %}<abbr title="Diversity, inclusion, or other related policies or informational page.">Diversity Policy Website</abbr>: <a itemprop="diversityPolicy" href="{{ page.diversityPolicy }}">{{ page.diversityPolicy }}</a><br/>{% endif %}
-  {% if page.diversityDescription %}<abbr title="Brief description of the diversityPolicy link.">Description Of Diversity Policy</abbr>: <span itemprop="diversityDescription">{{ page.diversityDescription }}</span><br/>{% endif %}
-  {% if page.parentOrganization %}<abbr title="Legal organization or foundation this project belongs to.">Parent Organization</abbr>: <span itemprop="parentOrganization">{{ page.parentOrganization }}</span><br/>{% endif %}
-  {% if page.subOrganization %}<abbr title="Unused: should this be used instead of projectList?">Sub Projects Listed</abbr>: <span itemprop="subOrganization">{{ page.subOrganization }}</span><br/>{% endif %}
-  </section>
-
-  {% if page.taxID %}
-    {% assign pein = page.taxID | remove: "-" %}{% assign pp = site.data.p990[pein] %}
-    {% if pp %}
-      <section id="taxes-section"> 
-        <h2 id="taxes">Tax Financial Data</h2>
-        <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
-        <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
-        <div id="approx-990-data">
-          <strong>Approximate</strong> financial status from <a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">ProPublica JSON data</a><br/>
-          <abbr title="Most recent filed tax period.">Tax Period</abbr>: <span itemprop="tax_period">{{ pp.organization.tax_period }}</span><br/>
-          <abbr title="Total assets at end of year.">Assets EOY</abbr>: <span itemprop="asset_amount">{{ pp.organization.asset_amount }}</span><br/>
-          <abbr title="Total revenue for year.">Revenue</abbr>: <span itemprop="revenue_amount">{{ pp.organization.revenue_amount }}</span><br/>
-        </div>
-      </section>
-    {% endif %}
-  {% endif %}
-
-
+{% endif %}
 
   <hr id="details"/>
 

@@ -109,15 +109,32 @@ def schema2liquid(infile, linesep)
   layout: default
   ---
   LIQUID_HEADER
+  fieldnames = []
   schema = JSON.parse(File.read(infile))
   properties = schema['properties']
   properties.each do |fieldname, hash|
+    fieldnames << fieldname
+    section = hash.fetch('section', nil)
+    if section
+      liquid << "</section>\n" # FIXME: will leave extra section at top, none at bottom
+      liquid << "<section id=\"#{section.downcase}-section\">\n"
+      liquid << "<h2 id=\"#{section.downcase}\">#{section}</h2>\n"
+    end
     if 'object'.eql?(hash['type'])
       liquid << emit_schema_object(nil, fieldname, hash, linesep)
+    elsif 'array'.eql?(hash['type']) # FIXME: good enough, but not necessarily complete
+      liquid << "{% if page.#{fieldname} %}\n"
+      liquid << "{% for loopitem in page.#{fieldname} %}\n"
+      liquid << "<abbr title=\"#{hash['description']}\">#{hash['title']}</abbr>: <span itemprop=\"#{fieldname}\">{{ loopitem }}</span><br/>\n"
+      liquid << "{% endfor %}\n"
+      liquid << linesep if linesep
+      liquid << "{% endif %}\n"
     else
       liquid << emit_schema_scalar(nil, fieldname, hash, linesep)
     end
   end
+  puts "--- DEBUG List of fieldnames parsed:"
+  puts "#{fieldnames}"
   return liquid
 end
 
@@ -136,6 +153,45 @@ def json2jekyll(infile, outfile)
   end
 end
 
+YAML_SEP = '---'
+FIELDNAMELIST = %w[identifier commonName legalName description website foundingDate dissolutionDate addressCountry addressRegion newProjects softwareType wikidataId boardSize boardType boardurl bylawsurl numberOfEmployees governanceOrg governanceTech projectsNotable projectsList projectsServices nonprofitStatus taxID taxIDLocal budgetUsd budgetYear budgeturl budgetTransparent funding sponsorurl sponsorList sponsorships licenses claPolicy ethicsPolicy conducturl conductEvents conductSource conductLinked diversityPolicy diversityDescription brandPrimary brandSecondary brandReg brandPolicy brandUse brandComments logo logoReg subOrganization]
+def normalize_file(filename, fieldnames = FIELDNAMELIST)
+  begin
+    data = File.read(filename)
+    _unused, frontmatter, markdown = data.split(YAML_SEP, 3) # YAML data separator
+    markdown = '' if markdown.nil?
+    yaml = YAML.safe_load(frontmatter, aliases: true)
+    # Dump our normalized data back to a file; note this removes # comments
+    newyaml = {}
+    fieldnames.each do | fieldname |
+      newyaml[fieldname] = yaml.fetch(fieldname, nil)
+    end
+    output = newyaml.to_yaml
+    output << YAML_SEP # Note: newline provided by shovel operator below
+    output << markdown
+    outputfilename = "#{filename}.txt"
+    File.open(outputfilename, 'w') do |f|
+      f.puts output
+    end
+    return "Wrote out: #{outputfilename}"
+  rescue StandardError => e
+    return "ERROR: normalize_md(#{filename}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
+  end
+end
+
+# Normalize md files into fieldnames order; return report of what's done
+#   SIDE EFFECTS: rewrites files; may lose # yaml comments
+# @param directory to scan all .md files
+# @param fieldlist of fields to force output in order
+# @return array of strings describing each action
+def normalize_dataset(dir, fieldnames)
+  report = []
+  Dir["#{dir}/*.md"].each do |f|
+    report << normalize_file(f, fieldnames)
+  end
+  return report
+end
+
 # ## ### #### ##### ######
 # Check commandline options
 def parse_commandline
@@ -148,7 +204,7 @@ def parse_commandline
     opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
       options[:infile] = infile
     end
-    opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, csv, liquid, json') do |action|
+    opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, csv, liquid, json, normalize') do |action|
       options[:action] = action
     end
     begin
