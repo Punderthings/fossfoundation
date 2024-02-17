@@ -7,11 +7,13 @@
     "identifier",
     "commonName",
     "legalName",
-    "website"
+    "website",
+    "addressCountry",
+    "nonprofitStatus"
   ],
   "properties": {
     "identifier": {
-      "section": "general",
+      "section": "General",
       "title": "Used as filename or fragment reference",
       "description": "Common name; lowercased; used for lookups.",
       "type": "string"
@@ -49,9 +51,14 @@
       "type": "string",
       "format": "date"
     },
-    "location": {
+    "addressCountry": {
       "title": "Location",
-      "description": "Country or specific location organization is based.",
+      "description": "Country organization is incorporated in; ISO 3166-1 alpha-2.",
+      "type": "string"
+    },
+    "addressRegion": {
+      "title": "State",
+      "description": "State, Province, District, or similar region organization is incorporated in.",
       "type": "string"
     },
     "newProjects": {
@@ -70,6 +77,7 @@
       "type": "string"
     },
     "boardSize": {
+      "section": "Governance",
       "title": "Board Size",
       "description": "Number of board of director seats.",
       "type": "number"
@@ -95,79 +103,6 @@
       "title": "Approx Number Of Paid Staff",
       "description": "Approximate number of paid employees or equivalents.",
       "type": "number"
-    },
-    "taxID": {
-      "title": "Tax Authority ID",
-      "description": "US IRS taxID, or other country's tax identifier (if any).",
-      "type": "string"
-    },
-    "taxIDLocal": {
-      "title": "Local Tax Authority ID",
-      "description": "Per-state, province, or similar tax ID for the corporate entity.",
-      "type": "string"
-    },
-    "nonprofitStatus": {
-      "title": "Nonprofit Type",
-      "description": "Specific type of non-profit; US or other country type.",
-      "type": "string"
-    },
-    "funding": {
-      "title": "Funding Sources",
-      "description": "Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.",
-      "type": "array"
-    },
-    "budgetUsd": {
-      "title": "Budget in USD",
-      "description": "Approximate annual budget in USD.",
-      "type": "string"
-    },
-    "budgetYear": {
-      "title": "Budget Year",
-      "description": "Year budgetUsd number was entered.",
-      "type": "string"
-    },
-    "budgeturl": {
-      "title": "Budget Website",
-      "description": "Official budget or other financial information URL.",
-      "type": "string",
-      "format": "url"
-    },
-    "budgetTransparent": {
-      "title": "Budget Transparency",
-      "description": "Is the official budget shared publicly and fully, or is it opaque?",
-      "type": "string"
-    },
-    "sponsorurl": {
-      "title": "Sponsor List Website",
-      "description": "Official listing of sponsors URL.",
-      "type": "string",
-      "format": "url"
-    },
-    "sponsorList": {
-      "title": "Example Sponsors",
-      "description": "Example listing of top-level annual recurring sponsors.",
-      "type": "string"
-    },
-    "sponsorship": {
-      "title": "Sponsorship Program Mapping",
-      "description": "If present, name of a mapping file defining sponsorship levels, listings, etc.  May be an array thereof.",
-      "type": "string"
-    },
-    "licenses": {
-      "title": "Licenses Used",
-      "description": "Licenses used on software provided; use SPDX Identifiers.",
-      "type": "string"
-    },
-    "claPolicy": {
-      "title": "CLA Policy",
-      "description": "Does the organization use CLAs, DCOs, or other required incoming grants from developers?",
-      "type": "string"
-    },
-    "ethicsPolicy": {
-      "title": "Ethics/COI Policy",
-      "description": "Link to any primary ethics or COI policies posted.",
-      "type": "string",
-      "format": "url"
     },
     "governanceOrg": {
       "title": "Governance Description",
@@ -195,48 +130,85 @@
       "description": "Brief description of services offered to hosted projects.",
       "type": "string"
     },
-    "logo": {
-      "title": "Official Logo Link",
-      "description": "Official organizational logo URL.",
+    "nonprofitStatus": {
+      "$comment": "TODO: enum based on https://schema.org/NonprofitType",
+      "title": "Nonprofit Type",
+      "description": "Specific type of non-profit; types: https://schema.org/NonprofitType",
+      "type": "string"
+    },
+    "taxID": {
+      "section": "Funding",
+      "title": "Tax Authority ID",
+      "description": "US IRS EIN/TIN, or other country's tax identifier (if any).",
+      "type": "string"
+    },
+    "taxIDLocal": {
+      "title": "Local Tax Authority ID",
+      "description": "Per-state, province, or similar tax ID for the corporate entity.",
+      "type": "string"
+    },
+    "budgetUsd": {
+      "title": "Budget in USD",
+      "description": "Approximate annual budget in USD.",
+      "type": "string"
+    },
+    "budgetYear": {
+      "title": "Budget Year",
+      "description": "Year budgetUsd number was entered.",
+      "type": "string"
+    },
+    "budgeturl": {
+      "title": "Budget Website",
+      "description": "Official budget or other financial information URL.",
       "type": "string",
       "format": "url"
     },
-    "logoReg": {
-      "title": "Is Logo Registered?",
-      "description": "Is the official logo a registered trademark? (yes/no/or major countries registered in).",
+    "budgetTransparent": {
+      "title": "Budget Transparency",
+      "description": "Is the official budget shared publicly and fully on a regular schedule?",
       "type": "string"
     },
-    "brandPrimary": {
-      "title": "Primary Brand Name",
-      "description": "What is the primary brand name/mark of the organization?",
+    "funding": {
+      "title": "Funding Sources",
+      "description": "Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.",
       "type": "string"
     },
-    "brandSecondary": {
-      "title": "Secondary Brand Name(s)",
-      "description": "Example listing of any major secondary brand names/marks.",
-      "type": "string"
-    },
-    "brandReg": {
-      "title": "Is Primary Brand Registered?",
-      "description": "Is the primary brand a registered trademark in at least one jurisdiction?",
-      "type": "string"
-    },
-    "brandPolicy": {
-      "title": "Trademark Policy Website",
-      "description": "Link to official trademark usage policies.",
+    "sponsorurl": {
+      "title": "Sponsor List Website",
+      "description": "Official listing of sponsors URL.",
       "type": "string",
       "format": "url"
     },
-    "brandUse": {
-      "title": "Trademark Usage Website",
-      "description": "Link to official trademark FAQ or other policies.",
+    "sponsorList": {
+      "title": "Example Sponsors",
+      "description": "Example listing of top-level annual recurring sponsors.",
+      "type": "string"
+    },
+    "sponsorships": {
+      "title": "Sponsorship Program Model",
+      "description": "Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "licenses": {
+      "section": "Policy",
+      "title": "Licenses Used",
+      "description": "Licenses used on software provided if there is a policy; SPDX Identifiers.",
+      "type": "string"
+    },
+    "claPolicy": {
+      "title": "CLA Policy",
+      "description": "Does the organization use CLAs, DCOs, or other required incoming grants from developers?",
+      "type": "string"
+    },
+    "ethicsPolicy": {
+      "title": "Ethics/COI Policy",
+      "description": "Link to any primary ethics or COI policies posted.",
       "type": "string",
       "format": "url"
-    },
-    "brandComments": {
-      "title": "Trademark Policy Description",
-      "description": "Brief description of trademark usage policies",
-      "type": "string"
     },
     "conducturl": {
       "title": "Code Of Conduct Website",
@@ -271,15 +243,58 @@
       "description": "Brief description of the diversityPolicy link.",
       "type": "string"
     },
-    "parentOrganization": {
-      "title": "Parent Organization",
-      "description": "Legal organization or foundation this project belongs to.",
+    "brandPrimary": {
+      "section": "Trademark",
+      "title": "Primary Brand Name",
+      "description": "What is the primary brand name/mark of the organization?",
+      "type": "string"
+    },
+    "brandSecondary": {
+      "title": "Secondary Brand Name(s)",
+      "description": "Example listing of any major secondary brand names/marks.",
+      "type": "string"
+    },
+    "brandReg": {
+      "title": "Is Primary Brand Registered?",
+      "description": "Is the primary brand a registered trademark in at least one jurisdiction?",
+      "type": "string"
+    },
+    "brandPolicy": {
+      "title": "Trademark Policy Website",
+      "description": "Link to official trademark usage policies.",
+      "type": "string",
+      "format": "url"
+    },
+    "brandUse": {
+      "title": "Trademark Usage Website",
+      "description": "Link to official trademark FAQ or other policies.",
+      "type": "string",
+      "format": "url"
+    },
+    "brandComments": {
+      "title": "Trademark Policy Description",
+      "description": "Brief description of trademark usage policies",
+      "type": "string"
+    },
+    "logo": {
+      "title": "Official Logo Link",
+      "description": "Official organizational logo URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "logoReg": {
+      "title": "Is Logo Registered?",
+      "description": "Is the official logo a registered trademark? (yes/no/or major countries registered in).",
       "type": "string"
     },
     "subOrganization": {
-      "title": "Sub Projects Listed",
-      "description": "Unused: should this be used instead of projectList?",
-      "type": "string"
+      "title": "Sub Entities Governed",
+      "description": "Identifiers of subprojects tracked in _entities data.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
     }
   }
 }
