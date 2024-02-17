@@ -4,7 +4,8 @@ commonName: Free Software Foundation Europe
 legalName: Free Software Foundation Europe
 website: https://fsfe.org/
 foundingDate:
-location: DE
+addressCountry: DE
+addressRegion:
 newProjects:
 softwareType: various
 wikidataId: Q899299

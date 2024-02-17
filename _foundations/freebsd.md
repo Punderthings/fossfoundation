@@ -4,7 +4,8 @@ commonName: FreeBSD
 legalName: FreeBSD Foundation
 website: https://www.freebsd.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: distro
 wikidataId: Q5499634
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.freebsdfoundation.org/donors/
 sponsorList:
-sponsorship: freebsd
+sponsorships: 
+  - freebsd
 licenses: BSD-2-Clause
 claPolicy:
 ethicsPolicy:

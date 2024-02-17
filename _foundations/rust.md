@@ -4,8 +4,9 @@ commonName: Rust
 legalName: Rust Foundation
 website: https://foundation.rust-lang.org/
 foundingDate: 2021
-location: DE
-newProjects: no
+addressCountry: US
+addressRegion: DE
+newProjects: 'no'
 softwareType: language
 wikidataId: Q105394699
 taxID: 85-4376974

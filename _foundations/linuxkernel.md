@@ -4,7 +4,8 @@ commonName: Linux Kernel
 legalName: Linux Kernel Organization
 website: https://www.kernel.org/nonprofit.html
 foundingDate:
-location: CA
+addressCountry: US
+addressRegion: CA
 newProjects:
 softwareType: distro
 wikidataId: Q14579

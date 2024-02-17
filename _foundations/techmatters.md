@@ -4,8 +4,9 @@ commonName: Tech Matters
 legalName: Technology Matters
 website: https://techmatters.org/
 foundingDate: 2018
-location: Palo Alto, CA, USA
-newProjects: No
+addressCountry: US
+addressRegion: CA
+newProjects: 'no'
 softwareType: various
 wikidataId:
 taxID: 88-2116913

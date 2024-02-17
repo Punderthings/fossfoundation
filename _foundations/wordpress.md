@@ -4,7 +4,8 @@ commonName: WordPress
 legalName: WordPress Foundation
 website: https://wordpress.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q56787199

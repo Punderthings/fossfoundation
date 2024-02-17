@@ -4,7 +4,8 @@ commonName: Django
 legalName: Django Software Foundation
 website: https://www.djangoproject.com/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q5285237

@@ -4,7 +4,8 @@ commonName: OWASP
 legalName: Open Web Application Security Project
 website: https://www.owasp.org/
 foundingDate:
-location: MD
+addressCountry: US
+addressRegion: MD
 newProjects: 'yes'
 softwareType: security
 wikidataId: Q379297
@@ -22,7 +23,8 @@ budgeturl: https://www.owasp.org/index.php/About_OWASP/Financial_Transparency
 sponsorurl: https://www.owasp.org/index.php/Acknowledgements
 sponsorList: Adobe, CME Group, Fortify, Qualys, Salesforce, Security Innovation, Signal
   Sciences, waratek
-sponsorship: owasp
+sponsorships: 
+  - owasp
 licenses: various
 claPolicy: CLA
 ethicsPolicy:

@@ -4,7 +4,8 @@ commonName: Software Freedom Conservancy
 legalName: Software Freedom Conservancy
 website: https://sfconservancy.org/
 foundingDate:
-location: NY
+addressCountry: US
+addressRegion: NY
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q2896872
@@ -22,7 +23,8 @@ budgeturl: https://sfconservancy.org/about/filings/
 sponsorurl: https://sfconservancy.org/sponsors/
 sponsorList: Collabora, Google, HP, Linux Australia, Linux Foundation, Mozilla, Private
   InternetAccess, Redhat, Savoir-Faire Linux, Target
-sponsorship: sfc
+sponsorships: 
+  - sfc
 licenses: various, GPL
 claPolicy:
 ethicsPolicy:

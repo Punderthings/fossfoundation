@@ -4,8 +4,9 @@ commonName: KDE
 legalName: KDE e.V.
 website: https://ev.kde.org/
 foundingDate: 27 November 1997
-location: Germany
-newProjects: yes
+addressCountry: DE
+addressRegion: 
+newProjects: 'yes'
 softwareType: various
 wikidataId: Q1431
 taxID: 

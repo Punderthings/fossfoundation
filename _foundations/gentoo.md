@@ -4,7 +4,8 @@ commonName: Gentoo Linux
 legalName: The Gentoo Foundation, Inc.
 website: https://www.gentoo.org/
 foundingDate:
-location: NM
+addressCountry: US
+addressRegion: NM
 newProjects:
 softwareType: distro
 wikidataId: Q75837444
@@ -22,7 +23,8 @@ budgetYear:
 budgeturl: https://wiki.gentoo.org/wiki/Foundation:Financial_Reports
 sponsorurl: https://www.gentoo.org/inside-gentoo/sponsors/
 sponsorList:
-sponsorship: gentoo
+sponsorships: 
+  - gentoo
 licenses: GPL-2.0-only
 claPolicy:
 ethicsPolicy:

@@ -4,7 +4,8 @@ commonName: GNOME
 legalName: GNOME Foundation
 website: https://www.gnome.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: distro
 wikidataId: Q1056660
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl:
 sponsorList:
-sponsorship: gnome
+sponsorships: 
+  - gnome
 licenses: GPL-2.0-only
 claPolicy:
 ethicsPolicy:

@@ -4,7 +4,8 @@ commonName: F# Software Foundation
 legalName: F# Software Foundation
 website: https://foundation.fsharp.org/
 foundingDate: 2014
-location: NV
+addressCountry: US
+addressRegion: NV
 newProjects:
 softwareType: 
 wikidataId: 

@@ -4,7 +4,8 @@ commonName: OpenJS Foundation
 legalName: OpenJS Foundation
 website: https://www.openjsf.org/
 foundingDate: '20190319'
-location: US
+addressCountry: US
+addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q80653810

@@ -4,8 +4,9 @@ commonName: .Net Foundation
 legalName: .NET Foundation
 website: https://dotnetfoundation.org/
 foundingDate:
-location: WA
-newProjects: yes
+addressCountry: US
+addressRegion: WA
+newProjects: 'yes'
 softwareType: various
 wikidataId: 
 taxID: 47-2119192

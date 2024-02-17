@@ -4,7 +4,8 @@ commonName: ISC
 legalName: Internet Systems Consortium, Inc.
 website: https://www.isc.org/
 foundingDate: 2004
-location: NH
+addressCountry: US
+addressRegion: NH
 newProjects:
 softwareType: network
 wikidataId: Q1668008

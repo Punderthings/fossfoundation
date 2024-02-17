@@ -4,7 +4,8 @@ commonName: NetBSD
 legalName: The NetBSD Foundation, Inc.
 website: http://www.netbsd.org/
 foundingDate:
-location: DE
+addressCountry: US
+addressRegion: DE
 newProjects:
 softwareType: distro
 wikidataId: Q56753378

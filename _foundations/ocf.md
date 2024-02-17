@@ -4,7 +4,8 @@ commonName: Open Collective Foundation
 legalName: Open Collective Foundation
 website: https://opencollective.foundation
 foundingDate:
-location: CA
+addressCountry: US
+addressRegion: CA
 newProjects: 'yes'
 softwareType: various
 wikidataId:

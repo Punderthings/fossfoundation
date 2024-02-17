@@ -4,8 +4,9 @@ commonName: OASIS
 legalName: Oasis Open
 website: https://www.oasis-open.org/
 foundingDate: 
-location: MA
-newProjects: yes
+addressCountry: US
+addressRegion: MA
+newProjects: 'yes'
 softwareType: standards
 wikidataId: Q1455952
 taxID: 25-1720375

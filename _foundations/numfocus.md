@@ -4,7 +4,8 @@ commonName: NumFocus
 legalName: NumFocus, Inc.
 website: https://numfocus.org/
 foundingDate: 2012
-location: TX
+addressCountry: US
+addressRegion: TX
 newProjects: 'yes'
 softwareType: scientific
 wikidataId: Q54449592
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl: https://numfocus.org/legal
 sponsorurl: 
 sponsorList: https://numfocus.org/sponsors
-sponsorship: numfocus
+sponsorships: 
+  - numfocus
 licenses: various
 claPolicy: 
 ethicsPolicy:

@@ -4,7 +4,8 @@ commonName: Haiku
 legalName: Haiku, Inc.
 website: https://www.haiku-inc.org/
 foundingDate: 2003
-location: NY
+addressCountry: US
+addressRegion: NY
 newProjects:
 softwareType: distro
 wikidataId: 

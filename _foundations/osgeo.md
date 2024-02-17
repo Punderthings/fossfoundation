@@ -4,8 +4,9 @@ commonName: OSGeo
 legalName: Open Source Geospatial Foundation
 website: https://www.osgeo.org/
 foundingDate: 04 february 2006
-location: US
-newProjects: Yes
+addressCountry: US
+addressRegion:
+newProjects: 'yes'
 softwareType: geospatial
 wikidataId: Q1197305
 taxID: 72-1613215
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.osgeo.org/sponsors/
 sponsorList: opengis.ch, GeoCat, Wherobots, CamptoCamp, MapGears, WIGeoGIS, WhereGroup, GAIA3D, Terrestris
-sponsorship: osgeo
+sponsorships: 
+  - osgeo
 licenses: various
 claPolicy: https://www.osgeo.org/about/licenses/
 ethicsPolicy: https://wiki.osgeo.org/wiki/Conflict_Of_Interest_Policy

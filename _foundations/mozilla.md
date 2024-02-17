@@ -4,7 +4,8 @@ commonName: Mozilla
 legalName: Mozilla Foundation
 website: https://www.mozilla.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: various
 wikidataId: Q55672

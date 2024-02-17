@@ -4,7 +4,8 @@ commonName: Raspberry Pi NA
 legalName: Raspberry Pi Foundation North America Inc
 website: https://www.raspberrypi.org/about/
 foundingDate:
-location: CA
+addressCountry: US
+addressRegion: CA
 newProjects:
 softwareType: hardware
 wikidataId: 

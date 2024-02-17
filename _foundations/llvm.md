@@ -4,7 +4,8 @@ commonName: LLVM
 legalName: LLVM Foundation
 website: https://foundation.llvm.org/
 foundingDate:
-location: CA
+addressCountry: US
+addressRegion: CA
 newProjects:
 softwareType: compiler
 wikidataId: 

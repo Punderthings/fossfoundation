@@ -4,7 +4,8 @@ commonName: The Document Foundation
 legalName: The Document Foundation
 website: https://www.documentfoundation.org/
 foundingDate:
-location: Germany
+addressCountry: DE
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q313103

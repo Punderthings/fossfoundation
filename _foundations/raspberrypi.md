@@ -4,7 +4,8 @@ commonName: Raspberry Pi
 legalName: Raspberry Pi Foundation
 website: https://www.raspberrypi.org/about/
 foundingDate:
-location: UK
+addressCountry: UK
+addressRegion:
 newProjects:
 softwareType: hardware
 wikidataId: Q7295195
@@ -23,7 +24,8 @@ budgetUsd: 12M
 budgetYear: '2020'
 budgeturl: https://static.raspberrypi.org/files/about/RaspberryPiFoundationAnnualReview2022.pdf
 sponsorurl: https://www.raspberrypi.org/about/supporters/
-sponsorship: raspberrypi
+sponsorships: 
+  - raspberrypi
 sponsorList:
 licenses: BSD-3-Clause, various
 claPolicy:

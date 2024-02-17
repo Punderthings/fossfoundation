@@ -4,7 +4,8 @@ commonName: Open Source Matters
 legalName: Open Source Matters
 website: https://www.opensourcematters.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q56759875

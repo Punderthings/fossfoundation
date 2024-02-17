@@ -4,7 +4,8 @@ commonName: Drupal
 legalName: Drupal Association
 website: https://www.drupal.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q5309378
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl: https://www.drupal.org/association/supporters/partners
 sponsorList:
-sponsorship: drupal
+sponsorships: 
+  - drupal
 licenses: GPL-2.0-or-later
 claPolicy:
 ethicsPolicy:

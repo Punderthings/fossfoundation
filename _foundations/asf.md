@@ -4,7 +4,7 @@ commonName: Apache Software Foundation
 legalName: Apache Software Foundation
 website: https://www.apache.org/
 foundingDate: '1999'
-location: US
+addressCountry: US
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q489709
@@ -21,7 +21,7 @@ budgetYear:
 budgeturl: https://whimsy.apache.org/board/minutes/Budget.html
 sponsorurl: https://www.apache.org/foundation/thanks.html
 sponsorList: Cloudera, Comcast, Facebook, Google, Leaseweb, Microsoft, Pivotal, Yahoo!
-sponsorship: asf
+sponsorships: asf
 licenses: Apache-2.0
 claPolicy: CLA
 ethicsPolicy:

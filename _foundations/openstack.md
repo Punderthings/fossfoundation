@@ -4,8 +4,9 @@ commonName: Open Infra
 legalName: Openstack Foundation
 website: https://openinfra.dev/
 foundingDate: 
-location: TX
-newProjects: yes
+addressCountry: US
+addressRegion: TX
+newProjects: 'yes'
 softwareType: infrastructure
 wikidataId: Q45897217
 taxID: 46-0618689
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl: 
 sponsorurl: https://openinfra.dev/members/
 sponsorList: https://openinfra.dev/join/members/
-sponsorship: openstack
+sponsorships: 
+  - openstack
 licenses: 
 claPolicy: https://openinfra.dev/cla/
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy

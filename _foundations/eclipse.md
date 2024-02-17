@@ -4,7 +4,8 @@ commonName: Eclipse
 legalName: Eclipse Foundation AISBL
 website: https://eclipse.org/
 foundingDate:
-location: BE
+addressCountry: BE
+addressRegion:
 newProjects: 'yes'
 softwareType: devtool
 wikidataId: Q937756

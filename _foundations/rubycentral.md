@@ -4,7 +4,8 @@ commonName: Ruby Central
 legalName: Ruby Central, Inc.
 website: https://rubycentral.org/
 foundingDate: 
-location: CA
+addressCountry: US
+addressRegion: CA
 newProjects: 
 softwareType: language
 wikidataId: Q7376287

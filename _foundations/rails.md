@@ -4,8 +4,9 @@ commonName: Rails Foundation
 legalName: Rails Foundation  
 website: https://rubyonrails.org/foundation
 foundingDate: '20221114'
-location: 
-newProjects: no
+addressCountry: US
+addressRegion:
+newProjects: 'no'
 softwareType: language
 wikidataId: 
 taxID: 88-2382127
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl: 
 sponsorurl: https://rubyonrails.org/foundation
 sponsorList: Cookpad, Doximity, Fleetio, GitHub, Intercom, Procore, Shopify, 37signals
-sponsorship: rails
+sponsorships: 
+  - rails
 licenses: MIT
 claPolicy: 
 ethicsPolicy:

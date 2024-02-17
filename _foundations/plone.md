@@ -4,7 +4,8 @@ commonName: Plone
 legalName: Plone Foundation
 website: https://plone.org/foundation/committees/ip/policy
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q924422
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl: https://plone.org/sponsors
 sponsorList:
-sponsorship: plone
+sponsorships: 
+  - plone
 licenses:
 claPolicy:
 ethicsPolicy:

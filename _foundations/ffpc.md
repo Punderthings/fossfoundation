@@ -4,7 +4,8 @@ commonName: Foundation for Public Code
 legalName: Foundation for Public Code vereniging
 website: https://publiccode.net/
 foundingDate: '2019'
-location: NL
+addressCountry: NL
+addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q108304854

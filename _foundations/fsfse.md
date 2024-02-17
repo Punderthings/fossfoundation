@@ -4,7 +4,8 @@ commonName: Free Software Support Network
 legalName: Free Software Support Network
 website: http://freesoftwaresupport.net/
 foundingDate:
-location: DE
+addressCountry: DE
+addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId:

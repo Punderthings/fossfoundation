@@ -4,7 +4,8 @@ commonName: Linux Foundation
 legalName: Linux Foundation
 website: https://www.linuxfoundation.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q858851
@@ -21,7 +22,7 @@ budgetYear: 2019
 budgeturl: https://projects.propublica.org/nonprofits/organizations/460503801
 sponsorurl: https://www.linuxfoundation.org/members
 sponsorList:
-sponsorship: 
+sponsorships: 
   - lf
   - aswf
   - cd

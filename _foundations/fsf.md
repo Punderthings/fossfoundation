@@ -4,7 +4,8 @@ commonName: Free Software Foundation
 legalName: Free Software Foundation, Inc.
 website: http://www.fsf.org
 foundingDate:
-location: MA
+addressCountry: US
+addressRegion: MA
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q48413

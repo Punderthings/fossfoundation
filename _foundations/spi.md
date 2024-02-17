@@ -4,7 +4,8 @@ commonName: SPI
 legalName: Software in the Public Interest
 website: https://www.spi-inc.org/
 foundingDate:
-location: NY
+addressCountry: US
+addressRegion: NY
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q685777

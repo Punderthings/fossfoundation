@@ -4,7 +4,8 @@ commonName: Open Source Collective
 legalName: Open Source Collective
 website: https://www.oscollective.org
 foundingDate:
-location: US
+addressCountry: US
+addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId:

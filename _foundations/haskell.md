@@ -4,7 +4,8 @@ commonName: Haskell
 legalName: Haskell-org Inc.
 website: https://www.haskell.org/
 foundingDate: 2015
-location: DE
+addressCountry: US
+addressRegion: DE
 newProjects:
 softwareType: language
 wikidataId: 
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl: https://haskell.foundation/donations/
 sponsorList:
-sponsorship: haskell
+sponsorships: 
+  - haskell
 licenses:
 claPolicy:
 ethicsPolicy:

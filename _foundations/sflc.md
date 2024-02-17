@@ -4,7 +4,8 @@ commonName: Software Freedom Law Center
 legalName: Software Freedom Law Center
 website: https://www.softwarefreedom.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion: NY
 newProjects:
 softwareType: education
 wikidataId: Q1394821

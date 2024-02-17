@@ -4,7 +4,8 @@ commonName: Kuali
 legalName: Kuali Foundation Inc.
 website: https://www.kuali.co/about
 foundingDate: 2006
-location: IL
+addressCountry: US
+addressRegion: IL
 newProjects:
 softwareType: education
 wikidataId: 

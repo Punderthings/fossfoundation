@@ -4,7 +4,8 @@ commonName: Python
 legalName: Python Software Foundation
 website: https://www.python.org/psf-landing/
 foundingDate:
-location: DE
+addressCountry: US
+addressRegion: DE
 newProjects:
 softwareType: devtool
 wikidataId: Q83818
@@ -21,7 +22,8 @@ budgetYear:
 budgeturl:
 sponsorurl:
 sponsorList:
-sponsorship: python
+sponsorships: 
+  - python
 licenses:
 claPolicy:
 ethicsPolicy:

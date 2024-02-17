@@ -4,7 +4,8 @@ commonName: OpenStreetMap
 legalName: https://www.openstreetmap.org/about
 website: https://osmfoundation.org/
 foundingDate: 
-location: UK
+addressCountry: UK
+addressRegion:
 newProjects: 
 softwareType: map
 wikidataId: Q6542248

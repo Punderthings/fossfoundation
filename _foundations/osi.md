@@ -4,8 +4,9 @@ commonName: Open Source Initiative
 legalName: Open Source Initiative
 website: http://opensource.org/
 foundingDate: 1998
-location: CA
-newProjects: no
+addressCountry: US
+addressRegion: CA
+newProjects: 'no'
 softwareType: non-code
 wikidataId: Q845918
 taxID: 91-2037395
@@ -21,7 +22,8 @@ budgetYear: 2021
 budgeturl: https://gitlab.com/floss-foundations/npo-public-filings/-/blob/master/Form990s/osi_2021_form-990_from-org.pdf
 sponsorurl: https://opensource.org/sponsors
 sponsorList:
-sponsorship: osi
+sponsorships: 
+  - osi
 licenses: various
 claPolicy:
 ethicsPolicy: https://opensource.org/conflict_of_interest_policy/

@@ -4,7 +4,8 @@ commonName: Wikimedia
 legalName: Wikimedia Foundation
 website: https://wikimediafoundation.org/
 foundingDate:
-location: US
+addressCountry: US
+addressRegion: CA
 newProjects:
 softwareType: non-code
 wikidataId: Q180

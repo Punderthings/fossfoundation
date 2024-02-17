@@ -4,8 +4,9 @@ commonName: Signal
 legalName: Signal Foundation
 website: https://signalfoundation.org/
 foundingDate: 
-location: 
-newProjects: no
+addressCountry: US
+addressRegion:
+newProjects: 'no'
 softwareType: messaging
 wikidataId: Q55074807
 taxID: 82-4506840

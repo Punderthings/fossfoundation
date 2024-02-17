@@ -4,7 +4,8 @@ commonName: Perl
 legalName: Yet Another Society, (DBA) The Perl And Raku Foundation
 website: https://www.perlfoundation.org/
 foundingDate:
-location: MI
+addressCountry: US
+addressRegion: MI
 newProjects:
 softwareType: devtool
 wikidataId: Q941805
