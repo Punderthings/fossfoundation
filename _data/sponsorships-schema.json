@@ -1,28 +1,35 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "https://fossfoundation.info/sponsorships/asf.json",
+  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json",
   "type": "object",
   "title": "Foundation Sponsorship Models Schema",
   "required": [
+    "identifier",
     "sponsorurl",
     "levelurl",
     "levels"
   ],
   "properties": {
     "identifier": {
-      "section": "general",
+      "section": "General",
       "title": "Used as filename or fragment reference",
       "description": "Common name; lowercased; used for lookups.",
       "type": "string"
     },
     "nonprofit": {
       "title": "Type of nonprofit",
-      "description": "US IRS c3, c6, subproject of lf (linux foundation), or other fiscal host",
+      "description": "Categorizing nonprofits: c3; c6; lf (Linux Foundation project); or non-US nonprofits.",
       "type": "string"
     },
     "sponsorurl": {
       "title": "Sponsor URL",
       "description": "URL to read list of current entity sponsors.",
+      "type": "string",
+      "format": "uri"
+    },
+    "landscape": {
+      "title": "Landscape Selector",
+      "description": "If set, treat sponsorurl as a landscape.yml file and parse as per CNCF standard.",
       "type": "string",
       "format": "uri"
     },
@@ -32,95 +39,80 @@
       "type": "string",
       "format": "uri"
     },
-    "normalize": {
-      "title": "Normalize URL Flag",
-      "description": "If we should explicitly normalize URLs to hostnames or not.",
-      "type": "string"
-    },
     "staticmap": {
       "title": "Static Map Date",
-      "description": "If present, is ISO8601 date from which we use included static map of sponsors (i.e. we will not parse sponsorul live).",
+      "description": "If present, is ISO8601 date that the static levels.(first).sponsors[] array of sponsor hostnames was captured; we do not parse live.",
       "type": "string",
       "format": "date"
     },
-    "landscape": {
-      "title": "Is Landscape Flag",
-      "description": "If set, treat sponsorurl as a landscape.yml file and parse as per CNCF standard.",
-      "type": "string",
-      "format": "uri"
-    },
     "sponsormap": {
-      "title": "Sppnsor Static Mapping",
-      "description": "If present, read a mapping file of complex URL fragments to sponsor hostnames (to simplify parsing).",
+      "title": "Sponsor Static Mapping",
+      "description": "If present, read a mapping file of URL fragments to sponsor hostnames (to simplify parsing of complex hrefs).",
+      "type": "string"
+    },
+    "normalize": {
+      "title": "Normalize URL Flag",
+      "description": "If present, forcefully normalize URLs to bare hostnames.",
       "type": "string"
     },
     "levels": {
       "type": "object",
       "properties": {
         "first": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "title": "Name of Level",
-              "description": "Name of the level the entity uses.",
-              "type": "string"
-            },
-            "amount": {
-              "title": "Amount",
-              "description": "USD cash amount the entity notes for a typical sponsorship.",
-              "type": "number"
-            },
-            "amountvaries": {
-              "title": "Amount Varies?",
-              "description": "If present, describe how the sponsorship cash amount varies; we list the highest part of the range in amount field.",
-              "type": "string"
-            },
-            "selector": {
-              "title": "CSS Selector",
-              "description": "CSS selector to find a nodelist of elements that are sponsor listings.",
-              "type": "string"
-            },
-            "attr": {
-              "title": "Attribute",
-              "description": "Attribute to copy from the selector's nodelist.",
-              "type": "string"
-            },
-            "benefits": {
-              "type": "object",
-              "properties": {
-                "governance": {
-                  "title": "Governance Benefits",
-                  "description": "If the sponsor gets direct rights in entity governance: typically sponsors can either appoint a board seat, or are eligible to vote in board elections.",
-                  "type": "string"
-                },
-                "advisory": {
-                  "title": "Advisory Benefits",
-                  "description": "If the sponsor gets access to an advisory council, the entity leadership or other committees, or the like.",
-                  "type": "string"
-                },
-                "events": {
-                  "title": "Events Benefits",
-                  "description": "Event tickets, discounts, or additional sponsorship opportunities.",
-                  "type": "string"
-                },
-                "services": {
-                  "title": "Services Benefits",
-                  "description": "Training or other services provided or discounted.",
-                  "type": "string"
-                },
-                "marketing": {
-                  "title": "Marketing Benefits",
-                  "description": "Any outreach, marketing, or similar that the entity will provide for or work with the sponsor in conjunction on, like shared press releases.",
-                  "type": "string"
-                },
-                "logo": {
-                  "title": "Logo Display",
-                  "description": "Any specific notes on how a sponsor's logo is displayed (or not displayed).",
-                  "type": "string"
-                }
-              }
-            }
-          }
+          "description": "Top or highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "second": {
+          "description": "Second highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "third": {
+          "description": "Third highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "fourth": {
+          "description": "Fourth highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "fifth": {
+          "description": "Fifth highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "sixth": {
+          "description": "Sixth highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "seventh": {
+          "description": "Seventh highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "eighth": {
+          "description": "Eighth highest sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "firstinkind": {
+          "description": "Top or highest sponsorship level benefits for services / in-kind donors.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "secondinkind": {
+          "description": "Second sponsorship level benefits for services / in-kind donors.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "thirdinkind": {
+          "description": "Third sponsorship level benefits for services / in-kind donors.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "fourthinkind": {
+          "description": "Fourth sponsorship level benefits for services / in-kind donors.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "grants": {
+          "description": "Government, institutional or other funding grants.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "community": {
+          "description": "Community group or other similar sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         }
       }
     }
