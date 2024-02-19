@@ -1,0 +1,123 @@
+openapi: 3.0.0
+info:
+  description: |
+    DRAFT DRAFT DRAFT
+    Proposed OpenAPI spec for FOSS Foundations, providing 
+    read-only access to _foundations, _sponsorships, _entities.
+  version: "1.0.0"
+  title: FOSS Foundations Info
+  termsOfService: 'https://fossfoundation.info/colophon'
+  contact:
+    email: shane@punderthings.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ShaneCurcuru/FOSSFoundationInfo/1.0.0
+  - description: FOSS Foundations raw GitHub access
+    url: 'https://raw.githubusercontent.com/Punderthings/fossfoundation/main/'
+tags:
+  - name: foundation
+    description: Nonprofit FOSS Foundation Organization
+    externalDocs:
+      description: Inclusion criteria and org schema
+      url: 'https://fossfoundation.info/data'
+  - name: entity
+    description: Nonprofit FOSS Projects Or Entities
+    externalDocs:
+      description: Inclusion criteria and entity schema
+      url: 'https://fossfoundation.info/entities'
+  - name: sponsorship
+    description: Foundation Sponsorship Models
+    externalDocs:
+      description: Inclusion criteria and org schema
+      url: 'https://fossfoundation.info/sponsorships'
+  - name: tax
+    description: Foundation Tax Finances Models
+    externalDocs:
+      description: Inclusion criteria and org schema
+      url: 'https://fossfoundation.info/taxes'
+paths:
+  /_foundations/list.json:
+    get:
+      tags:
+        - foundation
+      summary: Get list of available Foundation ids.
+      description: Returns list of all ids, along with naming metadata hints for external lookups.
+      operationId: getFoundations
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FoundationList'
+  '/_foundations/{foundationId}':
+    get:
+      tags:
+        - foundation
+      summary: Get Foundation by id.
+      description: Returns a single Foundation organizational model object.
+      operationId: getFoundationById
+      parameters:
+        - name: foundationId
+          in: path
+          description: ID of Foundation object to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Foundation'
+        '400':
+          description: 'Invalid ID: does not map to existing Foundation'
+        '404':
+          description: 'Not Found ID: does not map to existing Foundation'
+externalDocs:
+  description: See the FOSS Foundations metadata directory standards.
+  url: 'https://fossfoundation.info/data'
+components:
+  schemas:
+    FoundationList:
+      type: object
+      required:
+        - validFrom
+        - list
+      properties:
+        validFrom:
+          type: string
+          format: date
+          description: Date list of valid IDs was produced.
+          example: 2024-02-19
+        list:
+          type: object
+          additionalProperties:
+            type: string
+    Foundation:
+      type: object
+      required:
+        - identifier
+        - commonName
+        - website
+      properties:
+        identifier:
+          type: string
+          description: short lookup identifier
+          example: asf
+        commonName:
+          type: string
+          description: Commonly used name of the organization.
+          example: Apache Software Foundation
+        website:
+          type: string
+          description: website homepage
+        foundingDate:
+          type: string
+          description: date organization legally founded
+          format: date
