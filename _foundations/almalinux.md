@@ -21,9 +21,9 @@ budgetYear:
 budgeturl: 
 sponsorurl: https://almalinux.org
 sponsorList: Hawk Host, OpenLogic, CERN, black.host, procomputers.com, Hivelocity, Mattermost, Cybertrust Japan Co., Codenotary, Atix, World4You Internet Services GmbH, CloudLinux Inc, KnownHost, LLC, WebPros, Inc (under cPanel and Plesk brands), IPInfo
-licenses: https://www.osgeo.org/about/licenses/ 
+licenses: https://almalinux.org/p/the-almalinux-os-licensing-policy/ 
 claPolicy: 
-ethicsPolicy:https://almalinux.org/p/foundation-board-operations-and-ethics/
+ethicsPolicy: https://almalinux.org/p/foundation-board-operations-and-ethics/
 governanceOrg: 
 governanceTech: 
 projectsNotable: 
