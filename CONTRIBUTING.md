@@ -21,7 +21,7 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
 
 ## How To Add A New Foundation
 
-- Copy `[_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md)` as the base for a file.
+- Copy [_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md) as the base for a file.
 - Decide on the shortest and most common name used for the foundation that would still be unique in the current open source space.
 - Lowercase the name and remove any non-letter characters to make *shortname*.
 - Create `_foundations/*shortname*.md` and fill in as many fields as you can verify (no guessing!)
