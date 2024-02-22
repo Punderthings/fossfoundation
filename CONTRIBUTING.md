@@ -21,10 +21,14 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
 
 ## How To Add A New Foundation
 
-- Copy `[_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md)` as the base for a file.
+All the foundation data is stored in _foundations, so adding a new foundation is as simple as creating a file in that folder that matches the correct formatting.
+
+- Copy [_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md) to `_foundations/` as the base your new file.
+  - `cp _data/foundation-template.md _foundations/`
 - Decide on the shortest and most common name used for the foundation that would still be unique in the current open source space.
 - Lowercase the name and remove any non-letter characters to make *shortname*.
-- Create `_foundations/*shortname*.md` and fill in as many fields as you can verify (no guessing!)
+- Rename the `_foundations/foundation-template.md` file you created to `_foundations/*shortname*.md` and fill in as many fields as you can verify (no guessing!)
+  - You will find descriptions for each of the entries in `_data/foundations-schema.json`
   - Use [Schema.org NonprofitType](https://schema.org/NonprofitType) values, or leave blank if you're not sure
   - Leave both `---` YAML document separators, and update the body of the Markdown document with a single factual sentence that describes the foundation.
 - Submit your PR!
