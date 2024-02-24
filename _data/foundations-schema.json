@@ -33,11 +33,17 @@
       "description": "One sentence brief overview of organization.",
       "type": "string"
     },
+    "contacturl": {
+      "title": "Contact Us",
+      "description": "Contact Us or similar URL, if any.",
+      "type": "string",
+      "format": "url"
+    },
     "website": {
       "title": "Website",
       "description": "Primary website homepage.",
       "type": "string",
-      "format": "uri"
+      "format": "url"
     },
     "foundingDate": {
       "title": "Founding Date",
@@ -93,6 +99,18 @@
       "type": "string",
       "format": "url"
     },
+    "teamurl": {
+      "title": "Team, staff, or employee roster URL.",
+      "description": "Team, staff, or employee roster URL.",
+      "type": "string",
+      "format": "url"
+    },
+    "missionurl": {
+      "title": "Misson Statement",
+      "description": "Mission statement or other overview of organizational goals URL.",
+      "type": "string",
+      "format": "url"
+    },
     "bylawsurl": {
       "title": "Bylaws Website",
       "description": "Corporate bylaws URL.",
@@ -130,6 +148,12 @@
       "description": "Brief description of services offered to hosted projects.",
       "type": "string"
     },
+    "eventurl": {
+      "title": "Events Listing",
+      "description": "Link to any event calendar or overview page.",
+      "type": "string",
+      "format": "url"
+    },    
     "nonprofitStatus": {
       "$comment": "TODO: enum based on https://schema.org/NonprofitType",
       "title": "Nonprofit Type",
@@ -173,6 +197,12 @@
       "description": "Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.",
       "type": "string"
     },
+    "donateurl": {
+      "title": "Donation Link",
+      "description": "Link to donate or financial contribution URL.",
+      "type": "string",
+      "format": "url"
+    },
     "sponsorurl": {
       "title": "Sponsor List Website",
       "description": "Official listing of sponsors URL.",
@@ -204,6 +234,12 @@
       "description": "Does the organization use CLAs, DCOs, or other required incoming grants from developers?",
       "type": "string"
     },
+    "securityurl": {
+      "title": "Security Policy",
+      "description": "Link to any security reporting, advisory, or similar URL.",
+      "type": "string",
+      "format": "url"
+    },    
     "ethicsPolicy": {
       "title": "Ethics/COI Policy",
       "description": "Link to any primary ethics or COI policies posted.",
