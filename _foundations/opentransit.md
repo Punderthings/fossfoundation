@@ -1,5 +1,5 @@
 ---
-identifier: opentransitsoftwarefoundation
+identifier: opentransit
 commonName: Open Transit
 legalName: Open Transit Software Foundation
 description:

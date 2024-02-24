@@ -1,5 +1,5 @@
 ---
-identifier: AlmaLinux
+identifier: almalinux
 commonName: AlmaLinux
 legalName: AlmaLinux OS Foundation
 description:
