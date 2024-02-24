@@ -43,7 +43,7 @@ module FoundationReporter
     Pathname.glob(File.join(dir, "*.md")) do |file|
       foundation = YAML.load_file(file)
       nonprofit = foundation['nonprofitStatus']
-      if nonprofit.include?('Nonprofit501c')
+      if nonprofit && nonprofit.include?('Nonprofit501c')
         taxid = foundation['taxID']
         if taxid
           taxid = taxid.to_str.delete('-')
@@ -159,10 +159,9 @@ if __FILE__ == $PROGRAM_NAME
 
   reports = options.fetch(:reports, nil)
   if reports
-
-    eins = FoundationReporter.get_eins(foundation_dir)
-    orgs = Propublica990.get_orgs(eins, p990_dir)
-    report_csv = File.join(p990_dir, options[:outfile])
+    eins = FoundationReporter.get_eins(dirs['foundations'])
+    orgs = Propublica990.get_orgs(eins, '_data/p990')
+    report_csv = File.join(dirs['foundations'], options[:outfile])
     Propublica990.orgs2csv_common(orgs, report_csv)
   end
 end
