@@ -2,47 +2,58 @@
 identifier: kuali
 commonName: Kuali
 legalName: Kuali Foundation Inc.
+description:
+contacturl:
 website: https://www.kuali.co/about
 foundingDate: 2006
 addressCountry: US
 addressRegion: IL
 newProjects:
 softwareType: education
-wikidataId: 
-taxID: 20-5118023
-nonprofitStatus: Nonprofit501c3
+wikidataId:
 boardSize:
 boardType:
 boardurl:
+teamurl:
+missionurl:
 bylawsurl:
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl:
-sponsorurl:
-sponsorList:
-licenses:
-claPolicy:
-ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-logo:
-logoReg:
-brandPrimary:
-brandSecondary:
-brandPolicy:
-brandReg:
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: Nonprofit501c3
+taxID: 20-5118023
+taxIDLocal:
+budgetUsd:
+budgetYear:
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl:
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl:
 conductEvents:
 conductSource:
 conductLinked:
 diversityPolicy:
 diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg:
+brandPolicy:
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
 

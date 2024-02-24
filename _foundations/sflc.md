@@ -2,6 +2,8 @@
 identifier: sflc
 commonName: Software Freedom Law Center
 legalName: Software Freedom Law Center
+description:
+contacturl:
 website: https://www.softwarefreedom.org/
 foundingDate:
 addressCountry: US
@@ -9,42 +11,51 @@ addressRegion: NY
 newProjects:
 softwareType: education
 wikidataId: Q1394821
-taxID: 41-2165986
-tasIDLocal: 21-15-53
-nonprofitStatus: Nonprofit501c3
 boardSize:
 boardType:
 boardurl:
+teamurl:
+missionurl:
 bylawsurl:
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl:
-sponsorurl:
-sponsorList:
-licenses:
-claPolicy:
-ethicsPolicy:
 governanceOrg: https://www.softwarefreedom.org/about/team/
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-logo:
-logoReg: 'no'
-brandPrimary: SFLC
-brandSecondary:
-brandPolicy:
-brandReg: 'no'
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: Nonprofit501c3
+taxID: 41-2165986
+taxIDLocal:
+budgetUsd:
+budgetYear:
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl:
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl:
 conductEvents:
 conductSource:
 conductLinked:
 diversityPolicy:
 diversityDescription:
+brandPrimary: SFLC
+brandSecondary:
+brandReg: 'no'
+brandPolicy:
+brandUse:
+brandComments:
+logo:
+logoReg: 'no'
+subOrganization:
+tasIDLocal: 21-15-53
 ---
 
 The Software Freedom Law Center provides pro-bono legal services to developers of Free, Libre, and Open Source Software.

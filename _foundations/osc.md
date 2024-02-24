@@ -2,6 +2,8 @@
 identifier: osc
 commonName: Open Source Collective
 legalName: Open Source Collective
+description:
+contacturl:
 website: https://www.oscollective.org
 foundingDate:
 addressCountry: US
@@ -9,41 +11,50 @@ addressRegion:
 newProjects: 'yes'
 softwareType: various
 wikidataId:
-taxID: 82-2037583
-nonprofitStatus: Nonprofit501c6
 boardSize:
 boardType:
 boardurl:
+teamurl:
+missionurl:
 bylawsurl:
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl:
-sponsorurl:
-sponsorList:
-licenses:
-claPolicy:
-ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-logo:
-logoReg:
-brandPrimary:
-brandSecondary:
-brandPolicy:
-brandReg:
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: Nonprofit501c6
+taxID: 82-2037583
+taxIDLocal:
+budgetUsd:
+budgetYear:
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl:
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl:
 conductEvents:
 conductSource:
 conductLinked:
 diversityPolicy:
 diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg:
+brandPolicy:
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
 
 Open Source Collective is a non-profit working for the common interests of those who create and use open source software.

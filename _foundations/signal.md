@@ -2,46 +2,57 @@
 identifier: signal
 commonName: Signal
 legalName: Signal Foundation
+description:
+contacturl:
 website: https://signalfoundation.org/
-foundingDate: 
+foundingDate:
 addressCountry: US
 addressRegion:
 newProjects: 'no'
 softwareType: messaging
 wikidataId: Q55074807
-taxID: 82-4506840
-nonprofitStatus: Nonprofit501c3
 boardSize: 5
-boardType: 
+boardType:
 boardurl: https://signalfoundation.org/
-bylawsurl: 
-numberOfEmployees: 
-funding: 
-budgetUsd: 
+teamurl:
+missionurl:
+bylawsurl:
+numberOfEmployees:
+governanceOrg:
+governanceTech:
+projectsNotable:
+projectsList:
+projectsServices:
+eventurl:
+nonprofitStatus: Nonprofit501c3
+taxID: 82-4506840
+taxIDLocal:
+budgetUsd:
 budgetYear:
-budgeturl: 
-sponsorurl: 
-sponsorList: 
-licenses: 
-claPolicy: 
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl:
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
 ethicsPolicy:
-governanceOrg: 
-governanceTech: 
-projectsNotable: 
-projectsList: 
-projectsServices: 
-logo: 
-logoReg: 
-brandPrimary: 
-brandSecondary: 
-brandPolicy: https://www.signal.org/legal/
-brandReg: yes
-brandUse: 
-brandComments: 
-conducturl: 
+conducturl:
 conductEvents:
-conductSource: 
-conductLinked: 
-diversityPolicy: 
-diversityDescription: 
+conductSource:
+conductLinked:
+diversityPolicy:
+diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg: true
+brandPolicy: https://www.signal.org/legal/
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---

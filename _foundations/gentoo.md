@@ -2,6 +2,8 @@
 identifier: gentoo
 commonName: Gentoo Linux
 legalName: The Gentoo Foundation, Inc.
+description:
+contacturl:
 website: https://www.gentoo.org/
 foundingDate:
 addressCountry: US
@@ -9,44 +11,51 @@ addressRegion: NM
 newProjects:
 softwareType: distro
 wikidataId: Q75837444
-taxID:
-taxIDLocal: '2463313'
-nonprofitStatus: New Mexico non profit
 boardSize: 5
 boardType: elected
 boardurl: https://wiki.gentoo.org/wiki/Foundation:Main_Page
+teamurl:
+missionurl:
 bylawsurl: https://wiki.gentoo.org/wiki/Foundation:Bylaws
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl: https://wiki.gentoo.org/wiki/Foundation:Financial_Reports
-sponsorurl: https://www.gentoo.org/inside-gentoo/sponsors/
-sponsorList:
-sponsorships: 
-  - gentoo
-licenses: GPL-2.0-only
-claPolicy:
-ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-logo:
-logoReg:
-brandPrimary: Gentoo
-brandSecondary:
-brandPolicy: https://wiki.gentoo.org/wiki/User:SwifT/trademark
-brandReg: 'no'
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: New Mexico non profit
+taxID:
+taxIDLocal: '2463313'
+budgetUsd:
+budgetYear:
+budgeturl: https://wiki.gentoo.org/wiki/Foundation:Financial_Reports
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl: https://www.gentoo.org/inside-gentoo/sponsors/
+sponsorList:
+sponsorships:
+- gentoo
+licenses: GPL-2.0-only
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl:
 conductEvents:
 conductSource:
 conductLinked:
 diversityPolicy:
 diversityDescription:
+brandPrimary: Gentoo
+brandSecondary:
+brandReg: 'no'
+brandPolicy: https://wiki.gentoo.org/wiki/User:SwifT/trademark
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
 
 The Gentoo Foundation provides support for development of the Gentoo distribution.  It is a New Mexico non-profit corporation, but does not have US IRS non-profit status.

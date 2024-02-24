@@ -2,48 +2,58 @@
 identifier: openstack
 commonName: Open Infra
 legalName: Openstack Foundation
+description:
+contacturl:
 website: https://openinfra.dev/
-foundingDate: 
+foundingDate:
 addressCountry: US
 addressRegion: TX
 newProjects: 'yes'
 softwareType: infrastructure
 wikidataId: Q45897217
-taxID: 46-0618689
-nonprofitStatus: Nonprofit501c6
 boardSize: 15
-boardType: 
+boardType:
 boardurl: https://openinfra.dev/about/board/
+teamurl:
+missionurl:
 bylawsurl: https://openinfra.dev/legal/bylaws
-numberOfEmployees: 
-funding: 
-budgetUsd: 
+numberOfEmployees:
+governanceOrg:
+governanceTech:
+projectsNotable:
+projectsList:
+projectsServices:
+eventurl:
+nonprofitStatus: Nonprofit501c6
+taxID: 46-0618689
+taxIDLocal:
+budgetUsd:
 budgetYear:
-budgeturl: 
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
 sponsorurl: https://openinfra.dev/members/
 sponsorList: https://openinfra.dev/join/members/
-sponsorships: 
-  - openstack
-licenses: 
+sponsorships:
+- openstack
+licenses:
 claPolicy: https://openinfra.dev/cla/
+securityurl:
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy
-governanceOrg: 
-governanceTech: 
-projectsNotable: 
-projectsList: 
-projectsServices: 
-logo: 
-logoReg: 
-brandPrimary: OpenStack, Open Infra
-brandSecondary: 
-brandPolicy: https://openinfra.dev/legal/trademark-policy
-brandReg: 
-brandUse: 
-brandComments: 
 conducturl: https://openinfra.dev/legal/code-of-conduct
 conductEvents:
-conductSource: 
-conductLinked: 
+conductSource:
+conductLinked:
 diversityPolicy: https://openinfra.dev/about/diversity/
-diversityDescription: 
+diversityDescription:
+brandPrimary: OpenStack, Open Infra
+brandSecondary:
+brandReg:
+brandPolicy: https://openinfra.dev/legal/trademark-policy
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---

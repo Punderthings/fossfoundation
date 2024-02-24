@@ -1,49 +1,60 @@
 ---
 identifier: dotnet
-commonName: .Net Foundation
-legalName: .NET Foundation
+commonName: ".Net Foundation"
+legalName: ".NET Foundation"
+description:
+contacturl:
 website: https://dotnetfoundation.org/
 foundingDate:
 addressCountry: US
 addressRegion: WA
 newProjects: 'yes'
 softwareType: various
-wikidataId: 
-taxID: 47-2119192
-nonprofitStatus: Nonprofit501c6
+wikidataId:
 boardSize: 7
 boardType:
 boardurl: https://dotnetfoundation.org/about/board-of-directors
+teamurl:
+missionurl:
 bylawsurl: https://dotnetfoundation.org/about/policies/.net-foundation-bylaws
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl: https://dotnetfoundation.org/about/budget
-sponsorurl:
-sponsorList:
-licenses: various
-claPolicy:
-ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList: https://dotnetfoundation.org/projects/current-projects
 projectsServices:
-logo:
-logoReg:
-brandPrimary: .NET
-brandSecondary: various projects
-brandPolicy: 
-brandReg:
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: Nonprofit501c6
+taxID: 47-2119192
+taxIDLocal:
+budgetUsd:
+budgetYear:
+budgeturl: https://dotnetfoundation.org/about/budget
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl:
+sponsorList:
+sponsorships:
+licenses: various
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl: https://dotnetfoundation.org/about/policies/code-of-conduct
 conductEvents:
 conductSource: Contributor Covenant
 conductLinked: footer
-diversityPolicy: 
+diversityPolicy:
 diversityDescription:
+brandPrimary: ".NET"
+brandSecondary: various projects
+brandReg:
+brandPolicy:
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
 
 

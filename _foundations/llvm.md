@@ -2,47 +2,58 @@
 identifier: llvm
 commonName: LLVM
 legalName: LLVM Foundation
+description:
+contacturl:
 website: https://foundation.llvm.org/
 foundingDate:
 addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType: compiler
-wikidataId: 
-taxID: 47-1136085
-nonprofitStatus: Nonprofit501c3
+wikidataId:
 boardSize: 9
 boardType:
 boardurl:
+teamurl:
+missionurl:
 bylawsurl: https://foundation.llvm.org/documents/other/LLVMF-Bylaws.pdf
 numberOfEmployees:
-funding:
-budgetUsd:
-budgetYear:
-budgeturl:
-sponsorurl: https://foundation.llvm.org/docs/sponsors/
-sponsorList:
-licenses:
-claPolicy:
-ethicsPolicy:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-logo:
-logoReg:
-brandPrimary:
-brandSecondary:
-brandPolicy:
-brandReg:
-brandUse:
-brandComments:
+eventurl:
+nonprofitStatus: Nonprofit501c3
+taxID: 47-1136085
+taxIDLocal:
+budgetUsd:
+budgetYear:
+budgeturl:
+budgetTransparent:
+funding:
+donateurl:
+sponsorurl: https://foundation.llvm.org/docs/sponsors/
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
+ethicsPolicy:
 conducturl:
 conductEvents:
 conductSource:
 conductLinked:
 diversityPolicy:
 diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg:
+brandPolicy:
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
 

@@ -2,46 +2,57 @@
 identifier: oasis
 commonName: OASIS
 legalName: Oasis Open
+description:
+contacturl:
 website: https://www.oasis-open.org/
-foundingDate: 
+foundingDate:
 addressCountry: US
 addressRegion: MA
 newProjects: 'yes'
 softwareType: standards
 wikidataId: Q1455952
-taxID: 25-1720375
-nonprofitStatus: Nonprofit501c3
 boardSize: 11
 boardType: elected
 boardurl: https://www.oasis-open.org/board/
+teamurl:
+missionurl:
 bylawsurl: https://www.oasis-open.org/policies-guidelines/bylaws
-numberOfEmployees: 
-funding: 
-budgetUsd: 
+numberOfEmployees:
+governanceOrg:
+governanceTech:
+projectsNotable:
+projectsList:
+projectsServices:
+eventurl:
+nonprofitStatus: Nonprofit501c3
+taxID: 25-1720375
+taxIDLocal:
+budgetUsd:
 budgetYear:
 budgeturl: https://www.oasis-open.org/annual-reports/
+budgetTransparent:
+funding:
+donateurl:
 sponsorurl: https://www.oasis-open.org/members/
-sponsorList: 
-licenses: 
-claPolicy: 
+sponsorList:
+sponsorships:
+licenses:
+claPolicy:
+securityurl:
 ethicsPolicy: https://www.oasis-open.org/policies-guidelines/conflict-of-interest
-governanceOrg: 
-governanceTech: 
-projectsNotable: 
-projectsList: 
-projectsServices: 
-logo: 
-logoReg: 
-brandPrimary: 
-brandSecondary: 
-brandPolicy: https://www.oasis-open.org/policies-guidelines/trademark
-brandReg: 
-brandUse: 
-brandComments: 
 conducturl: https://www.oasis-open.org/policies-guidelines/oasis-participants-code-of-conduct/
 conductEvents:
-conductSource: 
-conductLinked: 
-diversityPolicy: 
-diversityDescription: 
+conductSource:
+conductLinked:
+diversityPolicy:
+diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg:
+brandPolicy: https://www.oasis-open.org/policies-guidelines/trademark
+brandUse:
+brandComments:
+logo:
+logoReg:
+subOrganization:
 ---
