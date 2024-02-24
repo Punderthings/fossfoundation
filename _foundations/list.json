@@ -1,205 +1,346 @@
 {
-  "validFrom": "2024-02-19",
-  "list": {
-    "asf": [
-      "Apache Software Foundation",
-      "apache.org"
-    ],
-    "django": [
-      "Django",
-      "djangoproject.com"
-    ],
-    "dotnet": [
-      ".Net Foundation",
-      "dotnetfoundation.org"
-    ],
-    "drupal": [
-      "Drupal",
-      "drupal.org"
-    ],
-    "eclipse": [
-      "Eclipse",
-      "eclipse.org"
-    ],
-    "ffpc": [
-      "Foundation for Public Code",
-      "publiccode.net"
-    ],
-    "freebsd": [
-      "FreeBSD",
-      "freebsd.org"
-    ],
-    "fsf": [
-      "Free Software Foundation",
-      "fsf.org"
-    ],
-    "fsfe": [
-      "Free Software Foundation Europe",
-      "fsfe.org"
-    ],
-    "fsfse": [
-      "Free Software Support Network",
-      "freesoftwaresupport.net"
-    ],
-    "fsharp": [
-      "F# Software Foundation",
-      "foundation.fsharp.org"
-    ],
-    "gentoo": [
-      "Gentoo Linux",
-      "gentoo.org"
-    ],
-    "gnome": [
-      "GNOME",
-      "gnome.org"
-    ],
-    "haiku": [
-      "Haiku",
-      "haiku-inc.org"
-    ],
-    "haskell": [
-      "Haskell",
-      "haskell.org"
-    ],
-    "isc": [
-      "ISC",
-      "isc.org"
-    ],
-    "joomla": [
-      "Open Source Matters",
-      "opensourcematters.org"
-    ],
-    "kde": [
-      "KDE",
-      "ev.kde.org"
-    ],
-    "kuali": [
-      "Kuali",
-      "kuali.co/about"
-    ],
-    "lf": [
-      "Linux Foundation",
-      "linuxfoundation.org"
-    ],
-    "linuxkernel": [
-      "Linux Kernel",
-      "kernel.org/nonprofit.html"
-    ],
-    "llvm": [
-      "LLVM",
-      "foundation.llvm.org"
-    ],
-    "mozilla": [
-      "Mozilla",
-      "mozilla.org"
-    ],
-    "netbsd": [
-      "NetBSD",
-      "netbsd.org"
-    ],
-    "numfocus": [
-      "NumFocus",
-      "numfocus.org"
-    ],
-    "oasis": [
-      "OASIS",
-      "oasis-open.org"
-    ],
-    "ocf": [
-      "Open Collective Foundation",
-      "opencollective.foundation"
-    ],
-    "openjsf": [
-      "OpenJS Foundation",
-      "openjsf.org"
-    ],
-    "openstack": [
-      "Open Infra",
-      "openinfra.dev"
-    ],
-    "openstreetmap": [
-      "OpenStreetMap",
-      "osmfoundation.org"
-    ],
-    "osc": [
-      "Open Source Collective",
-      "oscollective.org"
-    ],
-    "osgeo": [
-      "OSGeo",
-      "osgeo.org"
-    ],
-    "osi": [
-      "Open Source Initiative",
-      "opensource.org"
-    ],
-    "owasp": [
-      "OWASP",
-      "owasp.org"
-    ],
-    "perl": [
-      "Perl",
-      "perlfoundation.org"
-    ],
-    "plone": [
-      "Plone",
-      "plone.org/foundation/committees/ip/policy"
-    ],
-    "python": [
-      "Python",
-      "python.org/psf-landing"
-    ],
-    "rails": [
-      "Rails Foundation",
-      "rubyonrails.org/foundation"
-    ],
-    "raspberrypi": [
-      "Raspberry Pi",
-      "raspberrypi.org/about"
-    ],
-    "raspberrypina": [
-      "Raspberry Pi NA",
-      "raspberrypi.org/about"
-    ],
-    "rubycentral": [
-      "Ruby Central",
-      "rubycentral.org"
-    ],
-    "rust": [
-      "Rust",
-      "foundation.rust-lang.org"
-    ],
-    "sfc": [
-      "Software Freedom Conservancy",
-      "sfconservancy.org"
-    ],
-    "sflc": [
-      "Software Freedom Law Center",
-      "softwarefreedom.org"
-    ],
-    "signal": [
-      "Signal",
-      "signalfoundation.org"
-    ],
-    "spi": [
-      "SPI",
-      "spi-inc.org"
-    ],
-    "tdf": [
-      "The Document Foundation",
-      "documentfoundation.org"
-    ],
-    "techmatters": [
-      "Tech Matters",
-      "techmatters.org"
-    ],
-    "wikimedia": [
-      "Wikimedia",
-      "wikimediafoundation.org"
-    ],
-    "wordpress": [
-      "WordPress",
-      "wordpress.org"
-    ]
-  }
+  "almalinux": [
+    "almalinux.org",
+    "AlmaLinux",
+    "AlmaLinux OS Foundation"
+  ],
+  "asf": [
+    "apache.org",
+    "Apache Software Foundation"
+  ],
+  "benetech": [
+    "benetech.org",
+    "Benetech",
+    "Beneficent Technology Inc"
+  ],
+  "biobricks": [
+    "biobricks.org",
+    "Biobricks",
+    "BioBricks Foundation"
+  ],
+  "creativecommons": [
+    "creativecommons.org",
+    "Creative Commons"
+  ],
+  "django": [
+    "djangoproject.com",
+    "Django",
+    "Django Software Foundation"
+  ],
+  "dotnet": [
+    "dotnetfoundation.org",
+    ".Net Foundation",
+    ".NET Foundation"
+  ],
+  "drupal": [
+    "drupal.org",
+    "Drupal",
+    "Drupal Association"
+  ],
+  "eclipse": [
+    "eclipse.org",
+    "Eclipse",
+    "Eclipse Foundation AISBL"
+  ],
+  "eff": [
+    "eff.org",
+    "Electronic Frontier Foundation"
+  ],
+  "ffpc": [
+    "publiccode.net",
+    "Foundation for Public Code",
+    "Foundation for Public Code vereniging"
+  ],
+  "freebsd": [
+    "freebsd.org",
+    "FreeBSD",
+    "FreeBSD Foundation"
+  ],
+  "fsf": [
+    "fsf.org",
+    "Free Software Foundation",
+    "Free Software Foundation, Inc."
+  ],
+  "fsfe": [
+    "fsfe.org",
+    "Free Software Foundation Europe"
+  ],
+  "fsfse": [
+    "freesoftwaresupport.net",
+    "Free Software Support Network"
+  ],
+  "fsharp": [
+    "foundation.fsharp.org",
+    "F# Software Foundation"
+  ],
+  "gentoo": [
+    "gentoo.org",
+    "Gentoo Linux",
+    "The Gentoo Foundation, Inc."
+  ],
+  "gnome": [
+    "gnome.org",
+    "GNOME",
+    "GNOME Foundation"
+  ],
+  "haiku": [
+    "haiku-inc.org",
+    "Haiku",
+    "Haiku, Inc."
+  ],
+  "haskell": [
+    "haskell.org",
+    "Haskell",
+    "Haskell-org Inc."
+  ],
+  "idcommons": [
+    "idcommons.net",
+    "Identity Commons",
+    "Identity Commons Inc"
+  ],
+  "isc": [
+    "isc.org",
+    "ISC",
+    "Internet Systems Consortium, Inc."
+  ],
+  "joomla": [
+    "opensourcematters.org",
+    "Open Source Matters"
+  ],
+  "kde": [
+    "ev.kde.org",
+    "KDE",
+    "KDE e.V."
+  ],
+  "kuali": [
+    "kuali.co/about",
+    "Kuali",
+    "Kuali Foundation Inc."
+  ],
+  "lf": [
+    "linuxfoundation.org",
+    "Linux Foundation"
+  ],
+  "linuxkernel": [
+    "kernel.org/nonprofit.html",
+    "Linux Kernel",
+    "Linux Kernel Organization"
+  ],
+  "llvm": [
+    "foundation.llvm.org",
+    "LLVM",
+    "LLVM Foundation"
+  ],
+  "mozilla": [
+    "mozilla.org",
+    "Mozilla",
+    "Mozilla Foundation"
+  ],
+  "netbsd": [
+    "netbsd.org",
+    "NetBSD",
+    "The NetBSD Foundation, Inc."
+  ],
+  "numfocus": [
+    "numfocus.org",
+    "NumFocus",
+    "NumFocus, Inc."
+  ],
+  "oasis": [
+    "oasis-open.org",
+    "OASIS",
+    "Oasis Open"
+  ],
+  "ocf": [
+    "opencollective.foundation",
+    "Open Collective Foundation"
+  ],
+  "oeglobal": [
+    "oeglobal.org",
+    "OEGlobal",
+    "Open Education Global Inc"
+  ],
+  "oisf": [
+    "oisf.net",
+    "Open Information Security Foundation"
+  ],
+  "olpc": [
+    "laptop.org",
+    "OLPC",
+    "One Laptop Per Child Association  Inc."
+  ],
+  "omsf": [
+    "omsf.io",
+    "Open Molecular Software Foundation"
+  ],
+  "opencompute": [
+    "opencompute.org",
+    "Open Compute",
+    "Open Compute Project Foundation"
+  ],
+  "openconnectivity": [
+    "openconnectivity.org",
+    "OCF",
+    "Open Connectivity Foundation Inc"
+  ],
+  "openid": [
+    "openid.net/foundation",
+    "OpenID",
+    "OpenID Foundation"
+  ],
+  "openjsf": [
+    "openjsf.org",
+    "OpenJS Foundation"
+  ],
+  "openrobotics": [
+    "openrobotics.org",
+    "Open Robotics",
+    "Open Source Robotics Foundation Inc"
+  ],
+  "openstack": [
+    "openinfra.dev",
+    "Open Infra",
+    "Openstack Foundation"
+  ],
+  "openstreetmap": [
+    "osmfoundation.org",
+    "OpenStreetMap",
+    "https://www.openstreetmap.org/about"
+  ],
+  "opentransit": [
+    "opentransitsoftwarefoundation.org",
+    "Open Transit",
+    "Open Transit Software Foundation"
+  ],
+  "osc": [
+    "oscollective.org",
+    "Open Source Collective"
+  ],
+  "oset": [
+    "osetinstitute.org",
+    "OSET",
+    "OSET Institute"
+  ],
+  "osgeo": [
+    "osgeo.org",
+    "OSGeo",
+    "Open Source Geospatial Foundation"
+  ],
+  "osi": [
+    "opensource.org",
+    "Open Source Initiative"
+  ],
+  "owasp": [
+    "owasp.org",
+    "OWASP",
+    "Open Web Application Security Project"
+  ],
+  "pculture": [
+    "pculture.org",
+    "Participatory Culture Foundation"
+  ],
+  "perl": [
+    "perlfoundation.org",
+    "Perl",
+    "Yet Another Society, (DBA) The Perl And Raku Foundation"
+  ],
+  "plone": [
+    "plone.org/foundation/committees/ip/policy",
+    "Plone",
+    "Plone Foundation"
+  ],
+  "postgresql": [
+    "postgresql.us",
+    "PostgreSQL.US",
+    "United States Postgresql Association"
+  ],
+  "python": [
+    "python.org/psf-landing",
+    "Python",
+    "Python Software Foundation"
+  ],
+  "rails": [
+    "rubyonrails.org/foundation",
+    "Rails Foundation"
+  ],
+  "raspberrypi": [
+    "raspberrypi.org/about",
+    "Raspberry Pi",
+    "Raspberry Pi Foundation"
+  ],
+  "raspberrypina": [
+    "raspberrypi.org/about",
+    "Raspberry Pi NA",
+    "Raspberry Pi Foundation North America Inc"
+  ],
+  "rubycentral": [
+    "rubycentral.org",
+    "Ruby Central",
+    "Ruby Central, Inc."
+  ],
+  "rust": [
+    "foundation.rust-lang.org",
+    "Rust",
+    "Rust Foundation"
+  ],
+  "sahana": [
+    "sahanafoundation.org",
+    "Sahana Foundation"
+  ],
+  "scale": [
+    "socallinuxexpo.org",
+    "SCALE",
+    "Linux Expo of Southern California"
+  ],
+  "sfc": [
+    "sfconservancy.org",
+    "Software Freedom Conservancy"
+  ],
+  "sflc": [
+    "softwarefreedom.org",
+    "Software Freedom Law Center"
+  ],
+  "signal": [
+    "signalfoundation.org",
+    "Signal",
+    "Signal Foundation"
+  ],
+  "spi": [
+    "spi-inc.org",
+    "SPI",
+    "Software in the Public Interest"
+  ],
+  "tdf": [
+    "documentfoundation.org",
+    "The Document Foundation"
+  ],
+  "techmatters": [
+    "techmatters.org",
+    "Tech Matters",
+    "Technology Matters"
+  ],
+  "tug": [
+    "tug.org",
+    "TeX Users Group"
+  ],
+  "wikimedia": [
+    "wikimediafoundation.org",
+    "Wikimedia",
+    "Wikimedia Foundation"
+  ],
+  "wordpress": [
+    "wordpress.org",
+    "WordPress",
+    "WordPress Foundation"
+  ],
+  "xiph": [
+    "xiph.org",
+    "Xiph.org",
+    "XIPH ORG Foundation"
+  ],
+  "xmpp": [
+    "xmpp.org",
+    "Jabber XMPP",
+    "XMPP Standards Foundation"
+  ]
 }
