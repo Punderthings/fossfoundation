@@ -34,6 +34,8 @@ module SponsorUtils
   SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
   CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
   DEFAULT_OUTDIR = '_data/sponsorships'
+  ERROR_REPORT = 'error'
+  PARSE_DATE = 'parseDate'
 
   # Return a normalized domain name for mapping to a single sponsor org
   # HACK note several special casees mapping down to single org
@@ -111,7 +113,7 @@ module SponsorUtils
         end
       end
     else
-      sponsors['error'] = "ERROR: parse_landscape(... #{category}) not found"
+      sponsors[ERROR_REPORT] = "ERROR: parse_landscape(... #{category}) not found"
     end
     return sponsors
   end
@@ -122,7 +124,13 @@ module SponsorUtils
   # @return sponsors hash normalized to domain names
   def cleanup_with_map(links, mapname)
     sponsors = {}
-    map = JSON.parse(File.read(mapname))
+    begin
+      map = JSON.parse(File.read(mapname))
+    rescue StandardError => e
+      sponsors[ERROR_REPORT] = "ERROR: cleanup_with_map(...#{mapname}): #{e.message}"
+      return links ## FIXME, figure out right way to handle this rare error
+    end
+
     links.each do | level, ary |
       next unless ary.is_a?(Array) # Skip dates, errors, etc
       sponsors[level] = []
@@ -174,17 +182,22 @@ module SponsorUtils
 
   # Process single sponsorship lookup
   # Processing varies depending on landscape, sponsorselector, sponsormap attrs
+  # Parse either live url, or override with a path reference (for cached/historical data)
   # @param org id of org being parsed
   # @param sponsorship parsed _sponsorship hash defining what to do
   # @return processed hash of sponsors
-  def parse_sponsorship(org, sponsorship)
+  def parse_sponsorship(org, sponsorship, cachefile = nil)
     io = nil
     sponsors = {}
     sponsorurl = sponsorship['sponsorurl']
     begin
-      io = URI.open(sponsorurl).read
+      if cachefile
+        io = File.open(cachefile)
+      else
+        io = URI.open(sponsorurl).read
+      end
     rescue StandardError => e
-      sponsors['error'] = "ERROR: parse_sponsorship(#{sponsorurl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
+      sponsors[ERROR_REPORT] = "ERROR: parse_sponsorship(#{cachefile ? cachefile : sponsorurl}): #{e.message}\n\n#{e.backtrace.join("\n\t")}"
       return sponsors
     end
     # Parse a landscape.yml, or scrape a webpage by css
@@ -227,10 +240,10 @@ module SponsorUtils
     verbose("process_sponsorship(#{org}...) #{staticmap ? 'static map' : 'parsing url'}")
     if staticmap
       sponsors = mapped_sponsorship(org, sponsorship)
-      sponsors['parseDate'] = staticmap
+      sponsors[PARSE_DATE] = staticmap
     else
       sponsors = parse_sponsorship(org, sponsorship)
-      sponsors['parseDate'] = DateTime.now.strftime('%Y%m%d')
+      sponsors[PARSE_DATE] = DateTime.now.strftime('%Y%m%d')
     end
     return sponsors
   end
@@ -319,11 +332,17 @@ module SponsorUtils
     elsif orgid
       options[:outfile] ||= File.join(DEFAULT_OUTDIR, "#{orgid}.json")
       parsed = process_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
+      File.open(options[:outfile], "w") do |f|
+        f.write(JSON.pretty_generate(parsed))
+      end
+      exit 0
     else
       options[:outfile] ||= DEFAULT_OUTDIR
       parsed = process_all_sponsorships()
     end
     parsed.each do | org, sponsorship |
+      next if ERROR_REPORT.eql?(org) # FIXME use a better way of passing errors overall
+      next if PARSE_DATE.eql?(org)
       File.open(File.join(options[:outfile], "#{org}.json"), "w") do |f|
         f.write(JSON.pretty_generate(sponsorship))
       end
