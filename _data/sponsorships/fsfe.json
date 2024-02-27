@@ -1,0 +1,26 @@
+{
+  "first": [
+    "google.com",
+    "intel.com",
+    "Linuxhotel Villa Vogelsang",
+    "redhat.com",
+    "Reinhard Wiesemann",
+    "siemens.com"
+  ],
+  "second": [
+    "adfinis.com",
+    "freiheit.com",
+    "heinlein-support.de",
+    "intevation.de",
+    "Julian Rüth GmbH",
+    "keyfactor.com",
+    "linuxfoundation.org",
+    "Luca Bonissi",
+    "openinventionnetwork.com",
+    "Otto Kekäläinen",
+    "publicplan.de",
+    "sysmocom - systems for mobile communications",
+    "Thomas Etter"
+  ],
+  "parseDate": "20240227"
+}
