@@ -9,7 +9,7 @@ wikidataId: Q50866964
 boardSize: '9'
 boardType: elected
 boardurl: https://www.cncf.io/people/governing-board/
-bylawsurl:
+bylawsurl: https://github.com/cncf/foundation/blob/main/charter.md#11-ip-policy
 numberOfEmployees:
 funding: sponsors
 budgetUsd:
