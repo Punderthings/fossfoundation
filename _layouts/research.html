@@ -4,9 +4,18 @@ layout: default
 
 {{ content }}
 
+Jump to: <a href="#foundations-to-add">Foundations To Research</a>, <a href="#corp-oss-funds">Corporate FOSS Contributor Funds</a>
+
 <section id="foundations-to-add">
 <h3>Foundations To Research</h3>
 There are a number of other interesting <a href="/data#foss-foundations-inclusion-criteria">FOSS legal organizations</a> we'd like help <a href="https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md">adding to the directory</a>.
 {% assign csvtable = site.data.research.foundations-to-add %}
+{% include csvtable.html %}
+</section>
+
+<section id="corp-oss-funds">
+<h3>Corporate FOSS Contributor Funds</h3>
+A number of companies have announced <a href="https://github.com/indeedeng/FOSS-Contributor-Fund">FOSS Contributor Funds</a>, which allow employees to direct some corporate funding to specific FOSS projects.  Can we model these programs, and how would we store the data?  Are there other similarly organized corporate programs?
+{% assign csvtable = site.data.research.corp-oss-funds %}
 {% include csvtable.html %}
 </section>
