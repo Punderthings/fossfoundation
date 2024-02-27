@@ -160,7 +160,7 @@ if __FILE__ == $PROGRAM_NAME
   reports = options.fetch(:reports, nil)
   if reports
     eins = FoundationReporter.get_eins(dirs['foundations'])
-    orgs = Propublica990.get_orgs(eins, '_data/p990')
+    orgs = Propublica990.get_orgs(eins, '_data/p990', refresh = true)
     report_csv = File.join(dirs['foundations'], options[:outfile])
     Propublica990.orgs2csv_common(orgs, report_csv)
   end
