@@ -1,0 +1,17 @@
+<!-- TODO add sticky header row in a way that respects .table-wrapper settings from theme -->
+<table class="csvtable">
+{% for row in csvtable %}
+  {% if forloop.first %}
+  <thead><tr>
+    {% for pair in row %}
+      <th>{{ pair[0] }}</th>
+    {% endfor %}
+  </tr></thead>
+  {% endif %}
+  <tbody>
+  {% tablerow pair in row %}
+    {{ pair[1] }}
+  {% endtablerow %}
+  </tbody>
+{% endfor %}
+</table>

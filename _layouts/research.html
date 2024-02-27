@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<section id="foundations-to-add">
+<h3>Foundations To Research</h3>
+There are a number of other interesting <a href="/data#foss-foundations-inclusion-criteria">FOSS legal organizations</a> we'd like help <a href="https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md">adding to the directory</a>.
+{% assign csvtable = site.data.research.foundations-to-add %}
+{% include csvtable.html %}
+</section>
