@@ -18,6 +18,11 @@
     "Biobricks",
     "BioBricks Foundation"
   ],
+  "bytecode": [
+    "bytecodealliance.org",
+    "Bytecode Alliance",
+    "Bytecode Alliance Foundation"
+  ],
   "creativecommons": [
     "creativecommons.org",
     "Creative Commons"
@@ -63,7 +68,8 @@
   ],
   "fsfe": [
     "fsfe.org",
-    "Free Software Foundation Europe"
+    "Free Software Foundation Europe",
+    "Free Software Foundation Europe e.V."
   ],
   "fsfse": [
     "freesoftwaresupport.net",
