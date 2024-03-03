@@ -8,8 +8,11 @@ nav_order: 1
 
 Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich common metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
 
-- Discover the [directory of foundation metadata](listing). 
-- Read the [roadmap to see where we're headed](roadmap).
+- Discover the [directory of foundation metadata](listing), plus:
+  - [Sponsorship program models](sponsorships)
+  - [Tax data on US nonprofit foundations](taxes)
+  - [Project entities that aren't legal organizations](entities)
+- Read the [roadmap to see where we're headed](roadmap) and [OpenAPI plans](openapi).
 - See the [starting philosophy around data design](data).
 - Find useful [resources to learn about FOSS Foundations](resources).
 - Learn how to [contribute to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
@@ -43,4 +46,4 @@ Read more about our [data philosophy](data).
 - Workflow expects to maintain _foundations files, and then use Actions to auto-build alternate data formats
 - Using flat files / GitHub Pages means zero maintenance
 - Will store a subset of metadata for commercial organizations and independent projects
-  - People searching for a project will see if it's a non-profit (in main data source) or not 
+  - People searching for a project will see if it's a non-profit (in main data source) or not
