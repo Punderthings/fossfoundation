@@ -1,0 +1,16 @@
+{
+  "first": null,
+  "second": null,
+  "third": [
+    "xata.io"
+  ],
+  "fourth": null,
+  "firstinkind": [
+    "amazon.com",
+    "rackspace.com",
+    "conova.com",
+    "redpill-linpro.com",
+    "enterprisedb.com"
+  ],
+  "parseDate": "20240112"
+}
