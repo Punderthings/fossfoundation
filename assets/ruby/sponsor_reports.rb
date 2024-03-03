@@ -63,21 +63,22 @@ module SponsorReports
     return report
   end
 
-  # Rough count of number of times different urls appear at levels
+  # Rough count of number of times different urls appear at levels per org
   # @param sponsors hash returned from scrape_bycss or parse_landscape
   # @return hash of counts of how often domain names appear
   def report_counts(sponsors)
     counts = {}
-    counts[ORGS_REPORT] = []
+    counts[ORGS_REPORT] = {}
     counts['all'] = Hash.new(0)
     SponsorUtils::SPONSOR_METALEVELS.each do | lvl |
       counts[lvl] = Hash.new(0)
     end
     sponsors.each do | org, sponsorhash |
-      counts[ORGS_REPORT] << org
+      counts[ORGS_REPORT][org] = {}
       if sponsorhash.is_a?(Hash) # Ignore dates or possible error entries
         sponsorhash.each do | level, ary |
           if ary.is_a?(Array)  # Ignore dates or possible error entries
+            counts[ORGS_REPORT][org][level] = ary.size
             ary.each do | url |
               counts['all'][url] += 1
               counts[level][url] += 1
@@ -114,6 +115,15 @@ module SponsorReports
       orgs[File.basename(file, '.json')] = JSON.parse(File.read(file))
     end
     return orgs
+  end
+
+  # Simplistic report of counts by level, org, etc.
+  def report_all_counts()
+    allsponsorships = JSON.parse(File.read('_data/allsponsorships.json'))
+    report = {}
+    allsponsorships.each do | id, hash |
+    end
+
   end
 
   # ### #### ##### ######

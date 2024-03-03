@@ -1,41 +1,197 @@
 {
-  "orgs": [
-    "adelielinux",
-    "archlinux",
-    "asf",
-    "aswf",
-    "cd",
-    "cncf",
-    "debian",
-    "drupal",
-    "finos",
-    "freebsd",
-    "fsfe",
-    "gentoo",
-    "gnome",
-    "graphql",
-    "haskell",
-    "hyperledger",
-    "jsfoundation",
-    "lf",
-    "lfai",
-    "lfenergy",
-    "llvm",
-    "numfocus",
-    "openmainframe",
-    "openssf",
-    "openstack",
-    "osgeo",
-    "osi",
-    "owasp",
-    "plone",
-    "postgresql",
-    "python",
-    "rails",
-    "raspberrypi",
-    "sfc",
-    "spi"
-  ],
+  "orgs": {
+    "adelielinux": {
+      "first": 6
+    },
+    "archlinux": {
+      "first": 5
+    },
+    "asf": {
+      "first": 8,
+      "second": 10,
+      "third": 8,
+      "fourth": 13,
+      "firstinkind": 13,
+      "secondinkind": 5,
+      "thirdinkind": 2,
+      "fourthinkind": 10
+    },
+    "aswf": {
+      "first": 15,
+      "second": 16,
+      "third": 6
+    },
+    "cd": {
+      "first": 2,
+      "third": 6,
+      "second": 15,
+      "community": 1
+    },
+    "cncf": {
+      "first": 22,
+      "second": 27,
+      "third": 614,
+      "academic": 4,
+      "community": 18,
+      "enduser": 92
+    },
+    "debian": {
+      "first": 22
+    },
+    "drupal": {
+      "first": 7,
+      "second": 16,
+      "third": 31,
+      "fourth": 65,
+      "community": 65
+    },
+    "finos": {
+      "first": 9,
+      "second": 18,
+      "third": 38,
+      "community": 1
+    },
+    "freebsd": {
+      "first": 1,
+      "second": 0,
+      "third": 0,
+      "firstinkind": 0
+    },
+    "fsfe": {
+      "first": 6,
+      "second": 13
+    },
+    "gentoo": {
+      "firstinkind": 14,
+      "secondinkind": 9
+    },
+    "gnome": {
+      "first": 4,
+      "second": 5
+    },
+    "graphql": {
+      "first": 26
+    },
+    "haskell": {
+      "first": 4,
+      "second": 8,
+      "third": 8
+    },
+    "hyperledger": {
+      "first": 4,
+      "second": 59,
+      "third": 70
+    },
+    "jsfoundation": {
+      "first": 4,
+      "second": 3,
+      "third": 23
+    },
+    "lf": {
+      "first": 12,
+      "second": 11,
+      "third": 1158,
+      "fourth": 383
+    },
+    "lfai": {
+      "first": 11,
+      "second": 25,
+      "third": 37
+    },
+    "lfenergy": {
+      "first": 5,
+      "second": 19,
+      "third": 38
+    },
+    "llvm": {
+      "first": 2,
+      "second": 3,
+      "third": 3,
+      "fourth": 2
+    },
+    "numfocus": {
+      "first": 6,
+      "second": 7,
+      "third": 3,
+      "community": 8,
+      "startuppartners": 1,
+      "grants": 3
+    },
+    "openmainframe": {
+      "first": 5,
+      "second": 5,
+      "academic": 19,
+      "community": 7
+    },
+    "openssf": {
+      "first": 17,
+      "second": 71,
+      "third": 19
+    },
+    "openstack": {
+      "first": 5,
+      "second": 13,
+      "third": 61,
+      "academic": 30,
+      "firstinkind": 5,
+      "community": 361
+    },
+    "osgeo": {
+      "first": 3,
+      "second": 2,
+      "third": 3,
+      "fourth": 2,
+      "fifth": 9
+    },
+    "osi": {
+      "first": 1,
+      "second": 1,
+      "third": 7,
+      "fourth": 5,
+      "fifth": 4
+    },
+    "owasp": {
+      "first": 5,
+      "second": 7,
+      "third": 39
+    },
+    "plone": {
+      "first": 5,
+      "second": 6
+    },
+    "postgresql": {
+      "third": 1,
+      "firstinkind": 5
+    },
+    "python": {
+      "first": 2,
+      "second": 2,
+      "third": 4,
+      "fourth": 3,
+      "fifth": 5,
+      "sixth": 15,
+      "seventh": 9,
+      "eighth": 5
+    },
+    "rails": {
+      "first": 8,
+      "second": 5
+    },
+    "raspberrypi": {
+      "first": 1,
+      "second": 1,
+      "third": 1,
+      "fourth": 8,
+      "fifth": 3,
+      "sixth": 5
+    },
+    "sfc": {
+      "first": 8
+    },
+    "spi": {
+      "first": 3
+    }
+  },
   "all": {
     "google.com": 17,
     "cncf.io": 16,
