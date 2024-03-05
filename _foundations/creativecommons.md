@@ -1,7 +1,7 @@
 ---
 identifier: creativecommons
 commonName: Creative Commons
-legalName:
+legalName: Creative Commons
 description:
 contacturl: https://creativecommons.org/about/contact
 website: https://creativecommons.org/

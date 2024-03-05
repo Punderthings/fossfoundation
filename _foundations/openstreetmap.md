@@ -1,7 +1,7 @@
 ---
 identifier: openstreetmap
 commonName: OpenStreetMap
-legalName: https://www.openstreetmap.org/about
+legalName: Openstreetmap Foundation
 description:
 contacturl:
 website: https://osmfoundation.org/

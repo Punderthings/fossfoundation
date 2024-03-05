@@ -1,7 +1,7 @@
 ---
 identifier: eff
 commonName: Electronic Frontier Foundation
-legalName:
+legalName: Electronic Frontier Foundation
 description: Defending your rights in the digital world
 contacturl: https://eff.org/about/contact
 website: https://www.eff.org/
