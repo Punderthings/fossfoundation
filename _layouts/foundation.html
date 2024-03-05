@@ -5,7 +5,7 @@ layout: default
 <article class="foundation_single" itemscope itemtype="http://schema.org/Organization">
   {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: '%B %d, %Y' }}">{% endif %}
   <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a> 
-    {{ page.legalName }}
+    {% if page.legalName %}{{ page.legalName }}{% else %}{{ page.commonName }}{% endif %}
   </h1>
   <section id="general-section">
     <h2 id="general">General</h2>
