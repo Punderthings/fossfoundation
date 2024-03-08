@@ -1,20 +1,21 @@
 commonName,website,addressCountry,addressRegion,nonprofitStatus,description
-Center for Cultivation of Technology,https://www.techcultivation.org,DE,,,Services host for opensource groups
-Commons Conservancy,https://commonsconservancy.org,NL,,,
+Center for Cultivation of Technology,https://www.techcultivation.org,DE,HRB 180673,,Services host for opensource groups
+Stichting The Commons Conservancy,https://commonsconservancy.org,NL,67115918,,
 Foundation For Public Code,https://publiccode.net,NL,registration 74996452 and identification number (RSIN) 860102294,Dutch Vereniging,
-"Free and Open Source Silicon Foundation ",https://www.fossi-foundation.org,UK,,United Kingdom not-for-profit limited by guarantee,
-Free Knowledge Insititue,http://freeknowledge.eu/,NL,,Dutch Stichting,
-Krita,https://krita.org/en/about/krita-foundation/,,,Stichting Krita Foundation,
-NLNet,https://nlnet.nl,NL,,Netherlands ANBI,
-NLNet Labs,https://www.nlnetlabs.nl/organisation/,NL,,Netherlands ANBI,
-OASIS Open Europe,https://www.oasis-open.eu,NL,,Dutch Stichting,
-Open Doc Society,http://www.opendocsociety.org/,NL,,Dutch Stichting,Dead: web host not responding?
+Free and Open Source Silicon Foundation C.I.C.,https://www.fossi-foundation.org,UK,09848956,United Kingdom not-for-profit limited by guarantee,
+Free Knowledge Insititue,http://freeknowledge.eu/,NL,34288702,Dutch Stichting,
+Krita Foundation,https://krita.org/en/about/krita-foundation/,NL,56592574,Stichting Krita Foundation,
+NLNet Foundation,https://nlnet.nl,NL,41208365,Netherlands ANBI,
+NLNet Labs Foundation,https://www.nlnetlabs.nl/organisation/,NL,34126276,Netherlands ANBI,
+OASIS Open Europe,https://www.oasis-open.eu,NL,81197403,Dutch Stichting,
+Open Doc Society,http://www.opendocsociety.org/,NL,Not found in lookup,Dutch Stichting,Dead: web host not responding?
 Open Search Foundation e.V.,https://opensearchfoundation.org/en/open-search-foundation-home/,DE,Munich VR 208036.,German e.V.,
-OpenUK,https://openuk.uk,UK,,United Kingdom not-for-profit limited by guarantee,
+OpenUK,https://openuk.uk,UK,11209475,United Kingdom not-for-profit limited by guarantee,
 OW2,https://www.ow2.org,FR,,French 1901 Non-profit Association,
 PostgreSQL Europe,https://postgresql.eu,FR,,French 1901 Non-profit Association,
-R Foundation,https://www.r-project.org/foundation/,AU,,Austrian non-profit association (Verein),
+R Foundation,https://www.r-project.org/foundation/,AU,Lookup costs a fee,Austrian non-profit association (Verein),
 Hack Club,https://hackclub.com/,US,CA,c3 EIN 81-2908499,"Focus on high schools, teens, and hackathons, but lots of fiscal hosting"
 PHP Foundation,https://thephp.foundation/foundation/,US,,How should we model well-organized projects with boards (etc) that aren't legal entities at all? They're a collective at OC.,
 Erlang Ecosystem Foundation,https://www.erlef.org/,US,CA,EIN 83-3185247,
 open technology fund,https://www.opentech.fund/,US,DC,EIN 84-3126447,
+Prototype Fund,https://prototypefund.de/en/,DE,,,German-only applications for grants to open source (funder org primarily)
