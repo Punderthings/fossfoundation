@@ -1,5 +1,5 @@
 ---
-title: Foundation Budgets Models
+title: Foundation Budgets Model
 excerpt: Modeling annual budgets or annual report finances.
 layout: default
 permalink: /budgets
@@ -26,9 +26,9 @@ Wouldn't it be great to have a database of revenue, expenses, and the like acros
 
 ## Roadmap / Contributions Wanted
 
-ProPublica's JSON only shows a subset of 990 filings, and rarely has data bugs (i.e. numbers scanned wrong).  There are many other ways to programmatically scan 990 forms; the best (coming soon!) toolset seems to be the [Giving Tuesday 990 Infrastructure Project](https://990data.givingtuesday.org/).
+Budgets may not necessarily reflect actual finances, so we need to be sure to mark all data with both a source, as well as some kind of quality/range information.  For example, many non-US foundations do not have public tax filings, so we need to use any published budgets or annual reports as a proxy.  Many foundations produce annual reports with high-level revenue and expense numbers, but they are only estimates, not actual numbers.
 
-- [ ] Building budget model.
+- [ ] Build the budget model; reflect yearly budgets vs. actual finances vs. annual report estimates.
 - [ ] Simplistic scrapers to detect likely "annual report" or "budget" pages.
 - [ ] Data gathering and linting.
 - [ ] Building comparisons between estimated budgets and actual 990 finances.

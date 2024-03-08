@@ -1,5 +1,5 @@
 ---
-title: Roadmap and Plans
+title: Roadmap / Help Wanted
 excerpt: We are building a rich metadata source about open source foundations for use by researchers.
 layout: default
 permalink: /roadmap
@@ -10,13 +10,15 @@ This site is meant to be high-level resource for anyone interested in FOSS proje
 
 ## Version 0.1 plans
 
-- Overview homepage - what is this project.
 - [Resources](resources) page - point to the key resources already out there about governance, sustainability, and other non-technical open source concepts.
 - [`/listing/` directory](listing) - a friendly listing of all FOSS Foundations in our dataset, with simple categorization/sorting/search features.
 - [`/_foundations_/` directory](https://github.com/Punderthings/fossfoundation/tree/main/_foundations) - metadata about foundations, as YAML/JSON files, one per foundation, like: fsf.yaml
 - Basic build/lint tooling
 - Provide auto-build of alternate formats (like .csv out of .yaml)
 - Get feedback to build version 0.2 plans!
+- Build out sponsorship, tax finances, and budget models.
+  - Build scrapers/linters for all models.
+- Build OpenAPI definition of all models, and automate linting.
 
 ## Example
 
@@ -33,7 +35,7 @@ puts asf['legalName']
 - [x] Organize homepage & sketch nav structure -sc
 - [x] Resources page - sc (started)
 - [x] Colophon - sc
-- [ ] CONTRIBUTING - details of how, why, what
+- [x] CONTRIBUTING - details of how, why, what
 - [ ] Tweak theme / logo?
 - [x] Metadata schema (format?) -sc ('good-enough' level)
 - [x] csv2yaml converter & checkin data -sc

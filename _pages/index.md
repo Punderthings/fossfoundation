@@ -6,7 +6,7 @@ permalink: /
 nav_order: 1
 ---
 
-Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich common metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
+Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
 
 - Discover the [directory of foundation metadata](listing), plus:
   - [Sponsorship program models](sponsorships)
@@ -18,11 +18,11 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 - Learn how to [contribute to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
 - Be nice and respect our [Code of Conduct](CODE_OF_CONDUCT).
 - We can help you [Choose A Foundation](https://chooseafoundation.com) for your project to join.
-- Learn about your current host, [Shane Curcuru](https://shanecurcuru.org).
+- Learn about your current host, [Shane Curcuru](https://shanecurcuru.org), who is looking for shared maintainers.
 
 ## Goals
 
-- Create a rich metadata directory about nonprofit open source organizations.
+- Create a rich metadata directory about nonprofit open source organizations, including financial, sponsorship and other data.
 - Data is easy to consume in multiple ways that are reliable.
 - Website and any tooling are zero/low maintenance.
 - Build simple PR-driven data submission that prevents errors.

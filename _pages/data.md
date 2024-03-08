@@ -31,23 +31,17 @@ Our focus is on legal organizations that host, organize, and help sustain major 
 
 Things that aren't included: [commercial companies](commercial) (of any kind), and the many non-incorporated open source projects without legal organizations.  Limited listings of [individual open source projects](projects) hosted at Foundations are included to help provide context.
 
-### Other FOSS Related Data
+## Other FOSS Related Data
 
-We also plan to incorporate other quantifiable data about the FOSS ecosystem, especially finances, sponsorships, and structural relationships - i.e. foundations with subprojects; governance structures; and the like.
+We also incorporate other quantifiable data about the FOSS ecosystem, especially finances, sponsorships, and structural relationships - i.e. foundations with subprojects; governance structures; and the like.
 
 - **Entities** are self-organized and funded projects that are not legal corporations; they typically use a fiscal host.  Key examples are CNCF (a division of the Linux Foundation) and Debian (with a clear governance and budget structure, but uses SPI as a fiscal host).  This work is starting on [capturing data for key project entities](entities).
 - **Sponsorships** are modeled based on ordinal levels of recurring sponsorship payments (or inkind services).  Data is drawn directly from FOSS organizations themselves.  See the [sponsorships schema and current dataset](sponsorships).
-- **US 990 Tax Data** is drawn from Propublica's digested IRS 990 filings, and quickly gives a solid financial overview of many US-based foundations.  We [host organizational 990 JSON data](taxes) as a convenience (but expect to keep URLs permanently). 
+- **US 990 Tax Data** is drawn from Propublica's digested IRS 990 filings, and quickly gives a solid financial overview of many US-based foundations.  We [host organizational 990 JSON data](taxes) as a convenience (but expect to keep URLs permanently).
 - **Budgets** are planned to be modeled as financial figures based on organizations' actual budgets, or estimated figures based on annual reports or similar materials from the organizations themselves.  This work is [just starting on definitions](budgets) (summer 2024).
 
 ## Schemas And Validation
 
 A simplistic [schema for foundation metadata](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json) is checked in.  Suggestions for improvements to make the data more useful are appreciated!  See also schemas and datastore notes for [sponsorships](sponsorships), [taxes](taxes), and [budgets](budgets).
 
-The [roadmap](roadmap) includes building linting and data consistency checks.  Currently, these are done manually, or via using semi-automated ruby scripts in the `assets/ruby` directory.  For example:
-
-```ruby
-# If the schema changes, partially generate the Liquid to display foundations.html
-assets/ruby/schema_utils.rb schema2liquid('_data/foundations-schema.json', ...)
-# This generates the bulk of the page, but needs to be manually dropped in
-```
+Future plans include building a robust OpenAPI definition, and using that to automatically generate schemas, linting tools, and the like to ensure data quality in an automated fashion.

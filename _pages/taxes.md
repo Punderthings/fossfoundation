@@ -1,5 +1,5 @@
 ---
-title: Foundation Tax Finances Models
+title: Foundation Taxes Model
 excerpt: Modeling US IRS 990 form finances for nonprofits.
 layout: default
 permalink: /taxes
@@ -38,3 +38,20 @@ ProPublica's JSON only shows a subset of 990 filings, and rarely has data bugs (
 - [ ] Explore IRSx and other all-990-data parsing tools.
 - [ ] Automation to update 990s from ProPublica (or wherever) periodically, to find when orgs file new tax years.
 - [ ] Build visualizations of contributions vs. sponsorship model income; especially comparing c3 to c6 orgs.
+
+## Charitable Tax Lookups By Country
+
+- EU wide https://e-justice.europa.eu/106/EN/business_registers_in_eu_countries?GERMANY&member=1
+- UK https://register-of-charities.charitycommission.gov.uk/documentation-on-the-api Detailed reports available
+- BE https://economie.fgov.be/en/themes/enterprises/crossroads-bank-enterprises/services-everyone/consultation-and-research-data/cbe-public-search Fairly detailed reports available
+- NL https://www.kvk.nl/zoeken/handelsregister/?handelsnaam=NLNet&kvknummer=&straat=&postcode=&huisnummer=&plaats=&hoofdvestiging=1&rechtspersoon=1&nevenvestiging=1&zoekvervallen=0&zoekuitgeschreven=1&start=0  Various reports available for a fee
+- DE https://www.unternehmensregister.de/ureg/?submitaction=language&language=en or https://www.handelsregister.de/
+- AT Searches cost a fee https://www.justiz.gv.at/service/datenbanken/firmenbuch/
+
+### Notes on some EU Charities
+
+Eclipse Foundation 0760.624.114 https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=760624114 Includes official list of directors "legal functions"
+
+Eclipse bank record link: https://consult.cbso.nbb.be/consult-enterprise/0760624114 Includes links to download detailed finances, in French
+
+Eclipse Foundation Europe Gmbh 0804.570.458 https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=804570458
