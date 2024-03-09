@@ -8,17 +8,23 @@ nav_order: 10
 
 This site is meant to be high-level resource for anyone interested in FOSS project governance, especially those hosted at non-profit foundations or similar organizations.  Along with some introductory info - mainly pointers to existing "what is FOSS" websites out there! - it will also include a [rich metadata directory](data) of major FOSS non-profits.  This resource is meant to be [collaborative](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md), and of use to researchers, project leaders, and anyone interested in sustainability.
 
-## Version 0.1 plans
+## Roadmap / Help Wanted
 
-- [Resources](resources) page - point to the key resources already out there about governance, sustainability, and other non-technical open source concepts.
-- [`/listing/` directory](listing) - a friendly listing of all FOSS Foundations in our dataset, with simple categorization/sorting/search features.
-- [`/_foundations_/` directory](https://github.com/Punderthings/fossfoundation/tree/main/_foundations) - metadata about foundations, as YAML/JSON files, one per foundation, like: fsf.yaml
-- Basic build/lint tooling
-- Provide auto-build of alternate formats (like .csv out of .yaml)
-- Get feedback to build version 0.2 plans!
-- Build out sponsorship, tax finances, and budget models.
-  - Build scrapers/linters for all models.
-- Build OpenAPI definition of all models, and automate linting.
+Feedback so far shows there's a lot of value in this work, both to researchers as well as to the whole ecosystem, in that we have a model that can show funding across all major FOSS Foundations - and where it comes from.  But we need your help!
+
+- **Defining more data models**
+  - Efficiently [tracking budgets](budgets) is sketched out, but needs definition, and scrapers for some common cases.
+  - Tracking [non-foundation entities/projects](entities): There are many important "foundations" like the CNCF out there, but they aren't legal entities and have very different governance and finance models.  How much data do we want to track, and how large a coverage of the ecosystem is important? 
+- **OpenAPI tooling, but simple**
+  - Schemas need to be good enough for basic research purposes, but not so complex that PRs from new contributors cause tooling problems.
+  - How can we model all data stored as [semi-structured in OpenAPI](openapi), and then generate whatever needed shims or schemas from that single definition?
+  - Recall everything must be static and served from GitHub Pages.
+- **Linting, linting, linting**
+  - Since we rely on FOSS participants to send PRs for data updates, we need sturdy and no-setup-needed tooling to lint everything within the GitHub PR/pages systems.
+  - Data updates may change openapi static endpoints, so we need to generate things like `_foundations/list.json` on commits.
+- **Documentation that explains**
+  - The structured data we provide is non-technical, and may not be familiar to many FOSS folk - we need to explain why this work is [important for overall sustainability](research).
+  - Budget financial data may be drawn from *approximate* figures (on annual reports, for example), so we need to be very clear which monetary figures are specific or not.  Data stored for [US foundations in 990 forms](taxes) is exact, although limited to what the tax code defines.
 
 ## Example
 
