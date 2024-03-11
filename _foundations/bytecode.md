@@ -2,8 +2,9 @@
 identifier: bytecode
 commonName: Bytecode Alliance
 legalName: Bytecode Alliance Foundation
-description: We develop runtime environments and language toolchains where security, efficiency, and modularity can all coexist across a wide range of devices and architectures
-contacturl: 
+description: We develop runtime environments and language toolchains where security,
+  efficiency, and modularity can all coexist across a wide range of devices and architectures
+contacturl:
 website: https://bytecodealliance.org/
 foundingDate:
 addressCountry: US

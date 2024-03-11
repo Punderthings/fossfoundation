@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CA
 newProjects: 'yes'
 softwareType: various
-wikidataId: 
+wikidataId:
 boardSize: 1
 boardType: appointed
 boardurl:

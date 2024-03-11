@@ -2,7 +2,8 @@
 identifier: fsfe
 commonName: Free Software Foundation Europe
 legalName: Free Software Foundation Europe e.V.
-description: Free Software Foundation Europe is a charity that empowers users to control technology.
+description: Free Software Foundation Europe is a charity that empowers users to control
+  technology.
 contacturl: https://fsfe.org/about/contact.en.html
 website: https://fsfe.org/
 foundingDate: 2001
@@ -28,15 +29,15 @@ nonprofitStatus: charitable e.V.
 taxID: DE234323337
 taxIDLocal:
 budgetUsd:
-budgetYear: "2022 income = 772,916.63 EUR, expenses = 664,763.26 EUR"
+budgetYear: 2022 income = 772,916.63 EUR, expenses = 664,763.26 EUR
 budgeturl: https://fsfe.org/about/funds/funds.en.html
 budgetTransparent: posted annually
 funding: sponsors, donors
 donateurl: https://my.fsfe.org/donate
 sponsorurl: https://fsfe.org/donate/thankgnus-2023.en.html
-sponsorList: 
+sponsorList:
 sponsorships:
-  - fsfe
+- fsfe
 licenses: GPL
 claPolicy:
 securityurl:
