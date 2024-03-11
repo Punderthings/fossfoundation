@@ -185,6 +185,7 @@ module SponsorUtils
   # Parse either live url, or override with a path reference (for cached/historical data)
   # @param org id of org being parsed
   # @param sponsorship parsed _sponsorship hash defining what to do
+  # @param cachefile optional filepath to local html to parse
   # @return processed hash of sponsors
   def parse_sponsorship(org, sponsorship, cachefile = nil)
     io = nil
@@ -233,8 +234,9 @@ module SponsorUtils
   # Process one sponsorship mapping
   # @param org id of org being processed
   # @param sponsorship parsed _sponsorship hash
+  # @param cachefile optional filepath to local html to parse
   # @return processed hash of sponsors
-  def process_sponsorship(org, sponsorship)
+  def process_sponsorship(org, sponsorship, cachefile = nil)
     sponsors = {}
     staticmap = sponsorship.fetch('staticmap', nil)
     verbose("process_sponsorship(#{org}...) #{staticmap ? 'static map' : 'parsing url'}")
@@ -242,7 +244,7 @@ module SponsorUtils
       sponsors = mapped_sponsorship(org, sponsorship)
       sponsors[PARSE_DATE] = staticmap
     else
-      sponsors = parse_sponsorship(org, sponsorship)
+      sponsors = parse_sponsorship(org, sponsorship, cachefile)
       sponsors[PARSE_DATE] = DateTime.now.strftime('%Y%m%d')
     end
     return sponsors
@@ -295,6 +297,9 @@ module SponsorUtils
       opts.on('-oORGID', '--one ORGID', 'Input org id (asf, python, etc.) to parse one.') do |orgid|
         options[:orgid] = orgid
       end
+      opts.on('-iINFILE', '--in INFILE', 'Input local filename to parse for one org.') do |infile|
+        options[:infile] = infile
+      end
       opts.on('-mMAPID', '--map MAPID', 'Lint one existing sponsorship with its map.') do |mapid|
         options[:mapid] = mapid
       end
@@ -319,6 +324,7 @@ module SponsorUtils
     options = parse_commandline
     orgid = options.fetch(:orgid, nil)
     mapid = options.fetch(:mapid, nil)
+    infile = options.fetch(:infile, nil)
     parsed = {}
     if mapid
       sponsor_file = File.join('_data/sponsorships', "#{mapid}.json")
@@ -331,7 +337,13 @@ module SponsorUtils
       exit 0
     elsif orgid
       options[:outfile] ||= File.join(DEFAULT_OUTDIR, "#{orgid}.json")
-      parsed = process_sponsorship(orgid, get_current_sponsorship(get_sponsorship_file(orgid)))
+      sponsorship = get_current_sponsorship(get_sponsorship_file(orgid))
+      if infile
+        # Parse a local file instead of the normal URL
+        parsed = process_sponsorship(orgid, sponsorship, cachefile = infile)
+      else
+        parsed = process_sponsorship(orgid, sponsorship)
+      end
       File.open(options[:outfile], "w") do |f|
         f.write(JSON.pretty_generate(parsed))
       end
