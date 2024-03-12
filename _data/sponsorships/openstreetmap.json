@@ -1,0 +1,61 @@
+{
+  "first": [
+    "tomtom.com",
+    "microsoft.com"
+  ],
+  "second": [
+    "mapbox.com",
+    "esri.com",
+    "facebook.com",
+    "grab.com",
+    "graphhopper.com",
+    "gojek.com",
+    "komoot.com"
+  ],
+  "third": [
+    "cesiumjs.org",
+    "radar.com",
+    "opencagedata.com",
+    "geofabrik.de",
+    "nextbillion.ai",
+    "elastic.co",
+    "bolt.eu",
+    "hotosm.org",
+    "ioki.com",
+    "regrid.com",
+    "qgis.org"
+  ],
+  "fourth": [
+    "geotab.com",
+    "omniscale.com",
+    "kaartgroup.com",
+    "krick.com",
+    "yellowmap.com",
+    "nextgis.com",
+    "maps.vk.com",
+    "nwt.ai",
+    "indrive.com",
+    "initse.com",
+    "rinkai.cz",
+    "stadiamaps.com",
+    "suse.com",
+    "verso-optim.com"
+  ],
+  "fifth": [
+    "maptoolkit.com",
+    "locationiq.org",
+    "discoverpassenger.com",
+    "intevation.de",
+    "skyhost.dk",
+    "aisin-mobility.eu",
+    "peakfinder.org",
+    "interline.io",
+    "safe-sky.net",
+    "kendallcountyil.gov",
+    "mobilitylabel.com",
+    "cvp.at",
+    "farmeye.ie",
+    "btcmap.org"
+  ],
+  "parseDate": "20240312"
+}
