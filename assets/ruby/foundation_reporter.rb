@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 module FoundationReporter
   DESCRIPTION = <<-HEREDOC
-  FoundationReporter: Various reporting utilities.
+  FoundationReporter: Various reporting utilities, includes:
+    - Simple field and data reporting
+    - Using Propublica990 module to download US IRS 990 financial data
+    - Using UK Charity commission to download UK financial data
   HEREDOC
   module_function
   require 'yaml'
@@ -10,6 +13,7 @@ module FoundationReporter
   require 'pathname'
   require '../propublica990/propublica990'
   require 'optparse'
+  require 'faraday'
 
   DATA_DIRS = {
     'foundations' => File.join(Dir.pwd, '_foundations'),
@@ -91,6 +95,39 @@ module FoundationReporter
     return report
   end
 
+  # Fetch a full report of a single UK charity
+  #   NOTE: various hardcoded URLs and identifiers for UK
+  # @param registeredNumber of charity from taxID field
+  # @param apiToken to access charitycommission.gov.uk
+  # @return UK charities data combined hash
+  def fetch_ukorg(registeredNumber, apiToken)
+    org = {}
+    ukCharities = 'https://api.charitycommission.gov.uk'
+    faraday = Faraday.new(url: ukCharities) do |config|
+      config.response :raise_error
+      config.response :json, :content_type => /\bjson$/
+      config.adapter :net_http
+    end
+    faraday.headers['Ocp-Apim-Subscription-Key'] = apiToken
+    response = faraday.get("/register/api/allcharitydetailsV2/#{registeredNumber}/0")
+    org['organization'] = response.body
+    response = faraday.get("/register/api/charityfinancialhistory/#{registeredNumber}/0")
+    org['filings'] = response.body
+    org['parseDate'] = DateTime.parse(org['organization']['last_modified_time'])
+    org['data_source'] = ukCharities
+    org['api_version'] = '2'
+    return org
+  end
+
+  # Load secrets/API keys from a local file
+  # @param filename to read secrets from
+  # @return relevant apikey TODO: generalize for other cases?
+  def get_secrets(filename)
+    json = JSON.parse(File.read(filename))
+    apikey = json['apikey']
+    return apikey
+  end
+
   # ## ### #### ##### ######
   # Check commandline options
   def parse_commandline
@@ -100,9 +137,6 @@ module FoundationReporter
       opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation') do |out|
         options[:out] = out
       end
-      opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
-        options[:infile] = infile
-      end
       opts.on('-fFIELDNAME', '--field FIELDNAME', 'Single field name to report out for all foundations.') do |onefield|
         options[:onefield] = onefield
       end
@@ -111,6 +145,9 @@ module FoundationReporter
       end
       opts.on('-rREPORT', '--report REPORT', 'Output default reports.') do |reports|
         options[:reports] = reports
+      end
+      opts.on('-uUKCHARITY', '--uk UKCHARITY', 'Download a single UK charity report.') do |ukorg|
+        options[:ukorg] = ukorg
       end
       begin
         opts.parse!
@@ -128,7 +165,16 @@ end
 # Main method for command line use
 if __FILE__ == $PROGRAM_NAME
   options = FoundationReporter.parse_commandline
-  options[:outfile] ||= 'foundation_reporter.json'
+  ukorg = options.fetch(:ukorg, nil)
+  if ukorg
+    outfile = File.join(FoundationReporter::DATA_DIRS['taxes'], "uk-#{ukorg}.json")
+    output = FoundationReporter.fetch_ukorg(ukorg, FoundationReporter.get_secrets('../fossfoundation-api.json'))
+    File.open(outfile, "w") do |f|
+      f.write(JSON.pretty_generate(output))
+    end
+    puts "Done, wrote out: #{outfile}"
+    exit 0
+  end
 
   ctype = options.fetch(:ctype, nil)
   if ctype
@@ -148,6 +194,7 @@ if __FILE__ == $PROGRAM_NAME
   end
 
   reports = options.fetch(:reports, nil)
+  options[:outfile] ||= 'foundation_reporter.json'
   if reports
     eins = FoundationReporter.get_eins(FoundationReporter::DATA_DIRS['foundations'])
     orgs = Propublica990.get_orgs(eins, '_data/p990', refresh = true)

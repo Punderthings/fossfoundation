@@ -1,0 +1,285 @@
+{
+  "organization": {
+    "organisation_number": 5002372,
+    "reg_charity_number": 1129409,
+    "group_subsid_suffix": 0,
+    "charity_name": "RASPBERRY PI FOUNDATION",
+    "charity_type": "Charitable company",
+    "insolvent": false,
+    "in_administration": false,
+    "prev_excepted_ind": false,
+    "cif_cdf_ind": null,
+    "cio_dissolution_ind": false,
+    "interim_manager_ind": null,
+    "date_of_interim_manager_appt": null,
+    "reg_status": "R",
+    "date_of_registration": "2009-05-05T00:00:00",
+    "date_of_removal": null,
+    "latest_acc_fin_year_start_date": "2022-01-01T00:00:00",
+    "latest_acc_fin_year_end_date": "2022-12-31T00:00:00",
+    "latest_income": 157262030.0,
+    "latest_expenditure": 151064960.0,
+    "address_line_one": "RASPBERRY PI FOUNDATION",
+    "address_line_two": "37 Hills Road",
+    "address_line_three": "CAMBRIDGE",
+    "address_line_four": null,
+    "address_line_five": null,
+    "address_post_code": "CB2 1NT",
+    "phone": "01223322633",
+    "email": "legal@raspberrypi.org",
+    "web": "www.raspberrypi.org",
+    "charity_co_reg_number": "6758215",
+    "reporting_status": "Submission Received",
+    "removal_reason": null,
+    "cio_ind": false,
+    "last_modified_time": "2023-10-27T16:04:56.143",
+    "trustee_names": [
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Jonathan Ilan Drori",
+        "trustee_id": 2125014
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "KIM SHILLINGLAW",
+        "trustee_id": 11210523
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Prof Richard Plumbly-Clegg",
+        "trustee_id": 12356985
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Dr John Lazar",
+        "trustee_id": 12463481
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Amali Chivanthi de Alwis",
+        "trustee_id": 12471600
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Daniel Labbad",
+        "trustee_id": 12471610
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Charles Richard Leadbeater",
+        "trustee_id": 3585234
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "David Zahn",
+        "trustee_id": 12705147
+      },
+      {
+        "organisation_number": 5002372,
+        "trustee_name": "Janet Astall",
+        "trustee_id": 12758264
+      }
+    ],
+    "who_what_where": [
+      {
+        "classification_code": "102",
+        "classification_type": "What",
+        "classification_desc": "Education/training"
+      },
+      {
+        "classification_code": "201",
+        "classification_type": "Who",
+        "classification_desc": "Children/young People"
+      },
+      {
+        "classification_code": "205",
+        "classification_type": "Who",
+        "classification_desc": "Other Charities Or Voluntary Bodies"
+      },
+      {
+        "classification_code": "207",
+        "classification_type": "Who",
+        "classification_desc": "The General Public/mankind"
+      },
+      {
+        "classification_code": "306",
+        "classification_type": "How",
+        "classification_desc": "Provides Services"
+      },
+      {
+        "classification_code": "308",
+        "classification_type": "How",
+        "classification_desc": "Sponsors Or Undertakes Research"
+      },
+      {
+        "classification_code": "310",
+        "classification_type": "How",
+        "classification_desc": "Other Charitable Activities"
+      }
+    ],
+    "CharityAoOCountryContinent": [
+      {
+        "country": "Scotland",
+        "continent": "Europe"
+      },
+      {
+        "country": "India",
+        "continent": "Asia"
+      },
+      {
+        "country": "Ireland",
+        "continent": "Europe"
+      },
+      {
+        "country": "United States",
+        "continent": "North America"
+      }
+    ],
+    "CharityAoOLocalAuthority": [
+
+    ],
+    "CharityAoORegion": [
+      {
+        "region": "Throughout England And Wales"
+      }
+    ],
+    "other_names": [
+
+    ],
+    "constituency_name": [
+      {
+        "constituency_name": "Cambridge"
+      }
+    ]
+  },
+  "filings": [
+    {
+      "ar_cycle_reference": "AR18",
+      "financial_period_end_date": "2018-12-31T00:00:00",
+      "income": 31454406.0,
+      "expenditure": 27891494.0,
+      "consolidated_account": true,
+      "charity_only_account": null,
+      "income_from_govt_contracts": 421031.0,
+      "income_from_govt_grants": null,
+      "inc_donations_and_legacies": 2309738.0,
+      "inc_other_trading_activities": 27943854.0,
+      "inc_charitable_activities": 0.0,
+      "inc_endowments": 0.0,
+      "inc_legacies": 0.0,
+      "inc_investment": 432353.0,
+      "inc_other": 768461.0,
+      "inc_total": 31454406.0,
+      "exp_charitable_activities": 7700745.0,
+      "exp_raising_funds": 20189905.0,
+      "exp_governance": 46150.0,
+      "exp_grants_institution": 0.0,
+      "exp_investment_management": 844.0,
+      "exp_other": 844.0,
+      "exp_total": 27891494.0
+    },
+    {
+      "ar_cycle_reference": "AR19",
+      "financial_period_end_date": "2019-12-31T00:00:00",
+      "income": 45790187.0,
+      "expenditure": 44205758.0,
+      "consolidated_account": true,
+      "charity_only_account": null,
+      "income_from_govt_contracts": 3517858.0,
+      "income_from_govt_grants": null,
+      "inc_donations_and_legacies": 1834170.0,
+      "inc_other_trading_activities": 39563538.0,
+      "inc_charitable_activities": 0.0,
+      "inc_endowments": 0.0,
+      "inc_legacies": 0.0,
+      "inc_investment": 542201.0,
+      "inc_other": 3850278.0,
+      "inc_total": 45790187.0,
+      "exp_charitable_activities": 10001366.0,
+      "exp_raising_funds": 34204392.0,
+      "exp_governance": 73713.0,
+      "exp_grants_institution": 0.0,
+      "exp_investment_management": 8820.0,
+      "exp_other": 0.0,
+      "exp_total": 44205758.0
+    },
+    {
+      "ar_cycle_reference": "AR20",
+      "financial_period_end_date": "2020-12-31T00:00:00",
+      "income": 95818848.0,
+      "expenditure": 88719833.0,
+      "consolidated_account": true,
+      "charity_only_account": null,
+      "income_from_govt_contracts": 3412581.0,
+      "income_from_govt_grants": null,
+      "inc_donations_and_legacies": 1634873.0,
+      "inc_other_trading_activities": 71436388.0,
+      "inc_charitable_activities": 0.0,
+      "inc_endowments": 0.0,
+      "inc_legacies": 0.0,
+      "inc_investment": 403176.0,
+      "inc_other": 22344411.0,
+      "inc_total": 95818848.0,
+      "exp_charitable_activities": 9488493.0,
+      "exp_raising_funds": 79231340.0,
+      "exp_governance": 79407.0,
+      "exp_grants_institution": 0.0,
+      "exp_investment_management": 6780.0,
+      "exp_other": 0.0,
+      "exp_total": 88719833.0
+    },
+    {
+      "ar_cycle_reference": "AR21",
+      "financial_period_end_date": "2021-12-31T00:00:00",
+      "income": 112663267.0,
+      "expenditure": 101823872.0,
+      "consolidated_account": true,
+      "charity_only_account": null,
+      "income_from_govt_contracts": 3838115.0,
+      "income_from_govt_grants": null,
+      "inc_donations_and_legacies": 6595649.0,
+      "inc_other_trading_activities": 101307210.0,
+      "inc_charitable_activities": 0.0,
+      "inc_endowments": 0.0,
+      "inc_legacies": 0.0,
+      "inc_investment": 279837.0,
+      "inc_other": 4480571.0,
+      "inc_total": 112663267.0,
+      "exp_charitable_activities": 11260781.0,
+      "exp_raising_funds": 90563091.0,
+      "exp_governance": 0.0,
+      "exp_grants_institution": 0.0,
+      "exp_investment_management": 0.0,
+      "exp_other": 0.0,
+      "exp_total": 101823872.0
+    },
+    {
+      "ar_cycle_reference": "AR22",
+      "financial_period_end_date": "2022-12-31T00:00:00",
+      "income": 157262030.0,
+      "expenditure": 151064960.0,
+      "consolidated_account": true,
+      "charity_only_account": null,
+      "income_from_govt_contracts": 3104511.0,
+      "income_from_govt_grants": null,
+      "inc_donations_and_legacies": 2475529.0,
+      "inc_other_trading_activities": 149803245.0,
+      "inc_charitable_activities": 0.0,
+      "inc_endowments": 0.0,
+      "inc_legacies": 0.0,
+      "inc_investment": 319053.0,
+      "inc_other": 4664203.0,
+      "inc_total": 157262030.0,
+      "exp_charitable_activities": 11678412.0,
+      "exp_raising_funds": 139386548.0,
+      "exp_governance": 228298.0,
+      "exp_grants_institution": 163872.0,
+      "exp_investment_management": 0.0,
+      "exp_other": 0.0,
+      "exp_total": 151064960.0
+    }
+  ],
+  "parseDate": "2023-10-27T16:04:56+00:00",
+  "data_source": "https://api.charitycommission.gov.uk",
+  "api_version": "2"
+}
