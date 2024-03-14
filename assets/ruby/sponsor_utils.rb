@@ -264,7 +264,7 @@ module SponsorUtils
 
   # Convenience method; assumes run from project root
   def process_all_sponsorships()
-    foundations = FoundationReporter.get_foundations('_foundations')
+    foundations = FoundationReporter.get_yamldataset(FoundationReporter::DATA_DIRS['foundations'])
     sponsorships = {}
     foundations.each do | org, foundation |
       sponsorship = foundation.fetch('sponsorship', nil)

@@ -11,17 +11,13 @@ module FoundationReporter
   require '../propublica990/propublica990'
   require 'optparse'
 
-  # Get a list of all foundation files
-  # @param dir pointing to _foundations
-  # @return hash of org => yaml frontmatter hash
-  def get_foundations(dir)
-    foundations = {}
-    Pathname.glob(File.join(dir, "*.md")) do |file|
-      foundation = YAML.load_file(file)
-      foundations[foundation['identifier']] = foundation
-    end
-    return foundations
-  end
+  DATA_DIRS = {
+    'foundations' => File.join(Dir.pwd, '_foundations'),
+    'sponsorships' => File.join(Dir.pwd, '_sponsorships'),
+    'entities' => File.join(Dir.pwd, '_entities'),
+    'p990' => File.join(Dir.pwd, '_data/p990'),
+    'taxes' => File.join(Dir.pwd, '_data/taxes')
+  }
 
   # Get a list of all yaml data files of a type
   # @param dir pointing to _foundations, _sponsorships, etc.
@@ -134,17 +130,11 @@ if __FILE__ == $PROGRAM_NAME
   options = FoundationReporter.parse_commandline
   options[:outfile] ||= 'foundation_reporter.json'
 
-  dirs = {
-    'foundations' => File.join(Dir.pwd, '_foundations'),
-    'sponsorships' => File.join(Dir.pwd, '_sponsorships'),
-    'entities' => File.join(Dir.pwd, '_entities'),
-    'p990' => File.join(Dir.pwd, '_data/p990')
-  }
-
   ctype = options.fetch(:ctype, nil)
   if ctype
+    raise(ArgumentError, "Invalid data type provided: #{ctype}") if !FoundationReporter::DATA_DIRS.key?(ctype)
     output = {}
-    dataset = FoundationReporter.get_yamldataset(dirs[ctype])
+    dataset = FoundationReporter.get_yamldataset(FoundationReporter::DATA_DIRS[ctype])
     output = FoundationReporter.field_usage(dataset)
     puts JSON.pretty_generate(output)
   end
@@ -153,15 +143,15 @@ if __FILE__ == $PROGRAM_NAME
   onefield = options.fetch(:onefield, nil)
   if onefield
     output = {}
-    output = FoundationReporter.gather_field(dirs[ctype], onefield)
+    output = FoundationReporter.gather_field(FoundationReporter::DATA_DIRS[ctype], onefield)
     puts JSON.pretty_generate(output)
   end
 
   reports = options.fetch(:reports, nil)
   if reports
-    eins = FoundationReporter.get_eins(dirs['foundations'])
+    eins = FoundationReporter.get_eins(FoundationReporter::DATA_DIRS['foundations'])
     orgs = Propublica990.get_orgs(eins, '_data/p990', refresh = true)
-    report_csv = File.join(dirs['foundations'], options[:outfile])
+    report_csv = File.join(FoundationReporter::DATA_DIRS['foundations'], options[:outfile])
     Propublica990.orgs2csv_common(orgs, report_csv)
   end
 end
