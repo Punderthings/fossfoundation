@@ -24,15 +24,15 @@ projectsNotable: Plasma, Krita, Kdenlive, KDE Frameworks
 projectsList: https://kde.org/products/
 projectsServices:
 eventurl:
-nonprofitStatus: charitable
-taxID:
-taxIDLocal:
+nonprofitStatus: DEAssociation
+taxID: VR31685
+taxIDLocal: DE278127691
 budgetUsd:
 budgetYear:
 budgeturl:
 budgetTransparent:
 funding: sponsors, donations, memberships
-donateurl:
+donateurl: https://kde.org/community/donations/
 sponsorurl: https://ev.kde.org/supporting-members/
 sponsorList:
 sponsorships:

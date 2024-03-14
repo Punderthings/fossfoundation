@@ -1,0 +1,19 @@
+{
+  "first": [
+    "canonical.com",
+    "google.com",
+    "suse.com",
+    "qt.io",
+    "blue-systems.com",
+    "slimbook.com",
+    "tuxedocomputers.com",
+    "kfocus.org",
+    "g10code.com"
+  ],
+  "second": [
+    "kdab.com",
+    "basyskom.de",
+    "haute-couture.enioka.com"
+  ],
+  "parseDate": "20240314"
+}
