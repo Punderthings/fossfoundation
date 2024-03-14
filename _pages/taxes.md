@@ -45,13 +45,16 @@ ProPublica's JSON only shows a subset of 990 filings, and rarely has data bugs (
 - UK https://register-of-charities.charitycommission.gov.uk/documentation-on-the-api Detailed reports available
 - BE https://economie.fgov.be/en/themes/enterprises/crossroads-bank-enterprises/services-everyone/consultation-and-research-data/cbe-public-search Fairly detailed reports available
 - NL https://www.kvk.nl/zoeken/handelsregister/?handelsnaam=NLNet&kvknummer=&straat=&postcode=&huisnummer=&plaats=&hoofdvestiging=1&rechtspersoon=1&nevenvestiging=1&zoekvervallen=0&zoekuitgeschreven=1&start=0  Various reports available for a fee
-- DE https://www.unternehmensregister.de/ureg/?submitaction=language&language=en or https://www.handelsregister.de/
+- DE https://www.unternehmensregister.de/ureg/?submitaction=language&language=en or https://www.handelsregister.de/ - includes various downloads, but no obvious finances
 - AT Searches cost a fee https://www.justiz.gv.at/service/datenbanken/firmenbuch/
 
 ### Notes on some EU Charities
 
 Eclipse Foundation 0760.624.114 https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=760624114 Includes official list of directors "legal functions"
 
-Eclipse bank record link: https://consult.cbso.nbb.be/consult-enterprise/0760624114 Includes links to download detailed finances, in French
+https://kbopub.economie.fgov.be/kbopub/zoeknummerform.html?nummer=0760.624.114&actionLu=Search also finds Eclipse basic record
+table#toonfctie tr, then three tds = director/principal officer title, name, date
+
+Eclipse bank record link: https://consult.cbso.nbb.be/consult-enterprise/0760624114 Includes links to download detailed finances, in French; offers PDF, CSV, or XBRL format downloads
 
 Eclipse Foundation Europe Gmbh 0804.570.458 https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?ondernemingsnummer=804570458

@@ -3,7 +3,7 @@ identifier: raspberrypi
 commonName: Raspberry Pi
 legalName: Raspberry Pi Foundation
 description:
-contacturl:
+contacturl: https://www.raspberrypi.org/contact/
 website: https://www.raspberrypi.org/about/
 foundingDate:
 addressCountry: UK
@@ -14,7 +14,7 @@ wikidataId: Q7295195
 boardSize: '8'
 boardType: elected
 boardurl: https://www.raspberrypi.org/about/governance/
-teamurl:
+teamurl: https://www.raspberrypi.org/about/meet-the-team/
 missionurl:
 bylawsurl:
 numberOfEmployees:
@@ -23,7 +23,7 @@ governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://events.raspberrypi.com/
 nonprofitStatus: LimitedByGuaranteeCharity
 taxID: '1129409'
 taxIDLocal:
@@ -32,14 +32,14 @@ budgetYear: '2020'
 budgeturl: https://static.raspberrypi.org/files/about/RaspberryPiFoundationAnnualReview2022.pdf
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://www.raspberrypi.org/donate/
 sponsorurl: https://www.raspberrypi.org/about/supporters/
 sponsorList:
 sponsorships:
 - raspberrypi
 licenses: BSD-3-Clause, various
 claPolicy:
-securityurl:
+securityurl: https://www.raspberrypi.com/contact/security/
 ethicsPolicy:
 conducturl:
 conductEvents:

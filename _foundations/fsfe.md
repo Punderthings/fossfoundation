@@ -27,7 +27,7 @@ projectsServices:
 eventurl: https://fsfe.org/events/events.en.html
 nonprofitStatus: charitable e.V.
 taxID: DE234323337
-taxIDLocal:
+taxIDLocal: Hamburg VR 17030
 budgetUsd:
 budgetYear: 2022 income = 772,916.63 EUR, expenses = 664,763.26 EUR
 budgeturl: https://fsfe.org/about/funds/funds.en.html
