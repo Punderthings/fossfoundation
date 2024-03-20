@@ -20,40 +20,21 @@ Feedback so far shows there's a lot of value in this work, both to researchers a
   - How can we model all data stored as [semi-structured in OpenAPI](openapi), and then generate whatever needed shims or schemas from that single definition?
   - Recall everything must be static and served from GitHub Pages.
 - **Linting, linting, linting**
-  - Since we rely on FOSS participants to send PRs for data updates, we need sturdy and no-setup-needed tooling to lint everything within the GitHub PR/pages systems.
-  - Data updates may change openapi static endpoints, so we need to generate things like `_foundations/list.json` on commits.
+  - Read about our [workflow plans and help wanted](workflow).
 - **Documentation that explains**
   - The structured data we provide is non-technical, and may not be familiar to many FOSS folk - we need to explain why this work is [important for overall sustainability](research).
   - Budget financial data may be drawn from *approximate* figures (on annual reports, for example), so we need to be very clear which monetary figures are specific or not.  Data stored for [US foundations in 990 forms](taxes) is exact, although limited to what the tax code defines.
 
-## Example
-
-```ruby
-require 'yaml'
-require 'open-uri'
-# Future plans: have more stable programmatic URL and listing features; offer CSV and other formats
-asf = YAML.load(URI.open("https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_foundations/asf.md"))
-puts asf['legalName']
-```
 
 ## Tasks
 
-- [x] Organize homepage & sketch nav structure -sc
-- [x] Resources page - sc (started)
-- [x] Colophon - sc
-- [x] CONTRIBUTING - details of how, why, what
-- [ ] Tweak theme / logo?
-- [x] Metadata schema (format?) -sc ('good-enough' level)
-- [x] csv2yaml converter & checkin data -sc
-- [x] /listing/ directory page: name/url, nonprofitStatus / taxID, accepts new projects, description? boardType? other?
-- [x] Individual foundation data page, with all fields, read from schema
 - [ ] Category lists of foundations
 - [ ] Metadata search page
 - [ ] Connections to other metadata directories & more /resources
-- [ ] Automated linting
+- [ ] [Automated linting - see workflows](workflow)
 - [ ] Semi-automated data format conversion (i.e. auto-create foundations.csv upon any update to a .md file)
 - [ ] Setup AllContributors bot and encourage contributions
-- [ ] Find volunteers to add new foundations and fillin metadata
+- [ ] Find volunteers to add new foundations, fillin more metadata, and evaluate data quality
 - [ ] Verify data format / inclusion criteria are useful for academic research
 
 ## Site Governance
