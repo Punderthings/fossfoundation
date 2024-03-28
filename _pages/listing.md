@@ -8,4 +8,4 @@ nav_order: 2
 
 A listing of **non-profit** foundations that host FOSS projects or are otherwise significant in the open source ecosystem.  
 
-Commercial entities and projects that aren't *independent* legal entities are not included here, as noted in our [data philosophy](data).
+Commercial entities and projects that aren't *independent* legal entities are not included here, as noted in our [data philosophy](data).  See our [OpenAPI spec](openapi).

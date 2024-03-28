@@ -17,7 +17,7 @@ Feedback so far shows there's a lot of value in this work, both to researchers a
   - Tracking [non-foundation entities/projects](entities): There are many important "foundations" like the CNCF out there, but they aren't legal entities and have very different governance and finance models.  How much data do we want to track, and how large a coverage of the ecosystem is important? 
 - **OpenAPI tooling, but simple**
   - Schemas need to be good enough for basic research purposes, but not so complex that PRs from new contributors cause tooling problems.
-  - How can we model all data stored as [semi-structured in OpenAPI](openapi), and then generate whatever needed shims or schemas from that single definition?
+  - How can we model all data stored as [OpenAPI schemas](openapi), and then generate whatever needed shims or schemas from that single definition?  Is static raw GitHub access sufficient for read-only data purposes?
   - Recall everything must be static and served from GitHub Pages.
 - **Linting, linting, linting**
   - Read about our [workflow plans and help wanted](workflow).
