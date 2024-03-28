@@ -1,87 +1,88 @@
 openapi: 3.0.0
 info:
   description: |
-    DRAFT DRAFT DRAFT
     Proposed OpenAPI spec for FOSS Foundations, providing 
     read-only access to _foundations, _sponsorships, _entities.
   version: "1.0.0"
   title: FOSS Foundations Info
-  termsOfService: 'https://fossfoundation.info/colophon'
+  termsOfService: "https://fossfoundation.info/colophon"
   contact:
+    name: Shane Curcuru
     email: shane@punderthings.com
   license:
     name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
     url: https://virtserver.swaggerhub.com/ShaneCurcuru/FOSSFoundationInfo/1.0.0
-  - description: FOSS Foundations raw GitHub access
-    url: 'https://raw.githubusercontent.com/Punderthings/fossfoundation/main/'
+  - description: FOSS Foundations raw GitHub access path.
+    url: "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/"
 tags:
   - name: foundation
     description: Nonprofit FOSS Foundation Organization
     externalDocs:
-      description: Inclusion criteria and org schema
-      url: 'https://fossfoundation.info/data'
+      description: Foundation organization schema and inclusion criteria.
+      url: "https://fossfoundation.info/data"
   - name: entity
     description: Nonprofit FOSS Projects Or Entities
     externalDocs:
-      description: Inclusion criteria and entity schema
-      url: 'https://fossfoundation.info/entities'
+      description: Entity schema for major projects hosted at a foundation.
+      url: "https://fossfoundation.info/entities"
   - name: sponsorship
     description: Foundation Sponsorship Models
     externalDocs:
-      description: Inclusion criteria and org schema
-      url: 'https://fossfoundation.info/sponsorships'
+      description: Sponsorship model schema for foundations.
+      url: "https://fossfoundation.info/sponsorships"
   - name: tax
     description: Foundation Tax Finances Models
     externalDocs:
-      description: Inclusion criteria and org schema
-      url: 'https://fossfoundation.info/taxes'
+      description: Schema for simplistic tax finance modeling.
+      url: "https://fossfoundation.info/taxes"
 paths:
   /_foundations/list.json:
     get:
       tags:
         - foundation
-      summary: Get list of available Foundation ids.
-      description: Returns list of all ids, along with naming metadata hints for external lookups.
+      summary: Get list of available Foundation identifiers as lowercase strings.
+      description: Returns list of all valid identifiers, along with aliasOf values to map common names like 'org.apache' to 'asf'.
       operationId: getFoundations
       responses:
-        '200':
-          description: successful operation
+        "200":
+          description: Successful operation; list returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FoundationList'
-  '/_foundations/{foundationId}':
+                $ref: "#/components/schemas/FoundationList"
+  "/_foundations/{foundationId}":
     get:
       tags:
         - foundation
-      summary: Get Foundation by id.
-      description: Returns a single Foundation organizational model object.
+      summary: Get Foundation by exact lowercase string identifier.
+      description: Returns a single Foundation organizational model object for an exact identifier.
       operationId: getFoundationById
       parameters:
         - name: foundationId
           in: path
-          description: ID of Foundation object to return
+          description: Identifier of Foundation object to return; lowercase alpha string.
           required: true
           schema:
             type: string
+            pattern: "^[a-z][a-z]*$"
       responses:
-        '200':
-          description: successful operation
+        "200":
+          description: Successful operation; Foundation object returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Foundation'
-        '400':
-          description: 'Invalid ID: does not map to existing Foundation'
-        '404':
-          description: 'Not Found ID: does not map to existing Foundation'
+                $ref: "#/components/schemas/Foundation"
+        "400":
+          description: "Invalid ID: does not map to existing Foundation"
+        "404":
+          description: "Not Found ID: does not map to existing Foundation"
 externalDocs:
-  description: See the FOSS Foundations metadata directory standards.
-  url: 'https://fossfoundation.info/data'
+  description: See the FOSS Foundations metadata directory standards and description.
+  url: "https://fossfoundation.info/data"
 components:
   schemas:
     FoundationList:
@@ -100,24 +101,4 @@ components:
           additionalProperties:
             type: string
     Foundation:
-      type: object
-      required:
-        - identifier
-        - commonName
-        - website
-      properties:
-        identifier:
-          type: string
-          description: short lookup identifier
-          example: asf
-        commonName:
-          type: string
-          description: Commonly used name of the organization.
-          example: Apache Software Foundation
-        website:
-          type: string
-          description: website homepage
-        foundingDate:
-          type: string
-          description: date organization legally founded
-          format: date
+      $ref: "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/openapi/v1/foundation-schema.yaml"
