@@ -2,14 +2,14 @@
 identifier: eclipse
 commonName: Eclipse
 legalName: Eclipse Foundation AISBL
-description:
-contacturl:
+description: The Eclipse Foundation provides its global community of individuals and organizations with a mature, scalable, and business-friendly environment for open source software collaboration and innovation.
+contacturl: https://www.eclipse.org/org/foundation/contact.php
 website: https://eclipse.org/
-foundingDate:
+foundingDate: Eclipse.Org Foundation created in Delaware in February 2004, Eclipse Foundation Europe Gmbh created in Germany in October 2014, Eclipse Foundation AISBL created in Brussels in January 2021 (see https://newsroom.eclipse.org/news/announcements/open-source-software-leader-eclipse-foundation-officially-transitions-eu-based)
 addressCountry: BE
 addressRegion:
 newProjects: 'yes'
-softwareType: devtool
+softwareType: devtool, runtime, cloud
 wikidataId: Q937756
 boardSize: '20'
 boardType: sponsor, elected
@@ -20,7 +20,7 @@ bylawsurl: https://eclipse.org/org/documents/Eclipse%20BYLAWS%202011_08_15%20Fin
 numberOfEmployees: '28'
 governanceOrg:
 governanceTech:
-projectsNotable: Eclipse Modeling Framework, BRIT, Jetty
+projectsNotable: Eclipse Modeling Framework, BRIT, Jetty, Jakarta EE
 projectsList: http://www.eclipse.org/projects/
 projectsServices: Eclipse provides a wide variety of support services for projects.
 eventurl:
