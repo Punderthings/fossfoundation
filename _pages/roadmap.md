@@ -25,8 +25,7 @@ Feedback so far shows there's a lot of value in this work, both to researchers a
   - The structured data we provide is non-technical, and may not be familiar to many FOSS folk - we need to explain why this work is [important for overall sustainability](research).
   - Budget financial data may be drawn from *approximate* figures (on annual reports, for example), so we need to be very clear which monetary figures are specific or not.  Data stored for [US foundations in 990 forms](taxes) is exact, although limited to what the tax code defines.
 
-
-## Tasks
+## Tasks and IDeas
 
 - [ ] Category lists of foundations
 - [ ] Metadata search page
@@ -36,6 +35,15 @@ Feedback so far shows there's a lot of value in this work, both to researchers a
 - [ ] Setup AllContributors bot and encourage contributions
 - [ ] Find volunteers to add new foundations, fillin more metadata, and evaluate data quality
 - [ ] Verify data format / inclusion criteria are useful for academic research
+- [ ] Fillin fiscalHost field with schema design
+- [ ] Simple lists/visualizations of categories
+  - [ ] Accept new projects? or Single-purpose/focus foundations?
+  - [ ] General type of foundation? TBD: software, hardware, standards, data (wikipedia, openstreetmap) science or academic(?), advocacy / social change, legal issues, fiscal host, other?
+  - [ ] Is a fiscal host?
+  - [ ] Specific governance or licensing criteria?
+  - [ ] By country / region
+  - [ ] By number of projects hosted
+- [ ] Review [research topics to gather new data](research).
 
 ## Site Governance
 
