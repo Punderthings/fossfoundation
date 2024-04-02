@@ -5,7 +5,7 @@ legalName: Eclipse Foundation AISBL
 description: The Eclipse Foundation provides its global community of individuals and organizations with a mature, scalable, and business-friendly environment for open source software collaboration and innovation.
 contacturl: https://www.eclipse.org/org/foundation/contact.php
 website: https://eclipse.org/
-foundingDate: Eclipse.Org Foundation created in Delaware in February 2004, Eclipse Foundation Europe Gmbh created in Germany in October 2014, Eclipse Foundation AISBL created in Brussels in January 2021 (see https://newsroom.eclipse.org/news/announcements/open-source-software-leader-eclipse-foundation-officially-transitions-eu-based)
+foundingDate: "Eclipse.Org Foundation created in Delaware in February 2004, Eclipse Foundation Europe Gmbh created in Germany in October 2014, Eclipse Foundation AISBL created in Brussels in January 2021 (see https://newsroom.eclipse.org/news/announcements/open-source-software-leader-eclipse-foundation-officially-transitions-eu-based)"
 addressCountry: BE
 addressRegion:
 newProjects: 'yes'
