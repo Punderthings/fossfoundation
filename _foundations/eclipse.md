@@ -23,6 +23,7 @@ governanceTech:
 projectsNotable: Eclipse Modeling Framework, BRIT, Jetty, Jakarta EE
 projectsList: http://www.eclipse.org/projects/
 projectsServices: Eclipse provides a wide variety of support services for projects.
+fiscalHost: indirect
 eventurl:
 nonprofitStatus: Belgian charitable; Nonprofit501c6
 taxID: TBD; 20-0838203

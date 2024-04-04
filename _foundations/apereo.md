@@ -23,6 +23,7 @@ governanceTech:
 projectsNotable: Apereo CAS, Bedework Calendar, Karuta Portfolio, OnTask, Opencast, OpenEquella, SakaiLMS, UniTime, uPortal, Xerte
 projectsList: https://www.apereo.org/content/projects-communities
 projectsServices: "accounts payable/receivable, accounting/bookkeeping, auditing, awareness and advocacy, community development and management, events planning and management, fundraising (grants and sponsorships), human resource management, infrastructure, insurance, legal services, marketing and promotion, organizational development, payroll, policy analysis, project incubation, receiving property and stock donations, tax filling/reporting."
+fiscalHost: indirect
 eventurl: https://www.apereo.org/events
 nonprofitStatus: Nonprofit501c3
 taxID: 46-2060554

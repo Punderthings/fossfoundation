@@ -25,6 +25,7 @@ projectsList: https://sfconservancy.org/projects/current/
 projectsServices: Conservancy acts as a financial steward for earmarked donations
   and intangible assets, as well as providing legal, event, and license compliance
   services.
+fiscalHost: direct
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 41-2203632

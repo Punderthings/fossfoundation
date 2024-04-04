@@ -23,6 +23,7 @@ governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
+fiscalHost: direct
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 04-3594598

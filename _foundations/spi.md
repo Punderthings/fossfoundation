@@ -24,6 +24,7 @@ projectsNotable: Debian, Jenkins, PostgreSQL
 projectsList: https://www.spi-inc.org/projects/
 projectsServices: SPI acts as a financial steward for earmarked donations and intangible
   assets as noted at https://www.spi-inc.org/projects/services/
+fiscalHost: direct
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 11-3390208

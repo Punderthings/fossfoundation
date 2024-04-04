@@ -23,6 +23,7 @@ governanceTech:
 projectsNotable:
 projectsList: https://numfocus.org/sponsored-projects
 projectsServices:
+fiscalHost: direct
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 45-4547709

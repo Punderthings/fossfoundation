@@ -24,6 +24,7 @@ projectsNotable: CNCF, Hyperledger, Node.js, Xen
 projectsList: https://www.linuxfoundation.org/projects
 projectsServices: The Linux Foundation provides a wide variety of support services
   for projects.
+fiscalHost: indirect
 eventurl:
 nonprofitStatus: Nonprofit501c6
 taxID: 46-0503801

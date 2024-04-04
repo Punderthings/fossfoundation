@@ -26,6 +26,7 @@ projectsList: https://projects.apache.org
 projectsServices: Core infrastructure, legal, branding, and press services are provided
   by the ASF to all projects; some level of directed sponsorship under Apache-wide
   policies is allowed.
+fiscalHost: indirect
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 47-0825376

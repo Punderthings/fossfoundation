@@ -120,6 +120,10 @@ components:
           title: Services Provided
           description: Brief description of services offered to hosted projects.
           type: string
+        fiscalHost: 
+          title: Fiscal Host Type
+          description: "If a fiscal host, enter the type of services provided: direct funding, indirect funding, employee services, etc."
+          type: string
         nonprofitStatus:
           title: Nonprofit Type
           description: "Specific type of non-profit; types: https://schema.org/NonprofitType"
@@ -131,6 +135,10 @@ components:
         taxIDLocal:
           title: Local Tax Authority ID
           description: Per-state, province, district, or similar tax identifier (if any).
+          type: string
+        uniqueEntityID:
+          title: Unique Entity ID
+          description: US Government UEI string used for grants or contracts.
           type: string
         budgetUsd:
           title: Budget in USD
