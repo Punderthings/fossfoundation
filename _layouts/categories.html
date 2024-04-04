@@ -1,0 +1,84 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<hr id="tagindex" />
+{% capture mininav %}<a href="#newProjects">Accepts New Projects?</a> | <a href="#fiscalHost">Fiscal Hosting?</a> | <a href="#nonprofitStatus">Nonprofit Type</a> | <a href="#addressCountry">By Country</a>{% endcapture %}
+{{ mininav }}
+<section id="newProjects">
+  <h3>Accepts New Projects?</h3>
+  <p>These organizations actively accept new projects for hosting, and notes if they are a <a href="#fiscalHost">Fiscal Host</a>.</p>
+  <ul>
+    {% for fdn in site.foundations %}{% if fdn.newProjects contains 'yes' %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a>{% if fdn.fiscalHost %} <span class="label label-green">{{ fdn.fiscalHost }}</span>{% endif %}</li>{% endif %}{% endfor %}
+  </ul>
+</section>
+
+{{ mininav }}
+<section id="fiscalHost">
+  <h3>Fiscal Hosts</h3>
+  <p>Type of fiscal hosting provided: direct funding, indirect funding, employee services, etc.</p>
+  <ul>
+    {% assign fiscalfdn = site.foundations | where_exp: 'fdn', 'fdn.fiscalHost' %}
+    {% for fdn in fiscalfdn %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a> <span class="label label-green">{{ fdn.fiscalHost }}</span></li>{% endfor %}
+  </ul>
+</section>
+
+{{ mininav }}
+<section id="addressCountry">
+  <h3>Foundations By Country</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">US</th>
+        <th style="text-align: left">Non-US</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">
+          {% for fdn in site.foundations %}{% if fdn.addressCountry == 'US' %}<a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a><br/>{% endif %}{% endfor %}
+        </td>
+        <td style="text-align: left">
+          <ul>
+          {% for fdn in site.foundations %}{% if fdn.addressCountry != 'US' %}<li><span class="label label-yellow">{{ fdn.addressCountry }}</span> <a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>{% endif %}{% endfor %}
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+{{ mininav }}
+<section id="nonprofitStatus">
+  <h3>Foundations By Nonprofit Types</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: left">US 501(c)(3)</th>
+        <th style="text-align: left">All Others</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: left">
+          <ul id="Nonprofit501c3">
+            {% for fdn in site.foundations %}{% if fdn.nonprofitStatus == 'Nonprofit501c3' %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>{% endif %}{% endfor %}
+          </ul>
+        </td>
+        <td style="text-align: left">
+          <p>US 501(c)(6)</p>
+          <ul id="Nonprofit501c6">
+          {% for fdn in site.foundations %}{% if fdn.nonprofitStatus == 'Nonprofit501c6' %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>{% endif %}{% endfor %}
+          </ul>
+          <p>All non-US Nonprofits</p>
+          <ul id="nonus">
+          {% assign otherfdn = site.foundations | where_exp: 'fdn', "fdn.nonprofitStatus != 'Nonprofit501c3' and fdn.nonprofitStatus != 'Nonprofit501c6'" %}
+          {% for fdn in otherfdn %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a> <span class="label label-blue">{{ fdn.nonprofitStatus }}</span></li>{% endfor %}
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
