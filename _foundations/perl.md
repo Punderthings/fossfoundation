@@ -51,10 +51,10 @@ brandSecondary:
 brandReg: 'yes'
 brandPolicy: http://www.perlfoundation.org/perl_trademark
 brandUse:
-brandComments: About the PERL mark itself.
+brandComments: About the Perl mark itself.
 logo:
 logoReg:
 subOrganization:
 ---
 
-​THE PERL & Raku FOUNDATION IS DEDICATED TO THE ADVANCEMENT OF THE PERL and Raku PROGRAMMING LANGUAGEs. THROUGH OPEN DISCUSSION, COLLABORATION, DESIGN, AND CODE.
+The Perl & Raku Foundation is dedicated to the advancement of the Perl and Raku programming languages through open discussion, collaboration, design, and code.
