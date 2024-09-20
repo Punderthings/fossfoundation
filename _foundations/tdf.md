@@ -42,7 +42,7 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.documentfoundation.org/foundation/code-of-conduct/
 conductEvents:
-conductSource:
+conductSource: Contributor Covenant, others
 conductLinked: menu
 diversityPolicy:
 diversityDescription:

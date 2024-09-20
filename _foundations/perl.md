@@ -40,9 +40,9 @@ licenses:
 claPolicy: https://www.perlfoundation.org/license-faq.html
 securityurl:
 ethicsPolicy: https://www.perlfoundation.org/conflict-of-interest-policy.html
-conducturl:
+conducturl: https://github.com/tpf/soc/blob/main/Standards_of_Conduct.md
 conductEvents: https://perlconference.us/tpc-2018-slc/standards-of-conduct/
-conductSource:
+conductSource: Contributor Covenant, others
 conductLinked: x
 diversityPolicy:
 diversityDescription:

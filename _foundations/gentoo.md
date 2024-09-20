@@ -41,7 +41,7 @@ licenses: GPL-2.0-only
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://wiki.gentoo.org/wiki/Project:Council/Code_of_conduct
 conductEvents:
 conductSource:
 conductLinked:

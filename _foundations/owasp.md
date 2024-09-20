@@ -43,7 +43,7 @@ licenses: various
 claPolicy: CLA
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://owasp.org/www-policy/operational/code-of-conduct
 conductEvents:
 conductSource: None, but Board CoC is posted
 conductLinked: x

@@ -58,7 +58,18 @@ ethicsPolicy:
 conducturl: https://www.linuxfoundation.org/code-of-conduct/
 conductEvents: https://events.linuxfoundation.org/code-of-conduct/
 conductSource:
-conductLinked: x
+conductLinked: events CoC linked in footer
+conductProjects:
+- https://lfprojects.org/policies/code-of-conduct/
+- https://www.kernel.org/code-of-conduct.html
+- https://www.cncf.io/conduct/
+- https://github.com/openjs-foundation/cross-project-council/blob/main/CODE_OF_CONDUCT.md
+- https://openssf.org/community/code-of-conduct/
+- https://github.com/spdx/governance/blob/main/7._Code_of_Conduct.md
+- https://kubernetes.io/community/code-of-conduct/
+- https://ceph.io/en/code-of-conduct/
+- https://www.jenkins.io/project/conduct/
+- https://github.com/decentralized-identity/org/blob/master/code-of-conduct.md
 diversityPolicy: https://www.linuxfoundation.org/about/diversity-inclusiveness/
 diversityDescription: Resources and organization overview
 brandPrimary: Linux

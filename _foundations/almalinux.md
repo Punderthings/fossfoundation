@@ -43,9 +43,9 @@ licenses: https://almalinux.org/p/the-almalinux-os-licensing-policy/
 claPolicy:
 securityurl:
 ethicsPolicy: https://almalinux.org/p/foundation-board-operations-and-ethics/
-conducturl:
+conducturl: https://wiki.almalinux.org/community/coc.html
 conductEvents:
-conductSource:
+conductSource: Red Hat
 conductLinked:
 diversityPolicy:
 diversityDescription:

@@ -41,7 +41,7 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://haskell.foundation/guidelines-for-respectful-communication/
 conductEvents:
 conductSource:
 conductLinked:

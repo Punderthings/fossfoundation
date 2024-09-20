@@ -51,6 +51,11 @@ conducturl:
 conductEvents:
 conductSource: None posted
 conductLinked:
+conductProjects:
+- https://www.debian.org/code_of_conduct.en.html
+- https://www.postgresql.org/about/policies/coc/
+- https://terms.archlinux.org/docs/code-of-conduct/
+- https://www.adelielinux.org/standards/
 diversityPolicy:
 diversityDescription:
 brandPrimary: SPI
