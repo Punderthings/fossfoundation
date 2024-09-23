@@ -1,0 +1,47 @@
+{
+  "organization": {
+    "id": 862791864,
+    "ein": 862791864,
+    "name": "Almalinux Os Foundation",
+    "careofname": "% IGOR SELETSKIY",
+    "address": "20791 THREE OAKS PKWY UNIT 980",
+    "city": "Estero",
+    "state": "FL",
+    "zipcode": "33929-3648",
+    "exemption_number": 0,
+    "subsection_code": 6,
+    "affiliation_code": 3,
+    "classification_codes": "2000",
+    "ruling_date": "2023-05-01",
+    "deductibility_code": 2,
+    "foundation_code": 0,
+    "activity_codes": "000000000",
+    "organization_code": 1,
+    "exempt_organization_status_code": 1,
+    "tax_period": "2023-12-01",
+    "asset_code": 4,
+    "income_code": 4,
+    "filing_requirement_code": 1,
+    "pf_filing_requirement_code": 0,
+    "accounting_period": 12,
+    "asset_amount": 126484,
+    "income_amount": 230843,
+    "revenue_amount": 228297,
+    "ntee_code": null,
+    "sort_name": null,
+    "created_at": "2024-03-28T16:49:06.926Z",
+    "updated_at": "2024-08-27T13:38:01.291Z",
+    "data_source": "current_2024_08_27",
+    "have_extracts": null,
+    "have_pdfs": null,
+    "latest_object_id": "202420579349300712"
+  },
+  "filings_with_data": [
+
+  ],
+  "filings_without_data": [
+
+  ],
+  "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
+  "api_version": 2
+}
