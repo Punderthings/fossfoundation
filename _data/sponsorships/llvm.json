@@ -1,21 +1,4 @@
 {
-  "first": [
-    "apple.com",
-    "quicinc.com"
-  ],
-  "second": [
-    "google.com",
-    "fastly.com",
-    "ibm.com"
-  ],
-  "third": [
-    "arm.com",
-    "intel.com",
-    "accesssoftek.com"
-  ],
-  "fourth": [
-    "mathworks.com",
-    "reservoir.com"
-  ],
-  "parseDate": "20240215"
+  "error": "ERROR: parse_sponsorship(https://foundation.llvm.org/docs/sponsors/): 404 Not Found\n\n/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:376:in `open_http'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:770:in `buffer_open'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:220:in `block in open_loop'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:218:in `catch'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:218:in `open_loop'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:158:in `open_uri'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:750:in `open'\n\t/Users/curcuru/.rubies/ruby-3.3.0/lib/ruby/3.3.0/open-uri.rb:29:in `open'\n\tassets/ruby/sponsor_utils.rb:198:in `parse_sponsorship'\n\tassets/ruby/sponsor_utils.rb:247:in `process_sponsorship'\n\tassets/ruby/sponsor_utils.rb:260:in `block in process_sponsorships'\n\tassets/ruby/sponsor_utils.rb:259:in `each'\n\tassets/ruby/sponsor_utils.rb:259:in `process_sponsorships'\n\tassets/ruby/sponsor_utils.rb:279:in `process_all_sponsorships'\n\tassets/ruby/sponsor_utils.rb:353:in `<module:SponsorUtils>'\n\tassets/ruby/sponsor_utils.rb:2:in `<main>'",
+  "parseDate": "20240926"
 }

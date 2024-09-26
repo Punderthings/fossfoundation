@@ -2,6 +2,7 @@
   "first": [
     "oscars.org",
     "adobe.com",
+    "amd.com",
     "amazon.com",
     "autodesk.com",
     "dneg.com",
@@ -12,6 +13,7 @@
     "microsoft.com",
     "netflix.com",
     "nvidia.com",
+    "samsung.com",
     "sonypictures.com",
     "disney.com",
     "wetafx.co.nz"
@@ -19,6 +21,7 @@
   "second": [
     "animallogic.com",
     "bolt.graphics",
+    "caligra.com",
     "canonical.com",
     "coreweave.com",
     "framestore.com",
@@ -31,8 +34,7 @@
     "rodeofx.com",
     "sidefx.com",
     "foundry.com",
-    "warnerbros.com",
-    "wevr.com"
+    "warnerbros.com"
   ],
   "third": [
     "blender.org",
@@ -42,5 +44,5 @@
     "khronos.org",
     "vesglobal.org"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

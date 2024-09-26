@@ -18,18 +18,15 @@
   ],
   "third": [
     "imc.com",
-    "shopify.com",
-    "safe.com"
+    "safe.com",
+    "shopify.com"
   ],
   "community": [
     "koordinates.com",
     "snowflake.com",
-    "block.science",
     "mapgears.com",
-    "taipy.io",
-    "noteable.io",
-    "corporate.comcast.com",
-    "tesseratherapeutics.com"
+    "tesseratherapeutics.com",
+    "corporate.comcast.com"
   ],
   "startuppartners": [
     "bytewax.io"
@@ -39,5 +36,5 @@
     "chanzuckerberg.com",
     "sloan.org"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

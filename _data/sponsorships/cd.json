@@ -9,7 +9,8 @@
     "fidelity.com",
     "jpmorganchase.com",
     "nginx.com",
-    "salesforce.com"
+    "salesforce.com",
+    "tracemachina.com"
   ],
   "second": [
     "circleci.com",
@@ -31,5 +32,5 @@
   "community": [
     "english.ecnu.edu.cn"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

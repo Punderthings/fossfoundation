@@ -7,19 +7,16 @@
     "copilottravel.com",
     "elementl.com",
     "escape.tech",
-    "gatsbyjs.org",
     "goldmansachs.com",
     "grafbase.com",
     "hasura.io",
-    "hygraph.com",
-    "inigo.io",
     "ibm.com",
     "intuit.com",
+    "meta.com",
     "microsoft.com",
     "neo4j.com",
     "platformatic.dev",
     "postman.com",
-    "saleor.io",
     "salsify.com",
     "shopify.com",
     "solo.io",
@@ -27,5 +24,5 @@
     "the-guild.dev",
     "tyk.io"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

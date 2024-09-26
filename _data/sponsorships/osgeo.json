@@ -1,32 +1,28 @@
 {
   "first": [
-    "wherobots.ai",
     "opengis.ch",
     "geocat.net"
   ],
   "second": [
-    "camptocamp.com",
+    "t-kartorusa.com",
     "mapgears.com"
   ],
   "third": [
-    "wigeogis.com",
     "wheregroup.com",
     "gaia3d.com"
   ],
   "fourth": [
-    "uk.osgeo.org",
-    "terrestris.de"
+    "route4me.com",
+    "psf.ca",
+    "uk.osgeo.org"
   ],
   "fifth": [
+    "wozalabs.com",
     "sjgeophysics.com",
     "illustreets.com",
-    "ip2location.com",
-    "merginmaps.com",
     "mammothgeospatial.com",
-    "kaplanopensource.co.il",
-    "line-45.com",
-    "arxit.com",
+    "crgl.ca",
     "how2map.com"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

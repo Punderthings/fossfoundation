@@ -1,63 +1,86 @@
 {
   "first": [
+    "nvidia",
     "google.com",
+    "fastly",
+    "meta",
     "bloomberg.com"
   ],
   "second": [
-    "ansys.com",
-    "microsoft.com"
+    "microsoft.com",
+    "ansys.com"
   ],
   "third": [
+    "cubist-systematic-strategies",
+    "amazon.com",
     "americanexpress.com",
+    "streamlit",
+    "qube-research-technologies-limited",
+    "redhat.com",
     "capitalone.com",
-    "python.org",
-    "amazon.com"
+    "mongodb"
   ],
   "fourth": [
-    "indeed.com",
-    "redhat.com",
-    "openedg.org"
+    "openedg.org",
+    "jetbrains.com",
+    "indeed.com"
   ],
   "fifth": [
-    "crunchydata.com",
-    "pydantic.dev",
+    "western-governors-university",
+    "oracle",
+    "covalent",
     "sentry.io",
+    "datastax",
+    "pydantic.dev",
     "janestreet.com",
-    "jetbrains.com"
+    "crunchydata.com",
+    "algorand",
+    "anaconda-inc"
   ],
   "sixth": [
-    "rezoomex.com",
-    "elastic.co",
-    "lerner.co.il",
-    "deepset.ai",
-    "temporal.io",
     "endor-labs",
-    "anvil.works",
-    "capeprivacy.com",
-    "akamai.com",
-    "telemetryhub.com",
-    "noteable.io",
-    "datadog.com",
+    "coiled",
     "nostarch.com",
-    "usds.gov",
-    "hudsonrivertrading.com"
+    "datadog.com",
+    "deepset.ai",
+    "hudsonrivertrading.com",
+    "temporal.io",
+    "vonage",
+    "sauce-labs",
+    "cloudflare",
+    "tecton",
+    "elastic.co",
+    "rezoomex.com",
+    "edgedb",
+    "posit-pbc",
+    "anvil.works",
+    "twilio",
+    "swan-softweb-solutions",
+    "activestate",
+    "bright-data",
+    "awesomic",
+    "lerner.co.il"
   ],
   "seventh": [
-    "sixfeetup.com",
+    "zama",
+    "twosigma.com",
     "astral.sh",
     "pythonic-exam.com",
-    "stickermule.com",
-    "guidebook.com",
-    "twosigma.com",
-    "netflix.com",
+    "buttondown",
+    "sticker-robot",
+    "asml",
+    "flet",
+    "commonwealth-bank-of-australia",
+    "sixfeetup.com",
+    "lambdatest-inc",
+    "openteams",
     "quansight.com",
-    "lincolnloop.com"
+    "netflix.com"
   ],
   "eighth": [
+    "beproud",
     "devitjobs.com",
-    "minimumdepositcasinos.org",
-    "dm-jobs.com",
-    "easeus.com",
-    "roboflow.com"
-  ]
+    "dm-jobs.com"
+  ],
+  "parseDate": "20240926"
 }

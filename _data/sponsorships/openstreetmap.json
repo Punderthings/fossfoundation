@@ -23,7 +23,8 @@
     "hotosm.org",
     "ioki.com",
     "regrid.com",
-    "qgis.org"
+    "qgis.org",
+    "calimoto.com"
   ],
   "fourth": [
     "geotab.com",
@@ -39,7 +40,10 @@
     "rinkai.cz",
     "stadiamaps.com",
     "suse.com",
-    "verso-optim.com"
+    "verso-optim.com",
+    "interline.io",
+    "esmartcontrol.com",
+    "landclan.com"
   ],
   "fifth": [
     "maptoolkit.com",
@@ -49,7 +53,6 @@
     "skyhost.dk",
     "aisin-mobility.eu",
     "peakfinder.org",
-    "interline.io",
     "safe-sky.net",
     "kendallcountyil.gov",
     "mobilitylabel.com",
@@ -57,5 +60,5 @@
     "farmeye.ie",
     "btcmap.org"
   ],
-  "parseDate": "20240312"
+  "parseDate": "20240926"
 }

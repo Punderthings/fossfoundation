@@ -14,6 +14,7 @@
     "apache.org",
     "baidu.com",
     "bloomberg.com",
+    "opensource.bytedance.com",
     "cloudera.com",
     "confluent.io",
     "ibm.com",
@@ -25,26 +26,24 @@
     "aetna.com",
     "capitalone.com",
     "indeed.com",
-    "linecorp.com",
+    "lycorp.co.jp",
     "redhat.com",
     "salesforce.com",
-    "snowflake.com",
-    "target.com"
+    "snowflake.com"
   ],
   "fourth": [
     "canva.com",
     "engineering.cerner.com",
     "curity.io",
     "datastrato.com",
-    "dimealley.com",
-    "dollarhand.com",
     "gridgain.com",
     "getgrist.com",
     "libriciel.fr",
     "rx-m.com",
     "renre.com",
     "sentry.io",
-    "theblogstarter.com"
+    "theblogstarter.com",
+    "tracemachina.com"
   ],
   "firstinkind": [
     "aws.amazon.com",
@@ -84,5 +83,5 @@
     "surfnet.nl",
     "virtru.com"
   ],
-  "parseDate": "20240215"
+  "parseDate": "20240926"
 }

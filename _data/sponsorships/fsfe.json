@@ -3,24 +3,32 @@
     "google.com",
     "intel.com",
     "Linuxhotel Villa Vogelsang",
+    "Microsoft",
+    "OpenProject",
     "redhat.com",
     "Reinhard Wiesemann",
     "siemens.com"
   ],
   "second": [
     "adfinis.com",
+    "AVM",
+    "Collabora Productivity",
+    "Document Foundation",
     "freiheit.com",
     "heinlein-support.de",
     "intevation.de",
     "Julian Rüth GmbH",
     "keyfactor.com",
+    "Lars Hohl a.k.a. derPUPE",
+    "LINAGORA",
     "linuxfoundation.org",
-    "Luca Bonissi",
-    "openinventionnetwork.com",
+    "Nextcloud",
     "Otto Kekäläinen",
     "publicplan.de",
+    "SUSE Open Source Community Citizens (OSCC)",
     "sysmocom - systems for mobile communications",
-    "Thomas Etter"
+    "Volvo Cars",
+    "XWiki / CryptPad Team"
   ],
-  "parseDate": "20240227"
+  "parseDate": "20240926"
 }
