@@ -2,9 +2,9 @@
 module FoundationReporter
   DESCRIPTION = <<-HEREDOC
   FoundationReporter: Various reporting utilities, includes:
-    - Simple field and data reporting
-    - Using Propublica990 module to download US IRS 990 financial data
-    - Using UK Charity commission to download UK financial data
+    - -f | -c: Simple field and data reporting
+    - -r: Use Propublica990, download US IRS 990s, put into foundations_990_common.csv
+    - -u: Using UK Charity commission to download UK financial data
   HEREDOC
   module_function
   require 'yaml'
@@ -193,12 +193,12 @@ if __FILE__ == $PROGRAM_NAME
     puts JSON.pretty_generate(output)
   end
 
-  reports = options.fetch(:reports, nil)
-  options[:outfile] ||= 'foundation_reporter.json'
+  reports = options.fetch(:reports, nil) ### FIXME value of flag unused currently
+  options[:outfile] ||= 'foundations_990_common.csv'
   if reports
     eins = FoundationReporter.get_eins(FoundationReporter::DATA_DIRS['foundations'])
-    orgs = Propublica990.get_orgs(eins, '_data/p990', refresh = true)
-    report_csv = File.join(FoundationReporter::DATA_DIRS['foundations'], options[:outfile])
+    orgs = Propublica990.get_orgs(eins, FoundationReporter::DATA_DIRS['p990'], refresh = true)
+    report_csv = File.join(FoundationReporter::DATA_DIRS['p990'], options[:outfile])
     Propublica990.orgs2csv_common(orgs, report_csv)
   end
 end
