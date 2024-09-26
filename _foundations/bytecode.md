@@ -34,10 +34,10 @@ budgeturl:
 budgetTransparent:
 funding:
 donateurl:
-sponsorurl:
+sponsorurl: https://bytecodealliance.org/join
 sponsorList:
-sponsorships: https://bytecodealliance.org/join
-licenses:
+sponsorships:
+licenses: Apache-2.0, LLVM-exception
 claPolicy:
 securityurl:
 ethicsPolicy:
