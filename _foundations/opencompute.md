@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: TX
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q7095984
 boardSize: '6'
 boardType:
 boardurl: https://www.opencompute.org/about/board
@@ -33,9 +33,9 @@ budgeturl:
 budgetTransparent:
 funding:
 donateurl:
-sponsorurl: https://www.opencompute.org/membership/membership-directory
-sponsorList:
-sponsorships: https://www.opencompute.org/documents/amended-tiered-membership-policy
+sponsorurl: https://www.opencompute.org/documents/amended-tiered-membership-policy
+sponsorList: https://www.opencompute.org/membership/membership-directory
+sponsorships: 
 licenses:
 claPolicy:
 securityurl:

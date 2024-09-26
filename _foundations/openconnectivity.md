@@ -10,15 +10,15 @@ addressCountry: US
 addressRegion: OR
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q24589795
 boardSize: '2'
 boardType:
 boardurl: https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
 teamurl:
 missionurl:
-bylawsurl:
+bylawsurl: https://openconnectivity.org/wp-content/uploads/docs/OCF_Bylaws.pdf
 numberOfEmployees:
-governanceOrg:
+governanceOrg: https://openconnectivity.org/foundation/organizational-structure/
 governanceTech:
 projectsNotable:
 projectsList:
@@ -33,9 +33,9 @@ budgeturl:
 budgetTransparent:
 funding:
 donateurl:
-sponsorurl: https://openconnectivity.org/foundation/membership-list/
-sponsorList:
-sponsorships: https://openconnectivity.org/foundation/join/
+sponsorurl: https://openconnectivity.org/foundation/join/
+sponsorList: https://openconnectivity.org/foundation/membership-list/
+sponsorships: 
 licenses:
 claPolicy:
 securityurl: https://openconnectivity.org/ocf-security/

@@ -10,12 +10,12 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q127415563
 boardSize: '5'
 boardType:
 boardurl: http://omsf.io/about/people/
 teamurl:
-missionurl:
+missionurl: https://omsf.io/about/mission/
 bylawsurl: https://omsf.io/bylaws
 numberOfEmployees:
 governanceOrg:
@@ -33,14 +33,14 @@ budgeturl:
 budgetTransparent:
 funding:
 donateurl:
-sponsorurl:
+sponsorurl: https://omsf.io/support/how-to/
 sponsorList:
-sponsorships: http://omsf.io/support/how-to/
+sponsorships:
 licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: http://omsf.io/conduct/
+conducturl: https://omsf.io/conduct/
 conductEvents:
 conductSource: Apache Software Foundation
 conductLinked:

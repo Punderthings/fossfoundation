@@ -2,8 +2,8 @@
 identifier: oisf
 commonName: Open Information Security Foundation
 legalName: Open Information Security Foundation
-description:
-contacturl:
+description: Building community and supporting open source security technologies like Suricata.
+contacturl: https://oisf.net/contact/
 website: https://oisf.net/
 foundingDate:
 addressCountry: US
@@ -20,7 +20,7 @@ bylawsurl:
 numberOfEmployees:
 governanceOrg:
 governanceTech:
-projectsNotable:
+projectsNotable: Suricata
 projectsList:
 projectsServices:
 eventurl:
@@ -33,9 +33,9 @@ budgeturl:
 budgetTransparent:
 funding:
 donateurl:
-sponsorurl: https://oisf.net/consortium/
-sponsorList:
-sponsorships: https://oisf.net/memberships/
+sponsorurl: https://oisf.net/memberships/
+sponsorList: https://oisf.net/consortium/
+sponsorships:
 licenses: GPL
 claPolicy:
 securityurl:

@@ -32,10 +32,10 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
-sponsorurl: https://postgresql.us/sponsors
-sponsorList:
-sponsorships: https://drive.google.com/file/d/1-VVf1MAFeB5Fe-kJ4EzzEd2lKAX_z1xs/view
+donateurl: https://postgresql.us/donate/
+sponsorurl: https://drive.google.com/file/d/1-VVf1MAFeB5Fe-kJ4EzzEd2lKAX_z1xs/view
+sponsorList: https://postgresql.us/sponsors
+sponsorships: 
 licenses:
 claPolicy:
 securityurl:
@@ -44,7 +44,7 @@ conducturl: https://postgresql.us/policy_coc
 conductEvents:
 conductSource:
 conductLinked:
-diversityPolicy:
+diversityPolicy: https://postgresql.us/diversity/
 diversityDescription:
 brandPrimary:
 brandSecondary:
@@ -55,6 +55,5 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-diversitypolicy: https://postgresql.us/diversity/
 ---
 
