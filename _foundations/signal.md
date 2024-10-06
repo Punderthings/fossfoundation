@@ -17,7 +17,7 @@ boardurl: https://signalfoundation.org/
 teamurl:
 missionurl:
 bylawsurl:
-numberOfEmployees:
+numberOfEmployees: 50
 governanceOrg:
 governanceTech:
 projectsNotable:
@@ -27,17 +27,17 @@ eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 82-4506840
 taxIDLocal:
-budgetUsd:
-budgetYear:
-budgeturl:
+budgetUsd: 50M
+budgetYear: 2023
+budgeturl: https://signal.org/blog/signal-is-expensive/
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://signal.org/donate/
 sponsorurl:
 sponsorList:
 sponsorships:
-licenses:
-claPolicy:
+licenses: AGPL-3.0-only
+claPolicy: https://signal.org/cla/
 securityurl:
 ethicsPolicy:
 conducturl:
