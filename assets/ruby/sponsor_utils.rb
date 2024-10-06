@@ -265,18 +265,18 @@ module SponsorUtils
   # Convenience method; assumes run from project root
   def process_all_sponsorships()
     foundations = FoundationReporter.get_yamldataset(FoundationReporter::DATA_DIRS['foundations'])
-    sponsorships = {}
+    all_sponsor_models = {}
     foundations.each do | org, foundation |
-      sponsorship = foundation.fetch('sponsorship', nil)
-      if sponsorship && sponsorship.is_a?(String)
-        sponsorships[org] = get_sponsorship_file(sponsorship)
-      elsif sponsorship && sponsorship.is_a?(Array)
-        sponsorship.each do | sponsormap | # Allows multiple sponsorship maps per org; see lf.md
-          sponsorships[sponsormap] = get_sponsorship_file(sponsormap)
+      sponsor_models = foundation.fetch('sponsorships', nil)
+      if sponsor_models && sponsor_models.is_a?(String)
+        all_sponsor_models[org] = get_sponsorship_file(sponsor_models)
+      elsif sponsor_models && sponsor_models.is_a?(Array)
+        sponsor_models.each do | sponsormap | # Allows multiple sponsorship maps per org; see lf.md
+          all_sponsor_models[sponsormap] = get_sponsorship_file(sponsormap)
         end
       end
     end
-    all_sponsors = process_sponsorships(sponsorships)
+    all_sponsors = process_sponsorships(all_sponsor_models)
     return all_sponsors
   end
 
