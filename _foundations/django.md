@@ -3,20 +3,20 @@ identifier: django
 commonName: Django
 legalName: Django Software Foundation
 description:
-contacturl:
+contacturl: https://www.djangoproject.com/contact/foundation/
 website: https://www.djangoproject.com/
 foundingDate:
 addressCountry: US
-addressRegion:
+addressRegion: KS
 newProjects:
 softwareType: content
 wikidataId: Q5285237
-boardSize:
-boardType:
-boardurl:
+boardSize: 7
+boardType: elected
+boardurl: https://www.djangoproject.com/foundation/#board
 teamurl:
 missionurl:
-bylawsurl:
+bylawsurl: https://www.djangoproject.com/m/foundation/bylaws.pdf
 numberOfEmployees:
 governanceOrg:
 governanceTech:
@@ -25,7 +25,7 @@ projectsList:
 projectsServices:
 eventurl:
 nonprofitStatus: Nonprofit501c3
-taxID: 47-3151229
+taxID: 26-2708549
 taxIDLocal:
 budgetUsd:
 budgetYear:
@@ -34,10 +34,10 @@ budgetTransparent:
 funding:
 donateurl:
 sponsorurl: https://www.djangoproject.com/fundraising/
-sponsorList:
+sponsorList: https://www.djangoproject.com/foundation/corporate-members/
 sponsorships:
 licenses: BSD-3-Clause
-claPolicy:
+claPolicy: https://www.djangoproject.com/foundation/cla/faq/
 securityurl:
 ethicsPolicy:
 conducturl: https://www.djangoproject.com/conduct/
