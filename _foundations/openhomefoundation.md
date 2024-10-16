@@ -46,3 +46,4 @@ diversityPolicy:
 diversityDescription:
 ---
 
+The Open Home Foundation fights for the fundamental principles of privacy, choice, and sustainability for smart homes. And for every person who lives in one.
