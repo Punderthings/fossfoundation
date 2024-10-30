@@ -37,9 +37,12 @@ brandPolicy:
 brandReg: 
 brandUse: 
 brandComments: 
-conducturl: https://github.com/processing/processing-website?tab=coc-ov-file
+conducturl: 
+conductProjects:
+- https://github.com/processing/processing-website?tab=coc-ov-file
+- https://github.com/processing/p5.js/blob/main/CODE_OF_CONDUCT.md
 conductEvents:
-conductSource: https://www.contributor-covenant.org/version/2/1/code_of_conduct/, https://github.com/processing/p5.js/blob/main/CODE_OF_CONDUCT.md
+conductSource: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
 conductLinked: 
 diversityPolicy: 
 diversityDescription: 
