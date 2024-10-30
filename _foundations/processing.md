@@ -45,4 +45,4 @@ diversityPolicy:
 diversityDescription: 
 ---
 
-The Processing Foundation is a nonprofit organization that develops open-source software projects, including Processing and p5.js, to promote coding education and encourage artistic exploration in STEM fields, with a focus on accessibilty and supporting marginalized communities.
+The Processing Foundation is a nonprofit organization that develops open-source software projects, including Processing and p5.js, to promote coding education and encourage artistic exploration in STEM fields, with a focus on accessibility and supporting marginalized communities.
