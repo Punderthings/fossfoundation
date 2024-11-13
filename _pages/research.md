@@ -3,6 +3,7 @@ title: Research Topics
 excerpt: New research areas and help wanted.
 layout: research
 permalink: /research
+parent: About / Resources
 nav_order: 31
 ---
 

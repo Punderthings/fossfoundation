@@ -3,7 +3,8 @@ title: Foundation Taxes Model
 excerpt: Modeling US IRS 990 form finances for nonprofits.
 layout: default
 permalink: /taxes
-nav_order: 24
+parent: Data Models
+nav_order: 10
 ---
 
 US based nonprofits must file IRS 990 tax forms, even though they may not pay taxes.  [ProPublica's Nonprofit Explorer](https://projects.propublica.org/nonprofits/) makes it simple to report on annual tax-reported income, expenses, and more for US based foundations, giving us a reliable way to compare finances for some organizations.  International foundation tax law varies by country, so more research is needed there!

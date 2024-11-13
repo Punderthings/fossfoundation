@@ -1,6 +1,8 @@
 ---
 title: Code Of Conduct
 layout: default
+parent: About / Resources
+nav_order: 98
 ---
 ## Code of Conduct for Contributors
 

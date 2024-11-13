@@ -3,6 +3,7 @@ title: "OpenAPI Documentation"
 excerpt: "OpenAPI plans and concepts."
 layout: default
 permalink: /openapi
+parent: Data Models
 nav_order: 99
 ---
 

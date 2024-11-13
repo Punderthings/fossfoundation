@@ -1,9 +1,10 @@
 ---
 title: Data Philosophy
-excerpt: Metadata standards and practices for the directory.
+excerpt: Metadata standards and practices for this project.
 layout: default
 permalink: /data
-nav_order: 20
+parent: Data Models
+nav_order: 1
 ---
 
 This foundation directory should curate metadata rigorously organized enough for academic research, and should be easy enough to maintain and use for any open source organizers who find it valuable.  We [encourage contributions](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!

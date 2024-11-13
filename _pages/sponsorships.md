@@ -3,7 +3,8 @@ title: Sponsorship Models
 excerpt: Modeling sponsorship programs across the FOSS landscape.
 layout: sponsorships
 permalink: /sponsorships
-nav_order: 22
+parent: Data Models
+nav_order: 30
 ---
 
 To provide context for financial sustainability around FOSS organizations, we've built a model to roughly compare common sponsorship programs across foundations or popular projects.

@@ -3,6 +3,7 @@ title: "Colophon and Credits"
 excerpt: "How this website was made."
 layout: default
 permalink: /colophon
+parent: About / Resources
 nav_order: 99
 ---
 

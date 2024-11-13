@@ -3,6 +3,7 @@ title: Foundations Resources
 excerpt: Overviews and helpful links about open source governance and foundations.
 layout: default
 permalink: /resources
+parent: About / Resources
 nav_order: 30
 ---
 

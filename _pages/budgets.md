@@ -3,7 +3,8 @@ title: Foundation Budgets Model
 excerpt: Modeling annual budgets or annual report finances.
 layout: default
 permalink: /budgets
-nav_order: 26
+parent: Data Models
+nav_order: 40
 ---
 
 Some nonprofits publish their official budget for review; many also publish an annual report that gives a high-line estimate of overall expenses and revenues.  Building a simple and "good enough" model here will allow inclusion of estimated finances for a lot more organizations (especially ones outside the US).

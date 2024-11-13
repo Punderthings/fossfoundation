@@ -3,6 +3,7 @@ title: Workflows / Help Wanted
 excerpt: Workflows for site maintenance, linting, and visualizing.
 layout: default
 permalink: /workflow
+parent: About / Resources
 nav_order: 21
 ---
 
