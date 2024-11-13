@@ -3,7 +3,8 @@ title: Non-Foundation FOSS Entities
 excerpt: Tracking important projects with fiscal hosts.
 layout: default
 permalink: /entities
-nav_order: 49
+parent: Foundations Directory
+nav_order: 10
 ---
 
 Many important and self-organized FOSS projects are not legal entities; however some have annual budgets managed by fiscal hosts.  We aim to host metadata for these entities to enable comparisons across the FOSS ecosystem.

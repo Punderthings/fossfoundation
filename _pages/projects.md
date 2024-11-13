@@ -3,7 +3,8 @@ title: Software Projects Hosted At Foundations
 excerpt: Partial list of key projects hosted by the major FOSS Foundations.
 layout: default
 permalink: /projects
-nav_order: 55
+parent: Foundations Directory
+nav_order: 30
 ---
 
 Many major open source projects are hosted at some of the key FOSS Foundations, like the ASF, Linux Foundation, Software Freedom Conservancy, and more.  These projects aren't individual legal entities, but may follow governance, release, financial, or other policies at their host foundation.
