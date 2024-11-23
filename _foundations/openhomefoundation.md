@@ -9,7 +9,7 @@ addressCountry: CH
 newProjects: yes
 softwareType: smart home
 wikidataId:
-taxID:
+taxID: CHE-416.988.952
 nonprofitStatus: stiftung
 boardSize: 4
 boardType: non-paid
@@ -20,6 +20,7 @@ funding: commercial partnerships, donations
 budgetUsd:
 budgetYear:
 budgeturl:
+donateurl: https://www.openhomefoundation.org/organization/#support-our-work
 sponsorurl:
 sponsorList:
 licenses:
