@@ -4,12 +4,14 @@ commonName: Processing Foundation
 legalName: Processing Foundation, Inc.
 website: https://processingfoundation.org
 foundingDate: 2012
-location: US
+addressCountry: US
+addressRegion: 
 newProjects: no
-softwareType: 
+softwareType: education
 wikidataId: Q56057168
 taxID: 46-0830259
-nonprofitStatus: 501(c)(3)
+taxIDLocal: 44-50-31
+nonprofitStatus: Nonprofit501c3
 boardSize: 10
 boardType: appointed
 boardurl: https://processingfoundation.org/people
@@ -42,7 +44,7 @@ conductProjects:
 - https://github.com/processing/processing-website?tab=coc-ov-file
 - https://github.com/processing/p5.js/blob/main/CODE_OF_CONDUCT.md
 conductEvents:
-conductSource: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+conductSource: Contributor Covenant
 conductLinked: 
 diversityPolicy: 
 diversityDescription: 
