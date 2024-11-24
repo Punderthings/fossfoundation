@@ -6,7 +6,6 @@ layout: default
 
 <hr id="tagindex" />
 {% capture mininav %}<a href="#newProjects">Accepts New Projects?</a> | <a href="#fiscalHost">Fiscal Hosting?</a> | <a href="#nonprofitStatus">Nonprofit Type</a> | <a href="#addressCountry">By Country</a> | <a href="#coc">Codes of Conduct</a>{% endcapture %}
-{{ mininav }}
 <section id="newProjects">
   <h3>Accepts New Projects?</h3>
   <p>These organizations actively accept new projects for hosting, and notes if they are a <a href="#fiscalHost">Fiscal Host</a>.</p>
@@ -31,8 +30,8 @@ layout: default
   <table>
     <thead>
       <tr>
-        <th style="text-align: left">US</th>
-        <th style="text-align: left">Non-US</th>
+        <th style="text-align: left"><h4>US Foundations</h4></th>
+        <th style="text-align: left"><h4>Non-US Foundations</h4></th>
       </tr>
     </thead>
     <tbody>
@@ -56,7 +55,7 @@ layout: default
   <table>
     <thead>
       <tr>
-        <th style="text-align: left">US 501(c)(3)</th>
+        <th style="text-align: left"><h4>US 501(c)(3)</h4></th>
         <th style="text-align: left">All Others</th>
       </tr>
     </thead>
@@ -68,11 +67,11 @@ layout: default
           </ul>
         </td>
         <td style="text-align: left">
-          <p>US 501(c)(6)</p>
+          <h4>US 501(c)(6)</h4>
           <ul id="Nonprofit501c6">
           {% for fdn in site.foundations %}{% if fdn.nonprofitStatus == 'Nonprofit501c6' %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>{% endif %}{% endfor %}
           </ul>
-          <p>All non-US Nonprofits</p>
+          <h4>Non-US Nonprofits</h4>
           <ul id="nonus">
           {% assign otherfdn = site.foundations | where_exp: 'fdn', "fdn.nonprofitStatus != 'Nonprofit501c3' and fdn.nonprofitStatus != 'Nonprofit501c6'" %}
           {% for fdn in otherfdn %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a> <span class="label label-blue">{{ fdn.nonprofitStatus }}</span></li>{% endfor %}
@@ -86,8 +85,8 @@ layout: default
 {{ mininav }}
 <section id="coc">
   <h3>Codes of Conduct</h3>
-  <p>Obviously linked Codes of Conduct, including any noted inspirations for the source thereof.</p>
+  <p>Including <emphasis>obviously</emphasis> linked Codes of Conduct, with any noted inspirations for the source thereof.</p>
   <ul id="coclist">
-    {% for fdn in site.foundations %}{% if fdn.conducturl %}<li>{{ fdn.commonName }} <a href="{{ fdn.conducturl }}">{{ fdn.conducturl }}</a>{% if fdn.conductSource %}, <em>inspiration:</em> {{ fdn.conductSource }}{% endif %}{% if fdn.conductEvents %}, <a href="{{ fdn.conductEvents }}">Event-specific CoC</a>{% endif %}</li>{% endif %}{% endfor %}  
+    {% for fdn in site.foundations %}{% if fdn.conducturl %}<li>{{ fdn.commonName }} <a href="{{ fdn.conducturl }}">{{ fdn.conducturl }}</a>{% if fdn.conductSource %}, <em>inspiration:</em> {{ fdn.conductSource }}{% if fdn.conductSource contains 'Covenant' %} <span class="label label-purple">Covenant</span>{% endif %}{% endif %}{% if fdn.conductEvents %}, <a href="{{ fdn.conductEvents }}">Event-specific CoC</a>{% endif %}</li>{% endif %}{% endfor %}  
   </ul>
 </section>
