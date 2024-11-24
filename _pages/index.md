@@ -8,42 +8,47 @@ nav_order: 1
 
 Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
 
-- Access the [directory of foundation metadata](listing), plus:
-  - [Sponsorship program models](sponsorships)
-  - [Tax data on US nonprofit foundations](taxes)
-  - [Project entities that aren't legal organizations](entities)
-- Read the [roadmap to see where we're headed](roadmap) and [OpenAPI plans](openapi).
-- See the [starting philosophy around data design](data).
-- Find useful [resources to learn about FOSS Foundations](resources).
-- Learn how to [contribute to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
-- Be nice and respect our [Code of Conduct](CODE_OF_CONDUCT).
-- We can help you [Choose A Foundation](https://chooseafoundation.com) for your project to join.
-- Your current host, [Shane Curcuru](https://shanecurcuru.org) is looking for maintainers!
+- Access the [directory of foundation metadata](listing), plus related models and data:
+  - [**Sponsorship** program models](sponsorships)
+  - [**Tax data** on US nonprofit foundations](taxes)
+  - [Project entities that aren't legal organizations](entities) *(limited dataset)*
+  - [Projects hosted at foundations](projects) *(limited dataset)*
+- Read the [**roadmap** to see where we're headed](roadmap) and [OpenAPI plans](openapi).
+- See the [starting philosophy around **data design**](data).
+- Find useful [**resources** to learn about FOSS Foundations](resources).
+- See [**research** ideas and links](research) about this dataset.
+- Learn how to [**contribute** to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
+  - Be nice and respect our [Code of Conduct](CODE_OF_CONDUCT).
+  - We can help you [Choose A Foundation](https://chooseafoundation.com) for your project to join.
+  - Your current host, [Shane Curcuru](https://shanecurcuru.org) is looking for co-maintainers!
+
+## Goals
+
+- Create a rich metadata directory about nonprofit open source supporting organizations, including financial, sponsorship, governance, and other metadata.
+- Store data in easy-to-update formats, and provide reliable, faceted, and discoverable access.
+- Keep the site and tooling as zero/low maintenance as practical.
+- Have a simple PR-driven data submission process that prevents errors.
+- Attract multiple contributors to create community governance.
+
+## Non-Goals
+
+Volunteers are welcomed to help turn non-goals into goals, if there is interest and energy to build them!
+
+- Tracking commercial entities.
+- Tracking non-open source or free software related entities.
+- Tracking non-entity projects; i.e. open source projects without legal entities.
+- Fancy features, UI, or hard to maintain visualizations.  We provide a data store that others can repurpose.
 
 ## Data
 
 Read more about our [data philosophy](data).
 
-- Store metadata about Foundations in _foundations/*asf*.md frontmatter, parseable as YAML/JSON.
-  - File per foundation makes PRs simple to manage for anyone.
-  - Frontmatter can be exposed by [OpenAPI for programmatic access](openapi).
-  - Jekyll turns foundation data in to human-readable websites automatically.
-  - OpenAPI and GitHub Actions tooling can ensure linting, updates keep data clean.
+- Store [structured metadata](models) about Foundations in _foundations/*asf*.md frontmatter, parseable as YAML/JSON.
+  - One file per foundation makes PRs simple to manage and associate with a responsible contributor.
+  - Frontmatter metadata can be exposed by [OpenAPI for programmatic access](openapi).
+  - Jekyll turns foundation data and Markdown bodies to human-readable websites automatically.
+  - OpenAPI and GitHub Actions tooling provides linting to keep data formats clean.
 - Using flat files and GitHub Pages means zero maintenance.
 - Markdown body can be used for additional, unstructured data or descriptions.
 - Use common human-findable identifier strings to tie in sponsorship and other models.
-
-## Goals
-
-- Create a rich metadata directory about nonprofit open source organizations, including financial, sponsorship and other data.
-- Data is easy to consume in multiple ways that are reliable.
-- Website and any tooling are zero/low maintenance.
-- Build simple PR-driven data submission that prevents errors.
-- Attract multiple contributors that create community governance.
-
-## Non-Goals
-
-- Tracking commercial entities.
-- Tracking non-entity projects; i.e. open source projects without legal entities.
-- Fancy features, UI, or hard to maintain visualizations.
-- Volunteers are welcomed to help turn non-goals into goals!
+- Create *good-enough* data structures that can be used by practitioners and academics alike.
