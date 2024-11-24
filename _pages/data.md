@@ -13,24 +13,9 @@ This foundation directory curates metadata that is rigorously organized enough f
 
 All data, basic instructions and explanations about the site, and basic visualizations or listings should be stored in human-editable formats, and should be served statically with minimal dependencies.  This ensures that maintenance issues don't break things, and that people with limited browsing clients can still participate.  Advanced features or larger data analysis tools should seek to minimize dependencies or any regular required maintenance.  Our data should also strive to be consistent and persistent.  This helps both casual users find the data, and helps researchers by keeping stable URLs and formats.
 
-### Primary Dataset: FOSS Foundations
+## Primary Dataset: FOSS Foundations
 
-Organizational data is stored per foundation entity as a single `asf.md` file in the `_foundations` directory.  Each file is a standard Jekyll document with a [leading YAML frontmatter](https://jekyllrb.com/docs/front-matter/) document with structured organizational metadata, followed by a `---` YAML document separator, followed by semi-structured Markdown content.
-
-- **Keep Updates Simple** Each foundation is a separate text-based document, making updates simple to make and review via GitHub PRs to ensure data accuracy.
-- **Enough Structured Data** Metadata follows a [simple schema](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json), with a goal to be "good enough" for common research cases.  Researchers needing more structured data are welcome to collaborate and add new fields or features.  [OpenAPI support is planned](openapi)!
-- **Human Readable Formats** Using YAML and Markdown with GitHub Pages ensures the directory can be simple to understand for anyone, and can be a resource for anyone in open source who wants to learn about Foundations.
-
-### FOSS Foundations Inclusion Criteria
-
-Our focus is on legal organizations that host, organize, and help sustain major open source projects around the world - commonly called Foundations.  Since there are many, many variations of important organizations in the FOSS world, we are currently focusing on some specific criteria.  Submissions of additional organizations are always reviewed.
-
-- **Legal Organizations** Only tracking legally chartered/incorporated/etc organizations means we can look for bylaws, legal governance documents, and other tax or funding facts about these groups.
-- **Non-Profits** For-profit entities have commercial goals often seen as outside the scope of many FOSS projects, and also have ample opportunity to market their own work.  We are focused on legally non-profit organizations.
-- **Project Hosts** The most important orgs to include are those that host one or more open source software projects.  This ranges from the ASF with 200+ projects, to KDE which primarily hosts just the KDE distribution.
-- **Other FOSS Ecosystem Orgs** Many other non-profits don't directly host software projects, but are nonetheless critically important for the open source ecosystem.  Organizations like the EFF, OSI and WikiMedia are also be included, even though their impact on projects is more indirect.
-
-Things that may be listed informally, but not as vetted data sets, include: [commercial companies](commercial) (of any kind), and the many non-incorporated open source projects without legal organizations.  Limited listings of [individual open source projects](projects) hosted at Foundations are included to help provide context.
+See the [overview of the Foundation model](fdnmodel) or go straight to the [OpenAPI spec](/openapi).
 
 ## Other Primary Datasets
 

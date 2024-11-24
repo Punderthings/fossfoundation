@@ -7,9 +7,9 @@ parent: Data Models
 nav_order: 30
 ---
 
-To provide context for financial sustainability around FOSS organizations, we've built a model to roughly compare common sponsorship programs across foundations or popular projects.
+To provide context for financial sustainability around FOSS organizations, we've built a model to roughly compare common **sponsorship programs** across foundations or popular projects.
 
-## Modeling Foundation Sponsorship Programs
+## Model Overview
 
 Data is stored per entity (a foundation or a project) as a single `asf.md` file in `_sponsorships`, see a [listing below](#listing).  Each file is a set of factual references to the entity's published sponsorship policies and levels, and provides metadata to scrape web pages of actual sponsor listings at the current date.  Some entries will provide a dated static map of manually compiled list of current sponsors listed.
 
@@ -29,7 +29,7 @@ Since many projects with well-known sponsorship programs use separate entities a
 - **Only Public Data** We track the actual sponsorships listed by entities themselves, not press releases or statements by sponsors.
 - **Financial Figures Are Approximate** While sponsorship level amounts are taken directly from entity programs, the actual funds a specific sponsor may pay any year could vary.  All financial numbers, especially top-line reports, are estimates only.
 
-### Sponsorship Model Structure
+## Model Structure
 
 Sponsorships are dated, to enable future review of sponsorships over time via using the [Wayback Machine](https://archive.org/) or similar tools to capture past listed sponsors.  Other fields used include: (see also [prototype sponsorships-schema.json](https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json))
 
@@ -61,7 +61,6 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
 
 - [`sponsor_utils`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_utils.rb) reads sponsorship models, and then parses either html or yml (or a staticmap) to scrape a sponsor listing and produce a hash mapping for that entity.
 - [`sponsor_reports`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_reports.rb) reads the output above, and creates simple reports.  Reports focus on mapping sponsors to entities and vice-versa, as well as totaling approximate sponsorship values shown for all tracked entities.
-
 
 ## Roadmap / Contributions Wanted
 
