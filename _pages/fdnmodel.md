@@ -40,12 +40,13 @@ See the [OpenAPI spec for the Foundation model schema](/openapi/#responses-getFo
 
 ### Current Tooling
 
-- [`schema_utils -a normalize`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/schema_utils.rb) reads foundation records, then lints and reformats them to be in a default field order and schema-valid in most cases.  Any additional fields that have been added are moved to the end of the frontmatter section.
+- Linting: [`schema_utils -a normalize`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/schema_utils.rb) reads foundation records, then lints and reformats them to be in a default field order and schema-valid in most cases.  Any additional fields that have been added are moved to the end of the frontmatter section.
+- OpenAPI building: [`openapi_builder`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/openapi_builder.rb) reads foundation records, creates the crossreference data to lookup domainnames from ids, etc., and writes out _foundations/list.json to serve as the [OpenAPI getFoundations endpoint](https://github.com/Punderthings/fossfoundation/blob/8f7d194877733a06127f2f24e2a1c7057b92b108/openapi/v1/openapi.yaml#L42C1-L49C34).
 
 ## Roadmap / Contributions Wanted
 
 Our key needs are:
 
 - Adding more data!  If you are associated with a Foundation that fits our criteria, please [add your organization's data](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
-- Suggesting improvements to the data model, so that it can be useful for a broader set of [research purposes](/research).
+- Suggesting improvements to the data model, so that it can be useful for a broader set of [research purposes](/research) or for lookup purposes like [Issue #38](https://github.com/Punderthings/fossfoundation/issues/38).
 - Improving linting / data validation especially on pre-PR hooks.
