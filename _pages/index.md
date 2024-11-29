@@ -6,7 +6,16 @@ permalink: /
 nav_order: 1
 ---
 
-Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with academic researchers and open source practitioners alike on curating rich metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
+<details markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+- TOC
+{:toc}
+</details>
+
+Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with [academic researchers](/research) and open source practitioners alike on curating rich metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
 
 - Access the [directory of foundation metadata](listing), plus related models and data:
   - [**Sponsorship** program models](sponsorships)
@@ -29,6 +38,7 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 - Keep the site and tooling as zero/low maintenance as practical.
 - Have a simple PR-driven data submission process that prevents errors.
 - Attract multiple contributors to create community governance.
+- Build a resource for the FOSS ecosystem that will last for 50+ years.
 
 ## Non-Goals
 
@@ -52,3 +62,7 @@ Read more about our [data philosophy](data).
 - Markdown body can be used for additional, unstructured data or descriptions.
 - Use common human-findable identifier strings to tie in sponsorship and other models.
 - Create *good-enough* data structures that can be used by practitioners and academics alike.
+
+## Research
+
+We are looking for research collaborations, both to validate that the metadata we're tracking is valuable to researchers, and to seek help in expanding our datasets.  Many of the [research topics](/research) related to this site will result in new paper topics, as well as impactful results for the communities you're studying.

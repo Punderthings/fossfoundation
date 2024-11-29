@@ -33,4 +33,4 @@ Shane has a [curated list of sustainability research papers, practical how-tos, 
 
 ## Research
 
-Many academic researchers are focusing on open source, both on technical topics and especially community governance and the effectiveness of distributed communities of collaborators.  If you have useful research papers or topics to add here, please submit them!
+Many academic researchers are focusing on open source, both on technical topics and especially community governance and the effectiveness of distributed communities of collaborators.  If you have [useful research papers or topics](/research) to add here, please submit them!
