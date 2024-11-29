@@ -4,6 +4,11 @@
     "AlmaLinux",
     "AlmaLinux OS Foundation"
   ],
+  "apereo": [
+    "apereo.org",
+    "Apereo",
+    "Apereo Foundation Inc"
+  ],
   "asf": [
     "apache.org",
     "Apache Software Foundation"
@@ -23,9 +28,24 @@
     "Bytecode Alliance",
     "Bytecode Alliance Foundation"
   ],
+  "clojuriststogether": [
+    "clojuriststogether.org",
+    "Clojurists Together",
+    "Clojurists Together Foundation"
+  ],
+  "commonhaus": [
+    "commonhaus.org",
+    "Commonhaus",
+    "Commonhaus Foundation"
+  ],
   "creativecommons": [
     "creativecommons.org",
     "Creative Commons"
+  ],
+  "djangoevents": [
+    "defna.org",
+    "Django Events",
+    "Django Events Foundation North America"
   ],
   "django": [
     "djangoproject.com",
@@ -50,6 +70,10 @@
   "eff": [
     "eff.org",
     "Electronic Frontier Foundation"
+  ],
+  "erlef": [
+    "erlef.org",
+    "Erlang Ecosystem Foundation"
   ],
   "ffpc": [
     "publiccode.net",
@@ -127,6 +151,11 @@
     "linuxfoundation.org",
     "Linux Foundation"
   ],
+  "lfcharities": [
+    "lf-charities.org",
+    "LF Charities",
+    "LF Charities Inc"
+  ],
   "linuxkernel": [
     "kernel.org/nonprofit.html",
     "Linux Kernel",
@@ -189,6 +218,10 @@
     "OCF",
     "Open Connectivity Foundation Inc"
   ],
+  "openhomefoundation": [
+    "openhomefoundation.org",
+    "Open Home Foundation"
+  ],
   "openid": [
     "openid.net/foundation",
     "OpenID",
@@ -211,7 +244,12 @@
   "openstreetmap": [
     "osmfoundation.org",
     "OpenStreetMap",
-    "https://www.openstreetmap.org/about"
+    "Openstreetmap Foundation"
+  ],
+  "opentechfund": [
+    "opentech.fund",
+    "OpenTechFund",
+    "Open Technology Fund"
   ],
   "opentransit": [
     "opentransitsoftwarefoundation.org",
@@ -259,6 +297,11 @@
     "postgresql.us",
     "PostgreSQL.US",
     "United States Postgresql Association"
+  ],
+  "processing-foundation": [
+    "processingfoundation.org",
+    "Processing Foundation",
+    "Processing Foundation, Inc."
   ],
   "python": [
     "python.org/psf-landing",
