@@ -2,7 +2,7 @@
 title: Software Projects Hosted By The Processing Foundation
 excerpt: A list of projects supported by the Processing Foundation
 layout: default
-permalink: /projects-processing-foundation
+permalink: /projects-processingfoundation
 nav_exclude: true
 ---
 
