@@ -1,11 +1,11 @@
 ---
-identifier: processing-foundation
+identifier: processingfoundation
 commonName: Processing Foundation
 legalName: Processing Foundation, Inc.
 website: https://processingfoundation.org
 foundingDate: 2012
 addressCountry: US
-addressRegion: 
+addressRegion: NY
 newProjects: no
 softwareType: education
 wikidataId: Q56057168
