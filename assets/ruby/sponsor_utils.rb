@@ -159,7 +159,7 @@ module SponsorUtils
           sponsors[level] << itm
         else
           begin
-            doc = Nokogiri::HTML5(URI.open("#{rooturl}#{itm}").read)
+            doc = Nokogiri::HTML5(URI.parse("#{rooturl}#{itm}").open.read)
             node = doc.at_css(selector)
             if node
               sponsors[level] << normalize_href(node['href'])
