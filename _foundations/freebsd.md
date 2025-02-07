@@ -2,37 +2,37 @@
 identifier: freebsd
 commonName: FreeBSD
 legalName: FreeBSD Foundation
-description:
-contacturl:
-website: https://www.freebsd.org/
+description: Supporting and promoting the FreeBSD Project and community worldwide.
+contacturl: https://freebsdfoundation.org/about-us/contact-us/
+website: https://freebsdfoundation.org/
 foundingDate:
 addressCountry: US
-addressRegion:
+addressRegion: CO
 newProjects:
 softwareType: distro
 wikidataId: Q5499634
-boardSize:
+boardSize: 4
 boardType:
-boardurl:
-teamurl:
+boardurl: https://freebsdfoundation.org/about-us/our-team/
+teamurl: https://freebsdfoundation.org/about-us/our-team/
 missionurl:
-bylawsurl:
+bylawsurl: https://freebsdfoundation.org/wp-content/uploads/2015/12/FoundationBylaws-1.pdf
 numberOfEmployees:
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://freebsdfoundation.org/our-work/events/
 nonprofitStatus: Nonprofit501c3
 taxID: 84-1545163
 taxIDLocal:
 budgetUsd:
 budgetYear:
-budgeturl:
+budgeturl: https://freebsdfoundation.org/about-us/about-the-foundation/financials/
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://freebsdfoundation.org/donate/
 sponsorurl: https://www.freebsdfoundation.org/donors/
 sponsorList:
 sponsorships:
