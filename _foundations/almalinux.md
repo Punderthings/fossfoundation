@@ -2,7 +2,7 @@
 identifier: almalinux
 commonName: AlmaLinux
 legalName: AlmaLinux OS Foundation
-description:
+description: "The AlmaLinux OS Foundation is an organization created to own and manage everything to do with the AlmaLinux project, and for the benefit of the AlmaLinux community."
 contacturl:
 website: https://almalinux.org
 foundingDate: '2021'
@@ -21,9 +21,9 @@ numberOfEmployees: 0
 governanceOrg:
 governanceTech:
 projectsNotable:
-projectsList:
+projectsList: https://github.com/AlmaLinux/
 projectsServices:
-eventurl:
+eventurl: https://events.almalinux.org/
 nonprofitStatus: Nonprofit501c6
 taxID: 86-2791864
 taxIDLocal:
@@ -32,16 +32,13 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding: sponsors
-donateurl:
+donateurl: 
 sponsorurl: https://almalinux.org
-sponsorList: Hawk Host, OpenLogic, CERN, black.host, procomputers.com, Hivelocity,
-  Mattermost, Cybertrust Japan Co., Codenotary, Atix, World4You Internet Services
-  GmbH, CloudLinux Inc, KnownHost, LLC, WebPros, Inc (under cPanel and Plesk brands),
-  IPInfo
-sponsorships:
+sponsorList: Hawk Host, CERN, BlackHOST, MEGWARE, Virtuozzo, procomputers.com, Sine Nomine, Hivelocity, Mattermost, Cybertrust Japan Co., Codenotary, ATIX AG (orcharhino), 1&1 World4You Internet Services GmbH, StorPool Storage AD, CloudLinux Inc, KnownHost LLC, Fastly, WebPros Inc (under cPanel and Plesk brands), AMD, Fsas Technologies Inc., SIE LADÓN, Litmus information Systems LLP, Meta, IPInfo, Sine Nomine
+sponsorships: https://almalinux.org/members
 licenses: https://almalinux.org/p/the-almalinux-os-licensing-policy/
 claPolicy:
-securityurl:
+securityurl: https://almalinux.org/.well-known/security.txt
 ethicsPolicy: https://almalinux.org/p/foundation-board-operations-and-ethics/
 conducturl: https://wiki.almalinux.org/community/coc.html
 conductEvents:
@@ -60,4 +57,4 @@ logoReg:
 subOrganization:
 ---
 
-The AlmaLinux OS Foundation is an organization created to own and manage everything to do with AlmaLinux OS, and for the benefit of the AlmaLinux OS community.
+
