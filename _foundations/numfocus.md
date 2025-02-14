@@ -1,7 +1,7 @@
 ---
 identifier: numfocus
-commonName: NumFocus
-legalName: NumFocus, Inc.
+commonName: NumFOCUS
+legalName: NumFOCUS, Inc.
 description:
 contacturl:
 website: https://numfocus.org/
@@ -59,4 +59,4 @@ logoReg:
 subOrganization:
 ---
 
-FOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and then fill in as much data as you can verify against official sources (from that foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The data schema is in the foundations-schema.json file.  Then replace this section (i.e. the content of a Jekyll document) with a one sentence factual description of the organization as a whole.  Submit a PR with this new identifier.md file in the _foundations directory.
+NumFOCUS, a 501(c)(3) public charity in the United States, aims to promote open practices in research, data, and scientific computing by serving as a fiscal sponsor for open source projects and organizing community-driven educational programs. NumFOCUS envisions an inclusive scientific and research community that utilizes actively supported open source software to make impactful discoveries for a better world.
