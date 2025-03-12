@@ -2,16 +2,16 @@
 identifier: openstack
 commonName: Open Infra
 legalName: Openstack Foundation
-description:
-contacturl:
-website: https://openinfra.dev/
+description: We are a non-profit organization providing a neutral, open environment for organizations, developers, and users to build open source infrastructure software together.
+contacturl: https://openinfra.org/contact/
+website: https://openinfra.org/
 foundingDate:
 addressCountry: US
 addressRegion: TX
 newProjects: 'yes'
 softwareType: infrastructure
 wikidataId: Q45897217
-boardSize: 15
+boardSize: 20
 boardType:
 boardurl: https://openinfra.dev/about/board/
 teamurl:
@@ -21,15 +21,15 @@ numberOfEmployees:
 governanceOrg:
 governanceTech:
 projectsNotable:
-projectsList:
-projectsServices:
-eventurl:
+projectsList: https://openinfra.org/projects/
+projectsServices: https://openinfra.org/projects/services
+eventurl: https://openinfra.org/community-events/
 nonprofitStatus: Nonprofit501c6
 taxID: 46-0618689
 taxIDLocal:
-budgetUsd:
-budgetYear:
-budgeturl:
+budgetUsd: 5449024
+budgetYear: 2023
+budgeturl: https://projects.propublica.org/nonprofits/organizations/460618689/202432749349301208/full
 budgetTransparent:
 funding:
 donateurl:
@@ -37,7 +37,7 @@ sponsorurl: https://openinfra.dev/members/
 sponsorList: https://openinfra.dev/join/members/
 sponsorships:
 - openstack
-licenses:
+licenses: Apache-2.0
 claPolicy: https://openinfra.dev/cla/
 securityurl:
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy
