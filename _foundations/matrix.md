@@ -21,7 +21,7 @@ numberOfEmployees: 5
 governanceOrg:
 governanceTech:
 projectsNotable: Matrix Spec, Matrix Rust SDK, Matrix JS SDK
-projectsList: https://kde.org/products/
+projectsList: https://matrix.org/foundation/ecosystem
 projectsServices:
 eventurl:
 nonprofitStatus: CommunityInterestCompany 
