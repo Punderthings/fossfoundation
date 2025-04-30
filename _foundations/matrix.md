@@ -21,7 +21,7 @@ numberOfEmployees: 5
 governanceOrg:
 governanceTech:
 projectsNotable: Matrix Spec, Matrix Rust SDK, Matrix JS SDK
-projectsList: https://matrix.org/foundation/ecosystem
+projectsList: https://matrix.org/ecosystem
 projectsServices:
 eventurl:
 nonprofitStatus: CommunityInterestCompany 
