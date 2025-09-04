@@ -2,7 +2,7 @@
 identifier: blender
 commonName: Blender Foundation
 legalName: Stichting Blender Foundation
-description:
+description: Supporting the blender.org ecosystem.
 contacturl:
 website: https://www.blender.org/
 foundingDate: '2002'
@@ -14,7 +14,7 @@ wikidataId: Q883799
 boardSize: '2'
 boardType:
 boardurl: https://www.blender.org/about/foundation/
-teamurl:
+teamurl: https://www.blender.org/about/people/
 missionurl:
 bylawsurl:
 numberOfEmployees:
@@ -26,16 +26,16 @@ projectsServices:
 fiscalHost:
 eventurl:
 nonprofitStatus: Stichting
-taxID:
+taxID: NL811166223
 taxIDLocal:
 budgetUsd:
 budgetYear:
 budgeturl:
 budgetTransparent:
 funding: sponsors, donations
-donateurl:
+donateurl: https://fund.blender.org
 sponsorurl: https://fund.blender.org
-sponsorList:
+sponsorList: https://fund.blender.org/#credits
 sponsorships:
 licenses: GPL, Apache-2.0
 claPolicy:
