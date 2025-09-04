@@ -14,9 +14,9 @@ wikidataId: Q111043933
 boardSize: 23
 boardType: elected
 boardurl: https://matrix.org/foundation/governing-board/
-teamurl:
+teamurl: https://matrix.org/foundation/about/#the-staff-of-the-foundation
 missionurl: https://matrix.org/foundation/about/
-bylawsurl: https://matrix.org/foundation/about/
+bylawsurl: https://matrix.org/foundation/governing-board/bylaws/02-bylaws/
 numberOfEmployees: 5
 governanceOrg:
 governanceTech:
@@ -26,7 +26,7 @@ projectsServices:
 eventurl:
 nonprofitStatus: CommunityInterestCompany 
 taxID: 11648710
-taxIDLocal: 11648710
+taxIDLocal: GB-COH-11648710
 budgetUsd:
 budgetYear:
 budgeturl:
