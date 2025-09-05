@@ -7,6 +7,9 @@
 name: Deploy Jekyll site to Pages-another version
 
 on:
+  pull_request:
+    paths:
+      - .github/workflows/jekyll.yml
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
@@ -34,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Setup Ruby
-        uses: ruby/setup-ruby@22fdc77bf4148f810455b226c90fb81b5cbc00a7 # v1.171.0
+        uses: ruby/setup-ruby@44511735964dcb71245e7e55f72539531f7bc0eb # v1.257.0
         with:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
@@ -52,6 +55,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: ${{ github.even_name != 'pull_request' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
