@@ -4,12 +4,12 @@
     "troweprice.com",
     "ibm.biz",
     "anaconda.com",
-    "posit.co",
-    "google.com"
+    "posit.co"
   ],
   "second": [
     "microsoft.com",
     "holoceneadvisors.com",
+    "google.com",
     "nvidia.com",
     "qube-rt.com",
     "twosigma.com",
@@ -18,15 +18,17 @@
   ],
   "third": [
     "imc.com",
-    "safe.com",
-    "shopify.com"
+    "hopsworks.ai",
+    "safe.com"
   ],
   "community": [
-    "koordinates.com",
     "snowflake.com",
-    "mapgears.com",
+    "block.science",
+    "sparkgeo.com",
     "tesseratherapeutics.com",
-    "corporate.comcast.com"
+    "maxar.com",
+    "corporate.comcast.com",
+    "geoczech.org"
   ],
   "startuppartners": [
     "bytewax.io"
@@ -36,5 +38,5 @@
     "chanzuckerberg.com",
     "sloan.org"
   ],
-  "parseDate": "20240926"
+  "parseDate": "20250911"
 }

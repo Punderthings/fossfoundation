@@ -2,12 +2,13 @@
   "first": [
     "apple.com",
     "aws.amazon.com",
-    "facebook.com",
+    "meta.com",
     "geico.com",
     "google.com",
     "huawei.com",
     "microsoft.com",
     "news.apache.org",
+    "snowflake.com",
     "visa.com",
     "yahooinc.com"
   ],
@@ -24,28 +25,22 @@
     "workday.com"
   ],
   "third": [
-    "aetna.com",
     "americanexpress.com",
     "capitalone.com",
     "indeed.com",
     "lycorp.co.jp",
-    "redhat.com",
-    "salesforce.com",
-    "snowflake.com"
+    "redhat.com"
   ],
   "fourth": [
     "canva.com",
-    "engineering.cerner.com",
+    "cargurus.com",
     "curity.io",
-    "datastrato.com",
     "gridgain.com",
     "getgrist.com",
     "libriciel.fr",
     "rx-m.com",
     "renre.com",
-    "sentry.io",
-    "theblogstarter.com",
-    "tracemachina.com"
+    "sentry.io"
   ],
   "firstinkind": [
     "aws.amazon.com",
@@ -54,7 +49,6 @@
     "gradle.com",
     "jfrog.com",
     "microsoft.com",
-    "osuosl.org",
     "yahooinc.com",
     "sonatype.com",
     "jetbrains.com",
@@ -70,6 +64,7 @@
   ],
   "thirdinkind": [
     "instaclustr.com",
+    "sourceforge.net",
     "mi.com"
   ],
   "fourthinkind": [
@@ -84,5 +79,5 @@
     "surfnet.nl",
     "virtru.com"
   ],
-  "parseDate": "20241211"
+  "parseDate": "20250911"
 }
