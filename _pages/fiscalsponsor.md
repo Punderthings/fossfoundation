@@ -84,3 +84,9 @@ Review existing [list of foundation hosts](https://fossfoundation.info/categorie
   - https://www.apereo.org/join-us/sustaining-members
   - https://www.apereo.org/join-us/commercial-members
   - https://apereo.cloud.xwiki.com/xwiki/bin/view/Apereo%20Foundation/Finance/Fiscal%20Sponsorship/
+- [CommonHaus](https://fossfoundation.info/foundations/commonhaus)
+  - restrictions: basic community governance, code of conduct
+  - overview: https://www.commonhaus.org/community/#contribute-a-project
+  - applyurl: https://www.commonhaus.org/policies/fiscal-sponsorship/
+  - fees: build on top of OpenCollective
+  - servicesurl: https://www.commonhaus.org/about/faq.html#what-benefits-do-member-projects-receive-from-joining-the-commonhaus-foundation%3F
