@@ -1,6 +1,6 @@
-
+{% capture categorynav %}<a href="#newProjects">Accepts New Projects?</a> | <a href="#fiscalHost">Fiscal Hosting?</a> | <a href="#nonprofitStatus">Nonprofit Type</a> | <a href="#addressCountry">Country</a> | <a href="#coc">Code of Conduct</a>{% endcapture %}
 {% capture fdnlistnav %}
 <small id="tagindex">View the FOSS Foundation Directory by:</small><br/>
-<a href="/listing">Alphabetical</a> | <a href="/categories/#newProjects">New Projects?</a> | <a href="/categories/#fiscalHost">Fiscal Hosting?</a> | <a href="/categories/#nonprofitStatus">By Nonprofit Type</a> | <a href="/categories/#addressCountry">By Country</a> | <a href="/categories/#coc">By Code of Conduct</a> | <a href="/openapi">OpenAPI</a><br/>
-<small>Other datasets: <a href="/sponsorships">Sponsorships</a> | <a href="/taxes">US 990 Taxes</a> | <a href="/entities">Unincorporated Projects</a> | <a href="/projects">Projects At Foundations</a> | <a href="/commercial">Commercial Orgs</a></small>
+<a href="/listing">Alphabetical</a> | {{ categorynav }} | <a href="/openapi">OpenAPI</a><br/>
+<small>Other datasets: <a href="/sponsorships">Sponsorships</a> | <a href="/taxes">US 990 Taxes</a> | <a href="/fiscalsponsor">Fiscal Hosts</a> | <a href="/entities">Unincorporated Projects</a> | <a href="/projects">Projects At Foundations</a> | <a href="/commercial">Commercial Orgs</a></small>
 {% endcapture %}

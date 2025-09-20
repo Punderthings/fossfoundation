@@ -4,8 +4,10 @@ layout: default
 
 {{ content }}
 
+{% include foundation-list-nav.html %}
+
 <hr id="tagindex" />
-{% capture mininav %}<a href="#newProjects">Accepts New Projects?</a> | <a href="#fiscalHost">Fiscal Hosting?</a> | <a href="#nonprofitStatus">Nonprofit Type</a> | <a href="#addressCountry">By Country</a> | <a href="#coc">Codes of Conduct</a>{% endcapture %}
+{{ categorynav }}
 <section id="newProjects">
   <h3>Accepts New Projects?</h3>
   <p>These organizations actively accept new projects for hosting, and notes if they are a <a href="#fiscalHost">Fiscal Host</a>.</p>
@@ -14,7 +16,7 @@ layout: default
   </ul>
 </section>
 
-{{ mininav }}
+{{ categorynav }}
 <section id="fiscalHost">
   <h3>Fiscal Hosts</h3>
   <p>Type of fiscal hosting provided: direct funding, indirect funding, employee services, etc.</p>
@@ -24,7 +26,7 @@ layout: default
   </ul>
 </section>
 
-{{ mininav }}
+{{ categorynav }}
 <section id="addressCountry">
   <h3>Foundations By Country</h3>
   <table>
@@ -49,7 +51,7 @@ layout: default
   </table>
 </section>
 
-{{ mininav }}
+{{ categorynav }}
 <section id="nonprofitStatus">
   <h3>Foundations By Nonprofit Types</h3>
   <table>
@@ -82,7 +84,7 @@ layout: default
   </table>
 </section>
 
-{{ mininav }}
+{{ categorynav }}
 <section id="coc">
   <h3>Codes of Conduct</h3>
   <p>Including <emphasis>obviously</emphasis> linked Codes of Conduct, with any noted inspirations for the source thereof.</p>

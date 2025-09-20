@@ -6,6 +6,3 @@ permalink: /categories
 nav_order: 3
 parent: Foundations Directory
 ---
-
-{% include foundation-list-nav.html %}
-{{ fdnlistnav }}
