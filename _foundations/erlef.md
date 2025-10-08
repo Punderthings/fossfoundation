@@ -56,8 +56,4 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-title: Erlang Ecosystem Foundation - Supporting the BEAM community
-location: US
-state: CA
-contactUs: https://www.erlef.org/contact/
 ---

@@ -12,7 +12,7 @@ newProjects:
 softwareType:
 wikidataId:
 boardSize: '5'
-boardType:
+boardType: elected
 boardurl: https://xmpp.org/about/xmpp-standards-foundation/#board
 teamurl: https://xmpp.org/about/xmpp-standards-foundation/
 missionurl: https://xmpp.org/about/xsf/mission/
@@ -55,6 +55,5 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-membershipType: membership
 ---
 

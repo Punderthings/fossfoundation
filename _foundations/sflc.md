@@ -26,7 +26,7 @@ projectsServices:
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 41-2165986
-taxIDLocal:
+taxIDLocal: 21-15-53
 budgetUsd:
 budgetYear:
 budgeturl:
@@ -55,7 +55,6 @@ brandComments:
 logo:
 logoReg: 'no'
 subOrganization:
-tasIDLocal: 21-15-53
 ---
 
 The Software Freedom Law Center provides pro-bono legal services to developers of Free, Libre, and Open Source Software.

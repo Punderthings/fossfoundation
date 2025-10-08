@@ -4,7 +4,6 @@ commonName: Open Home Foundation
 legalName: Open Home Foundation
 website: https://www.openhomefoundation.org/
 foundingDate: 2024
-location: Switzerland
 addressCountry: CH
 newProjects: yes
 softwareType: smart home
