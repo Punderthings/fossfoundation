@@ -40,10 +40,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://xmpp.org/extensions/xep-0458.html
 conductEvents:
 conductSource:
 conductLinked:
+conductReport: committee, board, or individual
 diversityPolicy:
 diversityDescription:
 brandPrimary:

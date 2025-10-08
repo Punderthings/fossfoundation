@@ -40,9 +40,9 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://www.opencompute.org/documents/ocp-operating-structure-and-policies-as-of-mar-2025
 conductEvents:
-conductSource:
+conductSource: Contributor Covenant
 conductLinked:
 diversityPolicy: https://www.opencompute.org/documents/ocp-terminology-guidelines-for-inclusion-and-openness
 diversityDescription:

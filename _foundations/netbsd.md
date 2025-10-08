@@ -40,10 +40,11 @@ licenses: BSD
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://www.netbsd.org/foundation/code-of-conduct.html
 conductEvents:
-conductSource:
-conductLinked: x
+conductSource: Geek Feminism
+conductLinked: about nav
+conductReport: email; committee; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

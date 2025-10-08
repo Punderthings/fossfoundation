@@ -41,7 +41,7 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://plone.org/community/code-of-conduct
 conductEvents:
 conductSource:
 conductLinked:

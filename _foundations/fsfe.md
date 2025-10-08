@@ -45,7 +45,8 @@ ethicsPolicy:
 conducturl: https://fsfe.org/about/codeofconduct.en.html
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: about nav
+conductReport: email; committee or individuals; care@
 diversityPolicy:
 diversityDescription:
 brandPrimary: Free Software Foundation Europe

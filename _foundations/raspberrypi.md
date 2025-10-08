@@ -41,7 +41,7 @@ licenses: BSD-3-Clause, various
 claPolicy:
 securityurl: https://www.raspberrypi.com/contact/security/
 ethicsPolicy:
-conducturl:
+conducturl: https://static.raspberrypi.org/files/about/RaspberryPiFoundation_Modern_Slavery_Statement_2020.pdf)
 conductEvents:
 conductSource:
 conductLinked:

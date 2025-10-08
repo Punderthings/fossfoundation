@@ -40,7 +40,7 @@ licenses: GPL
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://oisf.net/about-us/
 conductEvents:
 conductSource:
 conductLinked:

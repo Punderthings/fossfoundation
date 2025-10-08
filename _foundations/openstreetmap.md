@@ -41,7 +41,7 @@ licenses: ODbL-1.0
 claPolicy: https://osmfoundation.org/wiki/Licence/Contributor_Terms
 securityurl:
 ethicsPolicy: https://osmfoundation.org/wiki/Conflict_of_Interest_Policy
-conducturl:
+conducturl: https://osmfoundation.org/wiki/OSMF_Communication_Guidelines
 conductEvents:
 conductSource:
 conductLinked:

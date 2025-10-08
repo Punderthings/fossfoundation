@@ -39,10 +39,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://www.clojuriststogether.org/docs/code-of-conduct/
 conductEvents:
-conductSource:
-conductLinked:
+conductSource: Contributor Covenant 2.0
+conductLinked: footer
+conductReport: email; single; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

@@ -40,7 +40,7 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://openid.net/policies/
 conductEvents:
 conductSource:
 conductLinked:

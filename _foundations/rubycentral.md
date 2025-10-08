@@ -40,9 +40,9 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://rubycentral.org/news/project-codes-of-conduct/
 conductEvents:
-conductSource:
+conductSource: Contributor Covenant
 conductLinked:
 diversityPolicy:
 diversityDescription:

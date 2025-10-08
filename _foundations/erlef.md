@@ -40,10 +40,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://erlef.org/code-of-conduct
 conductEvents:
-conductSource:
-conductLinked:
+conductSource: Contributor Covenant
+conductLinked: footer
+conductReport: email; committee; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

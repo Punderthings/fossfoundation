@@ -67,10 +67,12 @@ module FoundationReporter
       begin
         org = YAML.load_file(f)
         data = org.fetch(onefield, nil)
+        identifier = File.basename(f, '.md')
         if data
-          identifier = File.basename(f, '.md')
           orgs[identifier] = data
           vals[data] << identifier
+        else
+          orgs[identifier] = "" # Include foundations with blanks explicitly
         end
       rescue StandardError => e
         puts "ERROR #{e}"

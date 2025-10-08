@@ -40,10 +40,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://foundation.llvm.org/docs/code-of-conduct/
 conductEvents:
-conductSource:
-conductLinked:
+conductSource: Contributor Covenant 2.0
+conductLinked: footer
+conductReport: email; committee; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

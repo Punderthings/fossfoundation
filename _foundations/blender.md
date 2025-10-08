@@ -42,9 +42,11 @@ claPolicy:
 securityurl:
 ethicsPolicy:
 conducturl:
-conductEvents:
+conductEvents: https://conference.blender.org/code-of-conduct/
+conductDev: https://developer.blender.org/docs/handbook/communication/code_of_conduct/
 conductSource:
 conductLinked:
+conductReport: email; single; moderators@
 diversityPolicy:
 diversityDescription:
 brandPrimary: Blender

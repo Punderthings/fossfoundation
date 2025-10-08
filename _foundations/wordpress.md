@@ -40,7 +40,7 @@ licenses: GPL-2.0-or-later
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://learn.wordpress.org/online-workshops/code-of-conduct/
 conductEvents: https://make.wordpress.org/community/handbook/wordcamp-organizer/planning-details/code-of-conduct/
 conductSource: OSBridge
 conductLinked: x

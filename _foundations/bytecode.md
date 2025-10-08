@@ -43,8 +43,10 @@ securityurl:
 ethicsPolicy:
 conducturl:
 conductEvents:
-conductSource:
+conductDev: https://github.com/bytecodealliance/wasmtime/blob/main/CODE_OF_CONDUCT.md
+conductSource: Contributor Covenant 2.0
 conductLinked:
+conductReport: email; single; coc@
 diversityPolicy:
 diversityDescription:
 brandPrimary:
