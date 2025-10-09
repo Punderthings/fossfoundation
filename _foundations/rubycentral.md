@@ -14,7 +14,7 @@ wikidataId: Q7376287
 boardSize: 7
 boardType:
 boardurl: https://rubycentral.org/#directors
-teamurl:
+teamurl: https://rubycentral.org/about/#staff
 missionurl:
 bylawsurl:
 numberOfEmployees:
@@ -23,7 +23,7 @@ governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://rubyconf.org/
 nonprofitStatus: Nonprofit501c3
 taxID: 30-0040446
 taxIDLocal:
@@ -38,10 +38,10 @@ sponsorList:
 sponsorships:
 licenses:
 claPolicy:
-securityurl:
+securityurl: https://rubygems.org/pages/security
 ethicsPolicy:
 conducturl: https://rubycentral.org/news/project-codes-of-conduct/
-conductEvents:
+conductEvents: https://drive.google.com/file/d/1OBF15i76xc-bsVTOIgBZeB6vpTo-Bsg3/view
 conductSource: Contributor Covenant
 conductLinked:
 diversityPolicy:
@@ -56,5 +56,3 @@ logo:
 logoReg:
 subOrganization:
 ---
-
-FOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and then fill in as much data as you can verify against official sources (from that foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The data schema is in the foundations-schema.json file.  Then replace this section (i.e. the content of a Jekyll document) with a one sentence factual description of the organization as a whole.  Submit a PR with this new identifier.md file in the _foundations directory.
