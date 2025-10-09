@@ -11,9 +11,9 @@ addressRegion:
 newProjects:
 softwareType: content
 wikidataId: Q924422
-boardSize:
+boardSize: 7
 boardType:
-boardurl:
+boardurl: https://plone.org/foundation/board
 teamurl:
 missionurl:
 bylawsurl:
@@ -34,17 +34,17 @@ budgetTransparent:
 funding:
 donateurl:
 sponsorurl: https://plone.org/sponsors
-sponsorList:
+sponsorList: https://plone.org/foundation/sponsorship/sponsors
 sponsorships:
 - plone
-licenses:
-claPolicy:
-securityurl:
+licenses: GPL-2.0-or-later
+claPolicy: https://plone.org/foundation/contributors-agreement
+securityurl: https://plone.org/security
 ethicsPolicy:
-conducturl: https://plone.org/community/code-of-conduct
+conducturl: https://plone.org/foundation/about/materials/foundation-resolutions/code-of-conduct
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: footer
 diversityPolicy: https://plone.org/news/foundation/materials/foundation-resolutions/diversity-statement
 diversityDescription: Statement supporting diversity
 brandPrimary: Plone
