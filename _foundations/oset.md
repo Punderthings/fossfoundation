@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q65566139
 boardSize: '12'
 boardType:
 boardurl: https://www.osetinstitute.org/who-we-are

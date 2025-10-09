@@ -11,7 +11,7 @@ addressCountry: US
 addressRegion: CA
 newProjects: 'no'
 softwareType: various
-wikidataId:
+wikidataId: Q131848318
 boardSize: '5'
 boardType: appointed
 boardurl: https://docs.opencollective.foundation/about/governance/board-members

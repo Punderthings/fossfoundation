@@ -11,7 +11,7 @@ addressCountry: US
 addressRegion: IL
 newProjects:
 softwareType: education
-wikidataId:
+wikidataId: Q6441065
 boardSize:
 boardType:
 boardurl:

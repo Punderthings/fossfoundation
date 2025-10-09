@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: FL
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q842120
 boardSize:
 boardType:
 boardurl:

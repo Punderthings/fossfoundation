@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: WA
 newProjects: 'yes'
 softwareType: various
-wikidataId:
+wikidataId: Q20020535
 boardSize: 7
 boardType:
 boardurl: https://dotnetfoundation.org/about/board-of-directors

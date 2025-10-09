@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: NV
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q18751291
 boardSize: 5
 boardType:
 boardurl: https://foundation.fsharp.org/board_and_officers
@@ -36,7 +36,7 @@ donateurl:
 sponsorurl:
 sponsorList:
 sponsorships:
-licenses:
+licenses: MIT
 claPolicy:
 securityurl:
 ethicsPolicy:

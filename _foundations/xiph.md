@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: MA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q576550
 boardSize:
 boardType:
 boardurl: https://wiki.xiph.org/AdminProcesses

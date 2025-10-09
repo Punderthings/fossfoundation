@@ -11,7 +11,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q43895568
 boardSize: '3'
 boardType:
 boardurl: https://biobricks.org/team-and-board/

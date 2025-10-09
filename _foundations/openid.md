@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q105272307
 boardSize: '19'
 boardType:
 boardurl: https://openid.net/foundation/board/

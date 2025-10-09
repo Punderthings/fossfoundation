@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q18215982
 boardSize: '8'
 boardType:
 boardurl: https://wiki.sahanafoundation.org/foundation/board
@@ -36,8 +36,8 @@ donateurl: https://sahanafoundation.org/donate/
 sponsorurl:
 sponsorList:
 sponsorships:
-licenses:
-claPolicy:
+licenses: MIT
+claPolicy: https://docs.google.com/forms/d/e/1FAIpQLScQPLttJkLC1S8r904Tnbe7SVZ1vlbFrW-CCtAjw3GekiDW0A/viewform?formkey=dEp5czdPYThPY2htX2pNM1JGaTBrRGc6MQ#gid=0
 securityurl:
 ethicsPolicy:
 conducturl: https://wiki.sahanafoundation.org/foundation/code_of_conduct

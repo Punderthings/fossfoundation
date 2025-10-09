@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: OR
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q56787304
 boardSize: '5'
 boardType:
 boardurl: https://postgresql.us/team

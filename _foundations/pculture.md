@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: MA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q1572021
 boardSize:
 boardType:
 boardurl: https://pculture.org/about-pcf

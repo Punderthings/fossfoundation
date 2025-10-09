@@ -11,7 +11,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q4887530
 boardSize: '14'
 boardType:
 boardurl: https://benetech.org/about/leadership/

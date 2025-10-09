@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion:
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q104880358
 boardSize: '5'
 boardType:
 boardurl: https://www.openrobotics.org/foundation

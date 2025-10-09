@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CO
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q1461130
 boardSize: '5'
 boardType: elected
 boardurl: https://xmpp.org/about/xmpp-standards-foundation/#board

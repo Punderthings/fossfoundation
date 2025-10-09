@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: MA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q62073537
 boardSize: '14'
 boardType:
 boardurl: https://www.oeglobal.org/about-us/people-of-oeg/board-of-directors/

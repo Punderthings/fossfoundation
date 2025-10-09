@@ -7,7 +7,7 @@ foundingDate: 2024
 addressCountry: CH
 newProjects: yes
 softwareType: smart home
-wikidataId:
+wikidataId: Q132690397
 taxID: CHE-416.988.952
 nonprofitStatus: stiftung
 boardSize: 4

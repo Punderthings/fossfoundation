@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: CA
 newProjects:
 softwareType:
-wikidataId:
+wikidataId: Q43449
 boardSize: '12'
 boardType:
 boardurl: https://creativecommons.org/mission/team/
