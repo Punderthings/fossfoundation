@@ -6,6 +6,7 @@ description:
 contacturl:
 website: http://freesoftwaresupport.net/
 foundingDate:
+dissolutionDate: 2024 or earlier
 addressCountry: DE
 addressRegion:
 newProjects: 'yes'

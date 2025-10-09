@@ -4,8 +4,9 @@ commonName: Biobricks
 legalName: BioBricks Foundation
 description:
 contacturl: https://biobricks.org/contact/
-website: https://biobricks.org/
+website: https://biobricks-NOW-DOMAIN-SCAMMER.org/
 foundingDate:
+dissolutionDate: 2023 or earlier
 addressCountry: US
 addressRegion: CA
 newProjects:

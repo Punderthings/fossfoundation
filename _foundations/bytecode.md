@@ -39,9 +39,9 @@ sponsorList:
 sponsorships:
 licenses: Apache-2.0, LLVM-exception
 claPolicy:
-securityurl:
+securityurl: https://bytecodealliance.org/security
 ethicsPolicy:
-conducturl:
+conducturl: https://github.com/bytecodealliance/governance/blob/main/CODE_OF_CONDUCT.md
 conductEvents:
 conductDev: https://github.com/bytecodealliance/wasmtime/blob/main/CODE_OF_CONDUCT.md
 conductSource: Contributor Covenant 2.0

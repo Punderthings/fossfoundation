@@ -5,7 +5,8 @@ legalName: Kuali Foundation Inc.
 description:
 contacturl:
 website: https://www.kuali.co/about
-foundingDate: 2006
+foundingDate: '2006'
+dissolutionDate: '2023'
 addressCountry: US
 addressRegion: IL
 newProjects:

@@ -5,7 +5,8 @@ legalName: Open Collective Foundation
 description: Past fiscal host for FOSS projects; shutting down in 2024
 contacturl:
 website: https://opencollective.foundation
-foundingDate:
+foundingDate: '2017'
+dissolutionDate: '2024'
 addressCountry: US
 addressRegion: CA
 newProjects: 'no'

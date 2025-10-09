@@ -40,10 +40,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: 
-conductEvents:
-conductSource:
-conductLinked:
+conducturl: https://2025.djangocon.us/conduct/
+conductEvents: https://2025.djangocon.us/conduct/
+conductSource:  GeekFeminism
+conductLinked: header
+conductReport: email; committee; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary: Django Events Foundation North America, DEFNA
