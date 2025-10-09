@@ -42,8 +42,9 @@ securityurl:
 ethicsPolicy:
 conducturl: https://foundation.fsharp.org/code_of_conduct
 conductEvents:
-conductSource: nav
-conductLinked:
+conductSource: Ada; Python; Django; Speak Up!
+conductLinked: nav
+conductReport: email; committee; conduct@
 diversityPolicy: https://foundation.fsharp.org/diversity
 diversityDescription:
 brandPrimary:

@@ -38,12 +38,13 @@ sponsorList:
 sponsorships:
 licenses: various
 claPolicy:
-securityurl:
+securityurl: https://openjsf.org/security
 ethicsPolicy:
 conducturl: https://code-of-conduct.openjsf.org/
 conductEvents:
-conductSource:
-conductLinked:
+conductSource: Contributor Covenant 2.0
+conductLinked: footer
+conductReport: email; report@
 diversityPolicy:
 diversityDescription:
 brandPrimary: OpenJS

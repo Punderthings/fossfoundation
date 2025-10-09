@@ -40,10 +40,10 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: https://socallinuxexpo.org/scale/21x/code-conduct
+conducturl: https://socallinuxexpo.org/scale/23x/code-conduct
 conductEvents:
-conductSource:
-conductLinked:
+conductSource: Geek Feminisim
+conductLinked: footer
 diversityPolicy:
 diversityDescription:
 brandPrimary:

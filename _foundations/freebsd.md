@@ -41,10 +41,11 @@ licenses: BSD-2-Clause
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: https://www.freebsd.org/internal/code-of-conduct.html
+conducturl: https://www.freebsd.org/internal/code-of-conduct/
 conductEvents:
-conductSource: Geek Feminism
-conductLinked: x
+conductSource: Django; Speak Up!
+conductLinked:
+conductReport: email; committee; conduct@
 diversityPolicy:
 diversityDescription:
 brandPrimary: FreeBSD

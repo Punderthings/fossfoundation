@@ -2,28 +2,28 @@
 identifier: drupal
 commonName: Drupal
 legalName: Drupal Association
-description:
+description: THE DRUPAL ASSOCIATION UNITES A GLOBAL OPEN SOURCE COMMUNITY TO BUILD, SECURE, AND PROMOTE DRUPAL.
 contacturl:
 website: https://www.drupal.org/
-foundingDate:
+foundingDate: '2008'
 addressCountry: US
-addressRegion:
+addressRegion: DC
 newProjects:
 softwareType: content
 wikidataId: Q5309378
-boardSize:
+boardSize: 13
 boardType:
-boardurl:
-teamurl:
-missionurl:
+boardurl: https://www.drupal.org/association/board
+teamurl: https://www.drupal.org/association/staff
+missionurl: https://www.drupal.org/association/mission
 bylawsurl:
-numberOfEmployees:
+numberOfEmployees: 15
 governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://events.drupal.org/
 nonprofitStatus: Nonprofit501c3
 taxID: 27-1138640
 taxIDLocal:
@@ -39,12 +39,12 @@ sponsorships:
 - drupal
 licenses: GPL-2.0-or-later
 claPolicy:
-securityurl:
+securityurl: https://www.drupal.org/drupal-security-team/
 ethicsPolicy:
 conducturl: https://www.drupal.org/dcoc
-conductEvents:
+conductEvents: https://events.drupal.org/code-conduct
 conductSource: Ubuntu
-conductLinked:
+conductLinked: footer
 diversityPolicy: https://www.drupaldiversity.com/docs
 diversityDescription: Program and Initiatives
 brandPrimary: Drupal

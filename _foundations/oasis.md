@@ -43,7 +43,8 @@ ethicsPolicy: https://www.oasis-open.org/policies-guidelines/conflict-of-interes
 conducturl: https://www.oasis-open.org/policies-guidelines/oasis-participants-code-of-conduct/
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: Policies page
+conductReport: email; individual; conduct-liaison@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

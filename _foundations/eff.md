@@ -5,18 +5,18 @@ legalName: Electronic Frontier Foundation
 description: Defending your rights in the digital world
 contacturl: https://eff.org/about/contact
 website: https://www.eff.org/
-foundingDate:
+foundingDate: '1990'
 addressCountry: US
-addressRegion: CA
+addressRegion: MA
 newProjects:
-softwareType:
-wikidataId:
+softwareType: advocacy
+wikidataId: Q624023
 boardSize: '13'
 boardType:
 boardurl: https://www.eff.org/about/board#main-content
 teamurl: https://www.eff.org/about/staff#main-content
 missionurl:
-bylawsurl:
+bylawsurl: https://www.eff.org/document/eff-bylaws
 numberOfEmployees:
 governanceOrg:
 governanceTech:
@@ -26,7 +26,7 @@ projectsServices:
 eventurl:
 nonprofitStatus: Nonprofit501c3
 taxID: 04-3091431
-taxIDLocal:
+taxIDLocal: '027045'
 budgetUsd:
 budgetYear:
 budgeturl:
@@ -34,7 +34,7 @@ budgetTransparent:
 funding:
 donateurl: https://supporters.eff.org/donate/join-eff-today
 sponsorurl: https://www.eff.org/thanks
-sponsorList:
+sponsorList: https://www.eff.org/thanks#organizational_members
 sponsorships:
 licenses:
 claPolicy:

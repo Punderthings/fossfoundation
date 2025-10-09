@@ -44,7 +44,7 @@ ethicsPolicy:
 conducturl: https://rubyonrails.org/conduct
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: footer
 diversityPolicy:
 diversityDescription:
 brandPrimary: Rails

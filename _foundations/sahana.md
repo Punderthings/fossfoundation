@@ -40,11 +40,11 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: http://wiki.sahanafoundation.org/foundation/policies/nondiscrimination
+conducturl: https://wiki.sahanafoundation.org/foundation/code_of_conduct
 conductEvents:
 conductSource:
 conductLinked:
-diversityPolicy:
+diversityPolicy: http://wiki.sahanafoundation.org/foundation/policies/nondiscrimination
 diversityDescription:
 brandPrimary:
 brandSecondary:

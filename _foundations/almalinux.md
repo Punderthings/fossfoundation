@@ -7,7 +7,7 @@ contacturl:
 website: https://almalinux.org
 foundingDate: '2021'
 addressCountry: US
-addressRegion:
+addressRegion: DE
 newProjects:
 softwareType: distro
 wikidataId: Q106601457
@@ -26,7 +26,7 @@ projectsServices:
 eventurl: https://events.almalinux.org/
 nonprofitStatus: Nonprofit501c6
 taxID: 86-2791864
-taxIDLocal:
+taxIDLocal: '5561017'
 budgetUsd:
 budgetYear:
 budgeturl:
@@ -46,10 +46,10 @@ conductSource: Red Hat
 conductLinked:
 diversityPolicy:
 diversityDescription:
-brandPrimary:
+brandPrimary: AlmaLinux OS
 brandSecondary:
 brandReg:
-brandPolicy:
+brandPolicy: https://almalinux.org/p/the-almalinux-os-trademark-usage-policy/
 brandUse:
 brandComments:
 logo: https://almalinux.org/images/logo.svg

@@ -44,7 +44,8 @@ ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy
 conducturl: https://openinfra.dev/legal/code-of-conduct
 conductEvents:
 conductSource:
-conductLinked:
+conductLinked: footer
+conductReport: email; community-conduct@
 diversityPolicy: https://openinfra.dev/about/diversity/
 diversityDescription:
 brandPrimary: OpenStack, Open Infra

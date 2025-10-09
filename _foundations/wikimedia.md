@@ -3,7 +3,7 @@ identifier: wikimedia
 commonName: Wikimedia
 legalName: Wikimedia Foundation
 description:
-contacturl:
+contacturl: https://wikimediafoundation.org/about/contact/
 website: https://wikimediafoundation.org/
 foundingDate:
 addressCountry: US
@@ -11,17 +11,17 @@ addressRegion: CA
 newProjects:
 softwareType: non-code
 wikidataId: Q180
-boardSize:
+boardSize: 12
 boardType:
-boardurl:
-teamurl:
-missionurl:
+boardurl: https://wikimediafoundation.org/role/board/
+teamurl: https://wikimediafoundation.org/role/staff/
+missionurl: https://wikimediafoundation.org/who-we-are/
 bylawsurl:
 numberOfEmployees:
 governanceOrg:
 governanceTech:
-projectsNotable:
-projectsList:
+projectsNotable: Wikipedia
+projectsList: https://wikimediafoundation.org/what-we-do/wikimedia-projects/
 projectsServices:
 eventurl:
 nonprofitStatus: Nonprofit501c3
@@ -40,7 +40,7 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: https://foundation.wikimedia.org/wiki/Code_of_conduct_policy
+conducturl: https://foundation.wikimedia.org/wiki/Policy:Universal_Code_of_Conduct
 conductEvents:
 conductSource:
 conductLinked: x
@@ -48,8 +48,8 @@ diversityPolicy:
 diversityDescription:
 brandPrimary: Wikipedia
 brandSecondary: Wikimedia
-brandReg:
-brandPolicy: https://www.apache.org/foundation/marks/guide
+brandReg: yes
+brandPolicy: https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_Trademark_Policy
 brandUse:
 brandComments:
 logo:
