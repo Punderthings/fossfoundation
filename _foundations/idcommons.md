@@ -5,7 +5,7 @@ legalName: Identity Commons Inc
 description:
 contacturl: https://www.idcommons.org/organization/contact-us/
 website: https://idcommons.net
-foundingDate: 2007-05-09
+foundingDate: '2007-05-09'
 dissolutionDate: 2017 or earlier
 addressCountry: US
 addressRegion: FL
