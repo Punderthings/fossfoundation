@@ -55,7 +55,5 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-social:
-  twitter: "@OpenEdGlobal"
 ---
 

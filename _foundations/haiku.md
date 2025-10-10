@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl:
 conductEvents:
-conductDev: https://www.haiku-os.org/community/ml/etiquette/
+conductProjects: 
+- https://www.haiku-os.org/community/ml/etiquette/
 conductSource:
 conductReport: none
 conductLinked:

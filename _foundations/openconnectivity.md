@@ -56,8 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://openconnectivity.org/privacy-policy/
-contributeurl: https://openconnectivity.org/technology/iotivity/
-social:
-  twitter: "@UPnP_Forum"
 ---
 

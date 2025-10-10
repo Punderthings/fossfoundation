@@ -43,7 +43,8 @@ securityurl: https://bytecodealliance.org/security
 ethicsPolicy:
 conducturl: https://github.com/bytecodealliance/governance/blob/main/CODE_OF_CONDUCT.md
 conductEvents:
-conductDev: https://github.com/bytecodealliance/wasmtime/blob/main/CODE_OF_CONDUCT.md
+conductProjects: 
+- https://github.com/bytecodealliance/wasmtime/blob/main/CODE_OF_CONDUCT.md
 conductSource: Contributor Covenant 2.0
 conductLinked:
 conductReport: email; single; coc@

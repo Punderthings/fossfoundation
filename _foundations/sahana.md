@@ -56,9 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: http://wiki.sahanafoundation.org/foundation/policies/conflict
-contributeurl: https://sahanafoundation.org/eden/support/
-webgenerator: '["Stargazer 4.0.0"]'
-social:
-  twitter: "@SahanaFOSS"
 ---
 

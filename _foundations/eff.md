@@ -57,8 +57,5 @@ logoReg:
 subOrganization:
 policyurl: https://eff.org/policy
 annualReport: https://www.eff.org/about/annual-reports-and-financials#main-content
-webgenerator: '["Drupal 7 (http://drupal.org)"]'
-social:
-  twitter: "@eff"
 ---
 

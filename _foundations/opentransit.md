@@ -55,7 +55,5 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-icon32: https://opentransitsoftwarefoundation.org/wp-content/uploads/OneBusAway_Logo_OAuth-100x100.png
-webgenerator: '["WordPress 6.4.3"]'
 ---
 

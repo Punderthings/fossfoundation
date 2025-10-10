@@ -32,7 +32,7 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://omsf.io/support/how-to
 sponsorurl: https://omsf.io/support/how-to/
 sponsorList:
 sponsorships:
@@ -56,7 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://omsf.io/antitrust-policy
-contributeurl: https://omsf.io/support/how-to
-webgenerator: '["Hugo 0.85.0"]'
 ---
 

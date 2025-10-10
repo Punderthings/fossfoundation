@@ -32,7 +32,7 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl: https://www.classy.org/give/313412/#!/donation/checkout
+donateurl: https://creativecommons.org/about/support-cc/
 sponsorurl: https://creativecommons.org/support-cc/open-infrastructure-circle/
 sponsorList:
 sponsorships:
@@ -57,6 +57,5 @@ logoReg:
 subOrganization:
 policyurl: https://creativecommons.org/policies
 annualReport: https://creativecommons.org/2022/04/05/2021-annual-report/
-contributeurl: https://creativecommons.org/about/support-cc/
 ---
 

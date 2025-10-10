@@ -57,8 +57,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://benetech.org/about/privacy-policy/
-webgenerator: '["Site Kit by Google 1.120.0"]'
-social:
-  twitter: "@Benetech"
 ---
 

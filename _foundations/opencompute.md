@@ -32,7 +32,7 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://www.opencompute.org/contributions/welcome
 sponsorurl: https://www.opencompute.org/documents/amended-tiered-membership-policy
 sponsorList: https://www.opencompute.org/membership/membership-directory
 sponsorships: 
@@ -56,6 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://www.opencompute.org/about/ocp-policies
-contributeurl: https://www.opencompute.org/contributions/welcome
 ---
 

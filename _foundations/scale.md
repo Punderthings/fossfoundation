@@ -56,6 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://socallinuxexpo.org/scale/21x/policies
-webgenerator: '["Drupal 7 (https://www.drupal.org)"]'
 ---
 

@@ -33,7 +33,7 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://biobricks.org/donate/
 sponsorurl:
 sponsorList:
 sponsorships:
@@ -57,8 +57,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://biobricks.org/privacy-policy/
-contributeurl: https://biobricks.org/donate/
-webgenerator: '["BBF 2016 v.1.0.0", "Powered by Slider Revolution 6.6.15 - responsive,
-  Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface."]'
 ---
 

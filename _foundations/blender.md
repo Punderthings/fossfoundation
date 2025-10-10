@@ -43,7 +43,8 @@ securityurl:
 ethicsPolicy:
 conducturl:
 conductEvents: https://conference.blender.org/code-of-conduct/
-conductDev: https://developer.blender.org/docs/handbook/communication/code_of_conduct/
+conductProjects: 
+- https://developer.blender.org/docs/handbook/communication/code_of_conduct/
 conductSource:
 conductLinked:
 conductReport: email; single; moderators@

@@ -37,7 +37,7 @@ sponsorurl: https://openid.net/foundation/sponsoring-members/
 sponsorList:
 sponsorships:
 licenses:
-claPolicy:
+claPolicy: https://openid.net/intellectual-property/openid-foundation-contribution-agreements/
 securityurl:
 ethicsPolicy:
 conducturl: https://openid.net/policies/
@@ -56,13 +56,5 @@ logo:
 logoReg:
 subOrganization:
 policyurl: https://openid.net/policies/
-contributeurl: https://openid.net/intellectual-property/openid-foundation-contribution-agreements/
-icon32: https://openid.net/wp-content/uploads/2022/11/favicon_23-150x150.jpg
-webgenerator: '["All in One SEO (AIOSEO) 4.5.6", "WordPress 6.4.3", "Site Kit by Google
-  1.119.0", "Elementor 3.19.2; features: e_optimized_assets_loading, additional_custom_breakpoints,
-  block_editor_assets_optimize, e_image_loading_optimization; settings: css_print_method-external,
-  google_font-enabled, font_display-swap"]'
-social:
-  twitter: "@openid"
 ---
 
