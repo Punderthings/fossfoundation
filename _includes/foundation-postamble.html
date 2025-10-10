@@ -1,0 +1,23 @@
+    
+{% if page.taxID %}
+  {% assign pein = page.taxID | remove: "-" %}{% assign pp = site.data.p990[pein] %}
+  {% if pp %}
+    <section id="taxes-section"> 
+      <h2 id="taxes">Tax Financial Data</h2>
+      <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
+      <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
+      <div id="approx-990-data">
+        <strong>Approximate</strong> financial status from <a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">ProPublica JSON data</a><br/>
+        <abbr title="Most recent filed tax period.">Tax Period</abbr>: <span itemprop="tax_period">{{ pp.organization.tax_period }}</span><br/>
+        <abbr title="Total assets at end of year.">Assets EOY</abbr>: <span itemprop="asset_amount">{{ pp.organization.asset_amount }}</span><br/>
+        <abbr title="Total revenue for year.">Revenue</abbr>: <span itemprop="revenue_amount">{{ pp.organization.revenue_amount }}</span><br/>
+      </div>
+    </section>
+  {% endif %}
+{% endif %}
+
+  <hr id="details"/>
+
+  {{ content }}
+
+</article>

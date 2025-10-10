@@ -52,8 +52,9 @@
       "format": "date"
     },
     "dissolutionDate": {
+      "$comment": "EXCLUDE this field if organization still active",
       "title": "Dissolution Date",
-      "description": "Date organization was dissolved (if applicable).",
+      "description": "Date organization was dissolved (only include if needed).",
       "type": "string",
       "format": "date"
     },
@@ -178,7 +179,7 @@
     },
     "budgetYear": {
       "title": "Budget Year",
-      "description": "Year budgetUsd number was entered.",
+      "description": "Year budgetUsd number was recorded.",
       "type": "string"
     },
     "budgeturl": {
@@ -258,6 +259,15 @@
       "type": "string",
       "format": "url"
     },
+    "conductProjects": {
+      "title": "Per-Project Codes Of Conduct",
+      "description": "Links to any hosted project or initiative COCs.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
     "conductSource": {
       "title": "Source Of Code Of Conduct",
       "description": "Cited source or inspiration for Code of Conduct policy.",
@@ -266,6 +276,11 @@
     "conductLinked": {
       "title": "Where Code Of Conduct Linked",
       "description": "Where is the Code of Conduct linked from the organization's homepage?",
+      "type": "string"
+    },
+    "conductReport": {
+      "title": "How To Report COC Violations",
+      "description": "Brief description of how to report violations of the Code of Conduct.",
       "type": "string"
     },
     "diversityPolicy": {
