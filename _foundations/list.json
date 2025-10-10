@@ -19,9 +19,14 @@
     "Beneficent Technology Inc"
   ],
   "biobricks": [
-    "biobricks.org",
+    "biobricks-NOW-DOMAIN-SCAMMER.org",
     "Biobricks",
     "BioBricks Foundation"
+  ],
+  "blender": [
+    "blender.org",
+    "Blender Foundation",
+    "Stichting Blender Foundation"
   ],
   "bytecode": [
     "bytecodealliance.org",
@@ -81,7 +86,7 @@
     "Foundation for Public Code vereniging"
   ],
   "freebsd": [
-    "freebsd.org",
+    "freebsdfoundation.org",
     "FreeBSD",
     "FreeBSD Foundation"
   ],
@@ -166,6 +171,11 @@
     "LLVM",
     "LLVM Foundation"
   ],
+  "matrix": [
+    "matrix.org",
+    "The Matrix.org Foundation",
+    "THE MATRIX.ORG FOUNDATION C.I.C."
+  ],
   "mozilla": [
     "mozilla.org",
     "Mozilla",
@@ -178,8 +188,8 @@
   ],
   "numfocus": [
     "numfocus.org",
-    "NumFocus",
-    "NumFocus, Inc."
+    "NumFOCUS",
+    "NumFOCUS, Inc."
   ],
   "oasis": [
     "oasis-open.org",
@@ -237,7 +247,7 @@
     "Open Source Robotics Foundation Inc"
   ],
   "openstack": [
-    "openinfra.dev",
+    "openinfra.org",
     "Open Infra",
     "Openstack Foundation"
   ],
@@ -298,7 +308,7 @@
     "PostgreSQL.US",
     "United States Postgresql Association"
   ],
-  "processing-foundation": [
+  "processingfoundation": [
     "processingfoundation.org",
     "Processing Foundation",
     "Processing Foundation, Inc."
