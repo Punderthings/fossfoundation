@@ -2,12 +2,12 @@
 identifier: asf
 commonName: Apache Software Foundation
 legalName: Apache Software Foundation
-description:
-contacturl:
+description: The ASF provides software for the public good, guided by community over code.
+contacturl: https://www.apache.org/foundation/contact
 website: https://www.apache.org/
 foundingDate: '1999'
 addressCountry: US
-addressRegion:
+addressRegion: DE
 newProjects: 'yes'
 softwareType: various
 wikidataId: Q489709
@@ -17,7 +17,7 @@ boardurl: http://www.apache.org/foundation/
 teamurl:
 missionurl:
 bylawsurl: https://www.apache.org/foundation/bylaws.html
-numberOfEmployees: '7'
+numberOfEmployees: '9'
 governanceOrg: The Apache Way, with open and independent governance is required, and
   the ASF board oversees quarterly project reports directly.
 governanceTech:
@@ -27,27 +27,28 @@ projectsServices: Core infrastructure, legal, branding, and press services are p
   by the ASF to all projects; some level of directed sponsorship under Apache-wide
   policies is allowed.
 fiscalHost: indirect
-eventurl:
+eventurl: https://communityovercode.org/
 nonprofitStatus: Nonprofit501c3
 taxID: 47-0825376
-taxIDLocal:
-budgetUsd: 1.3M
-budgetYear:
+taxIDLocal: '3022048'
+budgetUsd: 2.5M
+budgetYear: '2025'
 budgeturl: https://whimsy.apache.org/board/minutes/Budget.html
-budgetTransparent:
+budgetTransparent: 'yes'
 funding: sponsors, donations
-donateurl:
+donateurl: https://donate.apache.org/
 sponsorurl: https://www.apache.org/foundation/thanks.html
 sponsorList: Cloudera, Comcast, Facebook, Google, Leaseweb, Microsoft, Pivotal, Yahoo!
 sponsorships: asf
 licenses: Apache-2.0
 claPolicy: CLA
-securityurl:
+securityurl: https://www.apache.org/security/
 ethicsPolicy:
 conducturl: https://www.apache.org/foundation/policies/conduct.html
-conductEvents:
+conductEvents: https://communityovercode.org/conduct/
 conductSource: Apache CouchDB CoC
 conductLinked: navbar, footer
+conductReport: email; individuals
 diversityPolicy: https://lists.apache.org/list.html?diversity@apache.org
 diversityDescription: Mailing list
 brandPrimary: Apache
