@@ -38,12 +38,12 @@ sponsorList: https://openinfra.dev/join/members/
 sponsorships:
 - openstack
 licenses: Apache-2.0
-claPolicy: https://openinfra.dev/cla/
+claPolicy: https://openinfra.org/dco/
 securityurl:
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy
 conducturl: https://openinfra.dev/legal/code-of-conduct
 conductEvents:
-conductSource:
+conductSource: PyCon; Django
 conductLinked: footer
 conductReport: email; community-conduct@
 diversityPolicy: https://openinfra.dev/about/diversity/

@@ -13,8 +13,8 @@ softwareType: scientific
 wikidataId: Q54449592
 boardSize: 8
 boardType:
-boardurl: https://numfocus.org/community/people
-teamurl:
+boardurl: https://numfocus.org/community/people#people-staff
+teamurl: https://numfocus.org/community/people#people-staff
 missionurl:
 bylawsurl: https://numfocus.org/wp-content/uploads/2020/04/NumFOCUS-Bylaws-Approved-16-May-2019.pdf
 numberOfEmployees: 14
@@ -44,8 +44,9 @@ securityurl:
 ethicsPolicy:
 conducturl: https://numfocus.org/code-of-conduct
 conductEvents: https://numfocus.org/code-of-conduct
-conductSource: Covenant; others
+conductSource: various
 conductLinked: footer; nav
+conductReport: form or email; committee; conduct@
 diversityPolicy: https://numfocus.org/programs/diversity-inclusion
 diversityDescription:
 brandPrimary: NumFocus

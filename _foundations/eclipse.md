@@ -44,8 +44,9 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.eclipse.org/org/documents/Community_Code_of_Conduct.php
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: Contributor Covenant 1.4
 conductLinked: footer
+conductReport: email; committee; conduct@
 diversityPolicy: https://accounts.eclipse.org/mailing-list/community-outreach
 diversityDescription: Mailing list
 brandPrimary: Eclipse

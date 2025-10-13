@@ -43,8 +43,9 @@ securityurl:
 ethicsPolicy: https://about.publiccode.net/organization/staff-code-of-conduct.html
 conducturl: https://github.com/publiccodenet/about/blob/develop/CODE_OF_CONDUCT.md
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: Contributor Covenant 1.4
 conductLinked:
+conductReport: email; committee; directors@
 diversityPolicy:
 diversityDescription:
 brandPrimary:

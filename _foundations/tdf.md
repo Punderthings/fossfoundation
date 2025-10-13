@@ -16,14 +16,14 @@ boardType: elected
 boardurl: https://www.documentfoundation.org/board/
 teamurl:
 missionurl:
-bylawsurl:
+bylawsurl: https://www.documentfoundation.org/statutes.pdf
 numberOfEmployees:
 governanceOrg:
 governanceTech:
-projectsNotable:
+projectsNotable: LibreOffice
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://www.libreoffice.org/events/
 nonprofitStatus: charitable
 taxID:
 taxIDLocal:
@@ -31,18 +31,18 @@ budgetUsd: 1.5M
 budgetYear: '2021'
 budgeturl: https://www.documentfoundation.org/financials-and-reports/
 budgetTransparent:
-funding: dinations
-donateurl:
+funding: donations
+donateurl: https://www.libreoffice.org/donate/
 sponsorurl:
 sponsorList:
 sponsorships:
-licenses:
+licenses: MPL-2.0
 claPolicy:
-securityurl:
+securityurl: https://www.libreoffice.org/about-us/security/
 ethicsPolicy:
 conducturl: https://www.documentfoundation.org/foundation/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant, others
+conductSource: Contributor Covenant 1.4, others
 conductLinked: menu
 diversityPolicy:
 diversityDescription:

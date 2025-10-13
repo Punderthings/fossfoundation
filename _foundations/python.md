@@ -11,12 +11,12 @@ addressRegion: DE
 newProjects:
 softwareType: devtool
 wikidataId: Q83818
-boardSize:
-boardType:
-boardurl:
+boardSize: 12
+boardType: elected
+boardurl: https://www.python.org/psf/board/
 teamurl:
-missionurl:
-bylawsurl:
+missionurl: https://www.python.org/psf/mission/
+bylawsurl: https://www.python.org/psf/bylaws/
 numberOfEmployees:
 governanceOrg:
 governanceTech:
@@ -24,7 +24,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 fiscalHost: direct
-eventurl:
+eventurl: https://www.python.org/events/python-events/
 nonprofitStatus: Nonprofit501c3
 taxID: 04-3594598
 taxIDLocal:
@@ -33,19 +33,20 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
-sponsorurl:
-sponsorList:
+donateurl: https://www.python.org/psf/donations/
+sponsorurl: https://www.python.org/sponsors/application/
+sponsorList: https://www.python.org/psf/sponsors/
 sponsorships:
 - python
 licenses:
-claPolicy:
-securityurl:
+claPolicy: https://www.python.org/psf/contrib/
+securityurl: https://www.python.org/dev/security/
 ethicsPolicy:
 conducturl: https://www.python.org/psf/codeofconduct/
 conductEvents: https://github.com/python/pycon-code-of-conduct/blob/master/code_of_conduct.md
-conductSource:
+conductSource: GeekFeminism; various
 conductLinked: footer
+conductReport: email; committee; conduct-wg@
 diversityPolicy: https://www.python.org/community/diversity/
 diversityDescription: Statement supporting diversity
 brandPrimary:

@@ -32,17 +32,17 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://www.perlfoundation.org/donate.html
 sponsorurl: https://www.perlfoundation.org/our-donors.html
 sponsorList: https://www.perlfoundation.org/how-do-sponsors-benefit.html
 sponsorships:
-licenses:
-claPolicy: https://www.perlfoundation.org/license-faq.html
+licenses: Artistic-2.0
+claPolicy: https://www.perlfoundation.org/contributor-license-agreement.html
 securityurl:
 ethicsPolicy: https://www.perlfoundation.org/conflict-of-interest-policy.html
 conducturl: https://github.com/tpf/soc/blob/main/Standards_of_Conduct.md
 conductEvents: https://perlconference.us/tpc-2018-slc/standards-of-conduct/
-conductSource: Contributor Covenant, others
+conductSource: Contributor Covenant 2.1
 conductLinked: x
 diversityPolicy:
 diversityDescription:

@@ -42,7 +42,7 @@ securityurl:
 ethicsPolicy: https://www.commonhaus.org/policies/conflict-of-interest/
 conducturl: https://www.commonhaus.org/policies/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: Contributor Covenant 1.4
 conductLinked: footer
 diversityPolicy:
 diversityDescription:

@@ -22,18 +22,18 @@ governanceOrg:
 governanceTech:
 projectsNotable:
 projectsList: https://dotnetfoundation.org/projects/current-projects
-projectsServices:
-eventurl:
+projectsServices: https://dotnetfoundation.org/projects/benefits
+eventurl: https://dotnetfoundation.org/community/.net-meetups
 nonprofitStatus: Nonprofit501c6
 taxID: 47-2119192
 taxIDLocal:
-budgetUsd:
-budgetYear:
+budgetUsd: 300K
+budgetYear: '2022'
 budgeturl: https://dotnetfoundation.org/about/budget
-budgetTransparent:
-funding:
+budgetTransparent: 'yes'
+funding: sponsors
 donateurl:
-sponsorurl:
+sponsorurl: https://dotnetfoundation.org/membership/corporate-sponsorship
 sponsorList:
 sponsorships:
 licenses: various
@@ -42,7 +42,7 @@ securityurl:
 ethicsPolicy:
 conducturl: https://dotnetfoundation.org/about/policies/code-of-conduct
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: Contributor Covenant 2.0
 conductLinked: footer
 diversityPolicy:
 diversityDescription:

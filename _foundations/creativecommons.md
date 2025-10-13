@@ -40,9 +40,9 @@ licenses: https://creativecommons.org/policies/#licensing%20statement
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl: https://opensource.creativecommons.org/community/code-of-conduct/
+conducturl: https://creativecommons.org/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: various
 conductLinked:
 diversityPolicy:
 diversityDescription:
