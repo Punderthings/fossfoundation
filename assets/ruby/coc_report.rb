@@ -124,7 +124,7 @@ if __FILE__ == $PROGRAM_NAME
   output = "---\n"
   output << "title: Codes Of Conduct\n"
   output << "excerpt: Code of Conduct Use By Foundations.\n"
-  output << "layout: reports\n"
+  output << "layout: report\n"
   output << "parent: Reports\n"
   output << "---\n\n"
   output << COCReports.coc2markdown()

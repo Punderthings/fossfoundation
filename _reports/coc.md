@@ -1,7 +1,7 @@
 ---
 title: Codes Of Conduct
 excerpt: Code of Conduct Use By Foundations.
-layout: reports
+layout: report
 parent: Reports
 ---
 
