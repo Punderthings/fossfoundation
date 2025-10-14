@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<article class="report_single" itemscope itemtype="https://schema.org/Article">
+  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: '%B %d, %Y' }}">{% endif %}
+  <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a> 
+    {{ page.commonName }}
+  </h1>
+
+  <hr id="tagindex"/>
+
+  {{ content }}
+
+</article>

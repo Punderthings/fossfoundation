@@ -4,7 +4,9 @@ theme: just-the-docs
 url: https://fossfoundation.info
 ga_tracking: G-LF1HV9CP39
 
-author: Shane Curcuru
+author: 
+  name: Shane Curcuru
+  url: https://shanecurcuru.org
 twitter:
   username: shanecurcuru
   card: summary
@@ -51,6 +53,10 @@ collections:
     output: true
     sort_by: name
     permalink: /:collection/:path
+  reports:
+    output: true
+    sort_by: name
+    permalink: /:collection/:path
 
 # Defaults
 defaults:
@@ -69,3 +75,8 @@ defaults:
       type: "entities"
     values:
       layout: entity
+  - scope:
+      path: ""
+      type: "reports"
+    values:
+      layout: report

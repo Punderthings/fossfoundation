@@ -7,6 +7,7 @@ module FoundationReporter
     - -u: Using UK Charity commission to download UK financial data
   HEREDOC
   module_function
+  require 'date'
   require 'yaml'
   require 'json'
   require 'csv'
@@ -22,17 +23,29 @@ module FoundationReporter
     'p990' => File.join(Dir.pwd, '_data/p990'),
     'taxes' => File.join(Dir.pwd, '_data/taxes')
   }
+  DEFAULT_FIELDS = %w[commonName nonprofitStatus orgFocus]
+  DISSOLUTION_DATE = 'dissolutionDate'
+  META_KEY = 'meta'
+  EXCLUDE_KEY = 'exclude'
+  IDENTIFIER_KEY = 'identifier'
+  DATASET_EXT = '*.md'
 
-  # Get a list of all yaml data files of a type
-  # @param dir pointing to _foundations, _sponsorships, etc.
-  # @return hash of org => yaml frontmatter hash
-  def get_yamldataset(dir)
-    datasets = {}
-    Pathname.glob(File.join(dir, "*.md")) do |file|
-      dataset = YAML.load_file(file)
-      datasets[dataset['identifier']] = dataset
+  # Get a list of all|current yaml data files of a type
+  # @param dataType of yaml from DATA_DIRS
+  # @param excludeField name of field to exclude if set (e.g. dissolved foundations) or nil
+  # @return hash of meta => {}, dataType  => {identifier => data}, (exclude = {identifier => data})
+  def get_dataset(dataType, excludeField = nil)
+    raise(ArgumentError, "Invalid data type provided: #{dataType}") if !FoundationReporter::DATA_DIRS.key?(dataType)
+    dataset = {META_KEY => {'method' => __method__.to_s, 'dataType' => dataType}, dataType => {}}
+    Pathname.glob(File.join(FoundationReporter::DATA_DIRS[dataType], FoundationReporter::DATASET_EXT)) do |file|
+      data = YAML.load_file(file)
+      dataset[dataType][data[IDENTIFIER_KEY]] = data
     end
-    return datasets
+    if excludeField
+      dataset[META_KEY]['excludeField'] = excludeField
+      dataset[EXCLUDE_KEY], dataset[dataType] = dataset[dataType].partition { |k, v| v.has_key?(excludeField) }.map(&:to_h) # FIXME: this detects if key present; we might want if present and nil value
+    end
+    return dataset
   end
 
   # Get a list of all available EINs (for US-based Nonprofit501c* only).
@@ -59,6 +72,7 @@ module FoundationReporter
   end
 
   # Gather statistics on a single field in all foundations
+  # FIXME: rewrite to match gather_fields() interface
   def gather_field(dir, onefield)
     orgs = {}
     vals = Hash.new{ | h, k | h[k] = [] }
@@ -73,6 +87,32 @@ module FoundationReporter
           vals[data] << identifier
         else
           orgs[identifier] = "" # Include foundations with blanks explicitly
+        end
+      rescue StandardError => e
+        puts "ERROR #{e}"
+        next # Otherwise ignore errors
+      end
+    end
+    return output
+  end
+
+  # Gather statistics on a multiple fields, selecting by first field for non-blank
+  # @param dataset to evaluate
+  # @param fieldList of fields to report out on; .first selects for non-blank
+  def gather_fields(dataset, fieldList)
+    orgs = {}
+    blankorgs = []
+    output = {'orgs' => orgs, 'blanks' => blankorgs}
+    dataset.each do |identifier, org|
+      begin
+        tmp = {}
+        fieldList.each do |f|
+          tmp[f] = org.fetch(f, "")
+        end
+        if tmp[fieldList.first].to_s.empty?
+          blankorgs << identifier
+        else
+          orgs[identifier] = tmp
         end
       rescue StandardError => e
         puts "ERROR #{e}"
@@ -95,6 +135,35 @@ module FoundationReporter
     end
     report['fieldcount'] = Hash[report['fieldcount'].sort_by { |k, v| -v }]
     return report
+  end
+
+  # Report a set of fields for all active foundations
+  # @param dataset to evaluate
+  # @param fieldList of fields to report out on; .first selects for non-blank
+  # @return hash of orgs and blanks with selected fields
+  def foundation_fields(fieldList, csvfile = nil, jsonfile = nil)
+    reportFields = fieldList + FoundationReporter::DEFAULT_FIELDS
+    fdns = FoundationReporter.get_dataset('foundations', FoundationReporter::DISSOLUTION_DATE)
+    report = FoundationReporter.gather_fields(fdns['foundations'], reportFields)
+    orgs = report['orgs']
+    blanks = report['blanks']
+    puts "Active foundations: #{fdns['foundations'].size}, selection field: #{fieldList.first}, orgs with data/blanks: #{orgs.size} / #{blanks.size}"
+    puts "Blank orgs: #{report['blanks'].join(', ')}"
+    if jsonfile
+      File.open(jsonfile, "w") do |f|
+        f.write(JSON.pretty_generate(report))
+      end
+    else
+      puts JSON.pretty_generate(report)
+    end
+    if csvfile
+      CSV.open(csvfile, "w", force_quotes: true) do |csv|
+        csv << ['identifier', *reportFields]
+        orgs.each do |identifier, fields|
+          csv << [identifier, *reportFields.map { |field| fields[field] }]
+        end
+      end
+    end
   end
 
   # Fetch a full report of a single UK charity
@@ -151,6 +220,9 @@ module FoundationReporter
       opts.on('-uUKCHARITY', '--uk UKCHARITY', 'Download a single UK charity report.') do |ukorg|
         options[:ukorg] = ukorg
       end
+      opts.on('-lXYZ''--fields x,y,z', Array, 'Report on a custom list of fields (plus DEFAULT_FIELDS).') do |fieldList|
+        options[:fieldList] = fieldList
+      end
       begin
         opts.parse!
       rescue OptionParser::ParseError => e
@@ -167,6 +239,12 @@ end
 # Main method for command line use
 if __FILE__ == $PROGRAM_NAME
   options = FoundationReporter.parse_commandline
+  fieldList = options.fetch(:fieldList, [])
+  if fieldList.size > 0
+    FoundationReporter.foundation_fields(fieldList, options[:out]) # HACK: print JSON, dump CSV file if provided
+    exit 0
+  end
+
   ukorg = options.fetch(:ukorg, nil)
   if ukorg
     outfile = File.join(FoundationReporter::DATA_DIRS['taxes'], "uk-#{ukorg}.json")
@@ -180,27 +258,24 @@ if __FILE__ == $PROGRAM_NAME
 
   ctype = options.fetch(:ctype, nil)
   if ctype
-    raise(ArgumentError, "Invalid data type provided: #{ctype}") if !FoundationReporter::DATA_DIRS.key?(ctype)
-    output = {}
-    dataset = FoundationReporter.get_yamldataset(FoundationReporter::DATA_DIRS[ctype])
-    output = FoundationReporter.field_usage(dataset)
+    dataset = FoundationReporter.get_dataset(ctype)
+    output = FoundationReporter.field_usage(dataset[ctype])
     puts JSON.pretty_generate(output)
   end
 
   ctype ||= 'foundations'
   onefield = options.fetch(:onefield, nil)
   if onefield
-    output = {}
     output = FoundationReporter.gather_field(FoundationReporter::DATA_DIRS[ctype], onefield)
     puts JSON.pretty_generate(output)
   end
 
   reports = options.fetch(:reports, nil) ### FIXME value of flag unused currently
-  options[:outfile] ||= 'foundations_990_common.csv'
+  options[:out] ||= 'foundations_990_common.csv'
   if reports
     eins = FoundationReporter.get_eins(FoundationReporter::DATA_DIRS['foundations'])
     orgs = Propublica990.get_orgs(eins, FoundationReporter::DATA_DIRS['p990'], refresh = true)
-    report_csv = File.join(FoundationReporter::DATA_DIRS['p990'], options[:outfile])
+    report_csv = File.join(FoundationReporter::DATA_DIRS['p990'], options[:out])
     Propublica990.orgs2csv_common(orgs, report_csv)
   end
 end
