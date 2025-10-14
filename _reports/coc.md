@@ -7,7 +7,9 @@ parent: Reports
 
 [Dataset Size](#dataset-size) | [Nonprofit Type](#nonprofitStatus) | [Inspiration](#inspiration)
 
+
 <section id='dataset-size'>
+
 
 ## Dataset Size
 
@@ -18,7 +20,9 @@ parent: Reports
   - With a COC:  59  (74%)
   - With**out** COC: 21  (26%)
 
+
 </section>
+
 
 * * *
 
