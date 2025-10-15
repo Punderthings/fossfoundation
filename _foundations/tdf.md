@@ -42,7 +42,7 @@ securityurl: https://www.libreoffice.org/about-us/security/
 ethicsPolicy:
 conducturl: https://www.documentfoundation.org/foundation/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant 1.4, others
+conductSource: Contributor Covenant 1.4; various
 conductLinked: menu
 diversityPolicy:
 diversityDescription:

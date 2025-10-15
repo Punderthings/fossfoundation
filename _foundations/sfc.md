@@ -47,7 +47,7 @@ securityurl:
 ethicsPolicy:
 conducturl:
 conductEvents:
-conductSource: None posted
+conductSource:
 conductLinked:
 diversityPolicy: https://sfconservancy.org/blog/?tag=diversity
 diversityDescription: Blog postings

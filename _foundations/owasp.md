@@ -45,8 +45,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://owasp.org/www-policy/operational/code-of-conduct
 conductEvents:
-conductSource: None, but Board CoC is posted
-conductLinked: x
+conductSource:
+conductLinked:
 diversityPolicy:
 diversityDescription:
 brandPrimary: OWASP

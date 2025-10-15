@@ -42,7 +42,7 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.djangoproject.com/conduct/
 conductEvents:
-conductSource: Speak Up! Project
+conductSource: SpeakUp
 conductLinked: footer
 diversityPolicy: https://www.djangoproject.com/diversity/
 diversityDescription: Statement supporting diversity

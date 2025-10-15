@@ -49,7 +49,7 @@ securityurl:
 ethicsPolicy:
 conducturl:
 conductEvents:
-conductSource: None posted
+conductSource:
 conductLinked:
 conductProjects:
 - https://www.debian.org/code_of_conduct.en.html

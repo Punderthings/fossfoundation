@@ -43,7 +43,7 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.freebsd.org/internal/code-of-conduct/
 conductEvents:
-conductSource: Django; Speak Up!
+conductSource: Django; SpeakUp
 conductLinked:
 conductReport: email; committee; conduct@
 diversityPolicy:

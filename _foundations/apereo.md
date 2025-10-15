@@ -43,7 +43,7 @@ securityurl:
 ethicsPolicy: https://www.apereo.org/content/apereo-privacy-policy
 conducturl: https://www.apereo.org/content/apereo-welcoming-policy-20-extended-version
 conductEvents:
-conductSource: Mozilla participation guidelines, Ubuntu code of conduct, view source code of conduct
+conductSource: Mozilla; Ubuntu; ViewSource
 conductLinked: 
 diversityPolicy:
 diversityDescription:

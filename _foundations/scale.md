@@ -42,7 +42,7 @@ securityurl:
 ethicsPolicy:
 conducturl: https://socallinuxexpo.org/scale/23x/code-conduct
 conductEvents:
-conductSource: Geek Feminisim
+conductSource: GeekFeminism
 conductLinked: footer
 diversityPolicy:
 diversityDescription:
