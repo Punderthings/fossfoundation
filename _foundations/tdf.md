@@ -42,7 +42,11 @@ securityurl: https://www.libreoffice.org/about-us/security/
 ethicsPolicy:
 conducturl: https://www.documentfoundation.org/foundation/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant 1.4; various
+conductSource: 
+- covenant
+- geekfeminism
+- ada
+- Audrey Eschright of Safety First PDX
 conductLinked: menu
 diversityPolicy:
 diversityDescription:

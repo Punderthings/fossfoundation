@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://dotnetfoundation.org/about/policies/code-of-conduct
 conductEvents:
-conductSource: Contributor Covenant 2.0
+conductSource: 
+- covenant
 conductLinked: footer
 diversityPolicy:
 diversityDescription:

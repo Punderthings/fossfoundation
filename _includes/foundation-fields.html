@@ -12,7 +12,7 @@
     {% if page.addressRegion %}<abbr title="State, Province, District, or similar region organization is incorporated in.">State</abbr>: <span itemprop="addressRegion">{{ page.addressRegion }}</span><br/>{% endif %}
     {% if page.newProjects %}<abbr title="Does this organization actively accept new projects for hosting?">Accepts new projects?</abbr>: <span itemprop="newProjects">{{ page.newProjects }}</span><br/>{% endif %}
     {% if page.softwareType %}<abbr title="What general kind(s) of software does this org create? May be 'various'.">Software Types</abbr>: <span itemprop="softwareType">{{ page.softwareType }}</span><br/>{% endif %}
-    {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <span itemprop="wikidataId">{{ page.wikidataId }}</span><br/>{% endif %}
+    {% if page.wikidataId %}<abbr title="Wikidata ID for lookups.">Wikidata ID</abbr>: <a itemprop="wikidataId" href="https://www.wikidata.org/wiki/{{ page.wikidataId }}">{{ page.wikidataId }}</a><br/>{% endif %}
   </section>
   <section id="governance-section">
     <h2 id="governance">Governance</h2>
@@ -44,9 +44,13 @@
     {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
     {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
     {% if page.sponsorships %}
-    {% for loopitem in page.sponsorships %}
-    <abbr title="Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json">Sponsorship Program Model</abbr>: <span itemprop="sponsorships">{{ loopitem }}</span><br/>
-    {% endfor %}
+    <abbr title="Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json">Sponsorship Program Model</abbr>:
+    <ul>
+{% assign jjmapping = site['sponsorships'] %}
+      {% for loopitem in page.sponsorships %}
+      <li>{% assign jjlinkmap = jjmapping | where: 'identifier', loopitem | first %}{% if jjlinkmap %}<span itemprop="sponsorships"><a href="/sponsorships/{{ jjlinkmap['identifier'] }}">{{ jjlinkmap['name'] }}</a></span>{% else %}<span itemprop="sponsorships">{{ loopitem }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
     <br/>{% endif %}
   </section>
   <section id="policy-section">
@@ -58,11 +62,22 @@
     {% if page.conducturl %}<abbr title="Link to official Code of Conduct.">Code Of Conduct Website</abbr>: <a itemprop="conducturl" href="{{ page.conducturl }}">{{ page.conducturl }}</a><br/>{% endif %}
     {% if page.conductEvents %}<abbr title="Link to official event-related Code of Conduct.">Event Code Of Conduct Website</abbr>: <a itemprop="conductEvents" href="{{ page.conductEvents }}">{{ page.conductEvents }}</a><br/>{% endif %}
     {% if page.conductProjects %}
-    {% for loopitem in page.conductProjects %}
-    <abbr title="Links to any hosted project or initiative COCs.">Per-Project Codes Of Conduct</abbr>: <span itemprop="conductProjects">{{ loopitem }}</span><br/>
-    {% endfor %}
+    <abbr title="Links to any hosted project or initiative COCs.">Per-Project Codes Of Conduct</abbr>:
+    <ul>
+      {% for loopitem in page.conductProjects %}
+      <li><a itemprop="conductProjects" href="{{ loopitem }}">{{ loopitem }}</a></li>
+      {% endfor %}
+    </ul>
     <br/>{% endif %}
-    {% if page.conductSource %}<abbr title="Cited source or inspiration for Code of Conduct policy.">Source Of Code Of Conduct</abbr>: <span itemprop="conductSource">{{ page.conductSource }}</span><br/>{% endif %}
+    {% if page.conductSource %}
+    <abbr title="Cited sources or inspirations for Code of Conduct policy; see opensourceconduct.com.">Source Of Code Of Conduct</abbr>:
+    <ul>
+{% assign jjmapping = site['cocs'] %}
+      {% for loopitem in page.conductSource %}
+      <li>{% assign jjlinkmap = jjmapping | where: 'identifier', loopitem | first %}{% if jjlinkmap %}<span itemprop="conductSource"><a href="https://opensourceconduct.com/cocs/{{ jjlinkmap['identifier'] }}">{{ jjlinkmap['name'] }}</a></span>{% else %}<span itemprop="conductSource">{{ loopitem }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    <br/>{% endif %}
     {% if page.conductLinked %}<abbr title="Where is the Code of Conduct linked from the organization's homepage?">Where Code Of Conduct Linked</abbr>: <span itemprop="conductLinked">{{ page.conductLinked }}</span><br/>{% endif %}
     {% if page.conductReport %}<abbr title="Brief description of how to report violations of the Code of Conduct.">How To Report COC Violations</abbr>: <span itemprop="conductReport">{{ page.conductReport }}</span><br/>{% endif %}
     {% if page.diversityPolicy %}<abbr title="Diversity, inclusion, or other related policies or informational page.">Diversity Policy Website</abbr>: <a itemprop="diversityPolicy" href="{{ page.diversityPolicy }}">{{ page.diversityPolicy }}</a><br/>{% endif %}
@@ -79,8 +94,12 @@
     {% if page.logo %}<abbr title="Official organizational logo URL.">Official Logo Link</abbr>: <a itemprop="logo" href="{{ page.logo }}">{{ page.logo }}</a><br/>{% endif %}
     {% if page.logoReg %}<abbr title="Is the official logo a registered trademark? (yes/no/or major countries registered in).">Is Logo Registered?</abbr>: <span itemprop="logoReg">{{ page.logoReg }}</span><br/>{% endif %}
     {% if page.subOrganization %}
-    {% for loopitem in page.subOrganization %}
-    <abbr title="Identifiers of subprojects tracked in _entities data.">Sub Entities Governed</abbr>: <span itemprop="subOrganization">{{ loopitem }}</span><br/>
-    {% endfor %}
+    <abbr title="Identifiers of subprojects tracked in _entities data.">Sub Entities Governed</abbr>:
+    <ul>
+{% assign jjmapping = site['entities'] %}
+      {% for loopitem in page.subOrganization %}
+      <li>{% assign jjlinkmap = jjmapping | where: 'identifier', loopitem | first %}{% if jjlinkmap %}<span itemprop="subOrganization"><a href="/entities/{{ jjlinkmap['identifier'] }}">{{ jjlinkmap['name'] }}</a></span>{% else %}<span itemprop="subOrganization">{{ loopitem }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
     <br/>{% endif %}
   </section>

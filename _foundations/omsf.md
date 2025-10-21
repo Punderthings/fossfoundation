@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://omsf.io/conduct/
 conductEvents:
-conductSource: Apache Software Foundation
+conductSource: 
+- Apache Software Foundation
 conductLinked:
 diversityPolicy:
 diversityDescription:

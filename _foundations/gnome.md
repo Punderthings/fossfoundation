@@ -43,7 +43,8 @@ securityurl:
 ethicsPolicy: https://gitlab.gnome.org/Teams/Board/-/blob/main/policy-documents/GNOME-Foundation-Ethical-Conduct-Policy-Directors.pdf?ref_type=heads
 conducturl: https://conduct.gnome.org/
 conductEvents:
-conductSource: GeekFeminism
+conductSource: 
+- geekfeminism
 conductLinked: footer
 conductReport: form or email; committee; code-of-conduct@
 diversityPolicy:

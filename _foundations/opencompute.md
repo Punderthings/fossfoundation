@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.opencompute.org/documents/ocp-operating-structure-and-policies-as-of-mar-2025
 conductEvents:
-conductSource: Contributor Covenant
+conductSource:
+- covenant
 conductLinked:
 diversityPolicy: https://www.opencompute.org/documents/ocp-terminology-guidelines-for-inclusion-and-openness
 diversityDescription:

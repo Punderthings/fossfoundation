@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://erlef.org/code-of-conduct
 conductEvents:
-conductSource: Contributor Covenant
+conductSource: 
+- covenant
 conductLinked: footer
 conductReport: email; committee; conduct@
 diversityPolicy:

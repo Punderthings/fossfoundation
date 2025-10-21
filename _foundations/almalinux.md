@@ -42,7 +42,8 @@ securityurl: https://almalinux.org/.well-known/security.txt
 ethicsPolicy: https://almalinux.org/p/foundation-board-operations-and-ethics/
 conducturl: https://wiki.almalinux.org/community/coc.html
 conductEvents:
-conductSource: Red Hat
+conductSource: 
+- Red Hat
 conductLinked:
 diversityPolicy:
 diversityDescription:

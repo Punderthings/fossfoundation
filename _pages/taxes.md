@@ -46,6 +46,8 @@ Nonprofit taxes vary by country, so Europe is quite complex when comparing diffe
 
 - [IRS Equivalency Determination](https://www.irs.gov/charities-non-profits/grants-to-foreign-organizations-by-private-foundations) - guidelines for determining if a specific non-US organization is similar enough to a (c)(3)
 - [NGO Source](https://www.ngosource.org/) - an organization specializing in making equivalency determinations
+- Council of Foundations has detailed reviews of NPOs, for [example in Germany](https://cof.org/content/nonprofit-law-germany)
+- [Tertius](https://tertius-online.de/) - a Structured database of NPO laws and policies in Germany and EU
 
 ### International Nonprofit Tax Lookup
 
@@ -55,6 +57,13 @@ Nonprofit taxes vary by country, so Europe is quite complex when comparing diffe
 - NL https://www.kvk.nl/zoeken/handelsregister/?handelsnaam=NLNet&kvknummer=&straat=&postcode=&huisnummer=&plaats=&hoofdvestiging=1&rechtspersoon=1&nevenvestiging=1&zoekvervallen=0&zoekuitgeschreven=1&start=0  Various reports available for a fee
 - DE https://www.unternehmensregister.de/ureg/?submitaction=language&language=en or https://www.handelsregister.de/ - includes various downloads, but no obvious finances
 - AT Searches cost a fee https://www.justiz.gv.at/service/datenbanken/firmenbuch/
+
+### International NPO Legal Types By Country
+
+- [A simplistic listing in EU by Nordic HQ](https://www.nordichq.com/guides/list-of-legal-entity-types-by-country-in-europe/)
+- [2009 research paper on detailed NPO laws in Europe](https://www.icnl.org/resources/research/ijnl/the-legal-framework-for-not-for-profit-organizations-in-central-and-eastern-europe)
+- [Organizational and Legal Forms of Nonprofit Organizations in Central Europe, 2004](https://www.researchgate.net/publication/302041292_Organizational_and_Legal_Forms_of_Nonprofit_Organizations_in_Central_Europe)
+
 
 ### Notes on some EU Charities
 

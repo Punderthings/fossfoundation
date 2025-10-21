@@ -41,7 +41,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.clojuriststogether.org/docs/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant 2.0
+conductSource: 
+- covenant
 conductLinked: footer
 conductReport: email; single; conduct@
 diversityPolicy:

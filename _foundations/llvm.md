@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://foundation.llvm.org/docs/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant 2.0
+conductSource: 
+- covenant
 conductLinked: footer
 conductReport: email; committee; conduct@
 diversityPolicy:

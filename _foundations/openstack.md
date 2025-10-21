@@ -43,7 +43,9 @@ securityurl:
 ethicsPolicy: https://openinfra.dev/legal/antitrust-compliance-policy
 conducturl: https://openinfra.dev/legal/code-of-conduct
 conductEvents:
-conductSource: PyCon; Django
+conductSource: 
+- pycon
+- django
 conductLinked: footer
 conductReport: email; community-conduct@
 diversityPolicy: https://openinfra.dev/about/diversity/

@@ -42,7 +42,9 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.mozilla.org/en-US/about/governance/policies/participation/
 conductEvents:
-conductSource: Ubuntu; Citizens
+conductSource: 
+- ubuntu
+- citizen
 conductLinked: footer
 diversityPolicy: https://blog.mozilla.org/inclusion/
 diversityDescription: Initiative

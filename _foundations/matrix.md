@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy: 
 conducturl: https://matrix.org/legal/code-of-conduct/
 conductEvents:
-conductSource: Contributor Covenant 1.4
+conductSource: 
+- covenant
 conductLinked: 
 diversityPolicy:
 diversityDescription:

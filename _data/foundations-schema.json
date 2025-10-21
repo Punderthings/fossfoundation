@@ -81,7 +81,8 @@
     "wikidataId": {
       "title": "Wikidata ID",
       "description": "Wikidata ID for lookups.",
-      "type": "string"
+      "type": "string",
+      "format": "urlfragment~https://www.wikidata.org/wiki/"
     },
     "boardSize": {
       "section": "Governance",
@@ -220,7 +221,8 @@
       "description": "Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json",
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "format": "jjresolver~sponsorships~identifier~name~/sponsorships/"
       },
       "uniqueItems": true
     },
@@ -264,14 +266,20 @@
       "description": "Links to any hosted project or initiative COCs.",
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "format": "url"
       },
       "uniqueItems": true
     },
     "conductSource": {
       "title": "Source Of Code Of Conduct",
-      "description": "Cited source or inspiration for Code of Conduct policy.",
-      "type": "string"
+      "description": "Cited sources or inspirations for Code of Conduct policy; see opensourceconduct.com.",
+     "type": "array",
+      "items": {
+        "type": "string",
+        "format": "jjresolver~cocs~identifier~name~https://opensourceconduct.com/cocs/"
+      },
+      "uniqueItems": true
     },
     "conductLinked": {
       "title": "Where Code Of Conduct Linked",
@@ -343,7 +351,8 @@
       "description": "Identifiers of subprojects tracked in _entities data.",
       "type": "array",
       "items": {
-        "type": "string"
+        "type": "string",
+        "format": "jjresolver~entities~identifier~name~/entities/"
       },
       "uniqueItems": true
     }

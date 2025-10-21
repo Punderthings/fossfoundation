@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.netbsd.org/foundation/code-of-conduct.html
 conductEvents:
-conductSource: GeekFeminism
+conductSource: 
+- geekfeminism
 conductLinked: about nav
 conductReport: email; committee; conduct@
 diversityPolicy:

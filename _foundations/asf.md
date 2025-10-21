@@ -46,7 +46,8 @@ securityurl: https://www.apache.org/security/
 ethicsPolicy:
 conducturl: https://www.apache.org/foundation/policies/conduct.html
 conductEvents: https://communityovercode.org/conduct/
-conductSource: Apache CouchDB CoC
+conductSource: 
+- Apache CouchDB CoC
 conductLinked: navbar, footer
 conductReport: email; individuals
 diversityPolicy: https://lists.apache.org/list.html?diversity@apache.org

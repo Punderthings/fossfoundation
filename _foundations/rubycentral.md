@@ -42,7 +42,8 @@ securityurl: https://rubygems.org/pages/security
 ethicsPolicy:
 conducturl: https://rubycentral.org/news/project-codes-of-conduct/
 conductEvents: https://drive.google.com/file/d/1OBF15i76xc-bsVTOIgBZeB6vpTo-Bsg3/view
-conductSource: Contributor Covenant
+conductSource:
+- covenant
 conductLinked:
 diversityPolicy:
 diversityDescription:

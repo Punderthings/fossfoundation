@@ -80,3 +80,36 @@ defaults:
       type: "reports"
     values:
       layout: report
+
+# Generated list of opensourceconduct/_cocs by SchemaUtils/bin/build_config_map.py
+cocs:
+- identifier: ada
+  name: Ada Initiative Conference anti-harassment Policy
+- identifier: citizen
+  name: Citizen Code of Conduct
+- identifier: covenant
+  name: Contributor Covenant
+- identifier: django
+  name: Django Code of Conduct
+- identifier: geekfeminism
+  name: Geek Feminism Community anti-harassment Policy
+- identifier: lgbtqintech
+  name: LGBTQ In Tech Code of Conduct
+- identifier: ottertech
+  name: Otter Tech Code of Conduct and Procedures Templates
+- identifier: pycon
+  name: PyCon US Code of Conduct
+- identifier: python
+  name: Python Software Foundation Code of Conduct
+- identifier: pythonmentors
+  name: Python Mentors Code Of Conduct
+- identifier: rust
+  name: Rust Code Of Conduct
+- identifier: speakup
+  name: Speak Up! Community Code of Conduct
+- identifier: todogroup
+  name: Open Code Of Conduct
+- identifier: ubuntu
+  name: Ubuntu Code of Conduct v2.0
+- identifier: viewsource
+  name: View Source Code Of Conduct

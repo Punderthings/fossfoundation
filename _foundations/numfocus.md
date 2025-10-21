@@ -44,7 +44,11 @@ securityurl:
 ethicsPolicy:
 conducturl: https://numfocus.org/code-of-conduct
 conductEvents: https://numfocus.org/code-of-conduct
-conductSource: various
+conductSource:
+- python
+- ada
+- Audrey Eschright of Safety First PDX
+- Otter Tech Code of Conduct template
 conductLinked: footer; nav
 conductReport: form or email; committee; conduct@
 diversityPolicy: https://numfocus.org/programs/diversity-inclusion

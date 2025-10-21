@@ -45,7 +45,8 @@ conducturl: https://github.com/bytecodealliance/governance/blob/main/CODE_OF_CON
 conductEvents:
 conductProjects: 
 - https://github.com/bytecodealliance/wasmtime/blob/main/CODE_OF_CONDUCT.md
-conductSource: Contributor Covenant 2.0
+conductSource: 
+- covenant
 conductLinked:
 conductReport: email; single; coc@
 diversityPolicy:

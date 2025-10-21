@@ -44,7 +44,9 @@ securityurl:
 ethicsPolicy: https://wiki.osgeo.org/wiki/Conflict_Of_Interest_Policy
 conducturl: https://www.osgeo.org/code_of_conduct/
 conductEvents:
-conductSource: Contributor Convenant; Berlin Code of Conduct
+conductSource: 
+- covenant
+- Berlin Code of Conduct
 conductLinked: header
 conductReport: email; committee; conduct-report@
 diversityPolicy: https://www.osgeo.org/code_of_conduct/

@@ -43,7 +43,7 @@ ethicsPolicy:
 conducturl: https://foundation.wikimedia.org/wiki/Policy:Universal_Code_of_Conduct
 conductEvents:
 conductSource:
-conductLinked: x
+conductLinked:
 diversityPolicy:
 diversityDescription:
 brandPrimary: Wikipedia

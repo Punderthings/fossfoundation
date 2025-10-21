@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://2025.djangocon.us/conduct/
 conductEvents: https://2025.djangocon.us/conduct/
-conductSource:  GeekFeminism
+conductSource: 
+- geekfeminism
 conductLinked: header
 conductReport: email; committee; conduct@
 diversityPolicy:

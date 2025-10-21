@@ -44,7 +44,15 @@ securityurl: https://www.python.org/dev/security/
 ethicsPolicy:
 conducturl: https://www.python.org/psf/codeofconduct/
 conductEvents: https://github.com/python/pycon-code-of-conduct/blob/master/code_of_conduct.md
-conductSource: GeekFeminism; various
+conductSource:
+- geekfeminism
+- https://affectconf.com/coc/
+- citizen
+- covenant
+- django
+- lgbtqintech
+- pycon
+- rust
 conductLinked: footer
 conductReport: email; committee; conduct-wg@
 diversityPolicy: https://www.python.org/community/diversity/

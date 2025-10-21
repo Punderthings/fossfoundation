@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy:
 conducturl: https://www.kernel.org/doc/html/latest/process/code-of-conduct.html
 conductEvents:
-conductSource: Contributor Covenant 1.4
+conductSource: 
+- covenant
 conductLinked: About section
 conductReport: email; committee; conduct@
 diversityPolicy:

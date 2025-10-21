@@ -42,7 +42,8 @@ securityurl: https://openjsf.org/security
 ethicsPolicy:
 conducturl: https://code-of-conduct.openjsf.org/
 conductEvents:
-conductSource: Contributor Covenant 2.0
+conductSource:
+- covenant
 conductLinked: footer
 conductReport: email; report@
 diversityPolicy:

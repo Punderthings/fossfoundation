@@ -43,7 +43,8 @@ securityurl: https://www.drupal.org/drupal-security-team/
 ethicsPolicy:
 conducturl: https://www.drupal.org/dcoc
 conductEvents: https://events.drupal.org/code-conduct
-conductSource: Ubuntu
+conductSource: 
+- ubuntu
 conductLinked: footer
 diversityPolicy: https://www.drupaldiversity.com/docs
 diversityDescription: Program and Initiatives

@@ -42,8 +42,9 @@ securityurl:
 ethicsPolicy: https://www.perlfoundation.org/conflict-of-interest-policy.html
 conducturl: https://github.com/tpf/soc/blob/main/Standards_of_Conduct.md
 conductEvents: https://perlconference.us/tpc-2018-slc/standards-of-conduct/
-conductSource: Contributor Covenant 2.1
-conductLinked: x
+conductSource:
+- covenant
+conductLinked:
 diversityPolicy:
 diversityDescription:
 brandPrimary: Perl

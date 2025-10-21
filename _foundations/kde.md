@@ -42,7 +42,8 @@ securityurl:
 ethicsPolicy: https://ev.kde.org/rules/ConflictofInterestPolicy.pdf
 conducturl: https://kde.org/code-of-conduct/
 conductEvents:
-conductSource: Ubuntu
+conductSource: 
+- ubuntu
 conductLinked: footer
 diversityPolicy:
 diversityDescription:

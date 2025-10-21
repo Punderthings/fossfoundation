@@ -44,7 +44,8 @@ conductProjects:
 - https://github.com/processing/processing-website?tab=coc-ov-file
 - https://github.com/processing/p5.js/blob/main/CODE_OF_CONDUCT.md
 conductEvents:
-conductSource: Contributor Covenant
+conductSource:
+- covenant
 conductLinked: 
 diversityPolicy: 
 diversityDescription: 

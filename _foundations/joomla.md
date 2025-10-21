@@ -42,8 +42,9 @@ securityurl: https://developer.joomla.org/security-centre.html
 ethicsPolicy:
 conducturl: https://www.joomla.org/about-joomla/the-project/code-of-conduct.html
 conductEvents:
-conductSource: Ubuntu
-conductLinked: x
+conductSource: 
+- ubuntu
+conductLinked:
 diversityPolicy:
 diversityDescription:
 brandPrimary: Joomla!

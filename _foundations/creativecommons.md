@@ -42,7 +42,12 @@ securityurl:
 ethicsPolicy:
 conducturl: https://creativecommons.org/code-of-conduct/
 conductEvents:
-conductSource: various
+conductSource:
+- covenant
+- geekfeminism
+- ubuntu
+- citizen
+- Mozilla
 conductLinked:
 diversityPolicy:
 diversityDescription:

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo "Building default liquid template from schema"
+ruby ../SchemaUtils/lib/schema_utils.rb -i _data/foundations-schema.json -o _includes/foundation-fields.html -t _data/foundation-template.md
