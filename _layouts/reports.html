@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<hr id="listing"/>
+<ul>
+  {% for rpt in site.reports %}
+  <li>
+    {% include report-listitem.html %}
+  </li>
+  {% endfor %}
+</ul>

@@ -1,6 +1,7 @@
 ---
+identifier: cocuse
 title: Codes Of Conduct
-excerpt: Code of Conduct Use By Foundations.
+description: Code of Conduct Use By Foundations and Cited Inspirations.
 layout: report
 parent: Reports
 generator: assets/ruby/coc_report.rb

@@ -2,15 +2,12 @@
 layout: default
 ---
 
-<h1>{{ page.excerpt }}</h1>
-
 <article class="report_single" itemscope itemtype="https://schema.org/Article">
   {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: '%B %d, %Y' }}">{% endif %}
 
-  <hr id="tagindex"/>
+  <h1>{{ page.title }}</h1>
+  <h2>{{ page.description }}</h2>
 
-
-{{ content }}
-
+  {{ content }}
 
 </article>
