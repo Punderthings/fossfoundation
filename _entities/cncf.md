@@ -1,47 +1,65 @@
 ---
 identifier: cncf
-commonName: Cloud Native Computing Foundation
-parentOrganization: lf
+commonName: CNCF
+legalName: Cloud Native Computing Foundation
+description: As part of the Linux Foundation, we provide support, oversight and
+  direction for fast-growing, cloud native projects, including Kubernetes, Envoy,
+  and Prometheus.
+contacturl: https://www.cncf.io/about/contact/
 website: https://www.cncf.io/
-newProjects: 'yes'
+foundingDate:
+addressCountry: US
+addressRegion:
+newProjects: yes
 softwareType: various
 wikidataId: Q50866964
-boardSize: '9'
-boardType: elected
+boardSize: 23
+boardType: paid
 boardurl: https://www.cncf.io/people/governing-board/
-bylawsurl: https://github.com/cncf/foundation/blob/main/charter.md#11-ip-policy
-numberOfEmployees:
-funding: sponsors
+teamurl: https://www.cncf.io/people/staff/
+missionurl: https://www.cncf.io/about/who-we-are/
+bylawsurl:
+numberOfEmployees: 36
+governanceOrg:
+governanceTech: https://www.cncf.io/people/technical-oversight-committee/
+projectsNotable:
+projectsList: https://www.cncf.io/projects/
+projectsServices: https://contribute.cncf.io/resources/project-services/
+eventurl: https://www.cncf.io/events/
+nonprofitStatus: lf
 budgetUsd:
 budgetYear:
 budgeturl:
-annualReports: https://www.cncf.io/reports/cncf-annual-report-2023/
-sponsorurl: https://www.cncf.io/about/members/
-sponsorList:
-sponsorship: cncf
-licenses:
-claPolicy:
+budgetTransparent:
+funding: sponsors
+donateurl:
+sponsorurl: https://www.cncf.io/about/join/
+sponsorList: https://www.cncf.io/about/members/
+sponsorships:
+- cncf
+licenses: various
+claPolicy: DCO or CLA
+securityurl:
 ethicsPolicy:
-governanceOrg: https://www.cncf.io/people/technical-oversight-committee/
-governanceTech:
-projectsNotable:
-projectsList: https://www.cncf.io/projects/
-projectsServices:
-eventsurl: https://www.cncf.io/events/
-logo: https://www.cncf.io/wp-content/uploads/2022/07/cncf-color-bg.svg
-logoReg:
-brandPrimary: CNCF
-brandSecondary:
-brandPolicy: https://www.cncf.io/brand-guidelines/
-brandReg: 'yes'
-brandUse:
-brandComments:
+policyurl: https://www.cncf.io/policies/
 conducturl: https://www.cncf.io/conduct/
 conductEvents:
+conductProjects:
 conductSource:
-conductLinked:
+- covenant
+conductLinked: footer
+conductReport:
 diversityPolicy:
 diversityDescription:
+brandPrimary:
+brandSecondary:
+brandReg:
+brandPolicy: https://www.cncf.io/brand-guidelines/
+brandUse: https://www.linuxfoundation.org/legal/trademark-usage
+brandComments:
+logo: https://www.cncf.io/wp-content/uploads/2022/07/cncf-color-bg.svg
+logoReg:
+parentOrganization: lf
 ---
 
-As part of the Linux Foundation, we provide support, oversight and direction for fast-growing, cloud native projects, including Kubernetes, Envoy, and Prometheus.
+The CNCF is a division of the [Linux Foundation](/foundations/lf).
