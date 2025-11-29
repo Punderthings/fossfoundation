@@ -63,7 +63,57 @@ module SchemaUtils
   return lines
   end
 
-  # HACK simplistic processing of hash/array schema objects (recursive)
+  # Emit liquid template for a single value
+  # @param fieldname string of this schema object
+  # @param schema hash to process and emit liquid for
+  # @return fragment string of liquid statement
+  def emit_schema_valuespan(fieldname, schema)
+    liquid = ''
+    if 'url'.eql?(schema.fetch('format', ''))
+      liquid << "<a itemprop=\"#{fieldname}\" href=\"{{ page.#{fieldname} }}\">{{ page.#{fieldname} }}</a>"
+    else
+      liquid << "<span itemprop=\"#{fieldname}\">{{ page.#{fieldname} }}</span>"
+    end
+    return liquid
+  end
+
+  # Emit liquid template for a scalar field
+  # @param parentname string of this schema object that contains this field
+  # @param fieldname string of this schema object
+  # @param schema hash to process and emit liquid for
+  # @param indent to use at this level
+  # @param linesep to use if needed
+  # @return single line string of liquid statements
+  def emit_schema_scalar(parentname, fieldname, schema, indent, linesep)
+    name_hack = parentname ? "#{parentname}.#{fieldname}" : fieldname
+    liquid = "#{indent}{% if page.#{name_hack} %}"
+    liquid << "<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>: "
+    liquid << emit_schema_valuespan(name_hack, schema)
+    liquid << "#{linesep}" if linesep
+    liquid << "{% endif %}\n"
+    return liquid
+  end
+
+  # Emit liquid template for array as a title and ul list
+  # @param fieldName string of this schema object
+  # @param schema hash to process and emit liquid for
+  # @param indent to use at this level
+  # @param linesep to use if needed
+  # @return multiline string of liquid statements
+  def emit_schema_array(fieldname, schema, indent, linesep)
+    liquid = "#{indent}{% if page.#{fieldname} %}\n"
+    liquid << "#{indent}<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>:\n"
+    liquid << "#{indent}<ul>\n" # TODO: add class for styling
+    liquid << "#{indent}  {% for loopitem in page.#{fieldname} %}\n"
+    liquid << "#{indent}  <li><span itemprop=\"#{fieldname}\">{{ loopitem }}</span></li>\n" # FIXME: process format:url as well
+    liquid << "#{indent}  {% endfor %}\n"
+    liquid << "#{indent}</ul>\n"
+    liquid << "#{indent}#{linesep}" if linesep
+    liquid << "#{indent}{% endif %}\n"
+    return liquid
+  end
+
+  # HACK emit liquid template for nested hash/array schema objects (recursive)
   # @param parentname string of this schema object that contains other objects
   # @param schema hash to process and emit liquid for
   # @param indent to use at this level
@@ -83,26 +133,6 @@ module SchemaUtils
         liquid << emit_schema_scalar(name_hack, itmname, hash, indent, linesep)
       end
     end
-    return liquid
-  end
-
-  # Simplistic processing of scalar schema objects
-  # @param fieldname string of this schema object
-  # @param schema hash to process and emit liquid for
-  # @param indent to use at this level
-  # @param linesep to use if needed
-  # @return multiline string of liquid statements
-  def emit_schema_scalar(parentname, fieldname, schema, indent, linesep)
-    name_hack = parentname ? "#{parentname}.#{fieldname}" : fieldname
-    liquid = "#{indent}{% if page.#{name_hack} %}"
-    liquid << "<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>: "
-    if 'url'.eql?(schema.fetch('format', ''))
-      liquid << "<a itemprop=\"#{name_hack}\" href=\"{{ page.#{name_hack} }}\">{{ page.#{name_hack} }}</a>"
-    else
-      liquid << "<span itemprop=\"#{name_hack}\">{{ page.#{name_hack} }}</span>"
-    end
-    liquid << linesep if linesep
-    liquid << "{% endif %}\n"
     return liquid
   end
 
@@ -133,13 +163,8 @@ module SchemaUtils
       end
       if 'object'.eql?(hash['type'])
         liquid << emit_schema_object(nil, fieldname, hash, indent, linesep)
-      elsif 'array'.eql?(hash['type']) # FIXME: good enough, but not necessarily complete
-        liquid << "#{indent}{% if page.#{fieldname} %}\n"
-        liquid << "#{indent}{% for loopitem in page.#{fieldname} %}\n"
-        liquid << "#{indent}<abbr title=\"#{hash['description']}\">#{hash['title']}</abbr>: <span itemprop=\"#{fieldname}\">{{ loopitem }}</span><br/>\n"
-        liquid << "#{indent}{% endfor %}\n"
-        liquid << "#{indent}#{linesep}" if linesep
-        liquid << "{% endif %}\n"
+      elsif 'array'.eql?(hash['type'])
+        liquid << emit_schema_array(fieldname, hash, indent, linesep)
       else
         liquid << emit_schema_scalar(nil, fieldname, hash, indent, linesep)
       end
@@ -151,14 +176,14 @@ module SchemaUtils
   end
 
   # Transform JSON Schema into template.md file for the type
-  def schema2template(schema)
+  def schema2template(schema, body)
     template = "---\n"
     properties = schema['properties']
     properties.each do |fieldname, hash|
       next if hash.fetch('$comment', '').start_with?('EXCLUDE')
       template << "#{fieldname}:\n"
     end
-    template << "---\n\nFOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and then fill in as much data as you can verify against official sources (from that foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The data schema is in the foundations-schema.json file.  Then replace this section (i.e. the content of a Jekyll document) with a one sentence factual description of the organization as a whole.  Submit a PR with this new identifier.md file in the _foundations directory.\n"
+    template << "---\n\n#{body}\n"
     return template
   end
 
@@ -252,6 +277,9 @@ module SchemaUtils
       opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation') do |out|
         options[:out] = out
       end
+      opts.on('-tTEMPLATEOUT', '--template TEMPLATEOUT', 'Output filename for template data') do |outtemplate|
+        options[:outtemplate] = outtemplate
+      end
       opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
         options[:infile] = infile
       end
@@ -291,13 +319,14 @@ module SchemaUtils
       lines = csv2jsonschema(options[:infile], options[:out])
       puts "END parsed csv rows: #{lines}"
     when 'liquid' # Produce both liquid layout and template.md
-      LINESEP = "<br/>"
-      puts "BEGIN #{__FILE__}.schema2liquid(#{options[:infile]}, #{LINESEP})"
+      linesep = "<br/>"
+      body = "FOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and then fill in as much data as you can verify against official sources (from that foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The data schema is in the foundations-schema.json file.  Then replace this section (i.e. the content of a Jekyll document) with a one sentence factual description of the organization as a whole.  Submit a PR with this new identifier.md file in the _foundations directory."
+      puts "BEGIN #{__FILE__}.schema2liquid(#{options[:infile]}, #{linesep})"
       schema = parse_schema(options[:infile])
-      lines = schema2liquid(schema, LINESEP)
+      lines = schema2liquid(schema, linesep)
       File.write(options[:out], lines)
       puts "...wrote liquid to #{options[:out]}; WARNING: manual tweaking likely needed"
-      lines = schema2template(schema)
+      lines = schema2template(schema, body)
       File.write(options[:outtemplate], lines)
       puts "END wrote template to #{options[:outtemplate]}"
     when 'json'
