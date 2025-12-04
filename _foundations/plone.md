@@ -3,8 +3,8 @@ identifier: plone
 commonName: Plone
 legalName: Plone Foundation
 description:
-contacturl:
-website: https://plone.org/foundation/committees/ip/policy
+contacturl: 
+website: https://plone.org/
 foundingDate:
 addressCountry: US
 addressRegion:
@@ -15,7 +15,7 @@ boardSize: 7
 boardType:
 boardurl: https://plone.org/foundation/board
 teamurl:
-missionurl:
+missionurl: 
 bylawsurl:
 numberOfEmployees:
 governanceOrg:
@@ -23,7 +23,7 @@ governanceTech:
 projectsNotable:
 projectsList:
 projectsServices:
-eventurl:
+eventurl: https://plone.org/news-and-events/events
 nonprofitStatus: Nonprofit501c3
 taxID: 56-2468025
 taxIDLocal:
@@ -50,7 +50,7 @@ diversityDescription: Statement supporting diversity
 brandPrimary: Plone
 brandSecondary:
 brandReg: 'yes'
-brandPolicy: https://plone.org/foundation/committees/ip/policy
+brandPolicy: https://plone.org/foundation/copyright-licensing-logo/policy
 brandUse:
 brandComments:
 logo:
