@@ -28,6 +28,17 @@ Our focus is on legal organizations that host, organize, and help sustain major 
 
 Things that may be listed informally, but not as vetted data sets, include: [commercial companies](commercial) (of any kind), and the many non-incorporated open source projects without legal organizations.  Limited listings of [individual open source projects](projects) hosted at Foundations are included to help provide context.
 
+Note that Foundations are incorporated under many different forms around the world:
+
+* In the US, Foundations take the form of a 501(c)(3) or 501(c)(6).
+* In the UK, non-profit status and charity status are distinct: a UK Foundation might be registered as a [company limited by guarantee][clg] that does not allow profit distribution; and this organisation may or may not have [charity status][charitable-purposes].
+* …and other jurisdictions operate differently.
+
+For this reason, when deciding whether an organisation should be classified as a Foundation, it's important to understand the requirements for non-profit status in that organisation's specific jurisdiction.
+
+[clg]: https://en.wikipedia.org/wiki/Company_limited_by_guarantee
+[charitable-purposes]: https://www.gov.uk/setting-up-charity/charitable-purposes
+
 ## Model Structure
 
 The core model starts with [Schema.org's Organization type](https://schema.org/Organization), since Foundations are always legal entities.  We include a subset of Organization fields that cover common attributes that would be useful for selection or discovery.  We then add a number of new fields around governance (both board and technical), IP policies, sponsorships/funding, brand, as well as a selection of common policy URLs for FOSS Foundations (when they exist).
