@@ -11,7 +11,7 @@ This foundation directory curates metadata that is rigorously organized enough f
 
 ## Foundations Model Overview
 
-Organizational data is stored per foundation entity as a single `asf.md` file in the `_foundations` directory.  Each file is a standard Jekyll document with a [leading YAML frontmatter](https://jekyllrb.com/docs/front-matter/) document with structured organizational metadata, followed by a `---` YAML document separator, followed by semi-structured Markdown content.
+Organizational data is stored per foundation entity as a single `foundation.md` (eg `asf.md`) file in the `_foundations` directory.  Each file is a standard Jekyll document with a [leading YAML frontmatter](https://jekyllrb.com/docs/front-matter/) document with structured organizational metadata, followed by a `---` YAML document separator, followed by semi-structured Markdown content.
 
 - **Keep Updates Simple** Each foundation is a separate text-based document, making updates simple to make and review via GitHub PRs to ensure data accuracy.
 - **Enough Structured Data** Metadata follows a [simple schema](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json), with a goal to be "good enough" for common research cases.  Researchers needing more structured data are welcome to collaborate and add new fields or features.  [OpenAPI support is planned](openapi)!

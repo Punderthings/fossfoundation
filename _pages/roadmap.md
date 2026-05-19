@@ -25,7 +25,7 @@ Feedback so far shows there's a lot of value in this work, both to researchers a
   - The structured data we provide is non-technical, and may not be familiar to many FOSS folk - we need to explain why this work is [important for overall sustainability](research).
   - Budget financial data may be drawn from *approximate* figures (on annual reports, for example), so we need to be very clear which monetary figures are specific or not.  Data stored for [US foundations in 990 forms](taxes) is exact, although limited to what the tax code defines.
 
-## Tasks and IDeas
+## Tasks and Ideas
 
 - [ ] Category lists of foundations
 - [ ] Metadata search page
