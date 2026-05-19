@@ -2,9 +2,7 @@
 identifier: biobricks
 commonName: Biobricks
 legalName: BioBricks Foundation
-description:
-contacturl: https://biobricks.org/contact/
-website: https://biobricks-NOW-DOMAIN-SCAMMER.org/
+description: Previously at biobricks.org, which is now a phishing domain.
 foundingDate:
 dissolutionDate: 2023 or earlier
 addressCountry: US
@@ -14,8 +12,6 @@ softwareType:
 wikidataId: Q43895568
 boardSize: '3'
 boardType:
-boardurl: https://biobricks.org/team-and-board/
-teamurl: https://biobricks.org/team-and-board/
 missionurl:
 bylawsurl:
 numberOfEmployees:
@@ -33,7 +29,6 @@ budgetYear:
 budgeturl:
 budgetTransparent:
 funding:
-donateurl: https://biobricks.org/donate/
 sponsorurl:
 sponsorList:
 sponsorships:
@@ -56,6 +51,5 @@ brandComments:
 logo:
 logoReg:
 subOrganization:
-policyurl: https://biobricks.org/privacy-policy/
 ---
 
