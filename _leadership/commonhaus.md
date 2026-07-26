@@ -101,32 +101,20 @@ people:
   sourceUrl: https://www.commonhaus.org/about
   derived: org_live
   confidence: 1.0
-- name: Mark Szymanski
-  personId: null
-  roles:
-  - role: Advisory Board Representative (HeroDevs)
-    roleClass: volunteer
-  contact: github:markszymanski
-  bio: Technical Product Manager at HeroDevs
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.commonhaus.org/about
-  derived: org_live
-  confidence: 1.0
 ---
 
 # Commonhaus Foundation — Leadership
 
-Scope: the foundation governance bodies from the /about page — Councilors (the governing council), Officers, and the sponsor-nominated Advisory Board. Project Representatives and general Members are excluded as project-level / non-governance (see below).
+Scope: the foundation governance bodies from the /about page: Councilors (the governing council) and Officers. The sponsor-nominated Advisory Board, Project Representatives, and general Members are excluded as non-governance / project-level (see below).
 
 Councilors are the top governing body: "Elected by CF Members, they serve as the voice of our community." Three founding councilors are listed, each recorded as `board_director` (Councilor) plus their officer title: Erin Schnabel (Chair), Cesar (Treasurer), Ken Finnigan (Secretary). All three carry "Founder" designation and an explicit "Term start: 2023" (captured in `term_start`; `term_end` is null). The page notes founding councilors will stand for election as their terms expire.
 
 Officers (functional foundation roles): Andres Almiray (Social Media), ashni (Advisory Board Committee Chair), Rebbecca Bishop (Community Manager), Scott M Stark (Eclipse Foundation Liaison). All are recorded as `officer` at confidence 1.0 except Rebbecca Bishop (Community Manager) at 0.9 — the "Officers" heading places her here, but the operational title leaves paid-vs-volunteer status ambiguous and no employment status is stated.
 
-Advisory Board: representatives nominated by sponsors, bringing industry perspective; not a governing role. One representative is listed — Mark Szymanski (HeroDevs) — recorded as `volunteer`.
+Advisory Board: representatives nominated by sponsors, bringing industry perspective; not a governing role. Excluded from this record per the project scope rule (advisory bodies are neither governing directors, officers, nor paid staff), consistent with how advisory boards and councils are treated at other foundations in the set. The one listed representative, Mark Szymanski (HeroDevs), is therefore not captured.
 
 Excluded: the Project Representatives section (~30 people) forms the Extended Governance Committee (EGC) and represents individual projects (JReleaser, Hibernate, Quarkus, WildFly, etc.); these are project-level roles per the crawl scope rules and are not captured here. The Members section (~17 GitHub handles, no names/roles) is likewise excluded.
 
-Contact: the org publishes a GitHub handle per person (captured in `contact` as `github:<handle>`); no email is published. Bios are published for the councilors, officers, and the advisory rep and are captured verbatim (one emoji stripped from Andres Almiray's bio for YAML safety). Note: "cealsair" publishes only the first name "Cesar"; recorded as published.
+Contact: the org publishes a GitHub handle per person (captured in `contact` as `github:<handle>`); no email is published. Bios are published for the councilors and officers and are captured verbatim (one emoji stripped from Andres Almiray's bio for YAML safety). Note: "cealsair" publishes only the first name "Cesar"; recorded as published.
 
 Not published (hence null): per-person email, and term dates for everyone except the three founding councilors.
