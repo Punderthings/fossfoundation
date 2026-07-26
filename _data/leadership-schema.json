@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://fossfoundation.info/leadership/asf.json",
+  "type": "object",
+  "title": "FOSS Foundation Leadership Schema",
+  "description": "Current governing people (board, officers, paid staff) for a FOSS foundation, keyed by the same identifier as its _foundations record. Complements the foundation model's boardSize / boardType / numberOfEmployees counts with the named individuals. Person type derives from Schema.org Person. Every fact carries a source URL and a confidence; absent data is null, never guessed.",
+  "required": ["identifier", "asOf", "people"],
+  "properties": {
+    "identifier": {
+      "section": "General",
+      "title": "Foundation identifier",
+      "description": "Matches the _foundations/<identifier>.md filename.",
+      "type": "string"
+    },
+    "commonName": {
+      "title": "Common Name",
+      "description": "Common name of the foundation, for readability.",
+      "type": "string"
+    },
+    "asOf": {
+      "title": "As Of Date",
+      "description": "Date this leadership roster was last verified against source. Answers the open metadata-freshness question in CONTRIBUTING.",
+      "type": "string",
+      "format": "date"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Official URLs the roster was verified against.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url"],
+        "properties": {
+          "url": { "title": "Source URL", "type": "string", "format": "url" },
+          "type": { "title": "Source Type", "description": "e.g. org_live, bylaws, annual_report.", "type": "string" },
+          "retrieved": { "title": "Retrieved Date", "type": "string", "format": "date" }
+        }
+      }
+    },
+    "people": {
+      "title": "People",
+      "description": "Governing individuals. Include only verifiable roles; never guess.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "roles", "sourceUrl", "confidence"],
+        "properties": {
+          "name": { "title": "Name", "description": "Full name exactly as the foundation publishes it.", "type": "string" },
+          "personId": { "title": "Person ID", "description": "Stable cross-foundation id; null until entity resolution assigns one.", "type": ["string", "null"] },
+          "roles": {
+            "title": "Roles",
+            "description": "One or more governance roles held by this person.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["role", "roleClass"],
+              "properties": {
+                "role": { "title": "Role", "description": "Role title as published, e.g. President, Board Director.", "type": "string" },
+                "roleClass": { "title": "Role Class", "description": "Normalised class of the role.", "type": "string", "enum": ["board_director", "officer", "paid_staff", "volunteer"] }
+              }
+            }
+          },
+          "contact": { "title": "Contact", "description": "Per-person contact if the foundation publishes it, else null.", "type": ["string", "null"] },
+          "bio": { "title": "Bio", "description": "Published biography, verbatim, else null.", "type": ["string", "null"] },
+          "termStart": { "title": "Term Start", "description": "Only if explicitly stated by the foundation, else null.", "type": ["string", "null"] },
+          "termEnd": { "title": "Term End", "description": "Only if explicitly stated by the foundation, else null.", "type": ["string", "null"] },
+          "sourceUrl": { "title": "Source URL", "description": "Page the person and role were read from.", "type": "string", "format": "url" },
+          "derived": { "title": "Derived", "description": "How the record was captured, e.g. org_live.", "type": "string" },
+          "confidence": { "title": "Confidence", "description": "1.0 for facts stated verbatim; lower when inferred, with a note in the body.", "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    }
+  }
+}
