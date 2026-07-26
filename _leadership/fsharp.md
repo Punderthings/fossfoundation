@@ -1,5 +1,5 @@
 ---
-identifier: foundation
+identifier: fsharp
 commonName: F# Software Foundation
 asOf: 2025-07-20
 sources:

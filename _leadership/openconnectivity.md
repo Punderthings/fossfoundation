@@ -1,9 +1,9 @@
 ---
 identifier: openconnectivity
-commonName: Open Connectivity Foundation, Inc.
-asOf: 2024-05-19
+commonName: Open Connectivity Foundation Inc
+asOf: 2026-02-04
 sources:
-- url: https://web.archive.org/web/20240519104730/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
+- url: https://web.archive.org/web/20260204101804/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
   type: wayback
   retrieved: 2026-07-25
 people:
@@ -12,19 +12,23 @@ people:
   roles:
   - role: Director
     roleClass: board_director
-  - role: Secretary and Treasurer
+  - role: Secretary
+    roleClass: officer
+  - role: Treasurer
     roleClass: officer
   contact: null
-  bio: Alex Wight is an Information Security Architect with 25+ years of experience designing, developing,
-    and operating public key infrastructure (PKI) and various applied cryptographic solutions. As Lead
-    PKI Architect and Principal Engineer for Cisco Systems since 2003, Alex is responsible for the cryptographic
-    architecture and secure operations of Cisco's software signing, anti-counterfeiting, secure boot,
-    IT security, software licensing, IoT standards, and Web PKI. Alex is a patent holder, a frequent conference
-    speaker, and represents Cisco in multiple international standards bodies.
+  bio: Alex Wight - Cisco Systems. Alex Wight is an Information Security Architect with 25+ years of experience
+    designing, developing, and operating public key infrastructure (PKI) and various applied cryptographic
+    solutions to protect critical assets and equip businesses with the security needed to succeed in today's
+    digital world. As Lead PKI Architect and Principle Engineer for Cisco Systems since 2003, Alex is
+    responsible for the cryptographic architecture and secure operations of Cisco's software signing,
+    anti-counterfeiting, secure boot, IT security, software licensing, IoT standards, and Web PKI. Alex
+    is a patent holder, a frequent conference speaker, and represents Cisco in multiple international
+    standards bodies.
   termStart: null
   termEnd: null
-  sourceUrl: https://web.archive.org/web/20240519104730/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
-  derived: wayback:20240519104730
+  sourceUrl: https://web.archive.org/web/20260204101804/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
+  derived: wayback:20260204101804
   confidence: 1.0
 - name: Brian Bishop
   personId: null
@@ -34,15 +38,20 @@ people:
   - role: President
     roleClass: officer
   contact: null
-  bio: Brian Bishop is CEO of Data Performance Consultancy Limited, a niche consultancy and technology
-    service provider based in Liverpool, England. Brian has carried out research in Smart Cities for over
-    8 years, more recently looking at the convergence of the digital twin as a foundational building block
-    for Smart Cities. He has represented the UK government on Global Expert Missions and trade missions
-    for smart cities and is on the roster for smart city consultants for the United Nations Habitat program.
+  bio: Brian Bishop - Data Performance Consultancy Limited. Brian Bishop is CEO of Data Performance Consultancy
+    Limited a niche Consultancy and Technology service provider based in Liverpool, England. Brian has
+    been carrying out research in Smart Cities for over 8 years and more recently looking at the convergence
+    of the digital twin as a foundational building block to developing Smart Cities. He has represented
+    the UK government on Global Expert Missions and trade missions for smart cities, across the world
+    and is also on the roster for smart city consultants for the United Nations Habitat program. He is
+    passionate about developing a cultural shift in the way public services are delivered with a focus
+    on the creation of social impact, developing collaborative thinking with the supply chains and with
+    guidance from their academic partners Oxford University and Liverpool John Moores University. This
+    transformational change is predicated around the use of open standards and open source tooling.
   termStart: null
   termEnd: null
-  sourceUrl: https://web.archive.org/web/20240519104730/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
-  derived: wayback:20240519104730
+  sourceUrl: https://web.archive.org/web/20260204101804/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
+  derived: wayback:20260204101804
   confidence: 1.0
 - name: Aja Murray
   personId: null
@@ -53,19 +62,19 @@ people:
   bio: null
   termStart: null
   termEnd: null
-  sourceUrl: https://web.archive.org/web/20240519104730/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
-  derived: wayback:20240519104730
-  confidence: 0.8
+  sourceUrl: https://web.archive.org/web/20260204101804/https://openconnectivity.org/foundation/organizational-structure/board-of-directors/
+  derived: wayback:20260204101804
+  confidence: 0.9
 ---
 
-# Open Connectivity Foundation, Inc. (OCF) — Leadership
+# Open Connectivity Foundation — Leadership
 
-Scope: the OCF Board of Directors page (Directors/officers plus the Executive Director). OCF is an IoT standards development organization (creator of the OCF Secure IP Device Framework and successor to UPnP/AllJoyn work), based in Beaverton, Oregon.
+Provenance caveat: the OCF live site (openconnectivity.org) was unreachable during this crawl (connection error, not a simple 403). This record is therefore derived from the Internet Archive Wayback Machine capture dated 2026-02-04 of the org's own Board of Directors page. Because the source is the foundation's own authoritative page, verbatim facts (names, roles, bios) are tagged `confidence: 1.0` with `derived: wayback:20260204101804`; `as_of` reflects the capture date, not today.
 
-PROVENANCE / DATA SOURCE CAVEAT: the OCF live site (`openconnectivity.org`) was unreachable from this environment (repeated connection/"error sending request" failures, not a 404). This record is therefore derived from the Internet Archive Wayback capture dated 2024-05-19 (`derived: wayback:20240519104730`); `as_of` reflects that snapshot, not today. The roster may have changed since 2024 and should be re-verified from the live site when reachable.
+Scope: the OCF Board of Directors as listed on that page: Alex Wight (Cisco Systems) as Director, Secretary and Treasurer; Brian Bishop (Data Performance Consultancy Limited) as Director and President; and Aja Murray as Executive Director. Directors are affiliated with their sponsoring member companies (Cisco; Data Performance Consultancy); these company affiliations are recorded in the bios rather than as a structured field.
 
-Board composition (from the captured org page): Alex Wight (Director, Secretary and Treasurer — Cisco Systems) and Brian Bishop (Director and President — Data Performance Consultancy Limited), plus Aja Murray listed as Executive Director. Only these three appear on the captured Board of Directors page. Third-party aggregators (Zippia, ProPublica) list a larger historical board (e.g. Betty Zhao, Brian Scriber, Wouter van der Beek, Gary Martz, Scott Lofgren), but those are not org-authoritative and are deliberately NOT captured here; they would need confirmation from OCF's own live page.
+Paid vs volunteer: the two directors are corporate representatives (governance). Aja Murray's Executive Director role is tagged `paid_staff` at `confidence: 0.9` — the page does not state employment terms, but Executive Director is the standard paid leadership role.
 
-Paid vs volunteer: Aja Murray's Executive Director title is an operational/staff role, tagged `paid_staff` at `confidence: 0.8` (employment inferred from the ED title; not stated verbatim, and no bio or company given). The two Directors serve in a governance capacity and represent their own companies.
+Completeness note: the archived page displayed only these three individuals. OCF historically has had a larger board (third-party aggregators list up to ~8 directors including Brian Scriber, Wouter van der Beek, Gary Martz, Betty Zhao, Scott Lofgren, Michael Richmond as a past Executive Director), but those are stale, non-authoritative sources and are NOT captured here. Treat the roster as possibly incomplete relative to the full board; re-crawl the live site when reachable to confirm the complete list.
 
-Not published (hence `null`): per-person contact and term dates for everyone; bio for Aja Murray. Alex Wight and Brian Bishop have verbatim bios (captured above).
+Not published (hence `null`): per-person contact, term dates. Bios published for the two directors (captured verbatim); none for the Executive Director.

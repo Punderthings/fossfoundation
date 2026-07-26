@@ -14,10 +14,10 @@ people:
     roleClass: officer
   - role: Chief Operating Officer
     roleClass: paid_staff
-  - role: Board Member
+  - role: Co-Founder
     roleClass: board_director
   contact: null
-  bio: Co-Founder. Media Spokesperson.
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -26,12 +26,14 @@ people:
 - name: E. John Sebes
   personId: null
   roles:
-  - role: Chief Technology Officer
-    roleClass: paid_staff
   - role: Board Member
     roleClass: board_director
+  - role: Chief Technology Officer
+    roleClass: paid_staff
+  - role: Co-Founder
+    roleClass: board_director
   contact: null
-  bio: Co-Founder.
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -43,7 +45,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Security Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -55,7 +57,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Technology Strategy Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -67,7 +69,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Government Relations Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -79,7 +81,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Open Source Technology Strategist.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -91,7 +93,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Government Relations Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -103,7 +105,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Brand, PR & Media Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -115,7 +117,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: International Relations Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -127,7 +129,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Elections Policy Advisor.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -139,7 +141,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Policy Advisor & Media Spokesperson.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -151,7 +153,7 @@ people:
   - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Board role focus: Elections Policy Analyst & Media Spokesperson.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
@@ -168,7 +170,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Christine M. Santoro
   personId: null
   roles:
@@ -182,7 +184,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Heather Meeker
   personId: null
   roles:
@@ -194,7 +196,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Joy London
   personId: null
   roles:
@@ -206,7 +208,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Sonya Aston
   personId: null
   roles:
@@ -218,7 +220,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Hugh Dubberly
   personId: null
   roles:
@@ -230,7 +232,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.8
+  confidence: 0.9
 - name: Anne O'Flaherty
   personId: null
   roles:
@@ -242,7 +244,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.85
+  confidence: 0.9
 - name: Alex Mekelburg
   personId: null
   roles:
@@ -254,8 +256,8 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.85
-- name: Clifford Wulfman
+  confidence: 0.9
+- name: Dr. Clifford Wulfman
   personId: null
   roles:
   - role: Principal Member of Technical Staff
@@ -266,7 +268,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.85
+  confidence: 0.9
 - name: Neil Johnson
   personId: null
   roles:
@@ -278,7 +280,7 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.85
+  confidence: 0.9
 - name: Bob Smith
   personId: null
   roles:
@@ -290,23 +292,17 @@ people:
   termEnd: null
   sourceUrl: https://www.osetinstitute.org/who-we-are
   derived: org_live
-  confidence: 0.85
+  confidence: 0.9
 ---
 
 # OSET Institute — Leadership
 
-Scope of this record: the OSET Institute Board of Directors (12 members) and the operational Leadership team (13 named roles), captured from the live "Who We Are" page. OSET Institute is a 501(c)(3) California public benefit corporation, best known for the TrustTheVote Project and ElectOS.
+Scope of this record: the Board of Directors (12 members) and the Leadership team (executive/officer/technical staff) listed on the "Who We Are" page. Two people appear in both sections and are merged into single records with multiple roles: Gregory Miller (Chair, COO, Co-Founder) and E. John Sebes (Board Member, CTO, Co-Founder). Total captured: 23 individuals.
 
-Overlap handling: Gregory Miller (Co-Founder, Chair & COO) and E. John Sebes (Co-Founder, CTO) appear in both the Board of Directors and the Leadership sections; each is captured once with merged roles. Miller holds `officer` (Chair), `paid_staff` (Chief Operating Officer), and `board_director` (Board Member); Sebes holds `paid_staff` (CTO) and `board_director`. Their Co-Founder status is noted in `bio` rather than as a governance role. Christine M. Santoro is Chief Legal Officer (`paid_staff`) and also Board Secretary (`officer`).
+Deliberately excluded: the Board of Advisors (26 named advisors from external organisations) is an advisory council, not foundation governance, so it is out of scope per the Tier 1 spec. The TrustTheVote Project "Core Team" (19 named technologists holding commit keys) is a project-level technical community, not foundation leadership, and is also excluded.
 
-Board role focus: each director's card carries a short focus descriptor (e.g. "Security Advisor", "Elections Policy Advisor"). These describe the director's area of contribution on the board rather than a distinct office, so they are recorded in the `bio` field, not as separate `roles`.
+Paid vs volunteer: the Leadership team members are tagged `paid_staff` at `confidence: 0.9` because the OSET Institute (a 501(c)(3) public benefit corporation) presents them under a distinct "Leadership" heading as C-suite/counsel/technical-staff roles, but the site does not state employment status per person. Board of Directors members are `board_director` at `confidence: 1.0`. Officer roles held by board/staff (Chair, Board Secretary) are captured as `officer` at `confidence: 1.0` where stated verbatim.
 
-Paid vs volunteer: the Leadership section lists C-suite and technical-staff roles (CFO interim, Chief Legal Officer, Chief IP Counsel, Associate General Counsels, Chief Design Officer, Principal/Senior Members of Technical Staff, Creative Director). These are captured `paid_staff` at confidence 0.8 (executive/counsel roles) and 0.85 (technical-staff roles); the site does not print an explicit employment statement, so paid status is inferred from title and the "Leadership" heading. Board members' paid-vs-volunteer status is not stated; board seats are captured `board_director` at confidence 1.0 for the role itself.
+Not published on this page (hence `null`): per-person contact info and term dates for all individuals. Bios exist for a few people behind JavaScript lightbox links (Gregory Miller, E. John Sebes, William P. Crowell, Cameron Quinn, Edward P. Perez) but the bio text is not rendered on the page fetch, so `bio` is null for everyone.
 
-Excluded (not foundation governance or staff):
-- Board of Advisors (~26 named advisors, e.g. Dr. David Bader, Aneesh Chopra, Dr. Barbara Simons) — an advisory body, not the governing board.
-- TrustTheVote Project Core Team (~19 technologists) — a project-level technical team, not foundation leadership.
-
-Data-freshness note: the page footer reads "© 2007-2023 OSET Institute, Inc." Content may be somewhat stale relative to the 2026-07-25 retrieval date; a re-fetch is advised before treating this roster as strictly current.
-
-Not published (hence `null`): per-person contact and term dates. Full bios are behind "Read Bio" links for some individuals and were not fetched; only the on-page role/focus descriptors are captured.
+Fetches: 2 (homepage, then /who-we-are).

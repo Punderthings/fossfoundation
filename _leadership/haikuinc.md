@@ -14,7 +14,7 @@ people:
     roleClass: officer
   - role: Board of Directors
     roleClass: board_director
-  contact: axeld
+  contact: null
   bio: null
   termStart: null
   termEnd: null
@@ -28,7 +28,7 @@ people:
     roleClass: officer
   - role: Board of Directors
     roleClass: board_director
-  contact: DeadYak
+  contact: null
   bio: null
   termStart: null
   termEnd: null
@@ -42,7 +42,7 @@ people:
     roleClass: officer
   - role: Board of Directors
     roleClass: board_director
-  contact: leavengood
+  contact: null
   bio: null
   termStart: null
   termEnd: null
@@ -56,7 +56,7 @@ people:
     roleClass: officer
   - role: Board of Directors
     roleClass: board_director
-  contact: kallisti5
+  contact: null
   bio: null
   termStart: null
   termEnd: null
@@ -68,7 +68,7 @@ people:
   roles:
   - role: Board of Directors
     roleClass: board_director
-  contact: jessicah
+  contact: null
   bio: null
   termStart: null
   termEnd: null
@@ -79,12 +79,12 @@ people:
 
 # Haiku, Inc. — Leadership
 
-Scope of this record: the Haiku, Inc. board of directors and its four titled officer positions, as published on the About page. Haiku, Inc. is a 501(c)(3) non-profit supporting the Haiku Project; project-level roles (source-code committers) are separate from foundation governance and are excluded here.
+Scope of this record: the full Board of Directors (5 members) and the 4 officer titles they hold. Haiku, Inc. is a 501(c)(3) non-profit incorporated in New York State in 2003 (EIN 20-0105056), dedicated to supporting the Haiku Project and the development of the Haiku operating system.
 
-The board is 5 board-elected individuals from the community. Four of them also hold officer titles: President (Axel Dörfler), Vice President (Rene Gollent), Treasurer (Ryan Leavengood), Secretary (Alexander von Gluck IV). Jessica Hamilton is a director without a titled officer role.
+Board of Directors (5, board-elected from the community): Axel Dörfler (axeld), Rene Gollent (DeadYak), Jessica Hamilton (jessicah), Ryan Leavengood (leavengood), and Alexander von Gluck IV (kallisti5). Officers are drawn from these five: President = Axel Dörfler, Vice President = Rene Gollent, Treasurer = Ryan Leavengood, Secretary = Alexander von Gluck IV. Jessica Hamilton holds a board seat without an officer title.
 
-Paid vs volunteer: the org states verbatim, "All board members work for Haiku, Inc. in a volunteer role and do not receive compensation." All roles are therefore volunteer/officer with confidence 1.0; there is no paid staff. Haiku, Inc. holds no paid staff positions on this page.
+Paid vs volunteer: stated explicitly by the org: "All board members work for Haiku, Inc. in a volunteer role and do not receive compensation." Volunteer status is therefore recorded with confidence 1.0, not inferred. There is no paid staff.
 
-Contact: each person is published with a community handle in parentheses (e.g. axeld, DeadYak), captured verbatim in the `contact` field. These are usernames, not email addresses.
+Contact: not published per-person (the site provides only a general contact page), so `contact` is null. Each director's Haiku developer nick is noted in prose above but not recorded as a contact method.
 
-Not published (hence `null`): per-person email addresses, bios, and term dates. No term history is stated on the site.
+Term dates: not published. Bios: not published. Both left null.

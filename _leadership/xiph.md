@@ -6,30 +6,20 @@ sources:
 - url: https://xiph.org/about/
   type: org_live
   retrieved: 2026-07-25
-- url: https://wiki.xiph.org/index.php/Main_Page
-  type: org_live
-  retrieved: 2026-07-25
-- url: https://wiki.xiph.org/Xiph.Org_Foundation
-  type: org_live
-  retrieved: 2026-07-25
-- url: https://wiki.xiph.org/People
+- url: https://xiph.org/press/
   type: org_live
   retrieved: 2026-07-25
 people: []
 ---
 
-# Xiph.Org Foundation — Leadership (roster not found)
+# Xiph.Org Foundation — Leadership
 
-No current board, officer, or staff roster is published on any Xiph.Org property. The organisation's web presence is dormant: the live site's About page carries a "© 1994–2016" notice and is a philosophical essay with no governance content, and the XiphWiki was last meaningfully edited in 2021.
+No current leadership roster is published on the live Xiph.Org site, so this record is intentionally empty (`people: []`) pending a retry against another source.
 
-`people: []` is recorded deliberately per the crawl instructions so the org has a retry record.
+Attempts (2 fetches):
+- `https://xiph.org/about/` — an essay/manifesto by Christopher "Monty" Montgomery (dated May 14, 1999) on open source and media; names no board, officers, or staff. Site footer reads "© 1994 - 2016 Xiph.Org", i.e. the public site has been static since ~2016.
+- `https://xiph.org/press/` — a chronological list of software release announcements (newest March 29, 2025). The only individuals named are historical: Monty (founder/author of the about page) and Emmett Plant (acting CEO May 2002, contract terminated April 2003). No current governance roster.
 
-## Fetch attempts
-- https://tug.org — n/a (wrong org; listed only to be explicit this file is Xiph).
-- https://xiph.org/about/ — About essay, © 1994–2016, no roster. Nav has About / Press / Donate / Contact / Wiki only; no board/team/people link.
-- https://wiki.xiph.org/index.php/Main_Page — links to "Xiph.Org Foundation", "People", and "AdminProcesses" but no governance roster on the page itself.
-- https://wiki.xiph.org/Xiph.Org_Foundation — one-paragraph description of the non-profit, last edited 26 April 2015, no people.
-- https://wiki.xiph.org/People — a nickname-to-person developer lookup table ("mail alias / IRC nick / Subversion user"), last edited 21 March 2021. This is NOT a governance roster and is not treated as one.
+The nav offers About, Press, Donate, Contact, Wiki, Downloads, Development, Documentation, Videos — none is a board/team/people page. Xiph.Org became a 501(c)(3) non-profit in March 2003 (per the press page), so a legal board exists, but it is not published on the live site.
 
-## Non-authoritative signal (not captured as a person)
-The stale (2021) wiki People table tags one contributor, Jack Moffitt, with the keyword "treasurer" alongside "libao, Icecast". This is a developer-lookup keyword, not a current officer statement, and the page is years out of date, so no officer record is created from it. A verified Xiph.Org board/officer list would need to come from its US non-profit filings (Form 990) rather than the org's own site. Candidate retry sources for a future pass: /press/, /contact/, and https://wiki.xiph.org/AdminProcesses.
+Retry options for a later pass: the Xiph wiki (wiki.xiph.org) may carry a board/foundation page; IRS Form 990 filings (ProPublica Nonprofit Explorer) would list current directors/officers. Neither was fetched here to stay within the org_live scope and fetch budget.

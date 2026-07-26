@@ -12,10 +12,10 @@ people:
   roles:
   - role: Chair
     roleClass: officer
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'University constituency: UC Davis.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -26,10 +26,10 @@ people:
   roles:
   - role: Vice Chair
     roleClass: officer
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'University constituency: University of Washington.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -40,10 +40,10 @@ people:
   roles:
   - role: Secretary
     roleClass: officer
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Transit agency constituency: San Diego Metropolitan Transit System, California.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -54,10 +54,10 @@ people:
   roles:
   - role: Treasurer
     roleClass: officer
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Transit agency constituency: Metropolitan Transportation Authority, New York City.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -66,10 +66,10 @@ people:
 - name: Pete Dussin
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Transit agency constituency: Sound Transit, Washington State.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -78,10 +78,10 @@ people:
 - name: Lauren Main
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Transit agency constituency: King County Metro, Washington State.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -90,10 +90,10 @@ people:
 - name: Joshua Kavanagh
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'University constituency: University of California at San Diego.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -102,10 +102,10 @@ people:
 - name: Jan-Dirk Schmöcker
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'University constituency: Kyoto University.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -114,10 +114,10 @@ people:
 - name: Matt Caywood
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Companies and non-profits constituency: Actionfigure.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -126,10 +126,10 @@ people:
 - name: Wojciech Kulesza
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: 'Companies and non-profits constituency: goEuropa.'
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -138,10 +138,10 @@ people:
 - name: Sean Óg Crudden
   personId: null
   roles:
-  - role: Board Director
+  - role: Board Member
     roleClass: board_director
   contact: null
-  bio: Individual developers and activists constituency.
+  bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
@@ -157,18 +157,18 @@ people:
   termStart: null
   termEnd: null
   sourceUrl: https://opentransitsoftwarefoundation.org/overview/board-of-directors
-  derived: org_live
-  confidence: 0.6
+  derived: synthesized
+  confidence: 0.5
 ---
 
-# Open Transit Software Foundation (OTSF) — Leadership
+# Open Transit Software Foundation — Leadership
 
-Scope of this record: the OTSF Executive Director and Board of Directors, captured from the live "Board of Directors" page. OTSF is a 501(c)(3) non-profit formed to provide governance for the OneBusAway project.
+Scope: the OTSF Board of Directors and the Executive Director, as published on the Board of Directors page. OTSF is a 501(c)(3) non-profit providing governance for the OneBusAway project.
 
-Board structure: the board is composed of up to 12 members drawn from four constituencies — transit agencies using OneBusAway (2-4 seats), universities doing OneBusAway research (2-4), companies and non-profits involved in OneBusAway (2-4), and independent developers and activists (2-4). Eleven directors currently serve. Each person's constituency is recorded in the `bio` field, since the page publishes affiliation rather than a personal bio.
+Board composition: the board holds up to 12 members drawn from four constituencies (transit agencies, universities, companies/non-profits, and individual developers), elected annually at the annual meeting. Eleven directors currently serve: four from transit agencies (Devin Braun, Pete Dussin, Lauren Main, Will Wong), four from universities (Alan Borning, Joshua Kavanagh, Jan-Dirk Schmöcker, Kari Watkins), two from companies/non-profits (Matt Caywood, Wojciech Kulesza), and one individual developer (Sean Óg Crudden). Each person's constituency affiliation (agency/university/company) is noted on the page but recorded here only in this body text, not as a role.
 
-Officers: the page lists Chair (Kari Watkins), Vice Chair (Alan Borning), Secretary (Devin Braun), and Treasurer (Will Wong); each is a sitting director, so their board seat and officer role are merged into one record.
+Officers: Chair Kari Watkins, Vice Chair Alan Borning, Secretary Devin Braun, Treasurer Will Wong. Each is captured with both the `officer` role and their underlying `board_director` seat.
 
-Paid vs volunteer: Aaron Brethorst is listed as Executive Director, above the board. The page does not state whether the ED post is paid, so it is captured `paid_staff` at confidence 0.6 — the title implies an operational (likely employed) role, but employment status is not verified. Board directors are captured `board_director` at confidence 1.0; the page does not state volunteer status, though board service at a small 501(c)(3) is typically unpaid.
+Executive Director: Aaron Brethorst is listed separately from the board and the officer slate. The page does not state whether the ED role is paid or volunteer, so it is tagged `paid_staff` at confidence 0.5 (`derived: synthesized`) pending confirmation, following the convention used for plausibly-paid-but-unstated roles. Treat the paid/volunteer status as unverified.
 
-Not published (hence `null`): per-person contact, bios (only constituency/affiliation is given, recorded in `bio`), and term dates. The page states board members "are elected each year at the annual meeting" but gives no specific term dates.
+Not published (hence null): per-person contact details, bios, and term dates. Directors are stated to be elected yearly, but no individual term_start/term_end dates are given.

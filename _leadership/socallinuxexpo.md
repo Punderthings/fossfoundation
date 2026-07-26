@@ -1,12 +1,12 @@
 ---
 identifier: socallinuxexpo
-commonName: Linux Expo of Southern California, Inc. (SCALE)
+commonName: Linux Expo of Southern California Inc (SCALE)
 asOf: 2026-07-25
 sources:
-- url: https://www.socallinuxexpo.org/scale/23x/about-scale
+- url: https://www.socallinuxexpo.org/scale/23x/contact-us
   type: org_live
   retrieved: 2026-07-25
-- url: https://www.socallinuxexpo.org/scale/23x/contact-us
+- url: https://www.socallinuxexpo.org/scale/23x/about-scale
   type: org_live
   retrieved: 2026-07-25
 people:
@@ -37,7 +37,7 @@ people:
 - name: Hriday Balachandran
   personId: null
   roles:
-  - role: Operations
+  - role: Operations Chair
     roleClass: volunteer
   contact: null
   bio: null
@@ -293,7 +293,7 @@ people:
 - name: Lori Barfield
   personId: null
   roles:
-  - role: Emeritus (former organizer)
+  - role: Emeritus Member
     roleClass: volunteer
   contact: null
   bio: null
@@ -305,7 +305,7 @@ people:
 - name: Tom King
   personId: null
   roles:
-  - role: Emeritus (former organizer)
+  - role: Emeritus Member
     roleClass: volunteer
   contact: null
   bio: null
@@ -316,12 +316,12 @@ people:
   confidence: 1.0
 ---
 
-# Linux Expo of Southern California (SCALE) — Leadership
+# Linux Expo of Southern California Inc (SCALE) — Leadership
 
-Scope: this record captures the SCALE organizing team from the conference contact page (`/scale/23x/contact-us`). The Southern California Linux Expo ("SCALE") is run by the Linux Expo of Southern California, Inc., a 501(c)(3) non-profit that is, per its About page, "volunteer organized".
+Scope of this record: the organizing committee of the Southern California Linux Expo (SCALE), the annual event run by the Linux Expo of Southern California Inc, a 501(c)(3) non-profit. SCALE does not publish a formally named Board of Directors on its website; the organization is described as "volunteer organized" and its working leadership is the set of committee chairs and members listed on the Contact Us page. Those chairs and members are captured here as the foundation's leadership roster.
 
-GAP — no formal governance board published: the nonprofit does not publish a Board of Directors / officers roster (President, Treasurer, Secretary) on its website. Attempts to find one failed: `/about` returned HTTP 403; `/scale/23x/team` returned HTTP 404; the homepage and About-SCALE page name no individuals ("core team", unnamed). The only named-people list is the conference committee structure on the contact page, captured here. To obtain the legal 501(c)(3) board, a future pass would need state nonprofit filings (California Secretary of State / IRS Form 990), which are outside the org-live crawl scope.
+Paid vs volunteer: the About page states SCALE is "volunteer organized" and its core team works on it as "a labor of love"; beyond the core team roughly 100 additional volunteers help around the event. All individuals are therefore recorded as `volunteer` at `confidence: 1.0`. No paid staff are named on the site.
 
-Paid vs volunteer: SCALE is explicitly "volunteer organized", so all captured individuals are recorded as `role_class: volunteer` at `confidence: 1.0` (volunteer status stated verbatim on the About page). Roles are the committee chair/member positions listed. Two people (Lori Barfield, Tom King) are listed under "Emeritus" and recorded as former organizers.
+Contact: a subset of chairs publish a person-addressable email (Phil Dibowitz, Orv Beach, Hannah Anderson, Phillip Banks, Josh Andler); these are captured. Role-based mailboxes (orders@, cfp@, sponsorship@, staff@, press@) are not attributed to a named individual and are left null. Bios and term dates are not published for any individual (all null).
 
-Contact: personal/role email captured where the individual's name linked directly to an address (Phil Dibowitz, Orv Beach, Phillip Banks, Hannah Anderson, Josh Andler). Committee role addresses (orders@, cfp@, sponsorship@, press@, staff@) are not attached to a single person and are left out of the structured `contact` field. Bios and term dates: not published (`null`).
+Gaps: no named Board of Directors or corporate officers (President/Treasurer/Secretary) are published, despite the entity being an incorporated 501(c)(3). If the corporation files officer names with the state (California SoS / IRS Form 990), those would be the true governance roster and could be added later as a `synthesized` or `wayback`-sourced supplement. Emeritus members (Lori Barfield, Tom King) are retained as past leadership.

@@ -84,7 +84,7 @@ people:
 - name: David Snead
   personId: null
   roles:
-  - role: Non-voting Invited Expert
+  - role: Board Director (Non-voting Invited Expert)
     roleClass: board_director
   contact: null
   bio: General Counsel, WebPros
@@ -97,18 +97,14 @@ people:
 
 # AlmaLinux OS Foundation — Leadership
 
-Scope of this record: the Board of Directors of the AlmaLinux OS Foundation, a 501(c)(6) non-profit (Tax ID 86-2791864). The board is community-elected with four-year staggered terms and elects its own officers, including the chair. Six voting directors plus one non-voting invited expert are listed as the current cohort.
+Scope: the AlmaLinux OS Foundation Board of Directors as published on the foundation page. The foundation is a 501(c)(6) governed by a community-elected board with four-year staggered terms; the board elects its own officers, including the chair.
 
-Officers: the only officer role named on the leadership page is the Chair (benny Vasquez). The board elects its own officers, but no other officer titles (treasurer, secretary, etc.) are published on this page, so none are captured. benny Vasquez is recorded with both an officer role (Chair) and a board_director role.
+Roster: seven directors listed — six voting plus one non-voting invited expert (David Snead). benny Vasquez is Chair (captured as both officer and board_director). The remaining voting members carry only board_director.
 
-David Snead is listed explicitly as a "Non-voting Invited Expert" (General Counsel, WebPros). Captured with role_class board_director (a governing-board seat, albeit non-voting); noted here as non-voting per the org.
+Term dates: the page states each director's election year ("Elected YYYY") and term end ("Term ends YYYY"), captured verbatim as term_start / term_end with confidence 1.0. Term dates reflect the staggered four-year cohorts established by the amended bylaws adopted April 2026. David Snead is a non-voting invited expert with no stated term.
 
-Paid vs volunteer: the foundation states "No paid board roles" in its board operations section, so all directors are unpaid. No paid staff (Executive Director or similar) is listed on this page; hence no paid_staff records. ALESCo (the AlmaLinux Engineering Steering Committee) is a separate project/engineering steering body, not foundation governance, and is deliberately excluded.
+Paid vs volunteer: the board operations statement says "No paid board roles," so all directors are unpaid governance roles (board_director / officer), confidence 1.0. No separate paid-staff / Executive Director role is published on this page.
 
-Term dates: election year and term-end year are stated verbatim per director ("Elected 2022", "Term ends 2029") and are captured as term_start / term_end with confidence 1.0. The org notes term dates reflect the staggered four-year cohorts under the amended bylaws adopted April 2026 (after the 2025 election was rescheduled). David Snead's non-voting seat has no stated term (null).
+Bios: no narrative bios are published. Each person carries a one-line employer/title descriptor from the roster card (e.g. "CEO, Codenotary Inc."), captured verbatim in the bio field. benny Vasquez's card shows only the role/foundation, so bio is null.
 
-Bios: no per-person narrative bio is published; the one-line affiliation/day-job descriptor printed under each name (e.g. "CEO, Codenotary Inc.") is captured verbatim in the bio field. benny Vasquez's descriptor is only the board role, so her bio is null.
-
-Contact: no per-person contact is published (null for all). The foundation's general contact is hello@almalinux.org. Board agendas and minutes are published on the AlmaLinux Wiki (Transparency page), which is where the leadership-history dataset should draw from.
-
-web_fetch calls: 2 (homepage, /foundation).
+Contact: no per-person contact is published (foundation contact is hello@almalinux.org only), so contact is null for all.

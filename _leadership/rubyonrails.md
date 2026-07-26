@@ -1,6 +1,6 @@
 ---
 identifier: rubyonrails
-commonName: Rails Foundation
+commonName: The Rails Foundation
 asOf: 2026-07-25
 sources:
 - url: https://rubyonrails.org/foundation
@@ -12,8 +12,11 @@ people:
   roles:
   - role: Board Chair
     roleClass: officer
+  - role: Board Director
+    roleClass: board_director
   contact: null
-  bio: Creator of Ruby on Rails; chairs the foundation board.
+  bio: Creator of Ruby on Rails; chairs the foundation's board. Trademark owner of the Rails trademarks,
+    licensed exclusively to the foundation.
   termStart: null
   termEnd: null
   sourceUrl: https://rubyonrails.org/foundation
@@ -49,7 +52,7 @@ people:
   - role: Board Director (Interim)
     roleClass: board_director
   contact: null
-  bio: Principal Engineer, Shopify. Listed as an interim board member.
+  bio: Principal Engineer, Shopify
   termStart: null
   termEnd: null
   sourceUrl: https://rubyonrails.org/foundation
@@ -153,12 +156,18 @@ people:
   confidence: 1.0
 ---
 
-# Rails Foundation — Leadership
+# The Rails Foundation — Leadership
 
-Scope of this record: the foundation's Board of Directors and its Executive Director, as published on the Foundation page.
+Scope of this record: the foundation's Board (chair + 10 directors) and its Executive Director, as published on the /foundation page. The Rails Foundation is a US 501(c)(6) non-profit that funds documentation, education, marketing, and events for the Ruby on Rails ecosystem and administers the Rails trademarks under an exclusive licence.
 
-Structure: the Rails Foundation is a US 501(c)(6) non-profit. Each of the ten Core member companies is represented by one employee on the board, and the board is chaired by Ruby on Rails creator David Heinemeier Hansson. The ten seated directors are captured above with their company affiliation recorded in `bio` (the org publishes each director's name alongside their employer and job title). Rafael França is listed as an interim board member.
+Board composition: each of the ten Core member companies is represented by one employee on the board, which is chaired by David Heinemeier Hansson, the creator of Ruby on Rails and the Rails trademark owner. Rafael França (Shopify) is listed as an interim board member; this is captured in his role string and noted here.
 
-Paid vs volunteer: the board directors are company representatives (not stated as paid by the foundation) and are classed `board_director`. Amanda Perino is the Executive Director and is classed `paid_staff`; the org publishes her contact address (amanda@rubyonrails.org), captured in `contact`.
+Bios: the foundation publishes a short affiliation line for each board director (their day-job title and company, e.g. "CTO, Fleetio"). These verbatim lines are stored in `bio`. They describe the individual's external role, not a foundation biography, but are the org-published descriptor for each person.
 
-Not published (hence `null`): term dates for all individuals; bios beyond the one-line employer/title affiliation for directors. The member companies themselves (Core and Contributing members) are organisations, not individuals, and are not captured as people records.
+Paid vs volunteer: Amanda Perino is the Executive Director (paid_staff, explicit title) and is the only staff role published; the board directors are company representatives serving in a governance capacity, not foundation employees.
+
+Contact: the foundation publishes a direct email only for the Executive Director (amanda@rubyonrails.org), captured in `contact` at confidence 1.0. Board directors link to LinkedIn profiles (external biographical links suited to the Who's Who dataset), so their per-person `contact` is null. The org-level address is foundation@rubyonrails.org.
+
+Term dates: not published for any individual, so `term_start`/`term_end` are null.
+
+Not captured: the corporate members (ten Core members: Cookpad, Doximity, Fin, Fleetio, GitHub, Judge.me, Procore, Shopify, 1Password, 37signals; plus fourteen Contributing members) are organisations, not individuals, and so are out of scope for this people-leadership dataset.

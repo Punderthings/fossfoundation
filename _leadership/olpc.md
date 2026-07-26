@@ -1,5 +1,5 @@
 ---
-identifier: laptop
+identifier: olpc
 commonName: One Laptop Per Child Association Inc.
 asOf: 2026-07-25
 sources:

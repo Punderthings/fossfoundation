@@ -3,33 +3,23 @@ identifier: wordpress
 commonName: WordPress Foundation
 asOf: 2026-07-25
 sources:
+- url: https://wordpress.org/
+  type: org_live
+  retrieved: 2026-07-25
 - url: https://wordpressfoundation.org/
   type: org_live
   retrieved: 2026-07-25
-people:
-- name: Matt Mullenweg
-  personId: null
-  roles:
-  - role: Founder
-    roleClass: officer
-  contact: null
-  bio: null
-  termStart: null
-  termEnd: null
-  sourceUrl: https://wordpressfoundation.org/
-  derived: org_live
-  confidence: 0.5
+people: []
 ---
 
 # WordPress Foundation — Leadership
 
-Scope and finding: the WordPress Foundation's own site (wordpressfoundation.org, the target site https://wordpress.org/ being the software project, not the charity) publishes NO board, officer, or staff roster. The site menu covers Financial Information, Donate, News, Philosophy, Projects, scholarships, Trademarks, and Contact, with no board/leadership/team/people page.
+No governance roster (board, officers, or staff) is published on the WordPress Foundation site, so this record is intentionally empty (`people: []`).
 
-The only governance-relevant person named anywhere on the site is Matt Mullenweg, described on the About page verbatim as the founder: "a charitable organization founded by Matt Mullenweg". That single fact is captured at confidence 1.0, but "Founder" is a historical designation rather than a current governance office. `role_class` is recorded as `officer` only as a low-confidence best-fit (`confidence: 0.5`) because the site does not state whether Mullenweg currently holds a board seat or officer title. No board membership is asserted.
+Attempts (2 fetches):
+- `https://wordpress.org/` (the manifest URL) is the WordPress open source project / software site, not the Foundation. The Foundation itself lives at `https://wordpressfoundation.org/`.
+- `https://wordpressfoundation.org/` — the About text states the Foundation "is a charitable organization founded by Matt Mullenweg" and is a 501(c)(3). Its menu is Financial Information, Donate, News, Philosophy, Projects, Kim Parsell Memorial Scholarship, Open Horizons Scholarship, Trademarks, Contact. There is no board/team/people/leadership page.
 
-The WordPress Foundation is a US 501(c)(3); its directors and officers are filed with the IRS (Form 990) and California, but are not published on the foundation website. Those filings — linked under the site's Financials section — are the correct source for a verified board roster and would be the basis for a leadership-history entry.
+The only individual named anywhere on the site is Matt Mullenweg, and only as the Foundation's founder, not as a current, titled governance role. Per the no-fabrication rule, he is not recorded with an invented board/officer title. A legal board exists (501(c)(3)), but it is not published on the live site.
 
-Not published (hence null / absent): board directors, officers, paid staff, contact, bios, and term dates.
-
-## Fetch attempts
-- https://wordpressfoundation.org/ — About/home page; names only the founder, no roster.
+Retry options for a later pass: IRS Form 990 filings (ProPublica Nonprofit Explorer) list the Foundation's current directors/officers; the annual reports linked on the site may also name responsible officers. Neither was pursued here to stay within org_live scope.

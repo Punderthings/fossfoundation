@@ -34,7 +34,7 @@ people:
   termEnd: null
   sourceUrl: https://pculture.org/about-pcf
   derived: org_live
-  confidence: 0.9
+  confidence: 1.0
 - name: Nicholas Reville
   personId: null
   roles:
@@ -47,14 +47,188 @@ people:
   sourceUrl: https://pculture.org/about-pcf
   derived: org_live
   confidence: 1.0
+- name: Erin O'Driscoll
+  personId: null
+  roles:
+  - role: Client Success Manager and Amara Enterprise Platform (AEP) Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Rieann Brown
+  personId: null
+  roles:
+  - role: Tech Support Project Manager, Key Accounts
+    roleClass: paid_staff
+  - role: Finance
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Marília Correia
+  personId: null
+  roles:
+  - role: AOD Assistant Operations Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Fran Ontanaya
+  personId: null
+  roles:
+  - role: Senior Technical Operations Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Joanna Lam
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager, Key Accounts, and Recruiting
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Thais M. Barros
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager, Key Accounts, and Marketing & Communications
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Sebastião Nascimento
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Melanie Dychinco-Ty
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Natalia Savvidi
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager and LSP Partners Coordinator
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Viviane M.
+  personId: null
+  roles:
+  - role: AOD Senior Project Manager and Key Accounts
+    roleClass: paid_staff
+  - role: Finance
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Amelia S.
+  personId: null
+  roles:
+  - role: Senior Software Engineer
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Dan Reyes
+  personId: null
+  roles:
+  - role: Senior Software Engineer
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Margarita Shamraeva
+  personId: null
+  roles:
+  - role: Quality Assurance Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
+- name: Kathy Torres
+  personId: null
+  roles:
+  - role: Finance and Human Resources
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://pculture.org/about-pcf
+  derived: org_live
+  confidence: 0.9
 ---
 
 # Participatory Culture Foundation — Leadership
 
-Scope: the current Board of Directors (3) of the Participatory Culture Foundation (PCF), a 501(c)(3) founded 2006, best known for the Amara subtitling platform and Amplifying Voices. Captured from the PCF "About" page.
+Scope: PCF is a 501(c)(3) nonprofit (est. 2006) that operates the Amara subtitling/captioning platform and the Amplifying Voices initiative. The About page publishes a current Board of Directors, an Executive Team, and an operational staff roster ("Our Team"). This record captures the Board of Directors, the Executive Director/CEO, and the paid staff listed on the team page, per the Tier 1 rule to capture staff on a Staff/Team page.
 
-Board of Directors (current): Dean Jansen (Treasurer), Jenny Lam-Chowdhury, and Nicholas Reville. Jenny Lam-Chowdhury also appears on the Executive Team as Executive Director and CEO; she is recorded with both a `board_director` role and a `paid_staff` (Executive Director and CEO) role. Her person `confidence` is 0.9 because the page places her both on the board and as employed executive without stating whether her board seat is ex-officio.
+Board of Directors (3, confidence 1.0): Dean Jansen (Treasurer, the one named officer), Jenny Lam-Chowdhury, and Nicholas Reville. Jenny Lam-Chowdhury also serves as Executive Director and CEO (paid_staff), so her record carries both a board_director role and the paid_staff ED/CEO role.
 
-Excluded (with reason): the "Emeritus Board" (Aleli Alcala, Tiffiniy Cheng, Dave Glassco, Stefan Magdlinski) are past, not current, directors. The "Founders" list (Tiffiniy Cheng, Nicholas Nassar, Nicholas Reville, Holmes Wilson) is historical, not a governance role. The wider "Our Team" roster is Amara product/operations staff (customer support, subtitling operations, engineering, finance/HR) rather than foundation governance; per scope rules these product-level staff are noted but not captured as people records. Only the Executive Director (Jenny Lam-Chowdhury) is captured as foundation-level paid staff.
+Paid staff (confidence 0.9): the ~15 team members listed under "Our Team" (Amara customer advocacy/support, Amara On Demand captioning, product/engineering, and finance/HR). They are recorded as `paid_staff` at confidence 0.9 because the page presents them as the foundation's working team but does not state employment terms verbatim. Several people appear under more than one function (Rieann Brown and Viviane M. also under Finance); their multiple functions are merged into a single record with multiple roles. The team page also publishes each person's location and a light personal descriptor; PCF's schema has no location field and the descriptors are not substantive bios, so `bio` is null.
 
-Not published (hence null): per-person contact, bios (only light "fun-fact" descriptors are shown for staff), and term dates.
+Excluded (with note): the "Emeritus Board" (Aleli Alcala, Tiffiniy Cheng, Dave Glassco, Stefan Magdlinski) is a past/honorary body, not current leadership. "Founders" (Tiffiniy Cheng, Nicholas Nassar, Nicholas Reville, Holmes Wilson) is a historical attribution. Both are recorded here in prose but not as current people (Nicholas Reville is captured only via his current Board Director seat). "Major Funders" are organisations, not people.
+
+Contact: no per-person contact is published (no emails/handles), so `contact` is null throughout. Term dates are not published, so `term_start`/`term_end` are null.

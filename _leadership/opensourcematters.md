@@ -3,10 +3,10 @@ identifier: opensourcematters
 commonName: Open Source Matters, Inc.
 asOf: 2026-07-25
 sources:
-- url: https://volunteers.joomla.org/board-of-directors
+- url: https://www.opensourcematters.org/organisation/directors.html
   type: org_live
   retrieved: 2026-07-25
-- url: https://www.opensourcematters.org/organisation/directors.html
+- url: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   type: org_live
   retrieved: 2026-07-25
 people:
@@ -19,9 +19,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: May 2026
+  termStart: 2026-05
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Emmanuel Lemor
@@ -33,9 +33,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Mar 2025
+  termStart: 2025-03
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Bruce Scherzinger
@@ -47,9 +47,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Mar 2026
+  termStart: 2026-03
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Ufuk Avcu
@@ -61,9 +61,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Dec 2025
+  termStart: 2025-12
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Carlos Cámara
@@ -73,9 +73,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Mar 2026
+  termStart: 2026-03
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Richard Gosler
@@ -85,9 +85,9 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Jul 2025
+  termStart: 2025-07
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 - name: Sigrid Gramlinger
@@ -97,23 +97,23 @@ people:
     roleClass: board_director
   contact: null
   bio: null
-  termStart: Aug 2023
+  termStart: 2023-08
   termEnd: null
-  sourceUrl: https://volunteers.joomla.org/board-of-directors
+  sourceUrl: https://www.joomla.org/about-joomla/the-project/leadership-team.html
   derived: org_live
   confidence: 1.0
 ---
 
-# Open Source Matters, Inc. — Leadership
+# Open Source Matters, Inc. (OSM) — Leadership
 
-Scope of this record: the Open Source Matters (OSM) Board of Directors, the not-for-profit incorporated in the United States that manages the financial and legal interests of the Joomla! Project. The board is defined by OSM as three Department Coordination Team Leaders plus four Officers required by law (President, Vice President, Secretary, Treasurer). The seven current members above are the roster with no end date on the live volunteers portal as of 2026-07-25.
+Scope: the current Board of Directors of Open Source Matters, Inc., the US not-for-profit that serves the financial and legal interests of the Joomla! project (owns the trademarks, domains, and copyright; signs contracts; manages finances).
 
-Path from opensourcematters.org: the site's own Board of Directors page (/organisation/directors.html) defers the current roster to the Joomla! Volunteers Portal, which hosts the authoritative live table at volunteers.joomla.org/board-of-directors. Both sources are recorded.
+Board composition: OSM states its board is "comprised of 3 Department Coordination Team Leaders + 4 Officers required by law". The four officers are President, Vice President, Secretary, and Treasurer (`officer` role plus `board_director`). The three Department Coordinators (Operations, Outreach, Production) are the elected team leaders and are captured as `board_director`.
 
-Role classification: the four legally required officers carry an `officer` role_class plus a `board_director` class (they sit on the board). The three Department Coordinators carry `board_director` only. Joomla's own department/project structure (volunteers.joomla.org/departments) sits below the board and is excluded here as project/operational, not foundation governance.
+Current board (7): Elisa Foltyn (President), Emmanuel Lemor (Vice President), Bruce Scherzinger (Secretary), Ufuk Avcu (Treasurer), Carlos Cámara (DC Operations), Richard Gosler (DC Outreach), Sigrid Gramlinger (DC Production). Roster confirmed by the July 2026 board-meeting minutes on the same portal.
 
-Paid vs volunteer: opensourcematters.org and joomla.org state the Joomla! Project is "100% run by dedicated, passionate volunteers." No paid staff or Executive Director is listed. All seven board members are treated as volunteers; none is `paid_staff`.
+Provenance note: opensourcematters.org/organisation/directors.html no longer lists names inline; it redirects to the Joomla! Volunteers Portal leadership-team page, which holds the live roster. Both URLs are recorded as sources.
 
-Term dates: the portal publishes a "Date Started" per current role, captured verbatim as `term_start` (month + year, confidence 1.0). No `term_end` is stated for sitting members. A full historical table of past presidents, VPs, secretaries, treasurers, and department coordinators (2017 onward) is published on the same page and is the source for the leadership-history dataset for this org.
+Term dates: the portal publishes a "Date Started" for each current director, captured verbatim as `term_start` (confidence 1.0). No `term_end` is given for current members. The same page carries a full history of past officers and coordinators with start and end dates, which feeds the leadership-history dataset (several past holders are shown only as "Private Profile" with no public name).
 
-Not published on this page (hence `null`): per-person contact and bio. Each member links to a Joomla profile page (e.g. /joomlers/700-elisa-foltyn) which may carry a bio/contact, not fetched within this budget. Country of residence is listed per member on the portal but is not a schema field, so it is omitted here.
+Contact and bio: no per-person email or bio is published on the roster page (each name links to a Joomla profile, not captured here); left null.

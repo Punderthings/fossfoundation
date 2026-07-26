@@ -14,7 +14,7 @@ people:
     roleClass: officer
   - role: Member Director (Mozilla)
     roleClass: board_director
-  contact: 'github: bholley'
+  contact: github:bholley
   bio: null
   termStart: null
   termEnd: null
@@ -26,7 +26,9 @@ people:
   roles:
   - role: At-Large Director
     roleClass: board_director
-  contact: 'github: ricochet'
+  - role: TSC Elected Delegate
+    roleClass: volunteer
+  contact: github:ricochet
   bio: null
   termStart: null
   termEnd: null
@@ -38,7 +40,7 @@ people:
   roles:
   - role: At-Large Director
     roleClass: board_director
-  contact: 'github: pchickey'
+  contact: github:pchickey
   bio: null
   termStart: null
   termEnd: null
@@ -50,7 +52,7 @@ people:
   roles:
   - role: Member Director (Fastly)
     roleClass: board_director
-  contact: 'github: tyler'
+  contact: github:tyler
   bio: null
   termStart: null
   termEnd: null
@@ -62,7 +64,9 @@ people:
   roles:
   - role: TSC Director
     roleClass: board_director
-  contact: 'github: tschneidereit'
+  - role: TSC Appointed Delegate
+    roleClass: volunteer
+  contact: github:tschneidereit
   bio: null
   termStart: null
   termEnd: null
@@ -74,7 +78,9 @@ people:
   roles:
   - role: Member Director (F5)
     roleClass: board_director
-  contact: 'github: ospencer'
+  - role: TSC Chair
+    roleClass: volunteer
+  contact: github:ospencer
   bio: null
   termStart: null
   termEnd: null
@@ -88,7 +94,7 @@ people:
     roleClass: officer
   - role: Member Director (Microsoft)
     roleClass: board_director
-  contact: 'github: squillace'
+  contact: github:squillace
   bio: null
   termStart: null
   termEnd: null
@@ -100,7 +106,7 @@ people:
   roles:
   - role: Member Director (UCSD)
     roleClass: board_director
-  contact: 'github: deian'
+  contact: github:deian
   bio: null
   termStart: null
   termEnd: null
@@ -112,25 +118,37 @@ people:
   roles:
   - role: Consulting Executive Director
     roleClass: paid_staff
-  contact: 'github: disquisitioner'
+  contact: github:disquisitioner
   bio: null
   termStart: null
   termEnd: null
   sourceUrl: https://bytecodealliance.org/about
   derived: org_live
   confidence: 0.9
+- name: Christof Petig
+  personId: null
+  roles:
+  - role: TSC Elected Delegate
+    roleClass: volunteer
+  contact: github:cpetig
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://bytecodealliance.org/about
+  derived: org_live
+  confidence: 1.0
 ---
 
 # Bytecode Alliance Foundation — Leadership
 
-Scope: the Board of Directors (9 members, including officers Board Chair and Treasurer) and the Consulting Executive Director, all from the `/about` page.
+Scope: the Board of Directors (top-level oversight body) and the Technical Steering Committee (TSC), both captured from the single /about page. The TSC is the top-level governing body for hosted projects and SIGs; TSC Directors sit on the Board, so it is treated here as foundation governance rather than a purely project-level committee. Recognized Contributors (an individual-contributor program) are not captured.
 
-The Technical Steering Committee (TSC) is deliberately excluded from the roster proper. The org describes the TSC as "the top-level governing body for projects and Special Interest Groups hosted by the Alliance", i.e. project-level technical governance rather than foundation corporate governance. Its members overlap with the board: Till Schneidereit (TSC Director, on board), Bailey Hayes and Oscar Spencer (also board directors), plus Christof Petig (Elected Delegate, TSC only — not captured here as he holds no board/officer seat).
+Board composition (9 seats): Member Directors elected by member organizations (Mozilla, Fastly, F5, Microsoft, UCSD named on the page), At-Large Directors, and a TSC Director. Officers named: Board Chair (Bobby Holley), Treasurer (Ralph Squillace). The Consulting Executive Director (David Bryant) "supports the Board and oversees day-to-day operations as well as member relations" — tagged `paid_staff` at confidence 0.9 because the "Consulting Executive Director" title and operational remit imply a paid/contracted role, though employment status is not stated verbatim.
 
-Paid vs volunteer: no employment status is stated for board directors, treated as unpaid governance (no confidence penalty since they are elected member/at-large directors, not staff). David Bryant is tagged `paid_staff` at confidence 0.9: his title "Consulting Executive Director" and the stated remit ("supports the Board and oversees day-to-day operations as well as member relations") indicate a contracted/paid role, but the site does not state employment terms explicitly.
+TSC delegates captured: Bailey Hayes (Elected), Till Schneidereit (Appointed, TSC Director), Oscar Spencer (Elected, TSC Chair), Christof Petig (Elected). The first three also hold Board seats and are recorded once with both roles; Christof Petig is TSC-only and recorded as a `volunteer`.
 
-Contact: the org publishes a GitHub handle per person; captured verbatim in `contact`. No email addresses published.
+Contact: the org publishes a GitHub handle per person (captured in `contact` as `github:<handle>`); no email or other contact is published.
 
-Bios: none published (null for all).
+Term dates: the page states Directors serve "a two-year term, staggered across elections every December". This is a general policy, not a per-person stated term, so `term_start`/`term_end` are left null per the no-inference rule.
 
-Term dates: the page states directors serve "a two-year term, staggered across elections every December" as a general rule, but publishes no per-person term_start/term_end. Left null per the do-not-infer rule; note recorded here.
+Not published (hence null): bios, per-person email, and explicit term dates for all individuals.

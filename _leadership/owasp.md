@@ -1,6 +1,6 @@
 ---
 identifier: owasp
-commonName: Open Worldwide Application Security Project (OWASP Foundation)
+commonName: OWASP Foundation, Inc.
 asOf: 2026-07-25
 sources:
 - url: https://owasp.org/www-board/
@@ -14,7 +14,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/stevespringett/
   bio: null
   termStart: null
   termEnd: 2027-12-31
@@ -28,7 +28,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/ricardo-griffith/
   bio: null
   termStart: null
   termEnd: 2026-12-31
@@ -42,7 +42,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/harold-blankenship-92738b5
   bio: null
   termStart: null
   termEnd: 2026-12-31
@@ -56,7 +56,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/marisafagan/
   bio: null
   termStart: null
   termEnd: 2027-12-31
@@ -68,7 +68,7 @@ people:
   roles:
   - role: Member-at-Large
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/kelly-santalucia-2b359b30/
   bio: null
   termStart: null
   termEnd: 2027-12-31
@@ -80,7 +80,7 @@ people:
   roles:
   - role: Member-at-Large
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/ashwini-siddhi-856b82a4/
   bio: null
   termStart: null
   termEnd: 2026-12-31
@@ -92,7 +92,7 @@ people:
   roles:
   - role: Member-at-Large
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/samstepanyan/
   bio: null
   termStart: null
   termEnd: 2027-12-31
@@ -101,12 +101,14 @@ people:
   confidence: 1.0
 ---
 
-# OWASP Foundation — Leadership
+# OWASP Foundation, Inc. — Leadership
 
-Scope: the OWASP Foundation Global Board, comprising seven elected directors who serve two-year terms. Officer roles (Chair, Vice Chair, Treasurer, Secretary) for 2026 are recorded in addition to `board_director`; the remaining three directors are Members-at-Large. Source is the OWASP Global Board page (www-board).
+Scope: the OWASP Foundation Global Board, comprised of seven elected members serving two-year terms. Each Fall the membership votes to elect leadership. The four officer roles (Chair, Vice Chair, Treasurer, Secretary) are held by board members, so those four people carry both an `officer` role and a `board_director` role. The other three are Members-at-Large (`board_director`).
 
-Term dates: the board page states a "Current Term Ends" date per director (e.g. 12/31/2027), captured as `term_end`. Term start is not stated per person, so `term_start` is null. The staggered end dates (2026 vs 2027) reflect the annual half-board election each Fall.
+Term dates: the page states each director's "Current Term Ends" date verbatim, captured here as `term_end` (confidence 1.0). Term start dates are not stated on this page (elections and officer-election dates appear in the Board Actions log but individual seat start dates are not given), so `term_start` is null.
 
-Paid vs volunteer: board directors are elected volunteers; none is tagged paid_staff. The Foundation employs an Executive Director and staff (Andrew van der Stock is named as Executive Director throughout board minutes/actions through 2024, and the board page repeatedly references "the Executive Director"), but no current staff roster is published on this board page, so no ED/staff person record is asserted here to avoid stating an unverified 2026 status. A Compliance Officer (Vandana Verma, appointed effective Jan 2025 per board actions) is likewise recorded in minutes but not on the current board roster, so is excluded from `people[]`.
+Contact: the board page publishes a LinkedIn URL for every director (and a Twitter/X handle for several), so `contact` holds each director's published LinkedIn URL (confidence 1.0, org-published).
 
-Not published on this page (hence null): per-person contact (only LinkedIn/Twitter links are given, no email) and bios. Each director's US state / country of residence is listed on the page but is not a bio and is not captured as a field.
+Paid vs volunteer: board directors are elected volunteers, not paid. This record does not include paid staff. The board's Executive Director (a paid role; historically Andrew van der Stock) is referenced throughout the Board Actions log but the current Executive Director is not named on this leadership page, so no `paid_staff` record is created here rather than fabricate one. A Staff/Team page would be the source for staff and is not linked from this board page.
+
+Excluded: the extensive Board Actions voting log and the historical/attendance sections were used only to confirm the current roster and are not captured as people. Compliance Officers referenced in past motions are not currently listed on this page.

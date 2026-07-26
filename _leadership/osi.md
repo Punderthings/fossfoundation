@@ -1,5 +1,5 @@
 ---
-identifier: opensource
+identifier: osi
 commonName: Open Source Initiative
 asOf: 2026-07-25
 sources:

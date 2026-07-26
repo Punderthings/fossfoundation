@@ -14,10 +14,10 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://twitter.com/mitchelsellers
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -28,10 +28,34 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://x.com/JTowerMI
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
+  sourceUrl: https://dotnetfoundation.org/about/board-of-directors
+  derived: org_live
+  confidence: 1.0
+- name: Lou Creemers
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: https://x.com/lovelacecoding
+  bio: null
+  termStart: 2024
+  termEnd: 2026
+  sourceUrl: https://dotnetfoundation.org/about/board-of-directors
+  derived: org_live
+  confidence: 1.0
+- name: Chris Woodruff
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: https://x.com/cwoodruff
+  bio: null
+  termStart: 2024
+  termEnd: 2026
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -40,10 +64,10 @@ people:
   roles:
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://irina.codes/
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -52,10 +76,10 @@ people:
   roles:
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/smulovicspeter/
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -64,10 +88,10 @@ people:
   roles:
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://x.com/unixterminal
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -76,10 +100,10 @@ people:
   roles:
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://www.linkedin.com/in/81megs/
   bio: null
-  termStart: '2026'
-  termEnd: '2029'
+  termStart: 2026
+  termEnd: 2029
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 1.0
@@ -90,49 +114,23 @@ people:
     roleClass: board_director
   - role: Program Manager
     roleClass: paid_staff
-  contact: null
+  contact: https://www.linkedin.com/in/chris-sfanos-8297531a/
   bio: I'm Chris Sfanos, Program Manager, helping get things done.
   termStart: null
   termEnd: null
   sourceUrl: https://dotnetfoundation.org/about/board-of-directors
   derived: org_live
   confidence: 0.9
-- name: Lou Creemers
-  personId: null
-  roles:
-  - role: Board Director
-    roleClass: board_director
-  contact: null
-  bio: null
-  termStart: '2024'
-  termEnd: '2026'
-  sourceUrl: https://dotnetfoundation.org/about/board-of-directors
-  derived: org_live
-  confidence: 1.0
-- name: Chris Woodruff
-  personId: null
-  roles:
-  - role: Board Director
-    roleClass: board_director
-  contact: null
-  bio: null
-  termStart: '2024'
-  termEnd: '2026'
-  sourceUrl: https://dotnetfoundation.org/about/board-of-directors
-  derived: org_live
-  confidence: 1.0
 ---
 
 # .NET Foundation — Leadership
 
-Scope of this record: the .NET Foundation Board of Directors listed on the Board of Directors page, plus the one named staff member on the same page. The .NET Foundation is an independent non-profit supporting the open-source .NET ecosystem.
+Scope: the .NET Foundation Board of Directors and the "Our Team" staff entry, as listed on the board-of-directors page. The .NET Foundation is a 501(c)(6) nonprofit supporting the open-source .NET ecosystem.
 
-Terms: this org states an explicit term range per director, so term_start/term_end are populated verbatim (confidence 1.0). Two directors (Lou Creemers, Chris Woodruff) show "Term: 2024 - 2026"; six (Mitchel Sellers, Jonathan Tower, Irina Dominte, Peter Smulovics, Hayden Barnes, Meagon Hansen) show "Term: 2026 - 2029". Term values are recorded as the years exactly as published.
+Board (9 members): President Mitchel Sellers and Vice President Jonathan "J." Tower are captured with both an officer role and a board_director role. Lou Creemers, Chris Woodruff, Irina Dominte, Peter Smulovics, Hayden Barnes and Meagon Hansen are directors. Chris Sfanos holds the "Founding Member Rep" seat.
 
-Officers: Mitchel Sellers is President and Jonathan "J." Tower is Vice President (both also board directors). No Treasurer or Secretary is named on this page.
+Term dates: stated explicitly per director as ranges (e.g. "Term: 2026 - 2029", "Term: 2024 - 2026"), captured verbatim in `term_start`/`term_end` at year granularity, confidence 1.0. The Founding Member Rep seat (Sfanos) has no stated term (null).
 
-Chris Sfanos appears twice: as a board director tagged "Founding Member Rep" (no term listed) and, under a separate "Our Team" heading, as Program Manager. The Program Manager role is treated as `paid_staff` inferred from the staff/team section (confidence 0.9 on the record; the page does not state employment terms explicitly).
+Paid vs volunteer: Chris Sfanos is also listed under "Our Team" as Program Manager ("I'm Chris Sfanos, Program Manager, helping get things done"). He is recorded once with two roles — Founding Member Rep (board_director) and Program Manager (paid_staff). Employment status is not stated explicitly, so the record confidence is 0.9 (title stated; paid status inferred from the "Our Team"/Program Manager framing). No other paid staff (e.g. an Executive Director) are listed on this page.
 
-Paid vs volunteer: the page does not state whether directors are paid or volunteer, so directors carry only board_director/officer classes. Only Chris Sfanos (Program Manager) is treated as staff.
-
-Field availability: bios are not published for directors (Chris Sfanos has a one-line staff blurb, captured). Per-person contact email is not published (`contact: null`); social handles (X / LinkedIn / personal sites) are published per person and suit the Who's Who dataset.
+Contact: the org publishes per-person social/web handles (X, LinkedIn, personal sites) rather than email. `contact` records one published handle per person (X preferred, else LinkedIn/site). No bios beyond Sfanos's one-line note are published (null).

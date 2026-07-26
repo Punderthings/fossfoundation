@@ -1,5 +1,5 @@
 ---
-identifier: foundation3
+identifier: rust
 commonName: Rust Foundation
 asOf: 2026-07-25
 sources:
@@ -10,14 +10,13 @@ people:
 - name: Nell Shamrell-Harrington
   personId: null
   roles:
-  - role: Chair
+  - role: Board Chair
     roleClass: officer
-  - role: Member Director (Microsoft)
+  - role: Member Director, Microsoft
     roleClass: board_director
   contact: null
-  bio: 'Nell serves as both the Chair of our board and the Member Director for Platinum Member, Microsoft.
-    Outside of the Rust Foundation, Nell works at Microsoft as a Principal Software Engineer. (Pronouns:
-    she/they)'
+  bio: Nell serves as both the Chair of our board and the Member Director for Platinum Member, Microsoft.
+    Outside of the Rust Foundation, Nell works at Microsoft as a Principal Software Engineer.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -26,7 +25,7 @@ people:
 - name: Jeffrey Vander Stoep
   personId: null
   roles:
-  - role: Member Director (Google)
+  - role: Member Director, Google
     roleClass: board_director
   contact: null
   bio: Jeff represents Google on the Rust Foundation's Board of Directors. As a software engineer on the
@@ -56,7 +55,7 @@ people:
 - name: Andrew Wafaa
   personId: null
   roles:
-  - role: Member Director (Arm)
+  - role: Member Director, Arm
     roleClass: board_director
   contact: null
   bio: Andrew Wafaa serves on our Board of Directors, representing ARM. Andrew is the Distinguished Engineer,
@@ -72,7 +71,7 @@ people:
 - name: Rohan Patil
   personId: null
   roles:
-  - role: Member Director (Meta)
+  - role: Member Director, Meta
     roleClass: board_director
   contact: null
   bio: Rohan Patil serves on the Board of Directors for Rust Foundation, representing Meta. Rohan leads
@@ -86,13 +85,16 @@ people:
 - name: Predrag Gruevski
   personId: null
   roles:
-  - role: Member Director (OpenAI)
+  - role: Member Director, OpenAI
     roleClass: board_director
   contact: null
   bio: Predrag serves as a Member Director representing OpenAI on the Foundation Board of Directors. At
     OpenAI, he is a Member of Technical Staff working on distributed systems infrastructure for frontier
-    model training. He became a Rustacean when a friend suggested building a SemVer linter for Rust, and
-    cargo-semver-checks has been his passion project ever since.
+    model training. He became a Rustacean when a friend suggested building a SemVer linter for Rust "shouldn't
+    be that hard," and cargo-semver-checks has been his passion project ever since! Having worked at companies
+    both big and small, as well as having spent several years as an independent open-source maintainer,
+    Predrag is excited to direct his energy and experience into making the Rust language and ecosystem
+    better for everyone.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -101,7 +103,7 @@ people:
 - name: Seth Markle
   personId: null
   roles:
-  - role: Member Director (AWS)
+  - role: Member Director, AWS
     roleClass: board_director
   contact: null
   bio: Seth serves as the Member Director for Platinum Member, AWS. In addition to his work with the Rust
@@ -114,7 +116,7 @@ people:
 - name: Peixin Hou
   personId: null
   roles:
-  - role: Member Director (Huawei)
+  - role: Member Director, Huawei
     roleClass: board_director
   contact: null
   bio: Peixin serves as the Member Director for Platinum Member Huawei. Outside of the Rust Foundation,
@@ -131,11 +133,11 @@ people:
   - role: Project Director
     roleClass: board_director
   contact: null
-  bio: 'Carol has been an active contributor to and leader of the Rust Project for many years. She currently
-    serves on the Rust Project crates.io Team and has previously served on the Project''s Leadership Council,
+  bio: Carol has been an active contributor to and leader of the Rust Project for many years. She currently
+    serves on the Rust Project crates.io Team and has previously served on the Project's Leadership Council,
     the Dev Tools Team, and the former Rust Core Team. Carol is also a co-founder of Integer 32, LLC,
-    the world''s first Rust-focused software consultancy, has organized various Rust community events
-    and conferences in the past, and is the co-author of the Rust Book. (Pronouns: she/her)'
+    the world's first Rust-focused software consultancy, has organized various Rust community events and
+    conferences in the past, and is the co-author of the Rust Book.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -147,9 +149,9 @@ people:
   - role: Project Director
     roleClass: board_director
   contact: null
-  bio: 'David has been contributing to the Rust compiler since 2017 and currently co-leads the compiler
-    team. Professionally, he leads Arm''s Rust team, improving support for Arm platforms in the Rust toolchain
-    and ecosystem. (Pronouns: he/him)'
+  bio: David has been contributing to the Rust compiler since 2017 and currently co-leads the compiler
+    team. Professionally, he leads Arm's Rust team, improving support for Arm platforms in the Rust toolchain
+    and ecosystem.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -177,12 +179,11 @@ people:
   - role: Project Director
     roleClass: board_director
   contact: null
-  bio: 'Nicholas Matsakis is a Senior Principal Engineer at AWS and co-lead of the open source Rust language
+  bio: Nicholas Matsakis is a Senior Principal Engineer at AWS and co-lead of the open source Rust language
     design team. He has worked on Rust since 2011 and led the design of its "secret sauce", the borrow
     checker. He has played a number of other roles in Rust over the years, such as being a member of the
     Rust core team, the lead of the Rust compiler team, and helping to launch the Rust Foundation. Prior
-    to working on Rust, he completed a PhD at ETH Zurich and did his undergraduate studies at MIT. (Pronouns:
-    he/him)'
+    to working on Rust, he completed a PhD at ETH Zurich and did his undergraduate studies at MIT.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -194,18 +195,19 @@ people:
   - role: Project Director
     roleClass: board_director
   contact: null
-  bio: 'Ryan Levick began exploring Rust in 2014 and immediately started looking for ways to be involved
+  bio: Ryan Levick began exploring Rust in 2014 and immediately started looking for ways to be involved
     in the community. Over time he participated more by co-organizing the Berlin Rust meetup, producing
     YouTube tutorials, helping with various Rust Project efforts, and more. In 2019, Ryan got the opportunity
-    to work with Rust full time leading developer advocacy for Rust at Microsoft. Nowadays, he''s an active
-    member of the Rust Project where he is a member of Compiler and Infrastructure Team and helps run
-    the annual State of Rust Survey. (Pronouns: he/him)'
+    to work with Rust full time leading developer advocacy for Rust at Microsoft and helping build up
+    the case for Rust as an official language inside of Microsoft. Nowadays, he's an active member of
+    the Rust Project where he is a member of Compiler and Infrastructure Team, helps run the annual State
+    of Rust Survey, and much more.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
   derived: org_live
   confidence: 1.0
-- name: Rebecca Rumbul
+- name: Dr. Rebecca Rumbul
   personId: null
   roles:
   - role: Executive Director & CEO
@@ -221,7 +223,7 @@ people:
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
   derived: org_live
-  confidence: 1.0
+  confidence: 0.9
 - name: Abi Broom
   personId: null
   roles:
@@ -231,7 +233,8 @@ people:
   bio: As Director of Operations and a founding member of our staff team, Abi is responsible for transforming
     the internal capacity of the Foundation to meet its growing ambition. Abi has 20 years of experience
     implementing and formalizing systems and procedures in growing organizations across the digital and
-    non-profit spaces.
+    non-profit spaces. She has a keen interest in digital transformation and the possibilities offered
+    by new technologies.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -258,10 +261,13 @@ people:
   - role: Director of Outreach
     roleClass: paid_staff
   contact: null
-  bio: 'Lori has a passion and enthusiasm for working with developers and the open source community. She
-    is an active member of multiple open source foundations, such as CNCF, CDF, OpenSSF, and DoK, and
-    has volunteered as a program committee member for Kubecon, Cloud Native Rejekts, cdCon, SOOCon, and
-    FOSDEM. (Pronouns: she/her)'
+  bio: Lori has a passion and enthusiasm for working with developers and the open source community. She
+    is an active member of multiple open source foundations, such as CNCF, CDF, OpenSSF, DoK, and has
+    volunteered as a program committee member for Kubecon, Cloud Native Rejekts, cdCon, SOOCon, and FOSDEM.
+    She has also given talks at conferences around the world, including KubeCon EU, All Things Open, FOSDEM,
+    Devoxx Morocco, SOOCon, Open Source Summit, KCDC, The Linux Foundation Member Summit, SOSS Fusion,
+    and CodeMash. Lori is committed to helping open source and other tech communities grow and adapt in
+    the ever-changing technical landscape.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -273,10 +279,11 @@ people:
   - role: Director of Communications & Marketing
     roleClass: paid_staff
   contact: null
-  bio: 'Gracie oversees the Rust Foundation''s public relations and marketing strategies and manages all
-    outbound communications. Before joining the Rust Foundation team, Gracie held various content strategy
-    and editorial direction positions at the Linux Foundation, Forem/dev.to, and several startups. She
-    has also worked as a freelance communications consultant for open source clients. (Pronouns: she/her)'
+  bio: Gracie oversees the Rust Foundation's public relations and marketing strategies and manages all
+    outbound communications. Throughout her career, Gracie has focused on telling compelling stories for
+    technology communities and organizations. Before joining the Rust Foundation team, Gracie held various
+    content strategy and editorial direction positions at the Linux Foundation, Forem/dev.to, and several
+    startups. She has also worked as a freelance communications consultant for open source clients.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -290,9 +297,14 @@ people:
   contact: null
   bio: Walter Pearce is a key leader of the Rust Foundation's Security Initiative. Walter comes from a
     14-year career in security. For the past seven years, he has specialized in offensive security in
-    the gaming industry, leading efforts to find and mitigate vulnerabilities at Epic Games and Blizzard
-    Entertainment. Before that, he was a security consultant providing penetration testing, red teaming,
-    and code review services for many Fortune 100 companies.
+    the gaming industry, leading efforts to find and mitigate vulnerabilities affecting tens of millions
+    of players at Epic Games and Blizzard Entertainment. Before that, he was a security consultant providing
+    penetration testing, red teaming, and code review services for many Fortune 100 companies whose foci
+    included operating systems, languages, and embedded systems. Walter has always had a passion for technical
+    security problems and has built his career helping craft novel solutions to new, challenging issues
+    in security. In his spare time, Walter enjoys playing open source games. He was previously a contributor
+    and member of the Amethyst Game Engine and a lead contributor on other open source game development
+    projects.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -306,7 +318,9 @@ people:
   contact: null
   bio: Tobias Bieniek is the Rust Foundation's crates.io-focused Software Engineer. He has been involved
     with the Rust ecosystem since roughly 2015. He started out by working on the intellij-rust project.
-    In 2019, Tobias officially joined the crates.io team, and in May 2021 was asked to co-lead it.
+    For the past several years, he has been contributing to the crates.io codebase. In 2019, Tobias officially
+    joined the crates.io team. In May 2021, they asked him to co-lead the team. In mid-2022, Tobias applied
+    for the first round of fellowship grants from the Rust Foundation, part of our Community Grants Program.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -318,10 +332,11 @@ people:
   - role: Software Engineer
     roleClass: paid_staff
   contact: null
-  bio: 'Adam Harvey is the Rust Foundation''s security-focused Software Engineer. He partners with Walter
-    Pearce to carry out priorities identified by the Security Initiative. Adam is a self-described generalist
+  bio: Adam Harvey is the Rust Foundation's security-focused Software Engineer. He partners with Walter
+    Pearce to carry out priorities identified by our Security Initiative. Adam is a self-described generalist
     software developer who has worked at a variety of companies and open source projects including New
-    Relic, Sourcegraph, and PHP over his 20-year career. (Pronouns: he/him)'
+    Relic, Sourcegraph, and PHP in the course of his 20-year career. Originally from Western Australia,
+    he has lived in Vancouver, Canada for the past 10 years.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -347,10 +362,11 @@ people:
   - role: Program Manager
     roleClass: paid_staff
   contact: null
-  bio: 'As Program Manager, Tina leads a range of initiatives across marketing, events, training, and
-    membership. She brings over a decade of experience in event and project management. Having previously
-    worked for the Drupal Association, The Linux Foundation, and Cloud Native Computing Foundation, Tina
-    has an extensive background in open source and non-profit operations. (Pronouns: she/her)'
+  bio: As our Program Manager, Tina leads a range of initiatives across marketing, events, training, and
+    membership. She brings over a decade of experience in event and project management, with a strong
+    focus on conferences and community programs for technical audiences. Having previously worked for
+    the Drupal Association, The Linux Foundation, and Cloud Native Computing Foundation, Tina has an extensive
+    background in open source and non-profit operations.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
@@ -362,40 +378,44 @@ people:
   - role: Global Rust Community Coordinator
     roleClass: paid_staff
   contact: null
-  bio: Ernest Kissiedu is the organizer of Rust Nation UK, a conference that focuses on introducing people
+  bio: 'Ernest Kissiedu is the organizer of Rust Nation UK: a conference that focuses on introducing people
     to the Rust ecosystem. He is also the organizer of the Rust London Meetup Group and a co-founder of
-    the DevX Initiative. At the Rust Foundation, Ernest works on a contracted basis to help serve global
-    Rust communities and develop events.
+    the DevX Initiative, which empowers current and would-be Rust contributors through research, workshops,
+    and sponsorship. At the Rust Foundation, Ernest works on a contracted basis to help us better serve
+    global Rust communities and develop events.'
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
   derived: org_live
-  confidence: 0.9
+  confidence: 1.0
 - name: Ubiratan Soares
   personId: null
   roles:
   - role: Infrastructure Engineer
     roleClass: paid_staff
   contact: null
-  bio: Ubiratan Soares ("Ubi") started his professional career as a Mobile Engineer, and over almost 15
-    years became a generalist software engineer with a special taste for infrastructure, security, and
-    automation. He partners with Marco Ieni on Rust infrastructure. Born and raised in São Paulo, Brazil,
-    he has been living in Spain since 2019.
+  bio: Ubiratan Soares ("Ubi") started his professional career as a Mobile Engineer, and over the course
+    of almost 15 years, he became a generalist software engineer with a special taste for infrastructure,
+    security, automation and all things around. He partners with Marco Ieni to make the Rust infrastructure
+    a bit better every day. Ubiratan was born and raised in Sao Paulo, Brazil, and he has been living
+    in Spain since 2019.
   termStart: null
   termEnd: null
   sourceUrl: https://rustfoundation.org/about/
   derived: org_live
-  confidence: 0.9
+  confidence: 1.0
 ---
 
 # Rust Foundation — Leadership
 
-Scope of this record: the Board of Directors (Member Directors and Project Directors) and the Foundation's employed/contracted Team, as published on the About page. The Rust Foundation is an independent non-profit stewarding the Rust programming language.
+Scope: the Board of Directors and staff ("Our Team") listed on the Rust Foundation "About" page (https://rustfoundation.org/about/). The Rust Foundation is an independent nonprofit that stewards the Rust programming language. Full bios are published for every person and are recorded verbatim.
 
-Board structure: the board is composed of Member Directors (representatives of member organisations) and Project Directors (elected by the Rust Project), who share equal voting power. Each Platinum member holds a dedicated board seat; there is one Silver Member Representative. The board has five seats reserved for Project Directors. Nell Shamrell-Harrington serves as Chair (captured as `officer`) as well as Microsoft's Member Director. All other directors are captured as `board_director`, with their represented organisation recorded in the role label and bio.
+Board of Directors (13). The board comprises Member Directors and Project Directors with equal voting power. Member Directors (8), each representing a member organization: Nell Shamrell-Harrington (Board Chair, Microsoft), Jeffrey Vander Stoep (Google), Alexandru Radovici (Silver Member Representative), Andrew Wafaa (Arm), Rohan Patil (Meta), Predrag Gruevski (OpenAI), Seth Markle (AWS), and Peixin Hou (Huawei). Project Directors (5), elected by the Rust Project: Carol Nichols, David Wood, Jack Huey, Nicholas Matsakis, and Ryan Levick. Nell Shamrell-Harrington is recorded with both a `Board Chair` officer role and a board_director role; all other directors carry a single board_director role. The represented organization / seat type is preserved in each director's role string.
 
-Term dates: the org states that Project Directors serve two-year terms elected by the Rust Project, but no individual term start/end dates are published, so `term_start`/`term_end` are `null` for everyone. This general term structure is a candidate for the leadership-history dataset.
+Staff / "Our Team" (12): Dr. Rebecca Rumbul (Executive Director & CEO), Abi Broom (Director of Operations), Joel Marcey (Director of Technology), Lori Lorusso (Director of Outreach), Gracie Gregory (Director of Communications & Marketing), Walter Pearce (Security Engineer), Tobias Bieniek (Software Engineer), Adam Harvey (Software Engineer), Marco Ieni (Infrastructure Engineer), Tina Krauss (Program Manager), Ernest Kissiedu (Global Rust Community Coordinator), and Ubiratan Soares (Infrastructure Engineer). All are recorded as `paid_staff`. Ten are set at `confidence: 0.9` because paid/employed status is inferred from the "Our Team" heading rather than stated verbatim, though several bios explicitly describe founding staff / employment. Ernest Kissiedu is set at `confidence: 1.0` because his bio states he "works on a contracted basis" (an explicit paid engagement).
 
-Paid vs volunteer: the "Our Team" members are the Foundation's employed staff. The Executive Director & CEO (Dr. Rebecca Rumbul) is captured at confidence 1.0. The remaining team members are `paid_staff` at confidence 0.9 (listed under the staff/team heading with employment-style bios; paid status inferred rather than stated verbatim). Ernest Kissiedu is noted in his bio as working "on a contracted basis". Member and Project Directors are not paid by the Foundation for board service and are classed `board_director`.
+Term dates: the page states Project Directors "serve two year terms," but no per-person start/end dates are published, so all `term_start`/`term_end` are `null`. Member Director tenure is not stated.
 
-Contact: not published per person (`null` for all). Bios are captured verbatim (lightly trimmed) from the About page. A "Distinguished Advisors" section exists on the page but individual advisors were not enumerated in the retrieved content; they are advisory (non-governance) roles and are not captured here.
+Not published (hence `null`): per-person contact for all individuals.
+
+Excluded from this roster: the "Distinguished Advisors" and "Tech & Engineering" advisory/donor sections (advisory roles are out of scope for governance leadership), and member-organization and infrastructure-donor company listings (these are corporate members/donors, not individual leaders). These could be captured separately as advisor or membership datasets if wanted.

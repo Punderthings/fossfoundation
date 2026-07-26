@@ -221,10 +221,16 @@ people:
 
 # Processing Foundation, Inc. — Leadership
 
-Scope of this record: the Board of Directors (7 members, including the Board President, Vice President, and Treasurer) and the working staff team listed on the People page (2 Co-Executive Directors plus the Engineering, Programs, and Operations teams).
+Scope of this record: the current Board of Directors (7) and the foundation's staff teams (Leadership, Engineering, Programs, Operations = 10 people) as published on the People page. The Processing Foundation supports the Processing (Java), p5.js, and Processing Android creative-coding projects.
 
-Paid vs volunteer: the two Co-Executive Directors and the staff team are treated as `paid_staff` at confidence 0.9. The org lists them under staff/team headings but does not explicitly state employment status, so the paid classification is inferred. The Board of Directors is captured with the officer titles the org publishes (President, Vice President, Treasurer); the remaining four directors are `board_director`.
+Governance officers: Wesley Taylor (Board President), Cassie Tarakajian (Board Vice President; also a p5.js Editor Mentor, a project-level role noted here but not captured as a separate governance role), and Mathura M. Govindarajan (Board Treasurer) each hold an officer role and a board seat, tagged with both role classes. Amelia Winger-Bearskin, AX Mina, Miriam Langer, and Shari Frilot serve as Directors.
 
-Not published on this page (hence `null`): per-person contact info, bios, and term dates. Each person links to a personal website or LinkedIn profile, but the org does not publish per-person contact details or bio text, so `contact` and `bio` are left null.
+Paid vs volunteer: the two Co-Executive Directors (Roxana Hadad, Xin Xin) and the Engineering / Programs / Operations team members carry employment-style job titles (Engineering Manager, Senior Program Manager, Finance Manager, Communications Manager, etc.) grouped under staff "Team" headings. The page does not state "paid" explicitly, so staff are tagged `paid_staff` at `confidence: 0.9` (inferred from staff/team structure and job titles). Board directors are unpaid governance volunteers, tagged `confidence: 1.0` as stated verbatim.
 
-Deliberately excluded (noted here, not captured as governance records): the large "Advisors" group, "Open Source Software Mentors", the "Steering Committee" (p5.js Shared Responsibility Committee) and "Advisory Committees" (Fellowship Committee, Community Day Committee), and the "Alums" section (former board, staff, and advisors). These are advisory or historical/project-level roles rather than current foundation governance. The Alums board members listed are Ben Fry, Lauren Lee McCarthy, and Shana White.
+Deliberately excluded (out of scope for a leadership/governance dataset):
+- Advisors (~16 named, e.g. Boaz Sender, Casey Reas, Dan Shiffman, John Maeda) — an advisory group, not governance or staff.
+- Open Source Software Mentors (Kenneth Lim, Roopa Vasudevan, Patricio Gonzalez Vivo) — project-level roles.
+- Steering Committee / p5.js Shared Responsibility Committee, Fellowship Committee, and Processing Community Day Committee — project/program committees, not foundation governance.
+- Alums (former board, staff, advisors) — not current leadership.
+
+Not published on this page (hence `null`): bios (only name, title, and photo shown), term dates, and per-person contact. The People page links each person to a personal site / LinkedIn / Twitch, which are external biographical links suited to the Who's Who dataset rather than org-published contact; per-person `contact` is therefore null. Org-level contact is foundation@processingfoundation.org.

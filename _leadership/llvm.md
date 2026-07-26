@@ -1,5 +1,5 @@
 ---
-identifier: foundation2
+identifier: llvm
 commonName: LLVM Foundation
 asOf: 2026-07-25
 sources:

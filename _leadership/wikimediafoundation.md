@@ -246,12 +246,12 @@ people:
 
 # Wikimedia Foundation — Leadership
 
-Scope: the Board of Trustees (the foundation's ultimate corporate authority) and the executive team. Captured from the two current live pages, `/role/board/` and `/role/executive/`.
+Scope of this record: the Wikimedia Foundation Board of Trustees (11 members), which the org states is "its ultimate corporate authority", and the Executive Team (8 members) that "oversees departments, internal teams, and staff". Board officer roles (Chair Elect and Vice Chair, Vice Chair) are captured as an additional `officer` role alongside the `board_director` trustee role. No separate corporate-officer list is published beyond these.
 
-Provenance caution: the foundation also hosts stale leadership pages inside old annual reports (e.g. the 2018–2019 report still names Katherine Maher as CEO and María Sefidari as Chair). Those were NOT used. This record reflects the current role pages only, both retrieved 2026-07-25.
+Provenance: captured from the live board page (/role/board/) and executive page (/role/executive/) on 2026-07-25. Note: the org's older /who-we-are/annualreport/2019-annual-report/leadership/ page is a stale 2018-2019 snapshot (lists Katherine Maher as CEO and a different board) and was NOT used; the current /role/ pages supersede it.
 
-Board officers: the page marks Lorenzo Losa as "Chair Elect and Vice Chair" and Kathy Collins as "Vice Chair"; both role labels are captured verbatim and both are also Trustees (board_director). Every other board member is listed simply as "Trustee". Jimmy Wales is listed as "Trustee" (the site does not give him a distinct founder title on this page).
+Paid vs volunteer: the Executive Team are Foundation employees, tagged `paid_staff` at `confidence: 1.0` (the org describes them as the executive team overseeing staff). Board Trustees are the governing body; the Foundation does not state per-trustee compensation, so they are tagged `board_director` and treated as the governing board.
 
-Paid vs volunteer: the eight executive-team members are the employed leadership ("The Wikimedia Foundation executive team oversees departments, internal teams, and staff") and are classified `paid_staff` at confidence 1.0. Trustees are the governing board (board_director).
+Not published on these list pages (hence `null`): per-person contact, bios, and term dates. Individual profile pages exist at /profile/<name>/ (bios available there) and could enrich `bio` in a later pass, but the roster list pages themselves carry none. No term dates are stated.
 
-Not published on these pages (hence null): per-person contact, bios (each name links to a separate profile page not fetched here), and term start/end dates.
+Chair status note: Lorenzo Losa is listed as "Chair Elect and Vice Chair" and Kathy Collins as "Vice Chair"; no sitting Chair is separately listed on the current board page (the prior Chair role appears to be in transition to Losa). Roles recorded verbatim as published.

@@ -17,7 +17,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2026
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -31,7 +31,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2026
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -45,7 +45,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2027
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -59,7 +59,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2027
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -71,7 +71,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2027
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -83,7 +83,7 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2026
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
@@ -95,22 +95,22 @@ people:
   contact: null
   bio: null
   termStart: null
-  termEnd: null
+  termEnd: 2026
   sourceUrl: https://www.djangoproject.com/foundation/
   derived: org_live
   confidence: 1.0
 ---
 
-# Django Software Foundation — Leadership
+# Django Software Foundation (DSF) — Leadership
 
-Scope of this record: the 2026 Django Software Foundation Board of Directors as published on the foundation page. The DSF is a 501(c)(3) non-profit supporting the Django web framework.
+Scope: the 2026 DSF Board of Directors as listed on the foundation page. The DSF is a 501(c)(3) that supports development of the Django web framework. The board is annually elected by the individual members.
 
-Roles are stated verbatim (confidence 1.0): Jeff Triplett (President), Abigail Afi Gbadago (Vice President), Priya Pahwa (Secretary), Ryan Cheley (Treasurer), plus non-officer directors Jacob Kaplan-Moss, Paolo Melchiorre, and Tom Carrick. Seven directors total.
+Officers vs directors: the page names four officers — President (Jeff Triplett), Vice President (Abigail Afi Gbadago), Secretary (Priya Pahwa), Treasurer (Ryan Cheley) — plus three further directors (Jacob Kaplan-Moss, Paolo Melchiorre, Tom Carrick). Officers are captured with both an officer role and a board_director role; all seven sit on the board.
 
-Term dates: the page does not state term_start/term_end per person, so those are `null`. It does annotate election timing: Triplett, Gbadago, Melchiorre, and Carrick are "Up for election in 2026"; Pahwa, Cheley, and Kaplan-Moss are "Up for election in 2027". This is recorded here in prose rather than as term_end because it marks the next election, not a stated term boundary date.
+Term dates: the page marks each director with an election-cohort footnote — "¹ Up for election in 2026" or "² Up for election in 2027". This is recorded in `term_end` as the year the seat next comes up for election (Triplett, Gbadago, Melchiorre, Carrick = 2026; Pahwa, Cheley, Kaplan-Moss = 2027). `term_start` is not stated per person (null); the board history table gives prior-year rosters but not individual start dates for the current term.
 
-Paid vs volunteer: the page does not explicitly state the board is volunteer, so paid/volunteer status is left unasserted (roles tagged board_director/officer only). DSF board directors are customarily unpaid volunteers, but this is not stated verbatim on the page.
+Bios and contact: not published on the foundation page (null for all). Individual members are recognised separately at /foundation/individual-members/ and are not board roles.
 
-Executive Director: the DSF has an Executive Director role (referenced in the linked board meeting minutes, e.g. "Executive Director update"), but no ED name is published on this foundation page, so no paid_staff record is created here. This is a known gap; the ED name would need the teams/records pages or minutes to confirm without fabrication.
+History: a full year-by-year board history (President/VP/Secretary/Treasurer/members) back to 2007 is published on the same page and is a strong source for the leadership-history dataset for djangoproject.
 
-Not published on this page (hence `null`): per-person contact and bios. Extensive board history (2015-2026 elected boards plus pre-2015 appointments) is on the same page and belongs in the leadership-history dataset.
+Cross-org note: Jeff Triplett also appears on the DEFNA board (as Co-Founder); a Who's Who normalisation should link the two records.

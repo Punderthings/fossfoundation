@@ -12,7 +12,7 @@ people:
   roles:
   - role: President
     roleClass: officer
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -26,7 +26,7 @@ people:
   roles:
   - role: Vice President
     roleClass: officer
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -40,7 +40,7 @@ people:
   roles:
   - role: Secretary
     roleClass: officer
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -54,7 +54,7 @@ people:
   roles:
   - role: Treasurer
     roleClass: officer
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -66,19 +66,7 @@ people:
 - name: Barbara Beeton
   personId: null
   roles:
-  - role: Board Director
-    roleClass: board_director
-  contact: null
-  bio: null
-  termStart: null
-  termEnd: '2027'
-  sourceUrl: https://tug.org/board.html
-  derived: org_live
-  confidence: 1.0
-- name: Boris Veytsman
-  personId: null
-  roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -90,7 +78,7 @@ people:
 - name: Doris Behrendt
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -102,7 +90,7 @@ people:
 - name: Johannes Braams
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -114,7 +102,7 @@ people:
 - name: Max Chernoff
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -126,7 +114,7 @@ people:
 - name: Kaja Christiansen
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -138,7 +126,7 @@ people:
 - name: Ulrike Fischer
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -150,7 +138,7 @@ people:
 - name: Tom Hejda
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -162,7 +150,7 @@ people:
 - name: Klaus Höppner
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -174,7 +162,7 @@ people:
 - name: Jérémy Just
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -186,7 +174,7 @@ people:
 - name: Frank Mittelbach
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -198,7 +186,19 @@ people:
 - name: Norbert Preining
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
+    roleClass: board_director
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: '2027'
+  sourceUrl: https://tug.org/board.html
+  derived: org_live
+  confidence: 1.0
+- name: Boris Veytsman
+  personId: null
+  roles:
+  - role: Director
     roleClass: board_director
   contact: null
   bio: null
@@ -210,7 +210,7 @@ people:
 - name: Sophia Laakso
   personId: null
   roles:
-  - role: Office Administrator
+  - role: Office Manager
     roleClass: paid_staff
   contact: null
   bio: null
@@ -223,12 +223,16 @@ people:
 
 # TeX Users Group — Leadership
 
-Scope: the TUG Board of Directors (15 Director positions plus the President, per the TUG bylaws; the board is currently at capacity with 16 members) and the paid office administrator. TUG is a US 501(c) membership organisation whose directors are elected by the membership.
+Scope: the TeX Users Group (TUG) Board of Directors and its officers. Per the TUG bylaws the board is fifteen Director positions plus the TUG President; the page states the board is currently at capacity, and sixteen directors are listed.
 
-Term dates: the board page states "the year in parentheses is when that member's term expires", so `term_end` is captured verbatim as the stated expiry year (all confidence 1.0). `term_start` is not stated on this page and is left null; a full per-person service history (start years, prior offices) exists in the roster section of the same page and could feed the leadership-history dataset.
+Officers: four officer posts are marked inline on the roster and each carries both an `officer` role and a `board_director` role: Arthur Rosendahl (President), Erik Nijenhuis (Vice President), Jim Hefferon (Secretary), Karl Berry (Treasurer). The remaining twelve are `board_director`.
 
-Officers: the four elected officers are President (Arthur Rosendahl), Vice President (Erik Nijenhuis), Secretary (Jim Hefferon) and Treasurer (Karl Berry); each is also a board director. The executive committee additionally includes Barbara Beeton and Boris Veytsman as members, plus the office administrator (non-voting); these two are recorded here only as board directors since "executive committee member" is a committee assignment rather than a distinct office.
+Term dates: TUG publishes, for each director, "the year in parentheses is when that member's term expires". This is an explicit statement, so `term_end` is set to that year (e.g. 2027 or 2029) with confidence 1.0. `term_start` is not stated on the current board page (start/history data lives in the roster and election pages), so it is null for directors.
 
-Paid vs volunteer: TUG directors and officers are volunteers. The one paid/contracted role is the office administrator. The current holder, Sophia Laakso (Office Manager, 2023–, per the roster on the same page), is tagged `paid_staff` with `confidence: 0.9`: the role and start year are stated verbatim, but the page does not explicitly state employment/compensation status, so the paid classification is inferred from the "Office Manager" role.
+Executive committee: the exec committee comprises the four officers plus Barbara Beeton and Boris Veytsman, plus the (non-voting) office administrator. Beeton and Veytsman are recorded as `board_director` here; their exec-committee membership is a governance note rather than an officer title.
 
-Not published on this page (hence null): per-person contact (the board is reachable only as a group at board@tug.org), bios, and term start dates.
+Paid staff: the current office administrator is Sophia Laakso, listed in the roster as "Office Manager, 2023-". She is recorded as `paid_staff` (office manager is a paid administrative role; inferred, confidence 0.9) with `term_start: 2023` as stated in the roster. She is a non-voting member of the executive committee.
+
+Contact: no per-person email is published (the board is reachable collectively at board@tug.org and the exec at tug-exec@tug.org). Bios: none on this page; the roster links to per-candidate election pages which could seed a future enrichment pass. The extensive historical roster (everyone who has served since ~1980) is a rich source for the leadership-history dataset.
+
+Total: 17 people (16 directors including 4 officers, plus 1 paid office manager).

@@ -127,10 +127,10 @@ people:
 
 # Software in the Public Interest — Leadership
 
-Scope: the SPI Board of Directors and officers (`/corporate/board/`). SPI is a US 501(c)(3) that acts as a fiscal sponsor / non-profit umbrella for many FOSS projects (e.g. Debian). SPI is run by its Board of Directors and the officers they select; the site states "all current officers are also directors", so the four officers each carry both an `officer` and a `board_director` role.
+Scope: the SPI Board of Directors and its four officer roles (President, Vice President, Secretary, Treasurer). SPI states "All current officers are also directors", so the four officers each carry both an `officer` role and a `board_director` role. Nine people total.
 
-Officers: Michael Schultheiss (President), Jonatas L. Nogueira (Vice President), Jeremy Stanley (Secretary), Héctor Orón Martínez (Treasurer). Additional directors: Forrest Fleming, Milan Kupcevic, Katherine McMillan, Borden Rhodes, Gordian Edenhofer. Total 9 people.
+Paid vs volunteer: SPI is a fiscal-sponsor nonprofit run by its board; the board and officers are volunteers (no paid-staff roster is published). No `paid_staff` records.
 
-Paid vs volunteer: SPI's board and officers are volunteers (it is a volunteer-run umbrella organisation). The site does not print the word "volunteers" on this page, but the model is volunteer governance; no `paid_staff` roles are listed. No `volunteer` role_class is applied to board/officer roles per the schema (those use `board_director`/`officer`).
+Contact: SPI publishes a per-person role-based email for every director (e.g. president@spi-inc.org, fsf@spi-inc.org), captured verbatim in `contact`. These are role addresses rather than personal ones, but they are the org-published per-person contact. The board can also be reached collectively at board@spi-inc.org.
 
-Contact: unusually, SPI publishes a per-person role email address for every board member (captured in `contact`). Several also list an OFTC IRC nick (schultmc, jesusalva, fungi, zumbi, fsf, milan, kmcmillan, borden, gordian) — noted here rather than in the structured `contact` field. Bios: not published (`null`). Term dates: not published (`null`).
+Not published (hence `null`): bios and term dates for all individuals. The page also lists a `legal@spi-inc.org` legal contact (not a person) and notes "advisors" in its intro text, but no advisor individuals are actually listed on the current page.

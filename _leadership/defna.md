@@ -14,7 +14,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://github.com/PeterGrand
   bio: Peter is a Django developer and co-founder of Two Rock Software, a North Carolina based software
     development company specializing in business workflow automation. He also enjoys solving devops puzzles.
     When he's not working he loves exploring new foods, gardening, and movement practices like martial
@@ -31,7 +31,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://github.com/VeldaKiara
   bio: Velda Kiara is a passionate software developer and technical writer with a love for crafting Python
     code, particularly for Django. She actively contributes to open-source projects, sharing her knowledge
     and enhancing both code and documentation. Beyond her technical contributions, she contributes to
@@ -67,7 +67,7 @@ people:
     roleClass: officer
   - role: Board Director
     roleClass: board_director
-  contact: null
+  contact: https://github.com/nzeager
   bio: Nathan is a software developer, barista, and co-founder of Bismuth Cooperative, a freelance web
     development company. He enjoys thinking about user experience and working with a team to accomplish
     a goal. When not working he enjoys spending time with his dogs, playing video games, watching tv,
@@ -80,7 +80,7 @@ people:
 - name: Carol Ganz
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
   contact: null
   bio: Carol is VP of Sales for Six Feet Up, a Python and Cloud software consultancy. She is a highly
@@ -98,7 +98,7 @@ people:
   roles:
   - role: Director and A/V Chair
     roleClass: board_director
-  contact: null
+  contact: https://github.com/adamfast
   bio: Adam has been Django obsessed for many years and enjoys finding ways to combine Python and Django
     with GIS, amateur radio and aviation whenever possible. He also has a background in audio visual,
     control systems and live event production. He has published a number of open source aviation and geographic
@@ -114,7 +114,7 @@ people:
   roles:
   - role: Co-Founder
     roleClass: board_director
-  contact: null
+  contact: https://github.com/jefftriplett
   bio: Jeff is a Django developer for Revolution Systems (REVSYS) and is a Director and Vice Chair for
     the Python Software Foundation.
   termStart: null
@@ -125,9 +125,9 @@ people:
 - name: Drew Winstel
   personId: null
   roles:
-  - role: Board Director
+  - role: Director
     roleClass: board_director
-  contact: null
+  contact: https://github.com/drewbrew
   bio: Drew is a software developer living in the Huntsville, Alabama area who has been developing with
     Django (primarily in REST Framework apps) since 2014. He spoke at DjangoCon US in 2018 and was Opportunity
     Grants chair for the same conference in 2019 and 2021. He was also DCUS Program Chair in 2021-23.
@@ -141,14 +141,18 @@ people:
   confidence: 1.0
 ---
 
-# Django Events Foundation North America — Leadership
+# Django Events Foundation North America (DEFNA) — Leadership
 
-Scope of this record: the current DEFNA Board of Directors listed on the About page. DEFNA is a California 501(c)(3) nonprofit founded in 2015 at the Django Software Foundation's request; it organizes DjangoCon US and funds community events.
+Scope: the current DEFNA Board of Directors as listed on the About page under the "Board of Directors" heading. DEFNA is a California 501(c)(3) nonprofit established in 2015 at the request of the Django Software Foundation to organise DjangoCon US and fund community events. It is a separate legal entity from the Django Software Foundation (djangoproject); the site states DEFNA "is not affiliated with the Django Software Foundation except as licensee of the DjangoCon US name."
 
-Paid vs volunteer: the org states it "is governed by a volunteer board" and describes the board as "Nine volunteers who keep DEFNA running". All directors and officers are therefore tagged `volunteer`/`board_director` and `officer` with the paid-vs-volunteer status stated (confidence 1.0). DEFNA lists no paid staff (Executive Director or similar) on the About page.
+Paid vs volunteer: the org states it "is governed by a volunteer board" and describes the directors as "Nine volunteers". All roles here are unpaid; no paid staff are listed. Volunteer status is stated verbatim (confidence 1.0).
 
-Count discrepancy: the About page heading states "Nine volunteers" but only eight current directors are individually listed under "Board of Directors" (Grandstaff, Kiara, Sanda, Zeager, Ganz, Fast, Triplett, Winstel). Eight are captured here; the ninth is not individually published on this page.
+Count discrepancy: the page text says "Nine volunteers" but only eight director profiles appear under the Board of Directors heading (Peter Grandstaff, Velda Kiara, Miguel Sanda, Nathan Zeager, Carol Ganz, Adam Fast, Jeff Triplett, Drew Winstel). Eight are captured here; the ninth is not profiled on the page. Flagged for retry/verification.
 
-Excluded (historical, not current): the page also lists "Board Members Emeriti" (Tim Schilling) and "Past Board Members" / alumni (Katia Lira, Stacey Haysler, Kojo Idrissa, Heather Luna, Craig Bruce, Nicole Dominguez, Monique Murphy, Josue Balandrano Coronel, Aaron Bassett, Logan Kilpatrick, Jennifer Myers, Katherine 'Kati' Michel). These belong in the leadership-history dataset, not the current roster.
+Officers: President (Grandstaff), Vice President (Kiara), Treasurer (Sanda), Secretary (Zeager) are captured with both an officer role and a board_director role. Adam Fast's "A/V Chair" is a conference committee role held by a director.
 
-Field availability: bios are published verbatim for all eight and captured. Per-person contact email is not published (`contact: null`); the org does publish social/GitHub/website links per person, which suit the Who's Who dataset. No term_start/term_end dates are stated anywhere (`null`).
+Excluded from the current roster (listed on the page as past service, not current): Board Members Emeriti — Tim Schilling; Past Board Members — Katia Lira, Stacey Haysler, Kojo Idrissa, Heather Luna, Craig Bruce, Nicole Dominguez, Monique Murphy, Josue Balandrano Coronel, Aaron Bassett, Logan Kilpatrick, Jennifer Myers, Katherine "Kati" Michel. These are candidates for the leadership-history dataset.
+
+Contact: DEFNA publishes per-person social/web links (GitHub, X, LinkedIn, Mastodon, Bluesky, personal sites) rather than email. The `contact` field records the GitHub profile where published; Sanda and Ganz publish no linked handle (null). Full link sets are on the source page.
+
+Term dates: not published per person (null). DEFNA runs an annually elected board but the About page does not state per-director term start/end.

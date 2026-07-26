@@ -1,12 +1,12 @@
 ---
 identifier: apereo
-commonName: Apereo Foundation Inc
+commonName: Apereo Foundation
 asOf: 2026-07-25
 sources:
-- url: https://www.apereo.org/about/board-directors
+- url: https://apereo.org/about/board-directors
   type: org_live
   retrieved: 2026-07-25
-- url: https://www.apereo.org/about/staff
+- url: https://apereo.org/about/staff
   type: org_live
   retrieved: 2026-07-25
 people:
@@ -15,14 +15,14 @@ people:
   roles:
   - role: Chair of the Apereo Board of Directors
     roleClass: officer
-  - role: Apereo Board Director
+  - role: Board Director
     roleClass: board_director
   contact: null
-  bio: Josh is the principal at Flywheel Strategies and Chair of the Apereo Foundation's Board of Directors,
+  bio: Josh is the principal at Flywheel Strategies and Chair of the Apereo Foundation’s Board of Directors,
     where he leads strategic planning and leadership development.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
+  sourceUrl: https://apereo.org/about/board-directors
   derived: org_live
   confidence: 1.0
 - name: Theresa Rowe
@@ -36,165 +36,7 @@ people:
     leadership professional development, and the building of a successful and strategic IT organization.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: David P. Bauer
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: David Bauer is a seasoned higher education technology leader, currently serving as Executive Director
-    of Academic, Research, and Emerging Technologies at the University of Dayton, a Catholic Marianist
-    research university in Ohio.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Dede Hourican
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Dede Hourican serves as the Assistant Director of Instructional Technology at Marist University,
-    where she leads initiatives to enhance digital learning experiences. She also serves on the Sakai
-    LMS PMC and the Apereo Incubation Committee.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Daniel Izquierdo Cortázar
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Daniel Izquierdo Cortázar is the Chief Executive Officer at Bitergia.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Shoji Kajita
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Shoji Kajita is a Professor at Nagoya University and an Emeritus Professor at Kyoto University.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Stephanie Lieggi
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Stephanie Lieggi is the Executive Director of the Center for Research in Open Source Software (CROSS)
-    at the University of California, Santa Cruz, where she has worked since 2016.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Amol Meshram
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Amol Meshram is the Lead Open Source Engineer at the London Stock Exchange Group.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: David Millman
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: David Millman is the Associate Dean for Technology and CIO at New York University Libraries, where
-    he oversees technologies supporting digital collections, preservation, scholarly communication, and
-    repository services. His team is active in the ebook open-source platforms and standards communities,
-    as well as in digital preservation. Millman has recently been the Principal Investigator on several
-    Andrew W. Mellon Foundation grants focused on preserving new forms of scholarship.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Angela Newell
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Angela Newell is the Director of Communication, Governance, and Innovation in the Office of the
-    Vice President and Chief Information Officer, as well as the Director of the Open Source Program Office
-    at The University of Texas at Austin.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Marcel Oostdijk
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Marcel Oostdijk is the CEO of Outfox.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Wayne Smith
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Wayne Smith is the Department of Management Faculty and IT Administrator at California State University,
-    Northridge.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Jack Suess
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Jack Suess serves as the VP of IT & CIO of the University of Maryland, Baltimore County (UMBC),
-    where he leads initiatives to enable technology that supports and advances the institutional mission
-    as a public high-research institution.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
-  derived: org_live
-  confidence: 1.0
-- name: Tonco Tijdeman
-  personId: null
-  roles:
-  - role: Apereo Board Director
-    roleClass: board_director
-  contact: null
-  bio: Tonco Tijdeman is a Senior Educational Advisor at the Hotelschool The Hauge.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.apereo.org/about/board-directors
+  sourceUrl: https://apereo.org/about/board-directors
   derived: org_live
   confidence: 1.0
 - name: Patrick Masson
@@ -210,7 +52,165 @@ people:
     He was the Director of Technology at the SUNY Learning Network and the UCLA Media Lab.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
+  derived: org_live
+  confidence: 1.0
+- name: David P. Bauer
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: David Bauer is a seasoned higher education technology leader, currently serving as Executive Director
+    of Academic, Research, and Emerging Technologies at the University of Dayton, a Catholic Marianist
+    research university in Ohio.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Dede Hourican
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Dede Hourican serves as the Assistant Director of Instructional Technology at Marist University,
+    where she leads initiatives to enhance digital learning experiences. She also serves on the Sakai
+    LMS PMC and the Apereo Incubation Committee.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Daniel Izquierdo Cortázar
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Daniel Izquierdo Cortázar is the Chief Executive Officer at Bitergia.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Shoji Kajita
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Shoji Kajita is a Professor at Nagoya University and an Emeritus Professor at Kyoto University.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Stephanie Lieggi
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Stephanie Lieggi is the Executive Director of the Center for Research in Open Source Software (CROSS)
+    at the University of California, Santa Cruz, where she has worked since 2016.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Amol Meshram
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Amol Meshram is the Lead Open Source Engineer at the London Stock Exchange Group.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: David Millman
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: David Millman is the Associate Dean for Technology and CIO at New York University Libraries, where
+    he oversees technologies supporting digital collections, preservation, scholarly communication, and
+    repository services. His team is active in the ebook open-source platforms and standards communities,
+    as well as in digital preservation. Millman has recently been the Principal Investigator on several
+    Andrew W. Mellon Foundation grants focused on preserving new forms of scholarship.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Angela Newell
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Angela Newell is the Director of Communication, Governance, and Innovation in the Office of the
+    Vice President and Chief Information Officer, as well as the Director of the Open Source Program Office
+    at The University of Texas at Austin.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Marcel Oostdijk
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Marcel Oostdijk is the CEO of Outfox.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Wayne Smith
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Wayne Smith is the Department of Management Faculty and IT Administrator at California State University,
+    Northridge.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Jack Suess
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Jack Suess serves as the VP of IT & CIO of the University of Maryland, Baltimore County (UMBC),
+    where he leads initiatives to enable technology that supports and advances the institutional mission
+    as a public high-research institution.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
+  derived: org_live
+  confidence: 1.0
+- name: Tonco Tijdeman
+  personId: null
+  roles:
+  - role: Board Director
+    roleClass: board_director
+  contact: null
+  bio: Tonco Tijdeman is a Senior Educational Advisor at the Hotelschool The Hague.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://apereo.org/about/board-directors
   derived: org_live
   confidence: 1.0
 - name: Wilma Hodges
@@ -220,12 +220,12 @@ people:
     roleClass: paid_staff
   contact: null
   bio: Dr. Wilma Hodges serves as Community Coordinator for the Apereo Foundation, where she focuses on
-    strengthening relationships across Apereo's global community, deepening engagement with institutional
+    strengthening relationships across Apereo’s global community, deepening engagement with institutional
     and community members, supporting new Communities of Interest, mentoring student organizations, and
     advancing collaborative initiatives that support open source in higher education.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Michelle Hall
@@ -236,12 +236,12 @@ people:
   contact: null
   bio: Michelle Hall joined the Apereo Foundation in 2012 as a content editor and has grown with the organization,
     taking on increasing responsibilities as the Foundation has evolved. As Communications Manager, she
-    leads Apereo's external communications strategy, overseeing the website, social media channels, and
+    leads Apereo’s external communications strategy, overseeing the website, social media channels, and
     the Apereo newsletter. She also helps coordinate internal communications across more than 20 project
     and working group communities through mailing lists and Slack.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Phyllis Dobbs
@@ -254,7 +254,7 @@ people:
     a licensed CPA in Illinois.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Jenn Cummings
@@ -270,7 +270,7 @@ people:
     organizations.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Josh Baron
@@ -283,7 +283,7 @@ people:
     initiatives and sustainability strategy for the Foundation and the communities and projects it serves.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Kathy Azevedo
@@ -293,13 +293,13 @@ people:
     roleClass: paid_staff
   contact: null
   bio: Kathy is a dedicated management professional who shares a passion for the art of event management
-    & planning. She holds a Bachelor's degree in Business Administration from Webster University and has
+    & planning. She holds a Bachelor’s degree in Business Administration from Webster University and has
     dedicated most of her professional career to serving non-profit organizations, associations, and aspiring
     businesses. Kathy is instrumental in planning all of Apereo's major events, especially the Apereo
     micro-conferences and Open Apereo.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 - name: Christian Alexander
@@ -315,27 +315,23 @@ people:
     the funding model, generating contributions, and developing external relationships.
   termStart: null
   termEnd: null
-  sourceUrl: https://www.apereo.org/about/staff
+  sourceUrl: https://apereo.org/about/staff
   derived: org_live
   confidence: 1.0
 ---
 
-# Apereo Foundation Inc — Leadership
+# Apereo Foundation — Leadership
 
-Scope of this record: the Apereo Foundation Board of Directors (from /about/board-directors) and the paid Apereo Staff (from /about/staff). Apereo runs open-source software projects for education (Sakai, uPortal, CAS, Opencast, etc.); project-level and working-group roles are excluded as they are not foundation governance.
+Scope: the Apereo Foundation Board of Directors (/about/board-directors) and paid Staff (/about/staff). 22 unique people captured: 15 board entries and 8 staff entries, with Patrick Masson (Executive Director) appearing on both pages and recorded once as paid_staff.
 
-Board composition: Apereo publishes four Director types: organizational-member seats, individual-member seats (Friends of Apereo), appointed seats (often partner orgs such as AXIES or ESUP-Portail), and ex-officio non-voting members (the Treasurer and the Executive Director). Josh Wilson is the Chair (captured as officer + board_director). Twelve further voting directors are captured as board_director. Theresa Rowe is the Treasurer (officer); the page states the Treasurer is an ex-officio non-voting member.
+Board composition: Apereo describes four director types — organizational member seats, individual member seats, appointed member seats, and ex-officio members (the non-voting Treasurer and Executive Director). Josh Wilson is Chair (officer + board_director). Theresa Rowe is Treasurer (officer, ex-officio non-voting). Patrick Masson is Executive Director (ex-officio non-voting on the board; recorded as paid_staff). The remaining twelve carry board_director.
 
-Patrick Masson (Executive Director) appears on both the board page (as the ex-officio non-voting Executive Director) and the staff page. He is captured once, as paid_staff (Executive Director), since the staff page confirms he is employed ("joined Apereo as Executive Director in 2023"); his ex-officio non-voting board seat is noted here.
+Paid vs volunteer: the Staff page is explicitly the employed team "leading the Apereo Foundation," so all eight staff (including the Executive Director) are paid_staff at confidence 1.0. Board directors are governance volunteers.
 
-Paid vs volunteer: the eight people on the Staff page (Masson, Hodges, Hall, Dobbs, Cummings, Baron, Azevedo, Alexander) are the Foundation's paid team and are classed paid_staff with confidence 1.0. The elected/appointed directors are volunteers in the board_director class.
+Bios: rich per-person bios are published on both pages and captured verbatim, confidence 1.0.
 
-Bios: published verbatim for every listed person (captured in the bio field).
+Term dates: none are stated for any director. Several bios mention a personal "joined in YYYY" narrative year (e.g. Masson 2023, Hall 2012); per instructions these are NOT treated as governance term dates, so term_start / term_end are null.
 
-Contact: no per-person contact is published (null for all); the Foundation's contact channel is /contact.
+Contact: no per-person contact is published, so contact is null for all.
 
-Term dates: no explicit term_start/term_end is published for any director. Narrative join-years appear in some bios ("joined in 2023", "since 2016", "joined in 2012") but, per SOP, term dates are NOT inferred from narrative join-years; term_start and term_end are left null. Board Alumni are listed separately at /about/board-alumni and would feed the leadership-history dataset.
-
-Unique people captured: 22 (15 on the board page incl. Chair, Treasurer and ED; 8 on the staff page; Patrick Masson overlaps and is counted once).
-
-web_fetch calls: 3 (homepage, /about/board-directors, /about/staff).
+Excluded: Board Alumni (/about/board-alumni, former directors) is out of scope for the current roster. Project-level roles (PMC seats mentioned in some bios) are not foundation governance and are not separately captured.

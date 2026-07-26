@@ -87,30 +87,6 @@ people:
   sourceUrl: https://rubycentral.org/about/
   derived: org_live
   confidence: 0.9
-- name: Colby Swandale
-  personId: null
-  roles:
-  - role: Technical Lead, Open Source
-    roleClass: paid_staff
-  contact: null
-  bio: null
-  termStart: null
-  termEnd: null
-  sourceUrl: https://rubycentral.org/about/
-  derived: org_live
-  confidence: 0.9
-- name: Dushan Karovich-Wynne
-  personId: null
-  roles:
-  - role: Security Engineer, Open Source
-    roleClass: paid_staff
-  contact: null
-  bio: null
-  termStart: null
-  termEnd: null
-  sourceUrl: https://rubycentral.org/about/
-  derived: org_live
-  confidence: 0.9
 - name: Alexandra Knell
   personId: null
   roles:
@@ -127,6 +103,30 @@ people:
   personId: null
   roles:
   - role: Operations Manager
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://rubycentral.org/about/
+  derived: org_live
+  confidence: 0.9
+- name: Colby Swandale
+  personId: null
+  roles:
+  - role: Technical Lead, Open Source
+    roleClass: paid_staff
+  contact: null
+  bio: null
+  termStart: null
+  termEnd: null
+  sourceUrl: https://rubycentral.org/about/
+  derived: org_live
+  confidence: 0.9
+- name: Dushan Karovich-Wynne
+  personId: null
+  roles:
+  - role: Security Engineer, Open Source
     roleClass: paid_staff
   contact: null
   bio: null
@@ -163,10 +163,10 @@ people:
 
 # Ruby Central, Inc. — Leadership
 
-Scope of this record: the Board of Directors and the Staff team as published on the About page. Ruby Central is a US 501(c)(3) non-profit founded in 2001.
+Scope: the Board of Directors and Staff listed on the Ruby Central "About" page (https://rubycentral.org/about/). Ruby Central is a 501(c)(3) nonprofit founded in 2001, and is the organizing body behind RubyConf and the maintainer of RubyGems and Bundler.
 
-Board of Directors (5): four hold officer titles (President Ran Craycraft, Vice President Jey Flores, Treasurer Freedom Dumlao, Secretary Brandon Weaver) and are captured as both `officer` and `board_director`; David Corson-Knowles is listed as "Board Member" (`board_director`).
+Board of Directors (5): Ran Craycraft (President), Jey Flores (Vice President), Freedom Dumlao (Treasurer), Brandon Weaver (Secretary), and David Corson-Knowles (Board Member). The four officers are recorded with both their officer role and a board_director role, since all five are listed under "Board of Directors"; David Corson-Knowles holds no officer title. Governance structure per the page: the Board sets strategic direction and approves budgets, Staff execute programs, Steering Committees advise, and Members elect the board.
 
-Staff (7): six are classed `paid_staff` at confidence 0.9 (listed under the "Staff" heading with job titles; paid status inferred, not stated verbatim). Richard Schneeman is explicitly labelled "OSS Committee Volunteer" and is classed `volunteer` at confidence 1.0.
+Staff (7): listed under the "Staff" heading. Six are tagged `paid_staff` at `confidence: 0.9` (paid/employed status inferred from the "Staff" heading, not stated verbatim): Marty Haught (Director of Open Source), Alexandra Knell (Controller), Ally Vogel (Operations Manager), Colby Swandale (Technical Lead, Open Source), Dushan Karovich-Wynne (Security Engineer, Open Source), and Tom Chambers (Sponsorship Manager). Richard Schneeman is labelled "OSS Committee Volunteer" so is recorded as `volunteer` at `confidence: 1.0`.
 
-Not published (hence `null`): per-person contact info, bios, and term dates. The org describes additional governance layers (Steering Committees as community advisory bodies, and Members who elect the board) but does not name individuals for those, so none are captured.
+Not published on this page (hence `null`): per-person contact, bios, and term dates for all individuals. Steering committee members and general members are not enumerated here and are out of scope for this roster.

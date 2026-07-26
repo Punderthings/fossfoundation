@@ -38,7 +38,7 @@ people:
 - name: J. Nick Koston
   personId: null
   roles:
-  - role: Member
+  - role: Board Member
     roleClass: board_director
   contact: null
   bio: null
@@ -50,7 +50,7 @@ people:
 - name: Trevor Schirmer
   personId: null
   roles:
-  - role: Rotating member (commercial partner)
+  - role: Rotating Board Member (commercial partner)
     roleClass: board_director
   contact: null
   bio: null
@@ -72,7 +72,7 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 - name: Guy Sie
   personId: null
   roles:
@@ -84,7 +84,7 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 - name: Jean-Loïc Pouffier
   personId: null
   roles:
@@ -96,7 +96,7 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 - name: Marcel van der Veldt
   personId: null
   roles:
@@ -108,7 +108,7 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 - name: Melissa Thermidor
   personId: null
   roles:
@@ -120,7 +120,7 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 - name: Jose Martin-Corral
   personId: null
   roles:
@@ -132,15 +132,19 @@ people:
   termEnd: null
   sourceUrl: https://www.openhomefoundation.org/structure/
   derived: org_live
-  confidence: 0.7
+  confidence: 0.9
 ---
 
 # Open Home Foundation — Leadership
 
-Scope: the Board (4 members) and the operational Leadership team (6 leads) listed on the `/structure/` page. The Open Home Foundation is a Swiss non-profit Stiftung created in 2024 by the Home Assistant / Nabu Casa community; it owns 250+ smart-home open source projects.
+The Open Home Foundation is a tax-exempt non-profit Stiftung ("foundation") based in Switzerland (register no. CHE-416.988.952), owning and governing 250+ open source smart-home projects (Home Assistant, ESPHome, Music Assistant, and others). It is funded by commercial partner fees (Nabu Casa, Apollo Automation) and donations, and states it supports more than 50 full-time employees.
 
-Board (governance): Paulus Schoutsen (President), Pascal Vizeli (Treasurer), J. Nick Koston (Member), Trevor Schirmer (Rotating member, commercial partner). President and Treasurer carry both an officer role and board membership; confidence 1.0 (stated verbatim).
+Scope: this record captures the two governance tiers published on the /structure/ page.
 
-Leadership team (operational): the six "Leadership" entries (Franck Nijhof, Guy Sie, Jean-Loïc Pouffier, Marcel van der Veldt, Melissa Thermidor, Jose Martin-Corral) run foundation functions (Home Assistant, Marketing, Product & UX, Ecosystem, Community, Back Office). The foundation states it "supports more than 50 full-time employees," so these leads are inferred to be `paid_staff`, but the page does not state per-person employment status, so confidence is dropped to 0.7. Franck Nijhof additionally chairs the Leadership Committee (officer role).
+Board members (4): Paulus Schoutsen (President), Pascal Vizeli (Treasurer), J. Nick Koston (Member), and Trevor Schirmer (Rotating member, commercial partner). President and Treasurer are captured as officers as well as board directors. Trevor Schirmer's seat is explicitly a rotating commercial-partner seat.
 
-Not published (hence `null`): per-person contact, bios, and term dates for everyone. An organigram PDF is linked but not parsed here.
+Leadership (6): the functional/executive leadership team listed under the "Leadership" heading: Franck Nijhof (Lead of Home Assistant; Chair of Leadership Committee), Guy Sie (Lead of Marketing), Jean-Loïc Pouffier (Lead of Product & UX), Marcel van der Veldt (Lead of Ecosystem), Melissa Thermidor (Lead of Community), and Jose Martin-Corral (Chair of Back Office).
+
+Paid vs volunteer: the four board members are governance and their pay status is not stated (captured as `board_director`, `confidence: 1.0` for the names/roles as listed). The six Leadership individuals are the foundation's operational department leads; since the org states it employs 50+ full-time staff and these are functional management roles, they are tagged `paid_staff` at `confidence: 0.9` (employment not stated verbatim per person). Franck Nijhof also holds the officer role Chair of the Leadership Committee.
+
+Not published (hence `null`): per-person contact (only a generic foundation contact email is given), bios, and term dates. An organigram is linked as a Google Drive document but not parsed here.

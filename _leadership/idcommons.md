@@ -1,81 +1,29 @@
 ---
 identifier: idcommons
-commonName: Identity Commons
+commonName: Identity Commons Inc
 asOf: 2026-07-25
 sources:
-- url: https://www.idcommons.org/about/people/
+- url: https://idcommons.net
   type: org_live
   retrieved: 2026-07-25
-- url: https://www.idcommons.org/about/contact-us/
+- url: http://wiki.idcommons.net/Stewards
   type: org_live
   retrieved: 2026-07-25
-people:
-- name: Mary Ruddy
-  personId: null
-  roles:
-  - role: Chair
-    roleClass: officer
-  contact: mary@meristic.com
-  bio: Research Vice President with Gartner covering Identity and Access Management; founding member of
-    the OASIS Electronic Identity Credential Trust Elevation Methods Technical Committee.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.idcommons.org/about/people/
-  derived: org_live
-  confidence: 1.0
-- name: Kaliya Young
-  personId: null
-  roles:
-  - role: Community Steward
-    roleClass: volunteer
-  contact: kaliya@identitywoman.net
-  bio: Co-founder of the Internet Identity Workshop (2005); independent advocate for digital identity,
-    known as "Identity Woman"; adjunct faculty at Merritt College.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.idcommons.org/about/people/
-  derived: org_live
-  confidence: 1.0
-- name: Dean Landsman
-  personId: null
-  roles:
-  - role: Community Steward
-    roleClass: volunteer
-  contact: null
-  bio: Media, marketing and digital strategist; consultant.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.idcommons.org/about/people/
-  derived: org_live
-  confidence: 1.0
-- name: Christina Bowen
-  personId: null
-  roles:
-  - role: Community Steward
-    roleClass: volunteer
-  contact: null
-  bio: Knowledge ecologist; co-founder of the Digital Life Collective; building GENIE.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.idcommons.org/about/people/
-  derived: org_live
-  confidence: 1.0
-- name: John Philpin
-  personId: null
-  roles:
-  - role: Community Steward
-    roleClass: volunteer
-  contact: null
-  bio: Works with people and companies on platforms, data and trust.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.idcommons.org/about/people/
-  derived: org_live
-  confidence: 1.0
+people: []
 ---
 
-# Identity Commons — Leadership
+# Identity Commons Inc — Leadership (roster not found)
 
-Loosely-structured community organization supporting an open identity layer (convenes the Internet Identity Workshop). The site publishes a "People" page rather than a formal board; Mary Ruddy is named Chair (officer, confidence 1.0). The other four are listed under "People" with no formal title, so they are recorded as Community Steward / volunteer rather than asserting a board role. The Advisors page names no individuals ("details in due course").
+No current leadership roster could be captured. Recorded here so the org can be retried.
 
-Contacts for Mary Ruddy and Kaliya Young are published on the contact page and captured. Bios trimmed to the substantive text (the live page contains injected comment-spam sentences, excluded). No paid staff published.
+Attempts:
+- `https://idcommons.net` (site listed in manifest): the request failed at the transport layer ("error sending request") on both attempts. The domain does not serve a usable page.
+- `http://wiki.idcommons.net/Stewards`: HTTP 404.
+- Web search for "Identity Commons board of directors stewards leadership" surfaced only historical pages (idcommons.net homepage snippet, an archived idcommons.org capture from 2011, OSIS/Identity Gang working-group pages, and W3C workshop papers). No page lists a current board, officers, or staff.
+
+Findings and why no roster:
+- Identity Commons is not a conventional board-governed foundation. Historically it was a loosely coupled community "coordinating body" governed by monthly open "stewards" teleconferences (per the archived Identity Gang wiki), not a named board. It is best known for incubating the Internet Identity Workshop (IIW).
+- The organisation appears largely dormant: the primary domains (idcommons.net / idcommons.org) are dead or only reachable via archive.org, and the most recent search-indexed content is from ~2011-2020.
+- Names historically associated with Identity Commons in the sources (Kaliya Hamlin "Identity Woman", Doc Searls, Phil Windley, Mary Ruddy) are NOT captured as leadership records: none is stated by a current, authoritative org page as a present board member or officer, and inferring current roles from decade-old references would be fabrication.
+
+Recommendation: treat as an empty/dormant roster. If a record is wanted, the leadership-history dataset could draw the stewards-era participants from specific archive.org captures with `derived: wayback:<timestamp>` and appropriate (lower) confidence, rather than asserting any current leadership.

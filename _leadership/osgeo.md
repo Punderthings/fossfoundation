@@ -145,16 +145,14 @@ people:
 
 # Open Source Geospatial Foundation (OSGeo) — Leadership
 
-Scope of this record: the OSGeo Board of Directors and the appointed officers (Positions), captured from the live "Board and Officers" page.
+Scope of this record: the 9-member Board of Directors elected by OSGeo Charter Members, plus the appointed Secretary (Astrid Emde), who is a foundation officer but not a board director. Total captured: 10 individuals. Officer positions (President, Vice-Presidents by region, Treasurer, Secretary) are appointed by the board and are recorded as additional `officer` roles on the relevant people.
 
-Board: OSGeo Charter Members elect a 9-member Board of Directors, who appoint officers and set the vision and goals for the Foundation. The nine elected directors are Jeroen Ticheler, Tom Kralidis, Tim Sutton, Angelos Tzotsos, Michael Smith, Codrina Maria Ilie, Vicky Vergara, Joana Simoes, and Marco Bernasocchi.
+Deliberately excluded: the "Officers" committee representatives (VP Conference, VP Finance, VP GeoforAll, VP Incubation, VP Marketing, VP Public Geospatial Data, VP System Administration, VP UN, VP Standards) and the "OSGeo Projects Officers" (per-project VPs such as GDAL, GeoServer, QGIS, PostGIS). The page states each of these "represents a committee/project to speak for the community behind that project"; they are committee- and project-level representation, not foundation governance, and are out of scope per the Tier 1 spec. Note: several board directors also hold committee/project VP roles (e.g. Tom Kralidis is VP Standards Committee and VP pygeoapi); only their board and foundation-officer roles are captured here.
 
-Officers (Positions): the President, five regional Vice-Presidents, Treasurer, and Secretary are captured. Eight of the ten officer posts are held by sitting board directors (their board seat and officer role are merged into one person record each). The Secretary, Astrid Emde, is an appointed officer who is not one of the nine elected directors, so she is recorded with the `officer` role only.
+Contact: OSGeo publishes a per-person osgeo.org email for every board member and the Secretary, so `contact` is populated for all 10. Note that President, Treasurer, and Secretary use role-based addresses (president@/treasurer@/secretary@osgeo.org) as published; the regional Vice-Presidents and other directors use personal osgeo.org addresses.
 
-Paid vs volunteer: OSGeo governance is volunteer-run (Charter Members elect the board; the board empowers volunteer committees). The page does not print an explicit "volunteers" statement, so board and officer roles are captured `board_director`/`officer` at confidence 1.0 for the fact of the role, with volunteer (unpaid) status inferred from the foundation's structure rather than a verbatim statement.
+Not published on this page (hence `null`): bios and term dates. OSGeo maintains the history of the Board of Directors on its wiki (wiki.osgeo.org/wiki/Board_of_Directors#History...), which is where the leadership-history dataset for OSGeo should draw from.
 
-Contact: OSGeo publishes an `@osgeo.org` address for each officer, so `contact` is populated at confidence 1.0. Regional VPs use personal-form addresses (e.g. codrina.ilie@osgeo.org); the President, Treasurer, and Secretary are published against role aliases (president@ / treasurer@ / secretary@osgeo.org), captured as given.
+Paid vs volunteer: all captured roles are board directors and elected/appointed officers of the foundation; none are presented as paid staff. OSGeo runs on volunteers and committees. All `confidence: 1.0` (stated verbatim).
 
-Not published (hence `null`): bios and term dates. Board term history lives at the OSGeo wiki ("History of OSGeo Foundation Boards of Directors"), which is the source for the leadership-history dataset.
-
-Excluded (project/committee-level, not foundation governance): the long list of committee VPs (Conference, Finance, GeoforAll, Incubation, Marketing, Public Geospatial Data, System Administration, UN, Standards) and the ~25 OSGeo Project Officers (per-project VPs for GDAL, GEOS, GeoServer, QGIS, PostGIS, etc.). These are operational roles for committees and software projects and are deliberately not captured as foundation leadership; they could form a separate project-roles dataset if wanted.
+Fetches: 1 (went directly to /about/board/).

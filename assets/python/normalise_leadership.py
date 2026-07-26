@@ -31,6 +31,18 @@ PERSON = {
 }
 ORDER = ["identifier", "commonName", "asOf", "sources", "people"]
 
+# Six records carry a crawl slug derived from a hostname label (from the source
+# directory's listing.md) rather than a meaningful identifier. Map them to
+# canonical public slugs for both the output filename and the identifier field.
+SLUG_REMAP = {
+    "foundation": "fsharp",   # F# Software Foundation
+    "foundation2": "llvm",    # LLVM Foundation
+    "foundation3": "rust",    # Rust Foundation
+    "opensource": "osi",      # Open Source Initiative
+    "ev": "kde",              # KDE e.V.
+    "laptop": "olpc",         # One Laptop Per Child
+}
+
 
 def split_frontmatter(md):
     m = re.match(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", md, re.S)
@@ -75,10 +87,12 @@ def main():
             skipped += 1
             continue
         fm = remap(fm, TOP)
+        raw_ident = fm.get("identifier") or md.stem
+        ident = SLUG_REMAP.get(raw_ident, raw_ident)
+        fm["identifier"] = ident
         fm["people"] = [norm_person(p) for p in (fm.get("people") or [])]
         if not fm["people"]:
             empty += 1
-        ident = fm.get("identifier") or md.stem
         ordered = {k: fm[k] for k in ORDER if k in fm}
         for k in fm:
             if k not in ordered:

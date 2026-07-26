@@ -111,14 +111,14 @@ people:
 
 # Clojurists Together Foundation — Leadership
 
-Scope: the current Board of Directors (7 members, of whom two hold officer roles: President and Secretary/Treasurer) plus one paid staffer, all from the `/team/` page. The Foundation is a 501(c)(6) nonprofit registered in Delaware.
+Scope: the current Board of Directors (7 members) and paid staff, from the /team page. Clojurists Together is a 501(c)(6) nonprofit registered in Delaware. The Board governs the foundation, selects sponsored projects, administers the program, and interacts with sponsors.
 
-Paid vs volunteer: Kathy Davis is captured at confidence 1.0 as `paid_staff` — the page states verbatim that the org "has also hired Kathy Davis as a part-time administrative assistant." Board members' pay status is not stated; treated as unpaid governance.
+Officers named: President (Laurens Van Houtven), Secretary/Treasurer (Daniel Compton, a single combined role). The remaining five board members hold no titled officer role and are recorded as `board_director`.
 
-Contact: none published per person (null for all).
+Paid staff: Kathy Davis, hired as a part-time administrative assistant. The page states she was "hired", so `paid_staff` at confidence 1.0.
 
-Bios: none published (null for all).
+Elections: annual, to elect the following year's board; the most recent were held October 2025. No per-person term dates are published, so `term_start`/`term_end` are null per the no-inference rule.
 
-Term dates: the board serves annual terms decided by election, and the page states "the most recent elections were held in October 2025", but no per-person term_start/term_end is published. Left null per the do-not-infer rule.
+Alumni (past board members) are listed on the same page with an exit year and are deliberately excluded from this current-roster record; they belong in the leadership-history dataset. For reference the page lists: Felix Barbalet (2024), Max Penet (2024), Chris Nuernberger (2023), Ikuru Kyogoku (2023), Nola Stowe (2022), Fumiko Hanreich (2022), Quetzaly Solano Gómez (2021), Larry Staton Jr (2021), Bridget Hillyer (2019), Toby Crawley (2019), Devin Walters (2019).
 
-Alumni (past board members) are listed on the same page with the year they left and are deliberately excluded from this current-roster file. They are a ready source for the leadership-history dataset: Felix Barbalet (2024), Max Penet (2024), Chris Nuernberger (2023), Ikuru Kyogoku (2023), Nola Stowe (2022), Fumiko Hanreich (2022), Quetzaly Solano Gómez (2021), Larry Staton Jr (2021), Bridget Hillyer (2019), Toby Crawley (2019), Devin Walters (2019).
+Not published (hence null): bios, per-person contact, and explicit term dates for all individuals.

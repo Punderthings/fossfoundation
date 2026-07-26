@@ -10,7 +10,7 @@ sources:
   type: org_live
   retrieved: 2026-07-25
 people:
-- name: Zack Cooper
+- name: Dr. Zack Cooper
   personId: null
   roles:
   - role: Chair of the Board
@@ -44,7 +44,7 @@ people:
   sourceUrl: https://www.opentech.fund/about/people-type/board/
   derived: org_live
   confidence: 1.0
-- name: William Schneider, Jr.
+- name: Dr. William Schneider, Jr.
   personId: null
   roles:
   - role: Board Member
@@ -80,8 +80,9 @@ people:
   contact: null
   bio: Nicole Wong specializes in assisting high-growth technology companies to develop international
     privacy, content, and regulatory strategies. She previously served as Deputy U.S. Chief Technology
-    Officer in the Obama Administration. Prior to her time in government, Nicole was Google's Vice President
-    and Deputy General Counsel, and Twitter's Legal Director.
+    Officer in the Obama Administration, focused on internet, privacy, and innovation policy. Prior to
+    her time in government, Nicole was Google's Vice President and Deputy General Counsel, and Twitter's
+    Legal Director.
   termStart: null
   termEnd: null
   sourceUrl: https://www.opentech.fund/about/people-type/board/
@@ -158,16 +159,16 @@ people:
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
   derived: org_live
   confidence: 0.9
-- name: Bryan Nunez
+- name: Marcin de Kaminski
   personId: null
   roles:
-  - role: Vice President of Technology
+  - role: Senior Vice President of Programs
     roleClass: paid_staff
   contact: null
-  bio: Bryan Nunez joined OTF as the Vice President of Technology in 2022. Bryan leads OTF's efforts to
-    support internet freedom technologies, drive innovation, and support individuals and organizations
-    protecting the free flow of information, press freedom, and human rights around the globe. Bryan previously
-    served as a member of OTF's all-volunteer Advisory Council.
+  bio: Marcin de Kaminski joined OTF as the Vice President of Programs in 2023. Marcin leads OTF's programmatic
+    efforts to support internet freedom technologies, drive innovation and support individuals and organizations
+    protecting the free flow of information, press freedom, and human rights around the globe. Marcin
+    previously worked as a Policy Specialist at the Swedish International Development Cooperation Agency.
   termStart: null
   termEnd: null
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
@@ -188,16 +189,16 @@ people:
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
   derived: org_live
   confidence: 0.9
-- name: Marcin de Kaminski
+- name: Bryan Nunez
   personId: null
   roles:
-  - role: Senior Vice President of Programs
+  - role: Vice President of Technology
     roleClass: paid_staff
   contact: null
-  bio: Marcin de Kaminski joined OTF as the Vice President of Programs in 2023. Marcin leads OTFs programmatic
-    efforts to support internet freedom technologies, drive innovation and support individuals and organizations
-    protecting the free flow of information, press freedom, and human rights around the globe. Marcin
-    previously worked as a Policy Specialist at the Swedish International Development Cooperation Agency.
+  bio: Bryan Nunez joined OTF as the Vice President of Technology in 2022. Bryan leads OTF's efforts to
+    support internet freedom technologies, drive innovation, and support individuals and organizations
+    protecting the free flow of information, press freedom, and human rights around the globe. Bryan previously
+    served as a member of OTF's all-volunteer Advisory Council.
   termStart: null
   termEnd: null
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
@@ -280,19 +281,7 @@ people:
   bio: Dyan Mae Cortez is a Program Manager at Open Technology Fund (OTF), where she works with the Program
     team to enable the research, development, and implementation of internet freedom technologies in authoritarian
     contexts. She has a special interest in countering surveillance and censorship practices in Southeast
-    Asia & the Pacific.
-  termStart: null
-  termEnd: null
-  sourceUrl: https://www.opentech.fund/about/people-type/staff/
-  derived: org_live
-  confidence: 0.9
-- name: Lindsey Kerkela
-  personId: null
-  roles:
-  - role: Human Resources Generalist
-    roleClass: paid_staff
-  contact: null
-  bio: Lindsey joined OTF as the Human Resources Generalist in 2021.
+    Asia and the Pacific, and supports OTF's Rapid Response Fund and UXD Lab.
   termStart: null
   termEnd: null
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
@@ -320,8 +309,20 @@ people:
   contact: null
   bio: Prior to joining OTF, Sandy coordinated Free Press' legislative outreach and lobbying efforts,
     focusing specifically on the First Amendment and racial justice implications of Net Neutrality, minority
-    media ownership, government surveillance, and privacy issues. Before Free Press, Sandy served as a
-    legislative assistant at the American Civil Liberties Union's Washington office.
+    media ownership, government surveillance, and privacy issues. Before joining Free Press, Sandy served
+    as a legislative assistant at the American Civil Liberties Union's Washington office.
+  termStart: null
+  termEnd: null
+  sourceUrl: https://www.opentech.fund/about/people-type/staff/
+  derived: org_live
+  confidence: 0.9
+- name: Lindsey Kerkela
+  personId: null
+  roles:
+  - role: Human Resources Generalist
+    roleClass: paid_staff
+  contact: null
+  bio: Lindsey joined OTF as the Human Resources Generalist in 2021.
   termStart: null
   termEnd: null
   sourceUrl: https://www.opentech.fund/about/people-type/staff/
@@ -329,16 +330,14 @@ people:
   confidence: 0.9
 ---
 
-# Open Technology Fund (OTF) — Leadership
+# Open Technology Fund — Leadership
 
-Scope of this record: the OTF Board of Directors (7 members) and the OTF Staff (15 employees), captured from the two live "People Behind OTF" pages.
+Scope: OTF's Board of Directors (7) and its Staff (15) as published on the People Behind OTF pages. The Advisory Council is an all-volunteer advisory body, not governance or paid staff, and is deliberately excluded per the leadership-dataset scope (consistent with the benetech advisory-council exclusion).
 
-Board: seven directors. Officers of the board are the Chair (Dr. Zack Cooper) and Vice Chair (Ben Scott); the other five are Board Members. All seven are `board_director` (with `officer` roles where held) at confidence 1.0.
+Governance: Dr. Zack Cooper chairs the board and Ben Scott is Vice Chair (both captured as `officer` + `board_director`); the other five are board members. Board bios are published and captured verbatim from the listing summaries.
 
-Staff: fifteen employees on the Staff page, led by President Laura Cunningham. These are OTF employees, captured `paid_staff` at confidence 0.9 (inferred from the "Staff" heading and executive/manager titles; no explicit per-person employment statement is printed). Note that "President" here is the top staff executive role, distinct from the governance Chair/Vice Chair on the board.
+Paid staff: the 15 people on the Staff page are OTF's employed team (President, COO, Chief Strategy Officer, General Counsel, VPs, program and communications managers, HR). The page heading is "Staff" and does not literally state employment terms per person, so each is tagged `paid_staff` at confidence 0.9 with this note; in practice these are clearly full-time organisational roles. "President" (Laura Cunningham) is OTF's executive head and is classed here as paid_staff (executive), not a board officer.
 
-Data-quality note: the seventh director's card header reads "Roger Zakeim", while the body of his bio spells the surname "Zakheim" (Mr. Zakheim). The header spelling ("Roger Zakeim") is used for the record; the bio-text variant is flagged here for Who's Who disambiguation.
+Contact: OTF publishes no per-person email; only two general mailboxes appear in the footer (obfuscated via Cloudflare email-protection) plus a shared PGP key and a LinkedIn page. `contact` is therefore null for everyone.
 
-Not published (hence `null`): per-person contact and term dates for all individuals. Bios are published (captured verbatim; the site truncates each listing bio with an ellipsis and a "More" link, so bios here are the published listing extracts).
-
-Excluded: the OTF Advisory Council (a separate, all-volunteer advisory body) is not foundation governance or staff and is not captured in this leadership record; it could be added as a separate advisory dataset if wanted.
+Bios: captured verbatim from the summary excerpts on the Board and Staff listing pages (the listings truncate longer bios with an ellipsis; the fuller text lives on each person's individual /otf-people/<slug>/ page, not fetched here). Many staff bios state a join year in prose (e.g. "joined ... in 2022"); per instructions these narrative join-years are NOT recorded as `term_start`, so all `term_start`/`term_end` are null. No explicit board term dates are published.
