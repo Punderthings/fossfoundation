@@ -1,0 +1,31 @@
+# CodeQL security scanning (code scanning).
+#
+# Runs the GitHub-maintained CodeQL scanner over the repository source on
+# pushes/PRs to main and on a weekly schedule. Findings appear under
+# the repository's "Security" tab and are reported as checks on PRs.
+#
+# The reusable workflow is pinned to a commit SHA so a known scanner version
+# runs; Dependabot (.github/dependabot.yml) keeps the SHA up to date weekly.
+#
+# Docs: https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-security-vulnerabilities
+#
+# languages: only "ruby" — the repository currently contains no JavaScript
+# (OpenAPI generation is implemented in assets/ruby/). Add "javascript"
+# here if JS/TS source is introduced.
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    # Runs on Fridays.
+    - cron: "25 11 * * 5"
+  workflow_dispatch:
+
+jobs:
+  codeql:
+    uses: github/codeql-action/codeql-analysis.yml@1190a975f95ce23525efb6a3fc21ea29567c1b52 # v3.38.2
+    with:
+      languages: ruby
