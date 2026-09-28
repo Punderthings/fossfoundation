@@ -15,18 +15,24 @@ module SchemaUtils
   # Transform original spreadsheet with all columns into Jekyll-readable frontmatter files
   # Note: currently requires manual check/update of outputs
   # TODO: ensure stable output format for field ordering, line wrapping
-  # BUG: .md files output must have a closing --- document end marker added
+  # Emits a complete Jekyll document: frontmatter, closing --- separator, then
+  # body (intentionally empty; add per-row content after generating if needed).
   def csv2jekyll(infile, outdir, outext)
     lines = 0
-    puts "DEBUG #{infile}, #{outdir}, #{outext}"
     CSV.foreach(File.open(infile), :headers => true) do |row|
-      lines += 1
-      File.open(File.join(outdir, "#{row['identifier']}#{outext}"), 'w') do |file|
-        file.write(YAML.dump(row.to_h))
+      data = row.to_h
+      identifier = data['identifier']
+      if identifier.nil? || identifier.strip.empty?
+        $stderr.puts "WARNING: skipping CSV row without an identifier"
+        next
       end
-      # File.open(File.join(outdir, "#{row['identifier']}.json"), 'w') do |file|
-      #   file.write(JSON.dump(row.to_h))
-      # end
+      # Force identifier to be first, matching the documented data model
+      data = {'identifier' => identifier}.merge(data)
+      lines += 1
+      File.open(File.join(outdir, "#{identifier}#{outext}"), 'w') do |file|
+        file.write(YAML.dump(data)) # opens with leading --- document start
+        file.write("#{YAML_SEP}\n\n") # close frontmatter, then (empty) body
+      end
     end
     return lines
   end
@@ -80,7 +86,6 @@ module SchemaUtils
   # Emit liquid template for a scalar field
   # @param parentname string of this schema object that contains this field
   # @param fieldname string of this schema object
-  # @param schema hash to process and emit liquid for
   # @param indent to use at this level
   # @param linesep to use if needed
   # @return single line string of liquid statements
@@ -106,7 +111,7 @@ module SchemaUtils
     liquid << "#{indent}<ul>\n" # TODO: add class for styling
     liquid << "#{indent}  {% for loopitem in page.#{fieldname} %}\n"
     liquid << "#{indent}  <li><span itemprop=\"#{fieldname}\">{{ loopitem }}</span></li>\n" # FIXME: process format:url as well
-    liquid << "#{indent}  {% endfor %}\n"
+    liquid << "#{indent}{% endfor %}\n"
     liquid << "#{indent}</ul>\n"
     liquid << "#{indent}#{linesep}" if linesep
     liquid << "#{indent}{% endif %}\n"
@@ -114,8 +119,8 @@ module SchemaUtils
   end
 
   # HACK emit liquid template for nested hash/array schema objects (recursive)
-  # @param parentname string of this schema object that contains other objects
-  # @param schema hash to process and emit liquid for
+  # @param parentname string of this schema object that contains this field
+  # @param fieldname string of this schema object that contains other fields
   # @param indent to use at this level
   # @param linesep to use if needed
   # @return multiline string of liquid statements
@@ -188,15 +193,16 @@ module SchemaUtils
   end
 
   # Transform JSON into Jekyll frontmatter
+  # Emits a complete Jekyll document: frontmatter, closing --- separator, then
+  # body (intentionally empty; the layout renders all data from frontmatter).
   def json2jekyll(infile, outfile)
-    jekyll = '' # NOTE: YAML.dump outputs document separator
     olddata = JSON.parse(File.read(infile))
     json = {}
     json['identifier'] = File.basename(infile, '.json') # Force to be first
     json['commonName'] = File.basename(infile, '.json')
     json = json.merge(olddata['20240101']) # Hack for CURRENT_SPONSORSHIP
-    jekyll << YAML.dump(json)
-    jekyll << "---\n"
+    jekyll = YAML.dump(json) # NOTE: opens with leading --- document start
+    jekyll << "#{YAML_SEP}\n\n" # close frontmatter, then (empty) body
     File.open(outfile, 'w') do |file|
       file.write(jekyll)
     end
@@ -205,7 +211,7 @@ module SchemaUtils
   YAML_SEP = '---'
   # FIXME: Don't include dissolutionDate in default fields (usage currently rare)
   # TODO: coordinate with schema definition automatically (generate this from foundation-schema.json ?)
-  FOUNDATION_FIELDNAMES = %w[identifier	commonName	legalName	description	contacturl	website	foundingDate	addressCountry	addressRegion	newProjects	softwareType	wikidataId	boardSize	boardType	boardurl	teamurl	missionurl	bylawsurl	numberOfEmployees	governanceOrg	governanceTech	projectsNotable	projectsList	projectsServices	eventurl	nonprofitStatus	taxID	taxIDLocal	budgetUsd	budgetYear	budgeturl	budgetTransparent	funding	donateurl	sponsorurl	sponsorList	sponsorships	licenses	claPolicy	securityurl	ethicsPolicy	conducturl	conductEvents	conductSource	conductLinked	diversityPolicy	diversityDescription	brandPrimary	brandSecondary	brandReg	brandPolicy	brandUse	brandComments	logo	logoReg	subOrganization]
+  FOUNDATION_FIELDNAMES = %w[identifier	commonName	legalName	description	contacturl	website	foundingDate	addressCountry	addressRegion	newProjects	softwareType	wikidataId	boardSize	boardType	boardurl	teamurl	missionurl	bylawsurl	numberOfEmployees	governanceOrg	governanceTech	projectsNotable	projectsList	projectsService	eventurl	nonprofitStatus	taxID	taxIDLocal	budgetUsd	budgetYear	budgeturl	budgetTransparent	funding	donateurl	sponsorurl	sponsorList	sponsorships	licenses	claPolicy	securityurl	ethicsPolicy	conducturl	conductEvents	conductSource	conductLinked	diversityPolicy	diversityDescription	brandPrimary	brandSecondary	brandReg	brandPolicy	brandUse	brandComments	logo	logoReg	subOrganization]
   # Normalize a .md file to have frontmatter fields in schema order
   # NOTE lossy; loses comments; places all non-schema fields at end of frontmatter
   # @param filename to read with frontmatter (markdown body left as-is)
@@ -229,11 +235,15 @@ module SchemaUtils
         newyaml[k] = v
       end
       output = newyaml.to_yaml
-      output << YAML_SEP # Note: newline provided by shovel operator below
+      # Ensure the body starts on its own line, so the closing --- separator
+      # is never glued to the first body characters.
+      markdown = "\n#{markdown}" unless markdown.empty? || markdown.start_with?("\n")
+      output << YAML_SEP
       output << markdown
       outputfilename = filename # NOTE overwrite files
       File.open(outputfilename, 'w') do |f|
-        f.puts output
+        # A single trailing newline keeps repeated runs byte-identical.
+        f.write(output.sub(/[[:space:]]*\z/, '') << "\n")
       end
       return "Wrote out: #{outputfilename}"
     rescue StandardError => e
