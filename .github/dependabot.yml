@@ -1,0 +1,27 @@
+# Dependabot configuration — automated dependency updates.
+#
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependency-file
+#
+# Ecosystems tracked:
+#   - bundler:        Gemfile / Gemfile.lock (Jekyll + just-the-docs)
+#   - github-actions: versions pinned by SHA in .github/workflows
+#
+# There is intentionally no "npm" entry: the repository has no package.json
+# (the former package-lock.json was orphaned and removed; OpenAPI generation
+# is implemented in Ruby). Add one here if a package.json is ever introduced.
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Keep related jekyll gems in one PR rather than many.
+    groups:
+      jekyll:
+        patterns:
+          - "jekyll"
+
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"

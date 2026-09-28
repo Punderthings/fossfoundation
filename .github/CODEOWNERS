@@ -1,0 +1,13 @@
+# CODEOWNERS — files and folders with explicit owners.
+#
+# GitHub requires approval from a listed owner before a PR touching those
+# paths can be merged (enforced via branch protection: "Require review from
+# Code Owners").
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for the entire repository.
+* @ShaneCurcuru
+
+# CI/CD and repository automation (workflows, dependabot, templates).
+/.github/ @ShaneCurcuru
