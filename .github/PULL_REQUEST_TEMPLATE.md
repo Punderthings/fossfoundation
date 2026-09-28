@@ -4,6 +4,8 @@
 
 ## Checklist
 
+- [ ] If changing factual data about any organization, I verified or linked
+      the data from the organization itself
 - [ ] I verified the site builds locally: `bundle exec jekyll build`
 - [ ] If I changed `Gemfile` or `.ruby-version`, I regenerated the lockfile
       (`bundle lock`) and the committed `Gemfile.lock` is current
