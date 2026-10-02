@@ -9,7 +9,7 @@ foundingDate:
 dissolutionDate: 2024 or earlier
 addressCountry: DE
 addressRegion:
-newProjects: 'yes'
+newProjects:
 softwareType: various
 wikidataId:
 boardSize:
