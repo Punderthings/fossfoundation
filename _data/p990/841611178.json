@@ -18,7 +18,7 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2022-12-01",
+    "tax_period": "2025-12-01",
     "asset_code": 0,
     "income_code": 0,
     "filing_requirement_code": 2,
@@ -30,15 +30,13 @@
     "ntee_code": "B990",
     "sort_name": null,
     "created_at": "2023-05-09T20:43:45.207Z",
-    "updated_at": "2024-01-04T01:38:47.342Z",
-    "data_source": "current_2024_01_04",
+    "updated_at": "2026-09-16T19:53:52.644Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
     "latest_object_id": null
   },
-  "filings_with_data": [
-
-  ],
+  "filings_with_data": [],
   "filings_without_data": [
     {
       "tax_prd": 200912,

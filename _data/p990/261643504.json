@@ -4,10 +4,10 @@
     "ein": 261643504,
     "name": "Identity Commons Inc",
     "careofname": "% 4767 NEW BROAD ST",
-    "address": "7 CENTRAL ST STE 180",
+    "address": "22 BARTLETT AVE",
     "city": "Arlington",
     "state": "MA",
-    "zipcode": "02476-0000",
+    "zipcode": "02476-6418",
     "exemption_number": 0,
     "subsection_code": 6,
     "affiliation_code": 3,
@@ -18,7 +18,7 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2022-12-01",
+    "tax_period": "2025-12-01",
     "asset_code": 0,
     "income_code": 0,
     "filing_requirement_code": 2,
@@ -30,11 +30,11 @@
     "ntee_code": "S30",
     "sort_name": null,
     "created_at": "2023-05-09T20:24:25.518Z",
-    "updated_at": "2024-01-04T01:28:20.458Z",
-    "data_source": "current_2024_01_04",
+    "updated_at": "2026-09-16T19:49:05.753Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": null
+    "latest_object_id": "201712509349300646"
   },
   "filings_with_data": [
     {

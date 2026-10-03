@@ -3,7 +3,7 @@
     "id": 470825376,
     "ein": 470825376,
     "name": "Apache Software Foundation",
-    "careofname": "% RANDY TERBSH",
+    "careofname": "% CRAIG MCCLANAHAN",
     "address": "1000 N WEST ST",
     "city": "Wilmington",
     "state": "DE",
@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2024-04-01",
+    "tax_period": "2025-04-01",
     "asset_code": 7,
     "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 4,
-    "asset_amount": 5175432,
-    "income_amount": 2452180,
-    "revenue_amount": 2452180,
+    "asset_amount": 5460335,
+    "income_amount": 2220257,
+    "revenue_amount": 2220257,
     "ntee_code": "U41",
     "sort_name": null,
     "created_at": "2023-05-09T20:31:29.560Z",
-    "updated_at": "2025-08-14T19:26:39.733Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:50:41.011Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202520539349300207"
+    "latest_object_id": "202630689349301933"
   },
   "filings_with_data": [
     {
       "tax_prd": 202304,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F470825376_202304_990_2024040522344699.pdf",
       "updated": "2025-08-05T16:09:32.662Z",
       "totrevenue": 2313188,
       "totfuncexpns": 2042336,
@@ -111,7 +111,7 @@
       "tax_prd": 202204,
       "tax_prd_yr": 2022,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F470825376_202204_990_2023060221354620.pdf",
       "updated": "2024-08-28T20:13:00.446Z",
       "totrevenue": 1765183,
       "totfuncexpns": 1548909,
@@ -879,6 +879,20 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202504,
+      "tax_prd_yr": 2025,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F470825376_202504_990_2026032424028221.pdf"
+    },
+    {
+      "tax_prd": 202404,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F470825376_202404_990_2025042323377054.pdf"
+    },
     {
       "tax_prd": 201104,
       "tax_prd_yr": 2011,

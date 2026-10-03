@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 6,
-    "income_code": 7,
+    "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 1765873,
-    "income_amount": 6490771,
-    "revenue_amount": 5347182,
+    "asset_amount": 2002120,
+    "income_amount": 4193112,
+    "revenue_amount": 4193112,
     "ntee_code": "U40",
     "sort_name": "Tech Matters",
     "created_at": "2023-05-09T20:45:29.560Z",
-    "updated_at": "2025-08-14T19:40:05.072Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:54:10.839Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202422929349301907"
+    "latest_object_id": "202523189349312187"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F882116913_202312_990_2025020623079892.pdf",
       "updated": "2025-08-05T16:11:00.860Z",
       "totrevenue": 5347182,
       "totfuncexpns": 3909991,
@@ -108,7 +108,15 @@
       "ein": 882116913
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F882116913_202412_990_2026021923940518.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

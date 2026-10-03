@@ -18,23 +18,23 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2024-12-01",
-    "asset_code": 4,
+    "tax_period": "2025-12-01",
+    "asset_code": 3,
     "income_code": 3,
-    "filing_requirement_code": 1,
+    "filing_requirement_code": 2,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 154320,
-    "income_amount": 57433,
-    "revenue_amount": 57433,
+    "asset_amount": 27264,
+    "income_amount": 41887,
+    "revenue_amount": 41887,
     "ntee_code": "S40",
     "sort_name": null,
     "created_at": "2023-05-09T20:38:57.117Z",
-    "updated_at": "2025-08-14T19:37:07.862Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-07-22T00:49:38.174Z",
+    "data_source": "pre_2026_08_19",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202511299349302331"
+    "latest_object_id": "202631949349301193"
   },
   "filings_with_data": [
     {
@@ -111,7 +111,7 @@
       "tax_prd": 202212,
       "tax_prd_yr": 2022,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471709705_202212_990O_2023082521550334.pdf",
       "updated": "2024-08-28T20:13:05.390Z",
       "totrevenue": 305102,
       "totfuncexpns": 374668,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471709705_202112_990O_2023012320781635.pdf",
       "updated": "2023-08-07T19:41:52.546Z",
       "totrevenue": 915013,
       "totfuncexpns": 993618,
@@ -738,7 +738,15 @@
       "ein": 471709705
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471709705_202412_990O_2025080723633106.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

@@ -4,7 +4,7 @@
     "ein": 843126447,
     "name": "Open Technology Fund",
     "careofname": "% LAURA CUNNINGHAM",
-    "address": "1015 7TH ST NW 300",
+    "address": "1015 7TH STREET NW 300",
     "city": "Washington",
     "state": "DC",
     "zipcode": "20001-5867",
@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-09-01",
+    "tax_period": "2025-09-01",
     "asset_code": 8,
-    "income_code": 8,
+    "income_code": 9,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 9,
-    "asset_amount": 44584077,
-    "income_amount": 37969644,
-    "revenue_amount": 37969644,
+    "asset_amount": 26296148,
+    "income_amount": 52341441,
+    "revenue_amount": 52341441,
     "ntee_code": "A05",
     "sort_name": null,
     "created_at": "2023-05-09T20:34:14.971Z",
-    "updated_at": "2025-08-14T19:29:45.139Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:51:15.256Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202402279349300445"
+    "latest_object_id": "202632239349300028"
   },
   "filings_with_data": [
     {
       "tax_prd": 202309,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F843126447_202309_990_2024120622940120.pdf",
       "updated": "2025-08-05T16:10:50.098Z",
       "totrevenue": 37969644,
       "totfuncexpns": 37764086,
@@ -318,7 +318,15 @@
       "ein": 843126447
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202409,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F843126447_202409_990_2026012023846974.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

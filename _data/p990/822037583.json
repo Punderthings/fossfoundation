@@ -4,7 +4,7 @@
     "ein": 822037583,
     "name": "Open Source Collective",
     "careofname": "% PIA MANCINI",
-    "address": "440 N BARRANCA AVE 3717",
+    "address": "440 N BARRANCA AVE 3939",
     "city": "Covina",
     "state": "CA",
     "zipcode": "91723-1722",
@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 8,
     "income_code": 8,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 12871770,
-    "income_amount": 11310256,
-    "revenue_amount": 11310256,
+    "asset_amount": 13524558,
+    "income_amount": 12114478,
+    "revenue_amount": 12114478,
     "ntee_code": "Y11",
     "sort_name": null,
     "created_at": "2023-05-09T20:42:49.598Z",
-    "updated_at": "2025-08-14T19:39:12.133Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:53:37.301Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202403209349328355"
+    "latest_object_id": "202513219349309506"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F822037583_202312_990O_2025042523396790.pdf",
       "updated": "2025-08-05T16:10:34.913Z",
       "totrevenue": 11310256,
       "totfuncexpns": 9242287,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F822037583_202112_990O_2023050821174938.pdf",
       "updated": "2023-08-07T19:46:44.923Z",
       "totrevenue": 8454695,
       "totfuncexpns": 5231718,
@@ -251,7 +251,7 @@
       "tax_prd": 202012,
       "tax_prd_yr": 2020,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F822037583_202012_990O_2022042920016467.pdf",
       "updated": "2022-07-01T20:38:32.575Z",
       "totrevenue": 5282389,
       "totfuncexpns": 3385064,
@@ -507,7 +507,15 @@
       "ein": 822037583
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F822037583_202412_990O_2026041424094261.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

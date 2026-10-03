@@ -4,7 +4,7 @@
     "ein": 460830259,
     "name": "Processing Foundation",
     "careofname": "% DANIEL SHIFFMAN",
-    "address": "400 JAY STREET 175",
+    "address": "400 JAY ST 175",
     "city": "Brooklyn",
     "state": "NY",
     "zipcode": "11201-5100",
@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
-    "asset_code": 8,
+    "tax_period": "2024-12-01",
+    "asset_code": 7,
     "income_code": 5,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
-    "accounting_period": 12,
-    "asset_amount": 10370284,
-    "income_amount": 512988,
-    "revenue_amount": 512988,
+    "accounting_period": 6,
+    "asset_amount": 9537257,
+    "income_amount": 648664,
+    "revenue_amount": 648664,
     "ntee_code": "B99",
     "sort_name": null,
     "created_at": "2023-05-09T20:24:50.971Z",
-    "updated_at": "2025-08-14T19:23:37.833Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:49:12.773Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202423199349306952"
+    "latest_object_id": "202602239349301560"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F460830259_202312_990_2025022423120418.pdf",
       "updated": "2025-08-05T16:09:26.348Z",
       "totrevenue": 512988,
       "totfuncexpns": 1230569,
@@ -661,7 +661,15 @@
       "ein": 460830259
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F460830259_202412_990_2026030223959597.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

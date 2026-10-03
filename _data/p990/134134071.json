@@ -30,8 +30,8 @@
     "ntee_code": "B99",
     "sort_name": null,
     "created_at": "2023-05-09T20:23:29.549Z",
-    "updated_at": "2025-08-14T19:23:07.041Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:48:54.051Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
     "latest_object_id": "202541889349200624"
@@ -90,7 +90,7 @@
       "tax_prd": 202212,
       "tax_prd_yr": 2022,
       "formtype": 1,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F134134071_202212_990EZ_2023080421496335.pdf",
       "updated": "2024-08-28T20:21:39.935Z",
       "totrevenue": 44838,
       "totfuncexpns": 15850,
@@ -676,6 +676,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 1,
+      "formtype_str": "990EZ",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F134134071_202412_990EZ_2025090323704388.pdf"
+    },
     {
       "tax_prd": 201012,
       "tax_prd_yr": 2010,

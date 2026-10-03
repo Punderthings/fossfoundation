@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
-    "asset_code": 7,
+    "tax_period": "2024-12-01",
+    "asset_code": 6,
     "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 5448874,
-    "income_amount": 4196802,
-    "revenue_amount": 4173023,
+    "asset_amount": 4257720,
+    "income_amount": 4138838,
+    "revenue_amount": 4086997,
     "ntee_code": "U41",
     "sort_name": null,
     "created_at": "2023-05-09T20:35:29.784Z",
-    "updated_at": "2025-08-14T19:32:16.867Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:51:52.268Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202403209349326620"
+    "latest_object_id": "202533079349302003"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043594598_202312_990_2025030323149835.pdf",
       "updated": "2025-08-05T16:07:53.669Z",
       "totrevenue": 4173023,
       "totfuncexpns": 4336478,
@@ -251,7 +251,7 @@
       "tax_prd": 202012,
       "tax_prd_yr": 2020,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043594598_202012_990_2022102520553211.pdf",
       "updated": "2022-07-01T20:25:57.264Z",
       "totrevenue": 2176341,
       "totfuncexpns": 1790102,
@@ -949,6 +949,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043594598_202412_990_2026020923901259.pdf"
+    },
     {
       "tax_prd": 201012,
       "tax_prd_yr": 2010,

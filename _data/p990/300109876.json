@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 5,
     "income_code": 5,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 621740,
-    "income_amount": 503763,
-    "revenue_amount": 503763,
+    "asset_amount": 637080,
+    "income_amount": 544133,
+    "revenue_amount": 544133,
     "ntee_code": "U99",
     "sort_name": null,
     "created_at": "2023-05-09T20:24:36.469Z",
-    "updated_at": "2025-08-14T19:23:31.448Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:49:07.571Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202403179349308740"
+    "latest_object_id": "202533189349314838"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F300109876_202312_990_2025021923111848.pdf",
       "updated": "2025-08-05T16:08:46.382Z",
       "totrevenue": 503763,
       "totfuncexpns": 510942,
@@ -230,7 +230,7 @@
       "tax_prd": 202012,
       "tax_prd_yr": 2020,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F300109876_202012_990_2022010619403849.pdf",
       "updated": "2022-07-01T20:30:01.900Z",
       "totrevenue": 396991,
       "totfuncexpns": 422775,
@@ -907,6 +907,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F300109876_202412_990_2026030223962050.pdf"
+    },
     {
       "tax_prd": 201012,
       "tax_prd_yr": 2010,

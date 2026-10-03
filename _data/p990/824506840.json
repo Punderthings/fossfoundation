@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 8,
     "income_code": 8,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 37433223,
-    "income_amount": 43309531,
-    "revenue_amount": 35750994,
+    "asset_amount": 30994770,
+    "income_amount": 30765027,
+    "revenue_amount": 29413537,
     "ntee_code": "S40",
     "sort_name": "Signal Foundation",
     "created_at": "2023-05-09T20:43:03.677Z",
-    "updated_at": "2025-08-14T19:39:15.308Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:53:40.357Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202412689349301826"
+    "latest_object_id": "202512629349300421"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F824506840_202312_990_2025020323066468.pdf",
       "updated": "2025-08-05T16:10:37.142Z",
       "totrevenue": 35750994,
       "totfuncexpns": 35808494,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F824506840_202112_990_2023020620918810.pdf",
       "updated": "2023-08-07T19:46:54.813Z",
       "totrevenue": 12765380,
       "totfuncexpns": 33117092,
@@ -251,7 +251,7 @@
       "tax_prd": 202012,
       "tax_prd_yr": 2020,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F824506840_202012_990_2022010619398981.pdf",
       "updated": "2022-07-01T20:38:41.026Z",
       "totrevenue": 14860292,
       "totfuncexpns": 21272520,
@@ -458,7 +458,15 @@
       "ein": 824506840
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F824506840_202412_990_2026012223872512.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

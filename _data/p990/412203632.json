@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2024-02-01",
+    "tax_period": "2025-02-01",
     "asset_code": 7,
     "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 2,
-    "asset_amount": 5314976,
-    "income_amount": 2487144,
-    "revenue_amount": 2487144,
+    "asset_amount": 5401246,
+    "income_amount": 3214723,
+    "revenue_amount": 3214723,
     "ntee_code": "U41",
     "sort_name": null,
     "created_at": "2023-05-09T20:24:44.720Z",
-    "updated_at": "2025-08-14T19:23:34.574Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:49:11.095Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202500169349300205"
+    "latest_object_id": "202640169349300604"
   },
   "filings_with_data": [
     {
       "tax_prd": 202302,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F412203632_202302_990_2024062122566650.pdf",
       "updated": "2025-08-05T16:09:16.371Z",
       "totrevenue": 4187196,
       "totfuncexpns": 3662134,
@@ -949,6 +949,20 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202502,
+      "tax_prd_yr": 2025,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F412203632_202502_990_2026031123994855.pdf"
+    },
+    {
+      "tax_prd": 202402,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F412203632_202402_990_2025041123354330.pdf"
+    },
     {
       "tax_prd": 201002,
       "tax_prd_yr": 2010,
