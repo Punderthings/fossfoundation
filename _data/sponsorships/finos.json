@@ -93,7 +93,7 @@
     "regtech.org.au"
   ],
   "community": [
-    "ERROR: scrape_bycss(...community, ... div#notfound this section doesn't have an id is just in the silver section)"
+
   ],
   "parseDate": "20240926"
 }
