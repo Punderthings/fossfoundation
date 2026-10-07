@@ -30,6 +30,12 @@
       "description": "If present, describe how the sponsorship cash amount varies; list the highest part of the range in amount field.",
       "type": "string"
     },
+    "match": {
+      "title": "Match Names",
+      "description": "For landscape, landscapejson, and json sources: the source's own level name(s) for this level, matched case-insensitively. Defaults to name.",
+      "type": ["string", "array"],
+      "items": { "type": "string" }
+    },
     "selector": {
       "title": "CSS Selector",
       "description": "CSS selector to find a nodelist of elements that are sponsor listings when parsing HTML pages.",

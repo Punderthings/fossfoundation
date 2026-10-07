@@ -6,23 +6,42 @@ module SponsorUtils
   SponsorUtils: good-enough scrapers and detectors of FOSS sponsors.
     Run from project root directory.  With no options, parses every
     _sponsorships/*.md model and writes _data/sponsorships/<org>.json.
-    If an org fails to parse, its existing JSON file is left untouched,
-    errors are reported on stderr, and the exit code is nonzero.
-    Requires the nokogiri gem; uses Ruby 3.3+ stdlib otherwise.
+    If an org fails to parse, or its sponsor count drops suspiciously,
+    its existing JSON file is left untouched, errors are reported on
+    stderr, and the exit code is nonzero (use --force to accept drops).
+
+    Source types (sourcetype: in the model; inferred if absent):
+      css            Scrape sponsorurl html with per-level css selector/attr
+                     (add render: chrome for pages built by JavaScript)
+      landscape      CNCF-style landscape.yml; 'landscape' names the category
+      landscapejson  landscape2 site data/full.json; 'landscape' names the category
+      json           Any JSON API; see the 'json' key for field paths
+      static         Hand-maintained levels.*.sponsors lists (staticmap: date)
+
+    --check compares each org's committed data with a fresh parse and
+    reports stale, changed, or failing orgs (exit 1 if any); it never writes.
+
+    Requires the nokogiri and public_suffix gems (public_suffix is
+    already in Gemfile.lock via jekyll); Ruby 3.3+ stdlib otherwise.
+    render: chrome additionally needs a local Chrome/Chromium (or CHROME_BIN).
   HEREDOC
   module_function
   require 'yaml'
   require 'json'
   require 'net/http'
   require 'uri'
-  require 'nokogiri'
   require 'date'
   require 'optparse'
+  require 'tmpdir'
+  require 'io/wait'
+  begin
+    require 'nokogiri'
+    require 'public_suffix'
+  rescue LoadError => e
+    abort "SponsorUtils requires the nokogiri and public_suffix gems (#{e.message}); try: gem install nokogiri public_suffix"
+  end
 
   # NOTE OWASP parsing css may be fragile; relies on nth-of-type
-  # TODO: Eclipse dom parsing:
-  #   div.eclipsefdn-members-list ... a with href and title that has sponsor name
-  #   Member page: div.member-detail a
 
   # Map all sponsorships to common-ish levels
   # - Ordinals are cash sponsorships in order
@@ -36,19 +55,10 @@ module SponsorUtils
   SPONSORSHIPS_DIR = '_sponsorships'
   DEFAULT_OUTDIR = '_data/sponsorships'
   PARSE_DATE = 'parseDate'
+  SOURCE_TYPES = %w[css landscape landscapejson json static].freeze
 
-  # Hostnames that are known to belong to a single sponsor org; whole-host matches only
-  # TODO: consider removing ^cloud. from: google baidu tencent
-  # TODO: consider removing ^aws. from amazon ^azure. from microsoft
-  # TODO: consider removing ^group. from mercedes-benz
-  # TODO: consider removing ^en. from various urls
-  HOST_ALIASES = {
-    'opensource.google' => 'google.com',
-    'opensource.google.com' => 'google.com',
-    'techatbloomberg.com' => 'bloomberg.com',
-    'opensource.twosigma.com' => 'twosigma.com',
-    'opensource.salesforce.com' => 'salesforce.com'
-  }.freeze
+  # Editable list of hostnames/domains that belong to one sponsor org; see file for format
+  HOST_ALIASES_FILE = File.expand_path('../../_data/host_aliases.json', __dir__)
 
   # Network and file safety limits
   USER_AGENT = 'fossfoundation.info sponsor research (+https://github.com/Punderthings/fossfoundation)'
@@ -56,11 +66,30 @@ module SponsorUtils
   READ_TIMEOUT = 60 # seconds
   MAX_REDIRECTS = 5
   MAX_RETRIES = 2 # Retries after the first attempt, for timeouts / 429 / 5xx only
-  MAX_FETCH_BYTES = 20 * 1024 * 1024 # Largest known source (LF landscape.yml) is ~3.3MB
+  MAX_FETCH_BYTES = 20 * 1024 * 1024 # Largest known source (LF landscape full.json) is ~6.5MB
   MAX_SUBPAGES = 250 # Per-org cap on per-sponsor subpage fetches
   SUBPAGE_DELAY = 0.5 # seconds between subpage fetches, to be polite
   ORG_ID_PATTERN = /\A[a-z0-9][a-z0-9_-]*\z/
   DOMAIN_PATTERN = %r{\A[a-z0-9-]+(\.[a-z0-9-]+)+(/.*)?\z}i
+
+  # Headless browser rendering (render: chrome)
+  RENDER_TIMEOUT = 90 # seconds for the whole browser run
+  RENDER_BUDGET_MS = 15_000 # virtual time Chrome lets page scripts run before dumping the DOM
+  CHROME_CANDIDATES = [
+    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    '/Applications/Chromium.app/Contents/MacOS/Chromium',
+    'google-chrome', 'google-chrome-stable', 'chromium', 'chromium-browser'
+  ].freeze
+
+  # Pages served instead of content by bot-detection services; we never try to get past these
+  CHALLENGE_TITLES = /\A\s*(client challenge|just a moment|attention required|access denied|verifying you are human|are you a robot)/i
+  CHALLENGE_MARKERS = %r{/cdn-cgi/challenge-platform/|id=["']challenge-form["']|captcha-delivery\.com}i
+
+  # Drift guard: refuse to overwrite existing data when a fresh parse loses this much
+  DRIFT_MIN_TOTAL = 10 # only judge totals for orgs with at least this many sponsors
+  DRIFT_MIN_RATIO = 0.5 # new total below this fraction of old total is suspicious
+  DRIFT_MIN_LEVEL = 5 # a level that had at least this many sponsors and is now empty is suspicious
+  DEFAULT_MAX_AGE = 365 # days before --check calls committed data stale
 
   # Raised for any problem that means an org's sponsor data is not trustworthy;
   # callers should report it and not overwrite previously parsed data.
@@ -98,10 +127,52 @@ module SponsorUtils
     end
   end
 
+  # ## ### #### ##### ######
+  # Hostname normalization
+
+  # @return hash of host or registrable domain => canonical sponsor domain
+  def host_aliases
+    @host_aliases ||= begin
+      JSON.parse(File.read(HOST_ALIASES_FILE)).fetch('aliases', {}).to_h { |k, v| [k.downcase, v.downcase] }
+    rescue Errno::ENOENT, JSON::ParserError => e
+      warn_msg("host_aliases(#{HOST_ALIASES_FILE}): #{e.message}; no aliases applied")
+      {}
+    end
+  end
+
+  # Collapse a hostname to its registrable domain using the Public Suffix List
+  # e.g. automotive.panasonic.com => panasonic.com; foo.co.uk stays; bar.github.io stays
+  # @param host lowercase hostname
+  # @return registrable domain, or host unchanged if it has none (IPs, bare suffixes)
+  def registrable_domain(host)
+    return host if host.match?(/\A[\d.]+\z/) || host.include?(':') # IP addresses
+    PublicSuffix.domain(host, list: public_suffix_list) || host
+  rescue PublicSuffix::Error
+    host
+  end
+
+  # The Public Suffix List bundled with the gem, read as UTF-8 regardless of locale
+  # (the gem's own loader fails when LANG is unset, as in cron or minimal CI shells)
+  def public_suffix_list
+    @public_suffix_list ||= PublicSuffix::List.parse(File.read(PublicSuffix::List::DEFAULT_LIST_PATH, encoding: 'UTF-8'))
+  end
+
+  # Map a hostname to one canonical domain per sponsor org
+  # Exact host aliases win, then aliases for its registrable domain, then '.tld' brand aliases
+  # @param host lowercase hostname
+  # @return canonical domain
+  def canonical_host(host)
+    return host_aliases[host] if host_aliases.key?(host)
+    domain = registrable_domain(host)
+    return host_aliases[domain] if host_aliases.key?(domain)
+    return host_aliases.fetch(".#{domain.split('.').last}", domain)
+  end
+
   # Return a normalized domain name for mapping to a single sponsor org
-  # Only the host is transformed; paths, queries, ports are dropped
+  # Only the host is used; paths, queries, ports are dropped, and subdomains
+  # are merged into their registrable domain (with aliases from HOST_ALIASES_FILE)
   # @param href url (or bare domain) to normalize
-  # @return a good enough normalized hostname; or the stripped input if not a recognizable web url
+  # @return a good enough normalized domain; or the stripped input if not a recognizable web url
   def normalize_href(href)
     str = href.to_s.strip
     return str if str.empty?
@@ -109,7 +180,7 @@ module SponsorUtils
     uri = URI.parse(str)
     host = uri.host.to_s.downcase.delete_suffix('.').delete_prefix('www.')
     return href.to_s.strip if host.empty?
-    return HOST_ALIASES.fetch(host, host)
+    return canonical_host(host)
   rescue URI::Error
     return href.to_s.strip
   end
@@ -121,13 +192,26 @@ module SponsorUtils
     ary.map { |s| s.to_s.strip }.reject(&:empty?).uniq
   end
 
+  # Re-apply current normalization to previously parsed sponsor data
+  # Entries that look like domains are normalized; names and ids are kept as-is
+  # @param sponsors hash of level => array (other keys passed through)
+  # @return renormalized hash
+  def renormalize(sponsors)
+    sponsors.transform_values do |ary|
+      next ary unless ary.is_a?(Array)
+      clean_list(ary.map { |s| DOMAIN_PATTERN.match?(s.to_s.strip) ? normalize_href(s) : s })
+    end
+  end
+
+  # ## ### #### ##### ######
+  # Fetching
+
   # Fetch a url over http(s) with timeouts, retries, redirects, and a size cap
   # @param url to fetch
   # @return response body as string
   # @raise ParseError if the url cannot be fetched
   def fetch(url, redirects: MAX_REDIRECTS)
-    uri = URI.parse(url.to_s)
-    raise ParseError, "fetch(#{url}): only http(s) urls are supported" unless uri.is_a?(URI::HTTP) && uri.host
+    uri = parse_http_uri(url)
     (1..MAX_RETRIES + 1).each do |attempt|
       log("fetch(#{uri})")
       begin
@@ -150,6 +234,16 @@ module SponsorUtils
       raise ParseError, "fetch(#{uri}): #{status} (after #{attempt} attempts)" if attempt > MAX_RETRIES
       sleep(2**(attempt - 1))
     end
+  end
+
+  # @return URI::HTTP for an http(s) url
+  # @raise ParseError for anything else
+  def parse_http_uri(url)
+    uri = URI.parse(url.to_s)
+    raise ParseError, "fetch(#{url}): only http(s) urls are supported" unless uri.is_a?(URI::HTTP) && uri.host
+    return uri
+  rescue URI::Error => e
+    raise ParseError, "fetch(#{url}): #{e.message}"
   end
 
   # Perform one GET request
@@ -198,16 +292,145 @@ module SponsorUtils
     return File.read(path, encoding: 'UTF-8')
   end
 
+  # Find a Chrome or Chromium executable
+  # @return path to executable
+  # @raise ParseError if none found
+  def chrome_path
+    candidates = [ENV.fetch('CHROME_BIN', nil), *CHROME_CANDIDATES].compact
+    candidates.each do |candidate|
+      return candidate if candidate.include?('/') && File.executable?(candidate)
+      found = ENV.fetch('PATH', '').split(File::PATH_SEPARATOR).map { |dir| File.join(dir, candidate) }.find { |p| File.executable?(p) }
+      return found if found
+    end
+    raise ParseError, 'render: chrome needs Chrome or Chromium installed (or set CHROME_BIN)'
+  end
+
+  # Render a JavaScript-built page in headless Chrome and return the resulting DOM
+  # Uses Chrome's own --dump-dom so no browser-driver gem is needed.  The page is
+  # requested with our normal, honest User-Agent; this is for sites that build
+  # their sponsor list client-side, not for getting past bot detection.
+  # Chrome may keep running after printing the DOM (seen on macOS), so we stop
+  # reading at the closing </html> and then end Chrome's whole process group.
+  # @param url to render
+  # @return rendered html string
+  # @raise ParseError on any failure or timeout
+  def render_page(url)
+    uri = parse_http_uri(url)
+    log("render_page(#{uri})")
+    Dir.mktmpdir('sponsor-utils-chrome') do |profile|
+      cmd = [chrome_path, '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
+             '--disable-extensions', "--user-data-dir=#{profile}", "--user-agent=#{USER_AGENT}",
+             "--virtual-time-budget=#{RENDER_BUDGET_MS}", '--dump-dom', uri.to_s]
+      reader, writer = IO.pipe
+      pid = Process.spawn(*cmd, out: writer, err: File::NULL, in: File::NULL, pgroup: true)
+      writer.close
+      html = read_dom(reader, uri)
+      raise ParseError, "render_page(#{uri}): browser produced no output" if html.strip.empty?
+      return html
+    rescue SystemCallError => e
+      raise ParseError, "render_page(#{uri}): could not run browser: #{e.message}"
+    ensure
+      reader&.close
+      writer&.close unless writer&.closed?
+      stop_process_group(pid) if pid
+    end
+  end
+
+  # Read a dumped DOM until </html>, end of output, or RENDER_TIMEOUT
+  # @raise ParseError on timeout or oversize output
+  def read_dom(reader, uri)
+    html = +''
+    deadline = Process.clock_gettime(Process::CLOCK_MONOTONIC) + RENDER_TIMEOUT
+    loop do
+      remaining = deadline - Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      raise ParseError, "render_page(#{uri}): timed out after #{RENDER_TIMEOUT}s" if remaining <= 0 || !reader.wait_readable(remaining)
+      chunk = reader.read_nonblock(65_536, exception: false)
+      break if chunk.nil? # Browser closed its output
+      next if chunk == :wait_readable
+      html << chunk
+      raise ParseError, "render_page(#{uri}): rendered page too large" if html.bytesize > MAX_FETCH_BYTES
+      break if html.rstrip.end_with?('</html>')
+    end
+    return html
+  end
+
+  # Kill a spawned process and everything in its process group, then reap it
+  def stop_process_group(pid)
+    Process.kill('KILL', -pid)
+  rescue Errno::ESRCH, Errno::EPERM
+    nil
+  ensure
+    begin
+      Process.wait(pid)
+    rescue Errno::ECHILD
+      nil
+    end
+  end
+
+  # @return true if html is a bot-detection interstitial rather than real content
+  def challenge_page?(doc, html)
+    CHALLENGE_TITLES.match?(doc.at_css('title')&.text.to_s) || CHALLENGE_MARKERS.match?(html.to_s)
+  end
+
+  # ## ### #### ##### ######
+  # Parsers for each source type
+
+  # Which kind of source a sponsorship model describes
+  # @param sponsorship model hash
+  # @return one of SOURCE_TYPES
+  # @raise ParseError on an unknown sourcetype
+  def source_type(sponsorship)
+    type = sponsorship['sourcetype'].to_s.strip.downcase
+    if type.empty?
+      return 'static' if sponsorship['staticmap']
+      return 'landscape' if sponsorship['landscape']
+      return 'css'
+    end
+    raise ParseError, "unknown sourcetype '#{type}' (expected one of #{SOURCE_TYPES.join(', ')})" unless SOURCE_TYPES.include?(type)
+    return type
+  end
+
+  # Build a matcher from external level names to our level keys
+  # Each level matches its 'match' value(s) if present, else its 'name'; case-insensitive
+  # @param levels hash from sponsorship model
+  # @return lambda taking an array of candidate names, returning a level key or nil
+  def level_matcher(levels)
+    table = levels.map { |lvl, h| [lvl, Array(h['match'] || h['name']).map { |n| n.to_s.strip.downcase }] }
+    lambda do |names|
+      wanted = Array(names).map { |n| n.to_s.strip.downcase }
+      table.find { |_lvl, matches| wanted.intersect?(matches) }&.first
+    end
+  end
+
+  # Warn once per unmatched external level name, with counts
+  def warn_unmatched(context, unmatched)
+    unmatched.tally.each do |name, count|
+      warn_msg("#{context}: '#{name}' (#{count} sponsors) matches no configured level; skipping")
+    end
+  end
+
+  # Warn for configured levels that ended up empty
+  def warn_empty_levels(context, sponsors, levels)
+    sponsors.each do |lvl, ary|
+      warn_msg("#{context}: level '#{lvl}' (#{levels[lvl]['name']}) has no sponsors") if ary.empty?
+    end
+  end
+
   # Scrape html sponsor listing defined by css selectors
   # Each level needs a 'selector' and 'attr'; levels without a selector are left empty
   # @param io html string (or IO) to parse
   # @param sponsorship level map of organization
   # @return hash of sponsors by approximate map-defined levels
-  # @raise ParseError on an invalid css selector
+  # @raise ParseError on an invalid css selector, or a bot-detection page
   def scrape_bycss(io, sponsorship)
     sponsors = {}
     normalize = as_bool(sponsorship['normalize'])
-    doc = Nokogiri::HTML5(io)
+    html = io.respond_to?(:read) ? io.read : io
+    doc = Nokogiri::HTML5(html)
+    if challenge_page?(doc, html)
+      raise ParseError, 'scrape_bycss: site returned a bot-detection challenge instead of content; ' \
+                        'not attempting to bypass it (consider a JSON source or a staticmap)'
+    end
     sponsorship.fetch('levels', {}).each do |lvl, lvldata|
       sponsors[lvl] = []
       selector = lvldata['selector'].to_s.strip
@@ -240,6 +463,7 @@ module SponsorUtils
   end
 
   # Parse a CNCF style landscape.yml for a sponsor list
+  # Subcategory names are matched to levels by 'match' or 'name'
   # Landscape homepage_urls are always normalized
   # @param io YAML string (or IO) to parse
   # @param sponsorship level map of organization
@@ -258,23 +482,88 @@ module SponsorUtils
     groups = Array(found['subcategories']).map { |h| landscape_entry(h, 'subcategory') }
     raise ParseError, "parse_landscape(#{category}): category has no subcategories" if groups.empty?
     levels = sponsorship.fetch('levels', {})
-    name_to_level = levels.to_h { |lvl, h| [h.fetch('name', ''), lvl] }
+    matcher = level_matcher(levels)
     sponsors = levels.keys.to_h { |lvl| [lvl, []] }
+    unmatched = []
     groups.each do |group|
-      level = name_to_level[group['name']]
+      items = Array(group['items']).map { |h| landscape_entry(h, 'item') }
+      level = matcher.call(group['name'])
       unless level
-        warn_msg("parse_landscape(#{category}): subcategory '#{group['name']}' matches no configured level; skipping")
+        unmatched.concat([group['name']] * items.size)
         next
       end
-      Array(group['items']).each do |h|
-        item = landscape_entry(h, 'item')
-        sponsors[level] << normalize_href(item.fetch('homepage_url', nil) || item['name'])
+      items.each { |item| sponsors[level] << normalize_href(item['homepage_url'] || item['name']) }
+    end
+    warn_unmatched("parse_landscape(#{category})", unmatched)
+    sponsors.transform_values! { |ary| clean_list(ary) }
+    warn_empty_levels("parse_landscape(#{category})", sponsors, levels)
+    return sponsors
+  end
+
+  # Field paths used to read a landscape2 data/full.json as a generic JSON source
+  LANDSCAPEJSON_PATHS = { 'items' => 'items', 'url' => 'homepage_url', 'name' => 'name', 'level' => 'subcategory' }.freeze
+
+  # Read values at a dotted path, flattening arrays along the way
+  # e.g. dig_all({'levels' => [{'d' => 'A'}, {'d' => 'B'}]}, 'levels.d') => ['A', 'B']
+  # @param obj parsed JSON
+  # @param path dotted path; empty means obj itself
+  # @return array of non-nil values found
+  def dig_all(obj, path)
+    path.to_s.split('.').reduce([obj]) do |nodes, key|
+      nodes.flat_map { |node| node.is_a?(Array) ? node : [node] }
+           .filter_map { |node| node.is_a?(Hash) ? node[key] : nil }
+    end.flat_map { |v| v.is_a?(Array) ? v : [v] }.compact
+  end
+
+  # Parse a JSON list of sponsors, such as a landscape2 data/full.json or a membership API
+  # Model 'json' hash keys (all dotted paths into the JSON):
+  #   items: path to the array of sponsor objects (empty for a top-level array)
+  #   url:   field with the sponsor's website (normalized)
+  #   name:  fallback field when url is empty
+  #   level: field whose value(s) are matched to levels by 'match' or 'name'
+  #   filter: optional {path => value or [values]} that items must match
+  # For landscapejson these default to the landscape2 layout, filtered to the 'landscape' category.
+  # @param io JSON string
+  # @param sponsorship model hash
+  # @return hash of sponsors by approximate map-defined levels
+  # @raise ParseError on invalid JSON or a missing items array
+  def parse_json(io, sponsorship)
+    config = sponsorship.fetch('json', {}) || {}
+    if source_type(sponsorship) == 'landscapejson'
+      config = LANDSCAPEJSON_PATHS.merge('filter' => { 'category' => sponsorship['landscape'] }).merge(config)
+    end
+    context = "parse_json(#{sponsorship['landscape'] || sponsorship['identifier']})"
+    begin
+      data = JSON.parse(io)
+    rescue JSON::ParserError => e
+      raise ParseError, "#{context}: invalid JSON: #{e.message[0, 200]}"
+    end
+    items = config['items'].to_s.empty? ? data : config['items'].split('.').reduce(data) { |node, key| node.is_a?(Hash) ? node[key] : nil }
+    raise ParseError, "#{context}: no array of items at '#{config['items']}'" unless items.is_a?(Array)
+    filters = (config['filter'] || {}).transform_values { |v| Array(v).map { |s| s.to_s.downcase } }
+    items = items.select do |item|
+      filters.all? { |path, wanted| dig_all(item, path).map { |v| v.to_s.downcase }.intersect?(wanted) }
+    end
+    raise ParseError, "#{context}: no items matched filter #{config['filter'].inspect}" if items.empty? && !filters.empty?
+    levels = sponsorship.fetch('levels', {})
+    matcher = level_matcher(levels)
+    normalize = sponsorship.key?('normalize') ? as_bool(sponsorship['normalize']) : true
+    sponsors = levels.keys.to_h { |lvl| [lvl, []] }
+    unmatched = []
+    items.each do |item|
+      names = dig_all(item, config['level'])
+      level = matcher.call(names)
+      unless level
+        unmatched << (names.empty? ? '(no level)' : names.join('/'))
+        next
       end
+      url = dig_all(item, config['url']).first.to_s.strip
+      value = url.empty? ? dig_all(item, config['name']).first : url
+      sponsors[level] << (normalize && !url.empty? ? normalize_href(url) : value)
     end
-    sponsors.each do |lvl, ary|
-      sponsors[lvl] = clean_list(ary)
-      warn_msg("parse_landscape(#{category}): level '#{lvl}' (#{levels[lvl]['name']}) has no sponsors") if sponsors[lvl].empty?
-    end
+    warn_unmatched(context, unmatched)
+    sponsors.transform_values! { |ary| clean_list(ary) }
+    warn_empty_levels(context, sponsors, levels)
     return sponsors
   end
 
@@ -338,13 +627,26 @@ module SponsorUtils
     return sponsors
   end
 
+  # ## ### #### ##### ######
+  # Processing sponsorship models
+
   # Future use: allow parsing historical sponsorships
   def get_current_sponsorship(sponsorship)
     return sponsorship # TODO refactor for use with yaml frontmatter in .md files (or drop feature)
   end
 
+  # Get the raw source for a sponsorship: a local cache file, a rendered page, or a plain fetch
+  def read_source(sponsorship, cachefile = nil)
+    return read_local(cachefile) if cachefile
+    url = sponsorship['sponsorurl']
+    render = sponsorship['render'].to_s.strip.downcase
+    return fetch(url) if render.empty? || render == 'none'
+    raise ParseError, "unknown render '#{render}' (expected chrome)" unless render == 'chrome'
+    return render_page(url)
+  end
+
   # Process single sponsorship lookup
-  # Processing varies depending on landscape, sponsorselector, sponsormap attrs
+  # Processing varies depending on source type, sponsorselector, sponsormap attrs
   # Parse either live url, or override with a path reference (for cached/historical data)
   # @param org id of org being parsed
   # @param sponsorship parsed _sponsorship hash defining what to do
@@ -354,13 +656,13 @@ module SponsorUtils
   def parse_sponsorship(org, sponsorship, cachefile = nil)
     sponsorurl = sponsorship['sponsorurl']
     raise ParseError, "parse_sponsorship(#{org}): no sponsorurl or staticmap defined" unless cachefile || sponsorurl
-    io = cachefile ? read_local(cachefile) : fetch(sponsorurl)
-    # Parse a landscape.yml, or scrape a webpage by css
-    if sponsorship['landscape']
-      sponsors = parse_landscape(io, sponsorship)
-    else
-      sponsors = scrape_bycss(io, sponsorship)
-    end
+    type = source_type(sponsorship)
+    io = read_source(sponsorship, cachefile)
+    sponsors = case type
+               when 'landscape' then parse_landscape(io, sponsorship)
+               when 'landscapejson', 'json' then parse_json(io, sponsorship)
+               else scrape_bycss(io, sponsorship)
+               end
     # Custom post-processing for various orgs
     sponsors = parse_subpages(sponsors, sponsorship) if sponsorship['sponsorselector']
     sponsors = cleanup_with_map(sponsors, sponsorship['sponsormap']) if sponsorship['sponsormap']
@@ -389,11 +691,11 @@ module SponsorUtils
   # @return processed hash of sponsors
   # @raise ParseError if the org's data could not be parsed
   def process_sponsorship(org, sponsorship, cachefile = nil)
-    staticmap = sponsorship['staticmap']
-    log("process_sponsorship(#{org}...) #{staticmap ? 'static map' : 'parsing url'}")
-    if staticmap
+    static = source_type(sponsorship) == 'static'
+    log("process_sponsorship(#{org}...) #{static ? 'static map' : 'parsing url'}")
+    if static
       sponsors = mapped_sponsorship(org, sponsorship)
-      sponsors[PARSE_DATE] = staticmap
+      sponsors[PARSE_DATE] = sponsorship['staticmap']
     else
       sponsors = parse_sponsorship(org, sponsorship, cachefile)
       sponsors[PARSE_DATE] = Date.today.strftime('%Y%m%d')
@@ -416,13 +718,17 @@ module SponsorUtils
     return all_sponsors
   end
 
+  # @return sorted array of org ids with a _sponsorships/<org>.md model
+  def all_org_ids
+    Dir.glob(File.join(SPONSORSHIPS_DIR, '*.md')).map { |f| File.basename(f, '.md') }.sort
+  end
+
   # Convenience method; parses every _sponsorships/*.md model
   # @param failures hash that will be filled with org => error message
   # @return hash of orgs => {sponsors...} for successfully parsed orgs only
   def process_all_sponsorships(failures = {})
     all_sponsor_models = {}
-    Dir.glob(File.join(SPONSORSHIPS_DIR, '*.md')).sort.each do |file|
-      org = File.basename(file, '.md')
+    all_org_ids.each do |org|
       all_sponsor_models[org] = get_sponsorship_file(org)
     rescue ParseError => e
       failures[org] = e.message
@@ -445,6 +751,120 @@ module SponsorUtils
     raise ParseError, "get_sponsorship_file(#{org}): invalid YAML: #{e.message}"
   end
 
+  # ## ### #### ##### ######
+  # Comparing, staleness, and drift
+
+  # Load previously written sponsor data
+  # @return hash, or nil if missing or unreadable
+  def load_existing(path)
+    return nil unless File.file?(path)
+    return JSON.parse(read_local(path))
+  rescue JSON::ParserError, ParseError
+    return nil
+  end
+
+  # Age in days of a parseDate value like 20240115 or '20240115'
+  # @return integer days, or nil if missing/unparseable
+  def age_days(parse_date, today = Date.today)
+    return nil if parse_date.to_s.strip.empty?
+    return (today - Date.strptime(parse_date.to_s.strip, '%Y%m%d')).to_i
+  rescue Date::Error
+    return nil
+  end
+
+  # Compare two sponsor hashes level by level
+  # @return hash of level => {old:, new:, added: [], removed: []} for every level in either
+  def compare_sponsors(old, new)
+    levels = (old.select { |_k, v| v.is_a?(Array) }.keys | new.select { |_k, v| v.is_a?(Array) }.keys)
+    levels.to_h do |lvl|
+      before = Array(old[lvl])
+      after = Array(new[lvl])
+      [lvl, { old: before.size, new: after.size, added: after - before, removed: before - after }]
+    end
+  end
+
+  # @return array of reasons a fresh parse looks like a broken scrape rather than real change
+  def drift_problems(old, new)
+    return [] unless old
+    diff = compare_sponsors(old, new)
+    problems = diff.filter_map do |lvl, d|
+      "level '#{lvl}' dropped from #{d[:old]} to 0" if d[:old] >= DRIFT_MIN_LEVEL && d[:new].zero?
+    end
+    old_total = diff.values.sum { |d| d[:old] }
+    new_total = diff.values.sum { |d| d[:new] }
+    if old_total >= DRIFT_MIN_TOTAL && new_total < old_total * DRIFT_MIN_RATIO
+      problems << "total dropped from #{old_total} to #{new_total}"
+    end
+    return problems
+  end
+
+  # Refuse to overwrite existing data with a suspiciously smaller parse
+  # @raise ParseError unless force
+  def guard_drift!(org, path, sponsors, force: false)
+    problems = drift_problems(load_existing(path), sponsors)
+    return if problems.empty?
+    message = "#{org}: suspicious drop vs #{path} (#{problems.join('; ')}); page layout may have changed"
+    raise ParseError, "#{message}; use --force to write anyway" unless force
+    warn_msg("#{message}; writing anyway (--force)")
+  end
+
+  # Check committed sponsor data for staleness and drift from a fresh parse
+  # @param orgs array of org ids
+  # @param outdir directory of committed json
+  # @param max_age days before data is stale
+  # @param offline true to only check ages, without fetching
+  # @return array of result hashes {org:, statuses: [], age:, diff:, message:}
+  def check_sponsorships(orgs, outdir: DEFAULT_OUTDIR, max_age: DEFAULT_MAX_AGE, offline: false, today: Date.today)
+    orgs.map do |org|
+      result = { org: org, statuses: [], age: nil, diff: nil, message: nil }
+      old = load_existing(File.join(outdir, "#{org}.json"))
+      if old
+        result[:age] = age_days(old[PARSE_DATE], today)
+        result[:statuses] << 'stale' if result[:age].nil? || result[:age] > max_age
+      else
+        result[:statuses] << 'missing'
+      end
+      begin
+        model = get_current_sponsorship(get_sponsorship_file(org))
+        unless offline || source_type(model) == 'static'
+          fresh = process_sponsorship(org, model)
+          result[:diff] = compare_sponsors(old || {}, fresh)
+          result[:statuses] << 'changed' if result[:diff].values.any? { |d| d[:added].any? || d[:removed].any? }
+          problems = drift_problems(old, fresh)
+          unless problems.empty?
+            result[:statuses] << 'suspicious'
+            result[:message] = problems.join('; ')
+          end
+        end
+      rescue ParseError => e
+        result[:statuses] << 'failed'
+        result[:message] = e.message
+      end
+      result[:statuses] << 'ok' if result[:statuses].empty?
+      result
+    end
+  end
+
+  # Print --check results as a plain text table
+  # @return exit code: 0 if every org is ok, 1 otherwise
+  def report_check(results, max_age)
+    results.each do |r|
+      age = r[:age] ? "#{r[:age]}d" : '-'
+      levels = (r[:diff] || {}).map do |lvl, d|
+        d[:added].empty? && d[:removed].empty? ? "#{lvl}:#{d[:new]}" : "#{lvl}:#{d[:old]}->#{d[:new]}(+#{d[:added].size}/-#{d[:removed].size})"
+      end
+      line = format('%-16s %-24s age=%-6s %s', r[:org], r[:statuses].join(','), age, levels.join(' '))
+      line += "\n    #{r[:message]}" if r[:message]
+      puts line
+    end
+    bad = results.reject { |r| r[:statuses] == ['ok'] }
+    puts "#{results.size} checked; #{bad.size} need attention (stale = parseDate older than #{max_age} days)"
+    return bad.empty? ? 0 : 1
+  end
+
+  # ## ### #### ##### ######
+  # Output and command line
+
   # Write one org's sponsor hash as JSON
   def write_sponsors(path, sponsors)
     File.write(path, JSON.pretty_generate(sponsors))
@@ -459,7 +879,6 @@ module SponsorUtils
     return 1
   end
 
-  # ## ### #### ##### ######
   # Check commandline options
   def parse_commandline(argv = ARGV)
     options = {}
@@ -477,6 +896,21 @@ module SponsorUtils
       end
       opts.on('-mMAPID', '--map MAPID', 'Lint one existing sponsorship with its map.') do |mapid|
         options[:mapid] = mapid
+      end
+      opts.on('-c', '--check', 'Report stale or changed data vs a fresh parse; never writes. Exit 1 if any.') do
+        options[:check] = true
+      end
+      opts.on('--max-age DAYS', Integer, "With --check: days before data is stale (default #{DEFAULT_MAX_AGE}).") do |days|
+        options[:max_age] = days
+      end
+      opts.on('--offline', 'With --check: only check parseDate ages; do not fetch.') do
+        options[:offline] = true
+      end
+      opts.on('--renormalize', 'Re-apply current host normalization to existing data files; no fetching.') do
+        options[:renormalize] = true
+      end
+      opts.on('-f', '--force', 'Write even when sponsor counts drop suspiciously.') do
+        options[:force] = true
       end
       opts.on('-v', '--[no-]verbose', 'Verbose output to stdout.') do |v|
         options[:verbose] = v
@@ -505,6 +939,22 @@ module SponsorUtils
     return File.directory?(out) ? File.join(out, "#{org}.json") : out
   end
 
+  # Re-apply normalization to every (or one) existing org data file
+  # Report files like sponsor-counts.json (with a dash) are skipped
+  # @return array of paths changed
+  def renormalize_files(outdir, orgs = nil)
+    orgs ||= Dir.glob(File.join(outdir, '*.json')).map { |f| File.basename(f, '.json') }.reject { |o| o.include?('-') }.sort
+    orgs.filter_map do |org|
+      path = File.join(outdir, "#{org}.json")
+      old = load_existing(path)
+      next unless old
+      updated = renormalize(old)
+      next if updated == old
+      write_sponsors(path, updated)
+      path
+    end
+  end
+
   # ### #### ##### ######
   # Main method for command line use
   # @return exit code
@@ -512,21 +962,40 @@ module SponsorUtils
     options = parse_commandline(argv)
     self.verbose = options.fetch(:verbose, false)
     failures = {}
-    if (mapid = options[:mapid])
+    orgid = options[:orgid]
+    if orgid && !ORG_ID_PATTERN.match?(orgid)
+      raise ParseError, "--one: invalid org id #{orgid}"
+    end
+    if options[:check]
+      orgs = orgid ? [orgid] : all_org_ids
+      max_age = options.fetch(:max_age, DEFAULT_MAX_AGE)
+      results = check_sponsorships(orgs, outdir: options.fetch(:out, DEFAULT_OUTDIR), max_age: max_age, offline: options[:offline])
+      return report_check(results, max_age)
+    elsif options[:renormalize]
+      changed = renormalize_files(options.fetch(:out, DEFAULT_OUTDIR), orgid && [orgid])
+      changed.each { |path| log("Renormalized #{path}") }
+      puts "Renormalized #{changed.size} file(s)"
+    elsif (mapid = options[:mapid])
       raise ParseError, "--map: invalid id #{mapid}" unless ORG_ID_PATTERN.match?(mapid)
       sponsor_file = File.join(DEFAULT_OUTDIR, "#{mapid}.json")
       links = JSON.parse(read_local(sponsor_file))
       write_sponsors(sponsor_file, cleanup_with_map(links, File.join('_data', "#{mapid}_map.json")))
-    elsif (orgid = options[:orgid])
+    elsif orgid
       sponsorship = get_current_sponsorship(get_sponsorship_file(orgid))
       parsed = process_sponsorship(orgid, sponsorship, options[:infile])
-      write_sponsors(output_path(options[:out], orgid), parsed)
+      path = output_path(options[:out], orgid)
+      guard_drift!(orgid, path, parsed, force: options[:force])
+      write_sponsors(path, parsed)
     else
       outdir = options.fetch(:out, DEFAULT_OUTDIR)
       raise ParseError, "--out #{outdir} must be an existing directory" unless File.directory?(outdir)
       process_all_sponsorships(failures).each do |org, sponsors|
+        path = File.join(outdir, "#{org}.json")
+        guard_drift!(org, path, sponsors, force: options[:force])
         log("Writing #{org}")
-        write_sponsors(File.join(outdir, "#{org}.json"), sponsors)
+        write_sponsors(path, sponsors)
+      rescue ParseError => e
+        failures[org] = e.message
       end
     end
     return report_failures(failures)

@@ -2,7 +2,13 @@
 identifier: eclipse
 commonName: Eclipse
 nonprofit: c6
-sponsorurl: https://www.eclipse.org/membership/exploreMembership.php
+sponsorurl: https://membership.eclipse.org/api/organizations?pagesize=100
+sourcetype: json
+# Same API the explore-membership page loads with JavaScript; members without a website are listed by name
+json:
+  url: website
+  name: name
+  level: levels.description
 levelurl: https://www.eclipse.org/membership/documents/membership-prospectus.pdf
 levels:
   first:
@@ -10,8 +16,7 @@ levels:
     amount: '300000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(1) a.link-unstyled"
-    attr: href
+    match: Strategic Member
     benefits:
       governance: board seat
       advisory: can lead working groups; seat on Foundation councils
@@ -24,8 +29,7 @@ levels:
     amount: '25000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(2) a.link-unstyled"
-    attr: href
+    match: Contributing Member
     benefits:
       governance: can vote in board elections
       advisory: can join working groups as voting member
@@ -37,8 +41,7 @@ levels:
     amount: '25000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues; 0 for nonprofits
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(3) a.link-unstyled"
-    attr: href
+    match: Associate Member
     benefits:
       advisory: can join working groups as guest
       logo: yes

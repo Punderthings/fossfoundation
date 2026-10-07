@@ -3,9 +3,10 @@ identifier: hyperledger
 commonName: Hyperledger
 fiscalHost: lf
 nonprofit: lf
-sponsorurl: https://raw.githubusercontent.com/hyperledger-dlt-landscape/hyperledger-dlt-landscape/main/landscape.yml
+sponsorurl: https://landscape.lfdecentralizedtrust.org/data/full.json
+sourcetype: landscapejson
 levelurl: https://www.hyperledger.org/join-us
-landscape: Hyperledger Members
+landscape: LF Decentralized Trust Members
 levels:
   first:
     name: Premier

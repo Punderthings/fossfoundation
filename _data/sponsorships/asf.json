@@ -1,13 +1,13 @@
 {
   "first": [
     "apple.com",
-    "aws.amazon.com",
+    "amazon.com",
     "meta.com",
     "geico.com",
     "google.com",
     "huawei.com",
     "microsoft.com",
-    "news.apache.org",
+    "apache.org",
     "snowflake.com",
     "visa.com",
     "yahooinc.com"
@@ -17,7 +17,7 @@
     "apache.org",
     "baidu.com",
     "bloomberg.com",
-    "opensource.bytedance.com",
+    "bytedance.com",
     "cloudera.com",
     "confluent.io",
     "ibm.com",
@@ -43,7 +43,7 @@
     "sentry.io"
   ],
   "firstinkind": [
-    "aws.amazon.com",
+    "amazon.com",
     "cloudbees.com",
     "dlapiper.com",
     "gradle.com",
