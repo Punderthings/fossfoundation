@@ -16,6 +16,7 @@ module SponsorUtils
       landscape      CNCF-style landscape.yml; 'landscape' names the category
       landscapejson  landscape2 site data/full.json; 'landscape' names the category
       json           Any JSON API; see the 'json' key for field paths
+      yaml           A YAML data file, read like json (e.g. a website's _data file)
       static         Hand-maintained levels.*.sponsors lists (staticmap: date)
 
     --check compares each org's committed data with a fresh parse and
@@ -57,7 +58,8 @@ module SponsorUtils
   # - grants covers any sort of government/institution grants
   # TODO: Define a more rigorous and smaller set of categories,
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
-  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
+  # - listed is for historical lists that name sponsors without their level (counted, not priced)
+  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants listed ]
   SPONSORSHIPS_DIR = '_sponsorships'
   DEFAULT_OUTDIR = '_data/sponsorships'
   PARSE_DATE = 'parseDate'
@@ -66,7 +68,7 @@ module SponsorUtils
   LAST_CHECKED = 'lastChecked'
   DEFAULT_HISTORY_DIR = 'history/sponsorships'
   ALL_SPONSORSHIPS_FILE = '_data/allsponsorships.json' # Early 2024 combined data, used by --backfill-git
-  SOURCE_TYPES = %w[css landscape landscapejson json static].freeze
+  SOURCE_TYPES = %w[css landscape landscapejson json yaml static].freeze
 
   # Editable list of hostnames/domains that belong to one sponsor org; see file for format
   HOST_ALIASES_FILE = File.expand_path('../../_data/host_aliases.json', __dir__)
@@ -101,6 +103,7 @@ module SponsorUtils
   DRIFT_MIN_RATIO = 0.5 # new total below this fraction of old total is suspicious
   DRIFT_MIN_LEVEL = 5 # a level that had at least this many sponsors and is now empty is suspicious
   DEFAULT_MAX_AGE = 365 # days before --check calls committed data stale
+  DEFAULT_BRIDGE_DAYS = 31 # sponsor absences this short in history are treated as continuous
 
   # Raised for any problem that means an org's sponsor data is not trustworthy;
   # callers should report it and not overwrite previously parsed data.
@@ -474,6 +477,7 @@ module SponsorUtils
   end
 
   # Parse a CNCF style landscape.yml for a sponsor list
+  # 'landscape' names the member category, or lists names it has had over time
   # Subcategory names are matched to levels by 'match' or 'name'
   # Landscape homepage_urls are always normalized
   # @param io YAML string (or IO) to parse
@@ -481,14 +485,15 @@ module SponsorUtils
   # @return hash of sponsors by approximate map-defined levels
   # @raise ParseError if the configured category is not found
   def parse_landscape(io, sponsorship)
-    category = sponsorship['landscape']
+    category = Array(sponsorship['landscape']).join(' | ')
+    names = Array(sponsorship['landscape'])
     begin
-      landscape = YAML.safe_load(io, aliases: true)
+      landscape = YAML.safe_load(io, permitted_classes: [Date, Time], aliases: true)
     rescue Psych::Exception => e
       raise ParseError, "parse_landscape(#{category}): invalid YAML: #{e.message}"
     end
     categories = landscape.is_a?(Hash) ? Array(landscape['landscape']) : []
-    found = categories.map { |h| landscape_entry(h, 'category') }.find { |h| category.eql?(h['name']) }
+    found = categories.map { |h| landscape_entry(h, 'category') }.find { |h| names.include?(h['name']) }
     raise ParseError, "parse_landscape(#{category}): category not found" unless found
     groups = Array(found['subcategories']).map { |h| landscape_entry(h, 'subcategory') }
     raise ParseError, "parse_landscape(#{category}): category has no subcategories" if groups.empty?
@@ -533,6 +538,9 @@ module SponsorUtils
   #   name:  fallback field when url is empty
   #   level: field whose value(s) are matched to levels by 'match' or 'name'
   #   filter: optional {path => value or [values]} that items must match
+  #   itemsByKey: true when items is a hash of key => [items]; each item's key is readable as '_key'
+  #   defaultLevel: level for items whose level field is missing
+  # sourcetype yaml reads the same structure from YAML instead of JSON.
   # For landscapejson these default to the landscape2 layout, filtered to the 'landscape' category.
   # @param io JSON string
   # @param sponsorship model hash
@@ -545,11 +553,14 @@ module SponsorUtils
     end
     context = "parse_json(#{sponsorship['landscape'] || sponsorship['identifier']})"
     begin
-      data = JSON.parse(io)
-    rescue JSON::ParserError => e
-      raise ParseError, "#{context}: invalid JSON: #{e.message[0, 200]}"
+      data = source_type(sponsorship) == 'yaml' ? YAML.safe_load(io, permitted_classes: [Date], aliases: true) : JSON.parse(io)
+    rescue JSON::ParserError, Psych::Exception => e
+      raise ParseError, "#{context}: invalid #{source_type(sponsorship).upcase}: #{e.message[0, 200]}"
     end
     items = config['items'].to_s.empty? ? data : config['items'].split('.').reduce(data) { |node, key| node.is_a?(Hash) ? node[key] : nil }
+    if as_bool(config['itemsByKey']) && items.is_a?(Hash)
+      items = items.flat_map { |key, list| Array(list).select { |item| item.is_a?(Hash) }.map { |item| item.merge('_key' => key) } }
+    end
     raise ParseError, "#{context}: no array of items at '#{config['items']}'" unless items.is_a?(Array)
     filters = (config['filter'] || {}).transform_values { |v| Array(v).map { |s| s.to_s.downcase } }
     items = items.select do |item|
@@ -563,7 +574,7 @@ module SponsorUtils
     unmatched = []
     items.each do |item|
       names = dig_all(item, config['level'])
-      level = matcher.call(names)
+      level = names.empty? && config['defaultLevel'] ? config['defaultLevel'] : matcher.call(names)
       unless level
         unmatched << (names.empty? ? '(no level)' : names.join('/'))
         next
@@ -728,7 +739,7 @@ module SponsorUtils
     io = read_source(sponsorship, cachefile)
     sponsors = case type
                when 'landscape' then parse_landscape(io, sponsorship)
-               when 'landscapejson', 'json' then parse_json(io, sponsorship)
+               when 'landscapejson', 'json', 'yaml' then parse_json(io, sponsorship)
                else scrape_bycss(io, sponsorship)
                end
     # Custom post-processing for various orgs
@@ -934,11 +945,30 @@ module SponsorUtils
   # ## ### #### ##### ######
   # Sponsor history: one file per org of sponsor spans, written when the current list changes
   #   {"org": "x",
-  #    "scrapes": [{"parseDate", "lastChecked", "source", "modelDate", "forced", "counts"}, ...],
-  #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen"}, ...]}
+  #    "scrapes": [{"parseDate", "lastChecked", "source", "ref", "modelDate", "forced", "counts"}, ...],
+  #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen", "missing" (optional)}, ...]}
   # A span covers consecutive scrapes listing a sponsor at a level: firstSeen is the
   # parseDate of the first, lastSeen the lastChecked of the last (null while current).
+  # A sponsor missing from lists for at most bridge_days (default 31, e.g. one monthly
+  # sample) keeps one span; the dates it was missing are kept in the span's 'missing'
+  # list, so every recorded list can still be rebuilt exactly.
   # The current _data file's lastChecked is copied into history at the next change.
+
+  # @return days of absence bridged when building history (0 disables bridging)
+  def bridge_days
+    @bridge_days.nil? ? DEFAULT_BRIDGE_DAYS : @bridge_days
+  end
+
+  # @param days of absence to bridge; 0 disables, nil restores the default
+  def bridge_days=(days)
+    raise ArgumentError, 'bridge days must be 0 or more' if days&.negative?
+    @bridge_days = days
+  end
+
+  # @return days from one YYYYMMDD date to another
+  def days_between(from, to)
+    (Date.strptime(to, '%Y%m%d') - Date.strptime(from, '%Y%m%d')).to_i
+  end
 
   # @return {level => sorted unique sponsors} for non-empty array levels
   def level_lists(sponsors)
@@ -970,7 +1000,9 @@ module SponsorUtils
   def history_states(hist)
     hist['scrapes'].sort_by { |scrape| scrape['parseDate'] }.map do |scrape|
       date = scrape['parseDate']
-      active = hist['spans'].select { |span| span['firstSeen'] <= date && (span['lastSeen'].nil? || span['lastSeen'] >= date) }
+      active = hist['spans'].select do |span|
+        span['firstSeen'] <= date && (span['lastSeen'].nil? || span['lastSeen'] >= date) && !Array(span['missing']).include?(date)
+      end
       state = active.group_by { |span| span['level'] }.transform_values { |spans| spans.map { |span| span['sponsor'] }.sort }
       [scrape.reject { |key, _| key == 'counts' }, state.sort.to_h]
     end
@@ -978,27 +1010,43 @@ module SponsorUtils
 
   # Build a history from a date-ordered list of scrapes and the sponsors each listed
   # @param entries array of [metadata with parseDate and lastChecked, {level => sponsors}]
+  # @param bridge days of absence to treat as continuous (see bridge_days); 0 disables
   # @return history hash
-  def build_history(org, entries)
+  def build_history(org, entries, bridge: bridge_days)
     spans = []
-    open = {}
+    open = {}   # [sponsor, level] => span still open
+    absent = {} # [sponsor, level] => {first:, last_seen:, missing: []} for open spans not in the latest list
     previous = nil
+    close = ->(key, gap) { open.delete(key)['lastSeen'] = gap[:last_seen] }
     entries.each do |meta, state|
-      present = state.flat_map { |lvl, sponsors| sponsors.map { |sponsor| [sponsor, lvl] } }
-      (open.keys - present).each do |key|
-        open.delete(key)['lastSeen'] = previous['lastChecked'] || previous['parseDate']
+      date = meta['parseDate']
+      present = state.flat_map { |lvl, sponsors| sponsors.map { |sponsor| [sponsor, lvl] } }.to_set
+      open.each_key do |key|
+        next if present.include?(key)
+        gap = (absent[key] ||= { first: date, last_seen: previous['lastChecked'] || previous['parseDate'], missing: [] })
+        gap[:missing] << date
       end
-      present.each do |sponsor, lvl|
-        next if open.key?([sponsor, lvl])
-        span = { 'sponsor' => sponsor, 'level' => lvl, 'firstSeen' => meta['parseDate'], 'lastSeen' => nil }
-        open[[sponsor, lvl]] = span
+      present.each do |key|
+        if (gap = absent.delete(key))
+          if days_between(gap[:first], date) <= bridge
+            (open[key]['missing'] ||= []).concat(gap[:missing])
+            next
+          end
+          close.call(key, gap)
+        end
+        next if open.key?(key)
+        span = { 'sponsor' => key[0], 'level' => key[1], 'firstSeen' => date, 'lastSeen' => nil }
+        open[key] = span
         spans << span
       end
+      # Absences already longer than bridge cannot be bridged by a later return
+      absent.delete_if { |key, gap| days_between(gap[:first], date) > bridge && close.call(key, gap) }
       previous = meta
     end
+    absent.each { |key, gap| close.call(key, gap) }
     rank = ->(lvl) { SPONSOR_METALEVELS.index(lvl) || SPONSOR_METALEVELS.size }
     scrapes = entries.map do |meta, state|
-      meta.slice('parseDate', 'lastChecked', 'source', 'modelDate', 'forced').compact
+      meta.slice('parseDate', 'lastChecked', 'source', 'ref', 'modelDate', 'forced').compact
           .merge('counts' => state.transform_values(&:size))
     end
     return { 'org' => org, 'scrapes' => scrapes,
@@ -1216,6 +1264,9 @@ module SponsorUtils
       opts.on('--no-history', 'Do not write sponsor history files.') do
         options[:no_history] = true
       end
+      opts.on('--bridge-days DAYS', Integer, "Treat sponsor absences up to DAYS long as continuous in history (default #{DEFAULT_BRIDGE_DAYS}; 0 disables).") do |days|
+        options[:bridge_days] = days
+      end
       opts.on('--backfill-git', 'Create history files from committed versions of the data; no fetching.') do
         options[:backfill] = true
       end
@@ -1299,6 +1350,7 @@ module SponsorUtils
   def main(argv = ARGV)
     options = parse_commandline(argv)
     self.verbose = options.fetch(:verbose, false)
+    self.bridge_days = options[:bridge_days] if options[:bridge_days]
     failures = {}
     orgid = options[:orgid]
     if orgid && !ORG_ID_PATTERN.match?(orgid)

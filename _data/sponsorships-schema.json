@@ -29,14 +29,15 @@
     },
     "sourcetype": {
       "title": "Source Type",
-      "description": "How to read sponsorurl: css (scrape html with per-level selector/attr), landscape (CNCF-style landscape.yml), landscapejson (landscape2 site data/full.json), json (any JSON API, see json), or static (levels.*.sponsors lists). If absent: static when staticmap is set, landscape when landscape is set, else css.",
+      "description": "How to read sponsorurl: css (scrape html with per-level selector/attr), landscape (CNCF-style landscape.yml), landscapejson (landscape2 site data/full.json), json (any JSON API, see json), yaml (a YAML data file, read like json), or static (levels.*.sponsors lists). If absent: static when staticmap is set, landscape when landscape is set, else css.",
       "type": "string",
-      "enum": ["css", "landscape", "landscapejson", "json", "static"]
+      "enum": ["css", "landscape", "landscapejson", "json", "yaml", "static"]
     },
     "landscape": {
       "title": "Landscape Category",
-      "description": "For landscape or landscapejson sources: name of the landscape category listing members; its subcategories are matched to levels by match or name.",
-      "type": "string"
+      "description": "For landscape or landscapejson sources: name of the landscape category listing members (or, in sources entries, a list of names it has had); its subcategories are matched to levels by match or name.",
+      "type": ["string", "array"],
+      "items": { "type": "string" }
     },
     "render": {
       "title": "Render With Browser",
@@ -53,7 +54,30 @@
         "url": { "description": "Field with the sponsor website; normalized to a domain.", "type": "string" },
         "name": { "description": "Fallback field used when url is empty.", "type": "string" },
         "level": { "description": "Field whose value(s) are matched to levels by match or name.", "type": "string" },
-        "filter": { "description": "Map of path to a value or list of values that items must have.", "type": "object" }
+        "filter": { "description": "Map of path to a value or list of values that items must have.", "type": "object" },
+        "itemsByKey": { "description": "True when items is a map of key to a list of items; each item's key is readable as _key.", "type": "boolean" },
+        "defaultLevel": { "description": "Level for items whose level field is missing.", "type": "string" }
+      }
+    },
+    "sources": {
+      "title": "Historical Sources",
+      "description": "Where sponsor_archive.rb finds past versions of the sponsor list. Each entry has a kind and location, optional from/until dates (YYYYMMDD), and any model keys to use for that period (sourcetype, landscape, json, levels with match/selector/attr; a level set to null is removed; replaceLevels: true uses only the listed levels, e.g. a 'listed' level for lists without tiers).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["git", "wiki", "yearly-page"] },
+          "repo": { "description": "git: repository URL.", "type": "string" },
+          "path": { "description": "git: file path in the repository (renames are followed).", "type": "string" },
+          "branch": { "description": "git: branch (default: the repository's default branch).", "type": "string" },
+          "api": { "description": "wiki: MediaWiki api.php URL.", "type": "string", "format": "uri" },
+          "title": { "description": "wiki: page title.", "type": "string" },
+          "url": { "description": "yearly-page: URL containing {year}; each page covers that calendar year.", "type": "string" },
+          "from": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "until": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "replaceLevels": { "type": "boolean" }
+        }
       }
     },
     "levelurl": {

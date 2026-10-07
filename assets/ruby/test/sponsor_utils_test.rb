@@ -200,6 +200,21 @@ class SponsorUtilsTest < Minitest::Test
     assert_match(/level 'second' \(Gold\) has no sponsors/, err)
   end
 
+  def test_parse_landscape_allows_dates
+    dated = FLAT_LANDSCAPE.sub("homepage_url: https://www.bigco.com/\n", "homepage_url: https://www.bigco.com/\n            joined: 2019-01-01\n")
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.parse_landscape(dated, LANDSCAPE_MODEL) }
+    assert_equal ['bigco.com'], sponsors['first']
+  end
+
+  def test_parse_landscape_category_names_list
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.parse_landscape(FLAT_LANDSCAPE, LANDSCAPE_MODEL.merge('landscape' => ['Renamed Members', 'Members'])) }
+    assert_equal ['bigco.com'], sponsors['first']
+    error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape(FLAT_LANDSCAPE, LANDSCAPE_MODEL.merge('landscape' => %w[A B])) }
+    assert_match(/parse_landscape\(A \| B\): category not found/, error.message)
+  end
+
   def test_parse_landscape_missing_category_raises
     model = LANDSCAPE_MODEL.merge('landscape' => 'Nope')
     error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape(FLAT_LANDSCAPE, model) }
@@ -261,6 +276,32 @@ class SponsorUtilsTest < Minitest::Test
     end
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('{"a":1}', model) }
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('not json', model) }
+  end
+
+  def test_parse_yaml_items_by_key_and_default_level
+    yaml = <<~YAML
+      hosting:
+        - name: Host Co
+          link: https://www.host.example/
+      specific:
+        - name: Gift Co
+      former:
+        - name: Old Co
+          link: https://old.example/
+    YAML
+    model = { 'sourcetype' => 'yaml', 'json' => { 'itemsByKey' => true, 'url' => 'link', 'name' => 'name', 'level' => '_key' },
+              'levels' => { 'firstinkind' => { 'match' => 'hosting' }, 'secondinkind' => { 'match' => 'specific' } } }
+    sponsors = nil
+    _, err = capture_io { sponsors = SponsorUtils.parse_json(yaml, model) }
+    assert_equal({ 'firstinkind' => ['host.example'], 'secondinkind' => ['Gift Co'] }, sponsors)
+    assert_match(/'former' \(1 sponsors\)/, err)
+
+    members = "- {name: A, url: https://a.example, member: true, membertype: 2}\n- {name: B, url: https://b.example, member: true}\n" \
+              "- {name: C, url: https://c.example, member: false}\n"
+    tiers = { 'sourcetype' => 'yaml', 'json' => { 'url' => 'url', 'level' => 'membertype', 'defaultLevel' => 'third', 'filter' => { 'member' => 'true' } },
+              'levels' => { 'first' => { 'match' => '2' }, 'third' => { 'match' => '4' } } }
+    assert_equal({ 'first' => ['a.example'], 'third' => ['b.example'] }, SponsorUtils.parse_json(members, tiers))
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json("a: [\n", tiers) }
   end
 
   def test_dig_all
@@ -636,6 +677,65 @@ class SponsorUtilsTest < Minitest::Test
       SponsorUtils.record_sponsors('other', path, { 'first' => %w[x.com], 'parseDate' => '20260101' })
       refute File.exist?(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'other.json'))
     end
+  end
+
+  def monthly_entries(*states)
+    dates = %w[20260131 20260228 20260331 20260430 20260531 20260630]
+    states.each_with_index.map { |state, i| [{ 'parseDate' => dates[i], 'lastChecked' => dates[i] }, state] }
+  end
+
+  def test_build_history_bridges_one_missed_month
+    entries = monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] })
+    hist = SponsorUtils.build_history('demo', entries)
+    assert_equal [{ 'sponsor' => 'a.com', 'level' => 'first', 'firstSeen' => '20260131', 'lastSeen' => nil },
+                  { 'sponsor' => 'b.com', 'level' => 'first', 'firstSeen' => '20260131', 'lastSeen' => nil, 'missing' => ['20260228'] }], hist['spans']
+    assert_equal [2, 1, 2], hist['scrapes'].map { |sc| sc['counts']['first'] }, 'counts stay as observed'
+    assert_equal entries.map(&:last), SponsorUtils.history_states(hist).map(&:last), 'every list can be rebuilt exactly'
+  end
+
+  def test_build_history_does_not_bridge_longer_absences
+    two_months = monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] })
+    hist = SponsorUtils.build_history('demo', two_months)
+    assert_equal [%w[b.com 20260131 20260131], ['b.com', '20260430', nil]],
+                 hist['spans'].select { |sp| sp['sponsor'] == 'b.com' }.map { |sp| sp.values_at('sponsor', 'firstSeen', 'lastSeen') }
+    assert_equal two_months.map(&:last), SponsorUtils.history_states(hist).map(&:last)
+
+    yearly = [[{ 'parseDate' => '20230101', 'lastChecked' => '20231231' }, { 'first' => %w[b.com] }],
+              [{ 'parseDate' => '20240101', 'lastChecked' => '20241231' }, { 'first' => %w[c.com] }],
+              [{ 'parseDate' => '20250101', 'lastChecked' => '20251231' }, { 'first' => %w[b.com] }]]
+    assert_equal 2, SponsorUtils.build_history('demo', yearly)['spans'].count { |sp| sp['sponsor'] == 'b.com' }, 'a missing year is not bridged'
+
+    ended = SponsorUtils.build_history('demo', monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }))
+    assert_equal '20260131', ended['spans'].find { |sp| sp['sponsor'] == 'b.com' }['lastSeen'], 'an absence at the end is a departure'
+  end
+
+  def test_build_history_bridge_disabled_and_level_moves
+    entries = monthly_entries({ 'first' => %w[a.com] }, { 'second' => %w[a.com] }, { 'first' => %w[a.com] })
+    unbridged = SponsorUtils.build_history('demo', entries, bridge: 0)
+    assert_equal [%w[first 20260131 20260131], ['first', '20260331', nil], %w[second 20260228 20260228]],
+                 unbridged['spans'].map { |sp| sp.values_at('level', 'firstSeen', 'lastSeen') }
+    refute(unbridged['spans'].any? { |sp| sp.key?('missing') })
+    bridged = SponsorUtils.build_history('demo', entries)
+    assert_equal 2, bridged['spans'].size
+    assert_equal entries.map(&:last), SponsorUtils.history_states(bridged).map(&:last)
+  end
+
+  def test_bridge_days_setting
+    assert_equal 31, SponsorUtils.bridge_days
+    SponsorUtils.bridge_days = 0
+    assert_equal 0, SponsorUtils.bridge_days
+    assert_raises(ArgumentError) { SponsorUtils.bridge_days = -1 }
+    in_tmp_project do
+      SponsorUtils.bridge_days = nil
+      hist = SponsorUtils.build_history('demo', monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] }))
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
+      capture_io { assert_equal 0, SponsorUtils.main(%w[--renormalize --bridge-days 0]) }
+      assert_equal 0, SponsorUtils.bridge_days
+      spans = history_data['spans'].select { |sp| sp['sponsor'] == 'b.com' }
+      assert_equal 2, spans.size, 'renormalizing with --bridge-days 0 splits the bridged span'
+    end
+  ensure
+    SponsorUtils.bridge_days = nil
   end
 
   def test_history_json_is_one_row_per_line
