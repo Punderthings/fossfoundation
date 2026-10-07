@@ -59,7 +59,7 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
 
 ### Current Tooling
 
-- [`sponsor_utils`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_utils.rb) reads sponsorship models, and then parses either html or yml (or a staticmap) to scrape a sponsor listing and produce a hash mapping for that entity.
+- [`sponsor_utils`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_utils.rb) reads sponsorship models, and then parses either html or yml (or a staticmap) to scrape a sponsor listing and produce a hash mapping for that entity. Parse problems are reported on stderr rather than written into the data; an org that fails to parse keeps its previously committed data. Unit tests: `ruby assets/ruby/test/sponsor_utils_test.rb`.
 - [`sponsor_reports`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/sponsor_reports.rb) reads the output above, and creates simple reports.  Reports focus on mapping sponsors to entities and vice-versa, as well as totaling approximate sponsorship values shown for all tracked entities.
 
 ## Roadmap / Contributions Wanted
