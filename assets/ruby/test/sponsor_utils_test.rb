@@ -471,6 +471,90 @@ class SponsorUtilsTest < Minitest::Test
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.render_page('file:///etc/passwd') }
   end
 
+  def test_date_key
+    assert_equal '20240115', SponsorUtils.date_key('20240115')
+    assert_equal '20240115', SponsorUtils.date_key(20240115)
+    assert_equal '20240115', SponsorUtils.date_key('2024-01-15')
+    assert_equal '20240115', SponsorUtils.date_key(Date.new(2024, 1, 15))
+    assert_nil SponsorUtils.date_key(nil)
+    assert_nil SponsorUtils.date_key(' ')
+    %w[2024 20241315 soon 2024-1-5].each do |bad|
+      assert_raises(SponsorUtils::ParseError, bad) { SponsorUtils.date_key(bad) }
+    end
+  end
+
+  DATED_MODEL = {
+    'identifier' => 'demo',
+    'levelurl' => 'https://example.org/2026',
+    'effectiveDate' => '20260101',
+    'levels' => {
+      'first' => { 'name' => 'Gold', 'amount' => '18000', 'benefits' => { 'logo' => 'yes' } },
+      'second' => { 'name' => 'Silver', 'amount' => '3600' },
+      'third' => { 'name' => 'Bronze', 'amount' => '720' }
+    },
+    'pastModels' => [
+      { 'effectiveDate' => 20200101, 'levelurl' => 'https://example.org/2020',
+        'levels' => { 'first' => { 'amount' => '10000' }, 'third' => nil } },
+      { 'effectiveDate' => Date.new(2023, 7, 1),
+        'levels' => { 'first' => { 'name' => 'Golden', 'amount' => '12000' }, 'fourth' => { 'name' => 'Tin', 'amount' => '50' } } }
+    ]
+  }.freeze
+
+  def test_model_at_current_and_past
+    current = SponsorUtils.model_at(DATED_MODEL)
+    refute current.key?('pastModels')
+    assert_equal '18000', current['levels']['first']['amount']
+    assert_equal current, SponsorUtils.model_at(DATED_MODEL, '20260101')
+    assert_equal current, SponsorUtils.model_at(DATED_MODEL, '20991231')
+
+    mid = SponsorUtils.model_at(DATED_MODEL, '2024-09-26')
+    assert_equal '20230701', mid['effectiveDate']
+    assert_equal({ 'name' => 'Golden', 'amount' => '12000', 'benefits' => { 'logo' => 'yes' } }, mid['levels']['first'])
+    assert_equal({ 'name' => 'Tin', 'amount' => '50' }, mid['levels']['fourth'])
+    assert_equal '720', mid['levels']['third']['amount'], 'entries differ from the current model, not from each other'
+    assert_equal 'https://example.org/2026', mid['levelurl']
+
+    old = SponsorUtils.model_at(DATED_MODEL, 20210615)
+    assert_equal '20200101', old['effectiveDate']
+    assert_equal({ 'name' => 'Gold', 'amount' => '10000', 'benefits' => { 'logo' => 'yes' } }, old['levels']['first'])
+    refute old['levels'].key?('third'), 'null removes a level that did not exist then'
+    assert_equal 'https://example.org/2020', old['levelurl']
+    assert_equal old, SponsorUtils.model_at(DATED_MODEL, '19990101'), 'before the earliest model uses the earliest'
+
+    assert_equal '18000', DATED_MODEL['levels']['first']['amount'], 'input model is not modified'
+  end
+
+  def test_model_at_without_past_models
+    model = { 'levels' => { 'first' => { 'amount' => '1' } }, 'pastModels' => [] }
+    assert_equal({ 'levels' => { 'first' => { 'amount' => '1' } } }, SponsorUtils.model_at(model, '20000101'))
+    assert_equal({ 'levels' => {} }, SponsorUtils.model_at({ 'levels' => {} }, '20000101'))
+  end
+
+  def test_model_at_validation
+    base = { 'effectiveDate' => '20250101', 'levels' => {} }
+    {
+      'missing current date' => base.merge('effectiveDate' => nil, 'pastModels' => [{ 'effectiveDate' => '20200101' }]),
+      'entry without date' => base.merge('pastModels' => [{ 'levels' => {} }]),
+      'duplicate dates' => base.merge('pastModels' => [{ 'effectiveDate' => '20200101' }, { 'effectiveDate' => '2020-01-01' }]),
+      'past not earlier' => base.merge('pastModels' => [{ 'effectiveDate' => '20250101' }]),
+      'not a list' => base.merge('pastModels' => { 'effectiveDate' => '20200101' }),
+      'bad level' => base.merge('pastModels' => [{ 'effectiveDate' => '20200101', 'levels' => { 'first' => '100' } }]),
+      'bad date' => base.merge('pastModels' => [{ 'effectiveDate' => 'last year' }])
+    }.each do |label, model|
+      assert_raises(SponsorUtils::ParseError, label) { SponsorUtils.model_at(model, '20210101') }
+    end
+  end
+
+  def test_get_sponsorship_file_accepts_dated_models
+    in_tmp_project do
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '18000'\n" \
+                          "pastModels:\n  - effectiveDate: 2019-01-01\n    levels:\n      first:\n        amount: '12000'\n")
+      model = SponsorUtils.get_sponsorship_file('demo')
+      assert_equal '12000', SponsorUtils.model_at(model, '20240926')['levels']['first']['amount']
+      assert_equal '18000', SponsorUtils.model_at(model)['levels']['first']['amount']
+    end
+  end
+
   # Minimal one-connection-per-response http server for fetch tests
   def with_http_server(responses)
     server = TCPServer.new('127.0.0.1', 0)
@@ -517,6 +601,21 @@ class SponsorReportsTest < Minitest::Test
       report = SponsorReports.report_funding(sponsors)
       assert_equal({ 'first' => 1000, 'firstinkind' => 300, 'unknown' => 0, 'total' => 1300 }, report['orgs']['demo'])
       assert_equal({ 'a.com' => 1050, 'b.com' => 50, 'c.com' => 50, 'd.com' => 0 }, report['sponsors'])
+    end
+  end
+
+  def test_report_funding_uses_amounts_in_effect_at_parse_date
+    in_tmp_project do
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '18000'\n" \
+                          "pastModels:\n  - effectiveDate: '20190101'\n    levels:\n      first:\n        amount: '12000'\n")
+      old_list = { 'demo' => { 'first' => %w[a.com b.com], 'parseDate' => '20240926' } }
+      new_list = { 'demo' => { 'first' => %w[a.com b.com], 'parseDate' => 20250315 } }
+      assert_equal 24_000, SponsorReports.report_funding(old_list)['orgs']['demo']['total']
+      assert_equal 36_000, SponsorReports.report_funding(new_list)['orgs']['demo']['total']
+      assert_equal 36_000, SponsorReports.report_funding(old_list, as_of: '20260101')['orgs']['demo']['total']
+      assert_equal({ 'a.com' => 12_000, 'b.com' => 12_000 }, SponsorReports.report_funding(new_list, as_of: '20200101')['sponsors'])
+      undated = { 'demo' => { 'first' => %w[a.com] } }
+      assert_equal 18_000, SponsorReports.report_funding(undated)['orgs']['demo']['total']
     end
   end
 

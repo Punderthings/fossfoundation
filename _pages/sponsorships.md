@@ -40,6 +40,8 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
 - *landscape:* If present, treat *sponsorurl* as a [CNCF style landscape.yml](https://github.com/cncf/landscape2) for current sponsor listing.
 - *sponsormap:* If present, load a mapping of detected URL hrefs to sponsor hostnames; this simplifies some more complex scraping tooling.
 - *normalize:* If tooling should normalize URLs to bare hostnames (to more simply map to common commercial companies).
+- *effectiveDate:* Date (YYYYMMDD) the current *levels* took effect; required when *pastModels* is present.
+- *pastModels:* Optional list of earlier models, each with its own *effectiveDate* and only what differed from the current model in that period: top-level fields like *levelurl*, and per-level fields like *name* or *amount* (a level set to `null` did not exist then). Reports price each sponsor list with the model in effect on its *parseDate*.
 - *levels:* Is a hash listing of all meta levels the current entity advertises.
   - *first:* First is the meta level we map this to.
   - *name:* Name of the level the entity uses.

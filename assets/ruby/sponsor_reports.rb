@@ -21,9 +21,12 @@ module SponsorReports
 
   # Report total (approx) cash outlay by sponsors accross all orgs
   # in-kind donations are counted at INKIND_DISCOUNT of value (arbitrary estimate)
-  # @param orglist output of sponsor_utils listing org sponsors scraped
+  # Level amounts are those in effect on each org's parseDate (see SponsorUtils.model_at),
+  # or on as_of for every org when given
+  # @param allsponsors output of sponsor_utils listing org sponsors scraped
+  # @param as_of optional date (YYYYMMDD) whose sponsorship amounts to use
   # @return hash of estimated funding levels by org or sponsor
-  def report_funding(allsponsors)
+  def report_funding(allsponsors, as_of: nil)
     alltotal = 0
     report = {}
     report[ORGS_REPORT] = {}
@@ -31,8 +34,8 @@ module SponsorReports
     allsponsors.each do | org, sponsors |
       orgtotal = 0
       report[ORGS_REPORT][org] = {}
-      orglevels = SponsorUtils.get_current_sponsorship(SponsorUtils.get_sponsorship_file(org))
-      orglevels = orglevels.fetch('levels', {})
+      model = SponsorUtils.get_sponsorship_file(org)
+      orglevels = SponsorUtils.model_at(model, as_of || sponsors[SponsorUtils::PARSE_DATE]).fetch('levels', {})
       sponsors.each do | lvl, ary |
         next unless ary.is_a?(Array) # Ignore parseDate, etc.
         lvlamt = orglevels.fetch(lvl, {}).fetch('amount', 0).to_i
@@ -120,14 +123,28 @@ module SponsorReports
   # ### #### ##### ######
   # Main method for command line use
   if __FILE__ == $PROGRAM_NAME
+    require 'optparse'
     sponsorships_dir = '_data/sponsorships'
+    outdir = sponsorships_dir
+    as_of = nil
+    OptionParser.new do |opts|
+      opts.banner = "Usage: #{File.basename($PROGRAM_NAME)} [options]\n#{DESCRIPTION}"
+      opts.on('--as-of DATE', 'Use sponsorship amounts in effect on DATE (YYYYMMDD) for every org; default is each org      f.write(JSON.pretty_generate(report))
+    end
+  end
+end
+s parseDate.') do |date|
+        as_of = SponsorUtils.date_key(date)
+      end
+      opts.on('--out DIR', "Directory to write reports (default #{sponsorships_dir}).") { |dir| outdir = dir }
+    end.parse!
     sponsors = get_sponsors(sponsorships_dir)
     report = report_counts(sponsors)
-    File.open(File.join(sponsorships_dir, 'sponsor-counts.json'), "w") do |f|
+    File.open(File.join(outdir, 'sponsor-counts.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
     end
-    report = report_funding(sponsors)
-    File.open(File.join(sponsorships_dir, 'org-funding.json'), "w") do |f|
+    report = report_funding(sponsors, as_of: as_of)
+    File.open(File.join(outdir, 'org-funding.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
     end
   end

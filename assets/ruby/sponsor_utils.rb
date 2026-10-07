@@ -51,10 +51,11 @@ module SponsorUtils
   # TODO: Define a more rigorous and smaller set of categories,
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
   SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
-  CURRENT_SPONSORSHIP = '20240101' # HACK: select current one TODO allow different dates/versions
   SPONSORSHIPS_DIR = '_sponsorships'
   DEFAULT_OUTDIR = '_data/sponsorships'
   PARSE_DATE = 'parseDate'
+  EFFECTIVE_DATE = 'effectiveDate'
+  PAST_MODELS = 'pastModels'
   SOURCE_TYPES = %w[css landscape landscapejson json static].freeze
 
   # Editable list of hostnames/domains that belong to one sponsor org; see file for format
@@ -630,9 +631,66 @@ module SponsorUtils
   # ## ### #### ##### ######
   # Processing sponsorship models
 
-  # Future use: allow parsing historical sponsorships
-  def get_current_sponsorship(sponsorship)
-    return sponsorship # TODO refactor for use with yaml frontmatter in .md files (or drop feature)
+  # Normalize a date from YAML or JSON (20240115, '20240115', '2024-01-15', or a Date)
+  # @return 'YYYYMMDD' string, or nil if blank
+  # @raise ParseError if not a valid date
+  def date_key(value)
+    return value.strftime('%Y%m%d') if value.is_a?(Date)
+    str = value.to_s.strip
+    return nil if str.empty?
+    raise ParseError, "invalid date '#{value}' (expected YYYYMMDD)" unless str.match?(/\A\d{4}-?\d{2}-?\d{2}\z/)
+    return Date.strptime(str.delete('-'), '%Y%m%d').strftime('%Y%m%d')
+  rescue Date::Error
+    raise ParseError, "invalid date '#{value}' (expected YYYYMMDD)"
+  end
+
+  # Select the sponsorship model in effect on a date
+  # The model's own fields and levels are current from its effectiveDate.  Each
+  # pastModels entry has an effectiveDate and lists only what differed from the
+  # current model during its period: top-level fields (like levelurl) and per-level
+  # fields (like name or amount).  A level set to null did not exist then.
+  # @param sponsorship model hash from get_sponsorship_file
+  # @param date anything date_key accepts; nil means the current model
+  # @return model hash without pastModels; dates before the earliest known model get the earliest
+  # @raise ParseError if effective dates are missing, invalid, duplicated, or out of order
+  def model_at(sponsorship, date = nil)
+    current = sponsorship.reject { |key, _| key == PAST_MODELS }
+    past = sponsorship[PAST_MODELS]
+    return current if past.nil? || past == []
+    raise ParseError, "#{PAST_MODELS} must be a list" unless past.is_a?(Array)
+    current_date = date_key(sponsorship[EFFECTIVE_DATE])
+    raise ParseError, "#{PAST_MODELS} requires #{EFFECTIVE_DATE} on the current model" unless current_date
+    versions = past.map do |entry|
+      unless entry.is_a?(Hash) && date_key(entry[EFFECTIVE_DATE])
+        raise ParseError, "each #{PAST_MODELS} entry needs an #{EFFECTIVE_DATE}"
+      end
+      [date_key(entry[EFFECTIVE_DATE]), entry]
+    end.sort_by(&:first)
+    dates = versions.map(&:first)
+    raise ParseError, "#{PAST_MODELS} has duplicate #{EFFECTIVE_DATE} values" unless dates.uniq.size == dates.size
+    raise ParseError, "#{PAST_MODELS} must all be earlier than #{EFFECTIVE_DATE} #{current_date}" if dates.last >= current_date
+    wanted = date_key(date)
+    return current if wanted.nil? || wanted >= current_date
+    _, entry = versions.reverse.find { |d, _| d <= wanted } || versions.first
+    return apply_past_model(current, entry)
+  end
+
+  # @return a copy of the current model with one pastModels entry's differences applied
+  def apply_past_model(current, entry)
+    model = Marshal.load(Marshal.dump(current))
+    entry.each { |key, value| model[key] = value unless key == 'levels' }
+    levels = (model['levels'] ||= {})
+    (entry['levels'] || {}).each do |lvl, overrides|
+      if overrides.nil?
+        levels.delete(lvl)
+      elsif overrides.is_a?(Hash)
+        levels[lvl] = (levels[lvl] || {}).merge(overrides)
+      else
+        raise ParseError, "#{PAST_MODELS} level '#{lvl}' must be a hash or null"
+      end
+    end
+    model[EFFECTIVE_DATE] = date_key(entry[EFFECTIVE_DATE])
+    return model
   end
 
   # Get the raw source for a sponsorship: a local cache file, a rendered page, or a plain fetch
@@ -704,14 +762,13 @@ module SponsorUtils
   end
 
   # Process a list of sponsorship maps; one org failing does not stop others
-  # TODO future use: allow historical sponsorship maps via get_current_sponsorship
   # @param sponsorships hash of org => _sponsorship hashes
   # @param failures hash that will be filled with org => error message
   # @return hash of orgs => {sponsors...} for successfully parsed orgs only
   def process_sponsorships(sponsorships, failures = {})
     all_sponsors = {}
     sponsorships.each do |org, sponsorship|
-      all_sponsors[org] = process_sponsorship(org, get_current_sponsorship(sponsorship))
+      all_sponsors[org] = process_sponsorship(org, model_at(sponsorship))
     rescue ParseError => e
       failures[org] = e.message
     end
@@ -825,7 +882,7 @@ module SponsorUtils
         result[:statuses] << 'missing'
       end
       begin
-        model = get_current_sponsorship(get_sponsorship_file(org))
+        model = model_at(get_sponsorship_file(org))
         unless offline || source_type(model) == 'static'
           fresh = process_sponsorship(org, model)
           result[:diff] = compare_sponsors(old || {}, fresh)
@@ -981,7 +1038,7 @@ module SponsorUtils
       links = JSON.parse(read_local(sponsor_file))
       write_sponsors(sponsor_file, cleanup_with_map(links, File.join('_data', "#{mapid}_map.json")))
     elsif orgid
-      sponsorship = get_current_sponsorship(get_sponsorship_file(orgid))
+      sponsorship = model_at(get_sponsorship_file(orgid))
       parsed = process_sponsorship(orgid, sponsorship, options[:infile])
       path = output_path(options[:out], orgid)
       guard_drift!(orgid, path, parsed, force: options[:force])
