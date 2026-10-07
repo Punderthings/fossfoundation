@@ -51,7 +51,7 @@ puts asf['legalName']
     - Run sponsor_utils.rb to parse all sponsorship models and websites, and generate _data/sponsorships/*.json sponsor data.  Review any WARNING/ERROR output on stderr: orgs that fail to parse keep their previous data, and the script exits nonzero.
     - Changed sponsor lists are added to history/sponsorships/*.json automatically; commit those with the data.
     - Occasionally run `sponsor_archive.rb collect` to refresh historical lists from each model's sources (`coverage` shows gaps).
-    - Run sponsor_reports.rb to generate org-funding.json, sponsor-counts.json, and sponsor-history.json
+    - Run sponsor_reports.rb to generate org-funding.json, sponsor-counts.json, sponsor-history.json, and sponsor-income.json (the yearly estimates shown on foundation pages)
 
 ### Define Historical Modeling Tools
 

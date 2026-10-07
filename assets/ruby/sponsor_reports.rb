@@ -14,6 +14,8 @@ module SponsorReports
   require_relative 'sponsor_utils'
 
   INKIND_DISCOUNT = 0.5 # Discount value from sponsor of in-kind levels
+  INCOME_DAY = '0701' # Yearly sponsorship income uses the list in effect on this day (MMDD)
+  INCOME_MAX_AGE = 366 # days; a list last confirmed longer ago than this before that day is too stale to use
 
   ORGS_REPORT = 'orgs'
   SPONSORS_REPORT = 'sponsors'
@@ -111,6 +113,47 @@ module SponsorReports
     return orgs
   end
 
+  # Estimate yearly sponsorship income per program from its history: for each year, the
+  # sponsor list in effect on July 1, priced with the sponsorship model in effect that day.
+  # A year is left out when no list was confirmed within INCOME_MAX_AGE days of that day.
+  # Lists recorded only at levels without a price (such as 'listed') have a nil estimate.
+  # @param history_dir pointing to history/sponsorships
+  # @param sponsors optional current data (org => json hash); its lastChecked extends the latest list
+  # @param today date, so the current year is included only once its July 1 has passed
+  # @return hash of org => [{'year' => YYYY, 'estimate' => USD or nil, 'sponsors' => count}], newest year first
+  def report_income(history_dir, sponsors = {}, today: Date.today)
+    report = {}
+    Dir.glob(File.join(history_dir, '*.json')).sort.each do |file|
+      hist = SponsorUtils.load_history(file)
+      org = hist['org'] || File.basename(file, '.json')
+      model = begin
+        SponsorUtils.get_sponsorship_file(org)
+      rescue SponsorUtils::ParseError
+        next
+      end
+      scrapes = hist['scrapes'].sort_by { |scrape| scrape['parseDate'] }
+      next if scrapes.empty?
+      latest_checked = [scrapes.last['lastChecked'], SponsorUtils.date_key(sponsors.dig(org, SponsorUtils::LAST_CHECKED))].compact.max
+      years = {}
+      (scrapes.first['parseDate'][0, 4].to_i..today.year).each do |year|
+        day = "#{year}#{INCOME_DAY}"
+        next if day > today.strftime('%Y%m%d')
+        index = scrapes.rindex { |scrape| scrape['parseDate'] <= day }
+        next unless index
+        scrape = scrapes[index]
+        checked = index == scrapes.size - 1 ? latest_checked : scrape['lastChecked']
+        next if SponsorUtils.days_between(checked || scrape['parseDate'], day) > INCOME_MAX_AGE
+        levels = SponsorUtils.model_at(model, day).fetch('levels', {})
+        counts = scrape.fetch('counts', {})
+        priced = counts.select { |lvl, _n| lvl != 'listed' && levels.key?(lvl) }
+        estimate = priced.empty? ? nil : priced.sum { |lvl, n| levels[lvl].fetch('amount', 0).to_i * n }
+        years[year.to_s] = [estimate, counts.values.sum]
+      end
+      report[org] = years.sort.reverse.map { |year, (estimate, count)| { 'year' => year.to_i, 'estimate' => estimate, 'sponsors' => count } } unless years.empty?
+    end
+    return report
+  end
+
   # Summarize sponsor history files for the website: per org, one row per scrape
   # with sponsor counts and an estimated total using the amounts in effect then
   # @param history_dir pointing to history/sponsorships
@@ -184,6 +227,8 @@ s parseDate.') do |date|
     if Dir.exist?(SponsorUtils::DEFAULT_HISTORY_DIR)
       File.write(File.join(outdir, 'sponsor-history.json'),
                  JSON.pretty_generate(report_history(SponsorUtils::DEFAULT_HISTORY_DIR, sponsors)))
+      File.write(File.join(outdir, 'sponsor-income.json'),
+                 JSON.pretty_generate(report_income(SponsorUtils::DEFAULT_HISTORY_DIR, sponsors)))
     end
   end
 end

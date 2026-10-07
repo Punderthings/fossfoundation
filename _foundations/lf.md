@@ -48,7 +48,6 @@ sponsorships:
 - jsfoundation
 - lfai
 - lfenergy
-- llvm
 - openmainframe
 - openssf
 licenses: various
