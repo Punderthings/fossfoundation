@@ -16,6 +16,7 @@ module SponsorUtils
       landscape      CNCF-style landscape.yml; 'landscape' names the category
       landscapejson  landscape2 site data/full.json; 'landscape' names the category
       json           Any JSON API; see the 'json' key for field paths
+      yaml           A YAML data file, read like json (e.g. a website's _data file)
       static         Hand-maintained levels.*.sponsors lists (staticmap: date)
 
     --check compares each org's committed data with a fresh parse and
@@ -57,7 +58,8 @@ module SponsorUtils
   # - grants covers any sort of government/institution grants
   # TODO: Define a more rigorous and smaller set of categories,
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
-  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants ]
+  # - listed is for historical lists that name sponsors without their level (counted, not priced)
+  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants listed ]
   SPONSORSHIPS_DIR = '_sponsorships'
   DEFAULT_OUTDIR = '_data/sponsorships'
   PARSE_DATE = 'parseDate'
@@ -66,7 +68,7 @@ module SponsorUtils
   LAST_CHECKED = 'lastChecked'
   DEFAULT_HISTORY_DIR = 'history/sponsorships'
   ALL_SPONSORSHIPS_FILE = '_data/allsponsorships.json' # Early 2024 combined data, used by --backfill-git
-  SOURCE_TYPES = %w[css landscape landscapejson json static].freeze
+  SOURCE_TYPES = %w[css landscape landscapejson json yaml static].freeze
 
   # Editable list of hostnames/domains that belong to one sponsor org; see file for format
   HOST_ALIASES_FILE = File.expand_path('../../_data/host_aliases.json', __dir__)
@@ -474,6 +476,7 @@ module SponsorUtils
   end
 
   # Parse a CNCF style landscape.yml for a sponsor list
+  # 'landscape' names the member category, or lists names it has had over time
   # Subcategory names are matched to levels by 'match' or 'name'
   # Landscape homepage_urls are always normalized
   # @param io YAML string (or IO) to parse
@@ -481,14 +484,15 @@ module SponsorUtils
   # @return hash of sponsors by approximate map-defined levels
   # @raise ParseError if the configured category is not found
   def parse_landscape(io, sponsorship)
-    category = sponsorship['landscape']
+    category = Array(sponsorship['landscape']).join(' | ')
+    names = Array(sponsorship['landscape'])
     begin
-      landscape = YAML.safe_load(io, aliases: true)
+      landscape = YAML.safe_load(io, permitted_classes: [Date, Time], aliases: true)
     rescue Psych::Exception => e
       raise ParseError, "parse_landscape(#{category}): invalid YAML: #{e.message}"
     end
     categories = landscape.is_a?(Hash) ? Array(landscape['landscape']) : []
-    found = categories.map { |h| landscape_entry(h, 'category') }.find { |h| category.eql?(h['name']) }
+    found = categories.map { |h| landscape_entry(h, 'category') }.find { |h| names.include?(h['name']) }
     raise ParseError, "parse_landscape(#{category}): category not found" unless found
     groups = Array(found['subcategories']).map { |h| landscape_entry(h, 'subcategory') }
     raise ParseError, "parse_landscape(#{category}): category has no subcategories" if groups.empty?
@@ -533,6 +537,9 @@ module SponsorUtils
   #   name:  fallback field when url is empty
   #   level: field whose value(s) are matched to levels by 'match' or 'name'
   #   filter: optional {path => value or [values]} that items must match
+  #   itemsByKey: true when items is a hash of key => [items]; each item's key is readable as '_key'
+  #   defaultLevel: level for items whose level field is missing
+  # sourcetype yaml reads the same structure from YAML instead of JSON.
   # For landscapejson these default to the landscape2 layout, filtered to the 'landscape' category.
   # @param io JSON string
   # @param sponsorship model hash
@@ -545,11 +552,14 @@ module SponsorUtils
     end
     context = "parse_json(#{sponsorship['landscape'] || sponsorship['identifier']})"
     begin
-      data = JSON.parse(io)
-    rescue JSON::ParserError => e
-      raise ParseError, "#{context}: invalid JSON: #{e.message[0, 200]}"
+      data = source_type(sponsorship) == 'yaml' ? YAML.safe_load(io, permitted_classes: [Date], aliases: true) : JSON.parse(io)
+    rescue JSON::ParserError, Psych::Exception => e
+      raise ParseError, "#{context}: invalid #{source_type(sponsorship).upcase}: #{e.message[0, 200]}"
     end
     items = config['items'].to_s.empty? ? data : config['items'].split('.').reduce(data) { |node, key| node.is_a?(Hash) ? node[key] : nil }
+    if as_bool(config['itemsByKey']) && items.is_a?(Hash)
+      items = items.flat_map { |key, list| Array(list).select { |item| item.is_a?(Hash) }.map { |item| item.merge('_key' => key) } }
+    end
     raise ParseError, "#{context}: no array of items at '#{config['items']}'" unless items.is_a?(Array)
     filters = (config['filter'] || {}).transform_values { |v| Array(v).map { |s| s.to_s.downcase } }
     items = items.select do |item|
@@ -563,7 +573,7 @@ module SponsorUtils
     unmatched = []
     items.each do |item|
       names = dig_all(item, config['level'])
-      level = matcher.call(names)
+      level = names.empty? && config['defaultLevel'] ? config['defaultLevel'] : matcher.call(names)
       unless level
         unmatched << (names.empty? ? '(no level)' : names.join('/'))
         next
@@ -728,7 +738,7 @@ module SponsorUtils
     io = read_source(sponsorship, cachefile)
     sponsors = case type
                when 'landscape' then parse_landscape(io, sponsorship)
-               when 'landscapejson', 'json' then parse_json(io, sponsorship)
+               when 'landscapejson', 'json', 'yaml' then parse_json(io, sponsorship)
                else scrape_bycss(io, sponsorship)
                end
     # Custom post-processing for various orgs
@@ -934,7 +944,7 @@ module SponsorUtils
   # ## ### #### ##### ######
   # Sponsor history: one file per org of sponsor spans, written when the current list changes
   #   {"org": "x",
-  #    "scrapes": [{"parseDate", "lastChecked", "source", "modelDate", "forced", "counts"}, ...],
+  #    "scrapes": [{"parseDate", "lastChecked", "source", "ref", "modelDate", "forced", "counts"}, ...],
   #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen"}, ...]}
   # A span covers consecutive scrapes listing a sponsor at a level: firstSeen is the
   # parseDate of the first, lastSeen the lastChecked of the last (null while current).
@@ -998,7 +1008,7 @@ module SponsorUtils
     end
     rank = ->(lvl) { SPONSOR_METALEVELS.index(lvl) || SPONSOR_METALEVELS.size }
     scrapes = entries.map do |meta, state|
-      meta.slice('parseDate', 'lastChecked', 'source', 'modelDate', 'forced').compact
+      meta.slice('parseDate', 'lastChecked', 'source', 'ref', 'modelDate', 'forced').compact
           .merge('counts' => state.transform_values(&:size))
     end
     return { 'org' => org, 'scrapes' => scrapes,

@@ -6,6 +6,16 @@ nonprofit: lf
 sponsorurl: https://raw.githubusercontent.com/cdfoundation/cdf-landscape/main/landscape.yml
 levelurl: https://cd.foundation/members/join/
 landscape: CDF Members
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/cdfoundation/cdf-landscape
+    path: landscape.yml
+    levels:
+      first:
+        match: [Premier, Platinum]
+      third:
+        match: [End User, End User Supporter]
 levels:
   first:
     name: Premier

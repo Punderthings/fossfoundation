@@ -8,6 +8,12 @@ levelurl: https://www.linuxfoundation.org/hubfs/lf_member_benefits_122723a.pdf?h
 normalize: 'true'
 xsponsormap: _data/lf_map.json
 landscape: LF Members
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/jmertic/lf-landscape
+    path: landscape.yml
+    landscape: [LF Members, LF Member Company]
 levels:
   first:
     name: Platinum

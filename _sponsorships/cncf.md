@@ -7,6 +7,11 @@ sponsorurl: https://raw.githubusercontent.com/cncf/landscape/master/landscape.ym
 levelurl: https://www.cncf.io/about/join/
 normalize: 'true'
 landscape: CNCF Members
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/cncf/landscape
+    path: landscape.yml
 levels:
   first:
     name: Platinum

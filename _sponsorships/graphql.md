@@ -6,6 +6,11 @@ nonprofit: lf
 sponsorurl: https://raw.githubusercontent.com/graphql/graphql-landscape/main/landscape.yml
 levelurl: https://graphql.org/foundation/join/
 landscape: GraphQL Foundation Member
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/graphql/graphql-landscape
+    path: landscape.yml
 levels:
   first:
     name: General

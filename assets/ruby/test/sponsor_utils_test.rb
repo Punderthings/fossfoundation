@@ -200,6 +200,21 @@ class SponsorUtilsTest < Minitest::Test
     assert_match(/level 'second' \(Gold\) has no sponsors/, err)
   end
 
+  def test_parse_landscape_allows_dates
+    dated = FLAT_LANDSCAPE.sub("homepage_url: https://www.bigco.com/\n", "homepage_url: https://www.bigco.com/\n            joined: 2019-01-01\n")
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.parse_landscape(dated, LANDSCAPE_MODEL) }
+    assert_equal ['bigco.com'], sponsors['first']
+  end
+
+  def test_parse_landscape_category_names_list
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.parse_landscape(FLAT_LANDSCAPE, LANDSCAPE_MODEL.merge('landscape' => ['Renamed Members', 'Members'])) }
+    assert_equal ['bigco.com'], sponsors['first']
+    error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape(FLAT_LANDSCAPE, LANDSCAPE_MODEL.merge('landscape' => %w[A B])) }
+    assert_match(/parse_landscape\(A \| B\): category not found/, error.message)
+  end
+
   def test_parse_landscape_missing_category_raises
     model = LANDSCAPE_MODEL.merge('landscape' => 'Nope')
     error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape(FLAT_LANDSCAPE, model) }
@@ -261,6 +276,32 @@ class SponsorUtilsTest < Minitest::Test
     end
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('{"a":1}', model) }
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('not json', model) }
+  end
+
+  def test_parse_yaml_items_by_key_and_default_level
+    yaml = <<~YAML
+      hosting:
+        - name: Host Co
+          link: https://www.host.example/
+      specific:
+        - name: Gift Co
+      former:
+        - name: Old Co
+          link: https://old.example/
+    YAML
+    model = { 'sourcetype' => 'yaml', 'json' => { 'itemsByKey' => true, 'url' => 'link', 'name' => 'name', 'level' => '_key' },
+              'levels' => { 'firstinkind' => { 'match' => 'hosting' }, 'secondinkind' => { 'match' => 'specific' } } }
+    sponsors = nil
+    _, err = capture_io { sponsors = SponsorUtils.parse_json(yaml, model) }
+    assert_equal({ 'firstinkind' => ['host.example'], 'secondinkind' => ['Gift Co'] }, sponsors)
+    assert_match(/'former' \(1 sponsors\)/, err)
+
+    members = "- {name: A, url: https://a.example, member: true, membertype: 2}\n- {name: B, url: https://b.example, member: true}\n" \
+              "- {name: C, url: https://c.example, member: false}\n"
+    tiers = { 'sourcetype' => 'yaml', 'json' => { 'url' => 'url', 'level' => 'membertype', 'defaultLevel' => 'third', 'filter' => { 'member' => 'true' } },
+              'levels' => { 'first' => { 'match' => '2' }, 'third' => { 'match' => '4' } } }
+    assert_equal({ 'first' => ['a.example'], 'third' => ['b.example'] }, SponsorUtils.parse_json(members, tiers))
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json("a: [\n", tiers) }
   end
 
   def test_dig_all
