@@ -63,6 +63,9 @@ levels:
     attr: homepage_url
   enduser:
     name: End User Supporter
+    match:
+      - End User Supporter
+      - End User Supporter and Contributor
     amount: '0'
     selector: ''
     attr: ''

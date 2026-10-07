@@ -60,7 +60,7 @@ class SponsorUtilsTest < Minitest::Test
   def test_normalize_href
     assert_equal 'example.com', SponsorUtils.normalize_href(' https://www.Example.COM/Path?Q=1 ')
     assert_equal 'example.com', SponsorUtils.normalize_href('example.com/path')
-    assert_equal 'awww.example.com', SponsorUtils.normalize_href('https://awww.example.com/www.x')
+    assert_equal 'example.com', SponsorUtils.normalize_href('https://awww.example.com/www.x')
     assert_equal 'google.com', SponsorUtils.normalize_href('https://opensource.google/')
     assert_equal 'bloomberg.com', SponsorUtils.normalize_href('https://www.techatbloomberg.com/')
     assert_equal 'notgoogle.com', SponsorUtils.normalize_href('https://notgoogle.com/opensource.google')
@@ -68,6 +68,37 @@ class SponsorUtilsTest < Minitest::Test
     assert_equal 'Foo Inc', SponsorUtils.normalize_href('Foo Inc')
     assert_equal '/relative/path', SponsorUtils.normalize_href('/relative/path')
     assert_equal '', SponsorUtils.normalize_href(nil)
+  end
+
+  def test_normalize_href_merges_subdomains_and_aliases
+    assert_equal 'amazon.com', SponsorUtils.normalize_href('https://aws.amazon.com/opensource')
+    assert_equal 'bbc.co.uk', SponsorUtils.normalize_href('https://www.research.bbc.co.uk/')
+    assert_equal 'someone.github.io', SponsorUtils.normalize_href('https://someone.github.io/')
+    assert_equal 'panasonic.com', SponsorUtils.normalize_href('https://holdings.panasonic/global/')
+    assert_equal 'panasonic.com', SponsorUtils.normalize_href('https://automotive.panasonic.com/')
+    assert_equal 'meta.com', SponsorUtils.normalize_href('https://about.facebook.com/')
+    assert_equal 'uk.osgeo.org', SponsorUtils.normalize_href('https://uk.osgeo.org/'), 'self-alias keeps a subdomain'
+    assert_equal '10.1.2.3', SponsorUtils.normalize_href('http://10.1.2.3/')
+  end
+
+  def test_renormalize_only_touches_domains
+    data = { 'first' => ['aws.amazon.com', 'amazon.com', 'Foo Inc', 'holdings.panasonic'], 'parseDate' => '20240101' }
+    assert_equal({ 'first' => ['amazon.com', 'Foo Inc', 'panasonic.com'], 'parseDate' => '20240101' },
+                 SponsorUtils.renormalize(data))
+  end
+
+  def test_source_type
+    assert_equal 'static', SponsorUtils.source_type('staticmap' => 20240101)
+    assert_equal 'landscape', SponsorUtils.source_type('landscape' => 'X')
+    assert_equal 'css', SponsorUtils.source_type({})
+    assert_equal 'landscapejson', SponsorUtils.source_type('sourcetype' => 'LandscapeJSON', 'landscape' => 'X')
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.source_type('sourcetype' => 'pdf') }
+  end
+
+  def test_scrape_bycss_refuses_bot_challenge
+    html = '<html><head><title>Just a moment...</title></head><body><a href="https://x.com">x</a></body></html>'
+    error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.scrape_bycss(html, css_model) }
+    assert_match(/bot-detection challenge/, error.message)
   end
 
   def test_scrape_bycss_normalizes_dedups_and_skips_unconfigured_levels
@@ -158,7 +189,7 @@ class SponsorUtilsTest < Minitest::Test
     sponsors = nil
     _, err = capture_io { sponsors = SponsorUtils.parse_landscape(FLAT_LANDSCAPE, LANDSCAPE_MODEL) }
     assert_equal({ 'first' => ['bigco.com'], 'second' => ['NoUrl'] }, sponsors)
-    assert_match(/'Unmapped' matches no configured level/, err)
+    assert_match(/'Unmapped' \(1 sponsors\) matches no configured level/, err)
     refute sponsors.key?('')
   end
 
@@ -174,6 +205,68 @@ class SponsorUtilsTest < Minitest::Test
     error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape(FLAT_LANDSCAPE, model) }
     assert_match(/category not found/, error.message)
     assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_landscape("landscape: [\n", LANDSCAPE_MODEL) }
+  end
+
+  def test_parse_landscape_match_key
+    model = { 'landscape' => 'Members', 'levels' => {
+      'first' => { 'name' => 'Top', 'match' => %w[Platinum Gold] },
+      'second' => { 'name' => 'Other', 'match' => 'unmapped' }
+    } }
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.parse_landscape(FLAT_LANDSCAPE, model) }
+    assert_equal({ 'first' => %w[bigco.com NoUrl], 'second' => ['skipped.example'] }, sponsors)
+  end
+
+  # Shape of a landscape2 site's data/full.json
+  LANDSCAPE_JSON = JSON.generate(
+    'crunchbase_data' => {},
+    'items' => [
+      { 'category' => 'Members', 'subcategory' => 'Platinum', 'name' => 'Big Co', 'homepage_url' => 'https://www.bigco.com/' },
+      { 'category' => 'Members', 'subcategory' => 'Gold', 'name' => 'Gold Co', 'homepage_url' => 'https://dev.goldco.io/' },
+      { 'category' => 'Members', 'subcategory' => 'Gold', 'name' => 'No Url Co' },
+      { 'category' => 'Members', 'subcategory' => 'End User', 'name' => 'User Co', 'homepage_url' => 'https://user.example/' },
+      { 'category' => 'Projects', 'subcategory' => 'Platinum', 'name' => 'Not A Member', 'homepage_url' => 'https://proj.example/' }
+    ]
+  )
+
+  def test_parse_json_landscapejson
+    model = LANDSCAPE_MODEL.merge('sourcetype' => 'landscapejson')
+    sponsors = nil
+    _, err = capture_io { sponsors = SponsorUtils.parse_json(LANDSCAPE_JSON, model) }
+    assert_equal({ 'first' => ['bigco.com'], 'second' => ['goldco.io', 'No Url Co'] }, sponsors)
+    assert_match(/'End User' \(1 sponsors\) matches no configured level/, err)
+    bad = model.merge('landscape' => 'Nope')
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json(LANDSCAPE_JSON, bad) }
+  end
+
+  def test_parse_json_generic_api
+    api = JSON.generate([
+      { 'name' => 'IBM', 'website' => 'https://www.ibm.com', 'levels' => [{ 'description' => 'Strategic Member' }] },
+      { 'name' => 'Tiny', 'website' => '', 'levels' => [{ 'description' => 'Associate Member' }] },
+      { 'name' => 'Old', 'website' => 'https://old.example', 'levels' => [] }
+    ])
+    model = {
+      'sourcetype' => 'json',
+      'json' => { 'url' => 'website', 'name' => 'name', 'level' => 'levels.description' },
+      'levels' => { 'first' => { 'name' => 'Strategic', 'match' => 'Strategic Member' },
+                    'third' => { 'name' => 'Associate', 'match' => 'associate member' } }
+    }
+    sponsors = nil
+    _, err = capture_io { sponsors = SponsorUtils.parse_json(api, model) }
+    assert_equal({ 'first' => ['ibm.com'], 'third' => ['Tiny'] }, sponsors)
+    assert_match(/'\(no level\)'/, err)
+    nested = JSON.generate('data' => { 'members' => JSON.parse(api) })
+    capture_io do
+      assert_equal ['ibm.com'], SponsorUtils.parse_json(nested, model.merge('json' => model['json'].merge('items' => 'data.members')))['first']
+    end
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('{"a":1}', model) }
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.parse_json('not json', model) }
+  end
+
+  def test_dig_all
+    obj = { 'a' => [{ 'b' => 'x' }, { 'b' => ['y', nil] }, { 'c' => 'z' }] }
+    assert_equal %w[x y], SponsorUtils.dig_all(obj, 'a.b')
+    assert_equal [obj], SponsorUtils.dig_all(obj, '')
   end
 
   def test_cleanup_with_map_preserves_parse_date
@@ -274,6 +367,108 @@ class SponsorUtilsTest < Minitest::Test
       assert_equal({ 'first' => ['foo.com'], 'parseDate' => '20240101' },
                    JSON.parse(File.read(File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json'))))
     end
+  end
+
+  def test_main_refuses_suspicious_drop_unless_forced
+    in_tmp_project do
+      write_model('demo', "identifier: demo\nnormalize: true\nsponsorurl: https://example.invalid/\nlevels:\n  first:\n    selector: div#gold a\n    attr: href\n")
+      File.write('page.html', SponsorUtilsTest::HTML)
+      outfile = File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json')
+      previous = JSON.generate('first' => (1..12).map { |i| "s#{i}.com" }, 'parseDate' => '20240101')
+      File.write(outfile, previous)
+      _, err = capture_io { assert_equal 1, SponsorUtils.main(%w[-o demo -i page.html]) }
+      assert_match(/suspicious drop.*total dropped from 12 to 1/, err)
+      assert_equal previous, File.read(outfile)
+      capture_io { assert_equal 0, SponsorUtils.main(%w[-o demo -i page.html --force]) }
+      assert_equal ['example.com'], JSON.parse(File.read(outfile))['first']
+    end
+  end
+
+  def test_drift_problems
+    old = { 'first' => %w[a b c d e], 'second' => %w[f], 'parseDate' => '1' }
+    assert_equal ["level 'first' dropped from 5 to 0"], SponsorUtils.drift_problems(old, 'first' => [], 'second' => %w[f g h i j k])
+    assert_empty SponsorUtils.drift_problems(old, 'first' => %w[a b], 'second' => %w[f])
+    assert_empty SponsorUtils.drift_problems(nil, 'first' => [])
+  end
+
+  def test_age_days
+    today = Date.new(2026, 1, 11)
+    assert_equal 10, SponsorUtils.age_days('20260101', today)
+    assert_equal 10, SponsorUtils.age_days(20260101, today)
+    assert_nil SponsorUtils.age_days(nil, today)
+    assert_nil SponsorUtils.age_days('soon', today)
+  end
+
+  def test_check_sponsorships_statuses
+    in_tmp_project do
+      out = SponsorUtils::DEFAULT_OUTDIR
+      write_model('fresh', "identifier: fresh\nstaticmap: 20260101\nlevels:\n  first:\n    sponsors: [a.com]\n")
+      File.write("#{out}/fresh.json", '{"first":["a.com"],"parseDate":20260101}')
+      write_model('old', "identifier: old\nstaticmap: 20200101\nlevels:\n  first:\n    sponsors: [a.com]\n")
+      File.write("#{out}/old.json", '{"first":["a.com"],"parseDate":20200101}')
+      write_model('live', "identifier: live\nsponsorurl: https://example.invalid/\nnormalize: true\nlevels:\n  first:\n    selector: div#gold a\n    attr: href\n")
+      File.write("#{out}/live.json", '{"first":["example.com","gone.com"],"parseDate":"20260101"}')
+      write_model('broken', "identifier: broken\nsponsorurl: https://example.invalid/\nlevels: {}\n")
+      today = Date.new(2026, 2, 1)
+      results = nil
+      SponsorUtils.stub(:fetch, ->(_url) { SponsorUtilsTest::HTML }) do
+        capture_io { results = SponsorUtils.check_sponsorships(%w[fresh old live broken], max_age: 365, today: today) }
+      end
+      statuses = results.to_h { |r| [r[:org], r[:statuses]] }
+      assert_equal({ 'fresh' => ['ok'], 'old' => ['stale'], 'live' => ['changed'], 'broken' => %w[missing failed] }, statuses)
+      live = results.find { |r| r[:org] == 'live' }
+      assert_equal ['gone.com'], live[:diff]['first'][:removed]
+      out_text, = capture_io { assert_equal 1, SponsorUtils.report_check(results, 365) }
+      assert_match(/live\s+changed.*first:2->1\(\+0\/-1\)/, out_text)
+      offline = nil
+      capture_io { offline = SponsorUtils.check_sponsorships(%w[fresh live], offline: true, today: today) }
+      assert_equal [['ok'], ['ok']], offline.map { |r| r[:statuses] }
+      capture_io { assert_equal 0, SponsorUtils.report_check(offline, 365) }
+    end
+  end
+
+  def test_main_renormalize
+    in_tmp_project do
+      path = File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json')
+      File.write(path, '{"first":["cloud.google.com","google.com"],"parseDate":"20240101"}')
+      capture_io { assert_equal 0, SponsorUtils.main(%w[--renormalize]) }
+      assert_equal({ 'first' => ['google.com'], 'parseDate' => '20240101' }, JSON.parse(File.read(path)))
+    end
+  end
+
+  # A stand-in for Chrome that prints the html in $FAKE_DOM, ignoring its arguments
+  def with_fake_chrome(script_body)
+    Dir.mktmpdir do |dir|
+      bin = File.join(dir, 'fake-chrome')
+      File.write(bin, "#!/bin/sh\n#{script_body}\n")
+      File.chmod(0o755, bin)
+      original = ENV.fetch('CHROME_BIN', nil)
+      ENV['CHROME_BIN'] = bin
+      yield
+    ensure
+      ENV['CHROME_BIN'] = original
+    end
+  end
+
+  def test_render_page_with_chrome
+    fake = %q{case "$*" in *--dump-dom*) echo '<html><body><div id="gold"><a href="https://rendered.example/">R</a></div></body></html>';; esac}
+    with_fake_chrome(fake) do
+      model = { 'sponsorurl' => 'https://example.org/members', 'render' => 'chrome', 'normalize' => 'true',
+                'levels' => { 'first' => { 'selector' => 'div#gold a', 'attr' => 'href' } } }
+      assert_equal ['rendered.example'], SponsorUtils.parse_sponsorship('demo', model)['first']
+    end
+    with_fake_chrome('exit 3') do
+      error = assert_raises(SponsorUtils::ParseError) { SponsorUtils.render_page('https://example.org/') }
+      assert_match(/no output/, error.message)
+    end
+    # Like Chrome on macOS: prints the DOM, then keeps running
+    with_fake_chrome("echo '<html><body>done</body></html>'; sleep 30") do
+      started = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      assert_match(/done/, SponsorUtils.render_page('https://example.org/'))
+      assert_operator Process.clock_gettime(Process::CLOCK_MONOTONIC) - started, :<, 10
+    end
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.read_source('sponsorurl' => 'https://example.org/', 'render' => 'firefox') }
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.render_page('file:///etc/passwd') }
   end
 
   # Minimal one-connection-per-response http server for fetch tests

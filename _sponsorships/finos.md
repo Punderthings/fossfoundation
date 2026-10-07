@@ -12,14 +12,14 @@ levels:
   first:
     name: Platinum
     amount: '200000'
-    selector: div#platinum div.member_item a
+    selector: div#platinum a.hs-logo-grid__logo-link
     attr: href
     benefits:
       governance: appoint board seat
   second:
     name: Gold
     amount: '50000'
-    selector: div#gold div.member_item a
+    selector: div#gold a.hs-logo-grid__logo-link
     attr: href
     benefits:
       governance: vote for gold board seat
@@ -28,7 +28,7 @@ levels:
     name: Silver
     amount: '30000'
     amountvaries: sliding scale by number employees
-    selector: div#silver div.member_item a
+    selector: div.row-depth-1:has(h2:contains("SILVER MEMBERS")) + div.row-depth-1 a.hs-logo-grid__logo-link
     attr: href
     benefits:
       governance: vote for silver board seat
@@ -37,7 +37,9 @@ levels:
   community:
     name: Associate
     amount: '0'
-    # No selector: associates have no separate section id; they are listed within the silver section
+    # Associates have no section id of their own; they follow their heading inside the silver section
+    selector: div.row-depth-1:has(h2:contains("ASSOCIATE MEMBERS")) + div.row-depth-1 a.hs-logo-grid__logo-link
+    attr: href
     benefits:
       logo: 'yes'
 ---

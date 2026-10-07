@@ -27,11 +27,34 @@
       "type": "string",
       "format": "uri"
     },
-    "landscape": {
-      "title": "Landscape Selector",
-      "description": "If set, treat sponsorurl as a landscape.yml file and parse as per CNCF standard.",
+    "sourcetype": {
+      "title": "Source Type",
+      "description": "How to read sponsorurl: css (scrape html with per-level selector/attr), landscape (CNCF-style landscape.yml), landscapejson (landscape2 site data/full.json), json (any JSON API, see json), or static (levels.*.sponsors lists). If absent: static when staticmap is set, landscape when landscape is set, else css.",
       "type": "string",
-      "format": "uri"
+      "enum": ["css", "landscape", "landscapejson", "json", "static"]
+    },
+    "landscape": {
+      "title": "Landscape Category",
+      "description": "For landscape or landscapejson sources: name of the landscape category listing members; its subcategories are matched to levels by match or name.",
+      "type": "string"
+    },
+    "render": {
+      "title": "Render With Browser",
+      "description": "For css sources whose sponsor list is built by JavaScript: 'chrome' renders sponsorurl in local headless Chrome/Chromium before scraping. Never used to get past bot-detection challenges.",
+      "type": "string",
+      "enum": ["none", "chrome"]
+    },
+    "json": {
+      "title": "JSON Field Paths",
+      "description": "For json (and to override landscapejson) sources: dotted paths into the JSON. Arrays along a path are flattened.",
+      "type": "object",
+      "properties": {
+        "items": { "description": "Path to the array of sponsor objects; empty for a top-level array.", "type": "string" },
+        "url": { "description": "Field with the sponsor website; normalized to a domain.", "type": "string" },
+        "name": { "description": "Fallback field used when url is empty.", "type": "string" },
+        "level": { "description": "Field whose value(s) are matched to levels by match or name.", "type": "string" },
+        "filter": { "description": "Map of path to a value or list of values that items must have.", "type": "object" }
+      }
     },
     "levelurl": {
       "title": "Level URL",
@@ -52,7 +75,7 @@
     },
     "normalize": {
       "title": "Normalize URL Flag",
-      "description": "If present, forcefully normalize URLs to bare hostnames.",
+      "description": "If true, normalize href URLs to one registrable domain per sponsor (subdomains merged; see _data/host_aliases.json). Landscape sources always normalize; json sources normalize unless set false.",
       "type": "string"
     },
     "levels": {
