@@ -69,9 +69,12 @@ class SponsorArchiveTest < Minitest::Test
 
   def test_monthly_keeps_last_version_per_month_in_range
     v = ->(date) { SponsorArchive::Version.new(date: date, checked: date, ref: date, loader: nil) }
-    versions = %w[20190105 20190120 20190301 20190331 20190402 20200115].map(&v).shuffle
+    versions = %w[20190105 20190120 20190301 20190331 20190402 20200115].map(&v)
     assert_equal %w[20190120 20190331 20190402], SponsorArchive.monthly(versions, '20190101', '20191231').map(&:date)
     assert_equal %w[20190120 20190331 20190402 20200115], SponsorArchive.monthly(versions, nil, nil).map(&:date)
+    same_day = [SponsorArchive::Version.new(date: '20190301', checked: '20190301', ref: 'first', loader: nil),
+                SponsorArchive::Version.new(date: '20190301', checked: '20190301', ref: 'second', loader: nil)]
+    assert_equal ['second'], SponsorArchive.monthly(same_day, nil, nil).map(&:ref), 'the last version made that day wins'
   end
 
   LANDSCAPE = <<~YAML
@@ -119,6 +122,7 @@ class SponsorArchiveTest < Minitest::Test
       commit(repo, landscape_yml = landscape_yaml('Old Members', %w[a.com b.com], silver), '2019-02-20')
       commit(repo, landscape_yml + "\n# comment only\n", '2019-03-15')                        # same list: extends lastChecked
       commit(repo, landscape_yaml('Members', %w[a.com], %w[s1.com]), '2019-04-10')            # dip between big lists: rejected
+      commit(repo, "landscape: [broken\n", '2019-05-10')                                  # fixed later the same day
       commit(repo, landscape_yaml('Members', %w[b.com], silver), '2019-05-10')
       write_model('demo', <<~YAML)
         identifier: demo
@@ -147,19 +151,20 @@ class SponsorArchiveTest < Minitest::Test
 
       summary = SponsorArchive.collect('demo', from: '20190101', today: Date.new(2019, 6, 1))
       _source, result = summary[:sources].first
-      assert_equal 6, result[:versions]
+      assert_equal 7, result[:versions]
       assert_equal 5, result[:sampled]
       assert_equal({ 'category not found' => 1, 'dip vs neighboring months' => 1 }, result[:rejected].transform_keys { |k| k.sub(/\A.*: /, '') })
       hist = history
       scrapes = hist['scrapes']
       assert_equal %w[20190220 20190510], scrapes.map { |s| s['parseDate'] }, "this repo's backfilled 20190301 list is replaced"
-      assert_equal '20190315', scrapes.first['lastChecked']
+      # the March commit kept the same list, and a commit is current until the next one (April 10)
+      assert_equal '20190409', scrapes.first['lastChecked']
       assert_equal %w[archive-git archive-git], scrapes.map { |s| s['source'] }
       assert_equal %w[20180101 20190501], scrapes.map { |s| s['modelDate'] }
       assert_equal '20190601', scrapes.last['lastChecked'], 'the newest commit is still current on the collection date'
       assert_match(%r{\Afile://.*upstream@[0-9a-f]{40}:landscape\.yml\z}, scrapes.first['ref'])
       assert_equal({ 'first' => 2, 'second' => 10 }, scrapes.first['counts'])
-      assert_includes hist['spans'], { 'sponsor' => 'a.com', 'level' => 'first', 'firstSeen' => '20190220', 'lastSeen' => '20190315' }
+      assert_includes hist['spans'], { 'sponsor' => 'a.com', 'level' => 'first', 'firstSeen' => '20190220', 'lastSeen' => '20190409' }
       assert File.directory?(File.join(SponsorArchive::CACHE_DIR, 'git')), 'repository is cached'
 
       again = SponsorArchive.collect('demo', from: '20190101', today: Date.new(2019, 6, 1))
