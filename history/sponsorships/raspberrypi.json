@@ -1,0 +1,27 @@
+{
+  "org": "raspberrypi",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240926","source":"git","counts":{"fifth":3,"first":1,"fourth":8,"second":1,"sixth":5,"third":1}}
+  ],
+  "spans": [
+    {"sponsor":"google.org","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"atlassian.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bnymellon.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"blizzard.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bloomfieldtrust.co.uk","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"broadcomfoundation.org","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"expo2020dubai.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"infosys.org","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"oracle.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"spglobal.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"workday.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"allianz.com","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"dogpatchlabs.com","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"mythic-beasts.com","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"humblebundle.com","level":"sixth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"libertyglobal.com","level":"sixth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"logmeininc.com","level":"sixth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"meta.com","level":"sixth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"micron.com","level":"sixth","firstSeen":"20240212","lastSeen":null}
+  ]
+}

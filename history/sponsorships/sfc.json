@@ -1,0 +1,18 @@
+{
+  "org": "sfc",
+  "scrapes": [
+    {"parseDate":"20240211","lastChecked":"20240215","source":"git","counts":{"first":8}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"first":9}}
+  ],
+  "spans": [
+    {"sponsor":"amazon.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"ampr.org","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"codeweavers.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"ifixit.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"indeed.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"jmp.chat","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"mozilla.org","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"wildebeest.org","level":"first","firstSeen":"20240211","lastSeen":null}
+  ]
+}

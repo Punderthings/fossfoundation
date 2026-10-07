@@ -1,0 +1,18 @@
+{
+  "org": "llvm",
+  "scrapes": [
+    {"parseDate":"20240211","lastChecked":"20240215","source":"git","counts":{"first":2,"fourth":2,"second":3,"third":3}}
+  ],
+  "spans": [
+    {"sponsor":"apple.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"quicinc.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"fastly.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"google.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"ibm.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"accesssoftek.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"arm.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"intel.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"mathworks.com","level":"fourth","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"reservoir.com","level":"fourth","firstSeen":"20240211","lastSeen":null}
+  ]
+}

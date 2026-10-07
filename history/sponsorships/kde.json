@@ -1,0 +1,20 @@
+{
+  "org": "kde",
+  "scrapes": [
+    {"parseDate":"20240314","lastChecked":"20240314","source":"git","counts":{"first":9,"second":3}}
+  ],
+  "spans": [
+    {"sponsor":"blue-systems.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"canonical.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"g10code.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"kfocus.org","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"qt.io","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"slimbook.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"suse.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"tuxedocomputers.com","level":"first","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"basyskom.de","level":"second","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"enioka.com","level":"second","firstSeen":"20240314","lastSeen":null},
+    {"sponsor":"kdab.com","level":"second","firstSeen":"20240314","lastSeen":null}
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "org": "cd",
+  "scrapes": [
+    {"parseDate":"20240211","lastChecked":"20240215","source":"git","counts":{"community":1,"first":2,"second":15,"third":6}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"community":1,"first":2,"second":15,"third":7}}
+  ],
+  "spans": [
+    {"sponsor":"apple.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"cloudbees.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"circleci.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"cloudsmith.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"codefresh.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"harness.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"octopus.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"opsmx.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"paloaltonetworks.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"prodvana.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"sap.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"spacelift.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"stackhawk.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"sumologic.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"tenable.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"testkube.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"whitesourcesoftware.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"capitalone.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"ebay.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"fidelity.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"jpmorganchase.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"nginx.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"salesforce.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"tracemachina.com","level":"third","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"ecnu.edu.cn","level":"community","firstSeen":"20240211","lastSeen":null}
+  ]
+}

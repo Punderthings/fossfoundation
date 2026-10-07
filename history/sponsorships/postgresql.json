@@ -1,0 +1,14 @@
+{
+  "org": "postgresql",
+  "scrapes": [
+    {"parseDate":"20240112","lastChecked":"20240112","source":"git","counts":{"firstinkind":5,"third":1}}
+  ],
+  "spans": [
+    {"sponsor":"xata.io","level":"third","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"amazon.com","level":"firstinkind","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"conova.com","level":"firstinkind","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"enterprisedb.com","level":"firstinkind","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"rackspace.com","level":"firstinkind","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"redpill-linpro.com","level":"firstinkind","firstSeen":"20240112","lastSeen":null}
+  ]
+}

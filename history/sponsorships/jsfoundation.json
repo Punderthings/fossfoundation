@@ -1,0 +1,38 @@
+{
+  "org": "jsfoundation",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"first":4,"second":3,"third":23}}
+  ],
+  "spans": [
+    {"sponsor":"ibm.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"joyent.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"microsoft.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"sovereigntechfund.de","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"godaddy.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"google.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"herodevs.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"americanexpress.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bloomberg.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"capitalone.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cargurus.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"fb.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"flowfuse.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"foursquare.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"github.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"greyshore.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"groupon.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"hackerone.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"jobyaviation.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"livingspec.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"nearform.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"netflix.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"nodesource.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"platformatic.dev","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"redhat.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"saucelabs.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"sentry.io","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"tafsol.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"theblogstarter.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"uber.com","level":"third","firstSeen":"20240212","lastSeen":null}
+  ]
+}

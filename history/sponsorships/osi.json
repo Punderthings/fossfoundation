@@ -1,0 +1,26 @@
+{
+  "org": "osi",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"fifth":4,"first":1,"fourth":5,"second":1,"third":7}}
+  ],
+  "spans": [
+    {"sponsor":"google.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"amazon.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bloomberg.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"capitalone.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cisco.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"fb.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"github.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"intel.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"redhat.com","level":"third","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"ferretdb.io","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"microsoft.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"openlogic.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"salesforce.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"tidelift.com","level":"fourth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"blindsidenetworks.com","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"sentry.io","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"slim.ai","level":"fifth","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"sysdig.com","level":"fifth","firstSeen":"20240212","lastSeen":null}
+  ]
+}

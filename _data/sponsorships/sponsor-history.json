@@ -1,0 +1,981 @@
+{
+  "adelielinux": [
+    {
+      "parseDate": "20240112",
+      "lastChecked": "20240112",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 6006
+    }
+  ],
+  "archlinux": [
+    {
+      "parseDate": "20240112",
+      "lastChecked": "20240112",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 5005
+    }
+  ],
+  "asf": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240212",
+      "sponsors": 87,
+      "levels": {
+        "first": 9,
+        "firstinkind": 13,
+        "fourth": 27,
+        "fourthinkind": 11,
+        "second": 12,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 4078000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 69,
+      "levels": {
+        "first": 8,
+        "firstinkind": 13,
+        "fourth": 13,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 3763000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 68,
+      "levels": {
+        "first": 8,
+        "firstinkind": 13,
+        "fourth": 12,
+        "fourthinkind": 10,
+        "second": 11,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 3782000
+    },
+    {
+      "parseDate": "20241211",
+      "lastChecked": "20241211",
+      "sponsors": 69,
+      "levels": {
+        "first": 10,
+        "firstinkind": 12,
+        "fourth": 12,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 3882000
+    },
+    {
+      "parseDate": "20250911",
+      "lastChecked": "20250911",
+      "sponsors": 64,
+      "levels": {
+        "first": 11,
+        "firstinkind": 11,
+        "fourth": 9,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 5,
+        "thirdinkind": 3
+      },
+      "estimate": 3814000
+    }
+  ],
+  "aswf": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 37,
+      "levels": {
+        "first": 15,
+        "second": 16,
+        "third": 6
+      },
+      "estimate": 1070000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 39,
+      "levels": {
+        "first": 17,
+        "second": 16,
+        "third": 6
+      },
+      "estimate": 1170000
+    }
+  ],
+  "cd": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 24,
+      "levels": {
+        "community": 1,
+        "first": 2,
+        "second": 15,
+        "third": 6
+      },
+      "estimate": 740000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 25,
+      "levels": {
+        "community": 1,
+        "first": 2,
+        "second": 15,
+        "third": 7
+      },
+      "estimate": 755000
+    }
+  ],
+  "cncf": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240212",
+      "sponsors": 764,
+      "levels": {
+        "academic": 4,
+        "community": 17,
+        "enduser": 85,
+        "first": 22,
+        "second": 27,
+        "third": 609
+      },
+      "estimate": 41851000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 763,
+      "levels": {
+        "academic": 4,
+        "community": 17,
+        "enduser": 84,
+        "first": 22,
+        "second": 27,
+        "third": 609
+      },
+      "estimate": 41851000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 739,
+      "levels": {
+        "academic": 5,
+        "community": 19,
+        "enduser": 84,
+        "first": 18,
+        "second": 27,
+        "third": 586
+      },
+      "estimate": 39224000
+    },
+    {
+      "parseDate": "20250911",
+      "lastChecked": "20250911",
+      "sponsors": 746,
+      "levels": {
+        "academic": 4,
+        "community": 21,
+        "enduser": 78,
+        "first": 15,
+        "second": 25,
+        "third": 603
+      },
+      "estimate": 38725000
+    }
+  ],
+  "debian": [
+    {
+      "parseDate": "20240303",
+      "lastChecked": "20240303",
+      "sponsors": 22,
+      "levels": {
+        "first": 22
+      },
+      "estimate": 22022
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 23,
+      "levels": {
+        "first": 23
+      },
+      "estimate": 23023
+    }
+  ],
+  "drupal": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240211",
+      "sponsors": 182,
+      "levels": {
+        "community": 64,
+        "first": 7,
+        "fourth": 64,
+        "second": 16,
+        "third": 31
+      },
+      "estimate": 871500
+    },
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 183,
+      "levels": {
+        "community": 64,
+        "first": 6,
+        "fourth": 65,
+        "second": 16,
+        "third": 32
+      },
+      "estimate": 856500
+    }
+  ],
+  "finos": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 65,
+      "levels": {
+        "first": 9,
+        "second": 18,
+        "third": 38
+      },
+      "estimate": 3840000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 87,
+      "levels": {
+        "first": 9,
+        "second": 25,
+        "third": 53
+      },
+      "estimate": 4640000
+    }
+  ],
+  "freebsd": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240215",
+      "sponsors": 1,
+      "levels": {
+        "first": 1
+      },
+      "estimate": 250000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 9,
+      "levels": {
+        "first": 9
+      },
+      "estimate": 2250000
+    }
+  ],
+  "fsfe": [
+    {
+      "parseDate": "20240227",
+      "lastChecked": "20240227",
+      "sponsors": 19,
+      "levels": {
+        "first": 6,
+        "second": 13
+      },
+      "estimate": 103200
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 27,
+      "levels": {
+        "first": 8,
+        "second": 19
+      },
+      "estimate": 141600
+    }
+  ],
+  "gentoo": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 23,
+      "levels": {
+        "firstinkind": 14,
+        "secondinkind": 9
+      },
+      "estimate": 79000
+    }
+  ],
+  "gnome": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 9,
+      "levels": {
+        "first": 4,
+        "second": 5
+      },
+      "estimate": 80000
+    }
+  ],
+  "graphql": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 25,
+      "levels": {
+        "first": 25
+      },
+      "estimate": 500000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 26,
+      "levels": {
+        "first": 26
+      },
+      "estimate": 520000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 23,
+      "levels": {
+        "first": 23
+      },
+      "estimate": 460000
+    }
+  ],
+  "haskell": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 20,
+      "levels": {
+        "first": 4,
+        "second": 8,
+        "third": 8
+      },
+      "estimate": 560000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 21,
+      "levels": {
+        "first": 4,
+        "second": 9,
+        "third": 8
+      },
+      "estimate": 585000
+    }
+  ],
+  "hyperledger": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 134,
+      "levels": {
+        "first": 4,
+        "second": 60,
+        "third": 70
+      },
+      "estimate": 4000000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 133,
+      "levels": {
+        "first": 4,
+        "second": 59,
+        "third": 70
+      },
+      "estimate": 3950000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 111,
+      "levels": {
+        "first": 3,
+        "second": 63,
+        "third": 45
+      },
+      "estimate": 3900000
+    }
+  ],
+  "jsfoundation": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 30,
+      "levels": {
+        "first": 4,
+        "second": 3,
+        "third": 23
+      },
+      "estimate": 2990000
+    }
+  ],
+  "kde": [
+    {
+      "parseDate": "20240314",
+      "lastChecked": "20240314",
+      "sponsors": 12,
+      "levels": {
+        "first": 9,
+        "second": 3
+      },
+      "estimate": 93000
+    }
+  ],
+  "lf": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 1562,
+      "levels": {
+        "first": 12,
+        "fourth": 379,
+        "second": 11,
+        "third": 1160
+      },
+      "estimate": 30300000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 1560,
+      "levels": {
+        "first": 12,
+        "fourth": 379,
+        "second": 11,
+        "third": 1158
+      },
+      "estimate": 30260000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 1791,
+      "levels": {
+        "first": 13,
+        "fourth": 464,
+        "second": 11,
+        "third": 1303
+      },
+      "estimate": 33660000
+    },
+    {
+      "parseDate": "20250911",
+      "lastChecked": "20250911",
+      "sponsors": 1964,
+      "levels": {
+        "first": 12,
+        "fourth": 548,
+        "second": 12,
+        "third": 1392
+      },
+      "estimate": 35040000
+    }
+  ],
+  "lfai": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 73,
+      "levels": {
+        "first": 11,
+        "second": 25,
+        "third": 37
+      },
+      "estimate": 2445000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 76,
+      "levels": {
+        "first": 13,
+        "second": 22,
+        "third": 41
+      },
+      "estimate": 2550000
+    }
+  ],
+  "lfenergy": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 62,
+      "levels": {
+        "first": 5,
+        "second": 19,
+        "third": 38
+      },
+      "estimate": 2180000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 66,
+      "levels": {
+        "first": 5,
+        "second": 21,
+        "third": 40
+      },
+      "estimate": 2320000
+    }
+  ],
+  "llvm": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 10,
+      "levels": {
+        "first": 2,
+        "fourth": 2,
+        "second": 3,
+        "third": 3
+      },
+      "estimate": 430000
+    }
+  ],
+  "numfocus": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240215",
+      "sponsors": 28,
+      "levels": {
+        "community": 8,
+        "first": 6,
+        "grants": 3,
+        "second": 7,
+        "startuppartners": 1,
+        "third": 3
+      },
+      "estimate": 988000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 25,
+      "levels": {
+        "community": 5,
+        "first": 6,
+        "grants": 3,
+        "second": 7,
+        "startuppartners": 1,
+        "third": 3
+      },
+      "estimate": 985000
+    },
+    {
+      "parseDate": "20250911",
+      "lastChecked": "20250911",
+      "sponsors": 27,
+      "levels": {
+        "community": 7,
+        "first": 5,
+        "grants": 3,
+        "second": 8,
+        "startuppartners": 1,
+        "third": 3
+      },
+      "estimate": 937000
+    }
+  ],
+  "openmainframe": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 36,
+      "levels": {
+        "academic": 19,
+        "community": 7,
+        "first": 5,
+        "second": 5
+      },
+      "estimate": 350000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 34,
+      "levels": {
+        "academic": 19,
+        "community": 7,
+        "first": 4,
+        "second": 4
+      },
+      "estimate": 280000
+    }
+  ],
+  "openssf": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 106,
+      "levels": {
+        "first": 17,
+        "second": 70,
+        "third": 19
+      },
+      "estimate": 7390000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 107,
+      "levels": {
+        "first": 17,
+        "second": 71,
+        "third": 19
+      },
+      "estimate": 7430000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 120,
+      "levels": {
+        "first": 18,
+        "second": 82,
+        "third": 20
+      },
+      "estimate": 8140000
+    }
+  ],
+  "openstack": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 473,
+      "levels": {
+        "academic": 28,
+        "community": 362,
+        "first": 5,
+        "firstinkind": 5,
+        "second": 13,
+        "third": 60
+      },
+      "estimate": 4600000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 475,
+      "levels": {
+        "academic": 30,
+        "community": 361,
+        "first": 5,
+        "firstinkind": 5,
+        "second": 13,
+        "third": 61
+      },
+      "estimate": 4615000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 495,
+      "levels": {
+        "academic": 32,
+        "community": 370,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 70
+      },
+      "estimate": 4950000
+    }
+  ],
+  "openstreetmap": [
+    {
+      "parseDate": "20240312",
+      "lastChecked": "20240312",
+      "sponsors": 48,
+      "levels": {
+        "fifth": 14,
+        "first": 2,
+        "fourth": 14,
+        "second": 7,
+        "third": 11
+      },
+      "estimate": 273000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 51,
+      "levels": {
+        "fifth": 13,
+        "first": 2,
+        "fourth": 17,
+        "second": 7,
+        "third": 12
+      },
+      "estimate": 285000
+    }
+  ],
+  "osgeo": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240215",
+      "sponsors": 19,
+      "levels": {
+        "fifth": 9,
+        "first": 3,
+        "fourth": 2,
+        "second": 2,
+        "third": 3
+      },
+      "estimate": 170500
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 6,
+        "first": 2,
+        "fourth": 3,
+        "second": 2,
+        "third": 2
+      },
+      "estimate": 132000
+    }
+  ],
+  "osi": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 18,
+      "levels": {
+        "fifth": 4,
+        "first": 1,
+        "fourth": 5,
+        "second": 1,
+        "third": 7
+      },
+      "estimate": 450000
+    }
+  ],
+  "owasp": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240212",
+      "sponsors": 49,
+      "levels": {
+        "first": 5,
+        "second": 7,
+        "third": 37
+      },
+      "estimate": 415000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 50,
+      "levels": {
+        "first": 5,
+        "second": 7,
+        "third": 38
+      },
+      "estimate": 420000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 68,
+      "levels": {
+        "first": 9,
+        "second": 13,
+        "third": 46
+      },
+      "estimate": 650000
+    }
+  ],
+  "plone": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 11,
+      "levels": {
+        "first": 5,
+        "second": 6
+      },
+      "estimate": 52500
+    }
+  ],
+  "postgresql": [
+    {
+      "parseDate": "20240112",
+      "lastChecked": "20240112",
+      "sponsors": 6,
+      "levels": {
+        "firstinkind": 5,
+        "third": 1
+      },
+      "estimate": 10000
+    }
+  ],
+  "python": [
+    {
+      "parseDate": "20240208",
+      "lastChecked": "20240208",
+      "sponsors": 39,
+      "levels": {
+        "eighth": 5,
+        "fifth": 4,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 13,
+        "third": 1
+      },
+      "estimate": 775000
+    },
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240212",
+      "sponsors": 38,
+      "levels": {
+        "eighth": 5,
+        "fifth": 4,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 12,
+        "third": 1
+      },
+      "estimate": 765000
+    },
+    {
+      "parseDate": "20240215",
+      "lastChecked": "20240215",
+      "sponsors": 45,
+      "levels": {
+        "eighth": 5,
+        "fifth": 5,
+        "first": 2,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 9,
+        "sixth": 15,
+        "third": 4
+      },
+      "estimate": 1076250
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 67,
+      "levels": {
+        "eighth": 3,
+        "fifth": 10,
+        "first": 5,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 14,
+        "sixth": 22,
+        "third": 8
+      },
+      "estimate": 1927000
+    }
+  ],
+  "rails": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 13,
+      "levels": {
+        "first": 8,
+        "second": 5
+      },
+      "estimate": 525000
+    }
+  ],
+  "raspberrypi": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240926",
+      "sponsors": 19,
+      "levels": {
+        "fifth": 3,
+        "first": 1,
+        "fourth": 8,
+        "second": 1,
+        "sixth": 5,
+        "third": 1
+      },
+      "estimate": 2850000
+    }
+  ],
+  "sfc": [
+    {
+      "parseDate": "20240211",
+      "lastChecked": "20240215",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20240926",
+      "lastChecked": "20240926",
+      "sponsors": 9,
+      "levels": {
+        "first": 9
+      },
+      "estimate": 9000
+    }
+  ],
+  "spi": [
+    {
+      "parseDate": "20240212",
+      "lastChecked": "20240212",
+      "sponsors": 3,
+      "levels": {
+        "first": 3
+      },
+      "estimate": 3003
+    }
+  ]
+}
