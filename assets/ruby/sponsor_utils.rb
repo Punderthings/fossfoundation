@@ -103,6 +103,7 @@ module SponsorUtils
   DRIFT_MIN_RATIO = 0.5 # new total below this fraction of old total is suspicious
   DRIFT_MIN_LEVEL = 5 # a level that had at least this many sponsors and is now empty is suspicious
   DEFAULT_MAX_AGE = 365 # days before --check calls committed data stale
+  DEFAULT_BRIDGE_DAYS = 31 # sponsor absences this short in history are treated as continuous
 
   # Raised for any problem that means an org's sponsor data is not trustworthy;
   # callers should report it and not overwrite previously parsed data.
@@ -945,10 +946,29 @@ module SponsorUtils
   # Sponsor history: one file per org of sponsor spans, written when the current list changes
   #   {"org": "x",
   #    "scrapes": [{"parseDate", "lastChecked", "source", "ref", "modelDate", "forced", "counts"}, ...],
-  #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen"}, ...]}
+  #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen", "missing" (optional)}, ...]}
   # A span covers consecutive scrapes listing a sponsor at a level: firstSeen is the
   # parseDate of the first, lastSeen the lastChecked of the last (null while current).
+  # A sponsor missing from lists for at most bridge_days (default 31, e.g. one monthly
+  # sample) keeps one span; the dates it was missing are kept in the span's 'missing'
+  # list, so every recorded list can still be rebuilt exactly.
   # The current _data file's lastChecked is copied into history at the next change.
+
+  # @return days of absence bridged when building history (0 disables bridging)
+  def bridge_days
+    @bridge_days.nil? ? DEFAULT_BRIDGE_DAYS : @bridge_days
+  end
+
+  # @param days of absence to bridge; 0 disables, nil restores the default
+  def bridge_days=(days)
+    raise ArgumentError, 'bridge days must be 0 or more' if days&.negative?
+    @bridge_days = days
+  end
+
+  # @return days from one YYYYMMDD date to another
+  def days_between(from, to)
+    (Date.strptime(to, '%Y%m%d') - Date.strptime(from, '%Y%m%d')).to_i
+  end
 
   # @return {level => sorted unique sponsors} for non-empty array levels
   def level_lists(sponsors)
@@ -980,7 +1000,9 @@ module SponsorUtils
   def history_states(hist)
     hist['scrapes'].sort_by { |scrape| scrape['parseDate'] }.map do |scrape|
       date = scrape['parseDate']
-      active = hist['spans'].select { |span| span['firstSeen'] <= date && (span['lastSeen'].nil? || span['lastSeen'] >= date) }
+      active = hist['spans'].select do |span|
+        span['firstSeen'] <= date && (span['lastSeen'].nil? || span['lastSeen'] >= date) && !Array(span['missing']).include?(date)
+      end
       state = active.group_by { |span| span['level'] }.transform_values { |spans| spans.map { |span| span['sponsor'] }.sort }
       [scrape.reject { |key, _| key == 'counts' }, state.sort.to_h]
     end
@@ -988,24 +1010,40 @@ module SponsorUtils
 
   # Build a history from a date-ordered list of scrapes and the sponsors each listed
   # @param entries array of [metadata with parseDate and lastChecked, {level => sponsors}]
+  # @param bridge days of absence to treat as continuous (see bridge_days); 0 disables
   # @return history hash
-  def build_history(org, entries)
+  def build_history(org, entries, bridge: bridge_days)
     spans = []
-    open = {}
+    open = {}   # [sponsor, level] => span still open
+    absent = {} # [sponsor, level] => {first:, last_seen:, missing: []} for open spans not in the latest list
     previous = nil
+    close = ->(key, gap) { open.delete(key)['lastSeen'] = gap[:last_seen] }
     entries.each do |meta, state|
-      present = state.flat_map { |lvl, sponsors| sponsors.map { |sponsor| [sponsor, lvl] } }
-      (open.keys - present).each do |key|
-        open.delete(key)['lastSeen'] = previous['lastChecked'] || previous['parseDate']
+      date = meta['parseDate']
+      present = state.flat_map { |lvl, sponsors| sponsors.map { |sponsor| [sponsor, lvl] } }.to_set
+      open.each_key do |key|
+        next if present.include?(key)
+        gap = (absent[key] ||= { first: date, last_seen: previous['lastChecked'] || previous['parseDate'], missing: [] })
+        gap[:missing] << date
       end
-      present.each do |sponsor, lvl|
-        next if open.key?([sponsor, lvl])
-        span = { 'sponsor' => sponsor, 'level' => lvl, 'firstSeen' => meta['parseDate'], 'lastSeen' => nil }
-        open[[sponsor, lvl]] = span
+      present.each do |key|
+        if (gap = absent.delete(key))
+          if days_between(gap[:first], date) <= bridge
+            (open[key]['missing'] ||= []).concat(gap[:missing])
+            next
+          end
+          close.call(key, gap)
+        end
+        next if open.key?(key)
+        span = { 'sponsor' => key[0], 'level' => key[1], 'firstSeen' => date, 'lastSeen' => nil }
+        open[key] = span
         spans << span
       end
+      # Absences already longer than bridge cannot be bridged by a later return
+      absent.delete_if { |key, gap| days_between(gap[:first], date) > bridge && close.call(key, gap) }
       previous = meta
     end
+    absent.each { |key, gap| close.call(key, gap) }
     rank = ->(lvl) { SPONSOR_METALEVELS.index(lvl) || SPONSOR_METALEVELS.size }
     scrapes = entries.map do |meta, state|
       meta.slice('parseDate', 'lastChecked', 'source', 'ref', 'modelDate', 'forced').compact
@@ -1226,6 +1264,9 @@ module SponsorUtils
       opts.on('--no-history', 'Do not write sponsor history files.') do
         options[:no_history] = true
       end
+      opts.on('--bridge-days DAYS', Integer, "Treat sponsor absences up to DAYS long as continuous in history (default #{DEFAULT_BRIDGE_DAYS}; 0 disables).") do |days|
+        options[:bridge_days] = days
+      end
       opts.on('--backfill-git', 'Create history files from committed versions of the data; no fetching.') do
         options[:backfill] = true
       end
@@ -1309,6 +1350,7 @@ module SponsorUtils
   def main(argv = ARGV)
     options = parse_commandline(argv)
     self.verbose = options.fetch(:verbose, false)
+    self.bridge_days = options[:bridge_days] if options[:bridge_days]
     failures = {}
     orgid = options[:orgid]
     if orgid && !ORG_ID_PATTERN.match?(orgid)

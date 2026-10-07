@@ -679,6 +679,65 @@ class SponsorUtilsTest < Minitest::Test
     end
   end
 
+  def monthly_entries(*states)
+    dates = %w[20260131 20260228 20260331 20260430 20260531 20260630]
+    states.each_with_index.map { |state, i| [{ 'parseDate' => dates[i], 'lastChecked' => dates[i] }, state] }
+  end
+
+  def test_build_history_bridges_one_missed_month
+    entries = monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] })
+    hist = SponsorUtils.build_history('demo', entries)
+    assert_equal [{ 'sponsor' => 'a.com', 'level' => 'first', 'firstSeen' => '20260131', 'lastSeen' => nil },
+                  { 'sponsor' => 'b.com', 'level' => 'first', 'firstSeen' => '20260131', 'lastSeen' => nil, 'missing' => ['20260228'] }], hist['spans']
+    assert_equal [2, 1, 2], hist['scrapes'].map { |sc| sc['counts']['first'] }, 'counts stay as observed'
+    assert_equal entries.map(&:last), SponsorUtils.history_states(hist).map(&:last), 'every list can be rebuilt exactly'
+  end
+
+  def test_build_history_does_not_bridge_longer_absences
+    two_months = monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] })
+    hist = SponsorUtils.build_history('demo', two_months)
+    assert_equal [%w[b.com 20260131 20260131], ['b.com', '20260430', nil]],
+                 hist['spans'].select { |sp| sp['sponsor'] == 'b.com' }.map { |sp| sp.values_at('sponsor', 'firstSeen', 'lastSeen') }
+    assert_equal two_months.map(&:last), SponsorUtils.history_states(hist).map(&:last)
+
+    yearly = [[{ 'parseDate' => '20230101', 'lastChecked' => '20231231' }, { 'first' => %w[b.com] }],
+              [{ 'parseDate' => '20240101', 'lastChecked' => '20241231' }, { 'first' => %w[c.com] }],
+              [{ 'parseDate' => '20250101', 'lastChecked' => '20251231' }, { 'first' => %w[b.com] }]]
+    assert_equal 2, SponsorUtils.build_history('demo', yearly)['spans'].count { |sp| sp['sponsor'] == 'b.com' }, 'a missing year is not bridged'
+
+    ended = SponsorUtils.build_history('demo', monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }))
+    assert_equal '20260131', ended['spans'].find { |sp| sp['sponsor'] == 'b.com' }['lastSeen'], 'an absence at the end is a departure'
+  end
+
+  def test_build_history_bridge_disabled_and_level_moves
+    entries = monthly_entries({ 'first' => %w[a.com] }, { 'second' => %w[a.com] }, { 'first' => %w[a.com] })
+    unbridged = SponsorUtils.build_history('demo', entries, bridge: 0)
+    assert_equal [%w[first 20260131 20260131], ['first', '20260331', nil], %w[second 20260228 20260228]],
+                 unbridged['spans'].map { |sp| sp.values_at('level', 'firstSeen', 'lastSeen') }
+    refute(unbridged['spans'].any? { |sp| sp.key?('missing') })
+    bridged = SponsorUtils.build_history('demo', entries)
+    assert_equal 2, bridged['spans'].size
+    assert_equal entries.map(&:last), SponsorUtils.history_states(bridged).map(&:last)
+  end
+
+  def test_bridge_days_setting
+    assert_equal 31, SponsorUtils.bridge_days
+    SponsorUtils.bridge_days = 0
+    assert_equal 0, SponsorUtils.bridge_days
+    assert_raises(ArgumentError) { SponsorUtils.bridge_days = -1 }
+    in_tmp_project do
+      SponsorUtils.bridge_days = nil
+      hist = SponsorUtils.build_history('demo', monthly_entries({ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com] }, { 'first' => %w[a.com b.com] }))
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
+      capture_io { assert_equal 0, SponsorUtils.main(%w[--renormalize --bridge-days 0]) }
+      assert_equal 0, SponsorUtils.bridge_days
+      spans = history_data['spans'].select { |sp| sp['sponsor'] == 'b.com' }
+      assert_equal 2, spans.size, 'renormalizing with --bridge-days 0 splits the bridged span'
+    end
+  ensure
+    SponsorUtils.bridge_days = nil
+  end
+
   def test_history_json_is_one_row_per_line
     hist = SponsorUtils.build_history('demo', [[{ 'parseDate' => '20260101', 'lastChecked' => '20260101' }, { 'first' => %w[a.com b.com] }]])
     text = SponsorUtils.history_json(hist)

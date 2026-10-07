@@ -296,6 +296,10 @@ class SponsorArchiveTest < Minitest::Test
       _, err = capture_io { assert_equal 1, SponsorArchive.main(%w[preview ../x]) }
       assert_match(/invalid org id/, err)
       assert_raises(SystemExit) { capture_io { SponsorArchive.main(%w[unknown]) } }
+      capture_io { assert_equal 0, SponsorArchive.main(%w[coverage demo --bridge-days 10]) }
+      assert_equal 10, SponsorUtils.bridge_days
+    ensure
+      SponsorUtils.bridge_days = nil
     end
   end
 end

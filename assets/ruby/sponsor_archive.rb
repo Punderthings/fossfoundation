@@ -24,7 +24,9 @@ module SponsorArchive
 
     Precedence when merging: live scrapes (sponsor_utils.rb) win from the
     date they start; archive lists replace this repository's own backfilled
-    lists for the period the archive covers.  Raw content is cached in
+    lists for the period the archive covers.  A sponsor missing for at most
+    --bridge-days (default 31, one monthly sample) keeps one continuous span.
+    Raw content is cached in
     .cache/sponsor-archive; only parsed lists and their 'ref' are kept.
   HEREDOC
   module_function
@@ -422,6 +424,9 @@ module SponsorArchive
       opts.on('--source N', Integer, 'preview: only the Nth source (from 0).') { |n| options[:source] = n }
       opts.on('--history DIR', "History directory (default #{SponsorUtils::DEFAULT_HISTORY_DIR}).") { |d| options[:history] = d }
       opts.on('-n', '--dry-run', 'collect: report what would be recorded without writing.') { options[:dry_run] = true }
+      opts.on('--bridge-days DAYS', Integer, "collect: treat sponsor absences up to DAYS long as continuous (default #{SponsorUtils::DEFAULT_BRIDGE_DAYS}; 0 disables).") do |days|
+        options[:bridge_days] = days
+      end
       opts.on('-v', '--[no-]verbose', 'Verbose output.') { |v| options[:verbose] = v }
     end
     begin
@@ -442,6 +447,7 @@ module SponsorArchive
   def main(argv = ARGV)
     command, orgs, options = parse_commandline(argv)
     SponsorUtils.verbose = options.fetch(:verbose, false)
+    SponsorUtils.bridge_days = options[:bridge_days] if options[:bridge_days]
     orgs.each { |org| raise ParseError, "invalid org id #{org}" unless SponsorUtils::ORG_ID_PATTERN.match?(org) }
     case command
     when 'preview'
