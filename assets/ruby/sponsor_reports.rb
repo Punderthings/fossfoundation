@@ -111,6 +111,40 @@ module SponsorReports
     return orgs
   end
 
+  # Summarize sponsor history files for the website: per org, one row per scrape
+  # with sponsor counts and an estimated total using the amounts in effect then
+  # @param history_dir pointing to history/sponsorships
+  # @param sponsors optional current data (org => json hash); its lastChecked extends the latest row
+  # @return hash of org => [{parseDate, lastChecked, sponsors, levels, estimate}]
+  def report_history(history_dir, sponsors = {})
+    report = {}
+    Dir.glob(File.join(history_dir, '*.json')).sort.each do |file|
+      hist = SponsorUtils.load_history(file)
+      org = hist['org'] || File.basename(file, '.json')
+      model = begin
+        SponsorUtils.get_sponsorship_file(org)
+      rescue SponsorUtils::ParseError
+        nil
+      end
+      rows = hist['scrapes'].sort_by { |scrape| scrape['parseDate'] }.map do |scrape|
+        counts = scrape.fetch('counts', {})
+        estimate = nil
+        if model
+          levels = SponsorUtils.model_at(model, scrape['parseDate']).fetch('levels', {})
+          estimate = counts.sum { |lvl, n| levels.fetch(lvl, {}).fetch('amount', 0).to_i * n }
+        end
+        { 'parseDate' => scrape['parseDate'], 'lastChecked' => scrape['lastChecked'],
+          'sponsors' => counts.values.sum, 'levels' => counts, 'estimate' => estimate }
+      end
+      current_checked = SponsorUtils.date_key(sponsors.dig(org, SponsorUtils::LAST_CHECKED))
+      if rows.any? && current_checked && current_checked > rows.last['lastChecked'].to_s
+        rows.last['lastChecked'] = current_checked
+      end
+      report[org] = rows
+    end
+    return report
+  end
+
   # Simplistic report of counts by level, org, etc.
   def report_all_counts()
     allsponsorships = JSON.parse(File.read('_data/allsponsorships.json'))
@@ -146,6 +180,10 @@ s parseDate.') do |date|
     report = report_funding(sponsors, as_of: as_of)
     File.open(File.join(outdir, 'org-funding.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
+    end
+    if Dir.exist?(SponsorUtils::DEFAULT_HISTORY_DIR)
+      File.write(File.join(outdir, 'sponsor-history.json'),
+                 JSON.pretty_generate(report_history(SponsorUtils::DEFAULT_HISTORY_DIR, sponsors)))
     end
   end
 end

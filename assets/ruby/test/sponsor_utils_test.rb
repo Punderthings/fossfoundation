@@ -555,6 +555,178 @@ class SponsorUtilsTest < Minitest::Test
     end
   end
 
+  def test_level_lists
+    assert_equal({ 'first' => %w[a.com b.com] }, SponsorUtils.level_lists('first' => ['b.com', 'a.com', 'b.com', ' '], 'second' => [], 'parseDate' => '1'))
+  end
+
+  def record(sponsors, date, **opts)
+    SponsorUtils.record_sponsors('demo', File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json'), sponsors,
+                                 history_dir: SponsorUtils::DEFAULT_HISTORY_DIR, today: Date.strptime(date, '%Y%m%d'), **opts)
+  end
+
+  def current_data = JSON.parse(File.read(File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json')))
+  def history_data = SponsorUtils.load_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'))
+  def spans_of(hist) = hist['spans'].map { |sp| sp.values_at('sponsor', 'level', 'firstSeen', 'lastSeen') }
+
+  def test_record_sponsors_lifecycle
+    in_tmp_project do
+      assert_equal :new, record({ 'first' => %w[b.com a.com], 'parseDate' => '20260101' }, '20260101')
+      assert_equal({ 'first' => %w[b.com a.com], 'parseDate' => '20260101', 'lastChecked' => '20260101' }, current_data)
+      assert_equal [%w[a.com first 20260101] + [nil], %w[b.com first 20260101] + [nil]], spans_of(history_data)
+
+      assert_equal :unchanged, record({ 'first' => %w[a.com b.com], 'parseDate' => '20260115' }, '20260115')
+      assert_equal '20260101', current_data['parseDate'], 'unchanged lists keep their first-observed date'
+      assert_equal '20260115', current_data['lastChecked']
+      assert_equal 1, history_data['scrapes'].size, 'unchanged runs do not touch history'
+
+      assert_equal :changed, record({ 'first' => %w[a.com c.com], 'second' => %w[b.com], 'parseDate' => '20260201' }, '20260201')
+      hist = history_data
+      assert_equal [{ 'parseDate' => '20260101', 'lastChecked' => '20260115', 'source' => 'scrape', 'counts' => { 'first' => 2 } },
+                    { 'parseDate' => '20260201', 'lastChecked' => '20260201', 'source' => 'scrape', 'counts' => { 'first' => 2, 'second' => 1 } }],
+                   hist['scrapes']
+      assert_equal [['a.com', 'first', '20260101', nil], %w[b.com first 20260101 20260115],
+                    ['c.com', 'first', '20260201', nil], ['b.com', 'second', '20260201', nil]], spans_of(hist)
+
+      record({ 'first' => %w[a.com c.com d.com], 'second' => %w[b.com], 'parseDate' => '20260201' }, '20260201')
+      assert_equal %w[20260101 20260201], history_data['scrapes'].map { |sc| sc['parseDate'] }, 'same-day change replaces that scrape'
+      assert_includes spans_of(history_data), ['d.com', 'first', '20260201', nil]
+
+      assert_raises(SponsorUtils::ParseError) { record({ 'first' => %w[z.com], 'parseDate' => '20250101' }, '20250101') }
+      states = SponsorUtils.history_states(history_data).map(&:last)
+      assert_equal [{ 'first' => %w[a.com b.com] }, { 'first' => %w[a.com c.com d.com], 'second' => %w[b.com] }], states
+    end
+  end
+
+  def test_record_sponsors_seeds_history_from_existing_data
+    in_tmp_project do
+      File.write(File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json'),
+                 '{"first":["a.com"],"parseDate":"20250101","lastChecked":"20260131"}')
+      record({ 'first' => %w[b.com], 'parseDate' => '20260201' }, '20260201')
+      assert_equal [{ 'parseDate' => '20250101', 'lastChecked' => '20260131', 'source' => 'previous', 'counts' => { 'first' => 1 } },
+                    { 'parseDate' => '20260201', 'lastChecked' => '20260201', 'source' => 'scrape', 'counts' => { 'first' => 1 } }],
+                   history_data['scrapes']
+      assert_equal [%w[a.com first 20250101 20260131], ['b.com', 'first', '20260201', nil]], spans_of(history_data)
+    end
+  end
+
+  def test_record_sponsors_change_on_last_checked_day
+    in_tmp_project do
+      record({ 'first' => %w[a.com], 'parseDate' => '20260101' }, '20260101')
+      record({ 'first' => %w[a.com], 'parseDate' => '20260201' }, '20260201')
+      record({ 'first' => %w[b.com], 'parseDate' => '20260201' }, '20260201')
+      assert_equal %w[a.com first 20260101 20260131], spans_of(history_data).first, 'earlier list confirmed until the day before'
+      assert_equal [{ 'first' => %w[a.com] }, { 'first' => %w[b.com] }], SponsorUtils.history_states(history_data).map(&:last)
+    end
+  end
+
+  def test_record_sponsors_static_forced_and_no_history
+    in_tmp_project do
+      model = { 'staticmap' => 20240112, 'effectiveDate' => '20230101' }
+      record({ 'first' => %w[a.com], 'parseDate' => 20240112 }, '20261007', model: model)
+      assert_equal({ 'first' => %w[a.com], 'parseDate' => '20240112', 'lastChecked' => '20240112' }, current_data)
+      assert_equal [{ 'parseDate' => '20240112', 'lastChecked' => '20240112', 'source' => 'manual', 'modelDate' => '20230101', 'counts' => { 'first' => 1 } }],
+                   history_data['scrapes']
+
+      big = { 'first' => (1..12).map { |i| "s#{i}.com" }, 'parseDate' => '20260101' }
+      record(big, '20260101')
+      capture_io { record({ 'first' => %w[s1.com], 'parseDate' => '20260201' }, '20260201', force: true) }
+      assert history_data['scrapes'].last['forced']
+
+      path = File.join(SponsorUtils::DEFAULT_OUTDIR, 'other.json')
+      SponsorUtils.record_sponsors('other', path, { 'first' => %w[x.com], 'parseDate' => '20260101' })
+      refute File.exist?(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'other.json'))
+    end
+  end
+
+  def test_history_json_is_one_row_per_line
+    hist = SponsorUtils.build_history('demo', [[{ 'parseDate' => '20260101', 'lastChecked' => '20260101' }, { 'first' => %w[a.com b.com] }]])
+    text = SponsorUtils.history_json(hist)
+    assert_equal hist, JSON.parse(text)
+    assert_equal 2, text.lines.grep(/"sponsor":/).size
+    assert_equal({ 'org' => 'x', 'scrapes' => [], 'spans' => [] }, JSON.parse(SponsorUtils.history_json(SponsorUtils.build_history('x', []))))
+  end
+
+  def test_renormalize_history_files_merges_spans
+    in_tmp_project do
+      hist = SponsorUtils.build_history('demo', [
+        [{ 'parseDate' => '20240101', 'lastChecked' => '20240101' }, { 'first' => %w[cloud.google.com] }],
+        [{ 'parseDate' => '20250101', 'lastChecked' => '20250101' }, { 'first' => %w[google.com] }]
+      ])
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
+      capture_io { assert_equal 0, SponsorUtils.main(%w[--renormalize]) }
+      assert_equal [['google.com', 'first', '20240101', nil]], spans_of(history_data)
+      assert_equal 2, history_data['scrapes'].size
+    end
+  end
+
+  def git!(*args)
+    out, status = Open3.capture2e('git', '-c', 'user.name=Test', '-c', 'user.email=test@example.org', '-c', 'commit.gpgsign=false', *args)
+    assert status.success?, out
+  end
+
+  def commit_file(path, content, message)
+    File.write(path, content)
+    git!('add', path)
+    git!('commit', '-q', '--no-verify', '-m', message)
+  end
+
+  def test_backfill_history_from_git
+    in_tmp_project do
+      git!('init', '-q')
+      out = SponsorUtils::DEFAULT_OUTDIR
+      commit_file('_data/allsponsorships.json',
+                  JSON.generate('demo' => { 'first' => ['a.com', 'ERROR: scrape failed'], 'parseDate' => '20240208' }, 'other' => {}), 'all')
+      commit_file("#{out}/demo.json", JSON.generate('first' => ['www.a.com'], 'parseDate' => '20240215'), 'v1')
+      commit_file("#{out}/demo.json", JSON.generate('error' => 'ERROR: 404', 'parseDate' => '20240501'), 'error blob')
+      commit_file("#{out}/demo.json", JSON.generate('first' => [], 'parseDate' => '20240926'), 'empty scrape')
+      commit_file("#{out}/demo.json", JSON.generate('first' => %w[a.com b.com], 'parseDate' => '20250911'), 'v2')
+      File.write("#{out}/demo.json", JSON.generate('first' => %w[b.com a.com], 'parseDate' => '20250911', 'lastChecked' => '20261001'))
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '1'\n" \
+                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        amount: '2'\n")
+
+      out_text, = capture_io { assert_equal 0, SponsorUtils.main(%w[--backfill-git --one demo]) }
+      assert_match(/Backfilled 1/, out_text)
+      hist = history_data
+      assert_equal [{ 'parseDate' => '20240208', 'lastChecked' => '20240215', 'source' => 'git', 'modelDate' => '20200101', 'counts' => { 'first' => 1 } },
+                    { 'parseDate' => '20250911', 'lastChecked' => '20250911', 'source' => 'git', 'modelDate' => '20250101', 'counts' => { 'first' => 2 } }],
+                   hist['scrapes']
+      assert_equal [['a.com', 'first', '20240208', nil], ['b.com', 'first', '20250911', nil]], spans_of(hist)
+
+      _, err = capture_io { SponsorUtils.main(%w[--backfill-git --one demo]) }
+      assert_match(/exists; skipping/, err)
+    end
+  end
+
+  def test_version_state_skips_unusable_versions
+    assert_equal ['20240101', { 'first' => %w[a.com b.com], 'second' => %w[c.com] }],
+                 SponsorUtils.version_state('first' => %w[www.b.com a.com], 'second' => ['c.com', 'ERROR: x'], 'parseDate' => 20240101)
+    assert_nil SponsorUtils.version_state('first' => %w[a.com b.com], 'fourth' => %w[b.com a.com], 'parseDate' => '20240101'), 'duplicated level'
+    refute_nil SponsorUtils.version_state('first' => %w[a.com], 'fourth' => %w[a.com], 'parseDate' => '20240101'), 'one shared sponsor is plausible'
+    assert_nil SponsorUtils.version_state('first' => [], 'parseDate' => '20240101')
+    assert_nil SponsorUtils.version_state('error' => 'ERROR: 404', 'parseDate' => '20240101')
+    assert_nil SponsorUtils.version_state('first' => %w[a.com], 'parseDate' => 'soon')
+    assert_nil SponsorUtils.version_state('first' => %w[a.com])
+    assert_nil SponsorUtils.version_state(nil)
+  end
+
+  def test_history_dir_for
+    assert_equal 'history/sponsorships', SponsorUtils.history_dir_for({})
+    assert_nil SponsorUtils.history_dir_for(out: 'tmp')
+    assert_nil SponsorUtils.history_dir_for(orgid: 'x', infile: 'page.html')
+    assert_equal 'h', SponsorUtils.history_dir_for(out: 'tmp', history: 'h')
+    assert_nil SponsorUtils.history_dir_for(history: 'h', no_history: true)
+  end
+
+  def test_check_age_uses_last_checked
+    in_tmp_project do
+      write_model('demo', "identifier: demo\nstaticmap: 20200101\nlevels:\n  first:\n    sponsors: [a.com]\n")
+      File.write(File.join(SponsorUtils::DEFAULT_OUTDIR, 'demo.json'), '{"first":["a.com"],"parseDate":"20200101","lastChecked":"20260101"}')
+      results = SponsorUtils.check_sponsorships(%w[demo], today: Date.new(2026, 2, 1))
+      assert_equal 31, results.first[:age]
+      assert_equal ['ok'], results.first[:statuses]
+    end
+  end
+
   # Minimal one-connection-per-response http server for fetch tests
   def with_http_server(responses)
     server = TCPServer.new('127.0.0.1', 0)
@@ -616,6 +788,25 @@ class SponsorReportsTest < Minitest::Test
       assert_equal({ 'a.com' => 12_000, 'b.com' => 12_000 }, SponsorReports.report_funding(new_list, as_of: '20200101')['sponsors'])
       undated = { 'demo' => { 'first' => %w[a.com] } }
       assert_equal 18_000, SponsorReports.report_funding(undated)['orgs']['demo']['total']
+    end
+  end
+
+  def test_report_history_summary
+    in_tmp_project do
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '100'\n  second:\n    amount: '10'\n" \
+                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        amount: '50'\n")
+      hist = SponsorUtils.build_history('demo', [
+        [{ 'parseDate' => '20240101', 'lastChecked' => '20240301' }, { 'first' => %w[a.com b.com] }],
+        [{ 'parseDate' => '20250601', 'lastChecked' => '20250601' }, { 'first' => %w[a.com], 'second' => %w[c.com d.com] }]
+      ])
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
+      no_model = SponsorUtils.build_history('nomodel', [[{ 'parseDate' => '20240101', 'lastChecked' => '20240101' }, { 'first' => %w[x.com] }]])
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'nomodel.json'), no_model)
+      report = SponsorReports.report_history(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo' => { 'lastChecked' => '20261001' })
+      assert_equal [{ 'parseDate' => '20240101', 'lastChecked' => '20240301', 'sponsors' => 2, 'levels' => { 'first' => 2 }, 'estimate' => 100 },
+                    { 'parseDate' => '20250601', 'lastChecked' => '20261001', 'sponsors' => 3, 'levels' => { 'first' => 1, 'second' => 2 }, 'estimate' => 120 }],
+                   report['demo']
+      assert_nil report['nomodel'].first['estimate']
     end
   end
 
