@@ -4,6 +4,12 @@ commonName: Software Freedom Conservancy
 nonprofit: c3
 sponsorurl: https://sfconservancy.org/sponsors/
 levelurl: https://sfconservancy.org/sponsors/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page
+  - kind: wayback
+    urls:
+      - https://sfconservancy.org/sponsors/
 normalize: 'true'
 comment: SFConservancy does not list specific amounts or benefits; use 1K as a default
   corporate level

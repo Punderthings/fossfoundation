@@ -4,6 +4,14 @@ commonName: Apache Software Foundation
 nonprofit: c3
 sponsorurl: https://apache.org/foundation/sponsors
 levelurl: https://apache.org/foundation/sponsorship
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page at each URL it has had
+  - kind: wayback
+    urls:
+      - https://www.apache.org/foundation/thanks.html
+      - https://www.apache.org/foundation/sponsors.html
+      - https://www.apache.org/foundation/sponsors
 normalize: 'true'
 levels:
   first:

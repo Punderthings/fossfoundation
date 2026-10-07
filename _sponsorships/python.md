@@ -4,6 +4,15 @@ commonName: Python
 nonprofit: c3
 sponsorurl: https://www.python.org/psf/sponsors/
 levelurl: https://www.python.org/sponsors/application/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page under the current sponsorship program.
+  # Earlier pages (psf/sponsorship/sponsors/) list a different program's tiers, whose prices
+  # are not modeled yet, so those years are not collected.
+  - kind: wayback
+    urls:
+      - https://www.python.org/psf/sponsors/
+    from: '20230101'
 sponsormap: _data/python_map.json
 levels:
   first:
