@@ -32,29 +32,19 @@ module SponsorReports
       orgtotal = 0
       report[ORGS_REPORT][org] = {}
       orglevels = SponsorUtils.get_current_sponsorship(SponsorUtils.get_sponsorship_file(org))
-      orglevels = orglevels['levels']
+      orglevels = orglevels.fetch('levels', {})
       sponsors.each do | lvl, ary |
-        next unless ary.is_a?(Array)
-        lvlamt = orglevels[lvl].fetch('amount', 0).to_i
-        numlvl = ary.size
-        amtlvl = lvlamt * numlvl
+        next unless ary.is_a?(Array) # Ignore parseDate, etc.
+        lvlamt = orglevels.fetch(lvl, {}).fetch('amount', 0).to_i
+        amtlvl = lvlamt * ary.size
         # For the organization's report, count full value for all
         report[ORGS_REPORT][org][lvl] = amtlvl
         orgtotal += amtlvl
         # For the sponsor's report, discount inkind levels
-        if ary.is_a?(Array) # Ignore dates or errors
-          ary.each do | sponsorurl |
-            # TODO somehow mark amountvaries levels?
-            lvlamt = (lvlamt * INKIND_DISCOUNT).round(0) if /inkind/.match(lvl)
-            # report['sponsortotal'][sponsorurl] += lvlamt # HACK1 this line randomly throws: undefined method `+' for nil:NilClass
-            # HACK1 sum up values the hard way
-            val = report[SPONSORS_REPORT].fetch(sponsorurl, nil)
-            if val
-              report[SPONSORS_REPORT][sponsorurl] += lvlamt
-            else
-              report[SPONSORS_REPORT][sponsorurl] = lvlamt
-            end
-          end
+        # TODO somehow mark amountvaries levels?
+        sponsoramt = /inkind/.match?(lvl) ? (lvlamt * INKIND_DISCOUNT).round(0) : lvlamt
+        ary.each do | sponsorurl |
+          report[SPONSORS_REPORT][sponsorurl] += sponsoramt
         end
       end
       report[ORGS_REPORT][org][TOTALS] = orgtotal
@@ -79,6 +69,7 @@ module SponsorReports
         sponsorhash.each do | level, ary |
           if ary.is_a?(Array)  # Ignore dates or possible error entries
             counts[ORGS_REPORT][org][level] = ary.size
+            counts[level] ||= Hash.new(0) # Levels outside SPONSOR_METALEVELS
             ary.each do | url |
               counts['all'][url] += 1
               counts[level][url] += 1

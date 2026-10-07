@@ -37,8 +37,7 @@ levels:
   community:
     name: Associate
     amount: '0'
-    selector: div#notfound this section doesn't have an id is just in the silver section
-    attr: href
+    # No selector: associates have no separate section id; they are listed within the silver section
     benefits:
       logo: 'yes'
 ---

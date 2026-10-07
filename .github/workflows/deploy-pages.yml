@@ -7,11 +7,8 @@
 name: Deploy Jekyll site to GitHub Pages
 
 on:
+  # Build (but do not deploy) every PR to main; "build" is a required status check
   pull_request:
-    paths:
-      - .github/workflows/deploy-pages.yml
-  # Runs on pushes targeting the default branch
-  push:
     branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
