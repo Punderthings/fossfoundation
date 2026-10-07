@@ -1,0 +1,21 @@
+{
+  "org": "rails",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"first":8,"second":5}}
+  ],
+  "spans": [
+    {"sponsor":"37signals.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cookpad.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"doximity.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"fleetio.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"github.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"intercom.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"procore.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"shopify.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"appsignal.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bigbinary.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cedarcode.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"planetargon.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"renuo.ch","level":"second","firstSeen":"20240212","lastSeen":null}
+  ]
+}

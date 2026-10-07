@@ -1,0 +1,39 @@
+{
+  "org": "fsfe",
+  "scrapes": [
+    {"parseDate":"20240227","lastChecked":"20240227","source":"git","modelDate":"20190101","counts":{"first":6,"second":13}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","modelDate":"20190101","counts":{"first":8,"second":19}}
+  ],
+  "spans": [
+    {"sponsor":"Linuxhotel Villa Vogelsang","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"Microsoft","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"OpenProject","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Reinhard Wiesemann","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"intel.com","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"redhat.com","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"siemens.com","level":"first","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"AVM","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Collabora Productivity","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Document Foundation","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Julian Rüth GmbH","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"LINAGORA","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Lars Hohl a.k.a. derPUPE","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Luca Bonissi","level":"second","firstSeen":"20240227","lastSeen":"20240227"},
+    {"sponsor":"Nextcloud","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Otto Kekäläinen","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"SUSE Open Source Community Citizens (OSCC)","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"Thomas Etter","level":"second","firstSeen":"20240227","lastSeen":"20240227"},
+    {"sponsor":"Volvo Cars","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"XWiki / CryptPad Team","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"adfinis.com","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"freiheit.com","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"heinlein-support.de","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"intevation.de","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"keyfactor.com","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"linuxfoundation.org","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"openinventionnetwork.com","level":"second","firstSeen":"20240227","lastSeen":"20240227"},
+    {"sponsor":"publicplan.de","level":"second","firstSeen":"20240227","lastSeen":null},
+    {"sponsor":"sysmocom - systems for mobile communications","level":"second","firstSeen":"20240227","lastSeen":null}
+  ]
+}

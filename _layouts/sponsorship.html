@@ -63,6 +63,29 @@ layout: default
     </section>
   {% endif %}
 
+  {% assign history = site.data.sponsorships.sponsor-history[page.identifier] %}
+  {% if history and history.size > 0 %}
+    <h2 id="history">Sponsors Over Time</h2>
+    <p>Each row is a change in the published sponsor list, first seen on the listed date and last confirmed on the next date. Estimates use the sponsorship amounts in effect at the time. <a href="{{ '/history/sponsorships/' | append: page.identifier | append: '.json' | relative_url }}">Download the full history</a> (which sponsors, at which level, and when).</p>
+    <section id="sponsorship-history" class="sponsorship-history">
+      <table>
+        <thead><tr><th>Listed from</th><th>Last confirmed</th><th>Sponsors</th><th>Estimated annual (USD)</th></tr></thead>
+        <tbody>
+        {% for row in history reversed %}
+          {% assign from = row.parseDate | append: '' %}
+          {% assign until = row.lastChecked | append: '' %}
+          <tr>
+            <td>{{ from | slice: 0, 4 }}-{{ from | slice: 4, 2 }}-{{ from | slice: 6, 2 }}</td>
+            <td>{% if until.size == 8 %}{{ until | slice: 0, 4 }}-{{ until | slice: 4, 2 }}-{{ until | slice: 6, 2 }}{% endif %}</td>
+            <td>{{ row.sponsors }}</td>
+            <td>{{ row.estimate }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% endif %}
+
 <hr id="details"/>
 
 {{ content }}

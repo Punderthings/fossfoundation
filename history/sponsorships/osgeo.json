@@ -1,0 +1,33 @@
+{
+  "org": "osgeo",
+  "scrapes": [
+    {"parseDate":"20240208","lastChecked":"20240215","source":"git","counts":{"fifth":9,"first":3,"fourth":2,"second":2,"third":3}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"fifth":6,"first":2,"fourth":3,"second":2,"third":2}}
+  ],
+  "spans": [
+    {"sponsor":"geocat.net","level":"first","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"opengis.ch","level":"first","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"wherobots.ai","level":"first","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"camptocamp.com","level":"second","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"mapgears.com","level":"second","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"t-kartorusa.com","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"gaia3d.com","level":"third","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"wheregroup.com","level":"third","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"wigeogis.com","level":"third","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"psf.ca","level":"fourth","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"route4me.com","level":"fourth","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"terrestris.de","level":"fourth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"uk.osgeo.org","level":"fourth","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"arxit.com","level":"fifth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"crgl.ca","level":"fifth","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"how2map.com","level":"fifth","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"illustreets.com","level":"fifth","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"ip2location.com","level":"fifth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"kaplanopensource.co.il","level":"fifth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"line-45.com","level":"fifth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"mammothgeospatial.com","level":"fifth","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"merginmaps.com","level":"fifth","firstSeen":"20240208","lastSeen":"20240215"},
+    {"sponsor":"sjgeophysics.com","level":"fifth","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"wozalabs.com","level":"fifth","firstSeen":"20240926","lastSeen":null}
+  ]
+}

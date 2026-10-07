@@ -1,0 +1,17 @@
+{
+  "org": "gnome",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"first":4,"second":5}}
+  ],
+  "spans": [
+    {"sponsor":"canonical.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"redhat.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"system76.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"debian.org","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"documentfoundation.org","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"endlessos.org","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"opensuse.org","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"sugarlabs.org","level":"second","firstSeen":"20240212","lastSeen":null}
+  ]
+}

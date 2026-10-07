@@ -21,6 +21,11 @@ module SponsorUtils
     --check compares each org's committed data with a fresh parse and
     reports stale, changed, or failing orgs (exit 1 if any); it never writes.
 
+    History: when an org's sponsor list changes, the change is added to
+    history/sponsorships/<org>.json as sponsor spans (sponsor, level,
+    firstSeen, lastSeen); unchanged runs only update lastChecked in the
+    current file.  --backfill-git builds history from committed versions.
+
     Requires the nokogiri and public_suffix gems (public_suffix is
     already in Gemfile.lock via jekyll); Ruby 3.3+ stdlib otherwise.
     render: chrome additionally needs a local Chrome/Chromium (or CHROME_BIN).
@@ -33,7 +38,9 @@ module SponsorUtils
   require 'date'
   require 'optparse'
   require 'tmpdir'
+  require 'fileutils'
   require 'io/wait'
+  require 'open3'
   begin
     require 'nokogiri'
     require 'public_suffix'
@@ -56,6 +63,9 @@ module SponsorUtils
   PARSE_DATE = 'parseDate'
   EFFECTIVE_DATE = 'effectiveDate'
   PAST_MODELS = 'pastModels'
+  LAST_CHECKED = 'lastChecked'
+  DEFAULT_HISTORY_DIR = 'history/sponsorships'
+  ALL_SPONSORSHIPS_FILE = '_data/allsponsorships.json' # Early 2024 combined data, used by --backfill-git
   SOURCE_TYPES = %w[css landscape landscapejson json static].freeze
 
   # Editable list of hostnames/domains that belong to one sponsor org; see file for format
@@ -856,13 +866,15 @@ module SponsorUtils
   end
 
   # Refuse to overwrite existing data with a suspiciously smaller parse
+  # @return true if problems were found but force was given
   # @raise ParseError unless force
   def guard_drift!(org, path, sponsors, force: false)
     problems = drift_problems(load_existing(path), sponsors)
-    return if problems.empty?
+    return false if problems.empty?
     message = "#{org}: suspicious drop vs #{path} (#{problems.join('; ')}); page layout may have changed"
     raise ParseError, "#{message}; use --force to write anyway" unless force
     warn_msg("#{message}; writing anyway (--force)")
+    return true
   end
 
   # Check committed sponsor data for staleness and drift from a fresh parse
@@ -876,7 +888,7 @@ module SponsorUtils
       result = { org: org, statuses: [], age: nil, diff: nil, message: nil }
       old = load_existing(File.join(outdir, "#{org}.json"))
       if old
-        result[:age] = age_days(old[PARSE_DATE], today)
+        result[:age] = age_days(old[LAST_CHECKED] || old[PARSE_DATE], today)
         result[:statuses] << 'stale' if result[:age].nil? || result[:age] > max_age
       else
         result[:statuses] << 'missing'
@@ -915,8 +927,237 @@ module SponsorUtils
       puts line
     end
     bad = results.reject { |r| r[:statuses] == ['ok'] }
-    puts "#{results.size} checked; #{bad.size} need attention (stale = parseDate older than #{max_age} days)"
+    puts "#{results.size} checked; #{bad.size} need attention (stale = lastChecked or parseDate older than #{max_age} days)"
     return bad.empty? ? 0 : 1
+  end
+
+  # ## ### #### ##### ######
+  # Sponsor history: one file per org of sponsor spans, written when the current list changes
+  #   {"org": "x",
+  #    "scrapes": [{"parseDate", "lastChecked", "source", "modelDate", "forced", "counts"}, ...],
+  #    "spans": [{"sponsor", "level", "firstSeen", "lastSeen"}, ...]}
+  # A span covers consecutive scrapes listing a sponsor at a level: firstSeen is the
+  # parseDate of the first, lastSeen the lastChecked of the last (null while current).
+  # The current _data file's lastChecked is copied into history at the next change.
+
+  # @return {level => sorted unique sponsors} for non-empty array levels
+  def level_lists(sponsors)
+    sponsors.each_with_object({}) do |(lvl, ary), lists|
+      next unless ary.is_a?(Array)
+      cleaned = clean_list(ary).sort
+      lists[lvl] = cleaned unless cleaned.empty?
+    end.sort.to_h
+  end
+
+  # @return path of an org's history file
+  def history_path(history_dir, org)
+    File.join(history_dir, "#{org}.json")
+  end
+
+  # @return parsed history hash, or nil if there is no file
+  # @raise ParseError if the file exists but is unreadable
+  def load_history(path)
+    return nil unless File.file?(path)
+    hist = JSON.parse(read_local(path))
+    raise ParseError, "#{path}: not a sponsor history file" unless hist.is_a?(Hash) && hist['scrapes'].is_a?(Array) && hist['spans'].is_a?(Array)
+    return hist
+  rescue JSON::ParserError => e
+    raise ParseError, "#{path}: #{e.message}"
+  end
+
+  # Rebuild the list of sponsors at each scrape from a history's spans
+  # @return array of [scrape metadata hash, {level => sponsors}] in date order
+  def history_states(hist)
+    hist['scrapes'].sort_by { |scrape| scrape['parseDate'] }.map do |scrape|
+      date = scrape['parseDate']
+      active = hist['spans'].select { |span| span['firstSeen'] <= date && (span['lastSeen'].nil? || span['lastSeen'] >= date) }
+      state = active.group_by { |span| span['level'] }.transform_values { |spans| spans.map { |span| span['sponsor'] }.sort }
+      [scrape.reject { |key, _| key == 'counts' }, state.sort.to_h]
+    end
+  end
+
+  # Build a history from a date-ordered list of scrapes and the sponsors each listed
+  # @param entries array of [metadata with parseDate and lastChecked, {level => sponsors}]
+  # @return history hash
+  def build_history(org, entries)
+    spans = []
+    open = {}
+    previous = nil
+    entries.each do |meta, state|
+      present = state.flat_map { |lvl, sponsors| sponsors.map { |sponsor| [sponsor, lvl] } }
+      (open.keys - present).each do |key|
+        open.delete(key)['lastSeen'] = previous['lastChecked'] || previous['parseDate']
+      end
+      present.each do |sponsor, lvl|
+        next if open.key?([sponsor, lvl])
+        span = { 'sponsor' => sponsor, 'level' => lvl, 'firstSeen' => meta['parseDate'], 'lastSeen' => nil }
+        open[[sponsor, lvl]] = span
+        spans << span
+      end
+      previous = meta
+    end
+    rank = ->(lvl) { SPONSOR_METALEVELS.index(lvl) || SPONSOR_METALEVELS.size }
+    scrapes = entries.map do |meta, state|
+      meta.slice('parseDate', 'lastChecked', 'source', 'modelDate', 'forced').compact
+          .merge('counts' => state.transform_values(&:size))
+    end
+    return { 'org' => org, 'scrapes' => scrapes,
+             'spans' => spans.sort_by { |span| [rank.call(span['level']), span['level'], span['sponsor'], span['firstSeen']] } }
+  end
+
+  # Serialize a history with one scrape or span per line, for readable diffs
+  def history_json(hist)
+    rows = ->(items) { items.empty? ? '[]' : "[\n    #{items.map { |item| JSON.generate(item) }.join(",\n    ")}\n  ]" }
+    "{\n  \"org\": #{JSON.generate(hist['org'])},\n  \"scrapes\": #{rows.call(hist['scrapes'])},\n  \"spans\": #{rows.call(hist['spans'])}\n}\n"
+  end
+
+  # Write a history file, creating its directory
+  def write_history(path, hist)
+    FileUtils.mkdir_p(File.dirname(path))
+    File.write(path, history_json(hist))
+  end
+
+  # @return the day before a YYYYMMDD date, as YYYYMMDD
+  def day_before(date)
+    (Date.strptime(date, '%Y%m%d') - 1).strftime('%Y%m%d')
+  end
+
+  # Add a changed sponsor list to an org's history
+  # @param old_current the org's previous current data (or nil), whose lastChecked dates the last scrape
+  # @param meta scrape metadata with parseDate (and lastChecked, source, modelDate, forced)
+  # @param state {level => sponsors} now listed
+  # @raise ParseError if the history already has a later scrape
+  def append_history(path, org, old_current, meta, state)
+    hist = load_history(path)
+    entries = hist ? history_states(hist) : []
+    if old_current
+      old_date = date_key(old_current[PARSE_DATE])
+      old_state = level_lists(old_current)
+      last = entries.last
+      # Seed history with the previous current list when history is missing or behind it
+      if old_date && !old_state.empty? && old_date < meta['parseDate'] && (last.nil? || (old_date > last[0]['parseDate'] && old_state != last[1]))
+        entries << [{ 'parseDate' => old_date, 'lastChecked' => old_date, 'source' => 'previous' }, old_state]
+      end
+      if (last = entries.last) && last[1] == old_state
+        checked = [last[0]['lastChecked'], date_key(old_current[LAST_CHECKED])].compact.max
+        last[0]['lastChecked'] = checked if checked
+      end
+    end
+    if (last = entries.last)
+      last_date = last[0]['parseDate']
+      raise ParseError, "#{org}: #{path} already has a later scrape (#{last_date})" if meta['parseDate'] < last_date
+      if meta['parseDate'] == last_date
+        entries.pop # Same-day correction replaces that day's scrape
+      elsif last[0]['lastChecked'].to_s >= meta['parseDate']
+        last[0]['lastChecked'] = day_before(meta['parseDate'])
+      end
+    end
+    entries << [meta, state]
+    write_history(path, build_history(org, entries))
+  end
+
+  # Write an org's current sponsor data, and its history when the list changed
+  # Unchanged lists keep their parseDate and only update lastChecked.
+  # @param model current sponsorship model (for source and modelDate), or nil
+  # @param history_dir directory of history files, or nil for no history
+  # @return :new, :changed, or :unchanged
+  # @raise ParseError on a suspicious drop (unless force) or a history conflict
+  def record_sponsors(org, path, sponsors, model: nil, history_dir: nil, force: false, today: Date.today)
+    old = load_existing(path)
+    forced = guard_drift!(org, path, sponsors, force: force)
+    static = model && source_type(model) == 'static'
+    parse_date = date_key(sponsors[PARSE_DATE]) || date_key(today)
+    checked = static ? parse_date : date_key(today)
+    state = level_lists(sponsors)
+    if old && level_lists(old) == state
+      updated = old.merge(LAST_CHECKED => [date_key(old[LAST_CHECKED]), checked].compact.max)
+      write_sponsors(path, updated) unless updated == old
+      return :unchanged
+    end
+    if history_dir
+      meta = { 'parseDate' => parse_date, 'lastChecked' => checked, 'source' => static ? 'manual' : 'scrape',
+               'modelDate' => model && date_key(model[EFFECTIVE_DATE]), 'forced' => (true if forced) }.compact
+      append_history(history_path(history_dir, org), org, old, meta, state)
+    end
+    write_sponsors(path, sponsors.merge(PARSE_DATE => parse_date, LAST_CHECKED => checked))
+    return old ? :changed : :new
+  end
+
+  # Turn one past version of an org's data into a sponsor list, or nil if unusable
+  # Error entries are dropped and current normalization is applied.  Empty lists are
+  # skipped, as are lists where two levels hold exactly the same sponsors (2 or more),
+  # which comes from a level's selector copied from another level, not from a real page.
+  # @return [parseDate, {level => sponsors}] or nil
+  def version_state(data)
+    return nil unless data.is_a?(Hash)
+    date = begin
+      date_key(data[PARSE_DATE])
+    rescue ParseError
+      nil
+    end
+    return nil unless date
+    lists = data.select { |_lvl, ary| ary.is_a?(Array) }
+                .transform_values { |ary| ary.reject { |s| s.to_s.start_with?('ERROR') } }
+    state = level_lists(renormalize(lists))
+    return nil if state.empty?
+    return nil if state.values.select { |ary| ary.size >= 2 }.combination(2).any? { |a, b| a == b }
+    return [date, state]
+  end
+
+  # @return array of [commit, file contents] for every git version of a file, oldest first
+  def git_versions(path)
+    log_out, status = Open3.capture2('git', 'log', '--format=%H', '--', path)
+    raise ParseError, "git log #{path} failed; run from the repository root" unless status.success?
+    log_out.split.reverse.filter_map do |commit|
+      content, ok = Open3.capture2('git', 'show', "#{commit}:#{path}")
+      [commit, content] if ok.success?
+    end
+  end
+
+  # Build an org's history from every committed version of its data
+  # Uses _data/allsponsorships.json versions (early 2024) and _data/sponsorships/<org>.json
+  # versions, plus the working copy.  Versions with the same parseDate keep the newest;
+  # consecutive identical lists extend the earlier scrape's lastChecked.
+  # @param model sponsorship model (for modelDate), or nil
+  # @return history hash, or nil if no usable versions
+  def backfill_history(org, outdir: DEFAULT_OUTDIR, model: nil)
+    by_date = {}
+    add = lambda do |data|
+      date, state = version_state(data)
+      by_date[date] = state if date
+    end
+    @all_sponsorships_versions ||= git_versions(ALL_SPONSORSHIPS_FILE).map { |_c, content| JSON.parse(content) rescue {} }
+    @all_sponsorships_versions.each { |all| add.call(all[org]) if all.is_a?(Hash) }
+    path = File.join(outdir, "#{org}.json")
+    git_versions(path).each { |_commit, content| add.call(JSON.parse(content)) rescue nil }
+    add.call(load_existing(path))
+    entries = []
+    by_date.sort.each do |date, state|
+      if entries.last && entries.last[1] == state
+        entries.last[0]['lastChecked'] = date
+        next
+      end
+      meta = { 'parseDate' => date, 'lastChecked' => date, 'source' => 'git' }
+      meta['modelDate'] = date_key(model_at(model, date)[EFFECTIVE_DATE]) if model
+      entries << [meta.compact, state]
+    end
+    return entries.empty? ? nil : build_history(org, entries)
+  end
+
+  # Re-apply normalization to every history file in a directory
+  # @return array of paths changed
+  def renormalize_history_files(history_dir, orgs = nil)
+    orgs ||= Dir.glob(File.join(history_dir, '*.json')).map { |f| File.basename(f, '.json') }.sort
+    orgs.filter_map do |org|
+      path = history_path(history_dir, org)
+      hist = load_history(path)
+      next unless hist
+      entries = history_states(hist).map { |meta, state| [meta, level_lists(renormalize(state))] }
+      updated = build_history(org, entries)
+      next if history_json(updated) == history_json(hist)
+      write_history(path, updated)
+      path
+    end
   end
 
   # ## ### #### ##### ######
@@ -966,8 +1207,17 @@ module SponsorUtils
       opts.on('--renormalize', 'Re-apply current host normalization to existing data files; no fetching.') do
         options[:renormalize] = true
       end
-      opts.on('-f', '--force', 'Write even when sponsor counts drop suspiciously.') do
+      opts.on('-f', '--force', 'Write even when sponsor counts drop suspiciously; with --backfill-git, replace history files.') do
         options[:force] = true
+      end
+      opts.on('--history DIR', "Sponsor history directory (default #{DEFAULT_HISTORY_DIR}; off with --out or --in unless given).") do |dir|
+        options[:history] = dir
+      end
+      opts.on('--no-history', 'Do not write sponsor history files.') do
+        options[:no_history] = true
+      end
+      opts.on('--backfill-git', 'Create history files from committed versions of the data; no fetching.') do
+        options[:backfill] = true
       end
       opts.on('-v', '--[no-]verbose', 'Verbose output to stdout.') do |v|
         options[:verbose] = v
@@ -1012,6 +1262,37 @@ module SponsorUtils
     end
   end
 
+  # Which history directory a run writes to, if any
+  # History is on by default only for normal runs writing the repository's own data.
+  # @return directory or nil
+  def history_dir_for(options)
+    return nil if options[:no_history]
+    return options[:history] if options[:history]
+    return nil if options[:out] || options[:infile]
+    return DEFAULT_HISTORY_DIR
+  end
+
+  # Create history files for orgs that do not have one, from git versions of their data
+  # @return array of paths written
+  def backfill_files(outdir, history_dir, orgs, force: false)
+    orgs.filter_map do |org|
+      path = history_path(history_dir, org)
+      if File.exist?(path) && !force
+        warn_msg("backfill: #{path} exists; skipping (use --force to replace)")
+        next
+      end
+      model = begin
+        get_sponsorship_file(org)
+      rescue ParseError
+        nil
+      end
+      hist = backfill_history(org, outdir: outdir, model: model)
+      next log("backfill: no usable versions for #{org}") unless hist
+      write_history(path, hist)
+      path
+    end
+  end
+
   # ### #### ##### ######
   # Main method for command line use
   # @return exit code
@@ -1030,8 +1311,15 @@ module SponsorUtils
       return report_check(results, max_age)
     elsif options[:renormalize]
       changed = renormalize_files(options.fetch(:out, DEFAULT_OUTDIR), orgid && [orgid])
+      history_dir = history_dir_for(options.merge(infile: nil))
+      changed += renormalize_history_files(history_dir, orgid && [orgid]) if history_dir && Dir.exist?(history_dir)
       changed.each { |path| log("Renormalized #{path}") }
       puts "Renormalized #{changed.size} file(s)"
+    elsif options[:backfill]
+      outdir = options.fetch(:out, DEFAULT_OUTDIR)
+      history_dir = options[:history] || DEFAULT_HISTORY_DIR
+      written = backfill_files(outdir, history_dir, orgid ? [orgid] : all_org_ids, force: options[:force])
+      puts "Backfilled #{written.size} history file(s) in #{history_dir}"
     elsif (mapid = options[:mapid])
       raise ParseError, "--map: invalid id #{mapid}" unless ORG_ID_PATTERN.match?(mapid)
       sponsor_file = File.join(DEFAULT_OUTDIR, "#{mapid}.json")
@@ -1041,16 +1329,17 @@ module SponsorUtils
       sponsorship = model_at(get_sponsorship_file(orgid))
       parsed = process_sponsorship(orgid, sponsorship, options[:infile])
       path = output_path(options[:out], orgid)
-      guard_drift!(orgid, path, parsed, force: options[:force])
-      write_sponsors(path, parsed)
+      result = record_sponsors(orgid, path, parsed, model: sponsorship, history_dir: history_dir_for(options), force: options[:force])
+      log("#{orgid}: #{result}")
     else
       outdir = options.fetch(:out, DEFAULT_OUTDIR)
       raise ParseError, "--out #{outdir} must be an existing directory" unless File.directory?(outdir)
+      history_dir = history_dir_for(options)
       process_all_sponsorships(failures).each do |org, sponsors|
         path = File.join(outdir, "#{org}.json")
-        guard_drift!(org, path, sponsors, force: options[:force])
-        log("Writing #{org}")
-        write_sponsors(path, sponsors)
+        result = record_sponsors(org, path, sponsors, model: model_at(get_sponsorship_file(org)),
+                                 history_dir: history_dir, force: options[:force])
+        log("#{org}: #{result}")
       rescue ParseError => e
         failures[org] = e.message
       end

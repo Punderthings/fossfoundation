@@ -49,7 +49,8 @@ puts asf['legalName']
   - [ ] When adding or updating a sponsorship:
     - Run `sponsor_utils.rb --check` to see which entities are stale, changed, or failing to parse.
     - Run sponsor_utils.rb to parse all sponsorship models and websites, and generate _data/sponsorships/*.json sponsor data.  Review any WARNING/ERROR output on stderr: orgs that fail to parse keep their previous data, and the script exits nonzero.
-    - Run sponsor_reports.rb to generate org-funding.json and sponsor-counts.json
+    - Changed sponsor lists are added to history/sponsorships/*.json automatically; commit those with the data.
+    - Run sponsor_reports.rb to generate org-funding.json, sponsor-counts.json, and sponsor-history.json
 
 ### Define Historical Modeling Tools
 

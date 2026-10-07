@@ -1,0 +1,30 @@
+{
+  "org": "haskell",
+  "scrapes": [
+    {"parseDate":"20240211","lastChecked":"20240215","source":"git","counts":{"first":4,"second":8,"third":8}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"first":4,"second":9,"third":8}}
+  ],
+  "spans": [
+    {"sponsor":"github.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"iohk.io","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"juspay.in","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"meta.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"carboncloud.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"digitalasset.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"exfreight.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"mercury.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"obsidian.systems","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"platonic.systems","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"sc.com","level":"second","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"tweag.io","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"well-typed.com","level":"second","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"artificial.io","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"channable.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"flipstone.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"freckle.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"google.com","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"herp.co.jp","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"mlabs.city","level":"third","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"tripshot.com","level":"third","firstSeen":"20240211","lastSeen":null}
+  ]
+}

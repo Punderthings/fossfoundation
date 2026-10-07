@@ -1,0 +1,37 @@
+{
+  "org": "graphql",
+  "scrapes": [
+    {"parseDate":"20240211","lastChecked":"20240212","source":"git","counts":{"first":25}},
+    {"parseDate":"20240215","lastChecked":"20240215","source":"git","counts":{"first":26}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"first":23}}
+  ],
+  "spans": [
+    {"sponsor":"airbnb.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"amazon.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"apollographql.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"atlassian.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"copilottravel.com","level":"first","firstSeen":"20240215","lastSeen":null},
+    {"sponsor":"elementl.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"escape.tech","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"gatsbyjs.org","level":"first","firstSeen":"20240211","lastSeen":"20240215"},
+    {"sponsor":"goldmansachs.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"grafbase.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"graphcdn.io","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"hasura.io","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"hygraph.com","level":"first","firstSeen":"20240211","lastSeen":"20240215"},
+    {"sponsor":"ibm.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"inigo.io","level":"first","firstSeen":"20240211","lastSeen":"20240215"},
+    {"sponsor":"intuit.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"meta.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"microsoft.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"neo4j.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"platformatic.dev","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"postman.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"saleor.io","level":"first","firstSeen":"20240211","lastSeen":"20240215"},
+    {"sponsor":"salsify.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"shopify.com","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"solo.io","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"the-guild.dev","level":"first","firstSeen":"20240211","lastSeen":null},
+    {"sponsor":"tyk.io","level":"first","firstSeen":"20240211","lastSeen":null}
+  ]
+}

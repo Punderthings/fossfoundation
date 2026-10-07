@@ -1,0 +1,31 @@
+{
+  "org": "gentoo",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"firstinkind":14,"secondinkind":9}}
+  ],
+  "spans": [
+    {"sponsor":"7l.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"bytemark.co.uk","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cdn77.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"dedicatednow.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"fastbull.org","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"hetzner.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"hotelkatalog24.de","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"hp.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"leaseweb.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"mephi.ru","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"numberly.com","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"osuosl.org","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"top-ix.org","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"vsys.host","level":"firstinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"amigaforever.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"datarescue.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"genesi.lu","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"imgtec.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"jetbrains.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"nitrokey.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"nvidia.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"opengear.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"ostc.com","level":"secondinkind","firstSeen":"20240212","lastSeen":null}
+  ]
+}

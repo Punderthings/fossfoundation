@@ -1,0 +1,18 @@
+{
+  "org": "freebsd",
+  "scrapes": [
+    {"parseDate":"20240208","lastChecked":"20240215","source":"git","counts":{"first":1}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"first":9}}
+  ],
+  "spans": [
+    {"sponsor":"amd.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"blackberry.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"e-card.bg","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"microsoft.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"netapp.com","level":"first","firstSeen":"20240208","lastSeen":null},
+    {"sponsor":"nozominetworks.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"rgnets.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"stormshield.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"tailscale.com","level":"first","firstSeen":"20240926","lastSeen":null}
+  ]
+}

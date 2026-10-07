@@ -1,0 +1,34 @@
+{
+  "org": "debian",
+  "scrapes": [
+    {"parseDate":"20240303","lastChecked":"20240303","source":"git","counts":{"first":22}},
+    {"parseDate":"20240926","lastChecked":"20240926","source":"git","counts":{"first":23}}
+  ],
+  "spans": [
+    {"sponsor":"1und1.de","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"amperecomputing.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"bytemark.co.uk","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"conova.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"credativ.com","level":"first","firstSeen":"20240303","lastSeen":"20240303"},
+    {"sponsor":"credativ.de","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"dg-i.net","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"eaton.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"fastly.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"freexian.com","level":"first","firstSeen":"20240926","lastSeen":null},
+    {"sponsor":"gandi.net","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"genesi.company","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"hetzner.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"hpe.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"leaseweb.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"loongson.cn","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"man-da.de","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"osuosl.org","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"rcodezero.at","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"sanger.ac.uk","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"skolelinux.org","level":"first","firstSeen":"20240303","lastSeen":"20240303"},
+    {"sponsor":"thomas-krenn.com","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"trustsec.de","level":"first","firstSeen":"20240303","lastSeen":null},
+    {"sponsor":"ubc.ca","level":"first","firstSeen":"20240926","lastSeen":null}
+  ]
+}

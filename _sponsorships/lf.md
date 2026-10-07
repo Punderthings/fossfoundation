@@ -42,7 +42,7 @@ levels:
   fourth:
     name: Associate
     amount: TBD
-    selector: div[data-section-id="lf-members-platinum"] > div
+    selector: div[data-section-id="lf-members-associate"] > div
     attr: homepage_url
     benefits:
       governance: ''
