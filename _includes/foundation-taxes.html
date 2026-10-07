@@ -5,7 +5,7 @@
   {%- assign pein = page.taxID | remove: "-" -%}{%- assign pp = site.data.p990[pein] -%}
   {%- if pp -%}
     <div id="taxes-section" class="funding-subsection">
-      <h3 id="taxes">Tax Filings</h3>
+      <h3 id="taxes">Tax Filings - US</h3>
       <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
       <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
       {%- if pp.organization.tax_period %}
@@ -20,7 +20,7 @@
           {%- if tax_expenses > tax_max -%}{%- assign tax_max = tax_expenses -%}{%- endif -%}
         {%- endfor %}
       <table class="fund-table">
-        <caption>Revenue and expenses reported on IRS Form 990 filings, via <a href="https://projects.propublica.org/nonprofits/organizations/{{ pein }}">ProPublica Nonprofit Explorer</a> (<a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">data</a>).</caption>
+        <caption>Revenue and expenses reported on IRS Form 990 filings, via <a href="https://projects.propublica.org/nonprofits/organizations/{{ pein }}">ProPublica Nonprofit Explorer</a> (<a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">data</a>) or IRS downloads.</caption>
         <thead><tr><th scope="col">Tax year</th><th scope="col">Revenue</th><th scope="col">Expenses</th></tr></thead>
         <tbody>
         {%- for filing in tax_filings %}
