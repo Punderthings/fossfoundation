@@ -6,6 +6,21 @@ nonprofit: lf
 sponsorurl: https://www.finos.org/members
 xsponsorurl: https://raw.githubusercontent.com/finos/finos-landscape/master/landscape.yml
 levelurl: https://www.finos.org/membership-benefits
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the members page; every layout since 2018 has a heading per tier
+  - kind: wayback
+    urls:
+      - https://www.finos.org/members
+    levels:
+      first:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'PLATINUM MEMBERS')]]"
+      second:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'GOLD MEMBERS')]]"
+      third:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'SILVER MEMBERS')]]"
+      community:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'ASSOCIATE MEMBERS')]]"
 xlandscape: FINOS Members - note landscape isn't actually used for members!
 normalize: 'true'
 levels:

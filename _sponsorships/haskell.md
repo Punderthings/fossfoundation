@@ -4,6 +4,12 @@ commonName: Haskell
 nonprofit: c3
 sponsorurl: https://haskell.foundation/donations/
 levelurl: https://haskell.foundation/donations/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page at each URL it has had
+  - kind: wayback
+    urls:
+      - https://haskell.foundation/donations/
 normalize: 'true'
 levels:
   first:

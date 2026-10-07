@@ -4,6 +4,25 @@ commonName: LLVM Foundation
 nonprofit: c3
 sponsorurl: https://foundation.llvm.org/sponsors
 levelurl: https://foundation.llvm.org/_files/ugd/449858_b2983cef7322479aa82160e0b3cb41de.pdf
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # 2020-2024: the earlier docs/sponsors page, a heading per tier followed by one or more blocks of logos
+  - kind: wayback
+    urls:
+      - https://foundation.llvm.org/docs/sponsors/
+    levels:
+      first:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][@id='diamond-sponsors']]"
+      second:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][@id='platinum-sponsors']]"
+      third:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][@id='gold-sponsors']]"
+      fourth:
+        selector: "//a[starts-with(@href, 'http')][preceding::h2[1][@id='corporate-supporters']]"
+  # 2024 on: the current sponsors page
+  - kind: wayback
+    urls:
+      - https://foundation.llvm.org/sponsors
 normalize: 'true'
 comment: Amounts from the sponsorship document approved by the LLVM Foundation Board 2023-12-08; diamond is $100,000+
 levels:

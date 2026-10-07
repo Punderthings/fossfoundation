@@ -4,6 +4,12 @@ commonName: FreeBSD
 nonprofit: c3
 sponsorurl: https://freebsdfoundation.org/our-donors/donors/
 levelurl: https://freebsdfoundation.org/our-donors/freebsd-foundation-partnership-program/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page at each URL it has had
+  - kind: wayback
+    urls:
+      - https://freebsdfoundation.org/our-donors/donors/
 normalize: 'true'
 levels:
   first:

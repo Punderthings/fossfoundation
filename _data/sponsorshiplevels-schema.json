@@ -38,7 +38,7 @@
     },
     "selector": {
       "title": "CSS Selector",
-      "description": "CSS selector to find a nodelist of elements that are sponsor listings when parsing HTML pages.",
+      "description": "CSS selector to find a nodelist of elements that are sponsor listings when parsing HTML pages; or an XPath expression (starting with / or a parenthesis), e.g. links whose nearest heading is a tier: //a[preceding::h2[1][contains(., 'Gold')]].",
       "type": "string"
     },
     "attr": {

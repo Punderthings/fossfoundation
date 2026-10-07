@@ -67,13 +67,14 @@
         "type": "object",
         "required": ["kind"],
         "properties": {
-          "kind": { "type": "string", "enum": ["git", "wiki", "yearly-page"] },
+          "kind": { "type": "string", "enum": ["git", "wiki", "yearly-page", "wayback"] },
           "repo": { "description": "git: repository URL.", "type": "string" },
           "path": { "description": "git: file path in the repository (renames are followed).", "type": "string" },
           "branch": { "description": "git: branch (default: the repository's default branch).", "type": "string" },
           "api": { "description": "wiki: MediaWiki api.php URL.", "type": "string", "format": "uri" },
           "title": { "description": "wiki: page title.", "type": "string" },
-          "url": { "description": "yearly-page: URL containing {year}; each page covers that calendar year.", "type": "string" },
+          "url": { "description": "yearly-page: URL containing {year}; each page covers that calendar year. wayback: a single page URL.", "type": "string" },
+          "urls": { "description": "wayback: page URLs (every address the page has had); captures are fetched raw so links are the original sponsor links.", "type": "array", "items": { "type": "string" } },
           "from": { "type": "string", "pattern": "^[0-9]{8}$" },
           "until": { "type": "string", "pattern": "^[0-9]{8}$" },
           "replaceLevels": { "type": "boolean" }

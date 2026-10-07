@@ -14,6 +14,7 @@ module SponsorArchive
 
     Commands:
       collect [ORG...]          Collect history for orgs with sources (default: all)
+      discover ORG              List archived pages on the org's sites that look like sponsor lists
       preview ORG --at DATE     Show what each source parses to on DATE
       coverage [ORG...]         Table of recorded lists per year, by origin
 
@@ -21,6 +22,8 @@ module SponsorArchive
       git          Versions of a file in a git repository (partial clone, cached)
       wiki         Revisions of a MediaWiki page, rendered by the wiki's API
       yearly-page  A page published per year, url with {year}
+      wayback      Internet Archive captures of one or more page URLs (urls:),
+                   fetched raw (id_) so links are the original sponsor links
 
     Precedence when merging: live scrapes (sponsor_utils.rb) win from the
     date they start; archive lists replace this repository's own backfilled
@@ -41,11 +44,17 @@ module SponsorArchive
 
   ParseError = SponsorUtils::ParseError
   CACHE_DIR = '.cache/sponsor-archive'
-  SOURCE_KINDS = %w[git wiki yearly-page].freeze
+  SOURCE_KINDS = %w[git wiki yearly-page wayback].freeze
   # Source keys that describe where versions come from; all other keys override the model
-  LOCATION_KEYS = %w[kind repo path branch api title url from until replaceLevels].freeze
+  LOCATION_KEYS = %w[kind repo path branch api title url urls from until replaceLevels].freeze
+  CDX_API = 'https://web.archive.org/cdx/search/cdx'
+  WAYBACK = 'https://web.archive.org/web'
+  CDX_TIMEOUT = 180 # seconds; the capture index is often slow
+  CDX_RETRY_WAITS = [15, 45].freeze # seconds before retrying a failed capture index query
+  DISCOVER_WORDS = 'sponsor|member|partner|donor|donat|support|thank|funding|join|benefactor|patron'
   DEFAULT_FROM = '20160101'
-  REQUEST_DELAY = 1.0 # seconds between network requests to archives and wikis
+  REQUEST_DELAY = 1.0 # seconds between network requests to one wiki or site
+  WAYBACK_DELAY = 4.0 # seconds between requests to web.archive.org, which refuses faster clients
   DIP_RATIO = 0.5 # a list smaller than this fraction of both neighbors is treated as a bad parse
   LIVE_SOURCES = %w[scrape manual].freeze
   ARCHIVE_PREFIX = 'archive-'
@@ -65,7 +74,11 @@ module SponsorArchive
       raise ParseError, "sources[#{i}] must be a hash" unless source.is_a?(Hash)
       kind = source['kind']
       raise ParseError, "sources[#{i}]: unknown kind '#{kind}' (expected #{SOURCE_KINDS.join(', ')})" unless SOURCE_KINDS.include?(kind)
-      required = { 'git' => %w[repo path], 'wiki' => %w[api title], 'yearly-page' => %w[url] }.fetch(kind)
+      required = { 'git' => %w[repo path], 'wiki' => %w[api title], 'yearly-page' => %w[url], 'wayback' => %w[urls] }.fetch(kind)
+      if kind == 'wayback'
+        source = source.merge('urls' => Array(source['urls'] || source['url']).map(&:to_s).reject(&:empty?))
+        raise ParseError, "sources[#{i}] (wayback) needs urls" if source['urls'].empty?
+      end
       missing = required.reject { |key| source[key].to_s.strip != '' }
       raise ParseError, "sources[#{i}] (#{kind}) needs #{missing.join(', ')}" unless missing.empty?
       raise ParseError, "sources[#{i}]: url needs {year}" if kind == 'yearly-page' && !source['url'].include?('{year}')
@@ -110,13 +123,19 @@ module SponsorArchive
   # GET a url politely, caching the body when cache is true
   # @return body string
   # @raise ParseError on fetch failures
-  def http_get(url, cache: true)
+  def http_get(url, cache: true, read_timeout: SponsorUtils::READ_TIMEOUT)
     path = cache_path('http', Digest::SHA256.hexdigest(url))
     return File.binread(path) if cache && File.file?(path)
-    wait = REQUEST_DELAY - (Process.clock_gettime(Process::CLOCK_MONOTONIC) - (@last_request || 0))
+    host = URI.parse(url).host.to_s
+    @last_request ||= {}
+    delay = host == 'web.archive.org' ? WAYBACK_DELAY : REQUEST_DELAY
+    wait = delay - (Process.clock_gettime(Process::CLOCK_MONOTONIC) - @last_request.fetch(host, 0))
     sleep(wait) if wait.positive?
-    body = SponsorUtils.fetch(url)
-    @last_request = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+    begin
+      body = SponsorUtils.fetch(url, read_timeout: read_timeout)
+    ensure
+      @last_request[host] = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+    end
     if cache
       FileUtils.mkdir_p(File.dirname(path))
       File.binwrite(path, body)
@@ -205,12 +224,89 @@ module SponsorArchive
     end
   end
 
+  # Query the Internet Archive capture index
+  # @param params CDX query parameters; filter may be a list
+  # @return array of row hashes keyed by the requested fields
+  # @raise ParseError on failures or unexpected responses
+  def cdx(params)
+    query = URI.encode_www_form(params.merge(output: 'json').flat_map { |key, value| Array(value).map { |v| [key, v] } })
+    @cdx_results ||= {}
+    return @cdx_results[query] if @cdx_results.key?(query)
+    body = nil
+    [0, *CDX_RETRY_WAITS].each_with_index do |wait, attempt|
+      sleep(wait) if wait.positive?
+      begin
+        body = http_get("#{CDX_API}?#{query}", cache: false, read_timeout: CDX_TIMEOUT)
+        break
+      rescue ParseError
+        raise if attempt == CDX_RETRY_WAITS.size
+        SponsorUtils.log("capture index query failed; retrying in #{CDX_RETRY_WAITS[attempt]}s")
+      end
+    end
+    rows = JSON.parse(body)
+    raise ParseError, 'unexpected capture index response' unless rows.is_a?(Array)
+    return @cdx_results[query] = [] if rows.empty?
+    fields = rows.first
+    return @cdx_results[query] = rows.drop(1).map { |row| fields.zip(row).to_h }
+  rescue JSON::ParserError => e
+    raise ParseError, "capture index: #{e.message[0, 100]}"
+  end
+
+  # Internet Archive captures of a source's URLs, at most one per month per URL
+  # Each is loaded raw (id_), so links point at sponsors rather than at the archive.
+  def wayback_versions(source, from, until_date)
+    Array(source['urls']).flat_map do |url|
+      params = { url: url.sub(%r{\Ahttps?://}, ''), fl: 'timestamp,original', filter: 'statuscode:200', collapse: 'timestamp:6' }
+      params[:from] = from if from
+      params[:to] = until_date if until_date
+      cdx(params).map do |row|
+        ref = "#{WAYBACK}/#{row['timestamp']}id_/#{row['original']}"
+        date = row['timestamp'][0, 8]
+        Version.new(date: date, checked: date, ref: ref, loader: -> { http_get(ref) })
+      end
+    end
+  end
+
+  # Find archived pages on an org's sites whose URLs look like sponsor or member lists
+  # @return array of {url:, months:, first:, last:, years: {year => months}} sorted by months, most first
+  def discover(org, limit: 20_000)
+    model = SponsorUtils.get_sponsorship_file(org)
+    urls = [model['sponsorurl'], model['levelurl']] + sources(model).flat_map { |source| Array(source['urls'] || source['url']) }
+    hosts = urls.compact.filter_map { |url| URI.parse(url).host rescue nil }
+                .map { |host| host.delete_prefix('www.') }.reject { |host| host.end_with?('githubusercontent.com', 'github.com') }.uniq
+    pages = Hash.new { |h, k| h[k] = Set.new }
+    hosts.each do |host|
+      rows = cdx(url: host, matchType: 'domain', fl: 'original,timestamp', limit: limit,
+                 filter: ['statuscode:200', "original:.*(#{DISCOVER_WORDS}).*"], collapse: 'timestamp:6')
+      rows.each do |row|
+        key = row['original'].sub(%r{\Ahttps?://(www\.)?}, '').sub(%r{\A([^/]+):(?:80|443)(?=/|\z)}, '\1').sub(/[?#].*\z/, '').sub(%r{/\z}, '')
+        next if key.match?(/\.(png|jpe?g|gif|svg|css|js|ico|woff2?)\z/i)
+        pages[key] << row['timestamp'][0, 6]
+      end
+    end
+    pages.map do |key, months|
+      sorted = months.sort
+      { url: "https://#{key}", months: sorted.size, first: sorted.first, last: sorted.last,
+        years: sorted.group_by { |m| m[0, 4] }.transform_values(&:size) }
+    end.sort_by { |page| [-page[:months], page[:url]] }
+  end
+
+  # Print discover results
+  def report_discover(org, pages, top: 25)
+    puts "#{org}: #{pages.size} archived pages with sponsor-like URLs (months captured, first to last)"
+    pages.first(top).each do |page|
+      puts format('  %3d  %s to %s  %s', page[:months], page[:first], page[:last], page[:url])
+    end
+    puts "  ... #{pages.size - top} more" if pages.size > top
+  end
+
   # @return all versions a source offers
   def versions_for(source, from: nil, until_date: nil, today: Date.today)
     case source['kind']
     when 'git' then git_versions(source)
     when 'wiki' then wiki_versions(source)
     when 'yearly-page' then yearly_versions(source, from, until_date, today)
+    when 'wayback' then wayback_versions(source, from, until_date)
     end
   end
 
@@ -256,7 +352,7 @@ module SponsorArchive
     sampled = monthly(all, lower, upper)
     # The newest git commit or wiki revision is still the current content, so it is confirmed today
     newest = all.max_by(&:date)
-    if newest && sampled.last.equal?(newest) && upper.nil? && source['kind'] != 'yearly-page'
+    if newest && sampled.last.equal?(newest) && upper.nil? && %w[git wiki].include?(source['kind'])
       sampled[-1] = newest.with(checked: today.strftime('%Y%m%d'))
     end
     rejected = Hash.new(0)
@@ -335,8 +431,13 @@ module SponsorArchive
     hist = SponsorUtils.load_history(path)
     merged = merge_entries(hist ? SponsorUtils.history_states(hist) : [], archive)
     built = SponsorUtils.build_history(org, merged)
-    SponsorUtils.write_history(path, built) unless dry_run || archive.empty?
-    return { org: org, sources: results, archive_lists: archive.size, lists: built['scrapes'].size, spans: built['spans'].size, path: path }
+    errors = results.filter_map do |source, result|
+      "#{source['kind']} #{source['repo'] || source['title'] || Array(source['urls'] || source['url']).first}: #{result[:error]}" if result[:error]
+    end
+    # A failed source would otherwise drop its earlier archive lists, so leave the history as it is
+    SponsorUtils.write_history(path, built) unless dry_run || archive.empty? || errors.any?
+    return { org: org, sources: results, archive_lists: archive.size, lists: built['scrapes'].size, spans: built['spans'].size,
+             path: path, errors: errors }
   end
 
   # ## ### #### ##### ######
@@ -344,10 +445,15 @@ module SponsorArchive
 
   # Print a collect summary
   def report_collect(summary, dry_run)
+    status = if summary[:errors].any? then ' (NOT written: a source failed)'
+             elsif dry_run then ' (dry run, not written)'
+             else ''
+             end
     puts "#{summary[:org]}: #{summary[:archive_lists]} archive lists -> history has #{summary[:lists]} lists, " \
-         "#{summary[:spans]} spans#{dry_run ? ' (dry run, not written)' : ''}"
+         "#{summary[:spans]} spans#{status}"
+    summary[:errors].each { |error| puts "  ERROR #{error}" }
     summary[:sources].each do |source, result|
-      where = source['repo'] || source['title'] || source['url']
+      where = source['repo'] || source['title'] || Array(source['urls'] || source['url']).join(' ')
       rejected = result[:rejected].map { |why, n| "#{why}: #{n}" }.join('; ')
       puts "  #{source['kind']} #{where}: #{result[:versions]} versions, #{result[:sampled]} months, " \
            "#{result[:entries].size} lists#{rejected.empty? ? '' : " (rejected #{rejected})"}"
@@ -360,8 +466,8 @@ module SponsorArchive
     at = SponsorUtils.date_key(at)
     sources(model).each_with_index do |source, i|
       next if source_index && i != source_index
-      version = versions_for(source, from: nil, until_date: at, today: today).select { |v| v.date <= at }.max_by(&:date)
-      puts "[#{i}] #{source['kind']} #{source['repo'] || source['title'] || source['url']}"
+      version = versions_for(source, from: nil, until_date: nil, today: today).select { |v| v.date <= at }.max_by(&:date)
+      puts "[#{i}] #{source['kind']} #{source['repo'] || source['title'] || Array(source['urls'] || source['url']).join(' ')}"
       unless version
         puts '    no version on or before that date'
         next
@@ -416,7 +522,7 @@ module SponsorArchive
   def parse_commandline(argv)
     options = { from: DEFAULT_FROM, history: SponsorUtils::DEFAULT_HISTORY_DIR }
     parser = OptionParser.new do |opts|
-      opts.banner = "Usage: #{File.basename($PROGRAM_NAME)} collect|preview|coverage [ORG...] [options]"
+      opts.banner = "Usage: #{File.basename($PROGRAM_NAME)} collect|preview|coverage|discover [ORG...] [options]"
       opts.on('-h', '--help') { puts "#{DESCRIPTION}\n#{opts}"; exit }
       opts.on('--from DATE', "collect: earliest date (default #{DEFAULT_FROM}).") { |d| options[:from] = d }
       opts.on('--until DATE', 'collect: latest date.') { |d| options[:until] = d }
@@ -436,7 +542,7 @@ module SponsorArchive
       exit 1
     end
     command = args.shift
-    unless %w[collect preview coverage].include?(command)
+    unless %w[collect preview coverage discover].include?(command)
       warn parser.banner
       exit 1
     end
@@ -453,6 +559,9 @@ module SponsorArchive
     when 'preview'
       raise ParseError, 'preview needs one ORG' unless orgs.size == 1
       preview(orgs.first, options[:at] || Date.today, source_index: options[:source])
+    when 'discover'
+      raise ParseError, 'discover needs ORG' if orgs.empty?
+      orgs.each { |org| report_discover(org, discover(org)) }
     when 'coverage'
       years = (DEFAULT_FROM[0, 4].to_i..Date.today.year).to_a
       orgs = SponsorUtils.all_org_ids if orgs.empty?
@@ -465,6 +574,7 @@ module SponsorArchive
       orgs.each do |org|
         summary = collect(org, from: options[:from], until_date: options[:until], history_dir: options[:history], dry_run: options[:dry_run])
         report_collect(summary, options[:dry_run])
+        failures += 1 if summary[:errors].any?
       rescue ParseError => e
         failures += 1
         warn "ERROR: #{org}: #{e.message}"
