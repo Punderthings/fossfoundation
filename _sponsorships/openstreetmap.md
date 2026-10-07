@@ -10,7 +10,7 @@ levels:
     name: Platinum
     amount: '30000'
     amountCurrency: EUR
-    selector: "div.corporate-platinum a"
+    selector: "div.mw-heading:has(h2#Platinum_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
       advisory: seat on advisory board; access to general meeting
@@ -20,7 +20,7 @@ levels:
     name: Gold
     amount: '15000'
     amountCurrency: EUR
-    selector: "div.corporate-gold a"
+    selector: "div.mw-heading:has(h2#Gold_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
       advisory: seat on advisory board; access to general meeting
@@ -30,7 +30,7 @@ levels:
     name: Silver
     amount: '6000'
     amountCurrency: EUR
-    selector: "div.corporate-silver a"
+    selector: "div.mw-heading:has(h2#Silver_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
       advisory: seat on advisory board; access to general meeting
@@ -40,7 +40,7 @@ levels:
     name: Bronze
     amount: '2250'
     amountCurrency: EUR
-    selector: "div.corporate-bronze a"
+    selector: "div.mw-heading:has(h2#Bronze_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
       advisory: seat on advisory board; access to general meeting
@@ -49,7 +49,7 @@ levels:
     name: Supporter
     amount: '750'
     amountCurrency: EUR
-    selector: "div.corporate-supporter a"
+    selector: "div.mw-heading:has(h2#Supporter_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
       logo: text only
