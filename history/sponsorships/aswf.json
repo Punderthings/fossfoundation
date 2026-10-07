@@ -112,9 +112,7 @@
     {"sponsor":"rit.edu","level":"third","firstSeen":"20260827","lastSeen":null},
     {"sponsor":"smpte.org","level":"third","firstSeen":"20200827","lastSeen":null},
     {"sponsor":"tamu.edu","level":"third","firstSeen":"20260131","lastSeen":null},
-    {"sponsor":"vesglobal.org","level":"third","firstSeen":"20220430","lastSeen":"20220430"},
-    {"sponsor":"vesglobal.org","level":"third","firstSeen":"20220630","lastSeen":null},
-    {"sponsor":"visualeffectssociety.com","level":"third","firstSeen":"20190831","lastSeen":"20220331"},
-    {"sponsor":"visualeffectssociety.com","level":"third","firstSeen":"20220531","lastSeen":"20220531"}
+    {"sponsor":"vesglobal.org","level":"third","firstSeen":"20220430","lastSeen":null,"missing":["20220531"]},
+    {"sponsor":"visualeffectssociety.com","level":"third","firstSeen":"20190831","lastSeen":"20220531","missing":["20220430"]}
   ]
 }
