@@ -30,10 +30,13 @@ class SponsorArchiveTest < Minitest::Test
     assert_equal [], SponsorArchive.sources({})
     ok = SponsorArchive.sources('sources' => [{ 'kind' => 'git', 'repo' => 'r', 'path' => 'p', 'from' => '2019-01-01', 'until' => 20201231 }])
     assert_equal({ 'kind' => 'git', 'repo' => 'r', 'path' => 'p', 'from' => '20190101', 'until' => '20201231' }, ok.first)
+    wayback = SponsorArchive.sources('sources' => [{ 'kind' => 'wayback', 'url' => 'https://example.org/sponsors' }]).first
+    assert_equal ['https://example.org/sponsors'], wayback['urls'], 'a single url is accepted'
     [
       { 'sources' => { 'kind' => 'git' } },
       { 'sources' => ['git'] },
-      { 'sources' => [{ 'kind' => 'wayback', 'url' => 'u' }] },
+      { 'sources' => [{ 'kind' => 'ftp', 'url' => 'u' }] },
+      { 'sources' => [{ 'kind' => 'wayback' }] },
       { 'sources' => [{ 'kind' => 'git', 'repo' => 'r' }] },
       { 'sources' => [{ 'kind' => 'wiki', 'api' => 'a' }] },
       { 'sources' => [{ 'kind' => 'yearly-page', 'url' => 'https://example.org/donors.html' }] },
@@ -275,6 +278,129 @@ class SponsorArchiveTest < Minitest::Test
                      'none' => { 2018 => '', 2019 => '', 2020 => '', 2021 => '' } }, table)
       out, = capture_io { SponsorArchive.report_coverage(table, [2018, 2019]) }
       assert_match(/demo\s+R1\s+A1 R1/, out)
+    end
+  end
+
+  # A fake capture index: url => rows of [timestamp, original]
+  def fake_cdx(captures, requests = [])
+    lambda do |url, **opts|
+      requests << [url, opts]
+      if url.start_with?(SponsorArchive::CDX_API)
+        query = URI.decode_www_form(URI(url).query).to_h
+        rows = captures.fetch(query['url'], [])
+        rows = rows.select { |ts, _| ts >= query['from'] } if query['from']
+        rows = rows.select { |ts, _| ts[0, 8] <= query['to'] } if query['to']
+        JSON.generate(rows.empty? ? [] : [%w[timestamp original]] + rows)
+      else
+        year = url[%r{/web/(\d{4})}, 1]
+        %(<html><body><div class="gold"><a href="https://www.y#{year}.example/">x</a><a href="https://www.all.example/">a</a></div></body></html>)
+      end
+    end
+  end
+
+  def test_wayback_versions
+    captures = {
+      'example.org/sponsors' => [%w[20190115120000 http://example.org/sponsors], %w[20200301000000 https://example.org/sponsors]],
+      'example.org/old-sponsors.html' => [%w[20160704000000 http://www.example.org/old-sponsors.html]]
+    }
+    requests = []
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+    SponsorArchive.stub(:http_get, fake_cdx(captures, requests)) do
+      source = SponsorArchive.sources('sources' => [{ 'kind' => 'wayback', 'urls' => %w[https://example.org/sponsors https://example.org/old-sponsors.html] }]).first
+      versions = SponsorArchive.wayback_versions(source, '20170101', nil)
+      assert_equal %w[20190115 20200301], versions.map(&:date), 'from limits captures'
+      assert_equal 'https://web.archive.org/web/20190115120000id_/http://example.org/sponsors', versions.first.ref
+      assert_match(/y2019\.example/, versions.first.loader.call)
+      cdx_request = requests.find { |url, _| url.start_with?(SponsorArchive::CDX_API) }
+      assert_equal({ cache: false, read_timeout: SponsorArchive::CDX_TIMEOUT }, cdx_request[1])
+      assert_includes cdx_request[0], 'collapse=timestamp%3A6'
+      assert_equal [], SponsorArchive.wayback_versions(source.merge('urls' => ['https://example.org/none']), nil, nil)
+    end
+  ensure
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+  end
+
+  def test_cdx_retries_then_reuses_results
+    calls = 0
+    flaky = lambda do |_url, **|
+      calls += 1
+      raise SponsorUtils::ParseError, 'fetch: 503 Service Unavailable' if calls == 1
+      JSON.generate([%w[timestamp original], %w[20200101000000 http://a.example/]])
+    end
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+    waits = []
+    SponsorArchive.stub(:http_get, flaky) do
+      SponsorArchive.stub(:sleep, ->(seconds) { waits << seconds }) do
+        2.times { assert_equal [{ 'timestamp' => '20200101000000', 'original' => 'http://a.example/' }], SponsorArchive.cdx(url: 'a.example') }
+      end
+    end
+    assert_equal 2, calls, 'one retry, then the result is reused'
+    assert_equal [15], waits
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+    SponsorArchive.stub(:http_get, ->(_url, **) { raise SponsorUtils::ParseError, 'down' }) do
+      SponsorArchive.stub(:sleep, nil) do
+        assert_raises(SponsorUtils::ParseError) { SponsorArchive.cdx(url: 'b.example') }
+      end
+    end
+  ensure
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+  end
+
+  def test_collect_wayback_and_keep_history_when_a_source_fails
+    in_tmp_project do
+      write_model('demo', <<~YAML)
+        identifier: demo
+        normalize: 'true'
+        levels:
+          first:
+            selector: div.gold a
+            attr: href
+        sources:
+          - kind: wayback
+            urls: [https://example.org/sponsors]
+      YAML
+      captures = { 'example.org/sponsors' => [%w[20190115120000 https://example.org/sponsors], %w[20200301000000 https://example.org/sponsors]] }
+      SponsorArchive.instance_variable_set(:@cdx_results, nil)
+      SponsorArchive.stub(:http_get, fake_cdx(captures)) do
+        summary = SponsorArchive.collect('demo', from: '20160101', today: Date.new(2026, 1, 1))
+        assert_empty summary[:errors]
+      end
+      scrapes = history['scrapes']
+      assert_equal [%w[20190115 20190115 archive-wayback], %w[20200301 20200301 archive-wayback]],
+                   scrapes.map { |s| s.values_at('parseDate', 'lastChecked', 'source') }, 'archive captures are not confirmed as current'
+      before = File.read(SponsorUtils.history_path(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo'))
+
+      SponsorArchive.instance_variable_set(:@cdx_results, nil)
+      SponsorArchive.stub(:http_get, ->(_url, **) { raise SponsorUtils::ParseError, 'fetch: 503' }) do
+        SponsorArchive.stub(:sleep, nil) do
+          out, = capture_io { assert_equal 1, SponsorArchive.main(%w[collect demo]) }
+          assert_match(/NOT written: a source failed/, out)
+          assert_match(/ERROR wayback https:\/\/example.org\/sponsors: .*503/, out)
+        end
+      end
+      assert_equal before, File.read(SponsorUtils.history_path(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo')), 'history is kept'
+    end
+  ensure
+    SponsorArchive.instance_variable_set(:@cdx_results, nil)
+  end
+
+  def test_discover_groups_url_variants
+    in_tmp_project do
+      write_model('demo', "identifier: demo\nsponsorurl: https://www.example.org/sponsors/\nlevelurl: https://raw.githubusercontent.com/x/y/z.yml\nlevels: {}\n")
+      rows = [%w[http://example.org:80/sponsors/ 20150101000000], %w[https://www.example.org/sponsors 20160101000000],
+              %w[https://example.org/sponsors?lang=de 20160201000000], %w[https://example.org/members 20200101000000],
+              %w[https://example.org/sponsors/logo.png 20200101000000]]
+      requests = []
+      SponsorArchive.stub(:cdx, ->(params) { requests << params; rows.map { |o, t| { 'original' => o, 'timestamp' => t } } }) do
+        pages = SponsorArchive.discover('demo')
+        assert_equal [{ url: 'https://example.org/sponsors', months: 3, first: '201501', last: '201602', years: { '2015' => 1, '2016' => 2 } },
+                      { url: 'https://example.org/members', months: 1, first: '202001', last: '202001', years: { '2020' => 1 } }], pages
+        out, = capture_io { SponsorArchive.report_discover('demo', pages, top: 1) }
+        assert_match(/3  201501 to 201602  https:\/\/example.org\/sponsors/, out)
+        assert_match(/1 more/, out)
+      end
+      assert_equal ['example.org'], requests.map { |params| params[:url] }, 'raw.githubusercontent.com is not searched'
+      assert_equal 'domain', requests.first[:matchType]
     end
   end
 

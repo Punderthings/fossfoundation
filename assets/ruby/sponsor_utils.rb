@@ -224,12 +224,12 @@ module SponsorUtils
   # @param url to fetch
   # @return response body as string
   # @raise ParseError if the url cannot be fetched
-  def fetch(url, redirects: MAX_REDIRECTS)
+  def fetch(url, redirects: MAX_REDIRECTS, read_timeout: READ_TIMEOUT)
     uri = parse_http_uri(url)
     (1..MAX_RETRIES + 1).each do |attempt|
       log("fetch(#{uri})")
       begin
-        status, body, location = fetch_once(uri)
+        status, body, location = fetch_once(uri, read_timeout: read_timeout)
       rescue Net::OpenTimeout, Net::ReadTimeout, Errno::ECONNRESET, Errno::ECONNREFUSED, EOFError => e
         status = e.message
       rescue ParseError
@@ -242,7 +242,7 @@ module SponsorUtils
         return body
       when :redirect
         raise ParseError, "fetch(#{url}): too many redirects" if redirects <= 0
-        return fetch(URI.join(uri, location.to_s).to_s, redirects: redirects - 1)
+        return fetch(URI.join(uri, location.to_s).to_s, redirects: redirects - 1, read_timeout: read_timeout)
       end
       # Rate limited, server error, or timeout: retry with backoff
       raise ParseError, "fetch(#{uri}): #{status} (after #{attempt} attempts)" if attempt > MAX_RETRIES
@@ -263,9 +263,9 @@ module SponsorUtils
   # Perform one GET request
   # @return [status, body, location]; status is :ok, :redirect, or a retryable "code message" string
   # @raise ParseError on non-retryable http errors or oversize responses
-  def fetch_once(uri)
+  def fetch_once(uri, read_timeout: READ_TIMEOUT)
     Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https',
-                    open_timeout: OPEN_TIMEOUT, read_timeout: READ_TIMEOUT) do |http|
+                    open_timeout: OPEN_TIMEOUT, read_timeout: read_timeout) do |http|
       request = Net::HTTP::Get.new(uri)
       request['User-Agent'] = USER_AGENT
       http.request(request) do |response|
@@ -432,6 +432,9 @@ module SponsorUtils
 
   # Scrape html sponsor listing defined by css selectors
   # Each level needs a 'selector' and 'attr'; levels without a selector are left empty
+  # A selector starting with / or ( is XPath, e.g. links whose nearest heading is Gold:
+  #   //a[preceding::h2[1][contains(., 'Gold')]]
+  # Normalized href links to the org's own site (sponsorurl's domain) are not sponsors and are dropped
   # @param io html string (or IO) to parse
   # @param sponsorship level map of organization
   # @return hash of sponsors by approximate map-defined levels
@@ -439,6 +442,7 @@ module SponsorUtils
   def scrape_bycss(io, sponsorship)
     sponsors = {}
     normalize = as_bool(sponsorship['normalize'])
+    own_site = normalize && sponsorship['sponsorurl'] ? normalize_href(sponsorship['sponsorurl']) : nil
     html = io.respond_to?(:read) ? io.read : io
     doc = Nokogiri::HTML5(html)
     if challenge_page?(doc, html)
@@ -454,15 +458,17 @@ module SponsorUtils
         next
       end
       begin
-        nodelist = doc.css(selector)
-      rescue Nokogiri::CSS::SyntaxError => e
+        # XPath (starting with / or a parenthesis) can select "links after this heading", which CSS cannot
+        nodelist = selector.start_with?('/', '(') ? doc.xpath(selector) : doc.css(selector)
+      rescue Nokogiri::CSS::SyntaxError, Nokogiri::XML::XPath::SyntaxError => e
         raise ParseError, "scrape_bycss(#{lvl}): invalid selector '#{selector}': #{e.message.lines.first&.strip}"
       end
+      nodelist = nodelist.select { |node| node.respond_to?(:[]) && node.element? }
       nodelist.each do |node|
         value = node[attr]
         sponsors[lvl] << ('href'.eql?(attr) && normalize ? normalize_href(value) : value)
       end
-      sponsors[lvl] = clean_list(sponsors[lvl])
+      sponsors[lvl] = clean_list(sponsors[lvl]) - [own_site]
       warn_msg("scrape_bycss(#{lvl}): selector '#{selector}' matched no sponsors") if sponsors[lvl].empty?
     end
     return sponsors

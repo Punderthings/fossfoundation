@@ -108,6 +108,16 @@ class SponsorUtilsTest < Minitest::Test
     assert_empty err
   end
 
+  def test_scrape_bycss_drops_links_to_own_site
+    html = '<html><body><div id="gold"><a href="https://www.example.com/">E</a><a href="https://news.example.com/x">N</a><a href="https://other.org/">O</a></div></body></html>'
+    model = css_model('sponsorurl' => 'https://www.example.com/sponsors')
+    sponsors = nil
+    capture_io { sponsors = SponsorUtils.scrape_bycss(html, model) }
+    assert_equal ['other.org'], sponsors['first']
+    capture_io { sponsors = SponsorUtils.scrape_bycss(html, css_model('sponsorurl' => 'https://www.example.com/sponsors', 'normalize' => 'false')) }
+    assert_equal 3, sponsors['first'].size, 'raw hrefs are kept when not normalizing'
+  end
+
   def test_scrape_bycss_respects_string_false_normalize
     sponsors = SponsorUtils.scrape_bycss(HTML, css_model('normalize' => 'false'))
     assert_equal ['https://www.Example.com/About?x=1', 'https://example.com/dup'], sponsors['first']
@@ -122,6 +132,22 @@ class SponsorUtilsTest < Minitest::Test
     model = { 'levels' => { 'first' => { 'selector' => 'div#missing a', 'attr' => 'href' } } }
     _, err = capture_io { SponsorUtils.scrape_bycss(HTML, model) }
     assert_match(/matched no sponsors/, err)
+  end
+
+  def test_scrape_bycss_xpath_links_after_heading
+    html = <<~HTML
+      <html><body>
+        <h2 id="gold">Gold Sponsors</h2><div><a href="https://gold-a.example/">A</a></div><div><p><a href="https://gold-b.example/">B</a></p></div>
+        <h2 id="silver">Silver Sponsors</h2><div><a href="https://silver.example/">S</a><a href="/local">L</a></div>
+      </body></html>
+    HTML
+    model = { 'normalize' => 'true', 'levels' => {
+      'first' => { 'selector' => "//a[starts-with(@href, 'http')][preceding::h2[1][@id='gold']]", 'attr' => 'href' },
+      'second' => { 'selector' => "(//a[starts-with(@href, 'http')][preceding::h2[1][contains(., 'Silver')]])", 'attr' => 'href' }
+    } }
+    assert_equal({ 'first' => %w[gold-a.example gold-b.example], 'second' => ['silver.example'] }, SponsorUtils.scrape_bycss(html, model))
+    bad = { 'levels' => { 'first' => { 'selector' => '//a[', 'attr' => 'href' } } }
+    assert_raises(SponsorUtils::ParseError) { SponsorUtils.scrape_bycss(html, bad) }
   end
 
   def test_scrape_bycss_invalid_selector_raises
