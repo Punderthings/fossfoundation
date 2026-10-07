@@ -73,6 +73,29 @@
       "description": "If present, read a mapping file of URL fragments to sponsor hostnames (to simplify parsing of complex hrefs).",
       "type": "string"
     },
+    "effectiveDate": {
+      "title": "Effective Date",
+      "description": "Date (YYYYMMDD) the current levels took effect; required when pastModels is present.",
+      "type": "string",
+      "pattern": "^[0-9]{8}$"
+    },
+    "pastModels": {
+      "title": "Past Sponsorship Models",
+      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or amount. A level set to null did not exist then.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["effectiveDate"],
+        "properties": {
+          "effectiveDate": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "levelurl": { "type": "string", "format": "uri" },
+          "levels": {
+            "type": "object",
+            "additionalProperties": { "type": ["object", "null"] }
+          }
+        }
+      }
+    },
     "normalize": {
       "title": "Normalize URL Flag",
       "description": "If true, normalize href URLs to one registrable domain per sponsor (subdomains merged; see _data/host_aliases.json). Landscape sources always normalize; json sources normalize unless set false.",
