@@ -23,60 +23,1116 @@
   ],
   "asf": [
     {
-      "parseDate": "20240208",
-      "lastChecked": "20240212",
-      "sponsors": 87,
+      "parseDate": "20160108",
+      "lastChecked": "20160108",
+      "sponsors": 34,
       "levels": {
-        "first": 9,
-        "firstinkind": 13,
-        "fourth": 27,
-        "fourthinkind": 11,
-        "second": 12,
-        "secondinkind": 5,
-        "third": 8,
-        "thirdinkind": 2
+        "first": 8,
+        "fourth": 7,
+        "second": 7,
+        "third": 12
       },
-      "estimate": 4078000
+      "estimate": 1692000
     },
     {
-      "parseDate": "20240215",
-      "lastChecked": "20240215",
+      "parseDate": "20160201",
+      "lastChecked": "20160302",
+      "sponsors": 33,
+      "levels": {
+        "first": 7,
+        "fourth": 7,
+        "second": 7,
+        "third": 12
+      },
+      "estimate": 1567000
+    },
+    {
+      "parseDate": "20160414",
+      "lastChecked": "20160502",
+      "sponsors": 34,
+      "levels": {
+        "first": 7,
+        "fourth": 8,
+        "second": 7,
+        "third": 12
+      },
+      "estimate": 1573000
+    },
+    {
+      "parseDate": "20160610",
+      "lastChecked": "20160610",
+      "sponsors": 40,
+      "levels": {
+        "first": 7,
+        "fourth": 13,
+        "second": 8,
+        "third": 12
+      },
+      "estimate": 1653000
+    },
+    {
+      "parseDate": "20160706",
+      "lastChecked": "20160706",
+      "sponsors": 41,
+      "levels": {
+        "first": 7,
+        "fourth": 14,
+        "second": 8,
+        "third": 12
+      },
+      "estimate": 1659000
+    },
+    {
+      "parseDate": "20160801",
+      "lastChecked": "20160801",
+      "sponsors": 43,
+      "levels": {
+        "first": 7,
+        "fourth": 16,
+        "second": 8,
+        "third": 12
+      },
+      "estimate": 1671000
+    },
+    {
+      "parseDate": "20160903",
+      "lastChecked": "20160903",
+      "sponsors": 46,
+      "levels": {
+        "first": 7,
+        "fourth": 18,
+        "second": 8,
+        "third": 13
+      },
+      "estimate": 1708000
+    },
+    {
+      "parseDate": "20161001",
+      "lastChecked": "20161104",
+      "sponsors": 48,
+      "levels": {
+        "first": 7,
+        "fourth": 20,
+        "second": 8,
+        "third": 13
+      },
+      "estimate": 1720000
+    },
+    {
+      "parseDate": "20161206",
+      "lastChecked": "20170501",
+      "sponsors": 51,
+      "levels": {
+        "first": 7,
+        "fourth": 21,
+        "second": 9,
+        "third": 14
+      },
+      "estimate": 1801000
+    },
+    {
+      "parseDate": "20170602",
+      "lastChecked": "20170703",
+      "sponsors": 50,
+      "levels": {
+        "first": 7,
+        "fourth": 20,
+        "second": 9,
+        "third": 14
+      },
+      "estimate": 1795000
+    },
+    {
+      "parseDate": "20170802",
+      "lastChecked": "20170903",
+      "sponsors": 47,
+      "levels": {
+        "first": 8,
+        "fourth": 19,
+        "second": 8,
+        "third": 12
+      },
+      "estimate": 1814000
+    },
+    {
+      "parseDate": "20171003",
+      "lastChecked": "20171003",
+      "sponsors": 49,
+      "levels": {
+        "first": 7,
+        "fourth": 21,
+        "second": 9,
+        "third": 12
+      },
+      "estimate": 1751000
+    },
+    {
+      "parseDate": "20171115",
+      "lastChecked": "20171115",
+      "sponsors": 48,
+      "levels": {
+        "first": 7,
+        "fourth": 20,
+        "second": 9,
+        "third": 12
+      },
+      "estimate": 1745000
+    },
+    {
+      "parseDate": "20171202",
+      "lastChecked": "20171202",
+      "sponsors": 49,
+      "levels": {
+        "first": 7,
+        "fourth": 20,
+        "second": 9,
+        "third": 13
+      },
+      "estimate": 1770000
+    },
+    {
+      "parseDate": "20180103",
+      "lastChecked": "20180213",
+      "sponsors": 47,
+      "levels": {
+        "first": 7,
+        "fourth": 18,
+        "second": 8,
+        "third": 14
+      },
+      "estimate": 1733000
+    },
+    {
+      "parseDate": "20180307",
+      "lastChecked": "20180307",
+      "sponsors": 46,
+      "levels": {
+        "first": 7,
+        "fourth": 17,
+        "second": 8,
+        "third": 14
+      },
+      "estimate": 1727000
+    },
+    {
+      "parseDate": "20180405",
+      "lastChecked": "20180405",
       "sponsors": 69,
       "levels": {
         "first": 8,
-        "firstinkind": 13,
-        "fourth": 13,
+        "firstinkind": 4,
+        "fourth": 18,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 4,
+        "third": 14,
+        "thirdinkind": 4
+      },
+      "estimate": 2668000
+    },
+    {
+      "parseDate": "20180515",
+      "lastChecked": "20180515",
+      "sponsors": 65,
+      "levels": {
+        "first": 8,
+        "firstinkind": 4,
+        "fourth": 16,
+        "fourthinkind": 11,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 3
+      },
+      "estimate": 2637000
+    },
+    {
+      "parseDate": "20180601",
+      "lastChecked": "20180601",
+      "sponsors": 64,
+      "levels": {
+        "first": 8,
+        "firstinkind": 5,
+        "fourth": 15,
+        "fourthinkind": 11,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 2731000
+    },
+    {
+      "parseDate": "20180707",
+      "lastChecked": "20180707",
+      "sponsors": 66,
+      "levels": {
+        "first": 8,
+        "firstinkind": 5,
+        "fourth": 17,
+        "fourthinkind": 11,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 2743000
+    },
+    {
+      "parseDate": "20180801",
+      "lastChecked": "20180801",
+      "sponsors": 69,
+      "levels": {
+        "first": 8,
+        "firstinkind": 5,
+        "fourth": 19,
+        "fourthinkind": 11,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 3
+      },
+      "estimate": 2780000
+    },
+    {
+      "parseDate": "20180901",
+      "lastChecked": "20181102",
+      "sponsors": 72,
+      "levels": {
+        "first": 9,
+        "firstinkind": 5,
+        "fourth": 19,
+        "fourthinkind": 11,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 2980000
+    },
+    {
+      "parseDate": "20181204",
+      "lastChecked": "20181204",
+      "sponsors": 74,
+      "levels": {
+        "first": 9,
+        "firstinkind": 5,
+        "fourth": 22,
         "fourthinkind": 10,
         "second": 10,
         "secondinkind": 5,
-        "third": 8,
-        "thirdinkind": 2
+        "third": 10,
+        "thirdinkind": 3
       },
-      "estimate": 3763000
+      "estimate": 3017000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
-      "sponsors": 68,
+      "parseDate": "20190104",
+      "lastChecked": "20190104",
+      "sponsors": 76,
+      "levels": {
+        "first": 9,
+        "firstinkind": 5,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3004000
+    },
+    {
+      "parseDate": "20190201",
+      "lastChecked": "20190201",
+      "sponsors": 77,
+      "levels": {
+        "first": 10,
+        "firstinkind": 5,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3129000
+    },
+    {
+      "parseDate": "20190302",
+      "lastChecked": "20190302",
+      "sponsors": 78,
+      "levels": {
+        "first": 10,
+        "firstinkind": 5,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3179000
+    },
+    {
+      "parseDate": "20190402",
+      "lastChecked": "20190503",
+      "sponsors": 77,
+      "levels": {
+        "first": 10,
+        "firstinkind": 5,
+        "fourth": 25,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3085000
+    },
+    {
+      "parseDate": "20190605",
+      "lastChecked": "20190605",
+      "sponsors": 78,
+      "levels": {
+        "first": 10,
+        "firstinkind": 6,
+        "fourth": 25,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3210000
+    },
+    {
+      "parseDate": "20190706",
+      "lastChecked": "20190706",
+      "sponsors": 80,
+      "levels": {
+        "first": 10,
+        "firstinkind": 6,
+        "fourth": 27,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3222000
+    },
+    {
+      "parseDate": "20190806",
+      "lastChecked": "20190806",
+      "sponsors": 81,
+      "levels": {
+        "first": 10,
+        "firstinkind": 6,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3228000
+    },
+    {
+      "parseDate": "20190902",
+      "lastChecked": "20190902",
+      "sponsors": 83,
+      "levels": {
+        "first": 10,
+        "firstinkind": 6,
+        "fourth": 30,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3240000
+    },
+    {
+      "parseDate": "20191001",
+      "lastChecked": "20191001",
+      "sponsors": 83,
+      "levels": {
+        "first": 10,
+        "firstinkind": 6,
+        "fourth": 30,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3240000
+    },
+    {
+      "parseDate": "20191108",
+      "lastChecked": "20191207",
+      "sponsors": 84,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 30,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 11,
+        "thirdinkind": 3
+      },
+      "estimate": 3365000
+    },
+    {
+      "parseDate": "20200103",
+      "lastChecked": "20200103",
+      "sponsors": 84,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 29,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 12,
+        "thirdinkind": 3
+      },
+      "estimate": 3384000
+    },
+    {
+      "parseDate": "20200202",
+      "lastChecked": "20200202",
+      "sponsors": 83,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 12,
+        "thirdinkind": 3
+      },
+      "estimate": 3378000
+    },
+    {
+      "parseDate": "20200307",
+      "lastChecked": "20200307",
+      "sponsors": 84,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 29,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 12,
+        "thirdinkind": 3
+      },
+      "estimate": 3384000
+    },
+    {
+      "parseDate": "20200403",
+      "lastChecked": "20200403",
+      "sponsors": 85,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 29,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 12,
+        "thirdinkind": 4
+      },
+      "estimate": 3409000
+    },
+    {
+      "parseDate": "20200501",
+      "lastChecked": "20200501",
+      "sponsors": 82,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 27,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 12,
+        "thirdinkind": 4
+      },
+      "estimate": 3347000
+    },
+    {
+      "parseDate": "20200602",
+      "lastChecked": "20200602",
+      "sponsors": 80,
+      "levels": {
+        "first": 10,
+        "firstinkind": 7,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3278000
+    },
+    {
+      "parseDate": "20200701",
+      "lastChecked": "20200701",
+      "sponsors": 79,
+      "levels": {
+        "first": 9,
+        "firstinkind": 7,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3153000
+    },
+    {
+      "parseDate": "20200801",
+      "lastChecked": "20200801",
+      "sponsors": 78,
+      "levels": {
+        "first": 9,
+        "firstinkind": 7,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 4
+      },
+      "estimate": 3128000
+    },
+    {
+      "parseDate": "20200904",
+      "lastChecked": "20200904",
+      "sponsors": 76,
+      "levels": {
+        "first": 8,
+        "firstinkind": 7,
+        "fourth": 27,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 4
+      },
+      "estimate": 2997000
+    },
+    {
+      "parseDate": "20201001",
+      "lastChecked": "20201001",
+      "sponsors": 77,
+      "levels": {
+        "first": 8,
+        "firstinkind": 7,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 4
+      },
+      "estimate": 3003000
+    },
+    {
+      "parseDate": "20201102",
+      "lastChecked": "20201201",
+      "sponsors": 78,
+      "levels": {
+        "first": 8,
+        "firstinkind": 9,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 3
+      },
+      "estimate": 3228000
+    },
+    {
+      "parseDate": "20210111",
+      "lastChecked": "20210111",
+      "sponsors": 79,
+      "levels": {
+        "first": 8,
+        "firstinkind": 9,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 4,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 3253000
+    },
+    {
+      "parseDate": "20210221",
+      "lastChecked": "20210303",
+      "sponsors": 79,
+      "levels": {
+        "first": 9,
+        "firstinkind": 9,
+        "fourth": 27,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 3422000
+    },
+    {
+      "parseDate": "20210409",
+      "lastChecked": "20210409",
+      "sponsors": 80,
+      "levels": {
+        "first": 9,
+        "firstinkind": 9,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 3428000
+    },
+    {
+      "parseDate": "20210505",
+      "lastChecked": "20210602",
+      "sponsors": 82,
+      "levels": {
+        "first": 9,
+        "firstinkind": 10,
+        "fourth": 28,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 3
+      },
+      "estimate": 3578000
+    },
+    {
+      "parseDate": "20210712",
+      "lastChecked": "20210712",
+      "sponsors": 84,
+      "levels": {
+        "first": 9,
+        "firstinkind": 10,
+        "fourth": 30,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 3
+      },
+      "estimate": 3590000
+    },
+    {
+      "parseDate": "20210907",
+      "lastChecked": "20210907",
+      "sponsors": 84,
+      "levels": {
+        "first": 9,
+        "firstinkind": 10,
+        "fourth": 29,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 3609000
+    },
+    {
+      "parseDate": "20211001",
+      "lastChecked": "20211101",
+      "sponsors": 86,
+      "levels": {
+        "first": 9,
+        "firstinkind": 10,
+        "fourth": 31,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 3621000
+    },
+    {
+      "parseDate": "20211201",
+      "lastChecked": "20220104",
+      "sponsors": 88,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 31,
+        "fourthinkind": 9,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3890000
+    },
+    {
+      "parseDate": "20220203",
+      "lastChecked": "20220203",
+      "sponsors": 77,
+      "levels": {
+        "first": 10,
+        "firstinkind": 12,
+        "fourth": 20,
+        "fourthinkind": 9,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3899000
+    },
+    {
+      "parseDate": "20220307",
+      "lastChecked": "20220402",
+      "sponsors": 78,
+      "levels": {
+        "first": 10,
+        "firstinkind": 12,
+        "fourth": 20,
+        "fourthinkind": 9,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 4
+      },
+      "estimate": 3924000
+    },
+    {
+      "parseDate": "20220501",
+      "lastChecked": "20220501",
+      "sponsors": 79,
+      "levels": {
+        "first": 10,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 4
+      },
+      "estimate": 3930000
+    },
+    {
+      "parseDate": "20220604",
+      "lastChecked": "20220604",
+      "sponsors": 80,
+      "levels": {
+        "first": 10,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 4
+      },
+      "estimate": 3980000
+    },
+    {
+      "parseDate": "20220703",
+      "lastChecked": "20220810",
+      "sponsors": 79,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 10,
+        "thirdinkind": 4
+      },
+      "estimate": 3855000
+    },
+    {
+      "parseDate": "20220901",
+      "lastChecked": "20220901",
+      "sponsors": 78,
+      "levels": {
+        "first": 8,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3755000
+    },
+    {
+      "parseDate": "20221007",
+      "lastChecked": "20221203",
+      "sponsors": 80,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 11,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 4
+      },
+      "estimate": 3930000
+    },
+    {
+      "parseDate": "20230106",
+      "lastChecked": "20230301",
+      "sponsors": 81,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 21,
+        "fourthinkind": 9,
+        "second": 13,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 4005000
+    },
+    {
+      "parseDate": "20230405",
+      "lastChecked": "20230405",
+      "sponsors": 83,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 23,
+        "fourthinkind": 9,
+        "second": 13,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 4017000
+    },
+    {
+      "parseDate": "20230504",
+      "lastChecked": "20230504",
+      "sponsors": 84,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 23,
+        "fourthinkind": 10,
+        "second": 13,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 4023000
+    },
+    {
+      "parseDate": "20230601",
+      "lastChecked": "20230601",
+      "sponsors": 85,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 13,
+        "secondinkind": 5,
+        "third": 9,
+        "thirdinkind": 3
+      },
+      "estimate": 4029000
+    },
+    {
+      "parseDate": "20230715",
+      "lastChecked": "20230804",
+      "sponsors": 83,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 12,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 3
+      },
+      "estimate": 3954000
+    },
+    {
+      "parseDate": "20230930",
+      "lastChecked": "20230930",
+      "sponsors": 83,
+      "levels": {
+        "first": 9,
+        "firstinkind": 13,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 12,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 4054000
+    },
+    {
+      "parseDate": "20231014",
+      "lastChecked": "20231014",
+      "sponsors": 82,
+      "levels": {
+        "first": 9,
+        "firstinkind": 13,
+        "fourth": 24,
+        "fourthinkind": 10,
+        "second": 12,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 4029000
+    },
+    {
+      "parseDate": "20231104",
+      "lastChecked": "20231104",
+      "sponsors": 83,
+      "levels": {
+        "first": 9,
+        "firstinkind": 13,
+        "fourth": 25,
+        "fourthinkind": 10,
+        "second": 12,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 4035000
+    },
+    {
+      "parseDate": "20231216",
+      "lastChecked": "20240107",
+      "sponsors": 81,
       "levels": {
         "first": 8,
         "firstinkind": 13,
-        "fourth": 12,
+        "fourth": 25,
         "fourthinkind": 10,
         "second": 11,
         "secondinkind": 5,
         "third": 7,
         "thirdinkind": 2
       },
-      "estimate": 3782000
+      "estimate": 3860000
     },
     {
-      "parseDate": "20241211",
-      "lastChecked": "20241211",
-      "sponsors": 69,
+      "parseDate": "20240206",
+      "lastChecked": "20240206",
+      "sponsors": 84,
       "levels": {
-        "first": 10,
-        "firstinkind": 12,
+        "first": 8,
+        "firstinkind": 13,
+        "fourth": 27,
+        "fourthinkind": 10,
+        "second": 11,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 3897000
+    },
+    {
+      "parseDate": "20240326",
+      "lastChecked": "20240402",
+      "sponsors": 67,
+      "levels": {
+        "first": 7,
+        "firstinkind": 13,
+        "fourth": 13,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 3588000
+    },
+    {
+      "parseDate": "20240502",
+      "lastChecked": "20240502",
+      "sponsors": 66,
+      "levels": {
+        "first": 7,
+        "firstinkind": 13,
+        "fourth": 13,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 3563000
+    },
+    {
+      "parseDate": "20240614",
+      "lastChecked": "20240802",
+      "sponsors": 67,
+      "levels": {
+        "first": 7,
+        "firstinkind": 13,
+        "fourth": 13,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 3613000
+    },
+    {
+      "parseDate": "20240901",
+      "lastChecked": "20240901",
+      "sponsors": 68,
+      "levels": {
+        "first": 7,
+        "firstinkind": 13,
+        "fourth": 14,
+        "fourthinkind": 10,
+        "second": 10,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 3619000
+    },
+    {
+      "parseDate": "20241002",
+      "lastChecked": "20241108",
+      "sponsors": 67,
+      "levels": {
+        "first": 7,
+        "firstinkind": 13,
         "fourth": 12,
         "fourthinkind": 10,
         "second": 10,
@@ -84,23 +1140,183 @@
         "third": 8,
         "thirdinkind": 2
       },
-      "estimate": 3882000
+      "estimate": 3632000
     },
     {
-      "parseDate": "20250911",
-      "lastChecked": "20250911",
-      "sponsors": 64,
+      "parseDate": "20241212",
+      "lastChecked": "20241212",
+      "sponsors": 67,
       "levels": {
-        "first": 11,
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 12,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 2
+      },
+      "estimate": 3707000
+    },
+    {
+      "parseDate": "20250104",
+      "lastChecked": "20250401",
+      "sponsors": 66,
+      "levels": {
+        "first": 9,
+        "firstinkind": 12,
+        "fourth": 12,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 2
+      },
+      "estimate": 3682000
+    },
+    {
+      "parseDate": "20250503",
+      "lastChecked": "20250628",
+      "sponsors": 63,
+      "levels": {
+        "first": 9,
+        "firstinkind": 11,
+        "fourth": 10,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 6,
+        "thirdinkind": 3
+      },
+      "estimate": 3545000
+    },
+    {
+      "parseDate": "20250703",
+      "lastChecked": "20251102",
+      "sponsors": 62,
+      "levels": {
+        "first": 10,
         "firstinkind": 11,
         "fourth": 9,
         "fourthinkind": 10,
-        "second": 10,
+        "second": 9,
         "secondinkind": 5,
         "third": 5,
         "thirdinkind": 3
       },
-      "estimate": 3814000
+      "estimate": 3639000
+    },
+    {
+      "parseDate": "20251201",
+      "lastChecked": "20260202",
+      "sponsors": 63,
+      "levels": {
+        "first": 10,
+        "firstinkind": 11,
+        "fourth": 9,
+        "fourthinkind": 10,
+        "second": 9,
+        "secondinkind": 5,
+        "third": 6,
+        "thirdinkind": 3
+      },
+      "estimate": 3664000
+    },
+    {
+      "parseDate": "20260301",
+      "lastChecked": "20260301",
+      "sponsors": 61,
+      "levels": {
+        "first": 9,
+        "firstinkind": 11,
+        "fourth": 9,
+        "fourthinkind": 10,
+        "second": 8,
+        "secondinkind": 5,
+        "third": 6,
+        "thirdinkind": 3
+      },
+      "estimate": 3489000
+    },
+    {
+      "parseDate": "20260402",
+      "lastChecked": "20260402",
+      "sponsors": 60,
+      "levels": {
+        "first": 9,
+        "firstinkind": 11,
+        "fourth": 9,
+        "fourthinkind": 10,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 6,
+        "thirdinkind": 3
+      },
+      "estimate": 3439000
+    },
+    {
+      "parseDate": "20260501",
+      "lastChecked": "20260501",
+      "sponsors": 59,
+      "levels": {
+        "first": 8,
+        "firstinkind": 11,
+        "fourth": 9,
+        "fourthinkind": 9,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 3333000
+    },
+    {
+      "parseDate": "20260601",
+      "lastChecked": "20260801",
+      "sponsors": 60,
+      "levels": {
+        "first": 8,
+        "firstinkind": 11,
+        "fourth": 10,
+        "fourthinkind": 9,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 3339000
+    },
+    {
+      "parseDate": "20260901",
+      "lastChecked": "20260901",
+      "sponsors": 61,
+      "levels": {
+        "first": 8,
+        "firstinkind": 11,
+        "fourth": 11,
+        "fourthinkind": 9,
+        "second": 7,
+        "secondinkind": 5,
+        "third": 7,
+        "thirdinkind": 3
+      },
+      "estimate": 3345000
+    },
+    {
+      "parseDate": "20261001",
+      "lastChecked": "20261001",
+      "sponsors": 61,
+      "levels": {
+        "first": 8,
+        "firstinkind": 11,
+        "fourth": 11,
+        "fourthinkind": 9,
+        "second": 6,
+        "secondinkind": 5,
+        "third": 8,
+        "thirdinkind": 3
+      },
+      "estimate": 3320000
     }
   ],
   "aswf": [
@@ -831,6 +2047,80 @@
     }
   ],
   "cncf": [
+    {
+      "parseDate": "20170129",
+      "lastChecked": "20170129",
+      "sponsors": 61,
+      "levels": {
+        "first": 13,
+        "second": 2,
+        "third": 46
+      },
+      "estimate": 7350000
+    },
+    {
+      "parseDate": "20170916",
+      "lastChecked": "20170916",
+      "sponsors": 90,
+      "levels": {
+        "first": 19,
+        "second": 6,
+        "third": 65
+      },
+      "estimate": 11000000
+    },
+    {
+      "parseDate": "20180905",
+      "lastChecked": "20180905",
+      "sponsors": 278,
+      "levels": {
+        "community": 15,
+        "enduser": 27,
+        "first": 19,
+        "second": 11,
+        "third": 206
+      },
+      "estimate": 18665000
+    },
+    {
+      "parseDate": "20190204",
+      "lastChecked": "20190204",
+      "sponsors": 350,
+      "levels": {
+        "community": 17,
+        "enduser": 37,
+        "first": 17,
+        "second": 14,
+        "third": 265
+      },
+      "estimate": 21237000
+    },
+    {
+      "parseDate": "20190327",
+      "lastChecked": "20190327",
+      "sponsors": 378,
+      "levels": {
+        "community": 18,
+        "enduser": 38,
+        "first": 17,
+        "second": 16,
+        "third": 289
+      },
+      "estimate": 22678000
+    },
+    {
+      "parseDate": "20190705",
+      "lastChecked": "20190705",
+      "sponsors": 428,
+      "levels": {
+        "community": 20,
+        "enduser": 45,
+        "first": 18,
+        "second": 17,
+        "third": 328
+      },
+      "estimate": 25120000
+    },
     {
       "parseDate": "20190731",
       "lastChecked": "20190731",
@@ -2066,8 +3356,98 @@
   ],
   "debian": [
     {
-      "parseDate": "20240303",
-      "lastChecked": "20240303",
+      "parseDate": "20160107",
+      "lastChecked": "20170303",
+      "sponsors": 19,
+      "levels": {
+        "first": 19
+      },
+      "estimate": 19019
+    },
+    {
+      "parseDate": "20170428",
+      "lastChecked": "20170428",
+      "sponsors": 16,
+      "levels": {
+        "first": 16
+      },
+      "estimate": 16016
+    },
+    {
+      "parseDate": "20170506",
+      "lastChecked": "20170506",
+      "sponsors": 16,
+      "levels": {
+        "first": 16
+      },
+      "estimate": 16016
+    },
+    {
+      "parseDate": "20170603",
+      "lastChecked": "20170603",
+      "sponsors": 19,
+      "levels": {
+        "first": 19
+      },
+      "estimate": 19019
+    },
+    {
+      "parseDate": "20170715",
+      "lastChecked": "20171101",
+      "sponsors": 18,
+      "levels": {
+        "first": 18
+      },
+      "estimate": 18018
+    },
+    {
+      "parseDate": "20171205",
+      "lastChecked": "20180705",
+      "sponsors": 17,
+      "levels": {
+        "first": 17
+      },
+      "estimate": 17017
+    },
+    {
+      "parseDate": "20180802",
+      "lastChecked": "20181109",
+      "sponsors": 18,
+      "levels": {
+        "first": 18
+      },
+      "estimate": 18018
+    },
+    {
+      "parseDate": "20181221",
+      "lastChecked": "20181221",
+      "sponsors": 19,
+      "levels": {
+        "first": 19
+      },
+      "estimate": 19019
+    },
+    {
+      "parseDate": "20190105",
+      "lastChecked": "20190315",
+      "sponsors": 20,
+      "levels": {
+        "first": 20
+      },
+      "estimate": 20020
+    },
+    {
+      "parseDate": "20190406",
+      "lastChecked": "20200501",
+      "sponsors": 21,
+      "levels": {
+        "first": 21
+      },
+      "estimate": 21021
+    },
+    {
+      "parseDate": "20200617",
+      "lastChecked": "20200805",
       "sponsors": 22,
       "levels": {
         "first": 22
@@ -2075,13 +3455,76 @@
       "estimate": 22022
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20200919",
+      "lastChecked": "20201107",
+      "sponsors": 22,
+      "levels": {
+        "first": 22
+      },
+      "estimate": 22022
+    },
+    {
+      "parseDate": "20201201",
+      "lastChecked": "20210103",
+      "sponsors": 22,
+      "levels": {
+        "first": 22
+      },
+      "estimate": 22022
+    },
+    {
+      "parseDate": "20210213",
+      "lastChecked": "20230516",
+      "sponsors": 21,
+      "levels": {
+        "first": 21
+      },
+      "estimate": 21021
+    },
+    {
+      "parseDate": "20230610",
+      "lastChecked": "20230913",
       "sponsors": 23,
       "levels": {
         "first": 23
       },
       "estimate": 23023
+    },
+    {
+      "parseDate": "20231002",
+      "lastChecked": "20240407",
+      "sponsors": 22,
+      "levels": {
+        "first": 22
+      },
+      "estimate": 22022
+    },
+    {
+      "parseDate": "20240518",
+      "lastChecked": "20240518",
+      "sponsors": 22,
+      "levels": {
+        "first": 22
+      },
+      "estimate": 22022
+    },
+    {
+      "parseDate": "20240625",
+      "lastChecked": "20240912",
+      "sponsors": 21,
+      "levels": {
+        "first": 21
+      },
+      "estimate": 21021
+    },
+    {
+      "parseDate": "20241004",
+      "lastChecked": "20260924",
+      "sponsors": 18,
+      "levels": {
+        "first": 18
+      },
+      "estimate": 18018
     }
   ],
   "drupal": [
@@ -2112,34 +3555,947 @@
       "estimate": 856500
     }
   ],
-  "finos": [
+  "eclipse": [
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240215",
-      "sponsors": 65,
+      "parseDate": "20220401",
+      "lastChecked": "20220401",
+      "sponsors": 99,
       "levels": {
         "first": 9,
-        "second": 18,
-        "third": 38
+        "second": 30,
+        "third": 60
       },
-      "estimate": 3840000
+      "estimate": 4950000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
-      "sponsors": 87,
+      "parseDate": "20220506",
+      "lastChecked": "20220702",
+      "sponsors": 99,
       "levels": {
         "first": 9,
+        "second": 29,
+        "third": 61
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20220814",
+      "lastChecked": "20220814",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20220905",
+      "lastChecked": "20220905",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20221011",
+      "lastChecked": "20221101",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20221203",
+      "lastChecked": "20230206",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20230306",
+      "lastChecked": "20230306",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 31,
+        "third": 59
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20230405",
+      "lastChecked": "20230405",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20230504",
+      "lastChecked": "20230601",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 30,
+        "third": 60
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20230704",
+      "lastChecked": "20230704",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 29,
+        "third": 61
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20230804",
+      "lastChecked": "20231005",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 28,
+        "third": 62
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20231102",
+      "lastChecked": "20231102",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 28,
+        "third": 62
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20231207",
+      "lastChecked": "20240104",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 28,
+        "third": 62
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20240201",
+      "lastChecked": "20240201",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 28,
+        "third": 62
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20240312",
+      "lastChecked": "20240312",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 28,
+        "third": 62
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20240402",
+      "lastChecked": "20240704",
+      "sponsors": 99,
+      "levels": {
+        "first": 9,
+        "second": 27,
+        "third": 63
+      },
+      "estimate": 4950000
+    },
+    {
+      "parseDate": "20240803",
+      "lastChecked": "20240803",
+      "sponsors": 341,
+      "levels": {
+        "first": 14,
+        "second": 166,
+        "third": 161
+      },
+      "estimate": 12375000
+    },
+    {
+      "parseDate": "20240901",
+      "lastChecked": "20240901",
+      "sponsors": 343,
+      "levels": {
+        "first": 14,
+        "second": 168,
+        "third": 161
+      },
+      "estimate": 12425000
+    },
+    {
+      "parseDate": "20241001",
+      "lastChecked": "20241001",
+      "sponsors": 346,
+      "levels": {
+        "first": 14,
+        "second": 166,
+        "third": 166
+      },
+      "estimate": 12500000
+    },
+    {
+      "parseDate": "20241125",
+      "lastChecked": "20241125",
+      "sponsors": 356,
+      "levels": {
+        "first": 14,
+        "second": 170,
+        "third": 172
+      },
+      "estimate": 12750000
+    },
+    {
+      "parseDate": "20241229",
+      "lastChecked": "20241229",
+      "sponsors": 372,
+      "levels": {
+        "first": 14,
+        "second": 181,
+        "third": 177
+      },
+      "estimate": 13150000
+    },
+    {
+      "parseDate": "20250127",
+      "lastChecked": "20250127",
+      "sponsors": 375,
+      "levels": {
+        "first": 15,
+        "second": 183,
+        "third": 177
+      },
+      "estimate": 13500000
+    },
+    {
+      "parseDate": "20250203",
+      "lastChecked": "20250203",
+      "sponsors": 376,
+      "levels": {
+        "first": 15,
+        "second": 183,
+        "third": 178
+      },
+      "estimate": 13525000
+    },
+    {
+      "parseDate": "20250324",
+      "lastChecked": "20250324",
+      "sponsors": 387,
+      "levels": {
+        "first": 15,
+        "second": 190,
+        "third": 182
+      },
+      "estimate": 13800000
+    },
+    {
+      "parseDate": "20250417",
+      "lastChecked": "20250417",
+      "sponsors": 386,
+      "levels": {
+        "first": 15,
+        "second": 187,
+        "third": 184
+      },
+      "estimate": 13775000
+    },
+    {
+      "parseDate": "20250501",
+      "lastChecked": "20250501",
+      "sponsors": 388,
+      "levels": {
+        "first": 15,
+        "second": 188,
+        "third": 185
+      },
+      "estimate": 13825000
+    },
+    {
+      "parseDate": "20250606",
+      "lastChecked": "20250606",
+      "sponsors": 391,
+      "levels": {
+        "first": 15,
+        "second": 190,
+        "third": 186
+      },
+      "estimate": 13900000
+    },
+    {
+      "parseDate": "20250813",
+      "lastChecked": "20250813",
+      "sponsors": 394,
+      "levels": {
+        "first": 15,
+        "second": 190,
+        "third": 189
+      },
+      "estimate": 13975000
+    },
+    {
+      "parseDate": "20250905",
+      "lastChecked": "20250905",
+      "sponsors": 394,
+      "levels": {
+        "first": 15,
+        "second": 189,
+        "third": 190
+      },
+      "estimate": 13975000
+    },
+    {
+      "parseDate": "20251114",
+      "lastChecked": "20251114",
+      "sponsors": 395,
+      "levels": {
+        "first": 15,
+        "second": 187,
+        "third": 193
+      },
+      "estimate": 14000000
+    },
+    {
+      "parseDate": "20251217",
+      "lastChecked": "20251217",
+      "sponsors": 342,
+      "levels": {
+        "first": 15,
+        "second": 191,
+        "third": 136
+      },
+      "estimate": 12675000
+    },
+    {
+      "parseDate": "20260105",
+      "lastChecked": "20260105",
+      "sponsors": 299,
+      "levels": {
+        "first": 15,
+        "second": 191,
+        "third": 93
+      },
+      "estimate": 11600000
+    },
+    {
+      "parseDate": "20260427",
+      "lastChecked": "20260505",
+      "sponsors": 305,
+      "levels": {
+        "first": 16,
+        "second": 191,
+        "third": 98
+      },
+      "estimate": 12025000
+    },
+    {
+      "parseDate": "20260827",
+      "lastChecked": "20260827",
+      "sponsors": 312,
+      "levels": {
+        "first": 15,
+        "second": 194,
+        "third": 103
+      },
+      "estimate": 11925000
+    }
+  ],
+  "finos": [
+    {
+      "parseDate": "20180425",
+      "lastChecked": "20180425",
+      "sponsors": 30,
+      "levels": {
+        "first": 15,
+        "second": 7,
+        "third": 8
+      },
+      "estimate": 3590000
+    },
+    {
+      "parseDate": "20190330",
+      "lastChecked": "20190330",
+      "sponsors": 29,
+      "levels": {
+        "first": 12,
+        "second": 8,
+        "third": 9
+      },
+      "estimate": 3070000
+    },
+    {
+      "parseDate": "20190417",
+      "lastChecked": "20190417",
+      "sponsors": 28,
+      "levels": {
+        "first": 12,
+        "second": 7,
+        "third": 9
+      },
+      "estimate": 3020000
+    },
+    {
+      "parseDate": "20190820",
+      "lastChecked": "20191212",
+      "sponsors": 32,
+      "levels": {
+        "first": 12,
+        "second": 9,
+        "third": 11
+      },
+      "estimate": 3180000
+    },
+    {
+      "parseDate": "20200430",
+      "lastChecked": "20200620",
+      "sponsors": 35,
+      "levels": {
+        "first": 11,
+        "second": 9,
+        "third": 15
+      },
+      "estimate": 3100000
+    },
+    {
+      "parseDate": "20200729",
+      "lastChecked": "20200806",
+      "sponsors": 33,
+      "levels": {
+        "first": 10,
+        "second": 9,
+        "third": 14
+      },
+      "estimate": 2870000
+    },
+    {
+      "parseDate": "20200913",
+      "lastChecked": "20201025",
+      "sponsors": 33,
+      "levels": {
+        "first": 10,
+        "second": 9,
+        "third": 14
+      },
+      "estimate": 2870000
+    },
+    {
+      "parseDate": "20201101",
+      "lastChecked": "20201101",
+      "sponsors": 32,
+      "levels": {
+        "first": 10,
+        "second": 9,
+        "third": 13
+      },
+      "estimate": 2840000
+    },
+    {
+      "parseDate": "20201231",
+      "lastChecked": "20201231",
+      "sponsors": 37,
+      "levels": {
+        "community": 3,
+        "first": 11,
+        "second": 11,
+        "third": 12
+      },
+      "estimate": 3110000
+    },
+    {
+      "parseDate": "20210119",
+      "lastChecked": "20210119",
+      "sponsors": 36,
+      "levels": {
+        "community": 3,
+        "first": 11,
+        "second": 10,
+        "third": 12
+      },
+      "estimate": 3060000
+    },
+    {
+      "parseDate": "20210516",
+      "lastChecked": "20210516",
+      "sponsors": 43,
+      "levels": {
+        "community": 6,
+        "first": 10,
+        "second": 11,
+        "third": 16
+      },
+      "estimate": 3030000
+    },
+    {
+      "parseDate": "20210616",
+      "lastChecked": "20210616",
+      "sponsors": 46,
+      "levels": {
+        "community": 6,
+        "first": 10,
+        "second": 11,
+        "third": 19
+      },
+      "estimate": 3120000
+    },
+    {
+      "parseDate": "20210725",
+      "lastChecked": "20210725",
+      "sponsors": 45,
+      "levels": {
+        "community": 6,
+        "first": 10,
+        "second": 10,
+        "third": 19
+      },
+      "estimate": 3070000
+    },
+    {
+      "parseDate": "20210818",
+      "lastChecked": "20211010",
+      "sponsors": 46,
+      "levels": {
+        "community": 6,
+        "first": 10,
+        "second": 10,
+        "third": 20
+      },
+      "estimate": 3100000
+    },
+    {
+      "parseDate": "20211128",
+      "lastChecked": "20211128",
+      "sponsors": 52,
+      "levels": {
+        "community": 9,
+        "first": 11,
+        "second": 11,
+        "third": 21
+      },
+      "estimate": 3380000
+    },
+    {
+      "parseDate": "20220204",
+      "lastChecked": "20220204",
+      "sponsors": 54,
+      "levels": {
+        "community": 9,
+        "first": 11,
+        "second": 13,
+        "third": 21
+      },
+      "estimate": 3480000
+    },
+    {
+      "parseDate": "20220519",
+      "lastChecked": "20220519",
+      "sponsors": 52,
+      "levels": {
+        "community": 9,
+        "first": 12,
+        "second": 13,
+        "third": 18
+      },
+      "estimate": 3590000
+    },
+    {
+      "parseDate": "20220817",
+      "lastChecked": "20221031",
+      "sponsors": 56,
+      "levels": {
+        "community": 10,
+        "first": 10,
+        "second": 17,
+        "third": 19
+      },
+      "estimate": 3420000
+    },
+    {
+      "parseDate": "20221128",
+      "lastChecked": "20221128",
+      "sponsors": 62,
+      "levels": {
+        "community": 13,
+        "first": 10,
+        "second": 17,
+        "third": 22
+      },
+      "estimate": 3510000
+    },
+    {
+      "parseDate": "20230127",
+      "lastChecked": "20230206",
+      "sponsors": 66,
+      "levels": {
+        "community": 13,
+        "first": 10,
+        "second": 21,
+        "third": 22
+      },
+      "estimate": 3710000
+    },
+    {
+      "parseDate": "20230401",
+      "lastChecked": "20230401",
+      "sponsors": 65,
+      "levels": {
+        "community": 13,
+        "first": 10,
+        "second": 20,
+        "third": 22
+      },
+      "estimate": 3660000
+    },
+    {
+      "parseDate": "20230610",
+      "lastChecked": "20230610",
+      "sponsors": 64,
+      "levels": {
+        "community": 13,
+        "first": 9,
+        "second": 20,
+        "third": 22
+      },
+      "estimate": 3460000
+    },
+    {
+      "parseDate": "20230908",
+      "lastChecked": "20230908",
+      "sponsors": 67,
+      "levels": {
+        "community": 13,
+        "first": 9,
+        "second": 21,
+        "third": 24
+      },
+      "estimate": 3570000
+    },
+    {
+      "parseDate": "20231001",
+      "lastChecked": "20231001",
+      "sponsors": 68,
+      "levels": {
+        "community": 13,
+        "first": 9,
+        "second": 21,
+        "third": 25
+      },
+      "estimate": 3600000
+    },
+    {
+      "parseDate": "20240217",
+      "lastChecked": "20240301",
+      "sponsors": 65,
+      "levels": {
+        "community": 14,
+        "first": 9,
+        "second": 18,
+        "third": 24
+      },
+      "estimate": 3420000
+    },
+    {
+      "parseDate": "20240416",
+      "lastChecked": "20240416",
+      "sponsors": 71,
+      "levels": {
+        "community": 14,
+        "first": 9,
+        "second": 20,
+        "third": 28
+      },
+      "estimate": 3640000
+    },
+    {
+      "parseDate": "20240617",
+      "lastChecked": "20240617",
+      "sponsors": 73,
+      "levels": {
+        "community": 14,
+        "first": 9,
+        "second": 21,
+        "third": 29
+      },
+      "estimate": 3720000
+    },
+    {
+      "parseDate": "20240726",
+      "lastChecked": "20240726",
+      "sponsors": 83,
+      "levels": {
+        "community": 16,
+        "first": 9,
         "second": 25,
-        "third": 53
+        "third": 33
+      },
+      "estimate": 4040000
+    },
+    {
+      "parseDate": "20240909",
+      "lastChecked": "20241003",
+      "sponsors": 87,
+      "levels": {
+        "community": 16,
+        "first": 9,
+        "second": 25,
+        "third": 37
+      },
+      "estimate": 4160000
+    },
+    {
+      "parseDate": "20241211",
+      "lastChecked": "20241211",
+      "sponsors": 97,
+      "levels": {
+        "community": 21,
+        "first": 11,
+        "second": 27,
+        "third": 38
+      },
+      "estimate": 4690000
+    },
+    {
+      "parseDate": "20250127",
+      "lastChecked": "20250127",
+      "sponsors": 98,
+      "levels": {
+        "community": 21,
+        "first": 11,
+        "second": 28,
+        "third": 38
+      },
+      "estimate": 4740000
+    },
+    {
+      "parseDate": "20250205",
+      "lastChecked": "20250205",
+      "sponsors": 103,
+      "levels": {
+        "community": 21,
+        "first": 11,
+        "second": 28,
+        "third": 43
+      },
+      "estimate": 4890000
+    },
+    {
+      "parseDate": "20250324",
+      "lastChecked": "20250324",
+      "sponsors": 97,
+      "levels": {
+        "community": 21,
+        "first": 9,
+        "second": 30,
+        "third": 37
+      },
+      "estimate": 4410000
+    },
+    {
+      "parseDate": "20250418",
+      "lastChecked": "20250418",
+      "sponsors": 95,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 28,
+        "third": 36
+      },
+      "estimate": 4480000
+    },
+    {
+      "parseDate": "20250520",
+      "lastChecked": "20250520",
+      "sponsors": 94,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 28,
+        "third": 35
+      },
+      "estimate": 4450000
+    },
+    {
+      "parseDate": "20250720",
+      "lastChecked": "20250720",
+      "sponsors": 96,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 28,
+        "third": 37
+      },
+      "estimate": 4510000
+    },
+    {
+      "parseDate": "20250908",
+      "lastChecked": "20251010",
+      "sponsors": 98,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 29,
+        "third": 38
+      },
+      "estimate": 4590000
+    },
+    {
+      "parseDate": "20251102",
+      "lastChecked": "20251102",
+      "sponsors": 99,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 28,
+        "third": 40
+      },
+      "estimate": 4600000
+    },
+    {
+      "parseDate": "20251201",
+      "lastChecked": "20260101",
+      "sponsors": 99,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 28,
+        "third": 40
+      },
+      "estimate": 4600000
+    },
+    {
+      "parseDate": "20260219",
+      "lastChecked": "20260219",
+      "sponsors": 91,
+      "levels": {
+        "community": 21,
+        "first": 9,
+        "second": 27,
+        "third": 34
+      },
+      "estimate": 4170000
+    },
+    {
+      "parseDate": "20260317",
+      "lastChecked": "20260317",
+      "sponsors": 91,
+      "levels": {
+        "community": 21,
+        "first": 9,
+        "second": 26,
+        "third": 35
+      },
+      "estimate": 4150000
+    },
+    {
+      "parseDate": "20260421",
+      "lastChecked": "20260421",
+      "sponsors": 92,
+      "levels": {
+        "community": 21,
+        "first": 10,
+        "second": 26,
+        "third": 35
+      },
+      "estimate": 4350000
+    },
+    {
+      "parseDate": "20260511",
+      "lastChecked": "20260511",
+      "sponsors": 96,
+      "levels": {
+        "community": 22,
+        "first": 10,
+        "second": 28,
+        "third": 36
+      },
+      "estimate": 4480000
+    },
+    {
+      "parseDate": "20260615",
+      "lastChecked": "20260615",
+      "sponsors": 97,
+      "levels": {
+        "community": 23,
+        "first": 11,
+        "second": 27,
+        "third": 36
+      },
+      "estimate": 4630000
+    },
+    {
+      "parseDate": "20260710",
+      "lastChecked": "20260710",
+      "sponsors": 98,
+      "levels": {
+        "community": 23,
+        "first": 11,
+        "second": 26,
+        "third": 38
       },
       "estimate": 4640000
     }
   ],
   "freebsd": [
     {
-      "parseDate": "20240208",
-      "lastChecked": "20240215",
+      "parseDate": "20200804",
+      "lastChecked": "20201029",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 1500000
+    },
+    {
+      "parseDate": "20201111",
+      "lastChecked": "20201111",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 1750000
+    },
+    {
+      "parseDate": "20201231",
+      "lastChecked": "20201231",
+      "sponsors": 11,
+      "levels": {
+        "first": 11
+      },
+      "estimate": 2750000
+    },
+    {
+      "parseDate": "20210124",
+      "lastChecked": "20210124",
       "sponsors": 1,
       "levels": {
         "first": 1
@@ -2147,13 +4503,229 @@
       "estimate": 250000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
-      "sponsors": 9,
+      "parseDate": "20210306",
+      "lastChecked": "20210407",
+      "sponsors": 2,
       "levels": {
-        "first": 9
+        "first": 2
       },
-      "estimate": 2250000
+      "estimate": 500000
+    },
+    {
+      "parseDate": "20210507",
+      "lastChecked": "20210507",
+      "sponsors": 3,
+      "levels": {
+        "first": 3
+      },
+      "estimate": 750000
+    },
+    {
+      "parseDate": "20210621",
+      "lastChecked": "20211016",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 1250000
+    },
+    {
+      "parseDate": "20211102",
+      "lastChecked": "20211102",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 1500000
+    },
+    {
+      "parseDate": "20220209",
+      "lastChecked": "20220520",
+      "sponsors": 3,
+      "levels": {
+        "first": 3
+      },
+      "estimate": 750000
+    },
+    {
+      "parseDate": "20220706",
+      "lastChecked": "20221125",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 1250000
+    },
+    {
+      "parseDate": "20221222",
+      "lastChecked": "20221222",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 1500000
+    },
+    {
+      "parseDate": "20230204",
+      "lastChecked": "20230204",
+      "sponsors": 1,
+      "levels": {
+        "first": 1
+      },
+      "estimate": 250000
+    },
+    {
+      "parseDate": "20230321",
+      "lastChecked": "20230321",
+      "sponsors": 2,
+      "levels": {
+        "first": 2
+      },
+      "estimate": 500000
+    },
+    {
+      "parseDate": "20230419",
+      "lastChecked": "20230717",
+      "sponsors": 4,
+      "levels": {
+        "first": 4
+      },
+      "estimate": 1000000
+    },
+    {
+      "parseDate": "20231031",
+      "lastChecked": "20231101",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 1750000
+    },
+    {
+      "parseDate": "20231207",
+      "lastChecked": "20231207",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 2000000
+    },
+    {
+      "parseDate": "20240115",
+      "lastChecked": "20240205",
+      "sponsors": 1,
+      "levels": {
+        "first": 1
+      },
+      "estimate": 250000
+    },
+    {
+      "parseDate": "20240318",
+      "lastChecked": "20240318",
+      "sponsors": 4,
+      "levels": {
+        "first": 4
+      },
+      "estimate": 1000000
+    },
+    {
+      "parseDate": "20240404",
+      "lastChecked": "20240703",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 1250000
+    },
+    {
+      "parseDate": "20240915",
+      "lastChecked": "20240915",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 2000000
+    },
+    {
+      "parseDate": "20241004",
+      "lastChecked": "20241004",
+      "sponsors": 10,
+      "levels": {
+        "first": 10
+      },
+      "estimate": 2500000
+    },
+    {
+      "parseDate": "20241113",
+      "lastChecked": "20241113",
+      "sponsors": 12,
+      "levels": {
+        "first": 12
+      },
+      "estimate": 3000000
+    },
+    {
+      "parseDate": "20241213",
+      "lastChecked": "20241213",
+      "sponsors": 14,
+      "levels": {
+        "first": 14
+      },
+      "estimate": 3500000
+    },
+    {
+      "parseDate": "20250208",
+      "lastChecked": "20250326",
+      "sponsors": 3,
+      "levels": {
+        "first": 3
+      },
+      "estimate": 750000
+    },
+    {
+      "parseDate": "20250410",
+      "lastChecked": "20250604",
+      "sponsors": 4,
+      "levels": {
+        "first": 4
+      },
+      "estimate": 1000000
+    },
+    {
+      "parseDate": "20250702",
+      "lastChecked": "20251017",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 1250000
+    },
+    {
+      "parseDate": "20251116",
+      "lastChecked": "20251203",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 1500000
+    },
+    {
+      "parseDate": "20260116",
+      "lastChecked": "20260611",
+      "sponsors": 1,
+      "levels": {
+        "first": 1
+      },
+      "estimate": 250000
+    },
+    {
+      "parseDate": "20260717",
+      "lastChecked": "20260922",
+      "sponsors": 2,
+      "levels": {
+        "first": 2
+      },
+      "estimate": 500000
     }
   ],
   "fsfe": [
@@ -2739,8 +5311,77 @@
   ],
   "haskell": [
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240215",
+      "parseDate": "20210617",
+      "lastChecked": "20210801",
+      "sponsors": 8,
+      "levels": {
+        "second": 8
+      },
+      "estimate": 200000
+    },
+    {
+      "parseDate": "20211020",
+      "lastChecked": "20211020",
+      "sponsors": 13,
+      "levels": {
+        "second": 13
+      },
+      "estimate": 325000
+    },
+    {
+      "parseDate": "20211208",
+      "lastChecked": "20211208",
+      "sponsors": 13,
+      "levels": {
+        "second": 13
+      },
+      "estimate": 325000
+    },
+    {
+      "parseDate": "20220123",
+      "lastChecked": "20220123",
+      "sponsors": 14,
+      "levels": {
+        "second": 14
+      },
+      "estimate": 350000
+    },
+    {
+      "parseDate": "20220527",
+      "lastChecked": "20220527",
+      "sponsors": 18,
+      "levels": {
+        "first": 4,
+        "second": 8,
+        "third": 6
+      },
+      "estimate": 540000
+    },
+    {
+      "parseDate": "20220801",
+      "lastChecked": "20230327",
+      "sponsors": 19,
+      "levels": {
+        "first": 5,
+        "second": 8,
+        "third": 6
+      },
+      "estimate": 610000
+    },
+    {
+      "parseDate": "20231018",
+      "lastChecked": "20231018",
+      "sponsors": 19,
+      "levels": {
+        "first": 4,
+        "second": 8,
+        "third": 7
+      },
+      "estimate": 550000
+    },
+    {
+      "parseDate": "20231216",
+      "lastChecked": "20240810",
       "sponsors": 20,
       "levels": {
         "first": 4,
@@ -2750,8 +5391,8 @@
       "estimate": 560000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20240912",
+      "lastChecked": "20241004",
       "sponsors": 21,
       "levels": {
         "first": 4,
@@ -2759,6 +5400,50 @@
         "third": 8
       },
       "estimate": 585000
+    },
+    {
+      "parseDate": "20250404",
+      "lastChecked": "20250404",
+      "sponsors": 20,
+      "levels": {
+        "first": 3,
+        "second": 9,
+        "third": 8
+      },
+      "estimate": 515000
+    },
+    {
+      "parseDate": "20250629",
+      "lastChecked": "20250629",
+      "sponsors": 11,
+      "levels": {
+        "first": 3,
+        "second": 3,
+        "third": 5
+      },
+      "estimate": 335000
+    },
+    {
+      "parseDate": "20260214",
+      "lastChecked": "20260402",
+      "sponsors": 11,
+      "levels": {
+        "first": 4,
+        "second": 2,
+        "third": 5
+      },
+      "estimate": 380000
+    },
+    {
+      "parseDate": "20260701",
+      "lastChecked": "20261002",
+      "sponsors": 12,
+      "levels": {
+        "first": 4,
+        "second": 3,
+        "third": 5
+      },
+      "estimate": 405000
     }
   ],
   "hyperledger": [
@@ -5555,22 +8240,196 @@
   ],
   "llvm": [
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240215",
-      "sponsors": 10,
+      "parseDate": "20200927",
+      "lastChecked": "20210914",
+      "sponsors": 24,
+      "levels": {
+        "first": 2,
+        "fourth": 10,
+        "second": 3,
+        "third": 9
+      },
+      "estimate": 600000
+    },
+    {
+      "parseDate": "20220424",
+      "lastChecked": "20220424",
+      "sponsors": 18,
+      "levels": {
+        "first": 2,
+        "fourth": 5,
+        "second": 3,
+        "third": 8
+      },
+      "estimate": 562500
+    },
+    {
+      "parseDate": "20220505",
+      "lastChecked": "20221003",
+      "sponsors": 20,
+      "levels": {
+        "first": 2,
+        "fourth": 5,
+        "second": 4,
+        "third": 9
+      },
+      "estimate": 637500
+    },
+    {
+      "parseDate": "20221127",
+      "lastChecked": "20240113",
+      "sponsors": 21,
+      "levels": {
+        "first": 2,
+        "fourth": 5,
+        "second": 5,
+        "third": 9
+      },
+      "estimate": 687500
+    },
+    {
+      "parseDate": "20240919",
+      "lastChecked": "20250324",
+      "sponsors": 16,
       "levels": {
         "first": 2,
         "fourth": 2,
-        "second": 3,
-        "third": 3
+        "second": 6,
+        "third": 6
       },
-      "estimate": 430000
+      "estimate": 655000
+    },
+    {
+      "parseDate": "20250510",
+      "lastChecked": "20251011",
+      "sponsors": 20,
+      "levels": {
+        "first": 2,
+        "fourth": 4,
+        "second": 6,
+        "third": 8
+      },
+      "estimate": 710000
+    },
+    {
+      "parseDate": "20260307",
+      "lastChecked": "20260307",
+      "sponsors": 19,
+      "levels": {
+        "first": 3,
+        "fourth": 3,
+        "second": 6,
+        "third": 7
+      },
+      "estimate": 782500
+    },
+    {
+      "parseDate": "20260603",
+      "lastChecked": "20260603",
+      "sponsors": 19,
+      "levels": {
+        "first": 4,
+        "fourth": 3,
+        "second": 6,
+        "third": 6
+      },
+      "estimate": 857500
+    },
+    {
+      "parseDate": "20260903",
+      "lastChecked": "20261002",
+      "sponsors": 17,
+      "levels": {
+        "first": 4,
+        "fourth": 1,
+        "second": 5,
+        "third": 7
+      },
+      "estimate": 827500
     }
   ],
   "numfocus": [
     {
-      "parseDate": "20240208",
-      "lastChecked": "20240215",
+      "parseDate": "20220123",
+      "lastChecked": "20220123",
+      "sponsors": 25,
+      "levels": {
+        "community": 6,
+        "first": 5,
+        "grants": 3,
+        "second": 7,
+        "third": 4
+      },
+      "estimate": 896000
+    },
+    {
+      "parseDate": "20220516",
+      "lastChecked": "20220516",
+      "sponsors": 29,
+      "levels": {
+        "community": 8,
+        "first": 6,
+        "grants": 3,
+        "second": 9,
+        "third": 3
+      },
+      "estimate": 1088000
+    },
+    {
+      "parseDate": "20220704",
+      "lastChecked": "20221208",
+      "sponsors": 31,
+      "levels": {
+        "community": 8,
+        "first": 7,
+        "grants": 3,
+        "second": 9,
+        "third": 4
+      },
+      "estimate": 1198000
+    },
+    {
+      "parseDate": "20230124",
+      "lastChecked": "20230306",
+      "sponsors": 31,
+      "levels": {
+        "community": 8,
+        "first": 7,
+        "grants": 3,
+        "second": 9,
+        "third": 4
+      },
+      "estimate": 1198000
+    },
+    {
+      "parseDate": "20230530",
+      "lastChecked": "20230530",
+      "sponsors": 28,
+      "levels": {
+        "community": 7,
+        "first": 8,
+        "grants": 3,
+        "second": 7,
+        "third": 3
+      },
+      "estimate": 1187000
+    },
+    {
+      "parseDate": "20230925",
+      "lastChecked": "20231009",
+      "sponsors": 31,
+      "levels": {
+        "community": 7,
+        "first": 8,
+        "grants": 3,
+        "second": 10,
+        "third": 3
+      },
+      "estimate": 1337000
+    },
+    {
+      "parseDate": "20240222",
+      "lastChecked": "20240907",
       "sponsors": 28,
       "levels": {
         "community": 8,
@@ -5583,8 +8442,8 @@
       "estimate": 988000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20241010",
+      "lastChecked": "20241203",
       "sponsors": 25,
       "levels": {
         "community": 5,
@@ -5597,8 +8456,22 @@
       "estimate": 985000
     },
     {
-      "parseDate": "20250911",
-      "lastChecked": "20250911",
+      "parseDate": "20250108",
+      "lastChecked": "20250108",
+      "sponsors": 24,
+      "levels": {
+        "community": 5,
+        "first": 5,
+        "grants": 3,
+        "second": 8,
+        "startuppartners": 1,
+        "third": 2
+      },
+      "estimate": 925000
+    },
+    {
+      "parseDate": "20250403",
+      "lastChecked": "20251016",
       "sponsors": 27,
       "levels": {
         "community": 7,
@@ -5609,6 +8482,58 @@
         "third": 3
       },
       "estimate": 937000
+    },
+    {
+      "parseDate": "20251222",
+      "lastChecked": "20251222",
+      "sponsors": 26,
+      "levels": {
+        "community": 7,
+        "first": 5,
+        "grants": 3,
+        "second": 8,
+        "third": 3
+      },
+      "estimate": 937000
+    },
+    {
+      "parseDate": "20260113",
+      "lastChecked": "20260113",
+      "sponsors": 27,
+      "levels": {
+        "community": 8,
+        "first": 5,
+        "grants": 3,
+        "second": 8,
+        "third": 3
+      },
+      "estimate": 938000
+    },
+    {
+      "parseDate": "20260304",
+      "lastChecked": "20260401",
+      "sponsors": 26,
+      "levels": {
+        "community": 8,
+        "first": 4,
+        "grants": 3,
+        "second": 8,
+        "third": 3
+      },
+      "estimate": 838000
+    },
+    {
+      "parseDate": "20260910",
+      "lastChecked": "20260910",
+      "sponsors": 24,
+      "levels": {
+        "community": 8,
+        "first": 3,
+        "grants": 3,
+        "second": 7,
+        "third": 3
+      },
+      "estimate": 688000
     }
   ],
   "openmainframe": [
@@ -6694,26 +9619,152 @@
   ],
   "openstack": [
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240212",
-      "sponsors": 473,
+      "parseDate": "20230127",
+      "lastChecked": "20230127",
+      "sponsors": 459,
       "levels": {
-        "academic": 28,
-        "community": 362,
-        "first": 5,
+        "academic": 20,
+        "community": 359,
+        "first": 8,
         "firstinkind": 5,
-        "second": 13,
-        "third": 60
+        "second": 18,
+        "third": 49
       },
-      "estimate": 4600000
+      "estimate": 6235000
     },
     {
-      "parseDate": "20240215",
-      "lastChecked": "20240215",
+      "parseDate": "20230206",
+      "lastChecked": "20230206",
+      "sponsors": 462,
+      "levels": {
+        "academic": 21,
+        "community": 360,
+        "first": 8,
+        "firstinkind": 5,
+        "second": 19,
+        "third": 49
+      },
+      "estimate": 6385000
+    },
+    {
+      "parseDate": "20230301",
+      "lastChecked": "20230301",
+      "sponsors": 463,
+      "levels": {
+        "academic": 21,
+        "community": 359,
+        "first": 8,
+        "firstinkind": 5,
+        "second": 19,
+        "third": 51
+      },
+      "estimate": 6415000
+    },
+    {
+      "parseDate": "20230419",
+      "lastChecked": "20230419",
+      "sponsors": 469,
+      "levels": {
+        "academic": 25,
+        "community": 359,
+        "first": 8,
+        "firstinkind": 5,
+        "second": 17,
+        "third": 55
+      },
+      "estimate": 6175000
+    },
+    {
+      "parseDate": "20230527",
+      "lastChecked": "20230607",
+      "sponsors": 469,
+      "levels": {
+        "academic": 25,
+        "community": 358,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 17,
+        "third": 57
+      },
+      "estimate": 5855000
+    },
+    {
+      "parseDate": "20230716",
+      "lastChecked": "20230716",
+      "sponsors": 471,
+      "levels": {
+        "academic": 25,
+        "community": 357,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 17,
+        "third": 60
+      },
+      "estimate": 5900000
+    },
+    {
+      "parseDate": "20230819",
+      "lastChecked": "20230819",
       "sponsors": 475,
       "levels": {
+        "academic": 25,
+        "community": 359,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 16,
+        "third": 63
+      },
+      "estimate": 5795000
+    },
+    {
+      "parseDate": "20230901",
+      "lastChecked": "20230901",
+      "sponsors": 476,
+      "levels": {
+        "academic": 25,
+        "community": 360,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 16,
+        "third": 63
+      },
+      "estimate": 5795000
+    },
+    {
+      "parseDate": "20231127",
+      "lastChecked": "20231208",
+      "sponsors": 477,
+      "levels": {
+        "academic": 26,
+        "community": 360,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 16,
+        "third": 63
+      },
+      "estimate": 5795000
+    },
+    {
+      "parseDate": "20240102",
+      "lastChecked": "20240102",
+      "sponsors": 479,
+      "levels": {
+        "academic": 28,
+        "community": 360,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 16,
+        "third": 63
+      },
+      "estimate": 5795000
+    },
+    {
+      "parseDate": "20240220",
+      "lastChecked": "20240220",
+      "sponsors": 476,
+      "levels": {
         "academic": 30,
-        "community": 361,
+        "community": 362,
         "first": 5,
         "firstinkind": 5,
         "second": 13,
@@ -6722,8 +9773,106 @@
       "estimate": 4615000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20240324",
+      "lastChecked": "20240324",
+      "sponsors": 479,
+      "levels": {
+        "academic": 30,
+        "community": 364,
+        "first": 5,
+        "firstinkind": 5,
+        "second": 13,
+        "third": 62
+      },
+      "estimate": 4630000
+    },
+    {
+      "parseDate": "20240404",
+      "lastChecked": "20240404",
+      "sponsors": 479,
+      "levels": {
+        "academic": 30,
+        "community": 365,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 61
+      },
+      "estimate": 4815000
+    },
+    {
+      "parseDate": "20240518",
+      "lastChecked": "20240518",
+      "sponsors": 481,
+      "levels": {
+        "academic": 31,
+        "community": 366,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 61
+      },
+      "estimate": 4815000
+    },
+    {
+      "parseDate": "20240623",
+      "lastChecked": "20240623",
+      "sponsors": 486,
+      "levels": {
+        "academic": 32,
+        "community": 367,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 64
+      },
+      "estimate": 4860000
+    },
+    {
+      "parseDate": "20240717",
+      "lastChecked": "20240717",
+      "sponsors": 488,
+      "levels": {
+        "academic": 32,
+        "community": 367,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 66
+      },
+      "estimate": 4890000
+    },
+    {
+      "parseDate": "20240817",
+      "lastChecked": "20240817",
+      "sponsors": 491,
+      "levels": {
+        "academic": 32,
+        "community": 369,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 67
+      },
+      "estimate": 4905000
+    },
+    {
+      "parseDate": "20240906",
+      "lastChecked": "20240906",
+      "sponsors": 492,
+      "levels": {
+        "academic": 32,
+        "community": 369,
+        "first": 6,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 68
+      },
+      "estimate": 4920000
+    },
+    {
+      "parseDate": "20241002",
+      "lastChecked": "20241002",
       "sponsors": 495,
       "levels": {
         "academic": 32,
@@ -6734,6 +9883,144 @@
         "third": 70
       },
       "estimate": 4950000
+    },
+    {
+      "parseDate": "20241101",
+      "lastChecked": "20241101",
+      "sponsors": 501,
+      "levels": {
+        "academic": 37,
+        "community": 370,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 70
+      },
+      "estimate": 5300000
+    },
+    {
+      "parseDate": "20241212",
+      "lastChecked": "20241212",
+      "sponsors": 502,
+      "levels": {
+        "academic": 38,
+        "community": 370,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 70
+      },
+      "estimate": 5300000
+    },
+    {
+      "parseDate": "20250113",
+      "lastChecked": "20250113",
+      "sponsors": 501,
+      "levels": {
+        "academic": 38,
+        "community": 371,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 12,
+        "third": 68
+      },
+      "estimate": 5270000
+    },
+    {
+      "parseDate": "20250320",
+      "lastChecked": "20250320",
+      "sponsors": 498,
+      "levels": {
+        "academic": 39,
+        "community": 371,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 10,
+        "third": 66
+      },
+      "estimate": 4940000
+    },
+    {
+      "parseDate": "20250418",
+      "lastChecked": "20250418",
+      "sponsors": 500,
+      "levels": {
+        "academic": 39,
+        "community": 373,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 10,
+        "third": 66
+      },
+      "estimate": 4940000
+    },
+    {
+      "parseDate": "20250502",
+      "lastChecked": "20250502",
+      "sponsors": 501,
+      "levels": {
+        "academic": 40,
+        "community": 373,
+        "first": 7,
+        "firstinkind": 5,
+        "second": 10,
+        "third": 66
+      },
+      "estimate": 4940000
+    },
+    {
+      "parseDate": "20250712",
+      "lastChecked": "20250712",
+      "sponsors": 504,
+      "levels": {
+        "academic": 40,
+        "community": 373,
+        "first": 8,
+        "firstinkind": 5,
+        "second": 10,
+        "third": 68
+      },
+      "estimate": 5320000
+    },
+    {
+      "parseDate": "20251119",
+      "lastChecked": "20251119",
+      "sponsors": 502,
+      "levels": {
+        "academic": 41,
+        "community": 376,
+        "first": 7,
+        "firstinkind": 4,
+        "second": 10,
+        "third": 64
+      },
+      "estimate": 4910000
+    },
+    {
+      "parseDate": "20260211",
+      "lastChecked": "20260211",
+      "sponsors": 113,
+      "levels": {
+        "academic": 30,
+        "first": 8,
+        "firstinkind": 4,
+        "second": 9,
+        "third": 62
+      },
+      "estimate": 5080000
+    },
+    {
+      "parseDate": "20260608",
+      "lastChecked": "20260608",
+      "sponsors": 114,
+      "levels": {
+        "academic": 31,
+        "first": 8,
+        "firstinkind": 4,
+        "second": 9,
+        "third": 62
+      },
+      "estimate": 5080000
     }
   ],
   "openstreetmap": [
@@ -7605,8 +10892,627 @@
   ],
   "osgeo": [
     {
-      "parseDate": "20240208",
-      "lastChecked": "20240215",
+      "parseDate": "20160227",
+      "lastChecked": "20160307",
+      "sponsors": 2,
+      "levels": {
+        "fifth": 1,
+        "fourth": 1
+      },
+      "estimate": 3500
+    },
+    {
+      "parseDate": "20160430",
+      "lastChecked": "20160506",
+      "sponsors": 5,
+      "levels": {
+        "fifth": 1,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 36500
+    },
+    {
+      "parseDate": "20160720",
+      "lastChecked": "20160720",
+      "sponsors": 6,
+      "levels": {
+        "fifth": 2,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 37000
+    },
+    {
+      "parseDate": "20160817",
+      "lastChecked": "20161106",
+      "sponsors": 7,
+      "levels": {
+        "fifth": 3,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 37500
+    },
+    {
+      "parseDate": "20170329",
+      "lastChecked": "20170329",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 6,
+        "first": 1,
+        "fourth": 3,
+        "second": 1
+      },
+      "estimate": 62000
+    },
+    {
+      "parseDate": "20170601",
+      "lastChecked": "20170601",
+      "sponsors": 9,
+      "levels": {
+        "fifth": 4,
+        "first": 2,
+        "fourth": 3
+      },
+      "estimate": 71000
+    },
+    {
+      "parseDate": "20170718",
+      "lastChecked": "20171202",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 3,
+        "first": 2,
+        "fourth": 4,
+        "third": 1
+      },
+      "estimate": 83500
+    },
+    {
+      "parseDate": "20180101",
+      "lastChecked": "20180101",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 3,
+        "first": 2,
+        "fourth": 5,
+        "third": 1
+      },
+      "estimate": 86500
+    },
+    {
+      "parseDate": "20180404",
+      "lastChecked": "20180404",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 5,
+        "third": 1
+      },
+      "estimate": 86000
+    },
+    {
+      "parseDate": "20180519",
+      "lastChecked": "20180519",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 5,
+        "third": 1
+      },
+      "estimate": 86000
+    },
+    {
+      "parseDate": "20180604",
+      "lastChecked": "20180604",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 10,
+        "third": 1
+      },
+      "estimate": 101000
+    },
+    {
+      "parseDate": "20180721",
+      "lastChecked": "20180721",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 10
+      },
+      "estimate": 91000
+    },
+    {
+      "parseDate": "20180805",
+      "lastChecked": "20180805",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 2,
+        "fourth": 9
+      },
+      "estimate": 28000
+    },
+    {
+      "parseDate": "20180922",
+      "lastChecked": "20181006",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 4,
+        "first": 1,
+        "fourth": 9,
+        "third": 2
+      },
+      "estimate": 79000
+    },
+    {
+      "parseDate": "20181123",
+      "lastChecked": "20181123",
+      "sponsors": 17,
+      "levels": {
+        "fifth": 4,
+        "first": 1,
+        "fourth": 9,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 99000
+    },
+    {
+      "parseDate": "20181206",
+      "lastChecked": "20181206",
+      "sponsors": 18,
+      "levels": {
+        "fifth": 5,
+        "first": 1,
+        "fourth": 9,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 99500
+    },
+    {
+      "parseDate": "20190124",
+      "lastChecked": "20190206",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 5,
+        "first": 1,
+        "fourth": 7,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 93500
+    },
+    {
+      "parseDate": "20190327",
+      "lastChecked": "20190327",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 4,
+        "first": 1,
+        "fourth": 7,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 93000
+    },
+    {
+      "parseDate": "20190408",
+      "lastChecked": "20190408",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 4,
+        "fourth": 4,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 54000
+    },
+    {
+      "parseDate": "20190515",
+      "lastChecked": "20190515",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 3,
+        "fourth": 6,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 59500
+    },
+    {
+      "parseDate": "20190607",
+      "lastChecked": "20190802",
+      "sponsors": 9,
+      "levels": {
+        "fifth": 3,
+        "fourth": 2,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 57500
+    },
+    {
+      "parseDate": "20190928",
+      "lastChecked": "20190928",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 1,
+        "first": 1,
+        "fourth": 6,
+        "third": 5
+      },
+      "estimate": 98500
+    },
+    {
+      "parseDate": "20191013",
+      "lastChecked": "20191013",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 1,
+        "first": 1,
+        "fourth": 6,
+        "second": 1,
+        "third": 4
+      },
+      "estimate": 108500
+    },
+    {
+      "parseDate": "20191127",
+      "lastChecked": "20191127",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 4,
+        "first": 1,
+        "fourth": 6,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 100000
+    },
+    {
+      "parseDate": "20191213",
+      "lastChecked": "20191213",
+      "sponsors": 17,
+      "levels": {
+        "fifth": 3,
+        "first": 1,
+        "fourth": 9,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 108500
+    },
+    {
+      "parseDate": "20200126",
+      "lastChecked": "20200126",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 3,
+        "first": 1,
+        "fourth": 8,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 105500
+    },
+    {
+      "parseDate": "20200225",
+      "lastChecked": "20200225",
+      "sponsors": 18,
+      "levels": {
+        "fifth": 3,
+        "first": 1,
+        "fourth": 10,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 111500
+    },
+    {
+      "parseDate": "20200502",
+      "lastChecked": "20200502",
+      "sponsors": 17,
+      "levels": {
+        "fifth": 3,
+        "first": 1,
+        "fourth": 9,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 108500
+    },
+    {
+      "parseDate": "20200813",
+      "lastChecked": "20200813",
+      "sponsors": 20,
+      "levels": {
+        "fifth": 5,
+        "first": 1,
+        "fourth": 9,
+        "second": 1,
+        "third": 4
+      },
+      "estimate": 119500
+    },
+    {
+      "parseDate": "20200927",
+      "lastChecked": "20201101",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 6,
+        "fourth": 5,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 58000
+    },
+    {
+      "parseDate": "20210201",
+      "lastChecked": "20210201",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 3,
+        "fourth": 8,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 65500
+    },
+    {
+      "parseDate": "20210420",
+      "lastChecked": "20210420",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 4,
+        "fourth": 9,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 69000
+    },
+    {
+      "parseDate": "20210504",
+      "lastChecked": "20210504",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 4,
+        "fourth": 8,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 66000
+    },
+    {
+      "parseDate": "20210621",
+      "lastChecked": "20210621",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 3,
+        "fourth": 8,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 65500
+    },
+    {
+      "parseDate": "20210725",
+      "lastChecked": "20210725",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 4,
+        "fourth": 8,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 56000
+    },
+    {
+      "parseDate": "20210812",
+      "lastChecked": "20210812",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 2,
+        "fourth": 8,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 55000
+    },
+    {
+      "parseDate": "20210913",
+      "lastChecked": "20210913",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 2,
+        "fourth": 6,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 49000
+    },
+    {
+      "parseDate": "20211011",
+      "lastChecked": "20211011",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 2,
+        "fourth": 6,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 69000
+    },
+    {
+      "parseDate": "20211207",
+      "lastChecked": "20211207",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 3,
+        "fourth": 6,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 69500
+    },
+    {
+      "parseDate": "20220110",
+      "lastChecked": "20220110",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 3,
+        "fourth": 5,
+        "third": 3
+      },
+      "estimate": 46500
+    },
+    {
+      "parseDate": "20220517",
+      "lastChecked": "20220615",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 6,
+        "fourth": 3,
+        "second": 2,
+        "third": 4
+      },
+      "estimate": 92000
+    },
+    {
+      "parseDate": "20220724",
+      "lastChecked": "20220724",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 5,
+        "fourth": 3,
+        "second": 3,
+        "third": 3
+      },
+      "estimate": 101500
+    },
+    {
+      "parseDate": "20220802",
+      "lastChecked": "20220802",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 5,
+        "fourth": 2,
+        "second": 3,
+        "third": 3
+      },
+      "estimate": 98500
+    },
+    {
+      "parseDate": "20221003",
+      "lastChecked": "20221003",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 4,
+        "fourth": 2,
+        "second": 3,
+        "third": 2
+      },
+      "estimate": 88000
+    },
+    {
+      "parseDate": "20221209",
+      "lastChecked": "20221209",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 6,
+        "fourth": 3,
+        "second": 3,
+        "third": 2
+      },
+      "estimate": 92000
+    },
+    {
+      "parseDate": "20230106",
+      "lastChecked": "20230106",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 4,
+        "fourth": 1,
+        "second": 3,
+        "third": 2
+      },
+      "estimate": 85000
+    },
+    {
+      "parseDate": "20230208",
+      "lastChecked": "20230318",
+      "sponsors": 6,
+      "levels": {
+        "fifth": 2,
+        "fourth": 1,
+        "second": 2,
+        "third": 1
+      },
+      "estimate": 54000
+    },
+    {
+      "parseDate": "20230529",
+      "lastChecked": "20230529",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 5,
+        "fourth": 3,
+        "second": 3,
+        "third": 1
+      },
+      "estimate": 81500
+    },
+    {
+      "parseDate": "20231004",
+      "lastChecked": "20231004",
+      "sponsors": 19,
+      "levels": {
+        "fifth": 10,
+        "first": 2,
+        "fourth": 3,
+        "second": 2,
+        "third": 2
+      },
+      "estimate": 134000
+    },
+    {
+      "parseDate": "20231204",
+      "lastChecked": "20231204",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 8,
+        "first": 2,
+        "fourth": 1,
+        "second": 3,
+        "third": 2
+      },
+      "estimate": 147000
+    },
+    {
+      "parseDate": "20240111",
+      "lastChecked": "20240111",
+      "sponsors": 18,
+      "levels": {
+        "fifth": 8,
+        "first": 3,
+        "fourth": 2,
+        "second": 2,
+        "third": 3
+      },
+      "estimate": 170000
+    },
+    {
+      "parseDate": "20240228",
+      "lastChecked": "20240228",
       "sponsors": 19,
       "levels": {
         "fifth": 9,
@@ -7618,8 +11524,60 @@
       "estimate": 170500
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20240405",
+      "lastChecked": "20240405",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 7,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 122500
+    },
+    {
+      "parseDate": "20240528",
+      "lastChecked": "20240528",
+      "sponsors": 16,
+      "levels": {
+        "fifth": 7,
+        "first": 3,
+        "fourth": 2,
+        "second": 1,
+        "third": 3
+      },
+      "estimate": 149500
+    },
+    {
+      "parseDate": "20240620",
+      "lastChecked": "20240620",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 5,
+        "first": 3,
+        "fourth": 2,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 138500
+    },
+    {
+      "parseDate": "20240806",
+      "lastChecked": "20240806",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 6,
+        "first": 3,
+        "fourth": 3,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 142000
+    },
+    {
+      "parseDate": "20240915",
+      "lastChecked": "20240915",
       "sponsors": 15,
       "levels": {
         "fifth": 6,
@@ -7629,6 +11587,217 @@
         "third": 2
       },
       "estimate": 132000
+    },
+    {
+      "parseDate": "20241002",
+      "lastChecked": "20241002",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 5,
+        "first": 2,
+        "fourth": 3,
+        "second": 2,
+        "third": 2
+      },
+      "estimate": 131500
+    },
+    {
+      "parseDate": "20241104",
+      "lastChecked": "20241104",
+      "sponsors": 15,
+      "levels": {
+        "fifth": 7,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "third": 2
+      },
+      "estimate": 112500
+    },
+    {
+      "parseDate": "20241211",
+      "lastChecked": "20241211",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 7,
+        "first": 3,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 129500
+    },
+    {
+      "parseDate": "20250113",
+      "lastChecked": "20250113",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 7,
+        "first": 2,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 99500
+    },
+    {
+      "parseDate": "20250212",
+      "lastChecked": "20250212",
+      "sponsors": 11,
+      "levels": {
+        "fifth": 5,
+        "first": 2,
+        "fourth": 2,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 98500
+    },
+    {
+      "parseDate": "20250311",
+      "lastChecked": "20250311",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 5,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 101500
+    },
+    {
+      "parseDate": "20250417",
+      "lastChecked": "20250417",
+      "sponsors": 10,
+      "levels": {
+        "fifth": 5,
+        "first": 1,
+        "fourth": 3,
+        "second": 1
+      },
+      "estimate": 61500
+    },
+    {
+      "parseDate": "20250513",
+      "lastChecked": "20250614",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 6,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "third": 1
+      },
+      "estimate": 102000
+    },
+    {
+      "parseDate": "20251205",
+      "lastChecked": "20251205",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 2,
+        "first": 3,
+        "fourth": 7,
+        "third": 2
+      },
+      "estimate": 132000
+    },
+    {
+      "parseDate": "20260108",
+      "lastChecked": "20260108",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 6,
+        "third": 3
+      },
+      "estimate": 109000
+    },
+    {
+      "parseDate": "20260206",
+      "lastChecked": "20260206",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 2,
+        "first": 2,
+        "fourth": 5,
+        "third": 3
+      },
+      "estimate": 106000
+    },
+    {
+      "parseDate": "20260315",
+      "lastChecked": "20260315",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 4,
+        "first": 2,
+        "fourth": 5,
+        "third": 3
+      },
+      "estimate": 107000
+    },
+    {
+      "parseDate": "20260420",
+      "lastChecked": "20260420",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 4,
+        "first": 2,
+        "fourth": 4,
+        "third": 3
+      },
+      "estimate": 104000
+    },
+    {
+      "parseDate": "20260510",
+      "lastChecked": "20260510",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 4,
+        "first": 2,
+        "fourth": 4,
+        "third": 2
+      },
+      "estimate": 94000
+    },
+    {
+      "parseDate": "20260616",
+      "lastChecked": "20260616",
+      "sponsors": 13,
+      "levels": {
+        "fifth": 4,
+        "first": 2,
+        "fourth": 4,
+        "third": 3
+      },
+      "estimate": 104000
+    },
+    {
+      "parseDate": "20260719",
+      "lastChecked": "20260719",
+      "sponsors": 12,
+      "levels": {
+        "fifth": 3,
+        "first": 2,
+        "fourth": 4,
+        "third": 3
+      },
+      "estimate": 103500
+    },
+    {
+      "parseDate": "20260927",
+      "lastChecked": "20260927",
+      "sponsors": 14,
+      "levels": {
+        "fifth": 4,
+        "first": 3,
+        "fourth": 3,
+        "third": 4
+      },
+      "estimate": 141000
     }
   ],
   "osi": [
@@ -8404,56 +12573,293 @@
   ],
   "python": [
     {
-      "parseDate": "20240208",
-      "lastChecked": "20240208",
-      "sponsors": 39,
+      "parseDate": "20230101",
+      "lastChecked": "20230101",
+      "sponsors": 79,
       "levels": {
-        "eighth": 5,
-        "fifth": 4,
+        "eighth": 10,
+        "fifth": 15,
         "first": 2,
-        "fourth": 3,
-        "second": 1,
-        "seventh": 10,
-        "sixth": 13,
-        "third": 1
+        "fourth": 6,
+        "second": 3,
+        "seventh": 13,
+        "sixth": 25,
+        "third": 5
       },
-      "estimate": 775000
+      "estimate": 1588750
     },
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240212",
-      "sponsors": 38,
+      "parseDate": "20230201",
+      "lastChecked": "20230201",
+      "sponsors": 76,
       "levels": {
-        "eighth": 5,
-        "fifth": 4,
-        "first": 2,
-        "fourth": 3,
-        "second": 1,
-        "seventh": 10,
-        "sixth": 12,
-        "third": 1
+        "eighth": 10,
+        "fifth": 15,
+        "first": 3,
+        "fourth": 6,
+        "second": 3,
+        "seventh": 12,
+        "sixth": 22,
+        "third": 5
       },
-      "estimate": 765000
+      "estimate": 1705000
     },
     {
-      "parseDate": "20240215",
-      "lastChecked": "20240215",
-      "sponsors": 45,
+      "parseDate": "20230304",
+      "lastChecked": "20230304",
+      "sponsors": 75,
       "levels": {
-        "eighth": 5,
-        "fifth": 5,
+        "eighth": 9,
+        "fifth": 11,
         "first": 2,
-        "fourth": 3,
+        "fourth": 6,
         "second": 2,
-        "seventh": 9,
-        "sixth": 15,
+        "seventh": 12,
+        "sixth": 27,
+        "third": 6
+      },
+      "estimate": 1513500
+    },
+    {
+      "parseDate": "20230402",
+      "lastChecked": "20230402",
+      "sponsors": 76,
+      "levels": {
+        "eighth": 11,
+        "fifth": 11,
+        "first": 3,
+        "fourth": 5,
+        "second": 2,
+        "seventh": 11,
+        "sixth": 27,
+        "third": 6
+      },
+      "estimate": 1632750
+    },
+    {
+      "parseDate": "20230504",
+      "lastChecked": "20230504",
+      "sponsors": 80,
+      "levels": {
+        "eighth": 11,
+        "fifth": 10,
+        "first": 3,
+        "fourth": 5,
+        "second": 2,
+        "seventh": 12,
+        "sixth": 31,
+        "third": 6
+      },
+      "estimate": 1661500
+    },
+    {
+      "parseDate": "20230604",
+      "lastChecked": "20230604",
+      "sponsors": 80,
+      "levels": {
+        "eighth": 12,
+        "fifth": 10,
+        "first": 3,
+        "fourth": 4,
+        "second": 2,
+        "seventh": 12,
+        "sixth": 31,
+        "third": 6
+      },
+      "estimate": 1633000
+    },
+    {
+      "parseDate": "20230713",
+      "lastChecked": "20230713",
+      "sponsors": 79,
+      "levels": {
+        "eighth": 12,
+        "fifth": 10,
+        "first": 3,
+        "fourth": 4,
+        "second": 2,
+        "seventh": 12,
+        "sixth": 30,
+        "third": 6
+      },
+      "estimate": 1623000
+    },
+    {
+      "parseDate": "20230827",
+      "lastChecked": "20230827",
+      "sponsors": 75,
+      "levels": {
+        "eighth": 11,
+        "fifth": 9,
+        "first": 3,
+        "fourth": 4,
+        "second": 2,
+        "seventh": 12,
+        "sixth": 29,
+        "third": 5
+      },
+      "estimate": 1536500
+    },
+    {
+      "parseDate": "20230914",
+      "lastChecked": "20230914",
+      "sponsors": 74,
+      "levels": {
+        "eighth": 10,
+        "fifth": 9,
+        "first": 3,
+        "fourth": 4,
+        "second": 2,
+        "seventh": 12,
+        "sixth": 29,
+        "third": 5
+      },
+      "estimate": 1535000
+    },
+    {
+      "parseDate": "20231009",
+      "lastChecked": "20231009",
+      "sponsors": 71,
+      "levels": {
+        "eighth": 10,
+        "fifth": 9,
+        "first": 3,
+        "fourth": 4,
+        "second": 1,
+        "seventh": 11,
+        "sixth": 29,
         "third": 4
       },
-      "estimate": 1076250
+      "estimate": 1381250
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20231108",
+      "lastChecked": "20231108",
+      "sponsors": 62,
+      "levels": {
+        "eighth": 9,
+        "fifth": 7,
+        "first": 2,
+        "fourth": 3,
+        "seventh": 10,
+        "sixth": 27,
+        "third": 4
+      },
+      "estimate": 1056000
+    },
+    {
+      "parseDate": "20231206",
+      "lastChecked": "20231206",
+      "sponsors": 61,
+      "levels": {
+        "eighth": 9,
+        "fifth": 7,
+        "first": 3,
+        "fourth": 2,
+        "seventh": 10,
+        "sixth": 26,
+        "third": 4
+      },
+      "estimate": 1166000
+    },
+    {
+      "parseDate": "20240104",
+      "lastChecked": "20240104",
+      "sponsors": 51,
+      "levels": {
+        "eighth": 7,
+        "fifth": 5,
+        "first": 2,
+        "fourth": 2,
+        "seventh": 10,
+        "sixth": 22,
+        "third": 3
+      },
+      "estimate": 883000
+    },
+    {
+      "parseDate": "20240205",
+      "lastChecked": "20240205",
+      "sponsors": 43,
+      "levels": {
+        "eighth": 5,
+        "fifth": 4,
+        "first": 2,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 17,
+        "third": 1
+      },
+      "estimate": 815000
+    },
+    {
+      "parseDate": "20240302",
+      "lastChecked": "20240302",
+      "sponsors": 51,
+      "levels": {
+        "eighth": 6,
+        "fifth": 5,
+        "first": 3,
+        "fourth": 2,
+        "second": 2,
+        "seventh": 13,
+        "sixth": 15,
+        "third": 5
+      },
+      "estimate": 1272750
+    },
+    {
+      "parseDate": "20240414",
+      "lastChecked": "20240414",
+      "sponsors": 55,
+      "levels": {
+        "eighth": 3,
+        "fifth": 9,
+        "first": 4,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 8
+      },
+      "estimate": 1687000
+    },
+    {
+      "parseDate": "20240502",
+      "lastChecked": "20240502",
+      "sponsors": 63,
+      "levels": {
+        "eighth": 2,
+        "fifth": 10,
+        "first": 5,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 11,
+        "sixth": 22,
+        "third": 8
+      },
+      "estimate": 1914250
+    },
+    {
+      "parseDate": "20240601",
+      "lastChecked": "20240803",
+      "sponsors": 66,
+      "levels": {
+        "eighth": 3,
+        "fifth": 10,
+        "first": 5,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 13,
+        "sixth": 22,
+        "third": 8
+      },
+      "estimate": 1923250
+    },
+    {
+      "parseDate": "20240907",
+      "lastChecked": "20240907",
       "sponsors": 67,
       "levels": {
         "eighth": 3,
@@ -8466,6 +12872,291 @@
         "third": 8
       },
       "estimate": 1927000
+    },
+    {
+      "parseDate": "20241007",
+      "lastChecked": "20241007",
+      "sponsors": 66,
+      "levels": {
+        "eighth": 2,
+        "fifth": 10,
+        "first": 5,
+        "fourth": 3,
+        "second": 2,
+        "seventh": 14,
+        "sixth": 22,
+        "third": 8
+      },
+      "estimate": 1925500
+    },
+    {
+      "parseDate": "20241106",
+      "lastChecked": "20241106",
+      "sponsors": 63,
+      "levels": {
+        "eighth": 2,
+        "fifth": 9,
+        "first": 4,
+        "fourth": 2,
+        "second": 2,
+        "seventh": 14,
+        "sixth": 22,
+        "third": 8
+      },
+      "estimate": 1730500
+    },
+    {
+      "parseDate": "20241203",
+      "lastChecked": "20241203",
+      "sponsors": 55,
+      "levels": {
+        "eighth": 2,
+        "fifth": 9,
+        "first": 4,
+        "fourth": 2,
+        "second": 1,
+        "seventh": 13,
+        "sixth": 17,
+        "third": 7
+      },
+      "estimate": 1526750
+    },
+    {
+      "parseDate": "20250115",
+      "lastChecked": "20250115",
+      "sponsors": 48,
+      "levels": {
+        "eighth": 3,
+        "fifth": 7,
+        "first": 3,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 5
+      },
+      "estimate": 1237000
+    },
+    {
+      "parseDate": "20250210",
+      "lastChecked": "20250210",
+      "sponsors": 47,
+      "levels": {
+        "eighth": 3,
+        "fifth": 8,
+        "first": 5,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 8,
+        "sixth": 15,
+        "third": 4
+      },
+      "estimate": 1474500
+    },
+    {
+      "parseDate": "20250307",
+      "lastChecked": "20250307",
+      "sponsors": 50,
+      "levels": {
+        "eighth": 2,
+        "fifth": 10,
+        "first": 4,
+        "fourth": 5,
+        "second": 1,
+        "seventh": 6,
+        "sixth": 17,
+        "third": 5
+      },
+      "estimate": 1485500
+    },
+    {
+      "parseDate": "20250404",
+      "lastChecked": "20250404",
+      "sponsors": 51,
+      "levels": {
+        "eighth": 2,
+        "fifth": 9,
+        "first": 4,
+        "fourth": 6,
+        "second": 1,
+        "seventh": 7,
+        "sixth": 16,
+        "third": 6
+      },
+      "estimate": 1554250
+    },
+    {
+      "parseDate": "20250503",
+      "lastChecked": "20250503",
+      "sponsors": 59,
+      "levels": {
+        "eighth": 3,
+        "fifth": 9,
+        "first": 5,
+        "fourth": 6,
+        "second": 1,
+        "seventh": 11,
+        "sixth": 17,
+        "third": 7
+      },
+      "estimate": 1790750
+    },
+    {
+      "parseDate": "20250612",
+      "lastChecked": "20250612",
+      "sponsors": 58,
+      "levels": {
+        "eighth": 3,
+        "fifth": 9,
+        "first": 5,
+        "fourth": 6,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 17,
+        "third": 7
+      },
+      "estimate": 1787000
+    },
+    {
+      "parseDate": "20250706",
+      "lastChecked": "20250906",
+      "sponsors": 59,
+      "levels": {
+        "eighth": 3,
+        "fifth": 9,
+        "first": 5,
+        "fourth": 6,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 18,
+        "third": 7
+      },
+      "estimate": 1797000
+    },
+    {
+      "parseDate": "20251012",
+      "lastChecked": "20251101",
+      "sponsors": 56,
+      "levels": {
+        "eighth": 3,
+        "fifth": 9,
+        "first": 5,
+        "fourth": 5,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 7
+      },
+      "estimate": 1747000
+    },
+    {
+      "parseDate": "20251216",
+      "lastChecked": "20251216",
+      "sponsors": 56,
+      "levels": {
+        "eighth": 8,
+        "fifth": 7,
+        "first": 5,
+        "fourth": 5,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 5
+      },
+      "estimate": 1514500
+    },
+    {
+      "parseDate": "20260107",
+      "lastChecked": "20260107",
+      "sponsors": 53,
+      "levels": {
+        "eighth": 7,
+        "fifth": 6,
+        "first": 4,
+        "fourth": 5,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 5
+      },
+      "estimate": 1348000
+    },
+    {
+      "parseDate": "20260209",
+      "lastChecked": "20260209",
+      "sponsors": 44,
+      "levels": {
+        "eighth": 7,
+        "fifth": 4,
+        "first": 2,
+        "fourth": 2,
+        "seventh": 10,
+        "sixth": 16,
+        "third": 3
+      },
+      "estimate": 808000
+    },
+    {
+      "parseDate": "20260306",
+      "lastChecked": "20260306",
+      "sponsors": 59,
+      "levels": {
+        "eighth": 10,
+        "fifth": 13,
+        "first": 4,
+        "fourth": 4,
+        "second": 1,
+        "seventh": 12,
+        "sixth": 12,
+        "third": 3
+      },
+      "estimate": 1365000
+    },
+    {
+      "parseDate": "20260415",
+      "lastChecked": "20260415",
+      "sponsors": 70,
+      "levels": {
+        "eighth": 9,
+        "fifth": 14,
+        "first": 7,
+        "fourth": 3,
+        "second": 1,
+        "seventh": 12,
+        "sixth": 18,
+        "third": 6
+      },
+      "estimate": 2038500
+    },
+    {
+      "parseDate": "20260510",
+      "lastChecked": "20260510",
+      "sponsors": 71,
+      "levels": {
+        "eighth": 10,
+        "fifth": 15,
+        "first": 7,
+        "fourth": 4,
+        "second": 1,
+        "seventh": 10,
+        "sixth": 18,
+        "third": 6
+      },
+      "estimate": 2077500
+    },
+    {
+      "parseDate": "20260615",
+      "lastChecked": "20260715",
+      "sponsors": 73,
+      "levels": {
+        "eighth": 10,
+        "fifth": 15,
+        "first": 7,
+        "fourth": 4,
+        "second": 1,
+        "seventh": 12,
+        "sixth": 18,
+        "third": 6
+      },
+      "estimate": 2085000
     }
   ],
   "rails": [
@@ -8498,8 +13189,8 @@
   ],
   "sfc": [
     {
-      "parseDate": "20240211",
-      "lastChecked": "20240215",
+      "parseDate": "20160101",
+      "lastChecked": "20160101",
       "sponsors": 8,
       "levels": {
         "first": 8
@@ -8507,13 +13198,175 @@
       "estimate": 8000
     },
     {
-      "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "parseDate": "20160203",
+      "lastChecked": "20160203",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20160301",
+      "lastChecked": "20160301",
       "sponsors": 9,
       "levels": {
         "first": 9
       },
       "estimate": 9000
+    },
+    {
+      "parseDate": "20160401",
+      "lastChecked": "20160801",
+      "sponsors": 10,
+      "levels": {
+        "first": 10
+      },
+      "estimate": 10000
+    },
+    {
+      "parseDate": "20160904",
+      "lastChecked": "20161106",
+      "sponsors": 9,
+      "levels": {
+        "first": 9
+      },
+      "estimate": 9000
+    },
+    {
+      "parseDate": "20161209",
+      "lastChecked": "20161209",
+      "sponsors": 10,
+      "levels": {
+        "first": 10
+      },
+      "estimate": 10000
+    },
+    {
+      "parseDate": "20170108",
+      "lastChecked": "20171106",
+      "sponsors": 10,
+      "levels": {
+        "first": 10
+      },
+      "estimate": 10000
+    },
+    {
+      "parseDate": "20171203",
+      "lastChecked": "20181103",
+      "sponsors": 9,
+      "levels": {
+        "first": 9
+      },
+      "estimate": 9000
+    },
+    {
+      "parseDate": "20181202",
+      "lastChecked": "20181202",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20190105",
+      "lastChecked": "20190105",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20190202",
+      "lastChecked": "20200104",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 7000
+    },
+    {
+      "parseDate": "20200201",
+      "lastChecked": "20201003",
+      "sponsors": 6,
+      "levels": {
+        "first": 6
+      },
+      "estimate": 6000
+    },
+    {
+      "parseDate": "20201107",
+      "lastChecked": "20201201",
+      "sponsors": 5,
+      "levels": {
+        "first": 5
+      },
+      "estimate": 5000
+    },
+    {
+      "parseDate": "20210102",
+      "lastChecked": "20210206",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20210306",
+      "lastChecked": "20210306",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 7000
+    },
+    {
+      "parseDate": "20210403",
+      "lastChecked": "20230605",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20230715",
+      "lastChecked": "20240115",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 7000
+    },
+    {
+      "parseDate": "20240217",
+      "lastChecked": "20240707",
+      "sponsors": 8,
+      "levels": {
+        "first": 8
+      },
+      "estimate": 8000
+    },
+    {
+      "parseDate": "20240804",
+      "lastChecked": "20260703",
+      "sponsors": 9,
+      "levels": {
+        "first": 9
+      },
+      "estimate": 9000
+    },
+    {
+      "parseDate": "20260811",
+      "lastChecked": "20260906",
+      "sponsors": 7,
+      "levels": {
+        "first": 7
+      },
+      "estimate": 7000
     }
   ],
   "spi": [
