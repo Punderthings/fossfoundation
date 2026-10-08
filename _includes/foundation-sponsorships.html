@@ -1,0 +1,34 @@
+{%- comment -%}
+  Sponsorships subsection of Funding: sponsor links, program models, the foundation's own program's
+  current top tier sponsors, and its estimated sponsorship income by year.
+  The own program is the sponsorship model with the same identifier as the foundation.
+  Parameter: usd (true for US IRS nonprofit types, whose amounts may be shown with a $ sign).
+{%- endcomment -%}
+{%- assign own_program = site.sponsorships | where: 'identifier', page.identifier | first -%}
+{%- if page.sponsorurl or page.sponsorList or page.sponsorships or own_program -%}
+  <div id="sponsorships-section" class="funding-subsection">
+    <h3 id="sponsorships">Sponsorships</h3>
+    {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
+    {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
+    {%- if own_program %}
+    <abbr title="This foundation's own sponsorship program model: levels, prices, and benefits.">Sponsorship Program Model</abbr>: <span itemprop="sponsorships"><a href="/sponsorships/{{ own_program.identifier }}">{{ own_program.commonName | default: own_program.identifier }}</a></span><br/>
+    {%- endif -%}
+    {%- assign hosted_programs = "" | split: "" -%}
+    {%- for program_id in page.sponsorships -%}
+      {%- unless program_id == page.identifier -%}{%- assign hosted_programs = hosted_programs | push: program_id -%}{%- endunless -%}
+    {%- endfor -%}
+    {%- if hosted_programs.size > 0 %}
+    <abbr title="Separate sponsorship programs of projects or foundations hosted by this one.">Hosted Sponsorship Programs</abbr>:
+    <ul>
+      {%- for program_id in hosted_programs -%}
+        {%- assign hosted = site.sponsorships | where: 'identifier', program_id | first %}
+      <li><span itemprop="sponsorships">{% if hosted %}<a href="/sponsorships/{{ hosted.identifier }}">{{ hosted.commonName | default: hosted.identifier }}</a>{% else %}{{ program_id }}{% endif %}</span></li>
+      {%- endfor %}
+    </ul>
+    {%- endif -%}
+    {%- if own_program -%}
+      {% include foundation-top-sponsors.html program=own_program %}
+      {% include foundation-sponsor-income.html program=own_program usd=include.usd %}
+    {%- endif %}
+  </div>
+{%- endif -%}

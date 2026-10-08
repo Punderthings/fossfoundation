@@ -936,6 +936,38 @@ class SponsorReportsTest < Minitest::Test
     end
   end
 
+  def test_report_income_mid_year_snapshot
+    in_tmp_project do
+      write_model('demo', "identifier: demo\neffectiveDate: '20220101'\nlevels:\n  first:\n    amount: '100'\n  second:\n    amount: '10'\n" \
+                          "pastModels:\n  - effectiveDate: '20180101'\n    levels:\n      first:\n        amount: '50'\n")
+      write_model('stale', "identifier: stale\nlevels:\n  first:\n    amount: '1'\n")
+      hist = SponsorUtils.build_history('demo', [
+        [{ 'parseDate' => '20190301', 'lastChecked' => '20200815' }, { 'first' => %w[a.com b.com] }],   # covers Jul 2019, Jul 2020
+        [{ 'parseDate' => '20200901', 'lastChecked' => '20200901' }, { 'first' => %w[a.com] }],         # confirmed 10 months before Jul 2021
+        [{ 'parseDate' => '20230601', 'lastChecked' => '20230601' }, { 'first' => %w[a.com], 'second' => %w[c.com d.com] }]
+      ])
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'listed.json'),
+                                 SponsorUtils.build_history('listed', [[{ 'parseDate' => '20240101', 'lastChecked' => '20240801' }, { 'listed' => %w[x.com y.com] }]]))
+      write_model('listed', "identifier: listed\nlevels:\n  first:\n    amount: '5'\n")
+      SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'stale.json'),
+                                 SponsorUtils.build_history('stale', [[{ 'parseDate' => '20150101', 'lastChecked' => '20150101' }, { 'first' => %w[x.com] }]]))
+      income = SponsorReports.report_income(SponsorUtils::DEFAULT_HISTORY_DIR, { 'demo' => { 'lastChecked' => '20250701' } }, today: Date.new(2025, 8, 1))
+      # 2022 is stale (last list confirmed 2020-09-01), 2023-2025 use the newest list, priced with 2022+ amounts
+      as_hash = ->(rows) { rows.to_h { |row| [row['year'].to_s, row['estimate']] } }
+      assert_equal [2025, 2024, 2023, 2021, 2020, 2019], income['demo'].map { |row| row['year'] }, 'newest year first'
+      assert_equal({ '2019' => 100, '2020' => 100, '2021' => 50, '2023' => 120, '2024' => 120, '2025' => 120 }, as_hash.call(income['demo']))
+      assert_equal({ '2015' => 1 }, as_hash.call(income['stale']), 'a list is not carried into years long after it was last confirmed')
+      assert_equal [{ 'year' => 2025, 'estimate' => nil, 'sponsors' => 2 }, { 'year' => 2024, 'estimate' => nil, 'sponsors' => 2 }], income['listed'], 'listed-only years have no estimate'
+      assert_equal 3, income['demo'].first['sponsors']
+      early = SponsorReports.report_income(SponsorUtils::DEFAULT_HISTORY_DIR, {}, today: Date.new(2025, 6, 30))
+      early_demo = as_hash.call(early['demo'])
+      refute early_demo.key?('2025'), 'a year is included only once its July 1 has passed'
+      assert_equal 120, early_demo['2023']
+      refute early_demo.key?('2024'), 'without a recent check, the newest list is not carried forward'
+    end
+  end
+
   def test_report_counts_tolerates_unknown_levels
     counts = SponsorReports.report_counts('demo' => { 'first' => ['a.com'], 'custom' => ['a.com'], 'parseDate' => '1' })
     assert_equal 2, counts['all']['a.com']

@@ -106,10 +106,11 @@ module SponsorArchive
     return result
   end
 
+  # @param versions oldest first; versions on the same day must be in the order they were made
   # @return versions within [from, until], keeping the last version of each month, oldest first
   def monthly(versions, from, until_date)
     in_range = versions.select { |v| (from.nil? || v.date >= from) && (until_date.nil? || v.date <= until_date) }
-    in_range.group_by { |v| v.date[0, 6] }.map { |_month, list| list.max_by(&:date) }.sort_by(&:date)
+    in_range.group_by { |v| v.date[0, 6] }.map { |_month, list| list.last }.sort_by(&:date)
   end
 
   # ## ### #### ##### ######
@@ -255,16 +256,17 @@ module SponsorArchive
   # Internet Archive captures of a source's URLs, at most one per month per URL
   # Each is loaded raw (id_), so links point at sponsors rather than at the archive.
   def wayback_versions(source, from, until_date)
-    Array(source['urls']).flat_map do |url|
+    captures = Array(source['urls']).flat_map do |url|
       params = { url: url.sub(%r{\Ahttps?://}, ''), fl: 'timestamp,original', filter: 'statuscode:200', collapse: 'timestamp:6' }
       params[:from] = from if from
       params[:to] = until_date if until_date
       cdx(params).map do |row|
         ref = "#{WAYBACK}/#{row['timestamp']}id_/#{row['original']}"
         date = row['timestamp'][0, 8]
-        Version.new(date: date, checked: date, ref: ref, loader: -> { http_get(ref) })
+        [row['timestamp'], Version.new(date: date, checked: date, ref: ref, loader: -> { http_get(ref) })]
       end
     end
+    captures.sort_by(&:first).map(&:last)
   end
 
   # Find archived pages on an org's sites whose URLs look like sponsor or member lists
@@ -303,10 +305,24 @@ module SponsorArchive
   # @return all versions a source offers
   def versions_for(source, from: nil, until_date: nil, today: Date.today)
     case source['kind']
-    when 'git' then git_versions(source)
-    when 'wiki' then wiki_versions(source)
+    when 'git' then current_until_replaced(git_versions(source))
+    when 'wiki' then current_until_replaced(wiki_versions(source))
     when 'yearly-page' then yearly_versions(source, from, until_date, today)
     when 'wayback' then wayback_versions(source, from, until_date)
+    end
+  end
+
+  # A git commit or wiki revision stays the current content until the next one replaces it,
+  # so each version is confirmed through the day before the next (archive captures are not:
+  # nothing is known between them)
+  # @param versions newest first, as git log and the wiki API list them
+  # @return versions oldest first (same-day versions in the order made), with checked dates extended
+  def current_until_replaced(versions)
+    sorted = versions.reverse.each_with_index.sort_by { |version, i| [version.date, i] }.map(&:first)
+    sorted.each_with_index.map do |version, i|
+      following = sorted[i + 1]
+      next version unless following
+      version.with(checked: [SponsorUtils.day_before(following.date), version.date].max)
     end
   end
 
@@ -351,7 +367,7 @@ module SponsorArchive
     all = versions_for(source, from: lower, until_date: upper, today: today)
     sampled = monthly(all, lower, upper)
     # The newest git commit or wiki revision is still the current content, so it is confirmed today
-    newest = all.max_by(&:date)
+    newest = all.last
     if newest && sampled.last.equal?(newest) && upper.nil? && %w[git wiki].include?(source['kind'])
       sampled[-1] = newest.with(checked: today.strftime('%Y%m%d'))
     end

@@ -1,0 +1,24 @@
+{%- comment -%}
+  Current Top Tier Sponsors of a sponsorship program, from its most recent scan in _data/sponsorships.
+  The top tier is the first cash level with sponsors, else the first in-kind level with sponsors.
+  Parameter: program (a _sponsorships document).
+{%- endcomment -%}
+{%- assign ts_data = site.data.sponsorships[include.program.identifier] -%}
+{%- if ts_data -%}
+  {%- assign ts_order = "first,second,third,fourth,fifth,sixth,seventh,eighth,firstinkind,secondinkind,thirdinkind,fourthinkind" | split: "," -%}
+  {%- assign ts_level = nil -%}
+  {%- for level in ts_order -%}
+    {%- if ts_data[level] and ts_data[level].size > 0 -%}{%- assign ts_level = level -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if ts_level -%}
+    {%- assign ts_name = include.program.levels[ts_level].name | default: ts_level -%}
+    {%- assign ts_date = ts_data.lastChecked | default: ts_data.parseDate | append: "" %}
+    <h4 id="top-sponsors">Current Top Tier Sponsors: {{ ts_name | slice: 0 | upcase }}{{ ts_name | slice: 1, 100 }}</h4>
+    <ul class="sponsor-inline">
+      {%- for sponsor in ts_data[ts_level] %}
+      <li>{% if sponsor contains " " or sponsor contains "/" %}{{ sponsor }}{% elsif sponsor contains "." %}<a href="https://{{ sponsor }}" rel="nofollow">{{ sponsor }}</a>{% else %}{{ sponsor }}{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    <p class="fund-note"><em>Last checked {{ ts_date | slice: 0, 4 }}-{{ ts_date | slice: 4, 2 }}-{{ ts_date | slice: 6, 2 }}; see the <a href="/sponsorships/{{ include.program.identifier }}">sponsorship program</a> for all levels.</em></p>
+  {%- endif -%}
+{%- endif -%}

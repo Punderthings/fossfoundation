@@ -1322,7 +1322,7 @@
   "aswf": [
     {
       "parseDate": "20190831",
-      "lastChecked": "20190831",
+      "lastChecked": "20190907",
       "sponsors": 25,
       "levels": {
         "first": 15,
@@ -1333,7 +1333,7 @@
     },
     {
       "parseDate": "20190930",
-      "lastChecked": "20200319",
+      "lastChecked": "20200402",
       "sponsors": 26,
       "levels": {
         "first": 16,
@@ -1344,7 +1344,7 @@
     },
     {
       "parseDate": "20200426",
-      "lastChecked": "20200716",
+      "lastChecked": "20200802",
       "sponsors": 28,
       "levels": {
         "first": 17,
@@ -1355,7 +1355,7 @@
     },
     {
       "parseDate": "20200827",
-      "lastChecked": "20200925",
+      "lastChecked": "20201201",
       "sponsors": 31,
       "levels": {
         "first": 18,
@@ -1366,7 +1366,7 @@
     },
     {
       "parseDate": "20201209",
-      "lastChecked": "20201209",
+      "lastChecked": "20210103",
       "sponsors": 30,
       "levels": {
         "first": 18,
@@ -1377,7 +1377,7 @@
     },
     {
       "parseDate": "20210130",
-      "lastChecked": "20210130",
+      "lastChecked": "20210216",
       "sponsors": 28,
       "levels": {
         "first": 15,
@@ -1388,7 +1388,7 @@
     },
     {
       "parseDate": "20210218",
-      "lastChecked": "20210218",
+      "lastChecked": "20210308",
       "sponsors": 30,
       "levels": {
         "first": 17,
@@ -1399,7 +1399,7 @@
     },
     {
       "parseDate": "20210325",
-      "lastChecked": "20210325",
+      "lastChecked": "20210402",
       "sponsors": 30,
       "levels": {
         "first": 17,
@@ -1542,7 +1542,7 @@
     },
     {
       "parseDate": "20221130",
-      "lastChecked": "20230324",
+      "lastChecked": "20230403",
       "sponsors": 35,
       "levels": {
         "first": 17,
@@ -1553,7 +1553,7 @@
     },
     {
       "parseDate": "20230422",
-      "lastChecked": "20230525",
+      "lastChecked": "20230531",
       "sponsors": 37,
       "levels": {
         "first": 17,
@@ -1564,7 +1564,7 @@
     },
     {
       "parseDate": "20230620",
-      "lastChecked": "20230825",
+      "lastChecked": "20230906",
       "sponsors": 38,
       "levels": {
         "first": 17,
@@ -1575,7 +1575,7 @@
     },
     {
       "parseDate": "20230930",
-      "lastChecked": "20231214",
+      "lastChecked": "20231231",
       "sponsors": 39,
       "levels": {
         "first": 17,
@@ -1586,7 +1586,7 @@
     },
     {
       "parseDate": "20240105",
-      "lastChecked": "20240325",
+      "lastChecked": "20240402",
       "sponsors": 37,
       "levels": {
         "first": 15,
@@ -1597,7 +1597,7 @@
     },
     {
       "parseDate": "20240420",
-      "lastChecked": "20240523",
+      "lastChecked": "20240611",
       "sponsors": 38,
       "levels": {
         "first": 16,
@@ -1608,7 +1608,7 @@
     },
     {
       "parseDate": "20240629",
-      "lastChecked": "20240722",
+      "lastChecked": "20240801",
       "sponsors": 37,
       "levels": {
         "first": 16,
@@ -1619,7 +1619,7 @@
     },
     {
       "parseDate": "20240830",
-      "lastChecked": "20241024",
+      "lastChecked": "20241031",
       "sponsors": 39,
       "levels": {
         "first": 17,
@@ -1630,7 +1630,7 @@
     },
     {
       "parseDate": "20241127",
-      "lastChecked": "20241213",
+      "lastChecked": "20241231",
       "sponsors": 38,
       "levels": {
         "first": 17,
@@ -1641,7 +1641,7 @@
     },
     {
       "parseDate": "20250129",
-      "lastChecked": "20250129",
+      "lastChecked": "20250131",
       "sponsors": 36,
       "levels": {
         "first": 16,
@@ -1652,7 +1652,7 @@
     },
     {
       "parseDate": "20250214",
-      "lastChecked": "20250630",
+      "lastChecked": "20250701",
       "sponsors": 38,
       "levels": {
         "first": 16,
@@ -1663,7 +1663,7 @@
     },
     {
       "parseDate": "20250726",
-      "lastChecked": "20250726",
+      "lastChecked": "20250731",
       "sponsors": 38,
       "levels": {
         "first": 17,
@@ -1674,7 +1674,7 @@
     },
     {
       "parseDate": "20250829",
-      "lastChecked": "20251206",
+      "lastChecked": "20251231",
       "sponsors": 40,
       "levels": {
         "first": 18,
@@ -1696,7 +1696,7 @@
     },
     {
       "parseDate": "20260225",
-      "lastChecked": "20260225",
+      "lastChecked": "20260304",
       "sponsors": 42,
       "levels": {
         "first": 18,
@@ -1707,7 +1707,7 @@
     },
     {
       "parseDate": "20260331",
-      "lastChecked": "20260626",
+      "lastChecked": "20260630",
       "sponsors": 41,
       "levels": {
         "first": 18,
@@ -1753,7 +1753,7 @@
     },
     {
       "parseDate": "20191022",
-      "lastChecked": "20191022",
+      "lastChecked": "20191104",
       "sponsors": 31,
       "levels": {
         "first": 9,
@@ -1764,7 +1764,7 @@
     },
     {
       "parseDate": "20191121",
-      "lastChecked": "20191121",
+      "lastChecked": "20191201",
       "sponsors": 32,
       "levels": {
         "first": 10,
@@ -1775,7 +1775,7 @@
     },
     {
       "parseDate": "20191218",
-      "lastChecked": "20200128",
+      "lastChecked": "20200205",
       "sponsors": 32,
       "levels": {
         "first": 10,
@@ -1786,7 +1786,7 @@
     },
     {
       "parseDate": "20200220",
-      "lastChecked": "20210521",
+      "lastChecked": "20210610",
       "sponsors": 31,
       "levels": {
         "first": 10,
@@ -1797,7 +1797,7 @@
     },
     {
       "parseDate": "20210612",
-      "lastChecked": "20210831",
+      "lastChecked": "20210922",
       "sponsors": 32,
       "levels": {
         "first": 10,
@@ -1808,7 +1808,7 @@
     },
     {
       "parseDate": "20210929",
-      "lastChecked": "20210929",
+      "lastChecked": "20211003",
       "sponsors": 32,
       "levels": {
         "first": 10,
@@ -1819,7 +1819,7 @@
     },
     {
       "parseDate": "20211028",
-      "lastChecked": "20211028",
+      "lastChecked": "20211031",
       "sponsors": 39,
       "levels": {
         "community": 1,
@@ -1831,7 +1831,7 @@
     },
     {
       "parseDate": "20211124",
-      "lastChecked": "20211206",
+      "lastChecked": "20220116",
       "sponsors": 40,
       "levels": {
         "community": 1,
@@ -1843,7 +1843,7 @@
     },
     {
       "parseDate": "20220131",
-      "lastChecked": "20220325",
+      "lastChecked": "20220406",
       "sponsors": 38,
       "levels": {
         "community": 1,
@@ -1855,7 +1855,7 @@
     },
     {
       "parseDate": "20220408",
-      "lastChecked": "20220528",
+      "lastChecked": "20220608",
       "sponsors": 39,
       "levels": {
         "community": 1,
@@ -1867,7 +1867,7 @@
     },
     {
       "parseDate": "20220622",
-      "lastChecked": "20220622",
+      "lastChecked": "20220724",
       "sponsors": 41,
       "levels": {
         "community": 1,
@@ -1879,7 +1879,7 @@
     },
     {
       "parseDate": "20220725",
-      "lastChecked": "20220725",
+      "lastChecked": "20220801",
       "sponsors": 40,
       "levels": {
         "community": 1,
@@ -1891,7 +1891,7 @@
     },
     {
       "parseDate": "20220822",
-      "lastChecked": "20220928",
+      "lastChecked": "20221009",
       "sponsors": 38,
       "levels": {
         "community": 1,
@@ -1903,7 +1903,7 @@
     },
     {
       "parseDate": "20221025",
-      "lastChecked": "20221118",
+      "lastChecked": "20230110",
       "sponsors": 37,
       "levels": {
         "community": 1,
@@ -1915,7 +1915,7 @@
     },
     {
       "parseDate": "20230129",
-      "lastChecked": "20230129",
+      "lastChecked": "20230221",
       "sponsors": 36,
       "levels": {
         "community": 1,
@@ -1927,7 +1927,7 @@
     },
     {
       "parseDate": "20230222",
-      "lastChecked": "20230222",
+      "lastChecked": "20230228",
       "sponsors": 37,
       "levels": {
         "community": 1,
@@ -1939,7 +1939,7 @@
     },
     {
       "parseDate": "20230301",
-      "lastChecked": "20230301",
+      "lastChecked": "20230418",
       "sponsors": 36,
       "levels": {
         "community": 1,
@@ -1951,7 +1951,7 @@
     },
     {
       "parseDate": "20230427",
-      "lastChecked": "20230427",
+      "lastChecked": "20230515",
       "sponsors": 35,
       "levels": {
         "community": 1,
@@ -1963,7 +1963,7 @@
     },
     {
       "parseDate": "20230529",
-      "lastChecked": "20230529",
+      "lastChecked": "20230611",
       "sponsors": 28,
       "levels": {
         "community": 1,
@@ -1975,7 +1975,7 @@
     },
     {
       "parseDate": "20230626",
-      "lastChecked": "20230626",
+      "lastChecked": "20240103",
       "sponsors": 29,
       "levels": {
         "community": 1,
@@ -1987,7 +1987,7 @@
     },
     {
       "parseDate": "20240119",
-      "lastChecked": "20240119",
+      "lastChecked": "20240903",
       "sponsors": 24,
       "levels": {
         "community": 1,
@@ -1999,7 +1999,7 @@
     },
     {
       "parseDate": "20240905",
-      "lastChecked": "20241002",
+      "lastChecked": "20250120",
       "sponsors": 25,
       "levels": {
         "community": 1,
@@ -2011,7 +2011,7 @@
     },
     {
       "parseDate": "20250121",
-      "lastChecked": "20250121",
+      "lastChecked": "20250924",
       "sponsors": 22,
       "levels": {
         "community": 1,
@@ -2023,7 +2023,7 @@
     },
     {
       "parseDate": "20250925",
-      "lastChecked": "20250925",
+      "lastChecked": "20250930",
       "sponsors": 16,
       "levels": {
         "community": 1,
@@ -2151,7 +2151,7 @@
     },
     {
       "parseDate": "20190928",
-      "lastChecked": "20190928",
+      "lastChecked": "20191002",
       "sponsors": 470,
       "levels": {
         "academic": 3,
@@ -2165,7 +2165,7 @@
     },
     {
       "parseDate": "20191029",
-      "lastChecked": "20191029",
+      "lastChecked": "20191031",
       "sponsors": 488,
       "levels": {
         "academic": 3,
@@ -2193,7 +2193,7 @@
     },
     {
       "parseDate": "20191231",
-      "lastChecked": "20191231",
+      "lastChecked": "20200106",
       "sponsors": 507,
       "levels": {
         "academic": 3,
@@ -2221,7 +2221,7 @@
     },
     {
       "parseDate": "20200228",
-      "lastChecked": "20200228",
+      "lastChecked": "20200303",
       "sponsors": 535,
       "levels": {
         "academic": 3,
@@ -2249,7 +2249,7 @@
     },
     {
       "parseDate": "20200430",
-      "lastChecked": "20200430",
+      "lastChecked": "20200504",
       "sponsors": 550,
       "levels": {
         "academic": 3,
@@ -2263,7 +2263,7 @@
     },
     {
       "parseDate": "20200530",
-      "lastChecked": "20200530",
+      "lastChecked": "20200531",
       "sponsors": 551,
       "levels": {
         "academic": 3,
@@ -2305,7 +2305,7 @@
     },
     {
       "parseDate": "20200830",
-      "lastChecked": "20200830",
+      "lastChecked": "20200831",
       "sponsors": 568,
       "levels": {
         "academic": 3,
@@ -2319,7 +2319,7 @@
     },
     {
       "parseDate": "20200930",
-      "lastChecked": "20200930",
+      "lastChecked": "20201001",
       "sponsors": 578,
       "levels": {
         "academic": 4,
@@ -2333,7 +2333,7 @@
     },
     {
       "parseDate": "20201030",
-      "lastChecked": "20201030",
+      "lastChecked": "20201101",
       "sponsors": 584,
       "levels": {
         "academic": 4,
@@ -2347,7 +2347,7 @@
     },
     {
       "parseDate": "20201130",
-      "lastChecked": "20201130",
+      "lastChecked": "20201201",
       "sponsors": 600,
       "levels": {
         "academic": 4,
@@ -2361,7 +2361,7 @@
     },
     {
       "parseDate": "20201231",
-      "lastChecked": "20201231",
+      "lastChecked": "20210104",
       "sponsors": 608,
       "levels": {
         "academic": 4,
@@ -2389,7 +2389,7 @@
     },
     {
       "parseDate": "20210227",
-      "lastChecked": "20210227",
+      "lastChecked": "20210301",
       "sponsors": 609,
       "levels": {
         "academic": 3,
@@ -2473,7 +2473,7 @@
     },
     {
       "parseDate": "20210829",
-      "lastChecked": "20210829",
+      "lastChecked": "20210831",
       "sponsors": 712,
       "levels": {
         "academic": 3,
@@ -2487,7 +2487,7 @@
     },
     {
       "parseDate": "20210929",
-      "lastChecked": "20210929",
+      "lastChecked": "20211001",
       "sponsors": 708,
       "levels": {
         "academic": 3,
@@ -2501,7 +2501,7 @@
     },
     {
       "parseDate": "20211029",
-      "lastChecked": "20211029",
+      "lastChecked": "20211031",
       "sponsors": 716,
       "levels": {
         "academic": 3,
@@ -2529,7 +2529,7 @@
     },
     {
       "parseDate": "20211224",
-      "lastChecked": "20211224",
+      "lastChecked": "20220102",
       "sponsors": 739,
       "levels": {
         "academic": 3,
@@ -2543,7 +2543,7 @@
     },
     {
       "parseDate": "20220131",
-      "lastChecked": "20220131",
+      "lastChecked": "20220201",
       "sponsors": 741,
       "levels": {
         "academic": 3,
@@ -2557,7 +2557,7 @@
     },
     {
       "parseDate": "20220226",
-      "lastChecked": "20220226",
+      "lastChecked": "20220228",
       "sponsors": 756,
       "levels": {
         "academic": 4,
@@ -2599,7 +2599,7 @@
     },
     {
       "parseDate": "20220527",
-      "lastChecked": "20220527",
+      "lastChecked": "20220531",
       "sponsors": 796,
       "levels": {
         "academic": 4,
@@ -2627,7 +2627,7 @@
     },
     {
       "parseDate": "20220728",
-      "lastChecked": "20220728",
+      "lastChecked": "20220801",
       "sponsors": 819,
       "levels": {
         "academic": 4,
@@ -2641,7 +2641,7 @@
     },
     {
       "parseDate": "20220826",
-      "lastChecked": "20220826",
+      "lastChecked": "20220905",
       "sponsors": 812,
       "levels": {
         "academic": 4,
@@ -2697,7 +2697,7 @@
     },
     {
       "parseDate": "20221230",
-      "lastChecked": "20221230",
+      "lastChecked": "20230102",
       "sponsors": 848,
       "levels": {
         "academic": 4,
@@ -2739,7 +2739,7 @@
     },
     {
       "parseDate": "20230331",
-      "lastChecked": "20230331",
+      "lastChecked": "20230402",
       "sponsors": 789,
       "levels": {
         "academic": 4,
@@ -2753,7 +2753,7 @@
     },
     {
       "parseDate": "20230428",
-      "lastChecked": "20230428",
+      "lastChecked": "20230430",
       "sponsors": 790,
       "levels": {
         "academic": 4,
@@ -2781,7 +2781,7 @@
     },
     {
       "parseDate": "20230630",
-      "lastChecked": "20230630",
+      "lastChecked": "20230705",
       "sponsors": 798,
       "levels": {
         "academic": 4,
@@ -2795,7 +2795,7 @@
     },
     {
       "parseDate": "20230731",
-      "lastChecked": "20230731",
+      "lastChecked": "20230801",
       "sponsors": 803,
       "levels": {
         "academic": 4,
@@ -2823,7 +2823,7 @@
     },
     {
       "parseDate": "20230929",
-      "lastChecked": "20230929",
+      "lastChecked": "20231001",
       "sponsors": 805,
       "levels": {
         "academic": 4,
@@ -2865,7 +2865,7 @@
     },
     {
       "parseDate": "20231223",
-      "lastChecked": "20231223",
+      "lastChecked": "20240101",
       "sponsors": 814,
       "levels": {
         "academic": 4,
@@ -2907,7 +2907,7 @@
     },
     {
       "parseDate": "20240326",
-      "lastChecked": "20240326",
+      "lastChecked": "20240331",
       "sponsors": 738,
       "levels": {
         "academic": 4,
@@ -2921,7 +2921,7 @@
     },
     {
       "parseDate": "20240429",
-      "lastChecked": "20240429",
+      "lastChecked": "20240430",
       "sponsors": 735,
       "levels": {
         "academic": 4,
@@ -2935,7 +2935,7 @@
     },
     {
       "parseDate": "20240530",
-      "lastChecked": "20240530",
+      "lastChecked": "20240531",
       "sponsors": 727,
       "levels": {
         "academic": 4,
@@ -2949,7 +2949,7 @@
     },
     {
       "parseDate": "20240627",
-      "lastChecked": "20240627",
+      "lastChecked": "20240630",
       "sponsors": 734,
       "levels": {
         "academic": 4,
@@ -2977,7 +2977,7 @@
     },
     {
       "parseDate": "20240829",
-      "lastChecked": "20240829",
+      "lastChecked": "20240902",
       "sponsors": 731,
       "levels": {
         "academic": 5,
@@ -3019,7 +3019,7 @@
     },
     {
       "parseDate": "20241128",
-      "lastChecked": "20241128",
+      "lastChecked": "20241201",
       "sponsors": 748,
       "levels": {
         "academic": 5,
@@ -3033,7 +3033,7 @@
     },
     {
       "parseDate": "20241231",
-      "lastChecked": "20241231",
+      "lastChecked": "20250105",
       "sponsors": 757,
       "levels": {
         "academic": 4,
@@ -3047,7 +3047,7 @@
     },
     {
       "parseDate": "20250130",
-      "lastChecked": "20250130",
+      "lastChecked": "20250202",
       "sponsors": 716,
       "levels": {
         "academic": 4,
@@ -3061,7 +3061,7 @@
     },
     {
       "parseDate": "20250226",
-      "lastChecked": "20250226",
+      "lastChecked": "20250301",
       "sponsors": 719,
       "levels": {
         "academic": 4,
@@ -3103,7 +3103,7 @@
     },
     {
       "parseDate": "20250529",
-      "lastChecked": "20250529",
+      "lastChecked": "20250601",
       "sponsors": 735,
       "levels": {
         "academic": 4,
@@ -3117,7 +3117,7 @@
     },
     {
       "parseDate": "20250630",
-      "lastChecked": "20250630",
+      "lastChecked": "20250706",
       "sponsors": 743,
       "levels": {
         "academic": 4,
@@ -3145,7 +3145,7 @@
     },
     {
       "parseDate": "20250828",
-      "lastChecked": "20250828",
+      "lastChecked": "20250902",
       "sponsors": 744,
       "levels": {
         "academic": 4,
@@ -3173,7 +3173,7 @@
     },
     {
       "parseDate": "20251029",
-      "lastChecked": "20251029",
+      "lastChecked": "20251031",
       "sponsors": 753,
       "levels": {
         "academic": 4,
@@ -3187,7 +3187,7 @@
     },
     {
       "parseDate": "20251126",
-      "lastChecked": "20251126",
+      "lastChecked": "20251204",
       "sponsors": 753,
       "levels": {
         "academic": 4,
@@ -3201,7 +3201,7 @@
     },
     {
       "parseDate": "20251217",
-      "lastChecked": "20251217",
+      "lastChecked": "20260101",
       "sponsors": 762,
       "levels": {
         "academic": 4,
@@ -3215,7 +3215,7 @@
     },
     {
       "parseDate": "20260128",
-      "lastChecked": "20260128",
+      "lastChecked": "20260201",
       "sponsors": 708,
       "levels": {
         "academic": 3,
@@ -3229,7 +3229,7 @@
     },
     {
       "parseDate": "20260217",
-      "lastChecked": "20260217",
+      "lastChecked": "20260228",
       "sponsors": 708,
       "levels": {
         "academic": 3,
@@ -3257,7 +3257,7 @@
     },
     {
       "parseDate": "20260430",
-      "lastChecked": "20260430",
+      "lastChecked": "20260504",
       "sponsors": 705,
       "levels": {
         "academic": 3,
@@ -3271,7 +3271,7 @@
     },
     {
       "parseDate": "20260527",
-      "lastChecked": "20260527",
+      "lastChecked": "20260531",
       "sponsors": 706,
       "levels": {
         "academic": 3,
@@ -3285,7 +3285,7 @@
     },
     {
       "parseDate": "20260630",
-      "lastChecked": "20260630",
+      "lastChecked": "20260701",
       "sponsors": 710,
       "levels": {
         "academic": 3,
@@ -3299,7 +3299,7 @@
     },
     {
       "parseDate": "20260731",
-      "lastChecked": "20260731",
+      "lastChecked": "20260803",
       "sponsors": 709,
       "levels": {
         "academic": 3,
@@ -3313,7 +3313,7 @@
     },
     {
       "parseDate": "20260827",
-      "lastChecked": "20260827",
+      "lastChecked": "20260901",
       "sponsors": 707,
       "levels": {
         "academic": 3,
@@ -4843,7 +4843,7 @@
   "gentoo": [
     {
       "parseDate": "20160119",
-      "lastChecked": "20160205",
+      "lastChecked": "20160412",
       "sponsors": 23,
       "levels": {
         "firstinkind": 15,
@@ -4853,7 +4853,7 @@
     },
     {
       "parseDate": "20160413",
-      "lastChecked": "20160613",
+      "lastChecked": "20160814",
       "sponsors": 24,
       "levels": {
         "firstinkind": 16,
@@ -4863,7 +4863,7 @@
     },
     {
       "parseDate": "20160815",
-      "lastChecked": "20160815",
+      "lastChecked": "20161011",
       "sponsors": 25,
       "levels": {
         "firstinkind": 17,
@@ -4873,7 +4873,7 @@
     },
     {
       "parseDate": "20161013",
-      "lastChecked": "20161013",
+      "lastChecked": "20170522",
       "sponsors": 26,
       "levels": {
         "firstinkind": 18,
@@ -4883,7 +4883,7 @@
     },
     {
       "parseDate": "20170523",
-      "lastChecked": "20170523",
+      "lastChecked": "20170915",
       "sponsors": 26,
       "levels": {
         "firstinkind": 18,
@@ -4893,7 +4893,7 @@
     },
     {
       "parseDate": "20170916",
-      "lastChecked": "20170916",
+      "lastChecked": "20181105",
       "sponsors": 25,
       "levels": {
         "firstinkind": 17,
@@ -4903,7 +4903,7 @@
     },
     {
       "parseDate": "20181106",
-      "lastChecked": "20181106",
+      "lastChecked": "20181231",
       "sponsors": 25,
       "levels": {
         "firstinkind": 17,
@@ -4913,7 +4913,7 @@
     },
     {
       "parseDate": "20190118",
-      "lastChecked": "20190118",
+      "lastChecked": "20200129",
       "sponsors": 26,
       "levels": {
         "firstinkind": 17,
@@ -4923,7 +4923,7 @@
     },
     {
       "parseDate": "20200130",
-      "lastChecked": "20200813",
+      "lastChecked": "20201011",
       "sponsors": 25,
       "levels": {
         "firstinkind": 16,
@@ -4933,7 +4933,7 @@
     },
     {
       "parseDate": "20201019",
-      "lastChecked": "20210220",
+      "lastChecked": "20220302",
       "sponsors": 26,
       "levels": {
         "firstinkind": 17,
@@ -4943,7 +4943,7 @@
     },
     {
       "parseDate": "20220303",
-      "lastChecked": "20220303",
+      "lastChecked": "20231229",
       "sponsors": 25,
       "levels": {
         "firstinkind": 16,
@@ -4977,7 +4977,7 @@
   "graphql": [
     {
       "parseDate": "20191029",
-      "lastChecked": "20191029",
+      "lastChecked": "20191104",
       "sponsors": 19,
       "levels": {
         "first": 19
@@ -4986,7 +4986,7 @@
     },
     {
       "parseDate": "20191125",
-      "lastChecked": "20200215",
+      "lastChecked": "20200301",
       "sponsors": 21,
       "levels": {
         "first": 21
@@ -4995,7 +4995,7 @@
     },
     {
       "parseDate": "20200321",
-      "lastChecked": "20200321",
+      "lastChecked": "20200331",
       "sponsors": 20,
       "levels": {
         "first": 20
@@ -5004,7 +5004,7 @@
     },
     {
       "parseDate": "20200423",
-      "lastChecked": "20200527",
+      "lastChecked": "20200531",
       "sponsors": 21,
       "levels": {
         "first": 21
@@ -5013,7 +5013,7 @@
     },
     {
       "parseDate": "20200627",
-      "lastChecked": "20200701",
+      "lastChecked": "20200812",
       "sponsors": 20,
       "levels": {
         "first": 20
@@ -5022,7 +5022,7 @@
     },
     {
       "parseDate": "20200813",
-      "lastChecked": "20201218",
+      "lastChecked": "20210101",
       "sponsors": 20,
       "levels": {
         "first": 20
@@ -5031,7 +5031,7 @@
     },
     {
       "parseDate": "20210126",
-      "lastChecked": "20210224",
+      "lastChecked": "20210519",
       "sponsors": 20,
       "levels": {
         "first": 20
@@ -5040,7 +5040,7 @@
     },
     {
       "parseDate": "20210525",
-      "lastChecked": "20210525",
+      "lastChecked": "20210623",
       "sponsors": 21,
       "levels": {
         "first": 21
@@ -5049,7 +5049,7 @@
     },
     {
       "parseDate": "20210628",
-      "lastChecked": "20210628",
+      "lastChecked": "20210718",
       "sponsors": 22,
       "levels": {
         "first": 22
@@ -5058,7 +5058,7 @@
     },
     {
       "parseDate": "20210727",
-      "lastChecked": "20211030",
+      "lastChecked": "20211122",
       "sponsors": 24,
       "levels": {
         "first": 24
@@ -5067,7 +5067,7 @@
     },
     {
       "parseDate": "20211123",
-      "lastChecked": "20220217",
+      "lastChecked": "20220228",
       "sponsors": 25,
       "levels": {
         "first": 25
@@ -5076,7 +5076,7 @@
     },
     {
       "parseDate": "20220331",
-      "lastChecked": "20220412",
+      "lastChecked": "20220501",
       "sponsors": 26,
       "levels": {
         "first": 26
@@ -5085,7 +5085,7 @@
     },
     {
       "parseDate": "20220512",
-      "lastChecked": "20220512",
+      "lastChecked": "20220601",
       "sponsors": 27,
       "levels": {
         "first": 27
@@ -5094,7 +5094,7 @@
     },
     {
       "parseDate": "20220624",
-      "lastChecked": "20220624",
+      "lastChecked": "20220713",
       "sponsors": 28,
       "levels": {
         "first": 28
@@ -5103,7 +5103,7 @@
     },
     {
       "parseDate": "20220725",
-      "lastChecked": "20220725",
+      "lastChecked": "20220801",
       "sponsors": 29,
       "levels": {
         "first": 29
@@ -5112,7 +5112,7 @@
     },
     {
       "parseDate": "20220826",
-      "lastChecked": "20220826",
+      "lastChecked": "20220831",
       "sponsors": 30,
       "levels": {
         "first": 30
@@ -5121,7 +5121,7 @@
     },
     {
       "parseDate": "20220924",
-      "lastChecked": "20220924",
+      "lastChecked": "20220930",
       "sponsors": 31,
       "levels": {
         "first": 31
@@ -5139,7 +5139,7 @@
     },
     {
       "parseDate": "20230114",
-      "lastChecked": "20230114",
+      "lastChecked": "20230205",
       "sponsors": 31,
       "levels": {
         "first": 31
@@ -5157,7 +5157,7 @@
     },
     {
       "parseDate": "20230331",
-      "lastChecked": "20230429",
+      "lastChecked": "20230501",
       "sponsors": 29,
       "levels": {
         "first": 29
@@ -5166,7 +5166,7 @@
     },
     {
       "parseDate": "20230510",
-      "lastChecked": "20230626",
+      "lastChecked": "20230704",
       "sponsors": 30,
       "levels": {
         "first": 30
@@ -5175,7 +5175,7 @@
     },
     {
       "parseDate": "20230730",
-      "lastChecked": "20230730",
+      "lastChecked": "20230801",
       "sponsors": 30,
       "levels": {
         "first": 30
@@ -5184,7 +5184,7 @@
     },
     {
       "parseDate": "20230816",
-      "lastChecked": "20230816",
+      "lastChecked": "20230903",
       "sponsors": 28,
       "levels": {
         "first": 28
@@ -5193,7 +5193,7 @@
     },
     {
       "parseDate": "20230922",
-      "lastChecked": "20230922",
+      "lastChecked": "20231001",
       "sponsors": 29,
       "levels": {
         "first": 29
@@ -5202,7 +5202,7 @@
     },
     {
       "parseDate": "20231019",
-      "lastChecked": "20231019",
+      "lastChecked": "20231113",
       "sponsors": 28,
       "levels": {
         "first": 28
@@ -5211,7 +5211,7 @@
     },
     {
       "parseDate": "20231120",
-      "lastChecked": "20231212",
+      "lastChecked": "20231231",
       "sponsors": 27,
       "levels": {
         "first": 27
@@ -5220,7 +5220,7 @@
     },
     {
       "parseDate": "20240101",
-      "lastChecked": "20240101",
+      "lastChecked": "20240213",
       "sponsors": 25,
       "levels": {
         "first": 25
@@ -5229,7 +5229,7 @@
     },
     {
       "parseDate": "20240216",
-      "lastChecked": "20240405",
+      "lastChecked": "20240730",
       "sponsors": 26,
       "levels": {
         "first": 26
@@ -5238,7 +5238,7 @@
     },
     {
       "parseDate": "20240731",
-      "lastChecked": "20240731",
+      "lastChecked": "20240813",
       "sponsors": 24,
       "levels": {
         "first": 24
@@ -5247,7 +5247,7 @@
     },
     {
       "parseDate": "20240817",
-      "lastChecked": "20241210",
+      "lastChecked": "20250101",
       "sponsors": 23,
       "levels": {
         "first": 23
@@ -5256,7 +5256,7 @@
     },
     {
       "parseDate": "20250120",
-      "lastChecked": "20250410",
+      "lastChecked": "20250430",
       "sponsors": 19,
       "levels": {
         "first": 19
@@ -5265,7 +5265,7 @@
     },
     {
       "parseDate": "20250501",
-      "lastChecked": "20250501",
+      "lastChecked": "20250605",
       "sponsors": 18,
       "levels": {
         "first": 18
@@ -5274,7 +5274,7 @@
     },
     {
       "parseDate": "20250610",
-      "lastChecked": "20250827",
+      "lastChecked": "20251231",
       "sponsors": 17,
       "levels": {
         "first": 17
@@ -5283,7 +5283,7 @@
     },
     {
       "parseDate": "20260129",
-      "lastChecked": "20260129",
+      "lastChecked": "20260205",
       "sponsors": 13,
       "levels": {
         "first": 13
@@ -5292,7 +5292,7 @@
     },
     {
       "parseDate": "20260206",
-      "lastChecked": "20260422",
+      "lastChecked": "20260601",
       "sponsors": 12,
       "levels": {
         "first": 12
@@ -5449,7 +5449,7 @@
   "hyperledger": [
     {
       "parseDate": "20230214",
-      "lastChecked": "20230324",
+      "lastChecked": "20230419",
       "sponsors": 142,
       "levels": {
         "first": 5,
@@ -5460,7 +5460,7 @@
     },
     {
       "parseDate": "20230428",
-      "lastChecked": "20230428",
+      "lastChecked": "20230501",
       "sponsors": 140,
       "levels": {
         "first": 5,
@@ -5471,7 +5471,7 @@
     },
     {
       "parseDate": "20230526",
-      "lastChecked": "20230526",
+      "lastChecked": "20230531",
       "sponsors": 144,
       "levels": {
         "first": 5,
@@ -5482,7 +5482,7 @@
     },
     {
       "parseDate": "20230627",
-      "lastChecked": "20230627",
+      "lastChecked": "20230701",
       "sponsors": 142,
       "levels": {
         "first": 5,
@@ -5493,7 +5493,7 @@
     },
     {
       "parseDate": "20230731",
-      "lastChecked": "20230731",
+      "lastChecked": "20230801",
       "sponsors": 144,
       "levels": {
         "first": 5,
@@ -5504,7 +5504,7 @@
     },
     {
       "parseDate": "20230830",
-      "lastChecked": "20230830",
+      "lastChecked": "20230903",
       "sponsors": 143,
       "levels": {
         "first": 5,
@@ -5515,7 +5515,7 @@
     },
     {
       "parseDate": "20230928",
-      "lastChecked": "20230928",
+      "lastChecked": "20231003",
       "sponsors": 143,
       "levels": {
         "first": 5,
@@ -5537,7 +5537,7 @@
     },
     {
       "parseDate": "20231116",
-      "lastChecked": "20231116",
+      "lastChecked": "20231201",
       "sponsors": 144,
       "levels": {
         "first": 5,
@@ -5548,7 +5548,7 @@
     },
     {
       "parseDate": "20231219",
-      "lastChecked": "20231219",
+      "lastChecked": "20240102",
       "sponsors": 148,
       "levels": {
         "first": 5,
@@ -5559,7 +5559,7 @@
     },
     {
       "parseDate": "20240130",
-      "lastChecked": "20240130",
+      "lastChecked": "20240201",
       "sponsors": 133,
       "levels": {
         "first": 4,
@@ -5570,7 +5570,7 @@
     },
     {
       "parseDate": "20240227",
-      "lastChecked": "20240227",
+      "lastChecked": "20240304",
       "sponsors": 134,
       "levels": {
         "first": 4,
@@ -5581,7 +5581,7 @@
     },
     {
       "parseDate": "20240313",
-      "lastChecked": "20240313",
+      "lastChecked": "20240430",
       "sponsors": 134,
       "levels": {
         "first": 4,
@@ -5592,7 +5592,7 @@
     },
     {
       "parseDate": "20240528",
-      "lastChecked": "20240528",
+      "lastChecked": "20240602",
       "sponsors": 136,
       "levels": {
         "first": 4,
@@ -5603,7 +5603,7 @@
     },
     {
       "parseDate": "20240624",
-      "lastChecked": "20240624",
+      "lastChecked": "20240701",
       "sponsors": 136,
       "levels": {
         "first": 3,
@@ -5614,7 +5614,7 @@
     },
     {
       "parseDate": "20240724",
-      "lastChecked": "20240724",
+      "lastChecked": "20240804",
       "sponsors": 136,
       "levels": {
         "first": 3,
@@ -5625,7 +5625,7 @@
     },
     {
       "parseDate": "20240830",
-      "lastChecked": "20240830",
+      "lastChecked": "20240903",
       "sponsors": 108,
       "levels": {
         "first": 3,
@@ -5636,7 +5636,7 @@
     },
     {
       "parseDate": "20240906",
-      "lastChecked": "20240906",
+      "lastChecked": "20241010",
       "sponsors": 111,
       "levels": {
         "first": 3,
@@ -5647,7 +5647,7 @@
     },
     {
       "parseDate": "20241021",
-      "lastChecked": "20241021",
+      "lastChecked": "20241104",
       "sponsors": 121,
       "levels": {
         "first": 4,
@@ -5658,7 +5658,7 @@
     },
     {
       "parseDate": "20241115",
-      "lastChecked": "20241115",
+      "lastChecked": "20241201",
       "sponsors": 121,
       "levels": {
         "first": 4,
@@ -5669,7 +5669,7 @@
     },
     {
       "parseDate": "20241210",
-      "lastChecked": "20241210",
+      "lastChecked": "20250128",
       "sponsors": 120,
       "levels": {
         "first": 4,
@@ -5680,7 +5680,7 @@
     },
     {
       "parseDate": "20250130",
-      "lastChecked": "20250130",
+      "lastChecked": "20250203",
       "sponsors": 117,
       "levels": {
         "first": 3,
@@ -5691,7 +5691,7 @@
     },
     {
       "parseDate": "20250225",
-      "lastChecked": "20250225",
+      "lastChecked": "20250303",
       "sponsors": 119,
       "levels": {
         "first": 3,
@@ -5702,7 +5702,7 @@
     },
     {
       "parseDate": "20250312",
-      "lastChecked": "20250312",
+      "lastChecked": "20250402",
       "sponsors": 123,
       "levels": {
         "first": 3,
@@ -5713,7 +5713,7 @@
     },
     {
       "parseDate": "20250417",
-      "lastChecked": "20250417",
+      "lastChecked": "20250504",
       "sponsors": 123,
       "levels": {
         "first": 3,
@@ -5724,7 +5724,7 @@
     },
     {
       "parseDate": "20250528",
-      "lastChecked": "20250528",
+      "lastChecked": "20250604",
       "sponsors": 126,
       "levels": {
         "first": 3,
@@ -5735,7 +5735,7 @@
     },
     {
       "parseDate": "20250630",
-      "lastChecked": "20250630",
+      "lastChecked": "20250713",
       "sponsors": 127,
       "levels": {
         "first": 3,
@@ -5746,7 +5746,7 @@
     },
     {
       "parseDate": "20250718",
-      "lastChecked": "20250718",
+      "lastChecked": "20250731",
       "sponsors": 126,
       "levels": {
         "first": 3,
@@ -5757,7 +5757,7 @@
     },
     {
       "parseDate": "20250827",
-      "lastChecked": "20250827",
+      "lastChecked": "20250901",
       "sponsors": 127,
       "levels": {
         "first": 4,
@@ -5768,7 +5768,7 @@
     },
     {
       "parseDate": "20250924",
-      "lastChecked": "20250924",
+      "lastChecked": "20251001",
       "sponsors": 131,
       "levels": {
         "first": 4,
@@ -5779,7 +5779,7 @@
     },
     {
       "parseDate": "20251010",
-      "lastChecked": "20251010",
+      "lastChecked": "20251102",
       "sponsors": 130,
       "levels": {
         "first": 4,
@@ -5790,7 +5790,7 @@
     },
     {
       "parseDate": "20251121",
-      "lastChecked": "20251121",
+      "lastChecked": "20251201",
       "sponsors": 134,
       "levels": {
         "first": 4,
@@ -5801,7 +5801,7 @@
     },
     {
       "parseDate": "20251220",
-      "lastChecked": "20251220",
+      "lastChecked": "20260104",
       "sponsors": 135,
       "levels": {
         "first": 4,
@@ -5812,7 +5812,7 @@
     },
     {
       "parseDate": "20260126",
-      "lastChecked": "20260126",
+      "lastChecked": "20260201",
       "sponsors": 126,
       "levels": {
         "first": 4,
@@ -5823,7 +5823,7 @@
     },
     {
       "parseDate": "20260219",
-      "lastChecked": "20260219",
+      "lastChecked": "20260301",
       "sponsors": 128,
       "levels": {
         "first": 4,
@@ -5834,7 +5834,7 @@
     },
     {
       "parseDate": "20260304",
-      "lastChecked": "20260304",
+      "lastChecked": "20260401",
       "sponsors": 126,
       "levels": {
         "first": 4,
@@ -5845,7 +5845,7 @@
     },
     {
       "parseDate": "20260422",
-      "lastChecked": "20260422",
+      "lastChecked": "20260504",
       "sponsors": 128,
       "levels": {
         "first": 4,
@@ -5856,7 +5856,7 @@
     },
     {
       "parseDate": "20260521",
-      "lastChecked": "20260521",
+      "lastChecked": "20260602",
       "sponsors": 130,
       "levels": {
         "first": 5,
@@ -5867,7 +5867,7 @@
     },
     {
       "parseDate": "20260612",
-      "lastChecked": "20260612",
+      "lastChecked": "20260701",
       "sponsors": 131,
       "levels": {
         "first": 5,
@@ -5878,7 +5878,7 @@
     },
     {
       "parseDate": "20260730",
-      "lastChecked": "20260730",
+      "lastChecked": "20260802",
       "sponsors": 133,
       "levels": {
         "first": 5,
@@ -5889,7 +5889,7 @@
     },
     {
       "parseDate": "20260820",
-      "lastChecked": "20260820",
+      "lastChecked": "20260901",
       "sponsors": 130,
       "levels": {
         "first": 5,
@@ -5900,7 +5900,7 @@
     },
     {
       "parseDate": "20260929",
-      "lastChecked": "20260929",
+      "lastChecked": "20261001",
       "sponsors": 135,
       "levels": {
         "first": 5,
@@ -5949,7 +5949,7 @@
   "lf": [
     {
       "parseDate": "20191224",
-      "lastChecked": "20191224",
+      "lastChecked": "20200210",
       "sponsors": 701,
       "levels": {
         "first": 15,
@@ -5961,7 +5961,7 @@
     },
     {
       "parseDate": "20200211",
-      "lastChecked": "20200211",
+      "lastChecked": "20200301",
       "sponsors": 956,
       "levels": {
         "first": 17,
@@ -5973,7 +5973,7 @@
     },
     {
       "parseDate": "20200319",
-      "lastChecked": "20200319",
+      "lastChecked": "20200425",
       "sponsors": 626,
       "levels": {
         "first": 16,
@@ -5985,7 +5985,7 @@
     },
     {
       "parseDate": "20200429",
-      "lastChecked": "20200528",
+      "lastChecked": "20200601",
       "sponsors": 773,
       "levels": {
         "first": 16,
@@ -5997,7 +5997,7 @@
     },
     {
       "parseDate": "20200630",
-      "lastChecked": "20200630",
+      "lastChecked": "20200708",
       "sponsors": 725,
       "levels": {
         "first": 16,
@@ -6009,7 +6009,7 @@
     },
     {
       "parseDate": "20200727",
-      "lastChecked": "20200727",
+      "lastChecked": "20200805",
       "sponsors": 725,
       "levels": {
         "first": 16,
@@ -6021,7 +6021,7 @@
     },
     {
       "parseDate": "20200823",
-      "lastChecked": "20200823",
+      "lastChecked": "20200901",
       "sponsors": 724,
       "levels": {
         "first": 16,
@@ -6045,7 +6045,7 @@
     },
     {
       "parseDate": "20201012",
-      "lastChecked": "20201126",
+      "lastChecked": "20201207",
       "sponsors": 724,
       "levels": {
         "first": 16,
@@ -6057,7 +6057,7 @@
     },
     {
       "parseDate": "20201223",
-      "lastChecked": "20201223",
+      "lastChecked": "20201231",
       "sponsors": 719,
       "levels": {
         "first": 16,
@@ -6081,7 +6081,7 @@
     },
     {
       "parseDate": "20210227",
-      "lastChecked": "20210227",
+      "lastChecked": "20210301",
       "sponsors": 993,
       "levels": {
         "first": 15,
@@ -6129,7 +6129,7 @@
     },
     {
       "parseDate": "20210630",
-      "lastChecked": "20210630",
+      "lastChecked": "20210701",
       "sponsors": 1254,
       "levels": {
         "first": 15,
@@ -6141,7 +6141,7 @@
     },
     {
       "parseDate": "20210730",
-      "lastChecked": "20210730",
+      "lastChecked": "20210731",
       "sponsors": 1270,
       "levels": {
         "first": 15,
@@ -6153,7 +6153,7 @@
     },
     {
       "parseDate": "20210828",
-      "lastChecked": "20210828",
+      "lastChecked": "20210831",
       "sponsors": 1308,
       "levels": {
         "first": 15,
@@ -6201,7 +6201,7 @@
     },
     {
       "parseDate": "20211231",
-      "lastChecked": "20211231",
+      "lastChecked": "20220103",
       "sponsors": 1468,
       "levels": {
         "first": 15,
@@ -6213,7 +6213,7 @@
     },
     {
       "parseDate": "20220131",
-      "lastChecked": "20220131",
+      "lastChecked": "20220201",
       "sponsors": 1438,
       "levels": {
         "first": 14,
@@ -6237,7 +6237,7 @@
     },
     {
       "parseDate": "20220330",
-      "lastChecked": "20220330",
+      "lastChecked": "20220403",
       "sponsors": 1484,
       "levels": {
         "first": 14,
@@ -6249,7 +6249,7 @@
     },
     {
       "parseDate": "20220429",
-      "lastChecked": "20220429",
+      "lastChecked": "20220430",
       "sponsors": 1505,
       "levels": {
         "first": 14,
@@ -6297,7 +6297,7 @@
     },
     {
       "parseDate": "20220830",
-      "lastChecked": "20220830",
+      "lastChecked": "20220831",
       "sponsors": 1574,
       "levels": {
         "first": 14,
@@ -6309,7 +6309,7 @@
     },
     {
       "parseDate": "20220929",
-      "lastChecked": "20220929",
+      "lastChecked": "20220930",
       "sponsors": 1584,
       "levels": {
         "first": 14,
@@ -6321,7 +6321,7 @@
     },
     {
       "parseDate": "20221029",
-      "lastChecked": "20221029",
+      "lastChecked": "20221031",
       "sponsors": 1595,
       "levels": {
         "first": 14,
@@ -6333,7 +6333,7 @@
     },
     {
       "parseDate": "20221130",
-      "lastChecked": "20221130",
+      "lastChecked": "20221202",
       "sponsors": 1608,
       "levels": {
         "first": 14,
@@ -6381,7 +6381,7 @@
     },
     {
       "parseDate": "20230329",
-      "lastChecked": "20230329",
+      "lastChecked": "20230331",
       "sponsors": 1556,
       "levels": {
         "first": 14,
@@ -6393,7 +6393,7 @@
     },
     {
       "parseDate": "20230429",
-      "lastChecked": "20230429",
+      "lastChecked": "20230501",
       "sponsors": 1576,
       "levels": {
         "first": 14,
@@ -6453,7 +6453,7 @@
     },
     {
       "parseDate": "20230930",
-      "lastChecked": "20230930",
+      "lastChecked": "20231001",
       "sponsors": 1621,
       "levels": {
         "first": 14,
@@ -6477,7 +6477,7 @@
     },
     {
       "parseDate": "20231129",
-      "lastChecked": "20231129",
+      "lastChecked": "20231130",
       "sponsors": 1644,
       "levels": {
         "first": 13,
@@ -6489,7 +6489,7 @@
     },
     {
       "parseDate": "20231220",
-      "lastChecked": "20231220",
+      "lastChecked": "20240102",
       "sponsors": 1664,
       "levels": {
         "first": 13,
@@ -6513,7 +6513,7 @@
     },
     {
       "parseDate": "20240229",
-      "lastChecked": "20240229",
+      "lastChecked": "20240303",
       "sponsors": 1577,
       "levels": {
         "first": 12,
@@ -6525,7 +6525,7 @@
     },
     {
       "parseDate": "20240330",
-      "lastChecked": "20240330",
+      "lastChecked": "20240401",
       "sponsors": 1595,
       "levels": {
         "first": 12,
@@ -6549,7 +6549,7 @@
     },
     {
       "parseDate": "20240529",
-      "lastChecked": "20240529",
+      "lastChecked": "20240531",
       "sponsors": 1692,
       "levels": {
         "first": 13,
@@ -6561,7 +6561,7 @@
     },
     {
       "parseDate": "20240629",
-      "lastChecked": "20240629",
+      "lastChecked": "20240701",
       "sponsors": 1704,
       "levels": {
         "first": 13,
@@ -6585,7 +6585,7 @@
     },
     {
       "parseDate": "20240831",
-      "lastChecked": "20240831",
+      "lastChecked": "20240901",
       "sponsors": 1753,
       "levels": {
         "first": 13,
@@ -6597,7 +6597,7 @@
     },
     {
       "parseDate": "20240926",
-      "lastChecked": "20240926",
+      "lastChecked": "20240930",
       "sponsors": 1791,
       "levels": {
         "first": 13,
@@ -6609,7 +6609,7 @@
     },
     {
       "parseDate": "20241028",
-      "lastChecked": "20241028",
+      "lastChecked": "20241031",
       "sponsors": 1810,
       "levels": {
         "first": 13,
@@ -6621,7 +6621,7 @@
     },
     {
       "parseDate": "20241126",
-      "lastChecked": "20241126",
+      "lastChecked": "20241130",
       "sponsors": 1839,
       "levels": {
         "first": 13,
@@ -6633,7 +6633,7 @@
     },
     {
       "parseDate": "20241229",
-      "lastChecked": "20241229",
+      "lastChecked": "20241231",
       "sponsors": 1873,
       "levels": {
         "first": 12,
@@ -6729,7 +6729,7 @@
     },
     {
       "parseDate": "20250831",
-      "lastChecked": "20250831",
+      "lastChecked": "20250901",
       "sponsors": 1944,
       "levels": {
         "first": 12,
@@ -6777,7 +6777,7 @@
     },
     {
       "parseDate": "20251231",
-      "lastChecked": "20251231",
+      "lastChecked": "20260101",
       "sponsors": 2079,
       "levels": {
         "first": 13,
@@ -6801,7 +6801,7 @@
     },
     {
       "parseDate": "20260228",
-      "lastChecked": "20260228",
+      "lastChecked": "20260301",
       "sponsors": 2011,
       "levels": {
         "first": 12,
@@ -6837,7 +6837,7 @@
     },
     {
       "parseDate": "20260530",
-      "lastChecked": "20260530",
+      "lastChecked": "20260531",
       "sponsors": 2123,
       "levels": {
         "first": 12,
@@ -6873,7 +6873,7 @@
     },
     {
       "parseDate": "20260830",
-      "lastChecked": "20260830",
+      "lastChecked": "20260831",
       "sponsors": 2235,
       "levels": {
         "first": 13,
@@ -6911,7 +6911,7 @@
   "lfai": [
     {
       "parseDate": "20181130",
-      "lastChecked": "20190222",
+      "lastChecked": "20190304",
       "sponsors": 16,
       "levels": {
         "first": 10,
@@ -6921,7 +6921,7 @@
     },
     {
       "parseDate": "20190331",
-      "lastChecked": "20190331",
+      "lastChecked": "20190407",
       "sponsors": 16,
       "levels": {
         "first": 9,
@@ -6931,7 +6931,7 @@
     },
     {
       "parseDate": "20190430",
-      "lastChecked": "20190523",
+      "lastChecked": "20190604",
       "sponsors": 15,
       "levels": {
         "first": 9,
@@ -6941,7 +6941,7 @@
     },
     {
       "parseDate": "20190629",
-      "lastChecked": "20190730",
+      "lastChecked": "20190813",
       "sponsors": 16,
       "levels": {
         "first": 9,
@@ -6951,7 +6951,7 @@
     },
     {
       "parseDate": "20190823",
-      "lastChecked": "20190928",
+      "lastChecked": "20191001",
       "sponsors": 17,
       "levels": {
         "first": 9,
@@ -6961,7 +6961,7 @@
     },
     {
       "parseDate": "20191029",
-      "lastChecked": "20191029",
+      "lastChecked": "20191104",
       "sponsors": 19,
       "levels": {
         "first": 9,
@@ -6972,7 +6972,7 @@
     },
     {
       "parseDate": "20191121",
-      "lastChecked": "20191121",
+      "lastChecked": "20191203",
       "sponsors": 21,
       "levels": {
         "first": 9,
@@ -6983,7 +6983,7 @@
     },
     {
       "parseDate": "20191219",
-      "lastChecked": "20191219",
+      "lastChecked": "20200102",
       "sponsors": 22,
       "levels": {
         "first": 10,
@@ -6994,7 +6994,7 @@
     },
     {
       "parseDate": "20200130",
-      "lastChecked": "20200130",
+      "lastChecked": "20200210",
       "sponsors": 23,
       "levels": {
         "first": 10,
@@ -7005,7 +7005,7 @@
     },
     {
       "parseDate": "20200228",
-      "lastChecked": "20200228",
+      "lastChecked": "20200303",
       "sponsors": 23,
       "levels": {
         "first": 10,
@@ -7016,7 +7016,7 @@
     },
     {
       "parseDate": "20200331",
-      "lastChecked": "20200427",
+      "lastChecked": "20200503",
       "sponsors": 23,
       "levels": {
         "first": 10,
@@ -7027,7 +7027,7 @@
     },
     {
       "parseDate": "20200528",
-      "lastChecked": "20200528",
+      "lastChecked": "20200601",
       "sponsors": 23,
       "levels": {
         "first": 9,
@@ -7038,7 +7038,7 @@
     },
     {
       "parseDate": "20200626",
-      "lastChecked": "20200626",
+      "lastChecked": "20200630",
       "sponsors": 24,
       "levels": {
         "first": 9,
@@ -7049,7 +7049,7 @@
     },
     {
       "parseDate": "20200731",
-      "lastChecked": "20200731",
+      "lastChecked": "20200805",
       "sponsors": 24,
       "levels": {
         "first": 9,
@@ -7071,7 +7071,7 @@
     },
     {
       "parseDate": "20200930",
-      "lastChecked": "20200930",
+      "lastChecked": "20201006",
       "sponsors": 25,
       "levels": {
         "first": 10,
@@ -7082,7 +7082,7 @@
     },
     {
       "parseDate": "20201031",
-      "lastChecked": "20201031",
+      "lastChecked": "20201101",
       "sponsors": 36,
       "levels": {
         "first": 11,
@@ -7093,7 +7093,7 @@
     },
     {
       "parseDate": "20201127",
-      "lastChecked": "20201224",
+      "lastChecked": "20210101",
       "sponsors": 39,
       "levels": {
         "first": 11,
@@ -7104,7 +7104,7 @@
     },
     {
       "parseDate": "20210131",
-      "lastChecked": "20210131",
+      "lastChecked": "20210201",
       "sponsors": 42,
       "levels": {
         "first": 11,
@@ -7115,7 +7115,7 @@
     },
     {
       "parseDate": "20210227",
-      "lastChecked": "20210227",
+      "lastChecked": "20210303",
       "sponsors": 45,
       "levels": {
         "first": 11,
@@ -7126,7 +7126,7 @@
     },
     {
       "parseDate": "20210330",
-      "lastChecked": "20210330",
+      "lastChecked": "20210405",
       "sponsors": 44,
       "levels": {
         "first": 11,
@@ -7137,7 +7137,7 @@
     },
     {
       "parseDate": "20210430",
-      "lastChecked": "20210430",
+      "lastChecked": "20210505",
       "sponsors": 47,
       "levels": {
         "first": 12,
@@ -7148,7 +7148,7 @@
     },
     {
       "parseDate": "20210527",
-      "lastChecked": "20210527",
+      "lastChecked": "20210531",
       "sponsors": 48,
       "levels": {
         "first": 12,
@@ -7159,7 +7159,7 @@
     },
     {
       "parseDate": "20210629",
-      "lastChecked": "20210629",
+      "lastChecked": "20210701",
       "sponsors": 47,
       "levels": {
         "first": 12,
@@ -7181,7 +7181,7 @@
     },
     {
       "parseDate": "20210831",
-      "lastChecked": "20210831",
+      "lastChecked": "20210901",
       "sponsors": 50,
       "levels": {
         "first": 12,
@@ -7192,7 +7192,7 @@
     },
     {
       "parseDate": "20210925",
-      "lastChecked": "20211030",
+      "lastChecked": "20211031",
       "sponsors": 51,
       "levels": {
         "first": 12,
@@ -7225,7 +7225,7 @@
     },
     {
       "parseDate": "20220128",
-      "lastChecked": "20220128",
+      "lastChecked": "20220131",
       "sponsors": 50,
       "levels": {
         "first": 11,
@@ -7236,7 +7236,7 @@
     },
     {
       "parseDate": "20220228",
-      "lastChecked": "20220326",
+      "lastChecked": "20220409",
       "sponsors": 49,
       "levels": {
         "first": 11,
@@ -7291,7 +7291,7 @@
     },
     {
       "parseDate": "20221028",
-      "lastChecked": "20221028",
+      "lastChecked": "20221031",
       "sponsors": 47,
       "levels": {
         "first": 8,
@@ -7302,7 +7302,7 @@
     },
     {
       "parseDate": "20221125",
-      "lastChecked": "20221125",
+      "lastChecked": "20221206",
       "sponsors": 46,
       "levels": {
         "first": 8,
@@ -7313,7 +7313,7 @@
     },
     {
       "parseDate": "20221230",
-      "lastChecked": "20221230",
+      "lastChecked": "20221231",
       "sponsors": 48,
       "levels": {
         "first": 8,
@@ -7324,7 +7324,7 @@
     },
     {
       "parseDate": "20230101",
-      "lastChecked": "20230101",
+      "lastChecked": "20230202",
       "sponsors": 48,
       "levels": {
         "first": 8,
@@ -7335,7 +7335,7 @@
     },
     {
       "parseDate": "20230222",
-      "lastChecked": "20230328",
+      "lastChecked": "20230331",
       "sponsors": 49,
       "levels": {
         "first": 8,
@@ -7346,7 +7346,7 @@
     },
     {
       "parseDate": "20230422",
-      "lastChecked": "20230422",
+      "lastChecked": "20230501",
       "sponsors": 53,
       "levels": {
         "first": 8,
@@ -7357,7 +7357,7 @@
     },
     {
       "parseDate": "20230524",
-      "lastChecked": "20230622",
+      "lastChecked": "20230703",
       "sponsors": 55,
       "levels": {
         "first": 8,
@@ -7368,7 +7368,7 @@
     },
     {
       "parseDate": "20230731",
-      "lastChecked": "20230731",
+      "lastChecked": "20230801",
       "sponsors": 57,
       "levels": {
         "first": 10,
@@ -7379,7 +7379,7 @@
     },
     {
       "parseDate": "20230828",
-      "lastChecked": "20230828",
+      "lastChecked": "20230831",
       "sponsors": 59,
       "levels": {
         "first": 10,
@@ -7390,7 +7390,7 @@
     },
     {
       "parseDate": "20230929",
-      "lastChecked": "20230929",
+      "lastChecked": "20231001",
       "sponsors": 61,
       "levels": {
         "first": 9,
@@ -7423,7 +7423,7 @@
     },
     {
       "parseDate": "20231227",
-      "lastChecked": "20231227",
+      "lastChecked": "20240110",
       "sponsors": 71,
       "levels": {
         "first": 11,
@@ -7434,7 +7434,7 @@
     },
     {
       "parseDate": "20240112",
-      "lastChecked": "20240112",
+      "lastChecked": "20240201",
       "sponsors": 72,
       "levels": {
         "first": 11,
@@ -7445,7 +7445,7 @@
     },
     {
       "parseDate": "20240226",
-      "lastChecked": "20240226",
+      "lastChecked": "20240306",
       "sponsors": 75,
       "levels": {
         "first": 10,
@@ -7456,7 +7456,7 @@
     },
     {
       "parseDate": "20240307",
-      "lastChecked": "20240427",
+      "lastChecked": "20240513",
       "sponsors": 73,
       "levels": {
         "first": 10,
@@ -7467,7 +7467,7 @@
     },
     {
       "parseDate": "20240520",
-      "lastChecked": "20240520",
+      "lastChecked": "20240603",
       "sponsors": 72,
       "levels": {
         "first": 10,
@@ -7478,7 +7478,7 @@
     },
     {
       "parseDate": "20240618",
-      "lastChecked": "20240618",
+      "lastChecked": "20240704",
       "sponsors": 73,
       "levels": {
         "first": 11,
@@ -7489,7 +7489,7 @@
     },
     {
       "parseDate": "20240717",
-      "lastChecked": "20240717",
+      "lastChecked": "20240814",
       "sponsors": 75,
       "levels": {
         "first": 12,
@@ -7500,7 +7500,7 @@
     },
     {
       "parseDate": "20240823",
-      "lastChecked": "20240823",
+      "lastChecked": "20240904",
       "sponsors": 74,
       "levels": {
         "first": 12,
@@ -7511,7 +7511,7 @@
     },
     {
       "parseDate": "20240924",
-      "lastChecked": "20240924",
+      "lastChecked": "20241001",
       "sponsors": 76,
       "levels": {
         "first": 13,
@@ -7522,7 +7522,7 @@
     },
     {
       "parseDate": "20241030",
-      "lastChecked": "20241030",
+      "lastChecked": "20241101",
       "sponsors": 77,
       "levels": {
         "first": 13,
@@ -7533,7 +7533,7 @@
     },
     {
       "parseDate": "20241126",
-      "lastChecked": "20241218",
+      "lastChecked": "20241231",
       "sponsors": 76,
       "levels": {
         "first": 13,
@@ -7544,7 +7544,7 @@
     },
     {
       "parseDate": "20250110",
-      "lastChecked": "20250110",
+      "lastChecked": "20250131",
       "sponsors": 74,
       "levels": {
         "first": 9,
@@ -7555,7 +7555,7 @@
     },
     {
       "parseDate": "20250212",
-      "lastChecked": "20250328",
+      "lastChecked": "20250414",
       "sponsors": 73,
       "levels": {
         "first": 9,
@@ -7566,7 +7566,7 @@
     },
     {
       "parseDate": "20250428",
-      "lastChecked": "20250513",
+      "lastChecked": "20250601",
       "sponsors": 72,
       "levels": {
         "first": 9,
@@ -7577,7 +7577,7 @@
     },
     {
       "parseDate": "20250623",
-      "lastChecked": "20250623",
+      "lastChecked": "20250701",
       "sponsors": 72,
       "levels": {
         "first": 9,
@@ -7588,7 +7588,7 @@
     },
     {
       "parseDate": "20250710",
-      "lastChecked": "20250710",
+      "lastChecked": "20250804",
       "sponsors": 72,
       "levels": {
         "first": 9,
@@ -7599,7 +7599,7 @@
     },
     {
       "parseDate": "20250805",
-      "lastChecked": "20250929",
+      "lastChecked": "20251111",
       "sponsors": 70,
       "levels": {
         "first": 8,
@@ -7610,7 +7610,7 @@
     },
     {
       "parseDate": "20251112",
-      "lastChecked": "20251112",
+      "lastChecked": "20260201",
       "sponsors": 71,
       "levels": {
         "first": 8,
@@ -7621,7 +7621,7 @@
     },
     {
       "parseDate": "20260202",
-      "lastChecked": "20260311",
+      "lastChecked": "20260414",
       "sponsors": 66,
       "levels": {
         "first": 6,
@@ -7632,7 +7632,7 @@
     },
     {
       "parseDate": "20260422",
-      "lastChecked": "20260422",
+      "lastChecked": "20260710",
       "sponsors": 66,
       "levels": {
         "first": 6,
@@ -7643,7 +7643,7 @@
     },
     {
       "parseDate": "20260728",
-      "lastChecked": "20260829",
+      "lastChecked": "20260831",
       "sponsors": 64,
       "levels": {
         "first": 4,
@@ -7667,7 +7667,7 @@
   "lfenergy": [
     {
       "parseDate": "20191022",
-      "lastChecked": "20191022",
+      "lastChecked": "20200205",
       "sponsors": 27,
       "levels": {
         "first": 3,
@@ -7678,7 +7678,7 @@
     },
     {
       "parseDate": "20200206",
-      "lastChecked": "20200206",
+      "lastChecked": "20200406",
       "sponsors": 26,
       "levels": {
         "first": 2,
@@ -7689,7 +7689,7 @@
     },
     {
       "parseDate": "20200409",
-      "lastChecked": "20200514",
+      "lastChecked": "20200611",
       "sponsors": 31,
       "levels": {
         "first": 2,
@@ -7700,7 +7700,7 @@
     },
     {
       "parseDate": "20200629",
-      "lastChecked": "20210118",
+      "lastChecked": "20210228",
       "sponsors": 31,
       "levels": {
         "first": 2,
@@ -7733,7 +7733,7 @@
     },
     {
       "parseDate": "20210530",
-      "lastChecked": "20210530",
+      "lastChecked": "20210531",
       "sponsors": 42,
       "levels": {
         "first": 2,
@@ -7777,7 +7777,7 @@
     },
     {
       "parseDate": "20211231",
-      "lastChecked": "20211231",
+      "lastChecked": "20220102",
       "sponsors": 49,
       "levels": {
         "first": 2,
@@ -7854,7 +7854,7 @@
     },
     {
       "parseDate": "20220930",
-      "lastChecked": "20221018",
+      "lastChecked": "20221101",
       "sponsors": 59,
       "levels": {
         "first": 5,
@@ -7887,7 +7887,7 @@
     },
     {
       "parseDate": "20230127",
-      "lastChecked": "20230127",
+      "lastChecked": "20230206",
       "sponsors": 58,
       "levels": {
         "first": 5,
@@ -7898,7 +7898,7 @@
     },
     {
       "parseDate": "20230214",
-      "lastChecked": "20230323",
+      "lastChecked": "20230331",
       "sponsors": 59,
       "levels": {
         "first": 5,
@@ -7909,7 +7909,7 @@
     },
     {
       "parseDate": "20230429",
-      "lastChecked": "20230429",
+      "lastChecked": "20230507",
       "sponsors": 63,
       "levels": {
         "first": 5,
@@ -7920,7 +7920,7 @@
     },
     {
       "parseDate": "20230529",
-      "lastChecked": "20230529",
+      "lastChecked": "20230531",
       "sponsors": 62,
       "levels": {
         "first": 5,
@@ -7931,7 +7931,7 @@
     },
     {
       "parseDate": "20230621",
-      "lastChecked": "20230621",
+      "lastChecked": "20230701",
       "sponsors": 65,
       "levels": {
         "first": 5,
@@ -7942,7 +7942,7 @@
     },
     {
       "parseDate": "20230728",
-      "lastChecked": "20230728",
+      "lastChecked": "20230731",
       "sponsors": 66,
       "levels": {
         "first": 5,
@@ -7953,7 +7953,7 @@
     },
     {
       "parseDate": "20230829",
-      "lastChecked": "20230829",
+      "lastChecked": "20230903",
       "sponsors": 66,
       "levels": {
         "first": 5,
@@ -7964,7 +7964,7 @@
     },
     {
       "parseDate": "20230926",
-      "lastChecked": "20230926",
+      "lastChecked": "20231006",
       "sponsors": 66,
       "levels": {
         "first": 5,
@@ -7975,7 +7975,7 @@
     },
     {
       "parseDate": "20231019",
-      "lastChecked": "20231205",
+      "lastChecked": "20231231",
       "sponsors": 65,
       "levels": {
         "first": 5,
@@ -7997,7 +7997,7 @@
     },
     {
       "parseDate": "20240226",
-      "lastChecked": "20240226",
+      "lastChecked": "20240305",
       "sponsors": 63,
       "levels": {
         "first": 5,
@@ -8008,7 +8008,7 @@
     },
     {
       "parseDate": "20240320",
-      "lastChecked": "20240426",
+      "lastChecked": "20240501",
       "sponsors": 62,
       "levels": {
         "first": 5,
@@ -8019,7 +8019,7 @@
     },
     {
       "parseDate": "20240531",
-      "lastChecked": "20240628",
+      "lastChecked": "20240630",
       "sponsors": 64,
       "levels": {
         "first": 5,
@@ -8030,7 +8030,7 @@
     },
     {
       "parseDate": "20240711",
-      "lastChecked": "20240711",
+      "lastChecked": "20240804",
       "sponsors": 65,
       "levels": {
         "first": 5,
@@ -8041,7 +8041,7 @@
     },
     {
       "parseDate": "20240830",
-      "lastChecked": "20241029",
+      "lastChecked": "20241101",
       "sponsors": 66,
       "levels": {
         "first": 5,
@@ -8052,7 +8052,7 @@
     },
     {
       "parseDate": "20241115",
-      "lastChecked": "20241218",
+      "lastChecked": "20241231",
       "sponsors": 68,
       "levels": {
         "first": 5,
@@ -8063,7 +8063,7 @@
     },
     {
       "parseDate": "20250128",
-      "lastChecked": "20250327",
+      "lastChecked": "20250331",
       "sponsors": 67,
       "levels": {
         "first": 5,
@@ -8085,7 +8085,7 @@
     },
     {
       "parseDate": "20250529",
-      "lastChecked": "20250529",
+      "lastChecked": "20250531",
       "sponsors": 68,
       "levels": {
         "first": 6,
@@ -8096,7 +8096,7 @@
     },
     {
       "parseDate": "20250624",
-      "lastChecked": "20250624",
+      "lastChecked": "20250701",
       "sponsors": 70,
       "levels": {
         "first": 6,
@@ -8107,7 +8107,7 @@
     },
     {
       "parseDate": "20250718",
-      "lastChecked": "20250718",
+      "lastChecked": "20250731",
       "sponsors": 71,
       "levels": {
         "first": 6,
@@ -8118,7 +8118,7 @@
     },
     {
       "parseDate": "20250829",
-      "lastChecked": "20250829",
+      "lastChecked": "20250901",
       "sponsors": 72,
       "levels": {
         "first": 6,
@@ -8129,7 +8129,7 @@
     },
     {
       "parseDate": "20250922",
-      "lastChecked": "20251028",
+      "lastChecked": "20251031",
       "sponsors": 73,
       "levels": {
         "first": 6,
@@ -8140,7 +8140,7 @@
     },
     {
       "parseDate": "20251119",
-      "lastChecked": "20251119",
+      "lastChecked": "20251202",
       "sponsors": 75,
       "levels": {
         "first": 6,
@@ -8151,7 +8151,7 @@
     },
     {
       "parseDate": "20251218",
-      "lastChecked": "20251218",
+      "lastChecked": "20251231",
       "sponsors": 76,
       "levels": {
         "first": 6,
@@ -8162,7 +8162,7 @@
     },
     {
       "parseDate": "20260130",
-      "lastChecked": "20260130",
+      "lastChecked": "20260131",
       "sponsors": 74,
       "levels": {
         "first": 6,
@@ -8173,7 +8173,7 @@
     },
     {
       "parseDate": "20260224",
-      "lastChecked": "20260224",
+      "lastChecked": "20260302",
       "sponsors": 73,
       "levels": {
         "first": 5,
@@ -8184,7 +8184,7 @@
     },
     {
       "parseDate": "20260320",
-      "lastChecked": "20260429",
+      "lastChecked": "20260430",
       "sponsors": 75,
       "levels": {
         "first": 6,
@@ -8195,7 +8195,7 @@
     },
     {
       "parseDate": "20260529",
-      "lastChecked": "20260529",
+      "lastChecked": "20260531",
       "sponsors": 76,
       "levels": {
         "first": 6,
@@ -8206,7 +8206,7 @@
     },
     {
       "parseDate": "20260630",
-      "lastChecked": "20260729",
+      "lastChecked": "20260802",
       "sponsors": 77,
       "levels": {
         "first": 6,
@@ -8217,7 +8217,7 @@
     },
     {
       "parseDate": "20260820",
-      "lastChecked": "20260820",
+      "lastChecked": "20260831",
       "sponsors": 78,
       "levels": {
         "first": 6,
@@ -8551,7 +8551,7 @@
     },
     {
       "parseDate": "20191022",
-      "lastChecked": "20200123",
+      "lastChecked": "20200204",
       "sponsors": 32,
       "levels": {
         "academic": 14,
@@ -8563,7 +8563,7 @@
     },
     {
       "parseDate": "20200222",
-      "lastChecked": "20200222",
+      "lastChecked": "20200302",
       "sponsors": 35,
       "levels": {
         "academic": 17,
@@ -8575,7 +8575,7 @@
     },
     {
       "parseDate": "20200320",
-      "lastChecked": "20200320",
+      "lastChecked": "20200408",
       "sponsors": 36,
       "levels": {
         "academic": 18,
@@ -8587,7 +8587,7 @@
     },
     {
       "parseDate": "20200425",
-      "lastChecked": "20200425",
+      "lastChecked": "20200506",
       "sponsors": 35,
       "levels": {
         "academic": 18,
@@ -8599,7 +8599,7 @@
     },
     {
       "parseDate": "20200530",
-      "lastChecked": "20200530",
+      "lastChecked": "20200601",
       "sponsors": 35,
       "levels": {
         "academic": 18,
@@ -8611,7 +8611,7 @@
     },
     {
       "parseDate": "20200629",
-      "lastChecked": "20200828",
+      "lastChecked": "20200903",
       "sponsors": 37,
       "levels": {
         "academic": 18,
@@ -8623,7 +8623,7 @@
     },
     {
       "parseDate": "20200924",
-      "lastChecked": "20201015",
+      "lastChecked": "20201103",
       "sponsors": 38,
       "levels": {
         "academic": 18,
@@ -8635,7 +8635,7 @@
     },
     {
       "parseDate": "20201118",
-      "lastChecked": "20201118",
+      "lastChecked": "20201215",
       "sponsors": 39,
       "levels": {
         "academic": 19,
@@ -8647,7 +8647,7 @@
     },
     {
       "parseDate": "20201223",
-      "lastChecked": "20201223",
+      "lastChecked": "20210103",
       "sponsors": 41,
       "levels": {
         "academic": 19,
@@ -8659,7 +8659,7 @@
     },
     {
       "parseDate": "20210121",
-      "lastChecked": "20210226",
+      "lastChecked": "20210301",
       "sponsors": 40,
       "levels": {
         "academic": 19,
@@ -8671,7 +8671,7 @@
     },
     {
       "parseDate": "20210331",
-      "lastChecked": "20210530",
+      "lastChecked": "20210531",
       "sponsors": 43,
       "levels": {
         "academic": 19,
@@ -8803,7 +8803,7 @@
     },
     {
       "parseDate": "20230126",
-      "lastChecked": "20230425",
+      "lastChecked": "20230430",
       "sponsors": 41,
       "levels": {
         "academic": 19,
@@ -8815,7 +8815,7 @@
     },
     {
       "parseDate": "20230525",
-      "lastChecked": "20230729",
+      "lastChecked": "20230807",
       "sponsors": 40,
       "levels": {
         "academic": 19,
@@ -8827,7 +8827,7 @@
     },
     {
       "parseDate": "20230830",
-      "lastChecked": "20231130",
+      "lastChecked": "20231211",
       "sponsors": 39,
       "levels": {
         "academic": 19,
@@ -8839,7 +8839,7 @@
     },
     {
       "parseDate": "20231214",
-      "lastChecked": "20231214",
+      "lastChecked": "20231231",
       "sponsors": 40,
       "levels": {
         "academic": 19,
@@ -8851,7 +8851,7 @@
     },
     {
       "parseDate": "20240131",
-      "lastChecked": "20240327",
+      "lastChecked": "20240401",
       "sponsors": 36,
       "levels": {
         "academic": 19,
@@ -8863,7 +8863,7 @@
     },
     {
       "parseDate": "20240424",
-      "lastChecked": "20240627",
+      "lastChecked": "20240807",
       "sponsors": 35,
       "levels": {
         "academic": 19,
@@ -8875,7 +8875,7 @@
     },
     {
       "parseDate": "20240831",
-      "lastChecked": "20241030",
+      "lastChecked": "20241102",
       "sponsors": 34,
       "levels": {
         "academic": 19,
@@ -8887,7 +8887,7 @@
     },
     {
       "parseDate": "20241127",
-      "lastChecked": "20241204",
+      "lastChecked": "20241231",
       "sponsors": 35,
       "levels": {
         "academic": 19,
@@ -8899,7 +8899,7 @@
     },
     {
       "parseDate": "20250128",
-      "lastChecked": "20250627",
+      "lastChecked": "20250701",
       "sponsors": 36,
       "levels": {
         "academic": 20,
@@ -8911,7 +8911,7 @@
     },
     {
       "parseDate": "20250730",
-      "lastChecked": "20251212",
+      "lastChecked": "20260101",
       "sponsors": 39,
       "levels": {
         "academic": 22,
@@ -8923,7 +8923,7 @@
     },
     {
       "parseDate": "20260115",
-      "lastChecked": "20260930",
+      "lastChecked": "20261001",
       "sponsors": 39,
       "levels": {
         "academic": 22,
@@ -8949,7 +8949,7 @@
   "openssf": [
     {
       "parseDate": "20210804",
-      "lastChecked": "20210804",
+      "lastChecked": "20210905",
       "sponsors": 53,
       "levels": {
         "second": 48,
@@ -8959,7 +8959,7 @@
     },
     {
       "parseDate": "20210930",
-      "lastChecked": "20210930",
+      "lastChecked": "20211012",
       "sponsors": 50,
       "levels": {
         "second": 45,
@@ -8969,7 +8969,7 @@
     },
     {
       "parseDate": "20211014",
-      "lastChecked": "20211014",
+      "lastChecked": "20211103",
       "sponsors": 39,
       "levels": {
         "first": 17,
@@ -8980,7 +8980,7 @@
     },
     {
       "parseDate": "20211123",
-      "lastChecked": "20211123",
+      "lastChecked": "20211202",
       "sponsors": 44,
       "levels": {
         "first": 20,
@@ -8991,7 +8991,7 @@
     },
     {
       "parseDate": "20211215",
-      "lastChecked": "20211215",
+      "lastChecked": "20220109",
       "sponsors": 49,
       "levels": {
         "first": 21,
@@ -9002,7 +9002,7 @@
     },
     {
       "parseDate": "20220127",
-      "lastChecked": "20220127",
+      "lastChecked": "20220201",
       "sponsors": 52,
       "levels": {
         "first": 21,
@@ -9013,7 +9013,7 @@
     },
     {
       "parseDate": "20220225",
-      "lastChecked": "20220225",
+      "lastChecked": "20220228",
       "sponsors": 58,
       "levels": {
         "first": 23,
@@ -9024,7 +9024,7 @@
     },
     {
       "parseDate": "20220325",
-      "lastChecked": "20220325",
+      "lastChecked": "20220331",
       "sponsors": 66,
       "levels": {
         "first": 23,
@@ -9035,7 +9035,7 @@
     },
     {
       "parseDate": "20220421",
-      "lastChecked": "20220421",
+      "lastChecked": "20220430",
       "sponsors": 74,
       "levels": {
         "first": 25,
@@ -9046,7 +9046,7 @@
     },
     {
       "parseDate": "20220529",
-      "lastChecked": "20220529",
+      "lastChecked": "20220601",
       "sponsors": 80,
       "levels": {
         "first": 25,
@@ -9057,7 +9057,7 @@
     },
     {
       "parseDate": "20220628",
-      "lastChecked": "20220628",
+      "lastChecked": "20220630",
       "sponsors": 82,
       "levels": {
         "first": 25,
@@ -9068,7 +9068,7 @@
     },
     {
       "parseDate": "20220707",
-      "lastChecked": "20220707",
+      "lastChecked": "20220808",
       "sponsors": 85,
       "levels": {
         "first": 25,
@@ -9079,7 +9079,7 @@
     },
     {
       "parseDate": "20220817",
-      "lastChecked": "20220817",
+      "lastChecked": "20220831",
       "sponsors": 89,
       "levels": {
         "first": 26,
@@ -9090,7 +9090,7 @@
     },
     {
       "parseDate": "20220928",
-      "lastChecked": "20220928",
+      "lastChecked": "20220930",
       "sponsors": 95,
       "levels": {
         "first": 26,
@@ -9101,7 +9101,7 @@
     },
     {
       "parseDate": "20221029",
-      "lastChecked": "20221029",
+      "lastChecked": "20221031",
       "sponsors": 100,
       "levels": {
         "first": 26,
@@ -9134,7 +9134,7 @@
     },
     {
       "parseDate": "20230129",
-      "lastChecked": "20230129",
+      "lastChecked": "20230131",
       "sponsors": 105,
       "levels": {
         "first": 24,
@@ -9145,7 +9145,7 @@
     },
     {
       "parseDate": "20230225",
-      "lastChecked": "20230225",
+      "lastChecked": "20230301",
       "sponsors": 107,
       "levels": {
         "first": 23,
@@ -9156,7 +9156,7 @@
     },
     {
       "parseDate": "20230325",
-      "lastChecked": "20230325",
+      "lastChecked": "20230331",
       "sponsors": 108,
       "levels": {
         "first": 23,
@@ -9167,7 +9167,7 @@
     },
     {
       "parseDate": "20230428",
-      "lastChecked": "20230428",
+      "lastChecked": "20230430",
       "sponsors": 115,
       "levels": {
         "first": 23,
@@ -9178,7 +9178,7 @@
     },
     {
       "parseDate": "20230527",
-      "lastChecked": "20230527",
+      "lastChecked": "20230601",
       "sponsors": 111,
       "levels": {
         "first": 22,
@@ -9200,7 +9200,7 @@
     },
     {
       "parseDate": "20230731",
-      "lastChecked": "20230731",
+      "lastChecked": "20230801",
       "sponsors": 113,
       "levels": {
         "first": 22,
@@ -9211,7 +9211,7 @@
     },
     {
       "parseDate": "20230829",
-      "lastChecked": "20230829",
+      "lastChecked": "20230902",
       "sponsors": 109,
       "levels": {
         "first": 21,
@@ -9222,7 +9222,7 @@
     },
     {
       "parseDate": "20230926",
-      "lastChecked": "20230926",
+      "lastChecked": "20230930",
       "sponsors": 113,
       "levels": {
         "first": 22,
@@ -9233,7 +9233,7 @@
     },
     {
       "parseDate": "20231023",
-      "lastChecked": "20231023",
+      "lastChecked": "20231031",
       "sponsors": 114,
       "levels": {
         "first": 22,
@@ -9255,7 +9255,7 @@
     },
     {
       "parseDate": "20231228",
-      "lastChecked": "20231228",
+      "lastChecked": "20240101",
       "sponsors": 112,
       "levels": {
         "first": 19,
@@ -9266,7 +9266,7 @@
     },
     {
       "parseDate": "20240112",
-      "lastChecked": "20240112",
+      "lastChecked": "20240212",
       "sponsors": 106,
       "levels": {
         "first": 17,
@@ -9277,7 +9277,7 @@
     },
     {
       "parseDate": "20240213",
-      "lastChecked": "20240213",
+      "lastChecked": "20240229",
       "sponsors": 107,
       "levels": {
         "first": 17,
@@ -9288,7 +9288,7 @@
     },
     {
       "parseDate": "20240321",
-      "lastChecked": "20240321",
+      "lastChecked": "20240401",
       "sponsors": 110,
       "levels": {
         "first": 17,
@@ -9299,7 +9299,7 @@
     },
     {
       "parseDate": "20240415",
-      "lastChecked": "20240415",
+      "lastChecked": "20240430",
       "sponsors": 115,
       "levels": {
         "first": 17,
@@ -9310,7 +9310,7 @@
     },
     {
       "parseDate": "20240517",
-      "lastChecked": "20240517",
+      "lastChecked": "20240616",
       "sponsors": 116,
       "levels": {
         "first": 17,
@@ -9321,7 +9321,7 @@
     },
     {
       "parseDate": "20240627",
-      "lastChecked": "20240627",
+      "lastChecked": "20240720",
       "sponsors": 116,
       "levels": {
         "first": 18,
@@ -9332,7 +9332,7 @@
     },
     {
       "parseDate": "20240721",
-      "lastChecked": "20240721",
+      "lastChecked": "20240912",
       "sponsors": 115,
       "levels": {
         "first": 18,
@@ -9343,7 +9343,7 @@
     },
     {
       "parseDate": "20240917",
-      "lastChecked": "20240917",
+      "lastChecked": "20241006",
       "sponsors": 120,
       "levels": {
         "first": 18,
@@ -9354,7 +9354,7 @@
     },
     {
       "parseDate": "20241025",
-      "lastChecked": "20241025",
+      "lastChecked": "20241103",
       "sponsors": 123,
       "levels": {
         "first": 18,
@@ -9365,7 +9365,7 @@
     },
     {
       "parseDate": "20241122",
-      "lastChecked": "20241122",
+      "lastChecked": "20241203",
       "sponsors": 126,
       "levels": {
         "first": 18,
@@ -9376,7 +9376,7 @@
     },
     {
       "parseDate": "20241212",
-      "lastChecked": "20241212",
+      "lastChecked": "20250104",
       "sponsors": 127,
       "levels": {
         "first": 18,
@@ -9387,7 +9387,7 @@
     },
     {
       "parseDate": "20250120",
-      "lastChecked": "20250120",
+      "lastChecked": "20250131",
       "sponsors": 116,
       "levels": {
         "first": 17,
@@ -9398,7 +9398,7 @@
     },
     {
       "parseDate": "20250211",
-      "lastChecked": "20250211",
+      "lastChecked": "20250302",
       "sponsors": 116,
       "levels": {
         "first": 16,
@@ -9409,7 +9409,7 @@
     },
     {
       "parseDate": "20250330",
-      "lastChecked": "20250330",
+      "lastChecked": "20250331",
       "sponsors": 116,
       "levels": {
         "first": 16,
@@ -9420,7 +9420,7 @@
     },
     {
       "parseDate": "20250424",
-      "lastChecked": "20250424",
+      "lastChecked": "20250504",
       "sponsors": 120,
       "levels": {
         "first": 16,
@@ -9431,7 +9431,7 @@
     },
     {
       "parseDate": "20250516",
-      "lastChecked": "20250516",
+      "lastChecked": "20250601",
       "sponsors": 120,
       "levels": {
         "first": 16,
@@ -9442,7 +9442,7 @@
     },
     {
       "parseDate": "20250616",
-      "lastChecked": "20250616",
+      "lastChecked": "20250630",
       "sponsors": 118,
       "levels": {
         "first": 16,
@@ -9453,7 +9453,7 @@
     },
     {
       "parseDate": "20250730",
-      "lastChecked": "20250730",
+      "lastChecked": "20250731",
       "sponsors": 119,
       "levels": {
         "first": 15,
@@ -9464,7 +9464,7 @@
     },
     {
       "parseDate": "20250801",
-      "lastChecked": "20250801",
+      "lastChecked": "20250904",
       "sponsors": 118,
       "levels": {
         "first": 16,
@@ -9475,7 +9475,7 @@
     },
     {
       "parseDate": "20250915",
-      "lastChecked": "20250915",
+      "lastChecked": "20250930",
       "sponsors": 118,
       "levels": {
         "first": 16,
@@ -9486,7 +9486,7 @@
     },
     {
       "parseDate": "20251022",
-      "lastChecked": "20251022",
+      "lastChecked": "20251106",
       "sponsors": 116,
       "levels": {
         "first": 16,
@@ -9497,7 +9497,7 @@
     },
     {
       "parseDate": "20251111",
-      "lastChecked": "20251218",
+      "lastChecked": "20260101",
       "sponsors": 117,
       "levels": {
         "first": 16,
@@ -9508,7 +9508,7 @@
     },
     {
       "parseDate": "20260128",
-      "lastChecked": "20260128",
+      "lastChecked": "20260201",
       "sponsors": 110,
       "levels": {
         "first": 15,
@@ -9519,7 +9519,7 @@
     },
     {
       "parseDate": "20260225",
-      "lastChecked": "20260225",
+      "lastChecked": "20260301",
       "sponsors": 109,
       "levels": {
         "first": 14,
@@ -9530,7 +9530,7 @@
     },
     {
       "parseDate": "20260317",
-      "lastChecked": "20260317",
+      "lastChecked": "20260331",
       "sponsors": 110,
       "levels": {
         "first": 14,
@@ -9541,7 +9541,7 @@
     },
     {
       "parseDate": "20260427",
-      "lastChecked": "20260427",
+      "lastChecked": "20260503",
       "sponsors": 111,
       "levels": {
         "first": 14,
@@ -9552,7 +9552,7 @@
     },
     {
       "parseDate": "20260511",
-      "lastChecked": "20260511",
+      "lastChecked": "20260601",
       "sponsors": 113,
       "levels": {
         "first": 14,
@@ -9563,7 +9563,7 @@
     },
     {
       "parseDate": "20260617",
-      "lastChecked": "20260617",
+      "lastChecked": "20260630",
       "sponsors": 114,
       "levels": {
         "first": 14,
@@ -9574,7 +9574,7 @@
     },
     {
       "parseDate": "20260713",
-      "lastChecked": "20260713",
+      "lastChecked": "20260806",
       "sponsors": 114,
       "levels": {
         "first": 14,
@@ -9585,7 +9585,7 @@
     },
     {
       "parseDate": "20260827",
-      "lastChecked": "20260827",
+      "lastChecked": "20260903",
       "sponsors": 113,
       "levels": {
         "first": 14,
@@ -9596,7 +9596,7 @@
     },
     {
       "parseDate": "20260909",
-      "lastChecked": "20260909",
+      "lastChecked": "20260930",
       "sponsors": 113,
       "levels": {
         "first": 14,
@@ -10026,7 +10026,7 @@
   "openstreetmap": [
     {
       "parseDate": "20160115",
-      "lastChecked": "20160115",
+      "lastChecked": "20160418",
       "sponsors": 11,
       "levels": {
         "listed": 11
@@ -10035,7 +10035,7 @@
     },
     {
       "parseDate": "20160419",
-      "lastChecked": "20160419",
+      "lastChecked": "20161010",
       "sponsors": 13,
       "levels": {
         "listed": 13
@@ -10044,7 +10044,7 @@
     },
     {
       "parseDate": "20161011",
-      "lastChecked": "20161011",
+      "lastChecked": "20161106",
       "sponsors": 14,
       "levels": {
         "listed": 14
@@ -10053,7 +10053,7 @@
     },
     {
       "parseDate": "20161122",
-      "lastChecked": "20161122",
+      "lastChecked": "20161212",
       "sponsors": 17,
       "levels": {
         "listed": 17
@@ -10062,7 +10062,7 @@
     },
     {
       "parseDate": "20161213",
-      "lastChecked": "20161213",
+      "lastChecked": "20170228",
       "sponsors": 18,
       "levels": {
         "listed": 18
@@ -10080,7 +10080,7 @@
     },
     {
       "parseDate": "20170321",
-      "lastChecked": "20170429",
+      "lastChecked": "20170502",
       "sponsors": 15,
       "levels": {
         "fifth": 1,
@@ -10091,7 +10091,7 @@
     },
     {
       "parseDate": "20170525",
-      "lastChecked": "20170525",
+      "lastChecked": "20171222",
       "sponsors": 18,
       "levels": {
         "fifth": 2,
@@ -10102,7 +10102,7 @@
     },
     {
       "parseDate": "20171224",
-      "lastChecked": "20171224",
+      "lastChecked": "20180108",
       "sponsors": 19,
       "levels": {
         "fifth": 3,
@@ -10113,7 +10113,7 @@
     },
     {
       "parseDate": "20180123",
-      "lastChecked": "20180123",
+      "lastChecked": "20180403",
       "sponsors": 21,
       "levels": {
         "fifth": 3,
@@ -10124,7 +10124,7 @@
     },
     {
       "parseDate": "20180404",
-      "lastChecked": "20180430",
+      "lastChecked": "20180509",
       "sponsors": 20,
       "levels": {
         "fifth": 3,
@@ -10135,7 +10135,7 @@
     },
     {
       "parseDate": "20180510",
-      "lastChecked": "20180510",
+      "lastChecked": "20180620",
       "sponsors": 21,
       "levels": {
         "fifth": 3,
@@ -10146,7 +10146,7 @@
     },
     {
       "parseDate": "20180626",
-      "lastChecked": "20180626",
+      "lastChecked": "20180715",
       "sponsors": 23,
       "levels": {
         "fifth": 3,
@@ -10157,7 +10157,7 @@
     },
     {
       "parseDate": "20180716",
-      "lastChecked": "20180716",
+      "lastChecked": "20181111",
       "sponsors": 24,
       "levels": {
         "fifth": 4,
@@ -10168,7 +10168,7 @@
     },
     {
       "parseDate": "20181126",
-      "lastChecked": "20181126",
+      "lastChecked": "20181226",
       "sponsors": 25,
       "levels": {
         "fifth": 4,
@@ -10179,7 +10179,7 @@
     },
     {
       "parseDate": "20181227",
-      "lastChecked": "20181227",
+      "lastChecked": "20190128",
       "sponsors": 25,
       "levels": {
         "fifth": 5,
@@ -10190,7 +10190,7 @@
     },
     {
       "parseDate": "20190129",
-      "lastChecked": "20190129",
+      "lastChecked": "20190225",
       "sponsors": 26,
       "levels": {
         "fifth": 6,
@@ -10201,7 +10201,7 @@
     },
     {
       "parseDate": "20190226",
-      "lastChecked": "20190430",
+      "lastChecked": "20190710",
       "sponsors": 26,
       "levels": {
         "fifth": 6,
@@ -10213,7 +10213,7 @@
     },
     {
       "parseDate": "20190720",
-      "lastChecked": "20190821",
+      "lastChecked": "20191104",
       "sponsors": 27,
       "levels": {
         "fifth": 6,
@@ -10225,7 +10225,7 @@
     },
     {
       "parseDate": "20191105",
-      "lastChecked": "20191105",
+      "lastChecked": "20191222",
       "sponsors": 28,
       "levels": {
         "fifth": 6,
@@ -10237,7 +10237,7 @@
     },
     {
       "parseDate": "20191223",
-      "lastChecked": "20191223",
+      "lastChecked": "20200206",
       "sponsors": 29,
       "levels": {
         "fifth": 7,
@@ -10249,7 +10249,7 @@
     },
     {
       "parseDate": "20200223",
-      "lastChecked": "20200303",
+      "lastChecked": "20200405",
       "sponsors": 29,
       "levels": {
         "fifth": 6,
@@ -10261,7 +10261,7 @@
     },
     {
       "parseDate": "20200406",
-      "lastChecked": "20200406",
+      "lastChecked": "20200704",
       "sponsors": 29,
       "levels": {
         "fifth": 7,
@@ -10273,7 +10273,7 @@
     },
     {
       "parseDate": "20200705",
-      "lastChecked": "20200705",
+      "lastChecked": "20200818",
       "sponsors": 29,
       "levels": {
         "fifth": 7,
@@ -10285,7 +10285,7 @@
     },
     {
       "parseDate": "20200819",
-      "lastChecked": "20200819",
+      "lastChecked": "20200915",
       "sponsors": 30,
       "levels": {
         "fifth": 8,
@@ -10297,7 +10297,7 @@
     },
     {
       "parseDate": "20200916",
-      "lastChecked": "20200916",
+      "lastChecked": "20201001",
       "sponsors": 31,
       "levels": {
         "fifth": 8,
@@ -10309,7 +10309,7 @@
     },
     {
       "parseDate": "20201012",
-      "lastChecked": "20201012",
+      "lastChecked": "20201115",
       "sponsors": 31,
       "levels": {
         "fifth": 8,
@@ -10321,7 +10321,7 @@
     },
     {
       "parseDate": "20201116",
-      "lastChecked": "20201116",
+      "lastChecked": "20210218",
       "sponsors": 31,
       "levels": {
         "fifth": 8,
@@ -10333,7 +10333,7 @@
     },
     {
       "parseDate": "20210219",
-      "lastChecked": "20210219",
+      "lastChecked": "20210403",
       "sponsors": 31,
       "levels": {
         "fifth": 8,
@@ -10345,7 +10345,7 @@
     },
     {
       "parseDate": "20210414",
-      "lastChecked": "20210414",
+      "lastChecked": "20210531",
       "sponsors": 31,
       "levels": {
         "fifth": 9,
@@ -10357,7 +10357,7 @@
     },
     {
       "parseDate": "20210601",
-      "lastChecked": "20210601",
+      "lastChecked": "20210824",
       "sponsors": 30,
       "levels": {
         "fifth": 8,
@@ -10369,7 +10369,7 @@
     },
     {
       "parseDate": "20210825",
-      "lastChecked": "20210825",
+      "lastChecked": "20211124",
       "sponsors": 31,
       "levels": {
         "fifth": 8,
@@ -10381,7 +10381,7 @@
     },
     {
       "parseDate": "20211125",
-      "lastChecked": "20211125",
+      "lastChecked": "20211207",
       "sponsors": 32,
       "levels": {
         "fifth": 9,
@@ -10393,7 +10393,7 @@
     },
     {
       "parseDate": "20211216",
-      "lastChecked": "20211216",
+      "lastChecked": "20220212",
       "sponsors": 32,
       "levels": {
         "fifth": 10,
@@ -10405,7 +10405,7 @@
     },
     {
       "parseDate": "20220224",
-      "lastChecked": "20220224",
+      "lastChecked": "20220522",
       "sponsors": 34,
       "levels": {
         "fifth": 11,
@@ -10417,7 +10417,7 @@
     },
     {
       "parseDate": "20220523",
-      "lastChecked": "20220523",
+      "lastChecked": "20220623",
       "sponsors": 35,
       "levels": {
         "fifth": 11,
@@ -10429,7 +10429,7 @@
     },
     {
       "parseDate": "20220628",
-      "lastChecked": "20220628",
+      "lastChecked": "20220705",
       "sponsors": 35,
       "levels": {
         "fifth": 11,
@@ -10441,7 +10441,7 @@
     },
     {
       "parseDate": "20220728",
-      "lastChecked": "20220728",
+      "lastChecked": "20221030",
       "sponsors": 35,
       "levels": {
         "fifth": 10,
@@ -10453,7 +10453,7 @@
     },
     {
       "parseDate": "20221031",
-      "lastChecked": "20221031",
+      "lastChecked": "20221218",
       "sponsors": 36,
       "levels": {
         "fifth": 10,
@@ -10465,7 +10465,7 @@
     },
     {
       "parseDate": "20221219",
-      "lastChecked": "20221219",
+      "lastChecked": "20230123",
       "sponsors": 37,
       "levels": {
         "fifth": 11,
@@ -10477,7 +10477,7 @@
     },
     {
       "parseDate": "20230130",
-      "lastChecked": "20230130",
+      "lastChecked": "20230201",
       "sponsors": 38,
       "levels": {
         "fifth": 11,
@@ -10489,7 +10489,7 @@
     },
     {
       "parseDate": "20230202",
-      "lastChecked": "20230202",
+      "lastChecked": "20230315",
       "sponsors": 39,
       "levels": {
         "fifth": 11,
@@ -10501,7 +10501,7 @@
     },
     {
       "parseDate": "20230316",
-      "lastChecked": "20230316",
+      "lastChecked": "20230419",
       "sponsors": 40,
       "levels": {
         "fifth": 11,
@@ -10514,7 +10514,7 @@
     },
     {
       "parseDate": "20230427",
-      "lastChecked": "20230427",
+      "lastChecked": "20230808",
       "sponsors": 42,
       "levels": {
         "fifth": 12,
@@ -10527,7 +10527,7 @@
     },
     {
       "parseDate": "20230827",
-      "lastChecked": "20230907",
+      "lastChecked": "20231001",
       "sponsors": 44,
       "levels": {
         "fifth": 13,
@@ -10540,7 +10540,7 @@
     },
     {
       "parseDate": "20231026",
-      "lastChecked": "20231026",
+      "lastChecked": "20231031",
       "sponsors": 44,
       "levels": {
         "fifth": 14,
@@ -10553,7 +10553,7 @@
     },
     {
       "parseDate": "20231124",
-      "lastChecked": "20231124",
+      "lastChecked": "20231203",
       "sponsors": 46,
       "levels": {
         "fifth": 15,
@@ -10566,7 +10566,7 @@
     },
     {
       "parseDate": "20231211",
-      "lastChecked": "20231211",
+      "lastChecked": "20240114",
       "sponsors": 49,
       "levels": {
         "fifth": 15,
@@ -10579,7 +10579,7 @@
     },
     {
       "parseDate": "20240128",
-      "lastChecked": "20240128",
+      "lastChecked": "20240213",
       "sponsors": 50,
       "levels": {
         "fifth": 14,
@@ -10592,7 +10592,7 @@
     },
     {
       "parseDate": "20240214",
-      "lastChecked": "20240214",
+      "lastChecked": "20240309",
       "sponsors": 50,
       "levels": {
         "fifth": 14,
@@ -10605,7 +10605,7 @@
     },
     {
       "parseDate": "20240310",
-      "lastChecked": "20240310",
+      "lastChecked": "20240401",
       "sponsors": 48,
       "levels": {
         "fifth": 14,
@@ -10618,7 +10618,7 @@
     },
     {
       "parseDate": "20240410",
-      "lastChecked": "20240410",
+      "lastChecked": "20240630",
       "sponsors": 49,
       "levels": {
         "fifth": 13,
@@ -10631,7 +10631,7 @@
     },
     {
       "parseDate": "20240701",
-      "lastChecked": "20240701",
+      "lastChecked": "20240731",
       "sponsors": 50,
       "levels": {
         "fifth": 13,
@@ -10644,7 +10644,7 @@
     },
     {
       "parseDate": "20240801",
-      "lastChecked": "20240911",
+      "lastChecked": "20240930",
       "sponsors": 51,
       "levels": {
         "fifth": 13,
@@ -10657,7 +10657,7 @@
     },
     {
       "parseDate": "20241001",
-      "lastChecked": "20241001",
+      "lastChecked": "20241105",
       "sponsors": 52,
       "levels": {
         "fifth": 14,
@@ -10670,7 +10670,7 @@
     },
     {
       "parseDate": "20241112",
-      "lastChecked": "20241112",
+      "lastChecked": "20241210",
       "sponsors": 52,
       "levels": {
         "fifth": 14,
@@ -10683,7 +10683,7 @@
     },
     {
       "parseDate": "20241220",
-      "lastChecked": "20241220",
+      "lastChecked": "20250126",
       "sponsors": 51,
       "levels": {
         "fifth": 13,
@@ -10696,7 +10696,7 @@
     },
     {
       "parseDate": "20250130",
-      "lastChecked": "20250130",
+      "lastChecked": "20250203",
       "sponsors": 52,
       "levels": {
         "fifth": 13,
@@ -10709,7 +10709,7 @@
     },
     {
       "parseDate": "20250204",
-      "lastChecked": "20250204",
+      "lastChecked": "20250506",
       "sponsors": 51,
       "levels": {
         "fifth": 13,
@@ -10722,7 +10722,7 @@
     },
     {
       "parseDate": "20250527",
-      "lastChecked": "20250527",
+      "lastChecked": "20250610",
       "sponsors": 52,
       "levels": {
         "fifth": 14,
@@ -10748,7 +10748,7 @@
     },
     {
       "parseDate": "20250701",
-      "lastChecked": "20250701",
+      "lastChecked": "20250921",
       "sponsors": 56,
       "levels": {
         "fifth": 17,
@@ -10761,7 +10761,7 @@
     },
     {
       "parseDate": "20250922",
-      "lastChecked": "20250922",
+      "lastChecked": "20251003",
       "sponsors": 57,
       "levels": {
         "fifth": 18,
@@ -10774,7 +10774,7 @@
     },
     {
       "parseDate": "20251028",
-      "lastChecked": "20251028",
+      "lastChecked": "20251130",
       "sponsors": 57,
       "levels": {
         "fifth": 18,
@@ -10787,7 +10787,7 @@
     },
     {
       "parseDate": "20251223",
-      "lastChecked": "20251223",
+      "lastChecked": "20260112",
       "sponsors": 53,
       "levels": {
         "fifth": 17,
@@ -10800,7 +10800,7 @@
     },
     {
       "parseDate": "20260113",
-      "lastChecked": "20260113",
+      "lastChecked": "20260208",
       "sponsors": 54,
       "levels": {
         "fifth": 18,
@@ -10813,7 +10813,7 @@
     },
     {
       "parseDate": "20260220",
-      "lastChecked": "20260220",
+      "lastChecked": "20260420",
       "sponsors": 57,
       "levels": {
         "fifth": 19,
@@ -10826,7 +10826,7 @@
     },
     {
       "parseDate": "20260421",
-      "lastChecked": "20260421",
+      "lastChecked": "20260719",
       "sponsors": 58,
       "levels": {
         "fifth": 20,
@@ -10839,7 +10839,7 @@
     },
     {
       "parseDate": "20260720",
-      "lastChecked": "20260720",
+      "lastChecked": "20260811",
       "sponsors": 58,
       "levels": {
         "fifth": 20,
@@ -10852,7 +10852,7 @@
     },
     {
       "parseDate": "20260812",
-      "lastChecked": "20260812",
+      "lastChecked": "20260909",
       "sponsors": 59,
       "levels": {
         "fifth": 20,
@@ -10865,7 +10865,7 @@
     },
     {
       "parseDate": "20260929",
-      "lastChecked": "20260929",
+      "lastChecked": "20261005",
       "sponsors": 60,
       "levels": {
         "fifth": 21,
@@ -11818,7 +11818,7 @@
   "owasp": [
     {
       "parseDate": "20191120",
-      "lastChecked": "20191120",
+      "lastChecked": "20191201",
       "sponsors": 50,
       "levels": {
         "listed": 50
@@ -11827,7 +11827,7 @@
     },
     {
       "parseDate": "20191220",
-      "lastChecked": "20191220",
+      "lastChecked": "20200106",
       "sponsors": 48,
       "levels": {
         "listed": 48
@@ -11845,7 +11845,7 @@
     },
     {
       "parseDate": "20200228",
-      "lastChecked": "20200228",
+      "lastChecked": "20200304",
       "sponsors": 51,
       "levels": {
         "listed": 51
@@ -11854,7 +11854,7 @@
     },
     {
       "parseDate": "20200320",
-      "lastChecked": "20200320",
+      "lastChecked": "20200402",
       "sponsors": 52,
       "levels": {
         "listed": 52
@@ -11863,7 +11863,7 @@
     },
     {
       "parseDate": "20200427",
-      "lastChecked": "20200427",
+      "lastChecked": "20200502",
       "sponsors": 53,
       "levels": {
         "listed": 53
@@ -11872,7 +11872,7 @@
     },
     {
       "parseDate": "20200522",
-      "lastChecked": "20200522",
+      "lastChecked": "20200604",
       "sponsors": 55,
       "levels": {
         "listed": 55
@@ -11881,7 +11881,7 @@
     },
     {
       "parseDate": "20200629",
-      "lastChecked": "20200629",
+      "lastChecked": "20200714",
       "sponsors": 56,
       "levels": {
         "listed": 56
@@ -11890,7 +11890,7 @@
     },
     {
       "parseDate": "20200729",
-      "lastChecked": "20200729",
+      "lastChecked": "20200810",
       "sponsors": 60,
       "levels": {
         "listed": 60
@@ -11899,7 +11899,7 @@
     },
     {
       "parseDate": "20200826",
-      "lastChecked": "20200826",
+      "lastChecked": "20201001",
       "sponsors": 62,
       "levels": {
         "listed": 62
@@ -11908,7 +11908,7 @@
     },
     {
       "parseDate": "20201014",
-      "lastChecked": "20201014",
+      "lastChecked": "20201119",
       "sponsors": 46,
       "levels": {
         "listed": 46
@@ -11917,7 +11917,7 @@
     },
     {
       "parseDate": "20201120",
-      "lastChecked": "20201120",
+      "lastChecked": "20201130",
       "sponsors": 47,
       "levels": {
         "listed": 47
@@ -11926,7 +11926,7 @@
     },
     {
       "parseDate": "20201222",
-      "lastChecked": "20201222",
+      "lastChecked": "20210112",
       "sponsors": 51,
       "levels": {
         "listed": 51
@@ -11935,7 +11935,7 @@
     },
     {
       "parseDate": "20210129",
-      "lastChecked": "20210129",
+      "lastChecked": "20210201",
       "sponsors": 56,
       "levels": {
         "listed": 56
@@ -11944,7 +11944,7 @@
     },
     {
       "parseDate": "20210224",
-      "lastChecked": "20210224",
+      "lastChecked": "20210310",
       "sponsors": 58,
       "levels": {
         "listed": 58
@@ -11953,7 +11953,7 @@
     },
     {
       "parseDate": "20210326",
-      "lastChecked": "20210326",
+      "lastChecked": "20210415",
       "sponsors": 64,
       "levels": {
         "listed": 64
@@ -11962,7 +11962,7 @@
     },
     {
       "parseDate": "20210427",
-      "lastChecked": "20210427",
+      "lastChecked": "20210504",
       "sponsors": 67,
       "levels": {
         "listed": 67
@@ -11971,7 +11971,7 @@
     },
     {
       "parseDate": "20210524",
-      "lastChecked": "20210524",
+      "lastChecked": "20210601",
       "sponsors": 71,
       "levels": {
         "listed": 71
@@ -11980,7 +11980,7 @@
     },
     {
       "parseDate": "20210624",
-      "lastChecked": "20210624",
+      "lastChecked": "20210706",
       "sponsors": 75,
       "levels": {
         "listed": 75
@@ -11989,7 +11989,7 @@
     },
     {
       "parseDate": "20210729",
-      "lastChecked": "20210729",
+      "lastChecked": "20210804",
       "sponsors": 61,
       "levels": {
         "listed": 61
@@ -11998,7 +11998,7 @@
     },
     {
       "parseDate": "20210827",
-      "lastChecked": "20210827",
+      "lastChecked": "20210914",
       "sponsors": 64,
       "levels": {
         "first": 6,
@@ -12009,7 +12009,7 @@
     },
     {
       "parseDate": "20210930",
-      "lastChecked": "20210930",
+      "lastChecked": "20211006",
       "sponsors": 67,
       "levels": {
         "first": 7,
@@ -12020,7 +12020,7 @@
     },
     {
       "parseDate": "20211007",
-      "lastChecked": "20211007",
+      "lastChecked": "20211103",
       "sponsors": 68,
       "levels": {
         "first": 7,
@@ -12031,7 +12031,7 @@
     },
     {
       "parseDate": "20211122",
-      "lastChecked": "20211122",
+      "lastChecked": "20211202",
       "sponsors": 73,
       "levels": {
         "first": 7,
@@ -12042,7 +12042,7 @@
     },
     {
       "parseDate": "20211216",
-      "lastChecked": "20211216",
+      "lastChecked": "20220104",
       "sponsors": 76,
       "levels": {
         "first": 7,
@@ -12053,7 +12053,7 @@
     },
     {
       "parseDate": "20220127",
-      "lastChecked": "20220127",
+      "lastChecked": "20220206",
       "sponsors": 80,
       "levels": {
         "first": 7,
@@ -12064,7 +12064,7 @@
     },
     {
       "parseDate": "20220228",
-      "lastChecked": "20220228",
+      "lastChecked": "20220301",
       "sponsors": 87,
       "levels": {
         "first": 9,
@@ -12075,7 +12075,7 @@
     },
     {
       "parseDate": "20220329",
-      "lastChecked": "20220329",
+      "lastChecked": "20220405",
       "sponsors": 88,
       "levels": {
         "first": 9,
@@ -12086,7 +12086,7 @@
     },
     {
       "parseDate": "20220427",
-      "lastChecked": "20220427",
+      "lastChecked": "20220501",
       "sponsors": 90,
       "levels": {
         "first": 11,
@@ -12097,7 +12097,7 @@
     },
     {
       "parseDate": "20220526",
-      "lastChecked": "20220526",
+      "lastChecked": "20220607",
       "sponsors": 95,
       "levels": {
         "first": 11,
@@ -12108,7 +12108,7 @@
     },
     {
       "parseDate": "20220622",
-      "lastChecked": "20220622",
+      "lastChecked": "20220705",
       "sponsors": 99,
       "levels": {
         "first": 12,
@@ -12119,7 +12119,7 @@
     },
     {
       "parseDate": "20220721",
-      "lastChecked": "20220721",
+      "lastChecked": "20220809",
       "sponsors": 105,
       "levels": {
         "first": 13,
@@ -12130,7 +12130,7 @@
     },
     {
       "parseDate": "20220830",
-      "lastChecked": "20220830",
+      "lastChecked": "20220918",
       "sponsors": 110,
       "levels": {
         "first": 13,
@@ -12141,7 +12141,7 @@
     },
     {
       "parseDate": "20220919",
-      "lastChecked": "20220919",
+      "lastChecked": "20221010",
       "sponsors": 111,
       "levels": {
         "first": 13,
@@ -12152,7 +12152,7 @@
     },
     {
       "parseDate": "20221011",
-      "lastChecked": "20221011",
+      "lastChecked": "20221102",
       "sponsors": 113,
       "levels": {
         "first": 13,
@@ -12163,7 +12163,7 @@
     },
     {
       "parseDate": "20221117",
-      "lastChecked": "20221117",
+      "lastChecked": "20221220",
       "sponsors": 115,
       "levels": {
         "first": 14,
@@ -12174,7 +12174,7 @@
     },
     {
       "parseDate": "20221221",
-      "lastChecked": "20221221",
+      "lastChecked": "20230201",
       "sponsors": 116,
       "levels": {
         "first": 14,
@@ -12185,7 +12185,7 @@
     },
     {
       "parseDate": "20230209",
-      "lastChecked": "20230209",
+      "lastChecked": "20230308",
       "sponsors": 119,
       "levels": {
         "first": 14,
@@ -12196,7 +12196,7 @@
     },
     {
       "parseDate": "20230330",
-      "lastChecked": "20230330",
+      "lastChecked": "20230404",
       "sponsors": 127,
       "levels": {
         "first": 14,
@@ -12207,7 +12207,7 @@
     },
     {
       "parseDate": "20230427",
-      "lastChecked": "20230427",
+      "lastChecked": "20230430",
       "sponsors": 130,
       "levels": {
         "first": 14,
@@ -12218,7 +12218,7 @@
     },
     {
       "parseDate": "20230523",
-      "lastChecked": "20230523",
+      "lastChecked": "20230626",
       "sponsors": 132,
       "levels": {
         "first": 14,
@@ -12229,7 +12229,7 @@
     },
     {
       "parseDate": "20230629",
-      "lastChecked": "20230629",
+      "lastChecked": "20230709",
       "sponsors": 133,
       "levels": {
         "first": 14,
@@ -12240,7 +12240,7 @@
     },
     {
       "parseDate": "20230713",
-      "lastChecked": "20230817",
+      "lastChecked": "20230905",
       "sponsors": 134,
       "levels": {
         "first": 14,
@@ -12251,7 +12251,7 @@
     },
     {
       "parseDate": "20230926",
-      "lastChecked": "20230926",
+      "lastChecked": "20231015",
       "sponsors": 137,
       "levels": {
         "first": 14,
@@ -12262,7 +12262,7 @@
     },
     {
       "parseDate": "20231028",
-      "lastChecked": "20231028",
+      "lastChecked": "20231120",
       "sponsors": 137,
       "levels": {
         "first": 14,
@@ -12273,7 +12273,7 @@
     },
     {
       "parseDate": "20231128",
-      "lastChecked": "20231128",
+      "lastChecked": "20231204",
       "sponsors": 41,
       "levels": {
         "first": 5,
@@ -12284,7 +12284,7 @@
     },
     {
       "parseDate": "20231213",
-      "lastChecked": "20231213",
+      "lastChecked": "20240103",
       "sponsors": 43,
       "levels": {
         "first": 5,
@@ -12295,7 +12295,7 @@
     },
     {
       "parseDate": "20240130",
-      "lastChecked": "20240130",
+      "lastChecked": "20240207",
       "sponsors": 49,
       "levels": {
         "first": 5,
@@ -12306,7 +12306,7 @@
     },
     {
       "parseDate": "20240222",
-      "lastChecked": "20240222",
+      "lastChecked": "20240311",
       "sponsors": 52,
       "levels": {
         "first": 6,
@@ -12317,7 +12317,7 @@
     },
     {
       "parseDate": "20240314",
-      "lastChecked": "20240314",
+      "lastChecked": "20240417",
       "sponsors": 54,
       "levels": {
         "first": 7,
@@ -12328,7 +12328,7 @@
     },
     {
       "parseDate": "20240430",
-      "lastChecked": "20240430",
+      "lastChecked": "20240506",
       "sponsors": 57,
       "levels": {
         "first": 7,
@@ -12339,7 +12339,7 @@
     },
     {
       "parseDate": "20240521",
-      "lastChecked": "20240521",
+      "lastChecked": "20240623",
       "sponsors": 61,
       "levels": {
         "first": 8,
@@ -12350,7 +12350,7 @@
     },
     {
       "parseDate": "20240628",
-      "lastChecked": "20240628",
+      "lastChecked": "20240707",
       "sponsors": 62,
       "levels": {
         "first": 8,
@@ -12361,7 +12361,7 @@
     },
     {
       "parseDate": "20240730",
-      "lastChecked": "20240730",
+      "lastChecked": "20240827",
       "sponsors": 65,
       "levels": {
         "first": 9,
@@ -12372,7 +12372,7 @@
     },
     {
       "parseDate": "20240828",
-      "lastChecked": "20240828",
+      "lastChecked": "20240902",
       "sponsors": 66,
       "levels": {
         "first": 9,
@@ -12383,7 +12383,7 @@
     },
     {
       "parseDate": "20240919",
-      "lastChecked": "20241003",
+      "lastChecked": "20241105",
       "sponsors": 67,
       "levels": {
         "first": 9,
@@ -12394,7 +12394,7 @@
     },
     {
       "parseDate": "20241129",
-      "lastChecked": "20241129",
+      "lastChecked": "20241201",
       "sponsors": 70,
       "levels": {
         "first": 9,
@@ -12405,7 +12405,7 @@
     },
     {
       "parseDate": "20241218",
-      "lastChecked": "20241218",
+      "lastChecked": "20250120",
       "sponsors": 73,
       "levels": {
         "first": 10,
@@ -12416,7 +12416,7 @@
     },
     {
       "parseDate": "20250129",
-      "lastChecked": "20250129",
+      "lastChecked": "20250202",
       "sponsors": 75,
       "levels": {
         "first": 10,
@@ -12427,7 +12427,7 @@
     },
     {
       "parseDate": "20250226",
-      "lastChecked": "20250226",
+      "lastChecked": "20250303",
       "sponsors": 60,
       "levels": {
         "first": 9,
@@ -12438,7 +12438,7 @@
     },
     {
       "parseDate": "20250327",
-      "lastChecked": "20250327",
+      "lastChecked": "20250402",
       "sponsors": 67,
       "levels": {
         "first": 11,
@@ -12449,7 +12449,7 @@
     },
     {
       "parseDate": "20250424",
-      "lastChecked": "20250424",
+      "lastChecked": "20250430",
       "sponsors": 69,
       "levels": {
         "first": 11,
@@ -12460,7 +12460,7 @@
     },
     {
       "parseDate": "20250520",
-      "lastChecked": "20250520",
+      "lastChecked": "20250630",
       "sponsors": 72,
       "levels": {
         "first": 12,
@@ -12471,7 +12471,7 @@
     },
     {
       "parseDate": "20250721",
-      "lastChecked": "20250811",
+      "lastChecked": "20251105",
       "sponsors": 74,
       "levels": {
         "first": 12,
@@ -12482,7 +12482,7 @@
     },
     {
       "parseDate": "20251120",
-      "lastChecked": "20251120",
+      "lastChecked": "20251130",
       "sponsors": 76,
       "levels": {
         "first": 13,
@@ -12493,7 +12493,7 @@
     },
     {
       "parseDate": "20251216",
-      "lastChecked": "20251216",
+      "lastChecked": "20260510",
       "sponsors": 79,
       "levels": {
         "first": 13,
@@ -12504,7 +12504,7 @@
     },
     {
       "parseDate": "20260511",
-      "lastChecked": "20260511",
+      "lastChecked": "20260615",
       "sponsors": 80,
       "levels": {
         "first": 13,
@@ -12515,7 +12515,7 @@
     },
     {
       "parseDate": "20260616",
-      "lastChecked": "20260616",
+      "lastChecked": "20260705",
       "sponsors": 83,
       "levels": {
         "first": 13,
@@ -12526,7 +12526,7 @@
     },
     {
       "parseDate": "20260730",
-      "lastChecked": "20260730",
+      "lastChecked": "20260903",
       "sponsors": 83,
       "levels": {
         "first": 14,
