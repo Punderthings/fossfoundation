@@ -1,8 +1,14 @@
 {%- comment -%}
-  One table cell value: a proportional bar plus the short dollar amount (exact amount on hover).
-  Parameters: value (number), max (largest value in the table), kind (revenue, expenses, sponsorship).
+  One table cell value: a proportional bar plus the short amount (exact amount on hover).
+  Parameters: value (number), max (largest value in the table), kind (revenue, expenses, sponsorship),
+  usd (true only for amounts known to be US dollars, which are shown with a $ sign).
 {%- endcomment -%}
 {%- assign fb_value = include.value | default: 0 -%}
 {%- assign fb_pct = 0 -%}
 {%- if include.max > 0 and fb_value > 0 -%}{%- assign fb_pct = fb_value | times: 100.0 | divided_by: include.max | round: 1 -%}{%- endif -%}
-<span class="fund-cell"><span class="fund-track" aria-hidden="true"><span class="fund-bar fund-bar-{{ include.kind }}" style="width: {{ fb_pct }}%;"></span></span><span class="fund-amount" title="{{ fb_value | dollars }}">{{ fb_value | money }}</span></span>
+{%- if include.usd -%}
+  {%- assign fb_short = fb_value | money -%}{%- assign fb_exact = fb_value | dollars -%}
+{%- else -%}
+  {%- assign fb_short = fb_value | short_number -%}{%- assign fb_exact = fb_value | exact_number -%}
+{%- endif -%}
+<span class="fund-cell"><span class="fund-track" aria-hidden="true"><span class="fund-bar fund-bar-{{ include.kind }}" style="width: {{ fb_pct }}%;"></span></span><span class="fund-amount" title="{{ fb_exact }}">{{ fb_short }}</span></span>

@@ -28,10 +28,20 @@ class MoneyFilterTest < Minitest::Test
     assert_equal '$1,235', dollars(1234.6)
   end
 
+  def test_numbers_without_currency_sign
+    assert_equal '2.31M', short_number(2_313_188)
+    assert_equal '180K', short_number(180_000)
+    assert_equal '-1.5M', short_number(-1_500_000)
+    assert_equal '2,313,188', exact_number(2_313_188)
+    assert_equal '500', exact_number(500)
+  end
+
   def test_blank_or_text_input
     ['', nil, 'TBD', '2.5M'].each do |input|
       assert_equal '', money(input), input.inspect
       assert_equal '', dollars(input), input.inspect
+      assert_equal '', short_number(input), input.inspect
+      assert_equal '', exact_number(input), input.inspect
     end
   end
 end

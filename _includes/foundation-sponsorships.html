@@ -2,6 +2,7 @@
   Sponsorships subsection of Funding: sponsor links, program models, the foundation's own program's
   current top tier sponsors, and its estimated sponsorship income by year.
   The own program is the sponsorship model with the same identifier as the foundation.
+  Parameter: usd (true for US IRS nonprofit types, whose amounts may be shown with a $ sign).
 {%- endcomment -%}
 {%- assign own_program = site.sponsorships | where: 'identifier', page.identifier | first -%}
 {%- if page.sponsorurl or page.sponsorList or page.sponsorships or own_program -%}
@@ -27,7 +28,7 @@
     {%- endif -%}
     {%- if own_program -%}
       {% include foundation-top-sponsors.html program=own_program %}
-      {% include foundation-sponsor-income.html program=own_program %}
+      {% include foundation-sponsor-income.html program=own_program usd=include.usd %}
     {%- endif %}
   </div>
 {%- endif -%}
