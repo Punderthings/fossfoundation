@@ -5,6 +5,23 @@ nonprofit: c3
 staticmap: '20240212'
 sponsorurl: https://gentoo.org/inside-gentoo/sponsors/
 levelurl: https://gentoo.org/inside-gentoo/sponsors/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # _data/sponsors.yaml behind gentoo.org: hosting sponsors, specific donations, and former sponsors (not counted)
+  - kind: git
+    repo: https://anongit.gentoo.org/git/sites/www.git
+    path: _data/sponsors.yaml
+    sourcetype: yaml
+    json:
+      itemsByKey: true
+      url: link
+      name: name
+      level: _key
+    levels:
+      firstinkind:
+        match: hosting
+      secondinkind:
+        match: specific
 normalize: 'true'
 comment: 'Note: Gentoo doesn''t list specific level amounts, so cash value is estimated.'
 levels:

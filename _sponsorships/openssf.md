@@ -7,6 +7,11 @@ sponsorurl: https://raw.githubusercontent.com/ossf/ossf-landscape/main/landscape
 levelurl: TODO
 normalize: 'true'
 landscape: OpenSSF Members
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/ossf/ossf-landscape
+    path: landscape.yml
 levels:
   first:
     name: Premier

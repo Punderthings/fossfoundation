@@ -1,0 +1,14 @@
+{
+  "org": "adelielinux",
+  "scrapes": [
+    {"parseDate":"20240112","lastChecked":"20240112","source":"git","counts":{"first":6}}
+  ],
+  "spans": [
+    {"sponsor":"docker.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"gw4.ac.uk","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"ionfish.org","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"osuosl.org","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"solid-run.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"sophon.ai","level":"first","firstSeen":"20240112","lastSeen":null}
+  ]
+}

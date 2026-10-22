@@ -6,6 +6,15 @@ nonprofit: lf
 sponsorurl: https://raw.githubusercontent.com/lf-energy/lfenergy-landscape/main/landscape.yml
 levelurl: https://lfenergy.org/become-a-member/
 landscape: LF Energy Member
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/lf-energy/lfenergy-landscape
+    path: landscape.yml
+    landscape: [LF Energy Member, LF Energy Member Company]
+    levels:
+      first:
+        match: [Strategic, Premier]
 levels:
   first:
     name: Strategic

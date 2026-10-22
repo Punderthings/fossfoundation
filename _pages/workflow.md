@@ -47,7 +47,11 @@ puts asf['legalName']
     - Scan _foundation/*.md where addressCountry = US and taxID is present
     - Run foundation_reporter.rb -r to download any new _data/p990/*.json files, and generate foundations_990_common.csv
   - [ ] When adding or updating a sponsorship:
-    - Run sponsor_utils.rb to parse all sponsorship models and websites, and generate sponsor data; and to generate org-funding.json and sponsor-counts.json
+    - Run `sponsor_utils.rb --check` to see which entities are stale, changed, or failing to parse.
+    - Run sponsor_utils.rb to parse all sponsorship models and websites, and generate _data/sponsorships/*.json sponsor data.  Review any WARNING/ERROR output on stderr: orgs that fail to parse keep their previous data, and the script exits nonzero.
+    - Changed sponsor lists are added to history/sponsorships/*.json automatically; commit those with the data.
+    - Occasionally run `sponsor_archive.rb collect` to refresh historical lists from each model's sources (`coverage` shows gaps).
+    - Run sponsor_reports.rb to generate org-funding.json, sponsor-counts.json, sponsor-history.json, and sponsor-income.json (the yearly estimates shown on foundation pages)
 
 ### Define Historical Modeling Tools
 
