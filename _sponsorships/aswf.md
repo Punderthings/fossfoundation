@@ -6,6 +6,12 @@ nonprofit: lf
 sponsorurl: https://raw.githubusercontent.com/AcademySoftwareFoundation/aswf-landscape/main/landscape.yml
 levelurl: https://www.aswf.io/join/
 landscape: ASWF Member Company
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/AcademySoftwareFoundation/aswf-landscape
+    path: landscape.yml
+    # Repo began as a fork; its 2018 'LF DL Member Company' list belongs to LF AI, not ASWF
 levels:
   first:
     name: Premier

@@ -41,17 +41,21 @@
     {% if page.budgetTransparent %}<abbr title="Is the official budget shared publicly and fully on a regular schedule?">Budget Transparency</abbr>: <span itemprop="budgetTransparent">{{ page.budgetTransparent }}</span><br/>{% endif %}
     {% if page.funding %}<abbr title="Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.">Funding Sources</abbr>: <span itemprop="funding">{{ page.funding }}</span><br/>{% endif %}
     {% if page.donateurl %}<abbr title="Link to donate or financial contribution URL.">Donation Link</abbr>: <a itemprop="donateurl" href="{{ page.donateurl }}">{{ page.donateurl }}</a><br/>{% endif %}
-    {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
-    {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
-    {% if page.sponsorships %}
-    <abbr title="Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json">Sponsorship Program Model</abbr>:
-    <ul>
-{% assign jjmapping = site['sponsorships'] %}
-      {% for loopitem in page.sponsorships %}
-      <li>{% assign jjlinkmap = jjmapping | where: 'identifier', loopitem | first %}{% if jjlinkmap %}<span itemprop="sponsorships"><a href="/sponsorships/{{ jjlinkmap['identifier'] }}">{{ jjlinkmap['name'] }}</a></span>{% else %}<span itemprop="sponsorships">{{ loopitem }}</span>{% endif %}</li>
-      {% endfor %}
-    </ul>
-    <br/>{% endif %}
+    {%- comment -%}
+      Amounts are shown in US dollars ($ via the money filters) only when every listed nonprofit type
+      is a US IRS type (schema.org USNonprofitType: Nonprofit501a, Nonprofit501c3, ..., Nonprofit527).
+    {%- endcomment -%}
+    {%- assign usd_amounts = false -%}
+    {%- assign nonprofit_types = page.nonprofitStatus | default: "" | split: ";" -%}
+    {%- if nonprofit_types.size > 0 -%}
+      {%- assign usd_amounts = true -%}
+      {%- for nonprofit_type in nonprofit_types -%}
+        {%- assign nonprofit_type = nonprofit_type | strip -%}
+        {%- unless nonprofit_type contains "Nonprofit501" or nonprofit_type == "Nonprofit527" -%}{%- assign usd_amounts = false -%}{%- endunless -%}
+      {%- endfor -%}
+    {%- endif %}
+    {% include foundation-taxes.html usd=usd_amounts %}
+    {% include foundation-sponsorships.html usd=usd_amounts %}
   </section>
   <section id="policy-section">
     <h2 id="policy">Policy</h2>

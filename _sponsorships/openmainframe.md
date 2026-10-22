@@ -6,6 +6,11 @@ nonprofit: lf
 sponsorurl: https://raw.githubusercontent.com/openmainframeproject/omp-landscape/main/landscape.yml
 levelurl: https://openmainframeproject.org/about/join/
 landscape: Open Mainframe Project Member Company
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/openmainframeproject/omp-landscape
+    path: landscape.yml
 levels:
   first:
     name: Platinum
