@@ -4,6 +4,14 @@ commonName: Open Stack Foundation
 nonprofit: c6
 sponsorurl: https://openinfra.dev/members/
 levelurl: https://openinfra.dev/join/members/
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Captures of the members page from 2023 (current layout). Earlier pages (openstack.org/foundation/companies)
+  # link members to profile pages that openstack_map.json does not cover, so they are not collected yet.
+  - kind: wayback
+    urls:
+      - https://openinfra.dev/members/
+    from: '20230101'
 sponsormap: _data/openstack_map.json
 levels:
   first:

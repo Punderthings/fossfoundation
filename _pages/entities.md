@@ -11,7 +11,7 @@ Many important and self-organized FOSS projects are not legal entities; however 
 
 ## Entity Modeling
 
-"Foundations" here are defined as legal non-profit entities: either a 501C3/C6 in the US, or a registered charity in various other countries.  That enables tracking and comparisons of governance, finances, and other organizational factors that are legally required.  Non-foundation entities may also have governance and a budget, but have different kinds of constraints than legal entities.  *Work in progress.*
+Unlike foundations, which we define as [legal non-profit entities](/fdnmodel#inclusion-criteria), non-foundation entities are not incorporated, so cannot be compared on the basis of legally required characteristics, such as articles of incorporation, financial reports and so on.  Non-foundation entities may also have governance and a budget, but have different kinds of constraints than legal entities.  Here's a work-in-progress set of attributes for non-foundation entities.
 
 - identifier: similar to foundations, name of the file, for easy lookups to sponsorship models
 - commonName, description, and other common metadata about a project

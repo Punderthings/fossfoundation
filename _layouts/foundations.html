@@ -7,6 +7,17 @@ layout: default
 <hr id="listing"/>
 <ul>
   {% for fdn in site.foundations %}
-    {% include foundation-single.html %}
+    {% unless fdn.dissolutionDate %}
+      {% include foundation-single.html %}
+    {% endunless %}
+  {% endfor %}
+</ul>
+
+<h2>Defunct foundations:</h2>
+<ul>
+  {% for fdn in site.foundations %}
+    {% if fdn.dissolutionDate %}
+      {% include foundation-single.html %}
+    {% endif %}
   {% endfor %}
 </ul>
