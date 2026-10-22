@@ -1,0 +1,42 @@
+name: Leadership roster refresh check
+
+# Deterministic, no-AI change detector for the _leadership dataset.
+# Weekly it fetches each foundation's leadership page, hashes the visible text,
+# and compares against _data/leadership-refresh-state.json. If any roster page
+# changed, it opens an issue listing the foundations that need re-extraction, so
+# a maintainer or an AI coding agent only revisits the pages that actually moved.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Detect changed leadership pages
+        id: detect
+        run: |
+          python3 assets/python/leadership_refresh.py --check --output changed.json | tee summary.txt
+          count=$(python3 -c 'import json,sys; print(len(json.load(open("changed.json"))))' 2>/dev/null || echo 0)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+      - name: Write job summary
+        run: cat summary.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Open issue if rosters changed
+        if: steps.detect.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Leadership rosters changed ($(date +%Y-%m-%d))" \
+            --body-file summary.txt \
+            --label leadership || true
