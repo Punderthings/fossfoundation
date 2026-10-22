@@ -27,11 +27,59 @@
       "type": "string",
       "format": "uri"
     },
-    "landscape": {
-      "title": "Landscape Selector",
-      "description": "If set, treat sponsorurl as a landscape.yml file and parse as per CNCF standard.",
+    "sourcetype": {
+      "title": "Source Type",
+      "description": "How to read sponsorurl: css (scrape html with per-level selector/attr), landscape (CNCF-style landscape.yml), landscapejson (landscape2 site data/full.json), json (any JSON API, see json), yaml (a YAML data file, read like json), or static (levels.*.sponsors lists). If absent: static when staticmap is set, landscape when landscape is set, else css.",
       "type": "string",
-      "format": "uri"
+      "enum": ["css", "landscape", "landscapejson", "json", "yaml", "static"]
+    },
+    "landscape": {
+      "title": "Landscape Category",
+      "description": "For landscape or landscapejson sources: name of the landscape category listing members (or, in sources entries, a list of names it has had); its subcategories are matched to levels by match or name.",
+      "type": ["string", "array"],
+      "items": { "type": "string" }
+    },
+    "render": {
+      "title": "Render With Browser",
+      "description": "For css sources whose sponsor list is built by JavaScript: 'chrome' renders sponsorurl in local headless Chrome/Chromium before scraping. Never used to get past bot-detection challenges.",
+      "type": "string",
+      "enum": ["none", "chrome"]
+    },
+    "json": {
+      "title": "JSON Field Paths",
+      "description": "For json (and to override landscapejson) sources: dotted paths into the JSON. Arrays along a path are flattened.",
+      "type": "object",
+      "properties": {
+        "items": { "description": "Path to the array of sponsor objects; empty for a top-level array.", "type": "string" },
+        "url": { "description": "Field with the sponsor website; normalized to a domain.", "type": "string" },
+        "name": { "description": "Fallback field used when url is empty.", "type": "string" },
+        "level": { "description": "Field whose value(s) are matched to levels by match or name.", "type": "string" },
+        "filter": { "description": "Map of path to a value or list of values that items must have.", "type": "object" },
+        "itemsByKey": { "description": "True when items is a map of key to a list of items; each item's key is readable as _key.", "type": "boolean" },
+        "defaultLevel": { "description": "Level for items whose level field is missing.", "type": "string" }
+      }
+    },
+    "sources": {
+      "title": "Historical Sources",
+      "description": "Where sponsor_archive.rb finds past versions of the sponsor list. Each entry has a kind and location, optional from/until dates (YYYYMMDD), and any model keys to use for that period (sourcetype, landscape, json, levels with match/selector/attr; a level set to null is removed; replaceLevels: true uses only the listed levels, e.g. a 'listed' level for lists without tiers).",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["git", "wiki", "yearly-page", "wayback"] },
+          "repo": { "description": "git: repository URL.", "type": "string" },
+          "path": { "description": "git: file path in the repository (renames are followed).", "type": "string" },
+          "branch": { "description": "git: branch (default: the repository's default branch).", "type": "string" },
+          "api": { "description": "wiki: MediaWiki api.php URL.", "type": "string", "format": "uri" },
+          "title": { "description": "wiki: page title.", "type": "string" },
+          "url": { "description": "yearly-page: URL containing {year}; each page covers that calendar year. wayback: a single page URL.", "type": "string" },
+          "urls": { "description": "wayback: page URLs (every address the page has had); captures are fetched raw so links are the original sponsor links.", "type": "array", "items": { "type": "string" } },
+          "from": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "until": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "replaceLevels": { "type": "boolean" }
+        }
+      }
     },
     "levelurl": {
       "title": "Level URL",
@@ -50,9 +98,32 @@
       "description": "If present, read a mapping file of URL fragments to sponsor hostnames (to simplify parsing of complex hrefs).",
       "type": "string"
     },
+    "effectiveDate": {
+      "title": "Effective Date",
+      "description": "Date (YYYYMMDD) the current levels took effect; required when pastModels is present.",
+      "type": "string",
+      "pattern": "^[0-9]{8}$"
+    },
+    "pastModels": {
+      "title": "Past Sponsorship Models",
+      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or amount. A level set to null did not exist then.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["effectiveDate"],
+        "properties": {
+          "effectiveDate": { "type": "string", "pattern": "^[0-9]{8}$" },
+          "levelurl": { "type": "string", "format": "uri" },
+          "levels": {
+            "type": "object",
+            "additionalProperties": { "type": ["object", "null"] }
+          }
+        }
+      }
+    },
     "normalize": {
       "title": "Normalize URL Flag",
-      "description": "If present, forcefully normalize URLs to bare hostnames.",
+      "description": "If true, normalize href URLs to one registrable domain per sponsor (subdomains merged; see _data/host_aliases.json). Landscape sources always normalize; json sources normalize unless set false.",
       "type": "string"
     },
     "levels": {

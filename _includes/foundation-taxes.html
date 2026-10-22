@@ -1,0 +1,35 @@
+{%- comment -%}
+  Tax Filings subsection of Funding: US IRS Form 990 revenue and expenses by year, from _data/p990.
+  Parameter: usd (true for US IRS nonprofit types, whose amounts are shown with a $ sign).
+{%- endcomment -%}
+{%- if page.taxID -%}
+  {%- assign pein = page.taxID | remove: "-" -%}{%- assign pp = site.data.p990[pein] -%}
+  {%- if pp -%}
+    <div id="taxes-section" class="funding-subsection">
+      <h3 id="taxes">Tax Filings - US</h3>
+      <abbr title="US IRS date that 501(c)* status was granted.">IRS determination date</abbr>: <span itemprop="irsDate">{{ pp.organization.ruling_date }}</span><br/>
+      <abbr title="NTEE type of nonprofit organization code.">NTEE Code</abbr>: <span itemprop="ntee_code">{{ pp.organization.ntee_code }}</span><br/>
+      {%- if pp.organization.tax_period %}
+      <abbr title="Most recent filed tax period, and total assets at its end.">Most recent filing</abbr>: <span itemprop="tax_period">{{ pp.organization.tax_period }}</span>{% if pp.organization.asset_amount %}, assets <span itemprop="asset_amount" title="{% if include.usd %}{{ pp.organization.asset_amount | dollars }}{% else %}{{ pp.organization.asset_amount | exact_number }}{% endif %}">{% if include.usd %}{{ pp.organization.asset_amount | money }}{% else %}{{ pp.organization.asset_amount | short_number }}{% endif %}</span>{% endif %}<br/>
+      {%- endif -%}
+      {%- assign tax_filings = pp.filings_with_data | sort: 'tax_prd_yr' | reverse -%}
+      {%- if tax_filings.size > 0 -%}
+        {%- assign tax_max = 0 -%}
+        {%- for filing in tax_filings -%}
+          {%- assign tax_revenue = filing.totrevenue | default: 0 -%}{%- assign tax_expenses = filing.totfuncexpns | default: 0 -%}
+          {%- if tax_revenue > tax_max -%}{%- assign tax_max = tax_revenue -%}{%- endif -%}
+          {%- if tax_expenses > tax_max -%}{%- assign tax_max = tax_expenses -%}{%- endif -%}
+        {%- endfor %}
+      <table class="fund-table">
+        <caption>Revenue and expenses reported on IRS Form 990 filings, via <a href="https://projects.propublica.org/nonprofits/organizations/{{ pein }}">ProPublica Nonprofit Explorer</a> (<a href="https://github.com/Punderthings/fossfoundation/tree/main/_data/p990/{{ pein }}.json">data</a>) or IRS downloads.</caption>
+        <thead><tr><th scope="col">Tax year</th><th scope="col">Revenue</th><th scope="col">Expenses</th></tr></thead>
+        <tbody>
+        {%- for filing in tax_filings %}
+          <tr><th scope="row">{{ filing.tax_prd_yr }}</th><td>{% include fund-bar.html value=filing.totrevenue max=tax_max kind="revenue" usd=include.usd %}</td><td>{% include fund-bar.html value=filing.totfuncexpns max=tax_max kind="expenses" usd=include.usd %}</td></tr>
+        {%- endfor %}
+        </tbody>
+      </table>
+      {%- endif %}
+    </div>
+  {%- endif -%}
+{%- endif -%}

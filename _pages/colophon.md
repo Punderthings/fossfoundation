@@ -29,6 +29,7 @@ Original content &copy; 2023 Shane Curcuru, as an individual.  Licensed under th
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://blog.lydiapintscher.de"><img src="https://avatars.githubusercontent.com/u/550412?v=4?s=100" width="100px;" alt="Lydia Pintscher"/><br /><sub><b>Lydia Pintscher</b></sub></a><br /><a href="#data-lydiapintscher" title="Data">🔣</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://nesbitt.io"><img src="https://avatars.githubusercontent.com/u/1060?v=4?s=100" width="100px;" alt="Andrew Nesbitt"/><br /><sub><b>Andrew Nesbitt</b></sub></a><br /><a href="https://github.com/Punderthings/fossfoundation/commits?author=andrew" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

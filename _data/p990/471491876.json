@@ -4,12 +4,12 @@
     "ein": 471491876,
     "name": "Openjs Foundation",
     "careofname": null,
-    "address": "548 MARKET ST PMB 57274",
-    "city": "San Francisco",
-    "state": "CA",
-    "zipcode": "94104-5401",
+    "address": "2810 N CHURCH ST PMB 57274",
+    "city": "Wilmington",
+    "state": "DE",
+    "zipcode": "19802-4447",
     "exemption_number": null,
-    "subsection_code": null,
+    "subsection_code": 4,
     "affiliation_code": null,
     "classification_codes": null,
     "ruling_date": null,
@@ -30,11 +30,11 @@
     "ntee_code": null,
     "sort_name": null,
     "created_at": "2022-09-12T19:55:44.926Z",
-    "updated_at": "2024-01-06T20:37:11.400Z",
+    "updated_at": "2025-12-19T01:59:18.029Z",
     "data_source": "xml_backfill",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202313179349304446"
+    "latest_object_id": "202503179349304515"
   },
   "filings_with_data": [
     {
@@ -109,6 +109,34 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471491876_202412_990O_2026040324078418.pdf"
+    },
+    {
+      "tax_prd": 202312,
+      "tax_prd_yr": 2023,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471491876_202312_990O_2025031923230222.pdf"
+    },
+    {
+      "tax_prd": 202212,
+      "tax_prd_yr": 2022,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=download990pdf_12_2023_prefixes_46-47%2F471491876_202212_990O_2023121222093963.pdf"
+    },
+    {
+      "tax_prd": 202112,
+      "tax_prd_yr": 2021,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F471491876_202112_990O_2023071221479910.pdf"
+    },
     {
       "tax_prd": 201912,
       "tax_prd_yr": 2019,

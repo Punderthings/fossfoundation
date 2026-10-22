@@ -1,0 +1,1133 @@
+{
+  "adelielinux": [
+    {
+      "year": 2024,
+      "estimate": 6006,
+      "sponsors": 6
+    }
+  ],
+  "archlinux": [
+    {
+      "year": 2024,
+      "estimate": 5005,
+      "sponsors": 5
+    }
+  ],
+  "asf": [
+    {
+      "year": 2026,
+      "estimate": 3339000,
+      "sponsors": 60
+    },
+    {
+      "year": 2025,
+      "estimate": 3545000,
+      "sponsors": 63
+    },
+    {
+      "year": 2024,
+      "estimate": 3613000,
+      "sponsors": 67
+    },
+    {
+      "year": 2023,
+      "estimate": 4029000,
+      "sponsors": 85
+    },
+    {
+      "year": 2022,
+      "estimate": 3980000,
+      "sponsors": 80
+    },
+    {
+      "year": 2021,
+      "estimate": 3578000,
+      "sponsors": 82
+    },
+    {
+      "year": 2020,
+      "estimate": 3153000,
+      "sponsors": 79
+    },
+    {
+      "year": 2019,
+      "estimate": 3210000,
+      "sponsors": 78
+    },
+    {
+      "year": 2018,
+      "estimate": 2731000,
+      "sponsors": 64
+    },
+    {
+      "year": 2017,
+      "estimate": 1795000,
+      "sponsors": 50
+    },
+    {
+      "year": 2016,
+      "estimate": 1653000,
+      "sponsors": 40
+    }
+  ],
+  "aswf": [
+    {
+      "year": 2026,
+      "estimate": 1200000,
+      "sponsors": 41
+    },
+    {
+      "year": 2025,
+      "estimate": 1120000,
+      "sponsors": 38
+    },
+    {
+      "year": 2024,
+      "estimate": 1100000,
+      "sponsors": 37
+    },
+    {
+      "year": 2023,
+      "estimate": 1150000,
+      "sponsors": 38
+    },
+    {
+      "year": 2022,
+      "estimate": 1030000,
+      "sponsors": 31
+    },
+    {
+      "year": 2021,
+      "estimate": 1030000,
+      "sponsors": 31
+    },
+    {
+      "year": 2020,
+      "estimate": 990000,
+      "sponsors": 28
+    }
+  ],
+  "cd": [
+    {
+      "year": 2026,
+      "estimate": 515000,
+      "sponsors": 16
+    },
+    {
+      "year": 2025,
+      "estimate": 680000,
+      "sponsors": 22
+    },
+    {
+      "year": 2024,
+      "estimate": 740000,
+      "sponsors": 24
+    },
+    {
+      "year": 2023,
+      "estimate": 1030000,
+      "sponsors": 29
+    },
+    {
+      "year": 2022,
+      "estimate": 1755000,
+      "sponsors": 41
+    },
+    {
+      "year": 2021,
+      "estimate": 1615000,
+      "sponsors": 32
+    },
+    {
+      "year": 2020,
+      "estimate": 1585000,
+      "sponsors": 31
+    }
+  ],
+  "cncf": [
+    {
+      "year": 2026,
+      "estimate": 36684000,
+      "sponsors": 710
+    },
+    {
+      "year": 2025,
+      "estimate": 38546000,
+      "sponsors": 743
+    },
+    {
+      "year": 2024,
+      "estimate": 39391000,
+      "sponsors": 734
+    },
+    {
+      "year": 2023,
+      "estimate": 44003000,
+      "sponsors": 798
+    },
+    {
+      "year": 2022,
+      "estimate": 43173000,
+      "sponsors": 797
+    },
+    {
+      "year": 2021,
+      "estimate": 35240000,
+      "sponsors": 645
+    },
+    {
+      "year": 2020,
+      "estimate": 30216000,
+      "sponsors": 561
+    },
+    {
+      "year": 2019,
+      "estimate": 22678000,
+      "sponsors": 378
+    },
+    {
+      "year": 2018,
+      "estimate": 11000000,
+      "sponsors": 90
+    },
+    {
+      "year": 2017,
+      "estimate": 7350000,
+      "sponsors": 61
+    }
+  ],
+  "debian": [
+    {
+      "year": 2026,
+      "estimate": 18018,
+      "sponsors": 18
+    },
+    {
+      "year": 2025,
+      "estimate": 18018,
+      "sponsors": 18
+    },
+    {
+      "year": 2024,
+      "estimate": 21021,
+      "sponsors": 21
+    },
+    {
+      "year": 2023,
+      "estimate": 23023,
+      "sponsors": 23
+    },
+    {
+      "year": 2022,
+      "estimate": 21021,
+      "sponsors": 21
+    },
+    {
+      "year": 2021,
+      "estimate": 21021,
+      "sponsors": 21
+    },
+    {
+      "year": 2020,
+      "estimate": 22022,
+      "sponsors": 22
+    },
+    {
+      "year": 2019,
+      "estimate": 21021,
+      "sponsors": 21
+    },
+    {
+      "year": 2018,
+      "estimate": 17017,
+      "sponsors": 17
+    },
+    {
+      "year": 2017,
+      "estimate": 19019,
+      "sponsors": 19
+    },
+    {
+      "year": 2016,
+      "estimate": 19019,
+      "sponsors": 19
+    }
+  ],
+  "drupal": [
+    {
+      "year": 2024,
+      "estimate": 856500,
+      "sponsors": 183
+    }
+  ],
+  "eclipse": [
+    {
+      "year": 2026,
+      "estimate": 12025000,
+      "sponsors": 305
+    },
+    {
+      "year": 2025,
+      "estimate": 13900000,
+      "sponsors": 391
+    },
+    {
+      "year": 2024,
+      "estimate": 4950000,
+      "sponsors": 99
+    },
+    {
+      "year": 2023,
+      "estimate": 4950000,
+      "sponsors": 99
+    },
+    {
+      "year": 2022,
+      "estimate": 4950000,
+      "sponsors": 99
+    }
+  ],
+  "finos": [
+    {
+      "year": 2026,
+      "estimate": 4630000,
+      "sponsors": 97
+    },
+    {
+      "year": 2025,
+      "estimate": 4450000,
+      "sponsors": 94
+    },
+    {
+      "year": 2024,
+      "estimate": 3720000,
+      "sponsors": 73
+    },
+    {
+      "year": 2023,
+      "estimate": 3460000,
+      "sponsors": 64
+    },
+    {
+      "year": 2022,
+      "estimate": 3590000,
+      "sponsors": 52
+    },
+    {
+      "year": 2021,
+      "estimate": 3120000,
+      "sponsors": 46
+    },
+    {
+      "year": 2020,
+      "estimate": 3100000,
+      "sponsors": 35
+    },
+    {
+      "year": 2019,
+      "estimate": 3020000,
+      "sponsors": 28
+    },
+    {
+      "year": 2018,
+      "estimate": 3590000,
+      "sponsors": 30
+    }
+  ],
+  "freebsd": [
+    {
+      "year": 2026,
+      "estimate": 250000,
+      "sponsors": 1
+    },
+    {
+      "year": 2025,
+      "estimate": 1000000,
+      "sponsors": 4
+    },
+    {
+      "year": 2024,
+      "estimate": 1250000,
+      "sponsors": 5
+    },
+    {
+      "year": 2023,
+      "estimate": 1000000,
+      "sponsors": 4
+    },
+    {
+      "year": 2022,
+      "estimate": 750000,
+      "sponsors": 3
+    },
+    {
+      "year": 2021,
+      "estimate": 1250000,
+      "sponsors": 5
+    }
+  ],
+  "fsfe": [
+    {
+      "year": 2026,
+      "estimate": 108000,
+      "sponsors": 18
+    },
+    {
+      "year": 2025,
+      "estimate": 180000,
+      "sponsors": 22
+    },
+    {
+      "year": 2024,
+      "estimate": 158400,
+      "sponsors": 30
+    },
+    {
+      "year": 2023,
+      "estimate": 108000,
+      "sponsors": 21
+    },
+    {
+      "year": 2022,
+      "estimate": 120000,
+      "sponsors": 22
+    },
+    {
+      "year": 2021,
+      "estimate": 134400,
+      "sponsors": 20
+    },
+    {
+      "year": 2020,
+      "estimate": 93600,
+      "sponsors": 19
+    },
+    {
+      "year": 2019,
+      "estimate": 88800,
+      "sponsors": 17
+    },
+    {
+      "year": 2018,
+      "estimate": 64800,
+      "sponsors": 15
+    },
+    {
+      "year": 2017,
+      "estimate": 103200,
+      "sponsors": 19
+    },
+    {
+      "year": 2016,
+      "estimate": 96000,
+      "sponsors": 16
+    }
+  ],
+  "gentoo": [
+    {
+      "year": 2026,
+      "estimate": 74000,
+      "sponsors": 22
+    },
+    {
+      "year": 2025,
+      "estimate": 74000,
+      "sponsors": 22
+    },
+    {
+      "year": 2024,
+      "estimate": 74000,
+      "sponsors": 22
+    },
+    {
+      "year": 2023,
+      "estimate": 89000,
+      "sponsors": 25
+    },
+    {
+      "year": 2022,
+      "estimate": 89000,
+      "sponsors": 25
+    },
+    {
+      "year": 2021,
+      "estimate": 94000,
+      "sponsors": 26
+    },
+    {
+      "year": 2020,
+      "estimate": 89000,
+      "sponsors": 25
+    },
+    {
+      "year": 2019,
+      "estimate": 94000,
+      "sponsors": 26
+    },
+    {
+      "year": 2018,
+      "estimate": 93000,
+      "sponsors": 25
+    },
+    {
+      "year": 2017,
+      "estimate": 98000,
+      "sponsors": 26
+    },
+    {
+      "year": 2016,
+      "estimate": 88000,
+      "sponsors": 24
+    }
+  ],
+  "gnome": [
+    {
+      "year": 2024,
+      "estimate": 80000,
+      "sponsors": 9
+    }
+  ],
+  "graphql": [
+    {
+      "year": 2026,
+      "estimate": 260000,
+      "sponsors": 13
+    },
+    {
+      "year": 2025,
+      "estimate": 340000,
+      "sponsors": 17
+    },
+    {
+      "year": 2024,
+      "estimate": 520000,
+      "sponsors": 26
+    },
+    {
+      "year": 2023,
+      "estimate": 600000,
+      "sponsors": 30
+    },
+    {
+      "year": 2022,
+      "estimate": 560000,
+      "sponsors": 28
+    },
+    {
+      "year": 2021,
+      "estimate": 440000,
+      "sponsors": 22
+    },
+    {
+      "year": 2020,
+      "estimate": 400000,
+      "sponsors": 20
+    }
+  ],
+  "haskell": [
+    {
+      "year": 2026,
+      "estimate": 405000,
+      "sponsors": 12
+    },
+    {
+      "year": 2025,
+      "estimate": 335000,
+      "sponsors": 11
+    },
+    {
+      "year": 2024,
+      "estimate": 560000,
+      "sponsors": 20
+    },
+    {
+      "year": 2023,
+      "estimate": 610000,
+      "sponsors": 19
+    },
+    {
+      "year": 2022,
+      "estimate": 540000,
+      "sponsors": 18
+    },
+    {
+      "year": 2021,
+      "estimate": 200000,
+      "sponsors": 8
+    }
+  ],
+  "hyperledger": [
+    {
+      "year": 2026,
+      "estimate": 4750000,
+      "sponsors": 131
+    },
+    {
+      "year": 2025,
+      "estimate": 4500000,
+      "sponsors": 127
+    },
+    {
+      "year": 2024,
+      "estimate": 3850000,
+      "sponsors": 136
+    },
+    {
+      "year": 2023,
+      "estimate": 4750000,
+      "sponsors": 142
+    }
+  ],
+  "jsfoundation": [
+    {
+      "year": 2024,
+      "estimate": 2990000,
+      "sponsors": 30
+    }
+  ],
+  "kde": [
+    {
+      "year": 2024,
+      "estimate": 93000,
+      "sponsors": 12
+    }
+  ],
+  "lf": [
+    {
+      "year": 2026,
+      "estimate": 37220000,
+      "sponsors": 2171
+    },
+    {
+      "year": 2025,
+      "estimate": 34300000,
+      "sponsors": 1901
+    },
+    {
+      "year": 2024,
+      "estimate": 32520000,
+      "sponsors": 1704
+    },
+    {
+      "year": 2023,
+      "estimate": 33000000,
+      "sponsors": 1596
+    },
+    {
+      "year": 2022,
+      "estimate": 33460000,
+      "sponsors": 1549
+    },
+    {
+      "year": 2021,
+      "estimate": 29500000,
+      "sponsors": 1254
+    },
+    {
+      "year": 2020,
+      "estimate": 21680000,
+      "sponsors": 725
+    }
+  ],
+  "lfai": [
+    {
+      "year": 2026,
+      "estimate": 1485000,
+      "sponsors": 66
+    },
+    {
+      "year": 2025,
+      "estimate": 2025000,
+      "sponsors": 72
+    },
+    {
+      "year": 2024,
+      "estimate": 2355000,
+      "sponsors": 73
+    },
+    {
+      "year": 2023,
+      "estimate": 1905000,
+      "sponsors": 55
+    },
+    {
+      "year": 2022,
+      "estimate": 1680000,
+      "sponsors": 47
+    },
+    {
+      "year": 2021,
+      "estimate": 2160000,
+      "sponsors": 47
+    },
+    {
+      "year": 2020,
+      "estimate": 1440000,
+      "sponsors": 24
+    },
+    {
+      "year": 2019,
+      "estimate": 1395000,
+      "sponsors": 16
+    }
+  ],
+  "lfenergy": [
+    {
+      "year": 2026,
+      "estimate": 2770000,
+      "sponsors": 77
+    },
+    {
+      "year": 2025,
+      "estimate": 2630000,
+      "sponsors": 70
+    },
+    {
+      "year": 2024,
+      "estimate": 2250000,
+      "sponsors": 64
+    },
+    {
+      "year": 2023,
+      "estimate": 2670000,
+      "sponsors": 65
+    },
+    {
+      "year": 2022,
+      "estimate": 2290000,
+      "sponsors": 58
+    },
+    {
+      "year": 2021,
+      "estimate": 1250000,
+      "sponsors": 43
+    },
+    {
+      "year": 2020,
+      "estimate": 900000,
+      "sponsors": 31
+    }
+  ],
+  "llvm": [
+    {
+      "year": 2026,
+      "estimate": 857500,
+      "sponsors": 19
+    },
+    {
+      "year": 2025,
+      "estimate": 710000,
+      "sponsors": 20
+    },
+    {
+      "year": 2024,
+      "estimate": 687500,
+      "sponsors": 21
+    },
+    {
+      "year": 2023,
+      "estimate": 687500,
+      "sponsors": 21
+    },
+    {
+      "year": 2022,
+      "estimate": 637500,
+      "sponsors": 20
+    },
+    {
+      "year": 2021,
+      "estimate": 600000,
+      "sponsors": 24
+    }
+  ],
+  "numfocus": [
+    {
+      "year": 2026,
+      "estimate": 838000,
+      "sponsors": 26
+    },
+    {
+      "year": 2025,
+      "estimate": 937000,
+      "sponsors": 27
+    },
+    {
+      "year": 2024,
+      "estimate": 988000,
+      "sponsors": 28
+    },
+    {
+      "year": 2023,
+      "estimate": 1187000,
+      "sponsors": 28
+    },
+    {
+      "year": 2022,
+      "estimate": 1088000,
+      "sponsors": 29
+    }
+  ],
+  "openmainframe": [
+    {
+      "year": 2026,
+      "estimate": 270000,
+      "sponsors": 39
+    },
+    {
+      "year": 2025,
+      "estimate": 300000,
+      "sponsors": 36
+    },
+    {
+      "year": 2024,
+      "estimate": 330000,
+      "sponsors": 35
+    },
+    {
+      "year": 2023,
+      "estimate": 430000,
+      "sponsors": 40
+    },
+    {
+      "year": 2022,
+      "estimate": 450000,
+      "sponsors": 41
+    },
+    {
+      "year": 2021,
+      "estimate": 530000,
+      "sponsors": 44
+    },
+    {
+      "year": 2020,
+      "estimate": 430000,
+      "sponsors": 37
+    }
+  ],
+  "openssf": [
+    {
+      "year": 2026,
+      "estimate": 6860000,
+      "sponsors": 114
+    },
+    {
+      "year": 2025,
+      "estimate": 7480000,
+      "sponsors": 118
+    },
+    {
+      "year": 2024,
+      "estimate": 8020000,
+      "sponsors": 116
+    },
+    {
+      "year": 2023,
+      "estimate": 8820000,
+      "sponsors": 111
+    },
+    {
+      "year": 2022,
+      "estimate": 8590000,
+      "sponsors": 82
+    }
+  ],
+  "openstack": [
+    {
+      "year": 2026,
+      "estimate": 5080000,
+      "sponsors": 114
+    },
+    {
+      "year": 2025,
+      "estimate": 4940000,
+      "sponsors": 501
+    },
+    {
+      "year": 2024,
+      "estimate": 4860000,
+      "sponsors": 486
+    },
+    {
+      "year": 2023,
+      "estimate": 5855000,
+      "sponsors": 469
+    }
+  ],
+  "openstreetmap": [
+    {
+      "year": 2026,
+      "estimate": 307500,
+      "sponsors": 58
+    },
+    {
+      "year": 2025,
+      "estimate": 311250,
+      "sponsors": 56
+    },
+    {
+      "year": 2024,
+      "estimate": 279000,
+      "sponsors": 50
+    },
+    {
+      "year": 2023,
+      "estimate": 223500,
+      "sponsors": 42
+    },
+    {
+      "year": 2022,
+      "estimate": 168750,
+      "sponsors": 35
+    },
+    {
+      "year": 2021,
+      "estimate": 158250,
+      "sponsors": 30
+    },
+    {
+      "year": 2020,
+      "estimate": 135000,
+      "sponsors": 29
+    },
+    {
+      "year": 2019,
+      "estimate": 129750,
+      "sponsors": 26
+    },
+    {
+      "year": 2018,
+      "estimate": 111000,
+      "sponsors": 23
+    },
+    {
+      "year": 2017,
+      "estimate": 88500,
+      "sponsors": 18
+    },
+    {
+      "year": 2016,
+      "estimate": null,
+      "sponsors": 13
+    }
+  ],
+  "osgeo": [
+    {
+      "year": 2026,
+      "estimate": 104000,
+      "sponsors": 13
+    },
+    {
+      "year": 2025,
+      "estimate": 102000,
+      "sponsors": 13
+    },
+    {
+      "year": 2024,
+      "estimate": 138500,
+      "sponsors": 13
+    },
+    {
+      "year": 2023,
+      "estimate": 81500,
+      "sponsors": 12
+    },
+    {
+      "year": 2022,
+      "estimate": 92000,
+      "sponsors": 15
+    },
+    {
+      "year": 2021,
+      "estimate": 65500,
+      "sponsors": 14
+    },
+    {
+      "year": 2020,
+      "estimate": 108500,
+      "sponsors": 17
+    },
+    {
+      "year": 2019,
+      "estimate": 57500,
+      "sponsors": 9
+    },
+    {
+      "year": 2018,
+      "estimate": 101000,
+      "sponsors": 15
+    },
+    {
+      "year": 2017,
+      "estimate": 71000,
+      "sponsors": 9
+    },
+    {
+      "year": 2016,
+      "estimate": 36500,
+      "sponsors": 5
+    }
+  ],
+  "osi": [
+    {
+      "year": 2024,
+      "estimate": 450000,
+      "sponsors": 18
+    }
+  ],
+  "owasp": [
+    {
+      "year": 2026,
+      "estimate": 825000,
+      "sponsors": 83
+    },
+    {
+      "year": 2025,
+      "estimate": 750000,
+      "sponsors": 72
+    },
+    {
+      "year": 2024,
+      "estimate": 570000,
+      "sponsors": 62
+    },
+    {
+      "year": 2023,
+      "estimate": 1115000,
+      "sponsors": 133
+    },
+    {
+      "year": 2022,
+      "estimate": 825000,
+      "sponsors": 99
+    },
+    {
+      "year": 2021,
+      "estimate": null,
+      "sponsors": 75
+    },
+    {
+      "year": 2020,
+      "estimate": null,
+      "sponsors": 56
+    }
+  ],
+  "plone": [
+    {
+      "year": 2024,
+      "estimate": 52500,
+      "sponsors": 11
+    }
+  ],
+  "postgresql": [
+    {
+      "year": 2024,
+      "estimate": 10000,
+      "sponsors": 6
+    }
+  ],
+  "python": [
+    {
+      "year": 2026,
+      "estimate": 2085000,
+      "sponsors": 73
+    },
+    {
+      "year": 2025,
+      "estimate": 1787000,
+      "sponsors": 58
+    },
+    {
+      "year": 2024,
+      "estimate": 1923250,
+      "sponsors": 66
+    },
+    {
+      "year": 2023,
+      "estimate": 1633000,
+      "sponsors": 80
+    }
+  ],
+  "rails": [
+    {
+      "year": 2024,
+      "estimate": 525000,
+      "sponsors": 13
+    }
+  ],
+  "raspberrypi": [
+    {
+      "year": 2025,
+      "estimate": 2850000,
+      "sponsors": 19
+    },
+    {
+      "year": 2024,
+      "estimate": 2850000,
+      "sponsors": 19
+    }
+  ],
+  "sfc": [
+    {
+      "year": 2026,
+      "estimate": 9000,
+      "sponsors": 9
+    },
+    {
+      "year": 2025,
+      "estimate": 9000,
+      "sponsors": 9
+    },
+    {
+      "year": 2024,
+      "estimate": 8000,
+      "sponsors": 8
+    },
+    {
+      "year": 2023,
+      "estimate": 8000,
+      "sponsors": 8
+    },
+    {
+      "year": 2022,
+      "estimate": 8000,
+      "sponsors": 8
+    },
+    {
+      "year": 2021,
+      "estimate": 8000,
+      "sponsors": 8
+    },
+    {
+      "year": 2020,
+      "estimate": 6000,
+      "sponsors": 6
+    },
+    {
+      "year": 2019,
+      "estimate": 7000,
+      "sponsors": 7
+    },
+    {
+      "year": 2018,
+      "estimate": 9000,
+      "sponsors": 9
+    },
+    {
+      "year": 2017,
+      "estimate": 10000,
+      "sponsors": 10
+    },
+    {
+      "year": 2016,
+      "estimate": 10000,
+      "sponsors": 10
+    }
+  ],
+  "spi": [
+    {
+      "year": 2024,
+      "estimate": 3003,
+      "sponsors": 3
+    }
+  ]
+}

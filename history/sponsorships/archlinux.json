@@ -1,0 +1,13 @@
+{
+  "org": "archlinux",
+  "scrapes": [
+    {"parseDate":"20240112","lastChecked":"20240112","source":"git","counts":{"first":5}}
+  ],
+  "spans": [
+    {"sponsor":"icons8.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"nitrokey.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"privateinternetaccess.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"shells.com","level":"first","firstSeen":"20240112","lastSeen":null},
+    {"sponsor":"uptimerobot.com","level":"first","firstSeen":"20240112","lastSeen":null}
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "_comment": [
+    "Used by assets/ruby/sponsor_utils.rb normalize_href to count each sponsor company once.",
+    "Hostnames are first collapsed to their registrable domain with the Public Suffix List",
+    "(aws.amazon.com => amazon.com, health.ucdavis.edu => ucdavis.edu, foo.co.uk stays).",
+    "Then these aliases apply, checked in order: the exact hostname; its registrable domain;",
+    "then '.tld' keys, which match any host under a brand top-level domain like .panasonic.",
+    "Map a hostname to itself to exempt it from subdomain collapsing.",
+    "Policy: merge renames, country variants, and brand domains of the same company;",
+    "keep separately-run subsidiaries separate (github.com is not microsoft.com).",
+    "After editing, run: ruby assets/ruby/sponsor_utils.rb --renormalize"
+  ],
+  "aliases": {
+    "opensource.google": "google.com",
+    ".google": "google.com",
+    ".panasonic": "panasonic.com",
+    ".toyota": "toyota.com",
+    ".bnpparibas": "bnpparibas.com",
+    ".ntt": "ntt.com",
+    "techatbloomberg.com": "bloomberg.com",
+    "facebook.com": "meta.com",
+    "yahoo.com": "yahooinc.com",
+    "ibm.biz": "ibm.com",
+    "chinaunicom.com.cn": "chinaunicom.com",
+    "swisscom.ch": "swisscom.com",
+    "cybozu.co.jp": "cybozu.com",
+    "nebius.ai": "nebius.com",
+    "fossa.io": "fossa.com",
+    "alauda.cn": "alauda.io",
+    "easystack.io": "easystack.cn",
+    "sokube.ch": "sokube.io",
+    "osb-alliance.com": "osb-alliance.de",
+    "hostersi.pl": "hostersi.com",
+    "cariad.us": "cariad.technology",
+    "uk.osgeo.org": "uk.osgeo.org"
+  }
+}

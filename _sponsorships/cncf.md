@@ -7,6 +7,36 @@ sponsorurl: https://raw.githubusercontent.com/cncf/landscape/master/landscape.ym
 levelurl: https://www.cncf.io/about/join/
 normalize: 'true'
 landscape: CNCF Members
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  - kind: git
+    repo: https://github.com/cncf/landscape
+    path: landscape.yml
+  # Before mid-2020 landscape.yml had no member categories; captures of the members page instead.
+  # 'End User Members' are paying members already listed under their tier, so they are not counted again.
+  - kind: wayback
+    urls:
+      - https://www.cncf.io/about/members/
+    until: '20200630'
+    sourcetype: css
+    normalize: 'true'
+    replaceLevels: true
+    levels:
+      first:
+        selector: "//a[starts-with(@href, 'http')][preceding::*[self::h2 or self::h3][1][contains(., 'Platinum Members')]]"
+        attr: href
+      second:
+        selector: "//a[starts-with(@href, 'http')][preceding::*[self::h2 or self::h3][1][contains(., 'Gold Members')]]"
+        attr: href
+      third:
+        selector: "//a[starts-with(@href, 'http')][preceding::*[self::h2 or self::h3][1][contains(., 'Silver Members')]]"
+        attr: href
+      community:
+        selector: "//a[starts-with(@href, 'http')][preceding::*[self::h2 or self::h3][1][contains(., 'Academic / Nonprofit Members')]]"
+        attr: href
+      enduser:
+        selector: "//a[starts-with(@href, 'http')][preceding::*[self::h2 or self::h3][1][contains(., 'End User Supporters')]]"
+        attr: href
 levels:
   first:
     name: Platinum
@@ -63,6 +93,9 @@ levels:
     attr: homepage_url
   enduser:
     name: End User Supporter
+    match:
+      - End User Supporter
+      - End User Supporter and Contributor
     amount: '0'
     selector: ''
     attr: ''
