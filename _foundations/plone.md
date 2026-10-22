@@ -3,7 +3,7 @@ identifier: plone
 commonName: Plone
 legalName: Plone Foundation
 description:
-contacturl: 
+contacturl:
 website: https://plone.org/
 foundingDate:
 addressCountry: US
@@ -29,10 +29,10 @@ taxID: 56-2468025
 taxIDLocal:
 budgetUsd:
 budgetYear:
-budgeturl:
+budgeturl: https://plone.org/foundation/finance
 budgetTransparent:
 funding:
-donateurl:
+donateurl: https://github.com/sponsors/plone
 sponsorurl: https://plone.org/sponsors
 sponsorList: https://plone.org/foundation/sponsorship/sponsors
 sponsorships:
