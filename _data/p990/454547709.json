@@ -4,10 +4,10 @@
     "ein": 454547709,
     "name": "Numfocus Inc",
     "careofname": null,
-    "address": "PO BOX 90596",
+    "address": "5900 BALCONES DR STE 22663",
     "city": "Austin",
     "state": "TX",
-    "zipcode": "78709-0596",
+    "zipcode": "78731-4257",
     "exemption_number": 0,
     "subsection_code": 3,
     "affiliation_code": 3,
@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 7,
     "income_code": 7,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 8766195,
-    "income_amount": 7245742,
-    "revenue_amount": 7245742,
+    "asset_amount": 6389998,
+    "income_amount": 8376226,
+    "revenue_amount": 8376226,
     "ntee_code": "U03",
     "sort_name": "Numfocus",
     "created_at": "2023-05-09T20:38:17.099Z",
-    "updated_at": "2025-08-14T19:36:36.356Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:52:43.707Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202433209349306003"
+    "latest_object_id": "202512979349301136"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F454547709_202312_990_2025030323142364.pdf",
       "updated": "2025-08-05T16:09:24.261Z",
       "totrevenue": 7245742,
       "totfuncexpns": 9951106,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F454547709_202112_990_2023051221219959.pdf",
       "updated": "2023-08-07T19:41:04.066Z",
       "totrevenue": 5449943,
       "totfuncexpns": 3860489,
@@ -857,7 +857,15 @@
       "ein": 454547709
     }
   ],
-  "filings_without_data": [],
+  "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F454547709_202412_990_2026020223895619.pdf"
+    }
+  ],
   "data_source": "ProPublica Nonprofit Explorer API: https://projects.propublica.org/nonprofits/api/\nIRS Exempt Organizations Business Master File Extract (EO BMF): https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf\nIRS Annual Extract of Tax-Exempt Organization Financial Data: https://www.irs.gov/uac/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data",
   "api_version": 2
 }

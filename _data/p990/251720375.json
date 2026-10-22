@@ -18,30 +18,30 @@
     "activity_codes": "200000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
+    "tax_period": "2024-12-01",
     "asset_code": 6,
     "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 2614853,
-    "income_amount": 3299673,
-    "revenue_amount": 3299673,
+    "asset_amount": 3542803,
+    "income_amount": 4632683,
+    "revenue_amount": 4632683,
     "ntee_code": null,
     "sort_name": null,
     "created_at": "2023-05-09T20:24:23.404Z",
-    "updated_at": "2025-08-14T19:23:28.494Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:49:03.823Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202442409349300719"
+    "latest_object_id": "202512339349301601"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F251720375_202312_990O_2025031723218967.pdf",
       "updated": "2025-08-05T16:08:31.706Z",
       "totrevenue": 3299673,
       "totfuncexpns": 3915690,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F251720375_202112_990O_2023012720832965.pdf",
       "updated": "2023-08-07T19:37:03.543Z",
       "totrevenue": 2872173,
       "totfuncexpns": 2901175,
@@ -949,6 +949,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990O",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F251720375_202412_990O_2026040124057081.pdf"
+    },
     {
       "tax_prd": 201012,
       "tax_prd_yr": 2010,

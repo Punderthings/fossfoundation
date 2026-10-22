@@ -4,12 +4,20 @@ commonName: Apache Software Foundation
 nonprofit: c3
 sponsorurl: https://apache.org/foundation/sponsors
 levelurl: https://apache.org/foundation/sponsorship
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page at each URL it has had
+  - kind: wayback
+    urls:
+      - https://www.apache.org/foundation/thanks.html
+      - https://www.apache.org/foundation/sponsors.html
+      - https://www.apache.org/foundation/sponsors
 normalize: 'true'
 levels:
   first:
     name: platinum
     amount: '125000'
-    selector: "#platinum li a"
+    selector: "#platinum a"
     attr: href
     benefits:
       marketing: joint press release; case study; Success At Apache posting
@@ -17,7 +25,7 @@ levels:
   second:
     name: gold
     amount: '50000'
-    selector: "#gold li a"
+    selector: "#gold a"
     attr: href
     benefits:
       advisory: dedicated ASF Sponsor Ambassador
@@ -26,7 +34,7 @@ levels:
   third:
     name: silver
     amount: '25000'
-    selector: "#silver li a"
+    selector: "#silver a"
     attr: href
     benefits:
       advisory: ASF ambassador contact
@@ -35,7 +43,7 @@ levels:
   fourth:
     name: bronze
     amount: '6000'
-    selector: "#bronze li a"
+    selector: "#bronze a"
     attr: href
     benefits:
       marketing: listing in annual and quarterly reports
@@ -43,7 +51,7 @@ levels:
   firstinkind:
     name: targeted platinum
     amount: '125000'
-    selector: "#targetedplatinum li a"
+    selector: "#targetedplatinum a"
     attr: href
     benefits:
       marketing: joint press release; case study; Success At Apache posting
@@ -51,7 +59,7 @@ levels:
   secondinkind:
     name: targeted gold
     amount: '50000'
-    selector: "#targetedgold li a"
+    selector: "#targetedgold a"
     attr: href
     benefits:
       advisory: dedicated ASF Sponsor Ambassador
@@ -60,7 +68,7 @@ levels:
   thirdinkind:
     name: targeted silver
     amount: '25000'
-    selector: "#targetedsilver li a"
+    selector: "#targetedsilver a"
     attr: href
     benefits:
       advisory: ASF ambassador contact
@@ -69,7 +77,7 @@ levels:
   fourthinkind:
     name: targeted bronze
     amount: '6000'
-    selector: "#targetedbronze li a"
+    selector: "#targetedbronze a"
     attr: href
     benefits:
       marketing: listing in annual and quarterly reports

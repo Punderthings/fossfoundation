@@ -1,0 +1,11 @@
+{
+  "org": "spi",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"first":3}}
+  ],
+  "spans": [
+    {"sponsor":"craigslist.org","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"gandi.net","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"google.com","level":"first","firstSeen":"20240212","lastSeen":null}
+  ]
+}
