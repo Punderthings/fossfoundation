@@ -1,0 +1,19 @@
+{
+  "org": "plone",
+  "scrapes": [
+    {"parseDate":"20240212","lastChecked":"20240212","source":"git","counts":{"first":5,"second":6}}
+  ],
+  "spans": [
+    {"sponsor":"enfoldsystems.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"jazkarta.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"quaivecloud.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"starzel.de","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"syslab.com","level":"first","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"cloud19.at","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"kitconcept.com","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"kombinat.at","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"redturtle.it","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"thomasschorr.de","level":"second","firstSeen":"20240212","lastSeen":null},
+    {"sponsor":"zopyx.com","level":"second","firstSeen":"20240212","lastSeen":null}
+  ]
+}

@@ -1,0 +1,79 @@
+// SPDX-License-Identifier: Apache-2.0
+// Site styles added to the just-the-docs theme.
+
+// Funding: tax filing and sponsorship income tables with proportional bars
+.funding-subsection {
+  margin-top: 1rem;
+}
+
+.fund-table caption {
+  caption-side: bottom;
+  padding-top: 0.5rem;
+  font-size: 0.85em;
+  text-align: left;
+  color: $grey-dk-100;
+}
+
+.fund-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.fund-track {
+  display: inline-block;
+  width: 8rem;
+  height: 0.75rem;
+  background: $grey-lt-100;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fund-bar {
+  display: block;
+  height: 100%;
+}
+
+// Shorter bars on phones, so year, amount, and count columns fit without scrolling
+@media (max-width: 40rem) {
+  .fund-track {
+    width: 3.5rem;
+  }
+
+  // The theme gives every table cell a 120px minimum width
+  .fund-table th,
+  .fund-table td {
+    min-width: 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+.fund-bar-revenue { background: $blue-100; }
+.fund-bar-expenses { background: $purple-100; }
+.fund-bar-sponsorship { background: $green-200; }
+
+.fund-note {
+  font-size: 0.85em;
+  color: $grey-dk-100;
+}
+
+// Comma-separated inline list (current top tier sponsors)
+.main-content .sponsor-inline {
+  padding-left: 0;
+  margin-top: 0.25rem;
+
+  > li {
+    display: inline;
+    margin: 0;
+
+    &::before {
+      content: none;
+    }
+
+    &:not(:last-child)::after {
+      content: ", ";
+    }
+  }
+}

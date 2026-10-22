@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
-    "asset_code": 3,
+    "tax_period": "2024-12-01",
+    "asset_code": 4,
     "income_code": 4,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 53098,
-    "income_amount": 217941,
-    "revenue_amount": 217941,
+    "asset_amount": 102096,
+    "income_amount": 258807,
+    "revenue_amount": 258807,
     "ntee_code": "B99",
     "sort_name": "Osdv Foundation",
     "created_at": "2023-05-09T20:36:02.654Z",
-    "updated_at": "2025-08-14T19:32:54.716Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:51:59.472Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202413179349308406"
+    "latest_object_id": "202543159349302489"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F208743186_202312_990_2025022623130941.pdf",
       "updated": "2025-08-05T16:08:13.485Z",
       "totrevenue": 217941,
       "totfuncexpns": 242526,
@@ -251,7 +251,7 @@
       "tax_prd": 202012,
       "tax_prd_yr": 2020,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F208743186_202012_990_2022010619401110.pdf",
       "updated": "2022-07-01T20:27:41.371Z",
       "totrevenue": 216902,
       "totfuncexpns": 313873,
@@ -977,6 +977,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F208743186_202412_990_2026021023927281.pdf"
+    },
     {
       "tax_prd": 200912,
       "tax_prd_yr": 2009,

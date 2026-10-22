@@ -4,6 +4,14 @@ commonName: NumFOCUS
 nonprofit: c3
 sponsorurl: https://numfocus.org/sponsors
 levelurl: https://numfocus.org/sponsors/become-a-sponsor
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Internet Archive captures of the sponsors page under the current sponsorship program.
+  # Before 2022 the page listed a different program's tiers, whose prices are not modeled yet.
+  - kind: wayback
+    urls:
+      - https://numfocus.org/sponsors
+    from: '20220101'
 normalize: 'true'
 levels:
   first:
