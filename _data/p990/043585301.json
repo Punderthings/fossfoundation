@@ -18,30 +18,30 @@
     "activity_codes": "000000000",
     "organization_code": 1,
     "exempt_organization_status_code": 1,
-    "tax_period": "2023-12-01",
-    "asset_code": 8,
-    "income_code": 7,
+    "tax_period": "2024-12-01",
+    "asset_code": 7,
+    "income_code": 6,
     "filing_requirement_code": 1,
     "pf_filing_requirement_code": 0,
     "accounting_period": 12,
-    "asset_amount": 10951751,
-    "income_amount": 5282455,
-    "revenue_amount": 4891109,
+    "asset_amount": 9257455,
+    "income_amount": 2439364,
+    "revenue_amount": 2439364,
     "ntee_code": "B70",
     "sort_name": "Van Houweling Molly",
     "created_at": "2023-05-09T20:35:29.784Z",
-    "updated_at": "2025-08-14T19:32:16.867Z",
-    "data_source": "current_2025_08_14",
+    "updated_at": "2026-09-16T19:51:52.268Z",
+    "data_source": "current_2026_09_16",
     "have_extracts": null,
     "have_pdfs": null,
-    "latest_object_id": "202443209349321359"
+    "latest_object_id": "202543179349306294"
   },
   "filings_with_data": [
     {
       "tax_prd": 202312,
       "tax_prd_yr": 2023,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043585301_202312_990_2025030523158072.pdf",
       "updated": "2025-08-05T16:07:53.669Z",
       "totrevenue": 4891109,
       "totfuncexpns": 4758015,
@@ -181,7 +181,7 @@
       "tax_prd": 202112,
       "tax_prd_yr": 2021,
       "formtype": 0,
-      "pdf_url": null,
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043585301_202112_990_2023031021080150.pdf",
       "updated": "2023-08-07T19:33:55.185Z",
       "totrevenue": 9853619,
       "totfuncexpns": 3127102,
@@ -949,6 +949,13 @@
     }
   ],
   "filings_without_data": [
+    {
+      "tax_prd": 202412,
+      "tax_prd_yr": 2024,
+      "formtype": 0,
+      "formtype_str": "990",
+      "pdf_url": "https://projects.propublica.org/nonprofits/download-filing?path=IRS%2F043585301_202412_990_2026021023931756.pdf"
+    },
     {
       "tax_prd": 201012,
       "tax_prd_yr": 2010,
