@@ -4,7 +4,7 @@ commonName: Free Software Support Network
 legalName: Free Software Support Network
 description:
 contacturl:
-website: http://freesoftwaresupport.net/
+website: https://web.archive.org/web/20250113135919/http://freesoftwaresupport.net/
 foundingDate:
 dissolutionDate: 2024 or earlier
 addressCountry: DE
@@ -58,4 +58,4 @@ logoReg:
 subOrganization:
 ---
 
-FSSN is a 501(c)(3) not-for-profit organization dedicated to providing assistance to Free and Open Source (FOSS) projects.
+FSSN was a 501(c)(3) not-for-profit organization dedicated to providing assistance to Free and Open Source (FOSS) projects that was defunct as of 2024.
