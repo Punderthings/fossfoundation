@@ -2,16 +2,30 @@
 identifier: eclipse
 commonName: Eclipse
 nonprofit: c6
-sponsorurl: https://www.eclipse.org/membership/exploreMembership.php
+sponsorurl: https://membership.eclipse.org/api/organizations?pagesize=100
+sourcetype: json
+# Same API the explore-membership page loads with JavaScript; members without a website are listed by name
+json:
+  url: website
+  name: name
+  level: levels.description
 levelurl: https://www.eclipse.org/membership/documents/membership-prospectus.pdf
+# Historical sponsor lists; see assets/ruby/sponsor_archive.rb
+sources:
+  # Before 2022 the explore-membership page linked members to internal profile ids, not
+  # websites; mapping those ids needs each member's profile page, so it is not collected yet.
+  # Captures of the membership API that the page has loaded since 2022
+  - kind: wayback
+    urls:
+      - https://membership.eclipse.org/api/organizations?pagesize=100
+    from: '20220101'
 levels:
   first:
     name: Strategic
     amount: '300000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(1) a.link-unstyled"
-    attr: href
+    match: Strategic Member
     benefits:
       governance: board seat
       advisory: can lead working groups; seat on Foundation councils
@@ -24,8 +38,7 @@ levels:
     amount: '25000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(2) a.link-unstyled"
-    attr: href
+    match: Contributing Member
     benefits:
       governance: can vote in board elections
       advisory: can join working groups as voting member
@@ -37,8 +50,7 @@ levels:
     amount: '25000'
     amountCurrency: EUR
     amountVaries: sliding scale by corporate revenues; 0 for nonprofits
-    selector: "div.eclipsefdn-members-list > div.row:nth-of-type(3) a.link-unstyled"
-    attr: href
+    match: Associate Member
     benefits:
       advisory: can join working groups as guest
       logo: yes
