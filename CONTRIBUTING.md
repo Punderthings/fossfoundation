@@ -11,19 +11,26 @@ Substantiative changes, or changes to **descriptions** of specific FOSS Foundati
 -  a specific fix or improvement: please open a GitHub Pull Request with the change.
 -  a larger change to propose or new idea, add new data fields, or the like: please open a GitHub Issue to **start** a discussion before doing more work.
 
+## How to Run the Website
+
+For development:
+
+```
+bundle exec jekyll serve
+```
+
 ## How To Update Existing Data
 
 - Ensure you are adding/updating accurate data.  Metadata should all be traceable back to an organization's official web presence, even if it's not a specific URL for each item.
-- Markdown at tne end of each foundation.md file should only include factual and general descriptions, not marketing materials.
+- Markdown at the end of each `foundation.md` file should only include factual and general descriptions, not marketing materials.
 - Ensure any "last update" fields are filled in (this is an open design question: how do we annotate when various metadata fields were last updated/verified?)
-- Submit a GitHub PR for the foundation.md file.
--  
+- Submit a GitHub PR for the `foundation.md` file.
 
 ## How To Add A New Foundation
 
 All the foundation data is stored in _foundations, so adding a new foundation is as simple as creating a file in that folder that matches the correct formatting.
 
-- Copy [_data/foundation-template.md](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md) to `_foundations/` as the base your new file.
+- Copy [`_data/foundation-template.md`](https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/foundation-template.md) to `_foundations/` as the base your new file.
   - `cp _data/foundation-template.md _foundations/`
 - Decide on the shortest and most common name used for the foundation that would still be unique in the current open source space.
 - Lowercase the name and remove any non-letter characters to make *shortname*.

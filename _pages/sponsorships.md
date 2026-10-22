@@ -11,7 +11,7 @@ To provide context for financial sustainability around FOSS organizations, we've
 
 ## Model Overview
 
-Data is stored per entity (a foundation or a project) as a single `asf.md` file in `_sponsorships`, see a [listing below](#listing).  Each file is a set of factual references to the entity's published sponsorship policies and levels, and provides metadata to scrape web pages of actual sponsor listings at the current date.  Some entries will provide a dated static map of manually compiled list of current sponsors listed.
+Data is stored per entity (a foundation or a project) as a single `foundation.md` (eg `asf.md`) file in `_sponsorships`, see a [listing below](#listing).  Each file is a set of factual references to the entity's published sponsorship policies and levels, and provides metadata to scrape web pages of actual sponsor listings at the current date.  Some entries will provide a dated static map of manually compiled list of current sponsors listed.
 
 ## Inclusion Criteria
 
