@@ -1,0 +1,15 @@
+{
+  "name": "pyperf",
+  "files": [
+    {
+      "filename": "pyperf-1.6.1-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/7f/34/12f4f27e43ed9d2269162fbb07005a08b45b6ed275a0e50cc3afda84af76/pyperf-1.6.1-py2.py3-none-any.whl",
+      "provenance": null
+    },
+    {
+      "filename": "pyperf-2.10.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/16/91/39ca77aa58f13e8c65d747ac7e06584b55acabfa98987fb8d546bc24860d/pyperf-2.10.0.tar.gz",
+      "provenance": "https://pypi.org/integrity/pyperf/2.10.0/pyperf-2.10.0.tar.gz/provenance"
+    }
+  ]
+}

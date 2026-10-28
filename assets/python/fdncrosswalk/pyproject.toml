@@ -1,0 +1,21 @@
+[project]
+name = "fdncrosswalk"
+version = "0.1.0"
+description = "Check foundation code host and registry accounts against their evidence, and build ecosyste.ms lookups."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = ["jsonschema>=4.23"]
+
+[project.scripts]
+fdncrosswalk = "fdncrosswalk.cli:main"
+
+[dependency-groups]
+test = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

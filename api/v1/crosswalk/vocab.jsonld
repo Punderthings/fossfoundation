@@ -1,0 +1,106 @@
+{
+  "@context": {
+    "fdn": "https://fossfoundation.info/crosswalk#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/"
+  },
+  "@graph": [
+    {
+      "@id": "fdn:steward",
+      "@type": "rdf:Property",
+      "rdfs:label": "Steward",
+      "rdfs:comment": "The foundation acts as steward for the account or package. Where the foundation has said so publicly, this is the open-source software steward role of EU Cyber Resilience Act (Regulation (EU) 2024/2847) Article 3(14).",
+      "rdfs:subPropertyOf": {
+        "@id": "schema:publisher"
+      },
+      "rdfs:seeAlso": {
+        "@id": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj"
+      }
+    },
+    {
+      "@id": "fdn:account",
+      "@type": "rdf:Property",
+      "rdfs:label": "Account",
+      "rdfs:comment": "An org, namespace or owner on a code host or package registry that the foundation or one of its projects controls."
+    },
+    {
+      "@id": "fdn:package",
+      "@type": "rdf:Property",
+      "rdfs:label": "Package",
+      "rdfs:comment": "A package or source repository, identified by a Package URL, that belongs to the foundation or one of its projects.",
+      "rdfs:seeAlso": {
+        "@id": "https://github.com/package-url/purl-spec"
+      }
+    },
+    {
+      "@id": "fdn:platform",
+      "@type": "rdf:Property",
+      "rdfs:label": "Platform",
+      "rdfs:comment": "Code host or package registry, named as ecosyste.ms names it.",
+      "rdfs:seeAlso": {
+        "@id": "https://ecosyste.ms/"
+      }
+    },
+    {
+      "@id": "fdn:host",
+      "@type": "rdf:Property",
+      "rdfs:label": "Self-hosted instance",
+      "rdfs:comment": "Base URL of a self-hosted forge such as https://gitlab.eclipse.org."
+    },
+    {
+      "@id": "fdn:accountKind",
+      "@type": "rdf:Property",
+      "rdfs:label": "Account kind",
+      "rdfs:comment": "organization, namespace or user."
+    },
+    {
+      "@id": "fdn:project",
+      "@type": "rdf:Property",
+      "rdfs:label": "Hosted project",
+      "rdfs:comment": "Identifier of a hosted project of the foundation."
+    },
+    {
+      "@id": "fdn:publishedUnder",
+      "@type": "rdf:Property",
+      "rdfs:label": "Published under",
+      "rdfs:comment": "The account a package is published under."
+    },
+    {
+      "@id": "fdn:confidence",
+      "@type": "rdf:Property",
+      "rdfs:label": "Confidence",
+      "rdfs:comment": "confirmed, probable, unconfirmed or rejected, computed from the evidence."
+    },
+    {
+      "@id": "fdn:stale",
+      "@type": "rdf:Property",
+      "rdfs:label": "Stale",
+      "rdfs:comment": "True when every evidence item supporting the confidence level is past its freshness date."
+    },
+    {
+      "@id": "fdn:confirmedWith",
+      "@type": "rdf:Property",
+      "rdfs:label": "Confirmed with",
+      "rdfs:comment": "The person at the organization who confirmed a human-attested link.",
+      "rdfs:range": {
+        "@id": "schema:Person"
+      }
+    },
+    {
+      "@id": "fdn:supersedes",
+      "@type": "rdf:Property",
+      "rdfs:label": "Supersedes",
+      "rdfs:comment": "A human attestation that overrides earlier contradiction evidence."
+    },
+    {
+      "@id": "fdn:wikidataId",
+      "@type": "rdf:Property",
+      "rdfs:label": "Wikidata id",
+      "rdfs:comment": "The foundation's Wikidata item.",
+      "rdfs:seeAlso": {
+        "@id": "https://www.wikidata.org/"
+      }
+    }
+  ]
+}
