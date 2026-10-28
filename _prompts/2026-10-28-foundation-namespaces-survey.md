@@ -157,7 +157,7 @@ One regulatory note: the EU Cyber Resilience Act defines "open-source software s
 
 ## Integration plan with ecosyste.ms
 
-Build a hand-verified crosswalk for 5 pilot foundations first, then use ecosyste.ms to expand it and measure coverage. Every ecosyste.ms call carries `mailto=shane@punderthings.com`.
+Build a hand-verified crosswalk for 5 pilot foundations first, then use ecosyste.ms to expand it and measure coverage. Every ecosyste.ms call carries `mailto=` a polite email.
 
 **Proposed fields** (refines section 4.2 of the handoff). Each entry records how we know it, so the data stays traceable per CONTRIBUTING.
 

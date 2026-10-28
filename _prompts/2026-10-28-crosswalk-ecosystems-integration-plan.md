@@ -27,7 +27,7 @@ Shane's other answers are inline in the Decisions table and the quoted IMPORTANT
 
 The crosswalk's account-plus-evidence design is sound, and three additions would make it join cleanly with ecosyste.ms and support trusted human confirmations: a stable platform id on each account, a new package list keyed by purl, and a `human-attested` evidence type with review dates. Nothing here is implemented yet; each choice is listed in Decisions at the end with a recommended option.
 
-Good news from today: ecosyste.ms is now reachable from this environment, so the field names below were checked against live records and the published OpenAPI specs (all calls used `mailto=shane@punderthings.com`). For example, the ecosyste.ms owner record for `apache` carries `uuid: 47359`, which is GitHub's numeric org id, and numpy's package record serves a CodeMeta (schema.org `SoftwareSourceCode`) view.
+Good news from today: ecosyste.ms is now reachable from this environment, so the field names below were checked against live records and the published OpenAPI specs (all calls used `mailto=` a polite email). For example, the ecosyste.ms owner record for `apache` carries `uuid: 47359`, which is GitHub's numeric org id, and numpy's package record serves a CodeMeta (schema.org `SoftwareSourceCode`) view.
 
 What the plan proposes, in short:
 
@@ -44,14 +44,14 @@ What a live check against ecosyste.ms adds:
 
 | Finding | Checked | What it means for the schema |
 | --- | --- | --- |
-| Owner `uuid` is the platform's numeric id: apache = 47359, python = 1525981 | [repos owner apache](https://repos.ecosyste.ms/api/v1/hosts/GitHub/owners/apache?mailto=shane@punderthings.com) | Store it; it survives org renames, as the OpenSSF trusted-publisher guidance asks |
+| Owner `uuid` is the platform's numeric id: apache = 47359, python = 1525981 | [repos owner apache](https://repos.ecosyste.ms/api/v1/hosts/GitHub/owners/apache) | Store it; it survives org renames, as the OpenSSF trusted-publisher guidance asks |
 | Owner records have `website`, `metadata.funding` and `has_sponsors_listing`, but no GitHub Verified flag | same | `platform-verified` still has to come from GitHub itself; worth asking ecosyste.ms to add `is_verified` |
-| npm `@openjs` namespace exists with `packages_count: 0` | [packages namespace @openjs](https://packages.ecosyste.ms/api/v1/registries/npmjs.org/namespaces/@openjs?mailto=shane@punderthings.com) | Matches the pilot note; namespaces alone miss most foundation packages |
-| PyPI packages have `namespace: null`; PyPI orgs are not modelled | [packages numpy](https://packages.ecosyste.ms/api/v1/registries/pypi.org/packages/numpy?mailto=shane@punderthings.com) | PyPI links must go through package purls, not an account lookup |
-| `packages/lookup?repository_url=` returns every package built from a repo (100+ for apache/opendal across cargo, npm, nix) | [lookup opendal](https://packages.ecosyste.ms/api/v1/packages/lookup?repository_url=https://github.com/apache/opendal&mailto=shane@punderthings.com) | The cheapest way to discover a foundation's packages from its confirmed orgs |
-| Package records serve CodeMeta 3.0 with `identifier: pkg:pypi/numpy` and `codeRepository` | [numpy codemeta](https://packages.ecosyste.ms/api/v1/registries/pypi.org/packages/numpy/codemeta?mailto=shane@punderthings.com) | Use the same schema.org names in our package entries |
-| Papers project numpy has `czi_id: SM3411`, `mentions_count: 832`, last synced Nov 2023 | [papers numpy](https://papers.ecosyste.ms/api/v1/projects/pypi/numpy?mailto=shane@punderthings.com) | Papers joins on ecosystem + package name; its data is old, so treat counts as a snapshot |
-| Sponsors account numfocus: 345 sponsors, 64 active | [sponsors numfocus](https://sponsors.ecosyste.ms/api/v1/accounts/numfocus?mailto=shane@punderthings.com) | Joins on the GitHub login we already store |
+| npm `@openjs` namespace exists with `packages_count: 0` | [packages namespace @openjs](https://packages.ecosyste.ms/api/v1/registries/npmjs.org/namespaces/@openjs) | Matches the pilot note; namespaces alone miss most foundation packages |
+| PyPI packages have `namespace: null`; PyPI orgs are not modelled | [packages numpy](https://packages.ecosyste.ms/api/v1/registries/pypi.org/packages/numpy) | PyPI links must go through package purls, not an account lookup |
+| `packages/lookup?repository_url=` returns every package built from a repo (100+ for apache/opendal across cargo, npm, nix) | [lookup opendal](https://packages.ecosyste.ms/api/v1/packages/lookup?repository_url=https://github.com/apache/opendal) | The cheapest way to discover a foundation's packages from its confirmed orgs |
+| Package records serve CodeMeta 3.0 with `identifier: pkg:pypi/numpy` and `codeRepository` | [numpy codemeta](https://packages.ecosyste.ms/api/v1/registries/pypi.org/packages/numpy/codemeta) | Use the same schema.org names in our package entries |
+| Papers project numpy has `czi_id: SM3411`, `mentions_count: 832`, last synced Nov 2023 | [papers numpy](https://papers.ecosyste.ms/api/v1/projects/pypi/numpy) | Papers joins on ecosystem + package name; its data is old, so treat counts as a snapshot |
+| Sponsors account numfocus: 345 sponsors, 64 active | [sponsors numfocus](https://sponsors.ecosyste.ms/api/v1/accounts/numfocus) | Joins on the GitHub login we already store |
 
 Gaps in the current schema:
 
@@ -212,7 +212,7 @@ The queue lives in `_data/crosswalk-queue/<identifier>.json`, so pending suggest
 | Out-of-band confirmation | a listed attestor | when a link is stale, contested, or newly added with only `probable` evidence; renew yearly | A `human-attested` evidence item in a signed commit |
 | Trigger review | whoever notices | on an org rename, a namespace transfer, or a leadership change in the leadership dataset | Queue entry |
 
-Every ecosyste.ms call in the Action carries `mailto=shane@punderthings.com`. At about 5 pilot foundations and a few hundred repos, one run stays well under a thousand requests.
+Every ecosyste.ms call in the Action carries `mailto=` a polite email. At about 5 pilot foundations and a few hundred repos, one run stays well under a thousand requests.
 
 ## Decisions for Shane
 
@@ -286,9 +286,9 @@ Pushes to Punderthings/fossfoundation are still refused from here, so each would
 
 ## Sources
 
-All checked on 2026-10-28 with `mailto=shane@punderthings.com`.
+All checked on 2026-10-28 with `mailto=` a polite email.
 
 - ecosyste.ms OpenAPI specs: [packages](https://packages.ecosyste.ms/docs/api/v1/openapi.yaml), [repos](https://repos.ecosyste.ms/docs/api/v1/openapi.yaml), [sponsors](https://sponsors.ecosyste.ms/docs/api/v1/openapi.yaml), [papers](https://papers.ecosyste.ms/docs/api/v1/openapi.yaml)
-- Live records: linked in the review table above, plus the [repos host list](https://repos.ecosyste.ms/api/v1/hosts?mailto=shane@punderthings.com)
+- Live records: linked in the review table above, plus the [repos host list](https://repos.ecosyste.ms/api/v1/hosts)
 - Vocabularies: [schema.org identifier](https://schema.org/identifier), [sameAs](https://schema.org/sameAs), [lastReviewed](https://schema.org/lastReviewed), [codeRepository](https://schema.org/codeRepository), [measurementTechnique](https://schema.org/measurementTechnique), [validThrough](https://schema.org/validThrough); [CodeMeta 3.0](https://codemeta.github.io/terms/); [DCMI terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/); [W3C PROV-O](https://www.w3.org/TR/prov-o/); [purl spec](https://github.com/package-url/purl-spec)
 - Earlier work: [Foundation namespaces on forges and registries](2026-10-28-foundation-namespaces-survey.md), [Crosswalk fields and evidence across registries](2026-10-28-crosswalk-fields-evidence.md), patches 0001 and 0002 and `handoffs/HANDOFF-fdn-ecosystems.md` in project files
