@@ -12,6 +12,7 @@ The crosswalk records which accounts and packages on code hosts and package regi
 - Data: [`_data/crosswalk/<foundation>.json`](https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk), validated by [`_data/crosswalk-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json).
 - Simple export: the `purl` and `codeRepository` columns of `_data/projects-<foundation>.csv` hold each hosted project's main package and repository, copied from the crosswalk.
 - Linked-data exports: [`/api/v1/crosswalk/`](#exports).
+- File overview: [Crosswalk Data Files](/crosswalk-files).
 - Tool: [`assets/python/fdncrosswalk`](https://github.com/Punderthings/fossfoundation/tree/main/assets/python/fdncrosswalk).
 
 ## Vocabularies used

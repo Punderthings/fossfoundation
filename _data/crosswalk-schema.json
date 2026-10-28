@@ -178,7 +178,7 @@
       "type": "object",
       "title": "Person confirmed with",
       "description": "The person at the organization who confirmed the link.",
-      "$comment": "A Schema.org Person (https://schema.org/Person) in an OrganizationRole (https://schema.org/OrganizationRole); the same shape as people in the leadership dataset.",
+      "$comment": "A Schema.org Person (https://schema.org/Person) in an OrganizationRole (https://schema.org/OrganizationRole).",
       "required": [
         "email",
         "roleName"
