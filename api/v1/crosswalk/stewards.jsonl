@@ -1,0 +1,29 @@
+{"host": "GitHub", "login": "apache", "uuid": "47359", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "confidence": "confirmed"}
+{"registry": "repo1.maven.org", "namespace": "org.apache", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "confidence": "probable"}
+{"registry": "hub.docker.com", "login": "apache", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "confidence": "probable"}
+{"registry": "pypi.org", "login": "apache", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "confidence": "probable"}
+{"registry": "npmjs.org", "namespace": "@apache", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "project": "opendal", "confidence": "probable"}
+{"registry": "repo1.maven.org", "purl": "pkg:maven/org.apache.kafka/kafka-clients", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "project": "kafka", "confidence": "probable"}
+{"host": "GitHub", "purl": "pkg:github/apache/kafka", "codeRepository": "https://github.com/apache/kafka", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "project": "kafka", "confidence": "probable"}
+{"registry": "npmjs.org", "purl": "pkg:npm/opendal", "codeRepository": "https://github.com/apache/opendal", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "project": "opendal", "confidence": "probable"}
+{"registry": "pypi.org", "purl": "pkg:pypi/asfquart", "codeRepository": "https://github.com/apache/infrastructure-asfquart", "steward": "asf", "stewardName": "Apache Software Foundation", "stewardWikidata": "Q489709", "confidence": "probable"}
+{"host": "GitHub", "login": "eclipse", "uuid": "56974", "steward": "eclipse", "stewardName": "Eclipse", "stewardWikidata": "Q937756", "confidence": "confirmed"}
+{"host": "GitHub", "login": "eclipse-csi", "uuid": "156241762", "steward": "eclipse", "stewardName": "Eclipse", "stewardWikidata": "Q937756", "confidence": "confirmed"}
+{"host": "gitlab.eclipse.org", "login": "eclipse", "steward": "eclipse", "stewardName": "Eclipse", "stewardWikidata": "Q937756", "confidence": "confirmed"}
+{"registry": "hub.docker.com", "login": "eclipse", "steward": "eclipse", "stewardName": "Eclipse", "stewardWikidata": "Q937756", "confidence": "probable"}
+{"registry": "repo1.maven.org", "namespace": "org.eclipse", "steward": "eclipse", "stewardName": "Eclipse", "stewardWikidata": "Q937756", "confidence": "probable"}
+{"registry": "pypi.org", "login": "numpy", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "numpy", "confidence": "probable"}
+{"host": "GitHub", "login": "numpy", "uuid": "288276", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "numpy", "confidence": "probable"}
+{"registry": "pypi.org", "login": "matplotlib", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "matplotlib", "confidence": "probable"}
+{"host": "GitHub", "login": "matplotlib", "uuid": "215947", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "matplotlib", "confidence": "confirmed"}
+{"registry": "hub.docker.com", "login": "jupyter", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "projectjupyter", "confidence": "probable"}
+{"registry": "pypi.org", "purl": "pkg:pypi/numpy", "codeRepository": "https://github.com/numpy/numpy", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "numpy", "confidence": "probable"}
+{"registry": "pypi.org", "purl": "pkg:pypi/matplotlib", "codeRepository": "https://github.com/matplotlib/matplotlib", "steward": "numfocus", "stewardName": "NumFOCUS", "stewardWikidata": "Q54449592", "project": "matplotlib", "confidence": "probable"}
+{"host": "GitHub", "login": "openjs-foundation", "uuid": "48335322", "steward": "openjsf", "stewardName": "OpenJS Foundation", "stewardWikidata": "Q80653810", "confidence": "confirmed"}
+{"registry": "hub.docker.com", "login": "nodejs", "steward": "openjsf", "stewardName": "OpenJS Foundation", "stewardWikidata": "Q80653810", "project": "nodejs", "confidence": "probable"}
+{"host": "GitHub", "login": "python", "uuid": "1525981", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "confirmed"}
+{"host": "GitHub", "login": "psf", "uuid": "50630501", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "confirmed"}
+{"registry": "pypi.org", "login": "psf", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "probable"}
+{"registry": "pypi.org", "login": "python", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "probable"}
+{"registry": "hub.docker.com", "login": "python", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "probable"}
+{"registry": "pypi.org", "purl": "pkg:pypi/pyperf", "codeRepository": "https://github.com/psf/pyperf", "steward": "python", "stewardName": "Python", "stewardWikidata": "Q83818", "confidence": "probable"}

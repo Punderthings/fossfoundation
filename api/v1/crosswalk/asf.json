@@ -1,0 +1,169 @@
+{
+  "@context": "https://fossfoundation.info/api/v1/crosswalk/context.jsonld",
+  "@id": "https://fossfoundation.info/foundations/asf",
+  "identifier": "asf",
+  "name": "Apache Software Foundation",
+  "wikidataId": "Q489709",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "dateModified": "2026-10-28",
+  "accounts": [
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "apache",
+      "url": "https://github.com/apache",
+      "platformId": "47359",
+      "confidence": "confirmed",
+      "sameAs": "https://repos.ecosyste.ms/hosts/GitHub/owners/apache",
+      "evidence": [
+        {
+          "type": "steward-declared",
+          "source": "https://www.apache.org/",
+          "observed": "2026-10-28",
+          "detail": "The ASF homepage links to github.com/apache."
+        },
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/apache",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization apache controls the domain www.apache.org."
+        }
+      ]
+    },
+    {
+      "platform": "repo1.maven.org",
+      "kind": "namespace",
+      "name": "org.apache",
+      "url": "https://repo1.maven.org/maven2/org/apache/",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/repo1.maven.org/namespaces/org.apache",
+      "evidence": [
+        {
+          "type": "namespace-convention",
+          "source": "https://central.sonatype.org/register/namespace/",
+          "observed": "2026-10-28",
+          "detail": "Maven Central ties reverse-DNS groupIds to control of the matching domain, here apache.org."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "apache",
+      "url": "https://hub.docker.com/u/apache",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/hub.docker.com/namespaces/apache",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://hub.docker.com/v2/orgs/apache/",
+          "observed": "2026-10-28",
+          "detail": "Org profile gives company \"The Apache Software Foundation\" and profile URL https://www.apache.org/."
+        },
+        {
+          "type": "program-badge",
+          "source": "https://hub.docker.com/v2/orgs/apache/",
+          "observed": "2026-10-28",
+          "detail": "Org carries the Docker-Sponsored Open Source badge (badge: open_source)."
+        }
+      ]
+    },
+    {
+      "platform": "pypi.org",
+      "kind": "organization",
+      "name": "apache",
+      "url": "https://pypi.org/org/apache/",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://pypi.org/org/apache/",
+          "observed": "2026-10-28",
+          "detail": "PyPI org display name is \"The Apache Software Foundation\"; it owns asfpy and asfquart."
+        }
+      ]
+    },
+    {
+      "platform": "npmjs.org",
+      "kind": "namespace",
+      "name": "@apache",
+      "url": "https://www.npmjs.com/org/apache",
+      "project": "opendal",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/npmjs.org/namespaces/%40apache",
+      "evidence": [
+        {
+          "type": "repository-link",
+          "source": "https://registry.npmjs.org/opendal",
+          "observed": "2026-10-28",
+          "detail": "The npm org's packages are Apache OpenDAL builds whose repository is github.com/apache/opendal."
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "purl": "pkg:maven/org.apache.kafka/kafka-clients",
+      "account": "repo1.maven.org/org.apache",
+      "project": "kafka",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "namespace-convention",
+          "source": "https://central.sonatype.org/register/namespace/",
+          "observed": "2026-10-28",
+          "detail": "The groupId org.apache.kafka sits under org.apache, which Maven Central grants only to the holder of apache.org."
+        }
+      ]
+    },
+    {
+      "purl": "pkg:github/apache/kafka",
+      "codeRepository": "https://github.com/apache/kafka",
+      "account": "github.com/apache",
+      "project": "kafka",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "namespace-convention",
+          "source": "https://repos.ecosyste.ms/api/v1/hosts/GitHub/repositories/apache%2Fkafka",
+          "observed": "2026-10-28",
+          "detail": "The repository sits inside the confirmed GitHub org apache, and its homepage is https://kafka.apache.org/."
+        }
+      ]
+    },
+    {
+      "purl": "pkg:npm/opendal",
+      "codeRepository": "https://github.com/apache/opendal",
+      "project": "opendal",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "repository-link",
+          "source": "https://registry.npmjs.org/opendal/latest",
+          "observed": "2026-10-28",
+          "detail": "The npm package's repository is github.com/apache/opendal."
+        }
+      ]
+    },
+    {
+      "purl": "pkg:pypi/asfquart",
+      "codeRepository": "https://github.com/apache/infrastructure-asfquart",
+      "account": "pypi.org/apache",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "repository-link",
+          "source": "https://pypi.org/pypi/asfquart/json",
+          "observed": "2026-10-28",
+          "detail": "PyPI project_urls give the repository as github.com/apache/infrastructure-asfquart."
+        },
+        {
+          "type": "profile-claim",
+          "source": "https://pypi.org/org/apache/",
+          "observed": "2026-10-28",
+          "detail": "The PyPI org apache, display name \"The Apache Software Foundation\", owns asfquart."
+        }
+      ]
+    }
+  ]
+}

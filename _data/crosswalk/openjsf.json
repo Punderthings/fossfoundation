@@ -1,0 +1,41 @@
+{
+  "identifier": "openjsf",
+  "accounts": [
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "openjs-foundation",
+      "platformId": "48335322",
+      "url": "https://github.com/openjs-foundation",
+      "evidence": [
+        {
+          "type": "steward-declared",
+          "source": "https://openjsf.org/",
+          "observed": "2026-10-28",
+          "detail": "The OpenJS Foundation homepage footer links to github.com/openjs-foundation."
+        },
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/openjs-foundation",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization openjs-foundation controls the domain openjsf.org."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "nodejs",
+      "url": "https://hub.docker.com/u/nodejs",
+      "project": "nodejs",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://hub.docker.com/v2/orgs/nodejs/",
+          "observed": "2026-10-28",
+          "detail": "Org profile gives full name \"Node.js\", company \"OpenJS Foundation\" and profile URL https://nodejs.org."
+        }
+      ]
+    }
+  ]
+}

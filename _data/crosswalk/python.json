@@ -1,0 +1,125 @@
+{
+  "identifier": "python",
+  "accounts": [
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "python",
+      "platformId": "1525981",
+      "url": "https://github.com/python",
+      "evidence": [
+        {
+          "type": "steward-declared",
+          "source": "https://www.python.org/psf/",
+          "observed": "2026-10-28",
+          "detail": "PSF pages link their issue trackers at github.com/python/cpython and github.com/python/pythondotorg."
+        },
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/python",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization python controls the domain www.python.org."
+        }
+      ]
+    },
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "psf",
+      "platformId": "50630501",
+      "url": "https://github.com/psf",
+      "evidence": [
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/pyperf/2.10.0/pyperf-2.10.0.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "pyperf, owned by the PyPI org \"python\", is published by trusted publishing from github.com/psf/pyperf."
+        },
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/psf",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization psf controls the domain python.org."
+        }
+      ]
+    },
+    {
+      "platform": "pypi.org",
+      "kind": "organization",
+      "name": "psf",
+      "url": "https://pypi.org/org/psf/",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://pypi.org/org/psf/",
+          "observed": "2026-10-28",
+          "detail": "PyPI org display name is \"Python Software Foundation\"."
+        }
+      ]
+    },
+    {
+      "platform": "pypi.org",
+      "kind": "organization",
+      "name": "python",
+      "url": "https://pypi.org/org/python/",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://pypi.org/org/python/",
+          "observed": "2026-10-28",
+          "detail": "PyPI org display name is \"Python\"; it owns pyperf, pyperformance, python-docs-theme, turtle-translations and tzdata."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "python",
+      "url": "https://hub.docker.com/u/python",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://hub.docker.com/v2/orgs/python/",
+          "observed": "2026-10-28",
+          "detail": "Org profile gives company \"Python Software Foundation\" and profile URL https://www.python.org/."
+        }
+      ]
+    },
+    {
+      "platform": "npmjs.org",
+      "kind": "namespace",
+      "name": "@psf",
+      "url": "https://www.npmjs.com/org/psf",
+      "evidence": [
+        {
+          "type": "name-match",
+          "source": "https://registry.npmjs.org/-/org/psf/package",
+          "observed": "2026-10-28",
+          "detail": "Scope name matches the PSF's initials."
+        },
+        {
+          "type": "contradiction",
+          "source": "https://registry.npmjs.org/-/org/psf/package",
+          "observed": "2026-10-28",
+          "detail": "The scope's 11 packages are Bitcoin Cash libraries (e.g. @psf/bch-js), not PSF software."
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "purl": "pkg:pypi/pyperf",
+      "codeRepository": "https://github.com/psf/pyperf",
+      "account": "pypi.org/python",
+      "evidence": [
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/pyperf/2.10.0/pyperf-2.10.0.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "pyperf 2.10.0 is published by trusted publishing from github.com/psf/pyperf.",
+          "about": "pkg:pypi/pyperf@2.10.0"
+        }
+      ]
+    }
+  ]
+}

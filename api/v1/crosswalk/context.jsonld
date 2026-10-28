@@ -1,0 +1,85 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "fdn": "https://fossfoundation.info/crosswalk#",
+    "identifier": "schema:identifier",
+    "name": "schema:name",
+    "wikidataId": "fdn:wikidataId",
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:date"
+    },
+    "accounts": {
+      "@id": "fdn:account",
+      "@container": "@set"
+    },
+    "packages": {
+      "@id": "fdn:package",
+      "@container": "@set"
+    },
+    "platform": "fdn:platform",
+    "host": {
+      "@id": "fdn:host",
+      "@type": "@id"
+    },
+    "kind": "fdn:accountKind",
+    "platformId": "schema:identifier",
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "project": "fdn:project",
+    "account": "fdn:publishedUnder",
+    "purl": "schema:identifier",
+    "codeRepository": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    },
+    "lastReviewed": {
+      "@id": "schema:lastReviewed",
+      "@type": "xsd:date"
+    },
+    "reviewedBy": "schema:reviewedBy",
+    "confidence": "fdn:confidence",
+    "stale": "fdn:stale",
+    "evidence": {
+      "@id": "prov:wasDerivedFrom",
+      "@container": "@set"
+    },
+    "type": "dcterms:type",
+    "source": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
+    "observed": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:date"
+    },
+    "detail": "dcterms:description",
+    "creator": "dcterms:creator",
+    "about": "schema:about",
+    "method": "schema:measurementTechnique",
+    "confirmedWith": "fdn:confirmedWith",
+    "email": "schema:email",
+    "roleName": "schema:roleName",
+    "memberOf": "schema:memberOf",
+    "validThrough": {
+      "@id": "schema:validThrough",
+      "@type": "xsd:date"
+    },
+    "supersedes": "fdn:supersedes",
+    "steward": "fdn:steward"
+  }
+}

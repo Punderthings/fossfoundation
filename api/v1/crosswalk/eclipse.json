@@ -1,0 +1,106 @@
+{
+  "@context": "https://fossfoundation.info/api/v1/crosswalk/context.jsonld",
+  "@id": "https://fossfoundation.info/foundations/eclipse",
+  "identifier": "eclipse",
+  "name": "Eclipse",
+  "wikidataId": "Q937756",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "dateModified": "2026-10-28",
+  "accounts": [
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "eclipse",
+      "url": "https://github.com/eclipse",
+      "platformId": "56974",
+      "confidence": "confirmed",
+      "sameAs": "https://repos.ecosyste.ms/hosts/GitHub/owners/eclipse",
+      "evidence": [
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/eclipse",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization eclipse controls the domain eclipse.org."
+        }
+      ]
+    },
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "eclipse-csi",
+      "url": "https://github.com/eclipse-csi",
+      "platformId": "156241762",
+      "confidence": "confirmed",
+      "sameAs": "https://repos.ecosyste.ms/hosts/GitHub/owners/eclipse-csi",
+      "evidence": [
+        {
+          "type": "steward-declared",
+          "source": "https://www.eclipse.org/",
+          "observed": "2026-10-28",
+          "detail": "The Eclipse Foundation homepage links to github.com/eclipse-csi."
+        },
+        {
+          "type": "profile-claim",
+          "source": "https://github.com/eclipse-csi",
+          "observed": "2026-10-28",
+          "detail": "Org display name is \"Eclipse Common Security Infrastructure\" and links to projects.eclipse.org; no Verified badge."
+        }
+      ]
+    },
+    {
+      "platform": "gitlab.com",
+      "kind": "organization",
+      "name": "eclipse",
+      "url": "https://gitlab.eclipse.org/eclipse",
+      "host": "https://gitlab.eclipse.org",
+      "confidence": "confirmed",
+      "sameAs": "https://repos.ecosyste.ms/hosts/gitlab.eclipse.org/owners/eclipse",
+      "evidence": [
+        {
+          "type": "steward-declared",
+          "source": "https://www.eclipse.org/projects/handbook/",
+          "observed": "2026-10-28",
+          "detail": "The project handbook names the Foundation's GitLab instance and its root group \"eclipse\"."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "eclipse",
+      "url": "https://hub.docker.com/u/eclipse",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/hub.docker.com/namespaces/eclipse",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://hub.docker.com/v2/orgs/eclipse/",
+          "observed": "2026-10-28",
+          "detail": "Org profile gives full name and company \"The Eclipse Foundation\" and profile URL http://www.eclipse.org."
+        },
+        {
+          "type": "program-badge",
+          "source": "https://hub.docker.com/v2/orgs/eclipse/",
+          "observed": "2026-10-28",
+          "detail": "Org carries the Docker-Sponsored Open Source badge (badge: open_source)."
+        }
+      ]
+    },
+    {
+      "platform": "repo1.maven.org",
+      "kind": "namespace",
+      "name": "org.eclipse",
+      "url": "https://repo1.maven.org/maven2/org/eclipse/",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/repo1.maven.org/namespaces/org.eclipse",
+      "evidence": [
+        {
+          "type": "namespace-convention",
+          "source": "https://central.sonatype.org/register/namespace/",
+          "observed": "2026-10-28",
+          "detail": "Maven Central ties reverse-DNS groupIds to control of the matching domain, here eclipse.org."
+        }
+      ]
+    }
+  ]
+}

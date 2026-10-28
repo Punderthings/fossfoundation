@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "attestation_bundles": [
+    {
+      "publisher": {
+        "environment": null,
+        "kind": "GitHub",
+        "repository": "psf/pyperf",
+        "workflow": "publish.yml"
+      }
+    }
+  ]
+}

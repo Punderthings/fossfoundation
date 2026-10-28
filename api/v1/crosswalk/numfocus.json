@@ -1,0 +1,170 @@
+{
+  "@context": "https://fossfoundation.info/api/v1/crosswalk/context.jsonld",
+  "@id": "https://fossfoundation.info/foundations/numfocus",
+  "identifier": "numfocus",
+  "name": "NumFOCUS",
+  "wikidataId": "Q54449592",
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "dateModified": "2026-10-28",
+  "accounts": [
+    {
+      "platform": "pypi.org",
+      "kind": "organization",
+      "name": "numpy",
+      "url": "https://pypi.org/org/numpy/",
+      "project": "numpy",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://pypi.org/org/numpy/",
+          "observed": "2026-10-28",
+          "detail": "PyPI org display name is \"NumPy\"; it owns numpy and numpydoc."
+        },
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/numpy/2.5.4/numpy-2.5.4.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "numpy 2.5.4 is published by trusted publishing from github.com/numpy/numpy-release."
+        }
+      ]
+    },
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "numpy",
+      "url": "https://github.com/numpy",
+      "project": "numpy",
+      "platformId": "288276",
+      "confidence": "probable",
+      "sameAs": "https://repos.ecosyste.ms/hosts/GitHub/owners/numpy",
+      "evidence": [
+        {
+          "type": "repository-link",
+          "source": "https://pypi.org/pypi/numpy/json",
+          "observed": "2026-10-28",
+          "detail": "numpy's PyPI metadata gives its source as https://github.com/numpy/numpy."
+        },
+        {
+          "type": "profile-claim",
+          "source": "https://github.com/numpy",
+          "observed": "2026-10-28",
+          "detail": "Org display name is \"NumPy\" with website http://www.numpy.org/; no Verified badge."
+        }
+      ]
+    },
+    {
+      "platform": "pypi.org",
+      "kind": "organization",
+      "name": "matplotlib",
+      "url": "https://pypi.org/org/matplotlib/",
+      "project": "matplotlib",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/matplotlib/3.11.2/matplotlib-3.11.2.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "matplotlib 3.11.2 is published by trusted publishing from github.com/matplotlib/matplotlib-release."
+        }
+      ]
+    },
+    {
+      "platform": "github.com",
+      "kind": "organization",
+      "name": "matplotlib",
+      "url": "https://github.com/matplotlib",
+      "project": "matplotlib",
+      "platformId": "215947",
+      "confidence": "confirmed",
+      "sameAs": "https://repos.ecosyste.ms/hosts/GitHub/owners/matplotlib",
+      "evidence": [
+        {
+          "type": "platform-verified",
+          "source": "https://github.com/matplotlib",
+          "observed": "2026-10-28",
+          "detail": "GitHub shows the Verified badge: the organization matplotlib controls the domain matplotlib.org."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "jupyter",
+      "url": "https://hub.docker.com/u/jupyter",
+      "project": "projectjupyter",
+      "confidence": "probable",
+      "sameAs": "https://packages.ecosyste.ms/registries/hub.docker.com/namespaces/jupyter",
+      "evidence": [
+        {
+          "type": "profile-claim",
+          "source": "https://hub.docker.com/v2/orgs/jupyter/",
+          "observed": "2026-10-28",
+          "detail": "Org profile gives company \"Jupyter Project\" and profile URL https://jupyter.org."
+        }
+      ]
+    },
+    {
+      "platform": "hub.docker.com",
+      "kind": "organization",
+      "name": "numfocus",
+      "url": "https://hub.docker.com/u/numfocus",
+      "confidence": "unconfirmed",
+      "sameAs": "https://packages.ecosyste.ms/registries/hub.docker.com/namespaces/numfocus",
+      "evidence": [
+        {
+          "type": "name-match",
+          "source": "https://hub.docker.com/v2/orgs/numfocus/",
+          "observed": "2026-10-28",
+          "detail": "Org exists with company \"numfocus\" but no profile URL or other link to numfocus.org."
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "purl": "pkg:pypi/numpy",
+      "codeRepository": "https://github.com/numpy/numpy",
+      "account": "pypi.org/numpy",
+      "project": "numpy",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/numpy/2.5.4/numpy-2.5.4.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "numpy 2.5.4 is published by trusted publishing from github.com/numpy/numpy-release.",
+          "about": "pkg:pypi/numpy@2.5.4"
+        },
+        {
+          "type": "repository-link",
+          "source": "https://pypi.org/pypi/numpy/json",
+          "observed": "2026-10-28",
+          "detail": "PyPI project_urls give the source as github.com/numpy/numpy."
+        }
+      ]
+    },
+    {
+      "purl": "pkg:pypi/matplotlib",
+      "codeRepository": "https://github.com/matplotlib/matplotlib",
+      "account": "pypi.org/matplotlib",
+      "project": "matplotlib",
+      "confidence": "probable",
+      "evidence": [
+        {
+          "type": "publish-provenance",
+          "source": "https://pypi.org/integrity/matplotlib/3.11.2/matplotlib-3.11.2.tar.gz/provenance",
+          "observed": "2026-10-28",
+          "detail": "matplotlib 3.11.2 is published by trusted publishing from github.com/matplotlib/matplotlib-release.",
+          "about": "pkg:pypi/matplotlib@3.11.2"
+        },
+        {
+          "type": "repository-link",
+          "source": "https://pypi.org/pypi/matplotlib/json",
+          "observed": "2026-10-28",
+          "detail": "PyPI project_urls give the source code as github.com/matplotlib/matplotlib."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors-schema.json",
+  "$comment": "Each attestor is a Schema.org Person (https://schema.org/Person). Documented at https://fossfoundation.info/crosswalk#attestors",
+  "title": "Crosswalk Attestors Schema",
+  "description": "People whose human-attested crosswalk evidence counts as confirmed. Adding someone is itself a reviewed pull request.",
+  "type": "object",
+  "required": [
+    "attestors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attestors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "login",
+          "name",
+          "dateAdded"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "login": {
+            "title": "GitHub login",
+            "description": "Matches evidence[].creator on human-attested evidence.",
+            "$comment": "Schema.org identifier: https://schema.org/identifier",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "$comment": "Schema.org name: https://schema.org/name",
+            "type": "string"
+          },
+          "sameAs": {
+            "title": "Same as",
+            "description": "Profile URLs that identify the person, such as GitHub, ORCID or Wikidata.",
+            "$comment": "Schema.org sameAs: https://schema.org/sameAs",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "dateAdded": {
+            "title": "Date added",
+            "$comment": "Dublin Core dateAccepted: http://purl.org/dc/terms/dateAccepted",
+            "type": "string",
+            "format": "date"
+          },
+          "keyFingerprint": {
+            "title": "Signing key fingerprint",
+            "description": "Fingerprint of the OpenPGP or SSH key the attestor signs commits with, if any.",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
