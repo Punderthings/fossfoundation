@@ -24,13 +24,13 @@ Status: draft | decided | implemented in #NN | superseded by [other plan](file.m
 The request that started this work, quoted in the requester's own words.
 ```
 
-Then whatever sections the work needs. Plans that ask Shane to choose should end with
-**Open questions**, and once he answers, a **Decisions** section that records each
+Then whatever sections the work needs. Plans that ask maintainers to choose should end with
+**Open questions**, and once they answer, a **Decisions** section that records each
 answer and its date.
 
 ## Rules
 
-- Keep Shane's comments inline, marked **SC:**.
+- Keep maintainers' comments inline, marked with their initials, for example **SC:**.
 - When a later document replaces an earlier one, update the earlier one's `Status:`
   line rather than deleting it.
 - Link to code, data, and other plans with relative paths.
