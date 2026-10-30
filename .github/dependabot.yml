@@ -4,6 +4,7 @@
 #
 # Ecosystems tracked:
 #   - bundler:        Gemfile / Gemfile.lock (Jekyll + just-the-docs)
+#   - bundler:        assets/ruby/Gemfile (data tools and their tests)
 #   - github-actions: versions pinned by SHA in .github/workflows
 #
 # There is intentionally no "npm" entry: the repository has no package.json
@@ -20,6 +21,11 @@ updates:
       jekyll:
         patterns:
           - "jekyll"
+
+  - package-ecosystem: "bundler"
+    directory: "/assets/ruby"
+    schedule:
+      interval: "weekly"
 
   - package-ecosystem: "github-actions"
     directory: "/.github/workflows"

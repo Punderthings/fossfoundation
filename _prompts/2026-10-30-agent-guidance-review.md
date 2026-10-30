@@ -196,3 +196,10 @@ this shape.
 - 2026-10-30: keep only `AGENTS.md` and `CLAUDE.md` (which imports AGENTS.md); no `GEMINI.md` or Copilot instructions file (Shane).
 - 2026-10-30: adopt REUSE (`REUSE.toml`, `reuse lint`) and list it among preferred standards (Shane). Adding `REUSE.toml` and headers to existing files belongs in the environment PR. Note: the `reuse` tool itself is GPL-3.0-or-later, so run it as an external tool (`uvx reuse lint`, or in CI), not as a project dependency, to stay within the Category A rule.
 - 2026-10-30: merge `2026-10-30-repo-technical.md` into AGENTS.md and mark it merged (Shane). Standing rules change by PR to AGENTS.md from now on.
+- 2026-10-30: copyright for the existing Ruby tools (`assets/ruby/`, `_plugins/`) is Shane Curcuru; other files say "FOSSFoundation.info contributors" (Shane, PR #80).
+- 2026-10-30: the website's Gemfile stays at the repository root; the Ruby data tools get their own `assets/ruby/Gemfile`, so tool gems can't conflict with Jekyll's (Shane asked to move Ruby config out of the root where that fits Ruby conventions; PR #80).
+- 2026-10-30: Ruby moves to 4.0.9 rather than 3.4.10, as Andrew Nesbitt suggested on PR #80 (Shane). Longer term Shane expects to move tooling to Python.
+
+## Open questions for the maintainers
+
+7. **License of pre-existing data.** New datasets are CC0-1.0, but existing data (`_foundations/`, `_sponsorships/`, `_entities/`, `_data/`, `history/`) stays Apache-2.0 under `LICENSE`, as declared in `REUSE.toml`. Should it move to CC0-1.0 to match? That is a relicensing, for the maintainer team to decide later; until then, leave it as is.

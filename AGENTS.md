@@ -61,7 +61,7 @@ say in the PR which way you read it.
 | `_foundations/list.json` | Lookup of alternate ids | generated (`assets/ruby/openapi_builder.rb`) |
 | `_pages/` | Site pages (Jekyll, just-the-docs theme) | hand |
 | `_layouts/`, `_includes/`, `_plugins/`, `_sass/` | Site templates and Liquid filters | hand |
-| `assets/ruby/` | Existing Ruby tools and scrapers; tests in `assets/ruby/test/` | hand |
+| `assets/ruby/` | Existing Ruby tools and scrapers, with their own `Gemfile`; tests in `assets/ruby/test/` | hand |
 | `assets/python/<tool>/` | New Python tools, each a uv project with `tests/` | hand |
 | `_prompts/` | Dated plans, research notes, and prompts behind features | see `_prompts/AGENTS.md` |
 
@@ -80,10 +80,16 @@ bundle install
 bundle exec jekyll build          # required CI check; must pass before a PR
 bundle exec jekyll serve          # local preview
 
-# Ruby tests (minitest, one file at a time)
-ruby assets/ruby/test/money_filter_test.rb
-ruby assets/ruby/test/sponsor_utils_test.rb     # needs the nokogiri and public_suffix gems
-ruby assets/ruby/test/sponsor_archive_test.rb   # same
+# Ruby tools and tests use their own Gemfile, separate from the website's
+export BUNDLE_GEMFILE=assets/ruby/Gemfile
+bundle install
+bundle exec ruby assets/ruby/test/money_filter_test.rb   # minitest, one file at a time
+bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
+bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
+unset BUNDLE_GEMFILE
+
+# Ruby lint (config in assets/ruby/.rubocop.yml); lint only the files you changed
+gem exec rubocop path/to/changed_file.rb
 
 # Crosswalk tool (Python 3.12+, uv)
 cd assets/python/fdncrosswalk
@@ -91,6 +97,7 @@ uv sync --group test
 uv run pytest
 uv run fdncrosswalk validate      # after any change to _data/crosswalk/
 uv run fdncrosswalk export        # after any change to _data/crosswalk/ or the schema
+uvx ruff check                    # Python lint (config in pyproject.toml)
 
 # Licensing (REUSE), from the repository root
 uvx reuse lint
@@ -149,8 +156,8 @@ uvx reuse lint
   folder under `assets/python/`, with a small public API, a CLI for common cases, a
   README, and pytest tests. Existing tools keep their declared minimum Python version
   until a separate PR raises it.
-- **Existing Ruby tools:** keep them in Ruby, targeting Ruby 3.4+, and match the
-  surrounding style. Raising `.ruby-version` is its own PR.
+- **Existing Ruby tools:** keep them in Ruby, targeting Ruby 4.0+ (`.ruby-version`), and
+  match the surrounding style. Changing `.ruby-version` is its own PR.
 - **Where tools live.** Tools that serve this website or its datasets belong in this
   repository. If a tool would be useful on its own, ask whether it should be a separate
   repository before building it here.

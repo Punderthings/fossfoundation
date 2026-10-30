@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+# RuboCop settings for the Ruby tools in assets/ruby.
+# Run with `gem exec rubocop <files you changed>`; existing code predates this
+# config, so lint only what you touch (see AGENTS.md).
+AllCops:
+  TargetRubyVersion: 4.0
+  NewCops: enable
+  Exclude:
+    - "test/fixtures/**/*"
