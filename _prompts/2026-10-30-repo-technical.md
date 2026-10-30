@@ -1,5 +1,9 @@
 # Technical standards for this repo
 
+2026-10-30 · Shane Curcuru
+
+Status: merged into [AGENTS.md](../AGENTS.md) on 2026-10-30; see [the review](2026-10-30-agent-guidance-review.md). Change the rules there, not here.
+
 Claude: analyze this file and our past history and propose a new agents.md
 
 ## Platforms, Tools, Licensing
