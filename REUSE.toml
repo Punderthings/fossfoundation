@@ -10,6 +10,13 @@ precedence = "closest"
 SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
 SPDX-License-Identifier = "Apache-2.0"
 
+# The Ruby tools and Jekyll plugins were written by Shane Curcuru.
+[[annotations]]
+path = ["assets/ruby/**", "_plugins/**"]
+precedence = "closest"
+SPDX-FileCopyrightText = "Shane Curcuru"
+SPDX-License-Identifier = "Apache-2.0"
+
 # Public data exports from fdncrosswalk are CC0-1.0 (also declared in each export).
 [[annotations]]
 path = "api/v1/crosswalk/**"

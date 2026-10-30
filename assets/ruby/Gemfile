@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: Apache-2.0
+# Gems for the data tools and tests in assets/ruby, kept apart from the
+# website's Gemfile at the repository root so the two never conflict.
+# Run from the repository root:
+#   BUNDLE_GEMFILE=assets/ruby/Gemfile bundle install
+#   BUNDLE_GEMFILE=assets/ruby/Gemfile bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
+source 'https://rubygems.org'
+
+ruby file: "../../.ruby-version"
+
+gem "nokogiri", "~> 1.18"
+gem "public_suffix", ">= 6.0"
+
+group :test do
+  gem "minitest", "~> 5.25"
+end

@@ -1,12 +1,9 @@
 # SPDX-License-Identifier: Apache-2.0
-# RuboCop settings for the Ruby tools in assets/ruby and _plugins.
+# RuboCop settings for the Ruby tools in assets/ruby.
 # Run with `gem exec rubocop <files you changed>`; existing code predates this
 # config, so lint only what you touch (see AGENTS.md).
 AllCops:
   TargetRubyVersion: 3.4
   NewCops: enable
   Exclude:
-    - "_site/**/*"
-    - "vendor/**/*"
-    - ".jekyll-cache/**/*"
-    - "assets/python/**/*"
+    - "test/fixtures/**/*"
