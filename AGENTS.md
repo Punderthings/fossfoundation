@@ -49,7 +49,7 @@ say in the PR which way you read it.
 | --- | --- | --- |
 | `_foundations/<id>.md` | One foundation per file: YAML front matter + one factual sentence. `<id>` is the foundation's identifier everywhere else. | hand |
 | `_sponsorships/<id>.md` | Sponsorship programs and their `sources:` | hand |
-| `_entities/` | Related organizations (e.g. commercial sponsors) | hand |
+| `_entities/<id>.md` | Non-foundation entities: projects that are not legal corporations, often with a fiscal host (e.g. CNCF) | hand |
 | `_data/*-schema.json` | JSON Schemas for each dataset; field docs live here | hand, with approval |
 | `_data/foundation-template.md` | Template for new foundations | hand |
 | `_data/crosswalk/<id>.json` | Foundation accounts on code hosts and registries, with evidence | hand |
