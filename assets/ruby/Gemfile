@@ -8,6 +8,8 @@ source 'https://rubygems.org'
 
 ruby file: "../../.ruby-version"
 
+# csv left the default gems in Ruby 3.4, so bundler needs it listed
+gem "csv", "~> 3.3"
 gem "nokogiri", "~> 1.18"
 gem "public_suffix", ">= 6.0"
 
