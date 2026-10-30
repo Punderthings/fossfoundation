@@ -3,7 +3,7 @@
 # Run with `gem exec rubocop <files you changed>`; existing code predates this
 # config, so lint only what you touch (see AGENTS.md).
 AllCops:
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 4.0
   NewCops: enable
   Exclude:
     - "test/fixtures/**/*"

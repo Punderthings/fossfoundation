@@ -156,8 +156,8 @@ uvx reuse lint
   folder under `assets/python/`, with a small public API, a CLI for common cases, a
   README, and pytest tests. Existing tools keep their declared minimum Python version
   until a separate PR raises it.
-- **Existing Ruby tools:** keep them in Ruby, targeting Ruby 3.4+, and match the
-  surrounding style. Raising `.ruby-version` is its own PR.
+- **Existing Ruby tools:** keep them in Ruby, targeting Ruby 4.0+ (`.ruby-version`), and
+  match the surrounding style. Changing `.ruby-version` is its own PR.
 - **Where tools live.** Tools that serve this website or its datasets belong in this
   repository. If a tool would be useful on its own, ask whether it should be a separate
   repository before building it here.
