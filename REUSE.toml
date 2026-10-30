@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: CC0-1.0
+# Licensing for every file, following the REUSE specification: https://reuse.software
+# Check with `uvx reuse lint` from the repository root.
+version = 1
+
+# Code, site, prose, and data: Apache-2.0, as in LICENSE.
+[[annotations]]
+path = "**"
+precedence = "closest"
+SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
+SPDX-License-Identifier = "Apache-2.0"
+
+# Public data exports from fdncrosswalk are CC0-1.0 (also declared in each export).
+[[annotations]]
+path = "api/v1/crosswalk/**"
+precedence = "override"
+SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
+SPDX-License-Identifier = "CC0-1.0"
+
+# Agent guidance and plan documents quote example SPDX headers in their text,
+# so the license is declared here instead of read from those files.
+[[annotations]]
+path = ["AGENTS.md", "_prompts/**"]
+precedence = "override"
+SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
+SPDX-License-Identifier = "Apache-2.0"

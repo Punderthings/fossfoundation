@@ -81,9 +81,12 @@ bundle exec jekyll build          # required CI check; must pass before a PR
 bundle exec jekyll serve          # local preview
 
 # Ruby tests (minitest, one file at a time)
-ruby assets/ruby/test/money_filter_test.rb
-ruby assets/ruby/test/sponsor_utils_test.rb     # needs the nokogiri and public_suffix gems
-ruby assets/ruby/test/sponsor_archive_test.rb   # same
+bundle exec ruby assets/ruby/test/money_filter_test.rb
+bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
+bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
+
+# Ruby lint (config in .rubocop.yml); lint only the files you changed
+gem exec rubocop path/to/changed_file.rb
 
 # Crosswalk tool (Python 3.12+, uv)
 cd assets/python/fdncrosswalk
@@ -91,6 +94,7 @@ uv sync --group test
 uv run pytest
 uv run fdncrosswalk validate      # after any change to _data/crosswalk/
 uv run fdncrosswalk export        # after any change to _data/crosswalk/ or the schema
+uvx ruff check                    # Python lint (config in pyproject.toml)
 
 # Licensing (REUSE), from the repository root
 uvx reuse lint
