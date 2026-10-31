@@ -308,24 +308,24 @@ reviewedBy: <GitHub login>
 
 1. **Dataset name and location.** `_corporations/` collection with `corporations` as the
    name, even though some records are NGOs or government bodies? (Recommended: yes,
-   keep the working title; `entityType` carries the distinction.)
+   keep the working title; `entityType` carries the distinction.) SC: Agreed, and use entityType.
 2. **Which legal entity a record represents.** The brand-level operating company that
    signs sponsorships (Google LLC) or the listed parent (Alphabet Inc.)? (Recommended:
    one record per brand that appears in sponsor lists, with `legalName`/`leiCode` for
    that operating entity, and the listed parent as its own record only when two or more
-   sponsor brands roll up to it.)
+   sponsor brands roll up to it.) SC: Agreed; while more detailed corporate ownership research is interesting, our focus is on the specific brands that sponsor FOSS Foundations, and are known as 'Google' colloquially.
 3. **Store parent links ourselves or derive them?** Storing `parentOrganization` with
    dates is a small amount of data that GLEIF and Wikidata also hold. (Recommended:
    store it only for corporations in our dataset, with a source, because history
-   rollups need it offline and reproducibly.)
+   rollups need it offline and reproducibly.) SC: Agreed, history analysis of sponsors will be important as we improve this site.
 4. **`commercial.csv`.** Fold its five companies into `_corporations/` with a flag, or
    keep it separate and only share identifiers? (Recommended: keep separate for now,
-   share the namespace.)
-5. **Selection threshold.** 3+ distinct legal entities, or another rule (R1)?
+   share the namespace.) SC: Agreed, keep separate; do not use or reference commercial.csv going forward; it was only a temporary idea that we are likely to remove.
+5. **Selection threshold.** 3+ distinct legal entities, or another rule (R1)? SC: Agreed
 6. **Change existing schemas?** N2 adds a `corporation` key to a generated report, and
    N4 documents `sponsors` in the levels schema. Both are schema changes that need
-   approval; do them in this dataset's PR or separately?
+   approval; do them in this dataset's PR or separately? SC: Make those other schema changes as a separate PR first, as a way to improve those schemas. Then do PR(s) for this work.
 7. **OSGeo `sponsorList` free text.** Replace with its sponsor URL and model OSGeo's
-   sponsors as a sponsorship program instead? (Changing foundation data, so asking.)
+   sponsors as a sponsorship program instead? (Changing foundation data, so asking.) SC: No, leave OSGeo alone; we are only focusing on corporations and key sponsorships currently; we will work on OSGeo or other foundation data later.
 
-Posted by Claude on behalf of @ShaneCurcuru
+Posted by Claude on behalf of @ShaneCurcuru and edited by SC
