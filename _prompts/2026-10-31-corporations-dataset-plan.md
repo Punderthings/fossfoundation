@@ -3,7 +3,7 @@
 
 2026-10-31 · Shane Curcuru, with Claude
 
-Status: draft
+Status: decided (open questions answered 2026-10-31; see Decisions)
 
 ## Prompt
 
@@ -128,8 +128,8 @@ Not sponsor pointers: `_entities/` (unincorporated projects such as CNCF),
   files are not rewritten.
 - **N3. Consistency tests, no network.** (a) Every `domains[]` entry is already
   canonical under `host_aliases.json`; (b) no domain belongs to two corporations;
-  (c) corporation identifiers don't collide with `_foundations`, `_entities`, or
-  `commercial.csv` identifiers (one namespace for organizations on this site).
+  (c) corporation identifiers don't collide with `_foundations` or `_entities`
+  identifiers (one namespace for organizations on this site).
 - **N4. Static lists and maps keep using domains.** `levels.*.sponsors[]` and the
   `*_map.json` files already map to domains; document `sponsors` in the levels schema
   (separate PR).
@@ -140,8 +140,8 @@ Not sponsor pointers: `_entities/` (unincorporated projects such as CNCF),
   [`subOrganization`](https://schema.org/subOrganization). Employment:
   [`worksFor`](https://schema.org/worksFor) or an `OrganizationRole`, as the leadership
   plan proposes. JSON-LD exports use these terms.
-- **N6. `commercial.csv` shares the namespace.** If a company is in both lists, it gets
-  the same identifier (see open question 4).
+- **N6. ~~`commercial.csv` shares the namespace.~~** Dropped: `commercial.csv` stays
+  separate and is not used or referenced by this work (decision 4).
 
 ## Task 2: corporate metadata sources
 
@@ -297,6 +297,11 @@ reviewedBy: <GitHub login>
 
 ## Implementation steps (after decisions)
 
+0. Separate PR first (decision 6): document the undocumented keys in the existing
+   sponsorship schemas: `levels.<level>.sponsors` in `sponsorshiplevels-schema.json`,
+   and `comment` in `sponsorships-schema.json`. The N2 `corporation` key in
+   `org-funding.json` has no schema file today and depends on corporation records, so
+   it ships with step 3.
 1. Schema `_data/corporations-schema.json`, `_corporations/` collection config, layout
    and a list page; 3–5 hand-verified records.
 2. Resolution function and the consistency tests (N2, N3), no network.
@@ -329,3 +334,22 @@ reviewedBy: <GitHub login>
    sponsors as a sponsorship program instead? (Changing foundation data, so asking.) SC: No, leave OSGeo alone; we are only focusing on corporations and key sponsorships currently; we will work on OSGeo or other foundation data later.
 
 Posted by Claude on behalf of @ShaneCurcuru and edited by SC
+
+## Decisions
+
+Answered by Shane Curcuru on 2026-10-31 in PR #82 (inline **SC:** notes above).
+
+1. Use `_corporations/` and the working title "corporations"; `entityType` carries the
+   kind of legal entity.
+2. One record per brand that sponsors FOSS foundations (colloquially "Google"), with
+   `legalName`/`leiCode` for that operating entity; a listed parent gets its own
+   record only when two or more sponsor brands roll up to it. Deeper ownership research
+   is out of scope.
+3. Store dated `parentOrganization` links ourselves, with sources, for corporations in
+   the dataset, because sponsor history analysis needs them.
+4. Keep `commercial.csv` separate, and don't use or reference it going forward; it is
+   likely to be removed.
+5. Selection threshold: sponsors of 3 or more distinct legal entities (R1).
+6. Make the existing-schema changes in a separate PR first, then PR(s) for this
+   dataset.
+7. Leave OSGeo's `sponsorList` alone; other foundation data is later work.
