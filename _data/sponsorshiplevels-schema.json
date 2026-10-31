@@ -36,6 +36,12 @@
       "type": ["string", "array"],
       "items": { "type": "string" }
     },
+    "sponsors": {
+      "title": "Static Sponsors",
+      "description": "For static sources (see staticmap): sponsors at this level, each as a registrable domain normalized as in _data/host_aliases.json, e.g. google.com. The domain is the identifier that joins sponsors across foundations and over time.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "selector": {
       "title": "CSS Selector",
       "description": "CSS selector to find a nodelist of elements that are sponsor listings when parsing HTML pages; or an XPath expression (starting with / or a parenthesis), e.g. links whose nearest heading is a tier: //a[preceding::h2[1][contains(., 'Gold')]].",
