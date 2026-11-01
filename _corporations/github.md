@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: github
 commonName: GitHub
+legalName: GITHUB INC
 entityType: Corporation
 website: https://github.com/
 domains:
 - github.com
+leiCode: 6354003LMZZAKOPXLX69
 parentOrganization:
 - identifier: microsoft
   startDate: '2018-10-26'
@@ -23,5 +25,9 @@ sources:
 - url: https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/
   observed: '2026-11-01'
   detail: Microsoft announced it completed the acquisition of GitHub on 2018-10-26 (parentOrganization).
+- url: https://api.gleif.org/api/v1/lei-records/6354003LMZZAKOPXLX69
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for GITHUB INC (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

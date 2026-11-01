@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: oracle
 commonName: Oracle
+legalName: ORACLE CORPORATION
 entityType: Corporation
 website: https://oracle.com/
 domains:
 - oracle.com
+leiCode: 1Z4GXXU7ZHVWFCD8TV52
 cik: '1341439'
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
@@ -15,5 +17,9 @@ sources:
 - url: https://www.sec.gov/files/company_tickers.json
   observed: '2026-11-01'
   detail: CIK 1341439 is the SEC registrant "ORACLE CORP" (cik).
+- url: https://api.gleif.org/api/v1/lei-records/1Z4GXXU7ZHVWFCD8TV52
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for ORACLE CORPORATION (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

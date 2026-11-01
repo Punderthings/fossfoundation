@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: meta
 commonName: Meta
+legalName: 'META PLATFORMS, INC.'
 entityType: Corporation
 website: https://meta.com/
 domains:
 - meta.com
+leiCode: BQ4BKCS1HXDV9HN80Z93
 cik: '1326801'
 opensourceurl: https://opensource.fb.com/
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Meta as a TODO Group member and OSPO adopter with this open
     source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/BQ4BKCS1HXDV9HN80Z93
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for META PLATFORMS, INC. (US-DE), the operating entity behind the brand (leiCode,
+    legalName). Its registration status was LAPSED (not renewed); the code still identifies the entity.
 lastReviewed: '2026-11-01'
 ---

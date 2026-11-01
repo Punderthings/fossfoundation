@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: datadog
 commonName: Datadog
+legalName: 'DATADOG, INC.'
 entityType: Corporation
 website: https://datadoghq.com/
 domains:
 - datadoghq.com
+leiCode: 549300F6JNO0KRPO1K63
 cik: '1561550'
 opensourceurl: https://github.com/DataDog
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Datadog as a TODO Group member and OSPO adopter with this open
     source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/549300F6JNO0KRPO1K63
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for DATADOG, INC. (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

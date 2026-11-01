@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: intel
 commonName: Intel
+legalName: INTEL CORPORATION
 entityType: Corporation
 website: https://intel.com/
 domains:
 - intel.com
+leiCode: KNX4USFCNGPY45LOCE31
 cik: '50863'
 opensourceurl: https://01.org/
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Intel as a TODO Group member and OSPO adopter with this open
     source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/KNX4USFCNGPY45LOCE31
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for INTEL CORPORATION (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

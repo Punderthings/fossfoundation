@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: apple
 commonName: Apple
+legalName: Apple Inc.
 entityType: Corporation
 website: https://apple.com/
 domains:
 - apple.com
+leiCode: HWUPKR0MPOU8FGXBT394
 cik: '320193'
 opensourceurl: https://opensource.apple.com/
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Apple as a TODO Group member and OSPO adopter with this open
     source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/HWUPKR0MPOU8FGXBT394
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for Apple Inc. (US-CA), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

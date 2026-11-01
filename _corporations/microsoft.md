@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: microsoft
 commonName: Microsoft
+legalName: MICROSOFT CORPORATION
 entityType: Corporation
 website: https://microsoft.com/
 domains:
 - microsoft.com
+leiCode: INR2EJN1ERAN0W5ZP974
 cik: '789019'
 opensourceurl: https://cloudblogs.microsoft.com/opensource
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Microsoft as a TODO Group member and OSPO adopter with this
     open source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/INR2EJN1ERAN0W5ZP974
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for MICROSOFT CORPORATION (US-WA), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

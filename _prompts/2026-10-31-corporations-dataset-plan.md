@@ -363,7 +363,20 @@ dataset. Start your OSPO research with the TODO group listing".
 - `opensourceurl` comes from the [TODO Group OSPO Landscape](https://github.com/todogroup/ospolandscape)
   (Apache-2.0) at commit `2cb0f82`; entries whose URL was unclear (Huawei, Arm, Capital One,
   AMD Xilinx) were left out.
-- `cik` comes from the SEC's `company_tickers.json`; `wikidataId`, `leiCode` and `legalName`
-  are not filled yet because the build sandbox could not reach Wikidata or GLEIF.
+- `cik` comes from the SEC's `company_tickers.json`.
+- `leiCode` and `legalName` come from the GLEIF API (`api.gleif.org/api/v1/lei-records`) for
+  29 of the 36 records, each with a source pointing at its LEI record. The LEI is the
+  operating entity behind the brand: the listed company where the brand is the company, or
+  the operating subsidiary (Google LLC, GitHub Inc, Functional Software for Sentry). Check
+  digits were verified (ISO 7064 mod 97). Meta's LEI is LAPSED (not renewed) but still
+  identifies the entity. Left out because no single LEI clearly matched the brand: Red Hat
+  (only Red Hat, LLC and country subsidiaries), SUSE (SUSE S.A. and country entities),
+  JetBrains (JetBrains N.V. and JetBrains s.r.o.), Rackspace (two Rackspace Technology
+  entities), Leaseweb (country entities only), GEICO (no record found), and OSU OSL (a
+  university lab, not expected to have one).
+- `wikidataId` is not filled. On 2026-11-01 Shane asked to re-check access: GLEIF's API
+  answered through the agent's web fetch tool (not through `curl`, which the sandbox proxy
+  blocks), while Wikidata (www, m., Special:EntityData, and the SPARQL endpoint) was refused
+  by both. Wikidata ids remain a help-wanted task for someone with direct access.
 - The `corporations` report section lives in `org-funding.json` (N2); history rollups by
   `parentOrganization` and the exports (step 5) are follow-ups.

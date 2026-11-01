@@ -55,7 +55,8 @@ Run both from the repository root with `BUNDLE_GEMFILE=assets/ruby/Gemfile bundl
 
 ## Help wanted
 
-- Verify and add `wikidataId`, `leiCode`, and `legalName` for each record from Wikidata and GLEIF.
+- Add `wikidataId` for each record from Wikidata.
+- Find `leiCode` and `legalName` for the records that don't have one yet, such as Red Hat, SUSE, and JetBrains, where several GLEIF entities could match the brand.
 - Add `ospourl` and `policyurl` pages from each company's own site.
 - Roll sponsor history up by `parentOrganization` in the history reports.
 - Publish JSON-LD and CSV exports, as the crosswalk does.

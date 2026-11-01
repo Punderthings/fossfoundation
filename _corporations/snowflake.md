@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: snowflake
 commonName: Snowflake
+legalName: SNOWFLAKE INC.
 entityType: Corporation
 website: https://snowflake.com/
 domains:
 - snowflake.com
+leiCode: 254900CJNSY1K7T53Z16
 cik: '1640147'
 opensourceurl: https://github.com/snowflakedb
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Snowflake as a TODO Group member with this open source site
     (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/254900CJNSY1K7T53Z16
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for SNOWFLAKE INC. (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

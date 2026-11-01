@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: ibm
 commonName: IBM
+legalName: INTERNATIONAL BUSINESS MACHINES CORPORATION
 entityType: Corporation
 website: https://ibm.com/
 domains:
 - ibm.com
+leiCode: VGRQXHF3J8VDLUA7XE92
 cik: '51143'
 opensourceurl: https://ibm.github.io/
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists IBM as a TODO Group member and OSPO adopter with this open source
     site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/VGRQXHF3J8VDLUA7XE92
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for INTERNATIONAL BUSINESS MACHINES CORPORATION (US-NY), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---

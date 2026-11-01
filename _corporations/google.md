@@ -2,10 +2,12 @@
 # SPDX-License-Identifier: CC0-1.0
 identifier: google
 commonName: Google
+legalName: GOOGLE LLC
 entityType: Corporation
 website: https://google.com/
 domains:
 - google.com
+leiCode: 7ZW8QJWVPR4P1J1KQY45
 cik: '1652044'
 opensourceurl: https://opensource.google/
 sources:
@@ -20,5 +22,9 @@ sources:
   observed: '2026-11-01'
   detail: TODO Group OSPO Landscape lists Google as a TODO Group member and OSPO adopter with this open
     source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/7ZW8QJWVPR4P1J1KQY45
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for GOOGLE LLC (US-DE), the operating entity behind the brand (leiCode,
+    legalName).
 lastReviewed: '2026-11-01'
 ---
