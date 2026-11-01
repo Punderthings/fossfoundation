@@ -12,6 +12,7 @@ module SponsorReports
   require 'yaml'
   require 'json'
   require_relative 'sponsor_utils'
+  require_relative 'sponsors'
 
   INKIND_DISCOUNT = 0.5 # Discount value from sponsor of in-kind levels
   INCOME_DAY = '0701' # Yearly sponsorship income uses the list in effect on this day (MMDD)
@@ -19,6 +20,7 @@ module SponsorReports
 
   ORGS_REPORT = 'orgs'
   SPONSORS_REPORT = 'sponsors'
+  SPONSOR_RECORDS_REPORT = 'sponsorRecords'
   TOTALS = 'total'
 
   # Report total (approx) cash outlay by sponsors accross all orgs
@@ -188,6 +190,35 @@ module SponsorReports
     return report
   end
 
+  # Current sponsorships of each sponsor in _sponsors, joined by domain
+  # @param allsponsors output of get_sponsors (org => level => [domains])
+  # @param funding output of report_funding, whose sponsors estimates are summed
+  # @param records hash from Sponsors.load_all
+  # @return hash of sponsor id => {'estimate' => USD (in-kind discounted as in sponsors),
+  #   'domains' => matched domains, 'foundations' => {org => [levels]}}, by estimate
+  def report_sponsor_records(allsponsors, funding, records)
+    index = Sponsors.domain_index(records)
+    report = {}
+    records.each_key { |id| report[id] = { 'estimate' => 0, 'domains' => [], 'foundations' => {} } }
+    allsponsors.sort.each do |org, sponsors|
+      sponsors.each do |lvl, ary|
+        next unless ary.is_a?(Array)
+        ary.each do |sponsor|
+          id = Sponsors.resolve(sponsor, index)
+          next unless id
+          levels = (report[id]['foundations'][org] ||= [])
+          levels << lvl unless levels.include?(lvl)
+          report[id]['domains'] << sponsor unless report[id]['domains'].include?(sponsor)
+        end
+      end
+    end
+    report.each_value do |entry|
+      entry['estimate'] = entry['domains'].sum { |d| funding[SPONSORS_REPORT].fetch(d, 0) }
+      entry['domains'].sort!
+    end
+    return report.sort_by { |id, entry| [-entry['estimate'], id] }.to_h
+  end
+
   # Simplistic report of counts by level, org, etc.
   def report_all_counts()
     allsponsorships = JSON.parse(File.read('_data/allsponsorships.json'))
@@ -221,6 +252,7 @@ s parseDate.') do |date|
       f.write(JSON.pretty_generate(report))
     end
     report = report_funding(sponsors, as_of: as_of)
+    report[SPONSOR_RECORDS_REPORT] = report_sponsor_records(sponsors, report, Sponsors.load_all)
     File.open(File.join(outdir, 'org-funding.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
     end

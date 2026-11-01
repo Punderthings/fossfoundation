@@ -3191,5 +3191,1016 @@
     "watttime.org": 0,
     "wdr.de": 0,
     "wgu.edu": 0
+  },
+  "sponsorRecords": {
+    "microsoft": {
+      "estimate": 2887500,
+      "domains": [
+        "microsoft.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first",
+          "firstinkind"
+        ],
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "finos": [
+          "second"
+        ],
+        "freebsd": [
+          "first"
+        ],
+        "graphql": [
+          "first"
+        ],
+        "jsfoundation": [
+          "first"
+        ],
+        "lf": [
+          "first"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "lfenergy": [
+          "first"
+        ],
+        "numfocus": [
+          "second"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "openstack": [
+          "first"
+        ],
+        "openstreetmap": [
+          "first"
+        ],
+        "osi": [
+          "fourth"
+        ],
+        "python": [
+          "second"
+        ]
+      }
+    },
+    "google": {
+      "estimate": 1663002,
+      "domains": [
+        "google.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first",
+          "fourthinkind"
+        ],
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "debian": [
+          "first"
+        ],
+        "finos": [
+          "second"
+        ],
+        "fsfe": [
+          "first"
+        ],
+        "gnome": [
+          "first"
+        ],
+        "haskell": [
+          "third"
+        ],
+        "jsfoundation": [
+          "second"
+        ],
+        "kde": [
+          "first"
+        ],
+        "lf": [
+          "second"
+        ],
+        "lfenergy": [
+          "first"
+        ],
+        "llvm": [
+          "second"
+        ],
+        "numfocus": [
+          "second"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "osi": [
+          "first"
+        ],
+        "python": [
+          "first"
+        ],
+        "sfc": [
+          "first"
+        ],
+        "spi": [
+          "first"
+        ]
+      }
+    },
+    "redhat": {
+      "estimate": 1607000,
+      "domains": [
+        "redhat.com"
+      ],
+      "foundations": {
+        "asf": [
+          "third"
+        ],
+        "aswf": [
+          "second"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "finos": [
+          "second"
+        ],
+        "fsfe": [
+          "first"
+        ],
+        "gnome": [
+          "first"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "lf": [
+          "first"
+        ],
+        "lfai": [
+          "second"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "openstack": [
+          "second"
+        ],
+        "osi": [
+          "third"
+        ],
+        "owasp": [
+          "third"
+        ],
+        "python": [
+          "third"
+        ]
+      }
+    },
+    "ibm": {
+      "estimate": 1450000,
+      "domains": [
+        "ibm.com"
+      ],
+      "foundations": {
+        "asf": [
+          "second"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "graphql": [
+          "first"
+        ],
+        "hyperledger": [
+          "second"
+        ],
+        "jsfoundation": [
+          "first"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "llvm": [
+          "second"
+        ],
+        "numfocus": [
+          "first"
+        ],
+        "openmainframe": [
+          "first"
+        ],
+        "openssf": [
+          "first"
+        ]
+      }
+    },
+    "intel": {
+      "estimate": 1427000,
+      "domains": [
+        "intel.com"
+      ],
+      "foundations": {
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "finos": [
+          "second"
+        ],
+        "fsfe": [
+          "first"
+        ],
+        "lf": [
+          "first"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "llvm": [
+          "third"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "osi": [
+          "third"
+        ]
+      }
+    },
+    "huawei": {
+      "estimate": 1415000,
+      "domains": [
+        "huawei.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first"
+        ],
+        "hyperledger": [
+          "second"
+        ],
+        "lf": [
+          "first"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "openstack": [
+          "first"
+        ]
+      }
+    },
+    "amazon": {
+      "estimate": 1199000,
+      "domains": [
+        "amazon.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first",
+          "firstinkind"
+        ],
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "finos": [
+          "third"
+        ],
+        "graphql": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "osi": [
+          "second"
+        ],
+        "postgresql": [
+          "firstinkind"
+        ],
+        "python": [
+          "third"
+        ],
+        "sfc": [
+          "first"
+        ]
+      }
+    },
+    "oracle": {
+      "estimate": 1020000,
+      "domains": [
+        "oracle.com"
+      ],
+      "foundations": {
+        "cncf": [
+          "first"
+        ],
+        "hyperledger": [
+          "second"
+        ],
+        "lf": [
+          "first"
+        ],
+        "openstack": [
+          "community"
+        ],
+        "raspberrypi": [
+          "fourth"
+        ]
+      }
+    },
+    "apple": {
+      "estimate": 965000,
+      "domains": [
+        "apple.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first"
+        ],
+        "cd": [
+          "first"
+        ],
+        "cncf": [
+          "first"
+        ],
+        "llvm": [
+          "first"
+        ],
+        "openssf": [
+          "first"
+        ]
+      }
+    },
+    "github": {
+      "estimate": 802500,
+      "domains": [
+        "github.com"
+      ],
+      "foundations": {
+        "asf": [
+          "firstinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "finos": [
+          "first"
+        ],
+        "haskell": [
+          "first"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "osi": [
+          "third"
+        ],
+        "rails": [
+          "first"
+        ]
+      }
+    },
+    "meta": {
+      "estimate": 760000,
+      "domains": [
+        "meta.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first"
+        ],
+        "graphql": [
+          "first"
+        ],
+        "haskell": [
+          "first"
+        ],
+        "lf": [
+          "first"
+        ],
+        "openstreetmap": [
+          "second"
+        ],
+        "raspberrypi": [
+          "sixth"
+        ]
+      }
+    },
+    "atlassian": {
+      "estimate": 680000,
+      "domains": [
+        "atlassian.com"
+      ],
+      "foundations": {
+        "asf": [
+          "secondinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "graphql": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "second"
+        ],
+        "owasp": [
+          "first"
+        ],
+        "raspberrypi": [
+          "second"
+        ]
+      }
+    },
+    "bloomberg": {
+      "estimate": 668000,
+      "domains": [
+        "bloomberg.com"
+      ],
+      "foundations": {
+        "asf": [
+          "second",
+          "fourthinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "numfocus": [
+          "first"
+        ],
+        "openssf": [
+          "second"
+        ],
+        "openstack": [
+          "second"
+        ],
+        "osi": [
+          "third"
+        ],
+        "owasp": [
+          "first"
+        ],
+        "python": [
+          "first"
+        ]
+      }
+    },
+    "capitalone": {
+      "estimate": 640000,
+      "domains": [
+        "capitalone.com"
+      ],
+      "foundations": {
+        "asf": [
+          "third"
+        ],
+        "cd": [
+          "third"
+        ],
+        "cncf": [
+          "second"
+        ],
+        "finos": [
+          "second"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "osi": [
+          "third"
+        ],
+        "python": [
+          "third"
+        ]
+      }
+    },
+    "amd": {
+      "estimate": 430000,
+      "domains": [
+        "amd.com"
+      ],
+      "foundations": {
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "freebsd": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "lfai": [
+          "second"
+        ],
+        "openstack": [
+          "third"
+        ]
+      }
+    },
+    "americanexpress": {
+      "estimate": 375000,
+      "domains": [
+        "americanexpress.com"
+      ],
+      "foundations": {
+        "asf": [
+          "third"
+        ],
+        "cncf": [
+          "second"
+        ],
+        "finos": [
+          "second"
+        ],
+        "hyperledger": [
+          "second"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "python": [
+          "third"
+        ]
+      }
+    },
+    "datadog": {
+      "estimate": 365000,
+      "domains": [
+        "datadoghq.com"
+      ],
+      "foundations": {
+        "asf": [
+          "secondinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "first"
+        ],
+        "openstack": [
+          "community"
+        ]
+      }
+    },
+    "canonical": {
+      "estimate": 320000,
+      "domains": [
+        "canonical.com"
+      ],
+      "foundations": {
+        "aswf": [
+          "second"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "finos": [
+          "third"
+        ],
+        "gnome": [
+          "first"
+        ],
+        "kde": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openmainframe": [
+          "second"
+        ],
+        "openstack": [
+          "second"
+        ]
+      }
+    },
+    "nvidia": {
+      "estimate": 290500,
+      "domains": [
+        "nvidia.com"
+      ],
+      "foundations": {
+        "aswf": [
+          "first"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "gentoo": [
+          "secondinkind"
+        ],
+        "lf": [
+          "third"
+        ],
+        "lfai": [
+          "first"
+        ],
+        "numfocus": [
+          "second"
+        ]
+      }
+    },
+    "cloudbees": {
+      "estimate": 262500,
+      "domains": [
+        "cloudbees.com"
+      ],
+      "foundations": {
+        "asf": [
+          "firstinkind"
+        ],
+        "cd": [
+          "first"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "finos": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openstack": [
+          "community"
+        ]
+      }
+    },
+    "workday": {
+      "estimate": 185000,
+      "domains": [
+        "workday.com"
+      ],
+      "foundations": {
+        "asf": [
+          "second"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openstack": [
+          "third"
+        ],
+        "raspberrypi": [
+          "fourth"
+        ]
+      }
+    },
+    "fastly": {
+      "estimate": 183501,
+      "domains": [
+        "fastly.com"
+      ],
+      "foundations": {
+        "asf": [
+          "firstinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "debian": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "llvm": [
+          "second"
+        ]
+      }
+    },
+    "arm": {
+      "estimate": 180000,
+      "domains": [
+        "arm.com"
+      ],
+      "foundations": {
+        "cncf": [
+          "second"
+        ],
+        "lf": [
+          "third"
+        ],
+        "llvm": [
+          "third"
+        ],
+        "openstack": [
+          "third"
+        ]
+      }
+    },
+    "suse": {
+      "estimate": 172250,
+      "domains": [
+        "suse.com"
+      ],
+      "foundations": {
+        "cncf": [
+          "third"
+        ],
+        "kde": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openmainframe": [
+          "first"
+        ],
+        "openssf": [
+          "second"
+        ],
+        "openstreetmap": [
+          "fourth"
+        ]
+      }
+    },
+    "geico": {
+      "estimate": 160000,
+      "domains": [
+        "geico.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openstack": [
+          "third"
+        ]
+      }
+    },
+    "snowflake": {
+      "estimate": 146000,
+      "domains": [
+        "snowflake.com"
+      ],
+      "foundations": {
+        "asf": [
+          "first"
+        ],
+        "lf": [
+          "third"
+        ],
+        "numfocus": [
+          "community"
+        ]
+      }
+    },
+    "docker": {
+      "estimate": 136001,
+      "domains": [
+        "docker.com"
+      ],
+      "foundations": {
+        "adelielinux": [
+          "first"
+        ],
+        "asf": [
+          "secondinkind"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "second"
+        ]
+      }
+    },
+    "indeed": {
+      "estimate": 126000,
+      "domains": [
+        "indeed.com"
+      ],
+      "foundations": {
+        "asf": [
+          "third"
+        ],
+        "cncf": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "python": [
+          "fourth"
+        ],
+        "sfc": [
+          "first"
+        ]
+      }
+    },
+    "salesforce": {
+      "estimate": 110000,
+      "domains": [
+        "salesforce.com"
+      ],
+      "foundations": {
+        "cd": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openssf": [
+          "second"
+        ],
+        "osi": [
+          "fourth"
+        ],
+        "owasp": [
+          "first"
+        ]
+      }
+    },
+    "jetbrains": {
+      "estimate": 93000,
+      "domains": [
+        "jetbrains.com"
+      ],
+      "foundations": {
+        "asf": [
+          "firstinkind"
+        ],
+        "gentoo": [
+          "secondinkind"
+        ],
+        "python": [
+          "fourth"
+        ]
+      }
+    },
+    "elastic": {
+      "estimate": 86000,
+      "domains": [
+        "elastic.co"
+      ],
+      "foundations": {
+        "cncf": [
+          "third"
+        ],
+        "lf": [
+          "third"
+        ],
+        "openstreetmap": [
+          "third"
+        ],
+        "python": [
+          "sixth"
+        ]
+      }
+    },
+    "esri": {
+      "estimate": 85000,
+      "domains": [
+        "esri.com"
+      ],
+      "foundations": {
+        "lf": [
+          "third"
+        ],
+        "numfocus": [
+          "second"
+        ],
+        "openstreetmap": [
+          "second"
+        ]
+      }
+    },
+    "sentry": {
+      "estimate": 76000,
+      "domains": [
+        "sentry.io"
+      ],
+      "foundations": {
+        "asf": [
+          "fourth"
+        ],
+        "jsfoundation": [
+          "third"
+        ],
+        "osi": [
+          "fifth"
+        ],
+        "python": [
+          "fifth"
+        ]
+      }
+    },
+    "leaseweb": {
+      "estimate": 73501,
+      "domains": [
+        "leaseweb.com"
+      ],
+      "foundations": {
+        "cncf": [
+          "third"
+        ],
+        "debian": [
+          "first"
+        ],
+        "gentoo": [
+          "firstinkind"
+        ],
+        "lf": [
+          "third"
+        ]
+      }
+    },
+    "rackspace": {
+      "estimate": 35500,
+      "domains": [
+        "rackspace.com"
+      ],
+      "foundations": {
+        "lf": [
+          "third"
+        ],
+        "openstack": [
+          "third"
+        ],
+        "postgresql": [
+          "firstinkind"
+        ]
+      }
+    },
+    "osuosl": {
+      "estimate": 4502,
+      "domains": [
+        "osuosl.org"
+      ],
+      "foundations": {
+        "adelielinux": [
+          "first"
+        ],
+        "debian": [
+          "first"
+        ],
+        "gentoo": [
+          "firstinkind"
+        ]
+      }
+    }
   }
 }

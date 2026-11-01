@@ -1,0 +1,30 @@
+---
+# SPDX-License-Identifier: CC0-1.0
+identifier: apple
+commonName: Apple
+legalName: Apple Inc.
+entityType: Corporation
+website: https://apple.com/
+domains:
+- apple.com
+leiCode: HWUPKR0MPOU8FGXBT394
+cik: '320193'
+opensourceurl: https://opensource.apple.com/
+sources:
+- url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
+  observed: '2026-11-01'
+  detail: apple.com is the canonical sponsor domain in current sponsor lists of 3 or more distinct foundations
+    (website and domains).
+- url: https://www.sec.gov/files/company_tickers.json
+  observed: '2026-11-01'
+  detail: CIK 320193 is the SEC registrant "Apple Inc." (cik).
+- url: https://github.com/todogroup/ospolandscape/blob/2cb0f82f1915a3f06715bd2981679e7500899f46/landscape.yml
+  observed: '2026-11-01'
+  detail: TODO Group OSPO Landscape lists Apple as a TODO Group member and OSPO adopter with this open
+    source site (opensourceurl).
+- url: https://api.gleif.org/api/v1/lei-records/HWUPKR0MPOU8FGXBT394
+  observed: '2026-11-01'
+  detail: GLEIF LEI record for Apple Inc. (US-CA), the operating entity behind the brand (leiCode,
+    legalName).
+lastReviewed: '2026-11-01'
+---

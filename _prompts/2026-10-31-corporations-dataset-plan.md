@@ -3,7 +3,9 @@
 
 2026-10-31 · Shane Curcuru, with Claude
 
-Status: decided (open questions answered 2026-10-31; see Decisions)
+Status: decided; steps 0 (#83) and 1–4 implemented (#84); step 5 (exports) not started.
+The dataset was renamed from "corporations" to "sponsors" on 2026-11-01 (decision 8);
+this file keeps its original name and working title.
 
 ## Prompt
 
@@ -353,3 +355,51 @@ Answered by Shane Curcuru on 2026-10-31 in PR #82 (inline **SC:** notes above).
 6. Make the existing-schema changes in a separate PR first, then PR(s) for this
    dataset.
 7. Leave OSGeo's `sponsorList` alone; other foundation data is later work.
+8. Shane, 2026-11-01, in the PR #84 thread: "Change the name of this new dataset from
+   'corporations' to 'sponsors', because that better reflects how these organizations
+   are involved in the FOSS ecosystem, and update any paths, references, fields, or APIs
+   to match." Done in #84: `_sponsors/`, `_data/sponsors-schema.json`,
+   `assets/ruby/sponsors.rb` (module `Sponsors`), `_layouts/sponsor.html`, and the page
+   `/sponsors`. The report section in `org-funding.json` is `sponsorRecords`, because
+   that file already has a `sponsors` key (estimates by domain). `entityType` keeps the
+   Schema.org value `Corporation` for companies. Decision 1's directory name is
+   superseded.
+
+## Implementation notes
+
+2026-11-01, PR #84 (steps 1–4), as asked by Shane: "Implement the plan for the corporations
+dataset. Start your OSPO research with the TODO group listing".
+
+- 36 records: every sponsor domain in current sponsor lists of 3+ distinct legal entities.
+- `opensourceurl` comes from the [TODO Group OSPO Landscape](https://github.com/todogroup/ospolandscape)
+  (Apache-2.0) at commit `2cb0f82`; entries whose URL was unclear (Huawei, Arm, Capital One,
+  AMD Xilinx) were left out.
+- `cik` comes from the SEC's `company_tickers.json`.
+- `leiCode` and `legalName` come from the GLEIF API (`api.gleif.org/api/v1/lei-records`) for
+  29 of the 36 records, each with a source pointing at its LEI record. The LEI is the
+  operating entity behind the brand: the listed company where the brand is the company, or
+  the operating subsidiary (Google LLC, GitHub Inc, Functional Software for Sentry). Check
+  digits were verified (ISO 7064 mod 97). Meta's LEI is LAPSED (not renewed) but still
+  identifies the entity. Left out because no single LEI clearly matched the brand: Red Hat
+  (only Red Hat, LLC and country subsidiaries), SUSE (SUSE S.A. and country entities),
+  JetBrains (JetBrains N.V. and JetBrains s.r.o.), Rackspace (two Rackspace Technology
+  entities), Leaseweb (country entities only), GEICO (no record found), and OSU OSL (a
+  university lab, not expected to have one).
+- On 2026-11-01 Shane asked to re-check access: GLEIF's API answered through the agent's
+  web fetch tool (not through `curl`, which the sandbox proxy blocks), while Wikidata (www,
+  m., Special:EntityData, and the SPARQL endpoint) was refused by both.
+- `wikidataId` is set for 9 records (amazon, amd, cloudbees, fastly, google, ibm, intel,
+  microsoft, oracle) that Shane validated directly on Wikidata on 2026-11-01. The rest
+  remain a help-wanted task for someone with direct access.
+- The `sponsorRecords` report section lives in `org-funding.json` (N2); history rollups by
+  `parentOrganization` and the exports (step 5) are follow-ups.
+
+## Future research: individual sponsors
+
+Rarely, a sponsor is not a legal organization: some foundations list individual people
+as sponsors or donors. This dataset only records organizations (`entityType` has no
+person value), and the privacy rules in AGENTS.md apply to any data about people. Open
+question for later research: would researchers want individual sponsors classified
+differently, for example as Schema.org `Person`, counted only in aggregate, or kept out
+of sponsor rollups entirely? Any data model for individuals needs a maintainer's
+approval first.
