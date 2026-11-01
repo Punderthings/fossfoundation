@@ -46,9 +46,9 @@ class SponsorArchiveTest < Minitest::Test
 
   MODEL = {
     'identifier' => 'demo', 'landscape' => 'Members', 'effectiveDate' => '20250101',
-    'levels' => { 'first' => { 'name' => 'Gold', 'amount' => '10', 'selector' => 'a.gold', 'attr' => 'href' },
-                  'second' => { 'name' => 'Silver', 'amount' => '5' } },
-    'pastModels' => [{ 'effectiveDate' => '20200101', 'levels' => { 'first' => { 'amount' => '8' } } }],
+    'levels' => { 'first' => { 'name' => 'Gold', 'value' => '10', 'selector' => 'a.gold', 'attr' => 'href' },
+                  'second' => { 'name' => 'Silver', 'value' => '5' } },
+    'pastModels' => [{ 'effectiveDate' => '20200101', 'levels' => { 'first' => { 'value' => '8' } } }],
     'sources' => [{ 'kind' => 'git', 'repo' => 'r', 'path' => 'p' }]
   }.freeze
 
@@ -57,11 +57,11 @@ class SponsorArchiveTest < Minitest::Test
                'levels' => { 'first' => { 'match' => %w[Gold Premium] }, 'second' => nil } }
     config = SponsorArchive.source_model(MODEL, source, '20200601')
     assert_equal %w[Old Members], config['landscape']
-    assert_equal({ 'name' => 'Gold', 'amount' => '8', 'selector' => 'a.gold', 'attr' => 'href', 'match' => %w[Gold Premium] }, config['levels']['first'])
+    assert_equal({ 'name' => 'Gold', 'value' => '8', 'selector' => 'a.gold', 'attr' => 'href', 'match' => %w[Gold Premium] }, config['levels']['first'])
     refute config['levels'].key?('second'), 'null removes a level'
     refute config.key?('sources')
     %w[kind repo path until].each { |key| refute config.key?(key), key }
-    assert_equal '10', MODEL['levels']['first']['amount'], 'model is not modified'
+    assert_equal '10', MODEL['levels']['first']['value'], 'model is not modified'
 
     listed = SponsorArchive.source_model(MODEL, source.merge('replaceLevels' => true, 'levels' => { 'listed' => { 'selector' => 'a' } }), '20260101')
     assert_equal({ 'listed' => { 'selector' => 'a' } }, listed['levels'])
@@ -131,15 +131,15 @@ class SponsorArchiveTest < Minitest::Test
         levels:
           first:
             name: Gold
-            amount: '100'
+            value: '100'
           second:
             name: Silver
-            amount: '10'
+            value: '10'
         pastModels:
           - effectiveDate: '20180101'
             levels:
               first:
-                amount: '50'
+                value: '50'
         sources:
           - kind: git
             repo: file://#{repo}

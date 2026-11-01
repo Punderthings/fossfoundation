@@ -18,7 +18,7 @@ sources:
 levels:
   first:
     name: Strategic
-    amount: '170000'
+    value: '170000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -28,7 +28,7 @@ levels:
       marketing: press release; various other featured blog/webinar posts
   second:
     name: General
-    amount: '70000'
+    value: '70000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -39,7 +39,7 @@ levels:
       marketing: provide blog post
   third:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

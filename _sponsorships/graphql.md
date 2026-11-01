@@ -14,7 +14,7 @@ sources:
 levels:
   first:
     name: General
-    amount: '20000'
+    value: '20000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -22,7 +22,7 @@ levels:
       governance: vote for board seat; must be LF Silver member
   community:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

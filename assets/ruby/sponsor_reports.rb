@@ -40,7 +40,7 @@ module SponsorReports
       orglevels = SponsorUtils.model_at(model, as_of || sponsors[SponsorUtils::PARSE_DATE]).fetch('levels', {})
       sponsors.each do | lvl, ary |
         next unless ary.is_a?(Array) # Ignore parseDate, etc.
-        lvlamt = orglevels.fetch(lvl, {}).fetch('amount', 0).to_i
+        lvlamt = orglevels.fetch(lvl, {}).fetch('value', 0).to_i
         amtlvl = lvlamt * ary.size
         # For the organization's report, count full value for all
         report[ORGS_REPORT][org][lvl] = amtlvl
@@ -146,7 +146,7 @@ module SponsorReports
         levels = SponsorUtils.model_at(model, day).fetch('levels', {})
         counts = scrape.fetch('counts', {})
         priced = counts.select { |lvl, _n| lvl != 'listed' && levels.key?(lvl) }
-        estimate = priced.empty? ? nil : priced.sum { |lvl, n| levels[lvl].fetch('amount', 0).to_i * n }
+        estimate = priced.empty? ? nil : priced.sum { |lvl, n| levels[lvl].fetch('value', 0).to_i * n }
         years[year.to_s] = [estimate, counts.values.sum]
       end
       report[org] = years.sort.reverse.map { |year, (estimate, count)| { 'year' => year.to_i, 'estimate' => estimate, 'sponsors' => count } } unless years.empty?
@@ -174,7 +174,7 @@ module SponsorReports
         estimate = nil
         if model
           levels = SponsorUtils.model_at(model, scrape['parseDate']).fetch('levels', {})
-          estimate = counts.sum { |lvl, n| levels.fetch(lvl, {}).fetch('amount', 0).to_i * n }
+          estimate = counts.sum { |lvl, n| levels.fetch(lvl, {}).fetch('value', 0).to_i * n }
         end
         { 'parseDate' => scrape['parseDate'], 'lastChecked' => scrape['lastChecked'],
           'sponsors' => counts.values.sum, 'levels' => counts, 'estimate' => estimate }

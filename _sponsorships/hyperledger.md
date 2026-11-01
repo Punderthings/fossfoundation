@@ -18,14 +18,14 @@ sources:
 levels:
   first:
     name: Premier
-    amount: '250000'
+    value: '250000'
     selector: ''
     attr: homepage_url
     benefits:
       governance: must be LF foundation member
   second:
     name: General
-    amount: '50000'
+    value: '50000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -34,7 +34,7 @@ levels:
       logo: 'yes'
   third:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

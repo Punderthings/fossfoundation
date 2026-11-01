@@ -12,7 +12,7 @@ comment: Adelie Linux uses SPI fiscal hosting; no specific level is set so estim
 levels:
   first:
     name: Sponsor
-    amount: '1001'
+    value: '1001'
     benefits:
       logo: 'yes'
     sponsors:

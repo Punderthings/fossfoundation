@@ -17,7 +17,7 @@ sponsormap: _data/python_map.json
 levels:
   first:
     name: visionary
-    amount: '150000'
+    value: '150000'
     selector: div[title="visionary Sponsors"] div[data-internal-year]
     attr: id
     benefits:
@@ -26,7 +26,7 @@ levels:
       marketing: logo featured on various python properties
   second:
     name: sustainability
-    amount: '90000'
+    value: '90000'
     selector: div[title="sustainability Sponsors"] div[data-internal-year]
     attr: id
     benefits:
@@ -35,7 +35,7 @@ levels:
       marketing: press release and featured blog post; docs.python.org recognition
   third:
     name: maintaining
-    amount: '60000'
+    value: '60000'
     selector: div[title="maintaining Sponsors"] div[data-internal-year]
     attr: id
     benefits:
@@ -43,7 +43,7 @@ levels:
       marketing: PyPi blog post
   fourth:
     name: contributing
-    amount: '30000'
+    value: '30000'
     selector: div[title="contributing Sponsors"] div[data-internal-year]
     attr: id
     benefits:
@@ -52,21 +52,21 @@ levels:
       marketing: logo on jobs.python for year
   fifth:
     name: supporting
-    amount: '15000'
+    value: '15000'
     selector: div[title="supporting Sponsors"] div[data-internal-year]
     attr: id
     benefits:
       events: 10 conference passes; booth space
   sixth:
     name: partner
-    amount: '10000'
+    value: '10000'
     selector: div[title="partner Sponsors"] div[data-internal-year]
     attr: id
     benefits:
       events: 5 conference passes; job fair table
   seventh:
     name: participating
-    amount: '3750'
+    value: '3750'
     selector: div[title="participating Sponsors"] div[data-internal-year]
     attr: id
     benefits:
@@ -74,7 +74,7 @@ levels:
       marketing: Python success story published; social media sharing
   eighth:
     name: associate
-    amount: '1500'
+    value: '1500'
     selector: div[title="associate Sponsors"] div[data-internal-year]
     attr: id
     benefits:

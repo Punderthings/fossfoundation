@@ -15,14 +15,14 @@ sources:
 levels:
   first:
     name: Premier
-    amount: '50000'
+    value: '50000'
     selector: ''
     attr: homepage_url
     benefits:
       governance: appoint board seat
   second:
     name: General
-    amount: '20000'
+    value: '20000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -31,7 +31,7 @@ levels:
       logo: 'yes'
   third:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

@@ -30,22 +30,22 @@ pastModels:
     levelurl: https://fsfe.org/donate/thankgnus-2024.en.html
     levels:
       first:
-        amount: '12000'
+        value: '12000'
       second:
-        amount: '2400'
+        value: '2400'
 levels:
   first:
     name: Gold
-    amount: '18000'
-    amountCurrency: EUR
+    value: '18000'
+    currency: EUR
     selector: "div#content > table:nth-of-type(1) td img"
     attr: 'alt'
     benefits:
       logo: 'yes'
   second:
     name: Silver
-    amount: '3600'
-    amountCurrency: EUR
+    value: '3600'
+    currency: EUR
     selector: "div#content > table:nth-of-type(2) td img"
     attr: 'alt'
     benefits:

@@ -8,9 +8,9 @@ sponsormap: _data/kde_map.json
 levels:
   first:
     name: Patrons
-    amount: '10000'
-    amountCurrency: EUR
-    amountVaries: sliding scale by company size; small is 5000 EUR
+    value: '10000'
+    currency: EUR
+    amountvaries: sliding scale by company size; small is 5000 EUR
     selector: div.img-patrons img
     attr: alt
     benefits:
@@ -19,7 +19,7 @@ levels:
       logo: yes, no link
   second:
     name: Supporting
-    amount: '1000'
+    value: '1000'
     selector: div.img-supporters img
     attr: alt
     benefits:

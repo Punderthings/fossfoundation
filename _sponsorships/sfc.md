@@ -16,7 +16,7 @@ comment: SFConservancy does not list specific amounts or benefits; use 1K as a d
 levels:
   first:
     name: First
-    amount: '1000'
+    value: '1000'
     selector: div#mainContent ul#sponsor a
     attr: href
     benefits:

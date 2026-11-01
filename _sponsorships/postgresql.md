@@ -12,29 +12,29 @@ comment: Postgresql uses SPI fiscal hosting; note this only covers part of the P
 levels:
   first:
     name: Benefactor
-    amount: '20000'
+    value: '20000'
     benefits:
       logo: 'yes'
   second:
     name: Patron
-    amount: '10000'
+    value: '10000'
     benefits:
       logo: 'yes'
   third:
     name: Supporter
-    amount: '5000'
+    value: '5000'
     benefits:
       logo: 'yes'
     sponsors:
     - xata.io
   fourth:
     name: Friend
-    amount: '2500'
+    value: '2500'
     benefits:
       logo: 'yes'
   firstinkind:
     name: Server Sponsor
-    amount: '1000'
+    value: '1000'
     benefits:
       logo: 'yes'
     sponsors:

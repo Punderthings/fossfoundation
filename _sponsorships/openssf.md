@@ -15,7 +15,7 @@ sources:
 levels:
   first:
     name: Premier
-    amount: '270000'
+    value: '270000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -27,7 +27,7 @@ levels:
       logo: Featured prominently
   second:
     name: General
-    amount: '40000'
+    value: '40000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -40,7 +40,7 @@ levels:
       logo: ''
   third:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

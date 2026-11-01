@@ -5,7 +5,7 @@
   "title": "Foundation Sponsorship Level Model Schema",
   "required": [
     "name",
-    "amount",
+    "value",
     "benefits"
   ],
   "properties": {
@@ -14,26 +14,32 @@
       "description": "Name of the level the entity uses.",
       "type": "string"
     },
-    "amount": {
+    "value": {
       "title": "Amount",
-      "description": "Cash amount the entity notes for a typical sponsorship.",
+      "description": "Cash amount the entity notes for a typical sponsorship. Schema.org MonetaryAmount value: https://schema.org/value",
       "type": "number"
     },
     "currency": {
       "title": "Currency",
-      "description": "Currency sponsorship level amount is in (default: USD).",
+      "description": "Currency of value, as an ISO 4217 code (default: USD). Schema.org MonetaryAmount currency: https://schema.org/currency",
       "type": "string",
       "default": "USD"
     },
     "amountvaries": {
       "title": "Amount Varies?",
-      "description": "If present, describe how the sponsorship cash amount varies; list the highest part of the range in amount field.",
+      "description": "If present, describe how the sponsorship cash amount varies; list the highest part of the range in value.",
       "type": "string"
     },
     "match": {
       "title": "Match Names",
       "description": "For landscape, landscapejson, and json sources: the source's own level name(s) for this level, matched case-insensitively. Defaults to name.",
       "type": ["string", "array"],
+      "items": { "type": "string" }
+    },
+    "sponsors": {
+      "title": "Static Sponsors",
+      "description": "For static sources (see staticmap): sponsors at this level, each as a registrable domain normalized as in _data/host_aliases.json, e.g. google.com. The domain is the identifier that joins sponsors across foundations and over time.",
+      "type": "array",
       "items": { "type": "string" }
     },
     "selector": {

@@ -14,14 +14,14 @@ sources:
 levels:
   first:
     name: Platinum
-    amount: '50000'
+    value: '50000'
     selector: ''
     attr: homepage_url
     benefits:
       governance: appoint board seat
   second:
     name: Silver
-    amount: '20000'
+    value: '20000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -30,14 +30,14 @@ levels:
       logo: 'yes'
   academic:
     name: Academic Institution
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:
       logo: 'yes'
   community:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

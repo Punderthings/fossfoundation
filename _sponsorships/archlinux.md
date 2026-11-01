@@ -12,7 +12,7 @@ comment: Arch Linux uses SPI fiscal hosting; no specific level is set so estimat
 levels:
   first:
     name: Sponsor
-    amount: '1001'
+    value: '1001'
     benefits:
       logo: 'yes'
     sponsors:

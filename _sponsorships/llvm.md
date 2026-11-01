@@ -28,28 +28,28 @@ comment: Amounts from the sponsorship document approved by the LLVM Foundation B
 levels:
   first:
     name: diamond
-    amount: '100000'
+    value: '100000'
     selector: section.wixui-section:has(h4:contains("DIAMOND SPONSORS")) a[href^="http"]
     attr: href
     benefits:
       events: logo at event receptions; 10 event tickets
   second:
     name: platinum
-    amount: '50000'
+    value: '50000'
     selector: section.wixui-section:has(h4:contains("PLATINUM SPONSORS")) a[href^="http"]
     attr: href
     benefits:
       events: significant event visibility; 7 event tickets
   third:
     name: gold
-    amount: '25000'
+    value: '25000'
     selector: section.wixui-section:has(h4:contains("GOLD SPONSORS")) a[href^="http"]
     attr: href
     benefits:
       events: additional event visibility; 4 event tickets
   fourth:
     name: supporter
-    amount: '2500'
+    value: '2500'
     selector: section.wixui-section:has(h4:contains("CORPORATE SUPPORTERS")) a[href^="http"]
     attr: href
     benefits:

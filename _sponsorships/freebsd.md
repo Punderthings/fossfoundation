@@ -14,7 +14,7 @@ normalize: 'true'
 levels:
   first:
     name: platinum
-    amount: '250000'
+    value: '250000'
     selector: div.freebsd-donors-list--partners > div.freebsd-donors-list--level >
       ul a
     attr: href
@@ -25,7 +25,7 @@ levels:
       logo: 'yes'
   second:
     name: gold
-    amount: '150000'
+    value: '150000'
     selector: TODO none displayed yet
     attr: href
     benefits:
@@ -35,7 +35,7 @@ levels:
       logo: 'yes'
   third:
     name: silver
-    amount: '100000'
+    value: '100000'
     amountvaries: sliding scale by number employees
     selector: TODO none displayed yet
     attr: href
@@ -44,7 +44,7 @@ levels:
       logo: 'yes'
   firstinkind:
     name: In Kind
-    amount: '0'
+    value: '0'
     selector: TODO-requires-elementor-cruft
     attr: href
     benefits:

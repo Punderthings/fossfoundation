@@ -16,14 +16,14 @@ normalize: 'true'
 levels:
   first:
     name: principal
-    amount: '100000'
+    value: '100000'
     selector: ".et_pb_section_1 .et_pb_row_1 div > a"
     attr: href
     benefits:
       events: All as Sustaining level plus Diamond PyData sponsorship
   second:
     name: sustaining
-    amount: '50000'
+    value: '50000'
     selector: ".et_pb_section_1 .et_pb_row_4 div > a"
     attr: href
     benefits:
@@ -32,7 +32,7 @@ levels:
       events: event invitation; PyData Platinum sponsorship
   third:
     name: contributing
-    amount: '10000'
+    value: '10000'
     selector: ".et_pb_section_1 .et_pb_row_7 div > a"
     attr: href
     benefits:
@@ -40,7 +40,7 @@ levels:
       events: PyData Gold event sponsorship
   community:
     name: platinum
-    amount: '1000'
+    value: '1000'
     selector: ".et_pb_section_1 .et_pb_row_10 div > a"
     attr: href
     benefits:
@@ -48,7 +48,7 @@ levels:
       logo: 'yes'
   startuppartners:
     name: startuppartners
-    amount: '0'
+    value: '0'
     selector: ".et_pb_section_1 .et_pb_row_13 a"
     attr: href
     benefits:
@@ -58,7 +58,7 @@ levels:
       logo: ''
   grants:
     name: grants
-    amount: '0'
+    value: '0'
     selector: ".et_pb_section_2 a"
     attr: href
     benefits:

@@ -10,7 +10,7 @@ comment: SPI doesn't list levels, so estimate at 1001; acts as fiscal host elsew
 levels:
   first:
     name: Partner
-    amount: '1001'
+    value: '1001'
     benefits:
       logo: 'yes'
     sponsors:

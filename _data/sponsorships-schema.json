@@ -16,6 +16,21 @@
       "description": "Common name; lowercased; used for lookups.",
       "type": "string"
     },
+    "commonName": {
+      "title": "Common Name",
+      "description": "Name of the sponsorship program's organization as commonly used in public. Schema.org name: https://schema.org/name",
+      "type": "string"
+    },
+    "fiscalHost": {
+      "title": "Fiscal Host",
+      "description": "Identifier (in _foundations) of the fiscal host that handles money for this program, when that is a different organization, e.g. spi or lf. Shown on the sponsorship page.",
+      "type": "string"
+    },
+    "comment": {
+      "title": "Comment",
+      "description": "Maintainer note about this model, such as how level amounts were estimated. Not shown as data.",
+      "type": "string"
+    },
     "nonprofit": {
       "title": "Type of nonprofit",
       "description": "Categorizing nonprofits: c3; c6; lf (Linux Foundation project); or non-US nonprofits.",
@@ -26,6 +41,17 @@
       "description": "URL to read list of current entity sponsors.",
       "type": "string",
       "format": "uri"
+    },
+    "sponsorroot": {
+      "title": "Sponsor Subpage Root",
+      "description": "For css sources whose sponsor links point to per-sponsor pages on the organization's site: base URL used to fetch relative links, together with sponsorselector.",
+      "type": "string",
+      "format": "uri"
+    },
+    "sponsorselector": {
+      "title": "Sponsor Subpage Selector",
+      "description": "CSS selector for the sponsor's own website link on each per-sponsor page fetched via sponsorroot; that href is used as the sponsor.",
+      "type": "string"
     },
     "sourcetype": {
       "title": "Source Type",
@@ -106,7 +132,7 @@
     },
     "pastModels": {
       "title": "Past Sponsorship Models",
-      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or amount. A level set to null did not exist then.",
+      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or value. A level set to null did not exist then.",
       "type": "array",
       "items": {
         "type": "object",

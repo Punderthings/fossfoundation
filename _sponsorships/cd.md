@@ -19,7 +19,7 @@ sources:
 levels:
   first:
     name: Premier
-    amount: '100000'
+    value: '100000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -27,7 +27,7 @@ levels:
       marketing: press release
   second:
     name: General
-    amount: '30000'
+    value: '30000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -36,7 +36,7 @@ levels:
       advisory: expanded access to council, jobs postings
   third:
     name: End User
-    amount: '15000'
+    value: '15000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -47,7 +47,7 @@ levels:
       logo: 'yes'
   community:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

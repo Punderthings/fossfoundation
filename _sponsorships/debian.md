@@ -16,7 +16,7 @@ comment: Debian uses SPI fiscal hosting; no specific level is set so estimate at
 levels:
   first:
     name: Partner
-    amount: '1001'
+    value: '1001'
     selector: div.partnerlogo a
     attr: href
     benefits:
