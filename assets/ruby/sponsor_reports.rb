@@ -12,7 +12,7 @@ module SponsorReports
   require 'yaml'
   require 'json'
   require_relative 'sponsor_utils'
-  require_relative 'corporations'
+  require_relative 'sponsors'
 
   INKIND_DISCOUNT = 0.5 # Discount value from sponsor of in-kind levels
   INCOME_DAY = '0701' # Yearly sponsorship income uses the list in effect on this day (MMDD)
@@ -20,7 +20,7 @@ module SponsorReports
 
   ORGS_REPORT = 'orgs'
   SPONSORS_REPORT = 'sponsors'
-  CORPORATIONS_REPORT = 'corporations'
+  SPONSOR_RECORDS_REPORT = 'sponsorRecords'
   TOTALS = 'total'
 
   # Report total (approx) cash outlay by sponsors accross all orgs
@@ -190,21 +190,21 @@ module SponsorReports
     return report
   end
 
-  # Current sponsorships of each corporation in _corporations, joined by domain
+  # Current sponsorships of each sponsor in _sponsors, joined by domain
   # @param allsponsors output of get_sponsors (org => level => [domains])
   # @param funding output of report_funding, whose sponsors estimates are summed
-  # @param corps hash from Corporations.load_all
-  # @return hash of corporation id => {'estimate' => USD (in-kind discounted as in sponsors),
+  # @param records hash from Sponsors.load_all
+  # @return hash of sponsor id => {'estimate' => USD (in-kind discounted as in sponsors),
   #   'domains' => matched domains, 'foundations' => {org => [levels]}}, by estimate
-  def report_corporations(allsponsors, funding, corps)
-    index = Corporations.domain_index(corps)
+  def report_sponsor_records(allsponsors, funding, records)
+    index = Sponsors.domain_index(records)
     report = {}
-    corps.each_key { |id| report[id] = { 'estimate' => 0, 'domains' => [], 'foundations' => {} } }
+    records.each_key { |id| report[id] = { 'estimate' => 0, 'domains' => [], 'foundations' => {} } }
     allsponsors.sort.each do |org, sponsors|
       sponsors.each do |lvl, ary|
         next unless ary.is_a?(Array)
         ary.each do |sponsor|
-          id = Corporations.resolve(sponsor, index)
+          id = Sponsors.resolve(sponsor, index)
           next unless id
           levels = (report[id]['foundations'][org] ||= [])
           levels << lvl unless levels.include?(lvl)
@@ -252,7 +252,7 @@ s parseDate.') do |date|
       f.write(JSON.pretty_generate(report))
     end
     report = report_funding(sponsors, as_of: as_of)
-    report[CORPORATIONS_REPORT] = report_corporations(sponsors, report, Corporations.load_all)
+    report[SPONSOR_RECORDS_REPORT] = report_sponsor_records(sponsors, report, Sponsors.load_all)
     File.open(File.join(outdir, 'org-funding.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
     end

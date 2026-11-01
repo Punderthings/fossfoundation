@@ -8,6 +8,7 @@ website: https://ibm.com/
 domains:
 - ibm.com
 leiCode: VGRQXHF3J8VDLUA7XE92
+wikidataId: Q37156
 cik: '51143'
 opensourceurl: https://ibm.github.io/
 sources:
@@ -26,5 +27,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for INTERNATIONAL BUSINESS MACHINES CORPORATION (US-NY), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q37156
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

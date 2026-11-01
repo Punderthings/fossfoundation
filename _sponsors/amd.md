@@ -8,6 +8,7 @@ website: https://amd.com/
 domains:
 - amd.com
 leiCode: R2I72C950HOYXII45366
+wikidataId: Q128896
 cik: '2488'
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
@@ -21,5 +22,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for ADVANCED MICRO DEVICES, INC. (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q128896
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

@@ -8,6 +8,7 @@ website: https://cloudbees.com/
 domains:
 - cloudbees.com
 leiCode: 254900ARTOXNWMWV5M06
+wikidataId: Q16827155
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
   observed: '2026-11-01'
@@ -17,5 +18,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for CLOUDBEES, INC. (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q16827155
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

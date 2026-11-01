@@ -2,9 +2,9 @@
 # frozen_string_literal: true
 
 # SPDX-License-Identifier: Apache-2.0
-module Corporations
+module Sponsors
   DESCRIPTION = <<-HEREDOC
-  Corporations: Load _corporations records, resolve sponsor domains to them,
+  Sponsors: Load _sponsors records, resolve sponsor domains to them,
     and check that the records agree with the rest of the data.
     Run from the project root; --check exits non-zero on any problem.
     Plan: _prompts/2026-10-31-corporations-dataset-plan.md
@@ -16,8 +16,8 @@ module Corporations
   require 'date'
   require_relative 'sponsor_utils'
 
-  CORPORATIONS_DIR = '_corporations'
-  # Other collections whose identifiers share one namespace with corporations
+  SPONSORS_DIR = '_sponsors'
+  # Other collections whose identifiers share one namespace with sponsor records
   OTHER_ID_DIRS = %w[_foundations _entities].freeze
   ID_PATTERN = /\A[a-z0-9-]+\z/
 
@@ -36,34 +36,34 @@ module Corporations
     raise SponsorUtils::ParseError, "#{path}: invalid YAML: #{e.message}"
   end
 
-  # Load every corporation record
-  # @param dir pointing to _corporations
+  # Load every sponsor record
+  # @param dir pointing to _sponsors
   # @return hash of file id => record hash, sorted by id
-  def load_all(dir = CORPORATIONS_DIR)
-    corps = {}
+  def load_all(dir = SPONSORS_DIR)
+    records = {}
     Dir.glob(File.join(dir, '*.md')).sort.each do |file|
-      corps[File.basename(file, '.md')] = read_front_matter(file)
+      records[File.basename(file, '.md')] = read_front_matter(file)
     end
-    return corps
+    return records
   end
 
-  # Map each sponsor domain to the corporation that lists it
-  # @param corps hash from load_all
-  # @return hash of domain => corporation id (the first record wins if two list it)
-  def domain_index(corps)
+  # Map each sponsor domain to the sponsor record that lists it
+  # @param records hash from load_all
+  # @return hash of domain => sponsor id (the first record wins if two list it)
+  def domain_index(records)
     index = {}
-    corps.each do |id, rec|
+    records.each do |id, rec|
       Array(rec['domains']).each { |domain| index[domain.to_s.downcase] ||= id }
     end
     return index
   end
 
-  # Resolve a sponsor value from any sponsor dataset to a corporation id
+  # Resolve a sponsor value from any sponsor dataset to a sponsor id
   # The value is normalized the same way scrapers normalize sponsor links
   # (host_aliases.json, registrable domain) before the lookup
   # @param sponsor domain or URL as stored in sponsor data
   # @param index hash from domain_index
-  # @return corporation id, or nil if none lists it
+  # @return sponsor id, or nil if none lists it
   def resolve(sponsor, index)
     return index[sponsor.to_s.downcase] || index[SponsorUtils.normalize_href(sponsor).to_s.downcase]
   end
@@ -79,15 +79,15 @@ module Corporations
     return ids
   end
 
-  # Check corporation records against each other and the rest of the data
-  # (schema shape is checked against _data/corporations-schema.json separately)
-  # @param corps hash from load_all
+  # Check sponsor record against each other and the rest of the data
+  # (schema shape is checked against _data/sponsors-schema.json separately)
+  # @param records hash from load_all
   # @param taken hash from other_ids
   # @return array of problem strings; empty when all is well
-  def check(corps, taken = {})
+  def check(records, taken = {})
     problems = []
     owners = Hash.new { |h, k| h[k] = [] }
-    corps.each do |id, rec|
+    records.each do |id, rec|
       ident = rec['identifier'].to_s
       problems << "#{id}: identifier '#{ident}' does not match the file name" unless ident == id
       problems << "#{id}: identifier must use only lowercase letters, digits and hyphens" unless ID_PATTERN.match?(id)
@@ -103,12 +103,12 @@ module Corporations
       end
       Array(rec['parentOrganization']).each do |parent|
         pid = parent.is_a?(Hash) ? parent['identifier'] : parent
-        problems << "#{id}: parentOrganization #{pid} has no record in #{CORPORATIONS_DIR}" unless corps.key?(pid)
+        problems << "#{id}: parentOrganization #{pid} has no record in #{SPONSORS_DIR}" unless records.key?(pid)
         problems << "#{id}: parentOrganization cannot be itself" if pid == id
       end
     end
     owners.each do |domain, ids|
-      problems << "domain #{domain} is listed by more than one corporation: #{ids.join(', ')}" if ids.size > 1
+      problems << "domain #{domain} is listed by more than one sponsor: #{ids.join(', ')}" if ids.size > 1
     end
     return problems
   end
@@ -121,10 +121,10 @@ module Corporations
       opts.banner = "Usage: #{File.basename($PROGRAM_NAME)} [--check]\n#{DESCRIPTION}"
       opts.on('--check', 'Check all records (default action).')
     end.parse!
-    corps = load_all
-    problems = check(corps, other_ids)
+    records = load_all
+    problems = check(records, other_ids)
     problems.each { |p| warn p }
-    puts "#{corps.size} corporations, #{problems.size} problems"
+    puts "#{records.size} sponsors, #{problems.size} problems"
     exit(problems.empty? ? 0 : 1)
   end
 end

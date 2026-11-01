@@ -8,6 +8,7 @@ website: https://intel.com/
 domains:
 - intel.com
 leiCode: KNX4USFCNGPY45LOCE31
+wikidataId: Q248
 cik: '50863'
 opensourceurl: https://01.org/
 sources:
@@ -26,5 +27,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for INTEL CORPORATION (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q248
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

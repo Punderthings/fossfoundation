@@ -8,6 +8,7 @@ website: https://amazon.com/
 domains:
 - amazon.com
 leiCode: ZXTILKJKG63JELOEG630
+wikidataId: Q3884
 cik: '1018724'
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
@@ -21,5 +22,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for AMAZON.COM, INC. (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q3884
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

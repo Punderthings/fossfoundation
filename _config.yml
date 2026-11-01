@@ -53,7 +53,7 @@ collections:
     output: true
     sort_by: name
     permalink: /:collection/:path
-  corporations:
+  sponsors:
     output: true
     sort_by: name
     permalink: /:collection/:path
@@ -81,9 +81,9 @@ defaults:
       layout: entity
   - scope:
       path: ""
-      type: "corporations"
+      type: "sponsors"
     values:
-      layout: corporation
+      layout: sponsor
   - scope:
       path: ""
       type: "reports"

@@ -49,7 +49,7 @@ say in the PR which way you read it.
 | --- | --- | --- |
 | `_foundations/<id>.md` | One foundation per file: YAML front matter + one factual sentence. `<id>` is the foundation's identifier everywhere else. | hand |
 | `_sponsorships/<id>.md` | Sponsorship programs and their `sources:` | hand |
-| `_corporations/<id>.md` | Key sponsors of several foundations: domains (the join key to sponsor data) and lookup identifiers; CC0 | hand |
+| `_sponsors/<id>.md` | Key sponsors of several foundations: domains (the join key to sponsor data) and lookup identifiers; CC0 | hand |
 | `_entities/<id>.md` | Non-foundation entities: projects that are not legal corporations, often with a fiscal host (e.g. CNCF) | hand |
 | `_data/*-schema.json` | JSON Schemas for each dataset; field docs live here | hand, with approval |
 | `_data/foundation-template.md` | Template for new foundations | hand |
@@ -87,8 +87,8 @@ bundle install
 bundle exec ruby assets/ruby/test/money_filter_test.rb   # minitest, one file at a time
 bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
 bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
-bundle exec ruby assets/ruby/test/corporations_test.rb
-bundle exec ruby assets/ruby/corporations.rb --check   # after any change to _corporations/
+bundle exec ruby assets/ruby/test/sponsors_test.rb
+bundle exec ruby assets/ruby/sponsors.rb --check   # after any change to _sponsors/
 unset BUNDLE_GEMFILE
 
 # Ruby lint (config in assets/ruby/.rubocop.yml); lint only the files you changed

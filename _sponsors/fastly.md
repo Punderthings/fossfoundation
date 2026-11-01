@@ -8,6 +8,7 @@ website: https://fastly.com/
 domains:
 - fastly.com
 leiCode: 549300E2FZC83FJ3H565
+wikidataId: Q34045622
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
   observed: '2026-11-01'
@@ -17,5 +18,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for FASTLY, INC. (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q34045622
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

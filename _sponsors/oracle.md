@@ -8,6 +8,7 @@ website: https://oracle.com/
 domains:
 - oracle.com
 leiCode: 1Z4GXXU7ZHVWFCD8TV52
+wikidataId: Q19900
 cik: '1341439'
 sources:
 - url: https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships
@@ -21,5 +22,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for ORACLE CORPORATION (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q19900
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

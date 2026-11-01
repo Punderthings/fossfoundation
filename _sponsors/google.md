@@ -8,6 +8,7 @@ website: https://google.com/
 domains:
 - google.com
 leiCode: 7ZW8QJWVPR4P1J1KQY45
+wikidataId: Q95
 cik: '1652044'
 opensourceurl: https://opensource.google/
 sources:
@@ -26,5 +27,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for GOOGLE LLC (US-DE), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q95
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---

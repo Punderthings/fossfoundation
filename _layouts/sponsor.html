@@ -2,11 +2,11 @@
 layout: default
 ---
 {%- comment -%}
-  One record from _corporations; fields are documented in _data/corporations-schema.json.
-  Current sponsorships come from the corporations report in _data/sponsorships/org-funding.json.
+  One record from _sponsors; fields are documented in _data/sponsors-schema.json.
+  Current sponsorships come from the sponsorRecords report in _data/sponsorships/org-funding.json.
 {%- endcomment -%}
-{%- assign cp_report = site.data.sponsorships['org-funding'].corporations[page.identifier] -%}
-<article class="corporation_single" itemscope itemtype="https://schema.org/{{ page.entityType | default: 'Organization' }}">
+{%- assign cp_report = site.data.sponsorships['org-funding'].sponsorRecords[page.identifier] -%}
+<article class="sponsor_single" itemscope itemtype="https://schema.org/{{ page.entityType | default: 'Organization' }}">
   <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a>
     <span itemprop="name">{{ page.commonName }}</span>
   </h1>
@@ -16,8 +16,8 @@ layout: default
   <abbr title="Primary homepage.">Website</abbr>: <a itemprop="url" href="{{ page.website }}">{{ page.website }}</a><br/>
   <abbr title="Domains that sponsor lists use for this organization; they join it to all sponsor data.">Sponsor Domains</abbr>: {{ page.domains | join: ", " }}<br/>
   {% for parent in page.parentOrganization %}
-    {%- assign cp_parent = site.corporations | where: "identifier", parent.identifier | first -%}
-    <abbr title="Owner of this brand, when the owner also has a record here.">Parent Organization</abbr>: <a itemprop="parentOrganization" href="/corporations/{{ parent.identifier }}">{{ cp_parent.commonName | default: parent.identifier }}</a> from {{ parent.startDate }}{% if parent.endDate %} until {{ parent.endDate }}{% endif %} (<a href="{{ parent.source }}">source</a>)<br/>
+    {%- assign cp_parent = site.sponsors | where: "identifier", parent.identifier | first -%}
+    <abbr title="Owner of this brand, when the owner also has a record here.">Parent Organization</abbr>: <a itemprop="parentOrganization" href="/sponsors/{{ parent.identifier }}">{{ cp_parent.commonName | default: parent.identifier }}</a> from {{ parent.startDate }}{% if parent.endDate %} until {{ parent.endDate }}{% endif %} (<a href="{{ parent.source }}">source</a>)<br/>
   {% endfor %}
   {% if page.opensourceurl %}<abbr title="Main public open source page or OSPO site.">Open Source</abbr>: <a href="{{ page.opensourceurl }}">{{ page.opensourceurl }}</a><br/>{% endif %}
   {% if page.ospourl %}<abbr title="Open Source Program Office page.">OSPO</abbr>: <a href="{{ page.ospourl }}">{{ page.ospourl }}</a><br/>{% endif %}
@@ -55,6 +55,6 @@ layout: default
     <li><a href="{{ src.url }}">{{ src.url }}</a> ({{ src.observed }}): {{ src.detail }}</li>
     {%- endfor %}
   </ul>
-  <p class="fund-note">Last reviewed {{ page.lastReviewed }}{% if page.reviewedBy %} by {{ page.reviewedBy }}{% endif %}. Data is <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a>; see the <a href="/corporations">corporations dataset</a>.</p>
+  <p class="fund-note">Last reviewed {{ page.lastReviewed }}{% if page.reviewedBy %} by {{ page.reviewedBy }}{% endif %}. Data is <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a>; see the <a href="/sponsors">sponsors dataset</a>.</p>
   </section>
 </article>

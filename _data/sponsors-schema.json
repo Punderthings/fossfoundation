@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/corporations-schema.json",
-  "$comment": "Each record is a Schema.org Organization (https://schema.org/Organization), usually a Corporation. Plan and decisions: _prompts/2026-10-31-corporations-dataset-plan.md. Documented at https://fossfoundation.info/corporations",
-  "title": "Corporations Schema",
+  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsors-schema.json",
+  "$comment": "Each record is a Schema.org Organization (https://schema.org/Organization), usually a Corporation. Plan and decisions: _prompts/2026-10-31-corporations-dataset-plan.md. Documented at https://fossfoundation.info/sponsors",
+  "title": "Sponsors Schema",
   "description": "Key sponsors that fund several FOSS foundations. Records hold our identifier, the domains that join them to sponsor data, and lookup identifiers for authoritative sources; facts that GLEIF, SEC EDGAR or Wikidata maintain are left to them.",
   "type": "object",
   "required": ["identifier", "commonName", "entityType", "website", "domains", "sources", "lastReviewed"],
@@ -10,7 +10,7 @@
   "properties": {
     "identifier": {
       "title": "Identifier",
-      "description": "Our stable id for this organization, also the file name. Unique across _foundations, _entities and _corporations, and never renamed or reused.",
+      "description": "Our stable id for this organization, also the file name. Unique across _foundations, _entities and _sponsors, and never renamed or reused.",
       "$comment": "Schema.org identifier: https://schema.org/identifier",
       "type": "string",
       "pattern": "^[a-z0-9-]+$"
@@ -94,7 +94,7 @@
         "required": ["identifier", "startDate", "source"],
         "additionalProperties": false,
         "properties": {
-          "identifier": { "description": "Identifier of the parent's record in _corporations.", "type": "string" },
+          "identifier": { "description": "Identifier of the parent's record in _sponsors.", "type": "string" },
           "startDate": { "description": "Date ownership began (acquisition closed).", "$comment": "Schema.org startDate: https://schema.org/startDate", "type": "string", "format": "date" },
           "endDate": { "description": "Date ownership ended, if it has.", "$comment": "Schema.org endDate: https://schema.org/endDate", "type": "string", "format": "date" },
           "source": { "description": "Where the ownership and dates can be checked, preferably the parent's own announcement or an SEC filing.", "type": "string", "format": "uri" }

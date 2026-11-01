@@ -8,6 +8,7 @@ website: https://microsoft.com/
 domains:
 - microsoft.com
 leiCode: INR2EJN1ERAN0W5ZP974
+wikidataId: Q2283
 cik: '789019'
 opensourceurl: https://cloudblogs.microsoft.com/opensource
 sources:
@@ -26,5 +27,8 @@ sources:
   observed: '2026-11-01'
   detail: GLEIF LEI record for MICROSOFT CORPORATION (US-WA), the operating entity behind the brand (leiCode,
     legalName).
+- url: https://www.wikidata.org/wiki/Q2283
+  observed: '2026-11-01'
+  detail: Wikidata item for this organization, validated directly by maintainer Shane Curcuru (wikidataId).
 lastReviewed: '2026-11-01'
 ---
