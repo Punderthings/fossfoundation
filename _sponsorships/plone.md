@@ -9,7 +9,7 @@ normalize: 'true'
 levels:
   first:
     name: Premium
-    amount: '7500'
+    value: '7500'
     amountvaries: amount varies by employee size
     selector: div#page-document div.sponsorCardListing:nth-of-type(1) a
     attr: href
@@ -23,7 +23,7 @@ levels:
     - starzel.de
   second:
     name: Standard
-    amount: '2500'
+    value: '2500'
     amountvaries: amount varies by employee size
     selector: div#page-document div.sponsorCardListing:nth-of-type(2) div.sponsor-card
       a

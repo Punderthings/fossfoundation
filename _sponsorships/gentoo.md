@@ -27,7 +27,7 @@ comment: 'Note: Gentoo doesn''t list specific level amounts, so cash value is es
 levels:
   firstinkind:
     name: Premium
-    amount: '5000'
+    value: '5000'
     benefits:
       logo: 'yes'
     sponsors:
@@ -47,7 +47,7 @@ levels:
     - eng.mephi.ru
   secondinkind:
     name: Specific Donations
-    amount: '1000'
+    value: '1000'
     benefits:
       logo: 'yes'
     sponsors:

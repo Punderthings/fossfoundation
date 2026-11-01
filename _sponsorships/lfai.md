@@ -19,7 +19,7 @@ sources:
 levels:
   first:
     name: Premier
-    amount: '120000'
+    value: '120000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -28,7 +28,7 @@ levels:
       marketing: press release
   second:
     name: General
-    amount: '45000'
+    value: '45000'
     amountvaries: sliding scale by number employees
     selector: ''
     attr: homepage_url
@@ -39,7 +39,7 @@ levels:
       logo: 'yes'
   third:
     name: Associate
-    amount: '0'
+    value: '0'
     selector: ''
     attr: homepage_url
     benefits:

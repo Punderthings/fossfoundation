@@ -132,7 +132,7 @@
     },
     "pastModels": {
       "title": "Past Sponsorship Models",
-      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or amount. A level set to null did not exist then.",
+      "description": "Earlier models, each listing only what differed from the current model from its effectiveDate until the next model: top-level fields like levelurl, and per-level fields like name or value. A level set to null did not exist then.",
       "type": "array",
       "items": {
         "type": "object",

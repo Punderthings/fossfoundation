@@ -14,21 +14,21 @@ normalize: 'true'
 levels:
   first:
     name: monad
-    amount: '70000'
+    value: '70000'
     selector: a.w-48
     attr: href
     benefits:
       marketing: full interview on blog
   second:
     name: applicative
-    amount: '25000'
+    value: '25000'
     selector: a.w-36
     attr: href
     benefits:
       marketing: supporter spotlight on website and newsletter
   third:
     name: functor
-    amount: '10000'
+    value: '10000'
     selector: a.w-24
     attr: href
     benefits:

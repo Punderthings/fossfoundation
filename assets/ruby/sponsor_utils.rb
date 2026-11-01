@@ -675,7 +675,7 @@ module SponsorUtils
   # The model's own fields and levels are current from its effectiveDate.  Each
   # pastModels entry has an effectiveDate and lists only what differed from the
   # current model during its period: top-level fields (like levelurl) and per-level
-  # fields (like name or amount).  A level set to null did not exist then.
+  # fields (like name or value).  A level set to null did not exist then.
   # @param sponsorship model hash from get_sponsorship_file
   # @param date anything date_key accepts; nil means the current model
   # @return model hash without pastModels; dates before the earliest known model get the earliest

@@ -9,7 +9,7 @@ sponsorselector: ".org-link a"
 levels:
   first:
     name: enterprise
-    amount: '25000'
+    value: '25000'
     selector: ".sponsors--signature a"
     attr: href
     benefits:
@@ -20,7 +20,7 @@ levels:
       logo: yes, premium spot in conferences
   second:
     name: signature
-    amount: '15000'
+    value: '15000'
     selector: ".view-display-id-attachment_6 a"
     attr: href
     benefits:
@@ -31,7 +31,7 @@ levels:
       logo: yes, premium spot in conferences
   third:
     name: premium
-    amount: '7500'
+    value: '7500'
     selector: ".view-display-id-attachment_3 a"
     attr: href
     benefits:
@@ -42,7 +42,7 @@ levels:
       logo: yes, premium spot in conferences
   fourth:
     name: classic
-    amount: '2500'
+    value: '2500'
     selector: ".view-display-id-attachment_1 a"
     attr: href
     benefits:
@@ -52,7 +52,7 @@ levels:
       logo: 'yes'
   community:
     name: community
-    amount: '1000'
+    value: '1000'
     selector: ".view-display-id-attachment_9 a"
     attr: href
     benefits:

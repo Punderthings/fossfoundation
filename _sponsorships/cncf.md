@@ -40,7 +40,7 @@ sources:
 levels:
   first:
     name: Platinum
-    amount: '370000'
+    value: '370000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -52,7 +52,7 @@ levels:
       logo: 'Featured prominently, (note: this level requires 3 year commitment)y'
   second:
     name: Gold
-    amount: '120000'
+    value: '120000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -64,7 +64,7 @@ levels:
       logo: ''
   third:
     name: Silver
-    amount: '50000'
+    value: '50000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -76,7 +76,7 @@ levels:
       logo: ''
   academic:
     name: Academic
-    amount: '1000'
+    value: '1000'
     selector: ''
     attr: homepage_url
     benefits:
@@ -88,7 +88,7 @@ levels:
       logo: Logo display included
   community:
     name: Nonprofit
-    amount: '1000'
+    value: '1000'
     selector: ''
     attr: homepage_url
   enduser:
@@ -96,7 +96,7 @@ levels:
     match:
       - End User Supporter
       - End User Supporter and Contributor
-    amount: '0'
+    value: '0'
     selector: ''
     attr: ''
 ---

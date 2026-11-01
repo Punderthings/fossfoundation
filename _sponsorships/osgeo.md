@@ -31,7 +31,7 @@ normalize: 'true'
 levels:
   first:
     name: diamond
-    amount: '30000'
+    value: '30000'
     selector: ".Diamond-sponsors a"
     attr: href
     benefits:
@@ -40,7 +40,7 @@ levels:
       logo: logo in site footer and About OSGeo page
   second:
     name: platinum
-    amount: '20000'
+    value: '20000'
     selector: ".Platinum-sponsors a"
     attr: href
     benefits:
@@ -49,7 +49,7 @@ levels:
       logo: logo in site footer and About OSGeo page
   third:
     name: gold
-    amount: '10000'
+    value: '10000'
     selector: ".Gold-sponsors  a"
     attr: href
     benefits:
@@ -58,7 +58,7 @@ levels:
       logo: logo in site footer
   fourth:
     name: silver
-    amount: '3000'
+    value: '3000'
     selector: ".Silver-sponsors  a"
     attr: href
     benefits:
@@ -67,7 +67,7 @@ levels:
       logo: logo in site footer
   fifth:
     name: bronze
-    amount: '500'
+    value: '500'
     selector: ".Bronze-sponsors a"
     attr: href
     benefits:

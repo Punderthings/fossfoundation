@@ -41,12 +41,13 @@ Sponsorships are dated, to enable future review of sponsorships over time via us
 - *sponsormap:* If present, load a mapping of detected URL hrefs to sponsor hostnames; this simplifies some more complex scraping tooling.
 - *normalize:* If tooling should normalize URLs to bare hostnames (to more simply map to common commercial companies).
 - *effectiveDate:* Date (YYYYMMDD) the current *levels* took effect; required when *pastModels* is present.
-- *pastModels:* Optional list of earlier models, each with its own *effectiveDate* and only what differed from the current model in that period: top-level fields like *levelurl*, and per-level fields like *name* or *amount* (a level set to `null` did not exist then). Reports price each sponsor list with the model in effect on its *parseDate*.
+- *pastModels:* Optional list of earlier models, each with its own *effectiveDate* and only what differed from the current model in that period: top-level fields like *levelurl*, and per-level fields like *name* or *value* (a level set to `null` did not exist then). Reports price each sponsor list with the model in effect on its *parseDate*.
 - *levels:* Is a hash listing of all meta levels the current entity advertises.
   - *first:* First is the meta level we map this to.
   - *name:* Name of the level the entity uses.
-  - *amount:* USD cash amount the entity notes for a typical sponsorship.
-  - *amountvaries:* If present, describe how the sponsorship cash amount varies; we list the highest part of the range in *amount* above.
+  - *value:* Cash amount the entity notes for a typical sponsorship ([Schema.org MonetaryAmount `value`](https://schema.org/value)).
+  - *currency:* Currency of *value*, as an ISO 4217 code; default USD ([Schema.org MonetaryAmount `currency`](https://schema.org/currency)).
+  - *amountvaries:* If present, describe how the sponsorship cash amount varies; we list the highest part of the range in *value* above.
   - *selector:* CSS selector to find a nodelist of elements that are sponsor listings.
   - *attr:* Attribute to copy from the selector's nodelist.
   - **benefits:** A rough guide to the kinds of benefits the entity provides at this sponsorship level.  Higher levels assume all benefits from lower levels unless noted otherwise.

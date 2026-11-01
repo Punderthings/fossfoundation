@@ -555,45 +555,45 @@ class SponsorUtilsTest < Minitest::Test
     'levelurl' => 'https://example.org/2026',
     'effectiveDate' => '20260101',
     'levels' => {
-      'first' => { 'name' => 'Gold', 'amount' => '18000', 'benefits' => { 'logo' => 'yes' } },
-      'second' => { 'name' => 'Silver', 'amount' => '3600' },
-      'third' => { 'name' => 'Bronze', 'amount' => '720' }
+      'first' => { 'name' => 'Gold', 'value' => '18000', 'benefits' => { 'logo' => 'yes' } },
+      'second' => { 'name' => 'Silver', 'value' => '3600' },
+      'third' => { 'name' => 'Bronze', 'value' => '720' }
     },
     'pastModels' => [
       { 'effectiveDate' => 20200101, 'levelurl' => 'https://example.org/2020',
-        'levels' => { 'first' => { 'amount' => '10000' }, 'third' => nil } },
+        'levels' => { 'first' => { 'value' => '10000' }, 'third' => nil } },
       { 'effectiveDate' => Date.new(2023, 7, 1),
-        'levels' => { 'first' => { 'name' => 'Golden', 'amount' => '12000' }, 'fourth' => { 'name' => 'Tin', 'amount' => '50' } } }
+        'levels' => { 'first' => { 'name' => 'Golden', 'value' => '12000' }, 'fourth' => { 'name' => 'Tin', 'value' => '50' } } }
     ]
   }.freeze
 
   def test_model_at_current_and_past
     current = SponsorUtils.model_at(DATED_MODEL)
     refute current.key?('pastModels')
-    assert_equal '18000', current['levels']['first']['amount']
+    assert_equal '18000', current['levels']['first']['value']
     assert_equal current, SponsorUtils.model_at(DATED_MODEL, '20260101')
     assert_equal current, SponsorUtils.model_at(DATED_MODEL, '20991231')
 
     mid = SponsorUtils.model_at(DATED_MODEL, '2024-09-26')
     assert_equal '20230701', mid['effectiveDate']
-    assert_equal({ 'name' => 'Golden', 'amount' => '12000', 'benefits' => { 'logo' => 'yes' } }, mid['levels']['first'])
-    assert_equal({ 'name' => 'Tin', 'amount' => '50' }, mid['levels']['fourth'])
-    assert_equal '720', mid['levels']['third']['amount'], 'entries differ from the current model, not from each other'
+    assert_equal({ 'name' => 'Golden', 'value' => '12000', 'benefits' => { 'logo' => 'yes' } }, mid['levels']['first'])
+    assert_equal({ 'name' => 'Tin', 'value' => '50' }, mid['levels']['fourth'])
+    assert_equal '720', mid['levels']['third']['value'], 'entries differ from the current model, not from each other'
     assert_equal 'https://example.org/2026', mid['levelurl']
 
     old = SponsorUtils.model_at(DATED_MODEL, 20210615)
     assert_equal '20200101', old['effectiveDate']
-    assert_equal({ 'name' => 'Gold', 'amount' => '10000', 'benefits' => { 'logo' => 'yes' } }, old['levels']['first'])
+    assert_equal({ 'name' => 'Gold', 'value' => '10000', 'benefits' => { 'logo' => 'yes' } }, old['levels']['first'])
     refute old['levels'].key?('third'), 'null removes a level that did not exist then'
     assert_equal 'https://example.org/2020', old['levelurl']
     assert_equal old, SponsorUtils.model_at(DATED_MODEL, '19990101'), 'before the earliest model uses the earliest'
 
-    assert_equal '18000', DATED_MODEL['levels']['first']['amount'], 'input model is not modified'
+    assert_equal '18000', DATED_MODEL['levels']['first']['value'], 'input model is not modified'
   end
 
   def test_model_at_without_past_models
-    model = { 'levels' => { 'first' => { 'amount' => '1' } }, 'pastModels' => [] }
-    assert_equal({ 'levels' => { 'first' => { 'amount' => '1' } } }, SponsorUtils.model_at(model, '20000101'))
+    model = { 'levels' => { 'first' => { 'value' => '1' } }, 'pastModels' => [] }
+    assert_equal({ 'levels' => { 'first' => { 'value' => '1' } } }, SponsorUtils.model_at(model, '20000101'))
     assert_equal({ 'levels' => {} }, SponsorUtils.model_at({ 'levels' => {} }, '20000101'))
   end
 
@@ -614,11 +614,11 @@ class SponsorUtilsTest < Minitest::Test
 
   def test_get_sponsorship_file_accepts_dated_models
     in_tmp_project do
-      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '18000'\n" \
-                          "pastModels:\n  - effectiveDate: 2019-01-01\n    levels:\n      first:\n        amount: '12000'\n")
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    value: '18000'\n" \
+                          "pastModels:\n  - effectiveDate: 2019-01-01\n    levels:\n      first:\n        value: '12000'\n")
       model = SponsorUtils.get_sponsorship_file('demo')
-      assert_equal '12000', SponsorUtils.model_at(model, '20240926')['levels']['first']['amount']
-      assert_equal '18000', SponsorUtils.model_at(model)['levels']['first']['amount']
+      assert_equal '12000', SponsorUtils.model_at(model, '20240926')['levels']['first']['value']
+      assert_equal '18000', SponsorUtils.model_at(model)['levels']['first']['value']
     end
   end
 
@@ -807,8 +807,8 @@ class SponsorUtilsTest < Minitest::Test
       commit_file("#{out}/demo.json", JSON.generate('first' => [], 'parseDate' => '20240926'), 'empty scrape')
       commit_file("#{out}/demo.json", JSON.generate('first' => %w[a.com b.com], 'parseDate' => '20250911'), 'v2')
       File.write("#{out}/demo.json", JSON.generate('first' => %w[b.com a.com], 'parseDate' => '20250911', 'lastChecked' => '20261001'))
-      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '1'\n" \
-                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        amount: '2'\n")
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    value: '1'\n" \
+                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        value: '2'\n")
 
       out_text, = capture_io { assert_equal 0, SponsorUtils.main(%w[--backfill-git --one demo]) }
       assert_match(/Backfilled 1/, out_text)
@@ -894,7 +894,7 @@ class SponsorReportsTest < Minitest::Test
 
   def test_report_funding_discounts_inkind_once_per_sponsor
     in_tmp_project do
-      write_model('demo', "identifier: demo\nlevels:\n  first:\n    amount: '1000'\n  firstinkind:\n    amount: '100'\n  odd: {}\n")
+      write_model('demo', "identifier: demo\nlevels:\n  first:\n    value: '1000'\n  firstinkind:\n    value: '100'\n  odd: {}\n")
       sponsors = { 'demo' => { 'first' => ['a.com'], 'firstinkind' => %w[a.com b.com c.com], 'unknown' => ['d.com'], 'parseDate' => '20240101' } }
       report = SponsorReports.report_funding(sponsors)
       assert_equal({ 'first' => 1000, 'firstinkind' => 300, 'unknown' => 0, 'total' => 1300 }, report['orgs']['demo'])
@@ -904,8 +904,8 @@ class SponsorReportsTest < Minitest::Test
 
   def test_report_funding_uses_amounts_in_effect_at_parse_date
     in_tmp_project do
-      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '18000'\n" \
-                          "pastModels:\n  - effectiveDate: '20190101'\n    levels:\n      first:\n        amount: '12000'\n")
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    value: '18000'\n" \
+                          "pastModels:\n  - effectiveDate: '20190101'\n    levels:\n      first:\n        value: '12000'\n")
       old_list = { 'demo' => { 'first' => %w[a.com b.com], 'parseDate' => '20240926' } }
       new_list = { 'demo' => { 'first' => %w[a.com b.com], 'parseDate' => 20250315 } }
       assert_equal 24_000, SponsorReports.report_funding(old_list)['orgs']['demo']['total']
@@ -919,8 +919,8 @@ class SponsorReportsTest < Minitest::Test
 
   def test_report_history_summary
     in_tmp_project do
-      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    amount: '100'\n  second:\n    amount: '10'\n" \
-                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        amount: '50'\n")
+      write_model('demo', "identifier: demo\neffectiveDate: '20250101'\nlevels:\n  first:\n    value: '100'\n  second:\n    value: '10'\n" \
+                          "pastModels:\n  - effectiveDate: '20200101'\n    levels:\n      first:\n        value: '50'\n")
       hist = SponsorUtils.build_history('demo', [
         [{ 'parseDate' => '20240101', 'lastChecked' => '20240301' }, { 'first' => %w[a.com b.com] }],
         [{ 'parseDate' => '20250601', 'lastChecked' => '20250601' }, { 'first' => %w[a.com], 'second' => %w[c.com d.com] }]
@@ -938,9 +938,9 @@ class SponsorReportsTest < Minitest::Test
 
   def test_report_income_mid_year_snapshot
     in_tmp_project do
-      write_model('demo', "identifier: demo\neffectiveDate: '20220101'\nlevels:\n  first:\n    amount: '100'\n  second:\n    amount: '10'\n" \
-                          "pastModels:\n  - effectiveDate: '20180101'\n    levels:\n      first:\n        amount: '50'\n")
-      write_model('stale', "identifier: stale\nlevels:\n  first:\n    amount: '1'\n")
+      write_model('demo', "identifier: demo\neffectiveDate: '20220101'\nlevels:\n  first:\n    value: '100'\n  second:\n    value: '10'\n" \
+                          "pastModels:\n  - effectiveDate: '20180101'\n    levels:\n      first:\n        value: '50'\n")
+      write_model('stale', "identifier: stale\nlevels:\n  first:\n    value: '1'\n")
       hist = SponsorUtils.build_history('demo', [
         [{ 'parseDate' => '20190301', 'lastChecked' => '20200815' }, { 'first' => %w[a.com b.com] }],   # covers Jul 2019, Jul 2020
         [{ 'parseDate' => '20200901', 'lastChecked' => '20200901' }, { 'first' => %w[a.com] }],         # confirmed 10 months before Jul 2021
@@ -949,7 +949,7 @@ class SponsorReportsTest < Minitest::Test
       SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'demo.json'), hist)
       SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'listed.json'),
                                  SponsorUtils.build_history('listed', [[{ 'parseDate' => '20240101', 'lastChecked' => '20240801' }, { 'listed' => %w[x.com y.com] }]]))
-      write_model('listed', "identifier: listed\nlevels:\n  first:\n    amount: '5'\n")
+      write_model('listed', "identifier: listed\nlevels:\n  first:\n    value: '5'\n")
       SponsorUtils.write_history(File.join(SponsorUtils::DEFAULT_HISTORY_DIR, 'stale.json'),
                                  SponsorUtils.build_history('stale', [[{ 'parseDate' => '20150101', 'lastChecked' => '20150101' }, { 'first' => %w[x.com] }]]))
       income = SponsorReports.report_income(SponsorUtils::DEFAULT_HISTORY_DIR, { 'demo' => { 'lastChecked' => '20250701' } }, today: Date.new(2025, 8, 1))

@@ -10,7 +10,7 @@ comment: Currently only counts top-line, not per-project sponsors
 levels:
   first:
     name: Anchor
-    amount: '100000'
+    value: '100000'
     selector: ''
     attr: href
     benefits:
@@ -21,7 +21,7 @@ levels:
     - google.com
   second:
     name: Innovator
-    amount: '70000'
+    value: '70000'
     selector: ''
     attr: href
     benefits:
@@ -32,7 +32,7 @@ levels:
     - amazon.com
   third:
     name: Premier
-    amount: '30000'
+    value: '30000'
     selector: ''
     attr: href
     benefits:
@@ -49,7 +49,7 @@ levels:
     - redhat.com
   fourth:
     name: Maintainer
-    amount: '10000'
+    value: '10000'
     selector: ''
     attr: href
     benefits:
@@ -63,7 +63,7 @@ levels:
     - tidelift.com
   fifth:
     name: Supporter
-    amount: '5000'
+    value: '5000'
     selector: ''
     attr: href
     benefits:

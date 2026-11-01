@@ -10,7 +10,7 @@ comment: 'Note: Gnome doesn''t list specific level amounts, so cash value is est
 levels:
   first:
     name: Advisory
-    amount: '20000'
+    value: '20000'
     benefits:
       advisory: seat on advisory (non-governance) board for corporate sponsors
       logo: 'yes'
@@ -21,7 +21,7 @@ levels:
     - system76.com
   second:
     name: Nonprofit
-    amount: '0'
+    value: '0'
     benefits:
       advisory: seat on advisory (non-governance) board for nonprofit sponsors
       logo: 'yes'

@@ -10,42 +10,42 @@ comment: Raspberry Pi includes UK charity, US c3, and a subsidiary corp; but cou
 levels:
   first:
     name: First
-    amount: '1000000'
+    value: '1000000'
     selector: div.o-container ul:nth-of-type(1) a
     attr: href
     benefits:
       advisory: No specific benefits; levels are in pounds not USD!
   second:
     name: Second
-    amount: '500000'
+    value: '500000'
     selector: div.o-container ul:nth-of-type(2) a
     attr: href
     benefits:
       logo: 'no'
   third:
     name: Third
-    amount: '250000'
+    value: '250000'
     selector: div.o-container ul:nth-of-type(3) a
     attr: href
     benefits:
       logo: 'no'
   fourth:
     name: Fourth
-    amount: '100000'
+    value: '100000'
     selector: div.o-container ul:nth-of-type(4) a
     attr: href
     benefits:
       logo: 'no'
   fifth:
     name: Fifth
-    amount: '50000'
+    value: '50000'
     selector: div.o-container ul:nth-of-type(5) a
     attr: href
     benefits:
       logo: 'no'
   sixth:
     name: Sixth
-    amount: '30000'
+    value: '30000'
     selector: div.o-container ul:nth-of-type(6) a
     attr: href
     benefits:

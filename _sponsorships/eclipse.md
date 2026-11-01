@@ -22,9 +22,9 @@ sources:
 levels:
   first:
     name: Strategic
-    amount: '300000'
-    amountCurrency: EUR
-    amountVaries: sliding scale by corporate revenues
+    value: '300000'
+    currency: EUR
+    amountvaries: sliding scale by corporate revenues
     match: Strategic Member
     benefits:
       governance: board seat
@@ -35,9 +35,9 @@ levels:
       logo: yes, premium spot in conferences
   second:
     name: Contributing
-    amount: '25000'
-    amountCurrency: EUR
-    amountVaries: sliding scale by corporate revenues
+    value: '25000'
+    currency: EUR
+    amountvaries: sliding scale by corporate revenues
     match: Contributing Member
     benefits:
       governance: can vote in board elections
@@ -47,9 +47,9 @@ levels:
       logo: yes
   third:
     name: Associate
-    amount: '25000'
-    amountCurrency: EUR
-    amountVaries: sliding scale by corporate revenues; 0 for nonprofits
+    value: '25000'
+    currency: EUR
+    amountvaries: sliding scale by corporate revenues; 0 for nonprofits
     match: Associate Member
     benefits:
       advisory: can join working groups as guest

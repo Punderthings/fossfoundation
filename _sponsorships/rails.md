@@ -7,7 +7,7 @@ levelurl: https://rubyonrails.org/foundation
 levels:
   first:
     name: Core
-    amount: '50000'
+    value: '50000'
     benefits:
       marketing: board seat
       logo: 'yes'
@@ -22,7 +22,7 @@ levels:
     - 37signals.com
   second:
     name: Contributing
-    amount: '25000'
+    value: '25000'
     benefits:
       logo: 'yes'
     sponsors:

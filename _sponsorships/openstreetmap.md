@@ -55,8 +55,8 @@ normalize: 'true'
 levels:
   first:
     name: Platinum
-    amount: '30000'
-    amountCurrency: EUR
+    value: '30000'
+    currency: EUR
     selector: "div.mw-heading:has(h2#Platinum_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
@@ -65,8 +65,8 @@ levels:
       logo: featured
   second:
     name: Gold
-    amount: '15000'
-    amountCurrency: EUR
+    value: '15000'
+    currency: EUR
     selector: "div.mw-heading:has(h2#Gold_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
@@ -75,8 +75,8 @@ levels:
       logo: yes
   third:
     name: Silver
-    amount: '6000'
-    amountCurrency: EUR
+    value: '6000'
+    currency: EUR
     selector: "div.mw-heading:has(h2#Silver_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
@@ -85,8 +85,8 @@ levels:
       logo: yes
   fourth:
     name: Bronze
-    amount: '2250'
-    amountCurrency: EUR
+    value: '2250'
+    currency: EUR
     selector: "div.mw-heading:has(h2#Bronze_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:
@@ -94,8 +94,8 @@ levels:
       logo: yes
   fifth:
     name: Supporter
-    amount: '750'
-    amountCurrency: EUR
+    value: '750'
+    currency: EUR
     selector: "div.mw-heading:has(h2#Supporter_Corporate_Members) + table a[href^='http']"
     attr: href
     benefits:

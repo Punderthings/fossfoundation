@@ -16,7 +16,7 @@ normalize: 'true'
 levels:
   first:
     name: platinum
-    amount: '125000'
+    value: '125000'
     selector: "#platinum a"
     attr: href
     benefits:
@@ -24,7 +24,7 @@ levels:
       logo: yes in two column row
   second:
     name: gold
-    amount: '50000'
+    value: '50000'
     selector: "#gold a"
     attr: href
     benefits:
@@ -33,7 +33,7 @@ levels:
       logo: yes in three column row
   third:
     name: silver
-    amount: '25000'
+    value: '25000'
     selector: "#silver a"
     attr: href
     benefits:
@@ -42,7 +42,7 @@ levels:
       logo: yes in four column row
   fourth:
     name: bronze
-    amount: '6000'
+    value: '6000'
     selector: "#bronze a"
     attr: href
     benefits:
@@ -50,7 +50,7 @@ levels:
       logo: text mention only
   firstinkind:
     name: targeted platinum
-    amount: '125000'
+    value: '125000'
     selector: "#targetedplatinum a"
     attr: href
     benefits:
@@ -58,7 +58,7 @@ levels:
       logo: 'yes'
   secondinkind:
     name: targeted gold
-    amount: '50000'
+    value: '50000'
     selector: "#targetedgold a"
     attr: href
     benefits:
@@ -67,7 +67,7 @@ levels:
       logo: 'yes'
   thirdinkind:
     name: targeted silver
-    amount: '25000'
+    value: '25000'
     selector: "#targetedsilver a"
     attr: href
     benefits:
@@ -76,7 +76,7 @@ levels:
       logo: 'yes'
   fourthinkind:
     name: targeted bronze
-    amount: '6000'
+    value: '6000'
     selector: "#targetedbronze a"
     attr: href
     benefits:
