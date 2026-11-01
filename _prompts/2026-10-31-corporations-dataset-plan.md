@@ -3,7 +3,7 @@
 
 2026-10-31 · Shane Curcuru, with Claude
 
-Status: decided (open questions answered 2026-10-31; see Decisions)
+Status: decided; steps 0 (#83) and 1–4 implemented (#84); step 5 (exports) not started
 
 ## Prompt
 
@@ -353,3 +353,17 @@ Answered by Shane Curcuru on 2026-10-31 in PR #82 (inline **SC:** notes above).
 6. Make the existing-schema changes in a separate PR first, then PR(s) for this
    dataset.
 7. Leave OSGeo's `sponsorList` alone; other foundation data is later work.
+
+## Implementation notes
+
+2026-11-01, PR #84 (steps 1–4), as asked by Shane: "Implement the plan for the corporations
+dataset. Start your OSPO research with the TODO group listing".
+
+- 36 records: every sponsor domain in current sponsor lists of 3+ distinct legal entities.
+- `opensourceurl` comes from the [TODO Group OSPO Landscape](https://github.com/todogroup/ospolandscape)
+  (Apache-2.0) at commit `2cb0f82`; entries whose URL was unclear (Huawei, Arm, Capital One,
+  AMD Xilinx) were left out.
+- `cik` comes from the SEC's `company_tickers.json`; `wikidataId`, `leiCode` and `legalName`
+  are not filled yet because the build sandbox could not reach Wikidata or GLEIF.
+- The `corporations` report section lives in `org-funding.json` (N2); history rollups by
+  `parentOrganization` and the exports (step 5) are follow-ups.
