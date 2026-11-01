@@ -53,6 +53,10 @@ collections:
     output: true
     sort_by: name
     permalink: /:collection/:path
+  corporations:
+    output: true
+    sort_by: name
+    permalink: /:collection/:path
   reports:
     output: true
     sort_by: name
@@ -75,6 +79,11 @@ defaults:
       type: "entities"
     values:
       layout: entity
+  - scope:
+      path: ""
+      type: "corporations"
+    values:
+      layout: corporation
   - scope:
       path: ""
       type: "reports"

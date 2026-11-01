@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{%- comment -%}
+  One record from _corporations; fields are documented in _data/corporations-schema.json.
+  Current sponsorships come from the corporations report in _data/sponsorships/org-funding.json.
+{%- endcomment -%}
+{%- assign cp_report = site.data.sponsorships['org-funding'].corporations[page.identifier] -%}
+<article class="corporation_single" itemscope itemtype="https://schema.org/{{ page.entityType | default: 'Organization' }}">
+  <h1 id="name"><a href="#name" class="anchor-heading" aria-labelledby="name"></a>
+    <span itemprop="name">{{ page.commonName }}</span>
+  </h1>
+
+  {% if page.legalName %}<abbr title="Exact legal name of the operating entity behind the brand.">Legal Name</abbr>: <span itemprop="legalName">{{ page.legalName }}</span><br/>{% endif %}
+  <abbr title="Kind of legal entity, as a Schema.org type.">Entity Type</abbr>: {{ page.entityType }}<br/>
+  <abbr title="Primary homepage.">Website</abbr>: <a itemprop="url" href="{{ page.website }}">{{ page.website }}</a><br/>
+  <abbr title="Domains that sponsor lists use for this organization; they join it to all sponsor data.">Sponsor Domains</abbr>: {{ page.domains | join: ", " }}<br/>
+  {% for parent in page.parentOrganization %}
+    {%- assign cp_parent = site.corporations | where: "identifier", parent.identifier | first -%}
+    <abbr title="Owner of this brand, when the owner also has a record here.">Parent Organization</abbr>: <a itemprop="parentOrganization" href="/corporations/{{ parent.identifier }}">{{ cp_parent.commonName | default: parent.identifier }}</a> from {{ parent.startDate }}{% if parent.endDate %} until {{ parent.endDate }}{% endif %} (<a href="{{ parent.source }}">source</a>)<br/>
+  {% endfor %}
+  {% if page.opensourceurl %}<abbr title="Main public open source page or OSPO site.">Open Source</abbr>: <a href="{{ page.opensourceurl }}">{{ page.opensourceurl }}</a><br/>{% endif %}
+  {% if page.ospourl %}<abbr title="Open Source Program Office page.">OSPO</abbr>: <a href="{{ page.ospourl }}">{{ page.ospourl }}</a><br/>{% endif %}
+  {% if page.policyurl %}<abbr title="Published open source contribution or usage policy.">Open Source Policy</abbr>: <a itemprop="publishingPrinciples" href="{{ page.policyurl }}">{{ page.policyurl }}</a><br/>{% endif %}
+  {% if page.leadershipurl %}<abbr title="The organization's own page listing its executives or board.">Leadership</abbr>: <a href="{{ page.leadershipurl }}">{{ page.leadershipurl }}</a><br/>{% endif %}
+
+  <section id="lookups-section">
+  <h2 id="lookups">Lookups</h2>
+  <p>Follow these identifiers for corporate structure, filings, and leadership from the authoritative sources.</p>
+  {% if page.wikidataId %}<abbr title="Wikidata item, which links most other identifiers.">Wikidata</abbr>: <a itemprop="sameAs" href="https://www.wikidata.org/wiki/{{ page.wikidataId }}">{{ page.wikidataId }}</a><br/>{% endif %}
+  {% if page.leiCode %}<abbr title="GLEIF Legal Entity Identifier (ISO 17442).">LEI</abbr>: <a href="https://search.gleif.org/#/record/{{ page.leiCode }}"><span itemprop="leiCode">{{ page.leiCode }}</span></a><br/>{% endif %}
+  {% if page.cik %}<abbr title="SEC EDGAR Central Index Key of the registrant whose filings cover this brand.">SEC CIK</abbr>: <a href="https://www.sec.gov/edgar/browse/?CIK={{ page.cik }}">{{ page.cik }}</a><br/>{% endif %}
+  {% if page.taxID %}<abbr title="Tax identifier, for non-profit records.">Tax ID</abbr>: <span itemprop="taxID">{{ page.taxID }}</span><br/>{% endif %}
+  {% for link in page.sameAs %}<abbr title="Registry or directory page.">Same As</abbr>: <a itemprop="sameAs" href="{{ link }}">{{ link }}</a><br/>{% endfor %}
+  {% unless page.wikidataId or page.leiCode or page.cik or page.sameAs %}<em>No lookup identifiers verified yet.</em><br/>{% endunless %}
+  </section>
+
+  {% if cp_report and cp_report.foundations.size > 0 %}
+  <section id="sponsorships-section">
+  <h2 id="sponsorships">Current Sponsorships</h2>
+  <p>Sponsorship programs that list this organization at their last check, by <a href="/sponsorships">sponsorship metalevel</a>. Rough estimated total at published level prices, with in-kind levels discounted: {{ cp_report.estimate | money }}.</p>
+  <ul>
+    {%- for fdn in cp_report.foundations %}
+    {%- assign cp_program = site.sponsorships | where: "identifier", fdn[0] | first %}
+    <li><a href="/sponsorships/{{ fdn[0] }}">{{ cp_program.commonName | default: fdn[0] }}</a>: {{ fdn[1] | join: ", " }}</li>
+    {%- endfor %}
+  </ul>
+  </section>
+  {% endif %}
+
+  <section id="sources-section">
+  <h2 id="sources">Sources</h2>
+  <ul>
+    {%- for src in page.sources %}
+    <li><a href="{{ src.url }}">{{ src.url }}</a> ({{ src.observed }}): {{ src.detail }}</li>
+    {%- endfor %}
+  </ul>
+  <p class="fund-note">Last reviewed {{ page.lastReviewed }}{% if page.reviewedBy %} by {{ page.reviewedBy }}{% endif %}. Data is <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0-1.0</a>; see the <a href="/corporations">corporations dataset</a>.</p>
+  </section>
+</article>

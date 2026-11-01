@@ -1,0 +1,162 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/corporations-schema.json",
+  "$comment": "Each record is a Schema.org Organization (https://schema.org/Organization), usually a Corporation. Plan and decisions: _prompts/2026-10-31-corporations-dataset-plan.md. Documented at https://fossfoundation.info/corporations",
+  "title": "Corporations Schema",
+  "description": "Key sponsors that fund several FOSS foundations. Records hold our identifier, the domains that join them to sponsor data, and lookup identifiers for authoritative sources; facts that GLEIF, SEC EDGAR or Wikidata maintain are left to them.",
+  "type": "object",
+  "required": ["identifier", "commonName", "entityType", "website", "domains", "sources", "lastReviewed"],
+  "additionalProperties": false,
+  "properties": {
+    "identifier": {
+      "title": "Identifier",
+      "description": "Our stable id for this organization, also the file name. Unique across _foundations, _entities and _corporations, and never renamed or reused.",
+      "$comment": "Schema.org identifier: https://schema.org/identifier",
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "commonName": {
+      "title": "Common Name",
+      "description": "The brand name that appears in sponsor lists, e.g. Google. A record is one sponsoring brand, not its listed parent company, unless two or more sponsoring brands roll up to that parent.",
+      "$comment": "Schema.org name: https://schema.org/name",
+      "type": "string"
+    },
+    "legalName": {
+      "title": "Legal Name",
+      "description": "Exact legal name of the operating entity behind the brand, taken from GLEIF or a company registry. Leave out until verified.",
+      "$comment": "Schema.org legalName: https://schema.org/legalName",
+      "type": "string"
+    },
+    "entityType": {
+      "title": "Entity Type",
+      "description": "Kind of legal entity: Corporation for companies; NGO for non-profits such as corporate foundations; GovernmentOrganization for government funds; EducationalOrganization for universities and their labs.",
+      "$comment": "Schema.org types: https://schema.org/Corporation https://schema.org/NGO https://schema.org/GovernmentOrganization https://schema.org/EducationalOrganization",
+      "type": "string",
+      "enum": ["Corporation", "NGO", "GovernmentOrganization", "EducationalOrganization"]
+    },
+    "website": {
+      "title": "Website",
+      "description": "Primary homepage.",
+      "$comment": "Schema.org url: https://schema.org/url",
+      "type": "string",
+      "format": "uri"
+    },
+    "domains": {
+      "title": "Sponsor Domains",
+      "description": "Join key to all sponsor data: the canonical registrable domains (after _data/host_aliases.json) that sponsor lists and history use for this organization, primary first. Each domain belongs to at most one record.",
+      "$comment": "No Schema.org equivalent; related to https://schema.org/url",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z0-9.-]+\\.[a-z]{2,}$" }
+    },
+    "wikidataId": {
+      "title": "Wikidata ID",
+      "description": "Wikidata item, the hub that links most other identifiers. Same field as in _foundations.",
+      "$comment": "Exported as Schema.org sameAs: https://schema.org/sameAs",
+      "type": "string",
+      "pattern": "^Q[0-9]+$"
+    },
+    "leiCode": {
+      "title": "Legal Entity Identifier",
+      "description": "GLEIF LEI (ISO 17442) of the legalName entity; follow it for parent and child relationships.",
+      "$comment": "Schema.org leiCode: https://schema.org/leiCode",
+      "type": "string",
+      "pattern": "^[A-Z0-9]{18}[0-9]{2}$"
+    },
+    "cik": {
+      "title": "SEC Central Index Key",
+      "description": "SEC EDGAR CIK of the registrant whose filings cover this brand: the brand's own company, or the publicly listed parent that owns it (for example Alphabet Inc. for Google). Name the registrant in the source's detail. Leave out for brands whose parent has its own record here.",
+      "$comment": "Exported as Schema.org identifier PropertyValue with propertyID sec-cik: https://schema.org/PropertyValue",
+      "type": "string",
+      "pattern": "^[0-9]{1,10}$"
+    },
+    "taxID": {
+      "title": "Tax ID",
+      "description": "US EIN or other tax identifier, only for non-profit records such as corporate foundations. Same field as in _foundations.",
+      "$comment": "Schema.org taxID: https://schema.org/taxID",
+      "type": "string"
+    },
+    "sameAs": {
+      "title": "Same As",
+      "description": "Registry and directory pages we link to but don't copy from, such as OpenCorporates, UK Companies House, PermID, or ROR.",
+      "$comment": "Schema.org sameAs: https://schema.org/sameAs",
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
+    "parentOrganization": {
+      "title": "Parent Organization",
+      "description": "Owner of this brand when that owner also has a record here, with dates, so sponsor history can be rolled up by owner.",
+      "$comment": "Schema.org parentOrganization: https://schema.org/parentOrganization",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["identifier", "startDate", "source"],
+        "additionalProperties": false,
+        "properties": {
+          "identifier": { "description": "Identifier of the parent's record in _corporations.", "type": "string" },
+          "startDate": { "description": "Date ownership began (acquisition closed).", "$comment": "Schema.org startDate: https://schema.org/startDate", "type": "string", "format": "date" },
+          "endDate": { "description": "Date ownership ended, if it has.", "$comment": "Schema.org endDate: https://schema.org/endDate", "type": "string", "format": "date" },
+          "source": { "description": "Where the ownership and dates can be checked, preferably the parent's own announcement or an SEC filing.", "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "opensourceurl": {
+      "title": "Open Source URL",
+      "description": "The organization's main public open source page or OSPO site, such as the one listed for it in the TODO Group OSPO Landscape.",
+      "$comment": "Schema.org url: https://schema.org/url",
+      "type": "string",
+      "format": "uri"
+    },
+    "ospourl": {
+      "title": "OSPO URL",
+      "description": "Its Open Source Program Office page, when that is a separate page from opensourceurl.",
+      "$comment": "Schema.org url: https://schema.org/url; OSPO as defined by the TODO Group: https://todogroup.org/",
+      "type": "string",
+      "format": "uri"
+    },
+    "policyurl": {
+      "title": "Open Source Policy URL",
+      "description": "Its published open source contribution or usage policy.",
+      "$comment": "Schema.org publishingPrinciples: https://schema.org/publishingPrinciples",
+      "type": "string",
+      "format": "uri"
+    },
+    "leadershipurl": {
+      "title": "Leadership URL",
+      "description": "The organization's own page listing its executives or board. We link to it instead of storing names.",
+      "$comment": "Schema.org url: https://schema.org/url",
+      "type": "string",
+      "format": "uri"
+    },
+    "sources": {
+      "title": "Sources",
+      "description": "Where each stored value can be checked again.",
+      "$comment": "Dublin Core source: http://purl.org/dc/terms/source",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["url", "observed", "detail"],
+        "additionalProperties": false,
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "observed": { "description": "Date the source was checked.", "type": "string", "format": "date" },
+          "detail": { "description": "What the source shows and which fields it supports, in one sentence.", "type": "string" }
+        }
+      }
+    },
+    "lastReviewed": {
+      "title": "Last Reviewed",
+      "description": "Date the whole record was last reviewed.",
+      "$comment": "Dublin Core modified: http://purl.org/dc/terms/modified",
+      "type": "string",
+      "format": "date"
+    },
+    "reviewedBy": {
+      "title": "Reviewed By",
+      "description": "GitHub login of the person who last reviewed the whole record.",
+      "type": "string"
+    }
+  }
+}
