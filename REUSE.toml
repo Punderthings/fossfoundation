@@ -19,7 +19,7 @@ SPDX-License-Identifier = "Apache-2.0"
 
 # Public data exports from fdncrosswalk are CC0-1.0 (also declared in each export).
 [[annotations]]
-path = ["api/v1/crosswalk/**", "api/v2/crosswalk/**"]
+path = "api/v2/crosswalk/**"
 precedence = "override"
 SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
 SPDX-License-Identifier = "CC0-1.0"
