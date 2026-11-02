@@ -37,7 +37,7 @@ When adding or updating a sponsorship:
 
 ### Platform Crosswalk
 
-After any change to `_data/crosswalk/`, from `assets/python/fdncrosswalk` run `uv run fdncrosswalk validate`, then `uv run fdncrosswalk export` to regenerate the JSON-LD files in `api/v1/crosswalk/`.  See [Platform Crosswalk](crosswalk).
+After any change to `_data/crosswalk/`, from `assets/python/fdncrosswalk` run `uv run fdncrosswalk validate`, then `uv run fdncrosswalk export` to regenerate the JSON-LD files in `api/v2/crosswalk/`.  See [Platform Crosswalk](crosswalk).
 
 ## Help Wanted
 

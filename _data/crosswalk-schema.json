@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json",
-  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v1/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427).",
+  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v2/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427).",
   "type": "object",
   "title": "Foundation Platform Crosswalk Schema",
   "description": "Accounts and packages a foundation (or one of its hosted projects) controls on code hosts and package registries, each with the evidence for that link. Confidence is computed from the evidence by assets/python/fdncrosswalk, never stored. Holds identifiers only: metrics such as stars or downloads stay in ecosyste.ms.",

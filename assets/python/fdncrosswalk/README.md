@@ -42,7 +42,7 @@ uv sync --group test
 uv run fdncrosswalk validate          # check every crosswalk file against the schema
 uv run fdncrosswalk report            # foundation, confidence (stale), platform, kind, name; then packages
 uv run fdncrosswalk urls              # ecosyste.ms lookups for every non-rejected account and package
-uv run fdncrosswalk export            # write api/v1/crosswalk/ (JSON-LD, context, vocab, stewards.jsonl)
+uv run fdncrosswalk export            # write api/v2/crosswalk/ (JSON-LD, context, vocab, stewards.jsonl)
 uv run fdncrosswalk sync-csv          # fill purl and codeRepository in _data/projects-*.csv
 uv run fdncrosswalk probe hub.docker.com apache   # suggest evidence from a registry API
 uv run fdncrosswalk probe pypi.org pyperf

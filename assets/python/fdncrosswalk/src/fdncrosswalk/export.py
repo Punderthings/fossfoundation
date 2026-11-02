@@ -15,7 +15,7 @@ from fdncrosswalk.crosswalk import Account, Crosswalk, Package, assess
 from fdncrosswalk.ecosystems import PURL_HOSTS, PURL_REGISTRIES, owner_host, page_url, purl_type
 
 SITE: Final[str] = "https://fossfoundation.info"
-EXPORT_PATH: Final[str] = "api/v1/crosswalk"
+EXPORT_PATH: Final[str] = "api/v2/crosswalk"
 CONTEXT_URL: Final[str] = f"{SITE}/{EXPORT_PATH}/context.jsonld"
 VOCAB: Final[str] = f"{SITE}/crosswalk#"
 LICENSE: Final[str] = "https://creativecommons.org/publicdomain/zero/1.0/"
