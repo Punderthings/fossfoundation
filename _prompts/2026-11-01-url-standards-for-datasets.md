@@ -4,7 +4,7 @@
 2026-10-31 · Shane Curcuru, with Claude
 
 Status: decided (2026-11-02, see Decisions); implementation not started except the
-crosswalk move (#87, #88). Two new questions are open.
+crosswalk move (#87, #88).
 
 ## Prompt
 
@@ -226,7 +226,7 @@ the dataset's catalog record.
 | **`/api/v2/catalog.jsonld`** | Every dataset, with title, description, license, publisher, update frequency, schema, page and download links | [DCAT 3](https://www.w3.org/TR/vocab-dcat-3/) with Schema.org `DataCatalog` terms |
 | **`/api/v2/{dataset}/index.json`** | One dataset: its DCAT `Dataset` record plus the list of record ids and URLs. Replaces the role of `list.json` for new datasets | DCAT, Schema.org `Dataset` |
 | **`/api/v2/context.jsonld`** | One JSON-LD context for all datasets; the crosswalk keeps its own context in `/api/v2/crosswalk/` until the two are merged | [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/) |
-| **`/api/v2/vocab.jsonld`** | Our own terms, where no standard term fits, in a new namespace `https://fossfoundation.info/vocab#` (decision 9). The crosswalk's existing `fdn:` terms stay as they are | RDFS |
+| **`/api/v2/vocab.jsonld`** | Our own terms, where no standard term fits, in the namespace `https://fossfoundation.info/vocab#`, prefix `ffi:` (decisions 9 and 10). The crosswalk's `fdn:` terms move here, with the old terms kept as equivalents | RDFS |
 | **`/api/v2/schemas/{dataset}.schema.json`** | Published copies of `_data/*-schema.json`, with matching `$id` URLs so validators can resolve them | JSON Schema |
 | **`/api/v2/openapi.yaml`** | OpenAPI that lists the static paths above, with `servers: https://fossfoundation.info/api/v2`. `/openapi/v1/openapi.yaml` stays as the v1 description | [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0) |
 | **`/api/v2/{dataset}/all.csv-metadata.json`** | Column descriptions for CSV files; tools find it by this exact name | [CSV on the Web](https://www.w3.org/TR/tabular-data-primer/) |
@@ -248,7 +248,7 @@ the dataset's catalog record.
   `isBasedOn` source file in git, so a downloaded file cites itself.
 - **Citation:** the existing advice (page or file URL, access date, git commit) stays.
   A `CITATION.cff`, or dated releases archived with a DOI, comes later (decision 8 and
-  open question B).
+  the future tasks at the end).
 
 ### Pages for people
 
@@ -294,9 +294,7 @@ Each step is its own small PR, after the decisions below.
    history, `propublica-990`, projects (with the `/projects/<id>` move).
 7. New datasets (budgets, leadership, `irs-990`, non-US taxes) start in this layout.
 
-Future task, not part of this work (Shane, 2026-11-02): a Glossary of common terms on
-the site for human readers, much of it generated from selected key terms in our
-schemas.
+The Glossary and citation metadata are future tasks, listed at the end.
 
 ## Open questions
 
@@ -337,22 +335,23 @@ schemas.
 6. **Add a `/foundations` listing page** (Shane, 2026-11-02), keeping `/listing`.
 7. **Generation** (Shane, 2026-11-02): Jekyll for the human-focused parts of the
    website; committed exports for the data.
-8. **Citation metadata later** (Shane, 2026-11-02): `CITATION.cff` and DOIs are an open
-   question for maintainers at the end of this work (open question B).
+8. **Citation metadata later** (Shane, 2026-11-02): `CITATION.cff` and DOIs are a
+   question for maintainers at the end of this work (see Future tasks).
 9. **New vocabulary namespace** (Shane, 2026-11-02): all new terms go in a new
    vocabulary, not `fdn:`. "The `fdn` name is a historical accident and is not a great
    namespace, because our focus is larger than just the foundations themselves."
+10. **Vocabulary prefix `ffi:`** (Shane, 2026-11-02, agreeing with the recommendation in
+    question A): new terms use the namespace `https://fossfoundation.info/vocab#`,
+    published as `/api/v2/vocab.jsonld`, with the prefix `ffi:` (FOSSFoundation.info).
+    The crosswalk's `fdn:` terms move to `ffi:` when the shared `context.jsonld` is built
+    (step 3), and the old `crosswalk#` terms stay defined, marked
+    `owl:equivalentProperty` to the new ones, so existing exports keep working.
 
-## New open questions
+## Future tasks and questions for maintainers
 
-A. **Vocabulary prefix and the crosswalk's terms.** Proposal: namespace IRI
-   `https://fossfoundation.info/vocab#`, published as `/api/v2/vocab.jsonld`, with the
-   prefix `ffi:` (FOSSFoundation.info) in contexts. Should the crosswalk's existing
-   `fdn:` terms (`fdn:steward`, `fdn:account`…) also move to the new namespace? Keeping
-   them avoids churn; moving them now is cheap because the crosswalk is new and just
-   moved to v2 anyway. Recommendation: move them when the shared `context.jsonld` is
-   built (step 3), and keep `crosswalk#` term definitions marked `owl:equivalentProperty` to the new
-   ones so nothing breaks.
-B. **Citation metadata** (for maintainers, at the end of this work): add a
-   `CITATION.cff`, and archive dated releases with a DOI (for example through Zenodo's
-   GitHub integration)?
+- **Citation metadata** (Shane, 2026-11-02): add citation support for the datasets, for
+  example a `CITATION.cff` and dated releases archived with a DOI (such as through
+  Zenodo's GitHub integration). Maintainers may want to confer on the citation format
+  before this is built.
+- **Glossary** (Shane, 2026-11-02): a Glossary of common terms on the site for human
+  readers, much of it generated from selected key terms in our schemas.
