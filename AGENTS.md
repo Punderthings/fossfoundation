@@ -58,7 +58,7 @@ say in the PR which way you read it.
 | `_data/projects-*.csv` | Projects hosted by each foundation | scrapers, then hand review |
 | `_data/sponsorships/*.json` | Sponsor reports | generated (`assets/ruby/sponsor_reports.rb`) |
 | `history/sponsorships/` | Monthly sponsor history with provenance | generated (`assets/ruby/sponsor_archive.rb`) |
-| `api/v1/crosswalk/` | JSON-LD exports, CC0 | generated (`fdncrosswalk export`) |
+| `api/v2/crosswalk/` | JSON-LD exports, CC0 | generated (`fdncrosswalk export`) |
 | `_foundations/list.json` | Lookup of alternate ids | generated (`assets/ruby/openapi_builder.rb`) |
 | `_pages/` | Site pages (Jekyll, just-the-docs theme) | hand |
 | `_layouts/`, `_includes/`, `_plugins/`, `_sass/` | Site templates and Liquid filters | hand |
