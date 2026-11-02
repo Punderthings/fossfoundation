@@ -12,7 +12,7 @@ what a foundation record holds and which organizations qualify.
 
 ## Licensing
 
-By contributing, you agree that your contribution is licensed as follows:
+By contributing, you agree that your contribution is licensed as follows, to allow for maximal reuse by anyone:
 
 - Code, site pages, and prose: [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 - New datasets and data exports (for example `api/v1/crosswalk/`): [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
@@ -48,9 +48,10 @@ specification, in an SPDX header or in [`REUSE.toml`](REUSE.toml).
 ## How To Update Existing Data
 
 - Make sure you are adding or updating accurate data, following the rules above.
+- Review which [datasets are manual updates versus generated files](AGENTS.md#repository-map).
 - In the PR, say where you checked each changed fact. (How to record when each field was
   last verified is still an open design question.)
-- Submit a GitHub PR for the `_foundations/<identifier>.md` file.
+- Submit a GitHub PR for the `_foundations/<identifier>.md` or other file.
 
 ## How To Add A New Foundation
 

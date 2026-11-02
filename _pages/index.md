@@ -1,29 +1,28 @@
 ---
 title: Welcome And Introduction
-excerpt: A rich metadata directory of open source foundations, useful for research and FOSS developers alike.
+excerpt: A rich metadata directory of open source foundations, funding, and leadership - by practitioners; for researchers.
 layout: home
 permalink: /
 nav_order: 1
 ---
 
-<details markdown="block">
-  <summary>
-    Table of contents
-  </summary>
-  {: .text-delta }
-- TOC
-{:toc}
-</details>
+> How do people organize open source collaboration *at scale*?
 
-Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate with [academic researchers](/research) and open source practitioners alike on curating rich metadata about the many excellent non-profit Foundations that either host or help open source projects succeed.
+This FOSS Foundations directory is collection of datasets about the many
+excellent non-profit Foundations that directly host or otherwise help open
+source projects succeed.
 
-- Access the [directory of foundation metadata](listing), plus related models and data:
+We welcome [academic researchers](/research) studying the
+organizations behind open source, and serve as a showcase for the organizations
+and communities behind much of the software ecosystem today.
+
+- Access the [directory of FOSS foundations](listing), and related datasets:
   - [**Sponsorship** program models](sponsorships)
-  - [**Tax data** on US nonprofit foundations](taxes)
-  - [Project entities that aren't legal organizations](entities) *(limited dataset)*
-  - [Projects hosted at foundations](projects) *(limited dataset)*
+  - [**Financial tax data** on US nonprofit foundations](taxes)
+  - [Other entities hosted by foundations](entities) *(limited dataset)*
+  - [Crosswalk of foundation-owned registries or distributions](crosswalk)
 - Read the [**roadmap** to see where we're headed](roadmap) and [OpenAPI plans](openapi).
-- See the [starting philosophy around **data design**](data).
+- See our [philosophy of **data design**](data).
 - Find useful [**resources** to learn about FOSS Foundations](resources).
 - See [**research** ideas and links](research) about this dataset.
 - Learn how to [**contribute** to this site](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md).
@@ -33,8 +32,9 @@ Welcome to the FOSS Foundations Metadata directory!  We are eager to collaborate
 
 ## Goals
 
-- Create a rich metadata directory about nonprofit open source supporting organizations, including financial, sponsorship, governance, and other metadata.
+- Create a rich metadata directory about nonprofit open source supporting organizations, including financial, sponsorship, governance, leadership, and other metadata.
 - Store data in easy-to-update formats, and provide reliable, faceted, and discoverable access.
+- Curate accurate and historical data with discoverable attestations.
 - Keep the site and tooling as zero/low maintenance as practical.
 - Have a simple PR-driven data submission process that prevents errors.
 - Attract multiple contributors to create community governance.
@@ -47,6 +47,7 @@ Volunteers are welcomed to help turn non-goals into goals, if there is interest 
 - Tracking commercial entities.
 - Tracking non-open source or free software related entities.
 - Tracking non-entity projects; i.e. open source projects without legal entities.
+- Building datasets easily accessible elsewhere, like [Ecosyste.ms](https://ecosyste.ms/).
 - Fancy features, UI, or hard to maintain visualizations.  We provide a data store that others can repurpose.
 
 ## Data
@@ -58,10 +59,10 @@ Read more about our [data philosophy](data).
   - Frontmatter metadata can be exposed by [OpenAPI for programmatic access](openapi).
   - Jekyll turns foundation data and Markdown bodies to human-readable websites automatically.
   - OpenAPI and GitHub Actions tooling provides linting to keep data formats clean.
-- Using flat files and GitHub Pages means zero maintenance.
+- Using flat files and GitHub Pages means zero maintenance and detailed change history.
 - Markdown body can be used for additional, unstructured data or descriptions.
-- Use common human-findable identifier strings to tie in sponsorship and other models.
-- Create *good-enough* data structures that can be used by practitioners and academics alike.
+- Use common human-findable identifier strings to tie all models together.
+- Create *good-enough* data structures for practitioners and academics alike.
 
 ## Research
 

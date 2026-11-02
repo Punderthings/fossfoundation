@@ -7,7 +7,7 @@ parent: Data Models
 nav_order: 1
 ---
 
-This foundation directory curates metadata that is rigorously organized enough for academic research, and is easy enough to maintain and use for any open source organizers who find it valuable.  We [encourage contributions](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
+This foundation directory curates metadata that is rigorously organized enough for academic research, and is easy enough to maintain by open source organizers.  We [encourage contributions](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
 
 ## What We Collect
 
@@ -40,6 +40,8 @@ Each dataset has its own page, which documents its fields, schema, and tools.  *
 **Non-US Tax Data** Some countries post nonprofit financial data; most do not.  Our [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb) tool can download UK Charity Commission data, and we are **looking for help** in modeling foundations outside the US!
 
 ## Licensing
+
+Our licensing philosophy is to allow maximal reuse by anyone, both for datasets hosted, website presentation, and any automated tools.
 
 Code and prose are licensed under [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0).  New datasets and data exports, such as the [crosswalk exports](crosswalk#exports), are [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).  Existing data files are currently Apache-2.0.  Each file's license is declared following the [REUSE](https://reuse.software) specification in [`REUSE.toml`](https://github.com/Punderthings/fossfoundation/blob/main/REUSE.toml).
 
