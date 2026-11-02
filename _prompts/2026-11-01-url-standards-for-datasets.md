@@ -3,8 +3,8 @@
 
 2026-10-31 · Shane Curcuru, with Claude
 
-Status: draft proposal (2026-11-02); API version decided (see Decisions), other open
-questions waiting.
+Status: decided (2026-11-02, see Decisions); implementation not started except the
+crosswalk move (#87, #88). Two new questions are open.
 
 ## Prompt
 
@@ -50,7 +50,7 @@ Propose one or more URL naming schemes we can use consistently, and explain the 
 ## Summary
 
 - **Recommended: one dataset-first pattern for both audiences.** Every dataset gets a
-  short plural name (`foundations`, `sponsor-lists`, `tax-filings`) and every record a
+  short plural name (`foundations`, `sponsor-lists`, `leadership-history`) and every record a
   stable key, usually the foundation `identifier`. People read
   `/{dataset}/{id}`; tools read `/api/v2/{dataset}/{id}.json`. Drop `/api/v2` and the
   extension from a data URL and you get the page about the same thing.
@@ -161,12 +161,14 @@ Recommendation: **A**, while keeping raw GitHub URLs working and documenting the
 ### Naming rules
 
 1. **Dataset names** are lowercase, plural nouns joined by hyphens: `foundations`,
-   `sponsor-lists`, `tax-filings`. Mass nouns where a plural reads badly stay singular:
-   `crosswalk` (already published), `leadership`.
+   `sponsor-lists`, `budgets`. Mass nouns where a plural reads badly stay singular:
+   `crosswalk` (already published), `leadership`. Tax datasets are named for their
+   source, because data from different tax sources differs in subtle ways
+   (`propublica-990`, `irs-990`; decision 5).
 2. **History is its own dataset**, named `<dataset>-history`, because it has a different
-   source, accuracy and update rhythm (as the prompt's table already treats it). The one
-   exception is a dataset whose records are already a time series, such as tax filings,
-   which list every filing year.
+   source, accuracy and update rhythm (as the prompt's table already treats it;
+   decision 4). A tax dataset's records already list every filing year, so the filing
+   list in each record is its history.
 3. **Record ids** are the dataset's `identifier`. Datasets about a foundation use the
    `_foundations` identifier, never a second key such as an EIN; external ids go inside
    the record (`taxID`, `leiCode`, `wikidataId`). Ids keep the existing pattern
@@ -199,9 +201,10 @@ Bold paths are new; everything else already exists and stays.
 | Sponsor lists history | `sponsor-lists-history` | foundation id | `/sponsorships/asf#history` | **`/api/v2/sponsor-lists-history/asf.json`**; `/history/sponsorships/asf.json` kept |
 | Platform crosswalk | `crosswalk` | foundation id | `/crosswalk` (docs) | **`/api/v2/crosswalk/asf.json`**, moved from `/api/v1/crosswalk/` (decision 2) |
 | Hosted projects | `projects` | foundation id | **`/projects/asf`** (stub left at `/projects-asf`) | **`/api/v2/projects/asf.json`**, **`/api/v2/projects/all.csv`** |
-| US 990 (ProPublica and IRS) | `tax-filings` | jurisdiction + foundation id | `/foundations/asf#taxes` | **`/api/v2/tax-filings/us/asf.json`** |
-| 990 history | (same) | | | the filings list inside each record is the history |
-| Non-US tax data | `tax-filings` | jurisdiction + foundation id | `/foundations/<id>#taxes` | **`/api/v2/tax-filings/gb/<id>.json`** (ISO 3166 code) |
+| ProPublica 990 tax data | `propublica-990` | foundation id | `/foundations/asf#taxes` | **`/api/v2/propublica-990/asf.json`** (EIN inside the record) |
+| IRS 990 tax data | `irs-990` | foundation id | `/foundations/asf#taxes` | **`/api/v2/irs-990/asf.json`** |
+| 990 tax data history | (same datasets) | | | the filings list inside each record is the history |
+| Non-US tax data | named for its source, for example `uk-charity-commission` | foundation id | `/foundations/<id>#taxes` | **`/api/v2/uk-charity-commission/<id>.json`** |
 | Budgets | `budgets` | foundation id | `/foundations/asf#budgets` | **`/api/v2/budgets/asf.json`** |
 | Leadership | `leadership` | foundation id | **`/leadership/asf`** | **`/api/v2/leadership/asf.json`** |
 | Leadership history | `leadership-history` | foundation id | section of `/leadership/asf` | **`/api/v2/leadership-history/asf.json`** |
@@ -211,9 +214,10 @@ lists), the scheme gives it no page of its own; it appears as an anchored sectio
 foundation or sponsorship page, and the anchor (`#taxes`, `#history`) is part of the
 naming standard so it can be cited. Datasets used for browsing get their own pages.
 
-ProPublica and IRS data both describe US 990 filings, so the proposal keeps them in one
-`tax-filings/us` dataset and records the source of each filing inside the record
-(`dcterms:source`) rather than in the URL. That is open question 3.
+ProPublica and IRS data both describe US 990 filings but differ in subtle ways, and most
+researchers need only one of them, so each is its own dataset (decision 5). Non-US tax
+data follows the same rule: one dataset per source, with the country (ISO 3166 code) in
+the dataset's catalog record.
 
 ### Shared files
 
@@ -222,7 +226,7 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
 | **`/api/v2/catalog.jsonld`** | Every dataset, with title, description, license, publisher, update frequency, schema, page and download links | [DCAT 3](https://www.w3.org/TR/vocab-dcat-3/) with Schema.org `DataCatalog` terms |
 | **`/api/v2/{dataset}/index.json`** | One dataset: its DCAT `Dataset` record plus the list of record ids and URLs. Replaces the role of `list.json` for new datasets | DCAT, Schema.org `Dataset` |
 | **`/api/v2/context.jsonld`** | One JSON-LD context for all datasets; the crosswalk keeps its own context in `/api/v2/crosswalk/` until the two are merged | [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/) |
-| **`/api/v2/vocab.jsonld`** | Our own `fdn:` terms, where no standard term fits | RDFS |
+| **`/api/v2/vocab.jsonld`** | Our own terms, where no standard term fits, in a new namespace `https://fossfoundation.info/vocab#` (decision 9). The crosswalk's existing `fdn:` terms stay as they are | RDFS |
 | **`/api/v2/schemas/{dataset}.schema.json`** | Published copies of `_data/*-schema.json`, with matching `$id` URLs so validators can resolve them | JSON Schema |
 | **`/api/v2/openapi.yaml`** | OpenAPI that lists the static paths above, with `servers: https://fossfoundation.info/api/v2`. `/openapi/v1/openapi.yaml` stays as the v1 description | [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0) |
 | **`/api/v2/{dataset}/all.csv-metadata.json`** | Column descriptions for CSV files; tools find it by this exact name | [CSV on the Web](https://www.w3.org/TR/tabular-data-primer/) |
@@ -243,16 +247,16 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
 - **Every exported file** states its `license` (CC0-1.0), `dateModified`, and the
   `isBasedOn` source file in git, so a downloaded file cites itself.
 - **Citation:** the existing advice (page or file URL, access date, git commit) stays.
-  A `CITATION.cff`, or dated releases archived with a DOI, could come later; that is
-  open question 6.
+  A `CITATION.cff`, or dated releases archived with a DOI, comes later (decision 8 and
+  open question B).
 
 ### Pages for people
 
 - Dataset pages follow `/{dataset}` (docs and listing) and `/{dataset}/{id}` (record),
   as `/sponsors` and `/sponsors/google` already do.
-- **Foundations** keep `/foundations/<id>` and `/listing`. Adding a `/foundations` page
-  (listing plus a pointer to `/fdnmodel`) would make the top of the URL tree readable
-  without changing any foundation URL; that is open question 4.
+- **Foundations** keep `/foundations/<id>` and `/listing`, and gain a `/foundations`
+  listing page with a pointer to `/fdnmodel` (decision 6), so the top of the URL tree
+  reads like every other dataset without changing any foundation URL.
 - **Hosted projects** move from `/projects-asf` to `/projects/asf`, with a one-line stub
   page left at each old URL (a `<meta http-equiv="refresh">` plus `rel="canonical"`),
   which needs no new plugin.
@@ -264,16 +268,14 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
 The `/api/v2/` files are outputs, never edited by hand, and the sources stay where they
 are. Two ways to produce them, both already used in this repository:
 
-1. **At site build time**, by a small Jekyll generator in `_plugins/` (plain Ruby, no new
-   gem). Good for straight conversions of hand-edited records (foundations, entities,
-   sponsors, sponsorships): the output can never drift from the source, and nothing
-   generated is committed. The Pages workflow already runs custom plugins
-   (`money_filter.rb`).
-2. **By an export tool that commits its output**, as `fdncrosswalk export` does. Good for
-   outputs that involve computation or history (crosswalk confidence, sponsor lists,
-   tax filings), so reviewers see changes in the diff.
+1. **At site build time**, by Jekyll layouts or a small generator in `_plugins/` (plain
+   Ruby, no new gem). The Pages workflow already runs custom plugins (`money_filter.rb`).
+2. **By an export tool that commits its output**, as `fdncrosswalk export` does, so
+   reviewers see every change to published data in the diff.
 
-Recommendation: 1 for record conversions, 2 for computed data (open question 5).
+Decided (decision 7): Jekyll builds the human-focused parts of the website (pages,
+listings, `rel="alternate"` links, embedded Schema.org markup). The data files under
+`/api/v2/` are committed exports from tools.
 
 ## Suggested order of work
 
@@ -283,13 +285,18 @@ Each step is its own small PR, after the decisions below.
    in its own PR (decision 2).
 2. Record the naming rules on `/data` and in `AGENTS.md`; add the reserved-names and
    id-pattern checks to existing tests.
-3. `/api/v2/foundations/` (records, `index.json`, `all.jsonl`), with `rel="alternate"`
-   links on foundation pages and the shared `context.jsonld`.
+3. `/api/v2/foundations/` (records, `index.json`, `all.jsonl`) from an export tool, with
+   `rel="alternate"` links on foundation pages, the shared `context.jsonld`, the new
+   `vocab.jsonld`, and the `/foundations` listing page.
 4. `/api/v2/catalog.jsonld` and the Schema.org `Dataset` blocks on dataset pages.
 5. Point `openapi.yaml` at the site, and publish the schemas under `/api/v2/schemas/`.
 6. The other existing datasets: sponsors, sponsorships, entities, sponsor lists and
-   history, tax filings, projects (with the `/projects/<id>` move).
-7. New datasets (budgets, leadership, non-US taxes) start in this layout.
+   history, `propublica-990`, projects (with the `/projects/<id>` move).
+7. New datasets (budgets, leadership, `irs-990`, non-US taxes) start in this layout.
+
+Future task, not part of this work (Shane, 2026-11-02): a Glossary of common terms on
+the site for human readers, much of it generated from selected key terms in our
+schemas.
 
 ## Open questions
 
@@ -320,3 +327,32 @@ Each step is its own small PR, after the decisions below.
 2. **The crosswalk moves to `/api/v2/crosswalk/`** (Shane, 2026-11-02). Its exports are
    new and probably unused, so the tool and docs move to v2 and `/api/v1/crosswalk/` is
    deleted, in a separate PR so the deletion can be tracked on its own.
+3. **Scheme A, dataset-first** (Shane, 2026-11-02), with raw GitHub URLs kept as
+   "source files" rather than the API.
+4. **History datasets are named `<dataset>-history`** (Shane, 2026-11-02).
+5. **Tax data is split by source** (Shane, 2026-11-02): `propublica-990` and `irs-990`
+   are separate datasets, "because these are subtly different kinds of data; most
+   researchers may only need one of these sets". Non-US tax datasets follow the same
+   rule.
+6. **Add a `/foundations` listing page** (Shane, 2026-11-02), keeping `/listing`.
+7. **Generation** (Shane, 2026-11-02): Jekyll for the human-focused parts of the
+   website; committed exports for the data.
+8. **Citation metadata later** (Shane, 2026-11-02): `CITATION.cff` and DOIs are an open
+   question for maintainers at the end of this work (open question B).
+9. **New vocabulary namespace** (Shane, 2026-11-02): all new terms go in a new
+   vocabulary, not `fdn:`. "The `fdn` name is a historical accident and is not a great
+   namespace, because our focus is larger than just the foundations themselves."
+
+## New open questions
+
+A. **Vocabulary prefix and the crosswalk's terms.** Proposal: namespace IRI
+   `https://fossfoundation.info/vocab#`, published as `/api/v2/vocab.jsonld`, with the
+   prefix `ffi:` (FOSSFoundation.info) in contexts. Should the crosswalk's existing
+   `fdn:` terms (`fdn:steward`, `fdn:account`…) also move to the new namespace? Keeping
+   them avoids churn; moving them now is cheap because the crosswalk is new and just
+   moved to v2 anyway. Recommendation: move them when the shared `context.jsonld` is
+   built (step 3), and keep `crosswalk#` term definitions marked `owl:equivalentProperty` to the new
+   ones so nothing breaks.
+B. **Citation metadata** (for maintainers, at the end of this work): add a
+   `CITATION.cff`, and archive dated releases with a DOI (for example through Zenodo's
+   GitHub integration)?
