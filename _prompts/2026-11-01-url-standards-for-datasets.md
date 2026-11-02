@@ -340,8 +340,8 @@ The Glossary and citation metadata are future tasks, listed at the end.
 9. **New vocabulary namespace** (Shane, 2026-11-02): all new terms go in a new
    vocabulary, not `fdn:`. "The `fdn` name is a historical accident and is not a great
    namespace, because our focus is larger than just the foundations themselves."
-10. **Vocabulary prefix `ffi:`** (Shane, 2026-11-02, agreeing with the recommendation in
-    question A): new terms use the namespace `https://fossfoundation.info/vocab#`,
+10. **Vocabulary prefix `ffi:`** (Shane, 2026-11-02, agreeing with Claude's
+    recommendation): new terms use the namespace `https://fossfoundation.info/vocab#`,
     published as `/api/v2/vocab.jsonld`, with the prefix `ffi:` (FOSSFoundation.info).
     The crosswalk's `fdn:` terms move to `ffi:` when the shared `context.jsonld` is built
     (step 3), and the old `crosswalk#` terms stay defined, marked
