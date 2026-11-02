@@ -3,7 +3,8 @@
 
 2026-10-31 · Shane Curcuru, with Claude
 
-Status: draft proposal (2026-11-02); waiting on the open questions at the end.
+Status: draft proposal (2026-11-02); API version decided (see Decisions), other open
+questions waiting.
 
 ## Prompt
 
@@ -51,18 +52,19 @@ Propose one or more URL naming schemes we can use consistently, and explain the 
 - **Recommended: one dataset-first pattern for both audiences.** Every dataset gets a
   short plural name (`foundations`, `sponsor-lists`, `tax-filings`) and every record a
   stable key, usually the foundation `identifier`. People read
-  `/{dataset}/{id}`; tools read `/api/v1/{dataset}/{id}.json`. Drop `/api/v1` and the
+  `/{dataset}/{id}`; tools read `/api/v2/{dataset}/{id}.json`. Drop `/api/v2` and the
   extension from a data URL and you get the page about the same thing.
-- **Nothing that exists today stops working.** `/foundations/<id>`, the `_foundations/`
-  files and their raw GitHub URLs, `_foundations/list.json`, `/api/v1/crosswalk/`,
-  `/openapi/v1/` and `/history/sponsorships/` all keep their current URLs. The new
-  scheme adds paths next to them.
+- **New work goes under `/api/v2/`** (decision 1). `/foundations/<id>`, the
+  `_foundations/` files and their raw GitHub URLs, `_foundations/list.json`,
+  `/openapi/v1/` and `/history/sponsorships/` all keep their current URLs, so `v1`
+  stays the name of the original raw-GitHub API. The crosswalk exports, published only
+  days earlier, move from `/api/v1/crosswalk/` to `/api/v2/crosswalk/`.
 - **Discovery uses existing standards, not a custom API.** A DCAT catalog lists every
   dataset, each dataset page carries Schema.org `Dataset` markup (what Google Dataset
   Search reads), each record page links to its JSON with `rel="alternate"`, and the
   OpenAPI file describes the static paths on the site instead of raw GitHub.
 - **Source files stay as they are.** Maintainers keep editing Markdown with YAML front
-  matter, JSON and CSV in git. The `/api/v1/` files are generated from them, either at
+  matter, JSON and CSV in git. The `/api/v2/` files are generated from them, either at
   site build time or by export tools, so reviewers never read a second copy.
 
 ## What is published today
@@ -112,10 +114,10 @@ Each dataset is a top-level collection, keyed by its own record id.
 
 ```text
 /{dataset}/{id}                      page for people
-/api/v1/{dataset}/{id}.json          the same record as JSON-LD
-/api/v1/{dataset}/index.json         the dataset: metadata plus the list of records
-/api/v1/{dataset}/all.jsonl          every record, one per line (bulk)
-/api/v1/{dataset}/all.csv            flat datasets only, with CSVW metadata
+/api/v2/{dataset}/{id}.json          the same record as JSON-LD
+/api/v2/{dataset}/index.json         the dataset: metadata plus the list of records
+/api/v2/{dataset}/all.jsonl          every record, one per line (bulk)
+/api/v2/{dataset}/all.csv            flat datasets only, with CSVW metadata
 ```
 
 - **For people:** the path reads as "a foundation called asf", "the sponsorships of
@@ -134,7 +136,7 @@ Each dataset is a top-level collection, keyed by its own record id.
 
 ```text
 /foundations/{id}/sponsorships
-/api/v1/foundations/{id}/tax-filings/us.json
+/api/v2/foundations/{id}/tax-filings/us.json
 ```
 
 - Good for someone exploring one foundation, and it reads naturally.
@@ -169,11 +171,12 @@ Recommendation: **A**, while keeping raw GitHub URLs working and documenting the
    `_foundations` identifier, never a second key such as an EIN; external ids go inside
    the record (`taxID`, `leiCode`, `wikidataId`). Ids keep the existing pattern
    (lowercase letters, digits, underscore: `lpi_org`, `raspberrypi2`).
-4. **Reserved file names** in each `/api/v1/{dataset}/`: `index`, `all`, `context`,
+4. **Reserved file names** in each `/api/v2/{dataset}/`: `index`, `all`, `context`,
    `vocab`, `schema`. No record id may use one; the existing schema tests can check this.
-5. **One version segment.** `v1` is the version of the URL layout and file shapes, not of
-   the data. Only an incompatible change to paths or shapes would add `/api/v2/`, and
-   `v1` files would stay published.
+5. **One version segment.** `v2` is the version of the URL layout and file shapes, not of
+   the data. `v1` is the original API described by `/openapi/v1/` (raw GitHub paths and
+   YAML front matter), which stays as it is. Only a later incompatible change to paths
+   or shapes would add `/api/v3/`, and `v2` files would stay published.
 6. **Format by extension:** `.json` for one record (JSON-LD, readable as plain JSON),
    `.jsonl` for bulk, `.csv` for flat tables, `.jsonld` for contexts, vocabularies and
    the catalog, `.yaml` for OpenAPI.
@@ -188,20 +191,20 @@ Bold paths are new; everything else already exists and stays.
 
 | Dataset | Name | Record key | Page for people | Data for tools |
 | --- | --- | --- | --- | --- |
-| Foundations | `foundations` | foundation id | `/foundations/asf` | **`/api/v1/foundations/asf.json`**; source `_foundations/asf.md` and `/foundations/list.json` unchanged |
-| Entities | `entities` | entity id | `/entities/cncf` | **`/api/v1/entities/cncf.json`** |
-| Sponsors | `sponsors` | sponsor id | `/sponsors/google` | **`/api/v1/sponsors/google.json`** |
-| Sponsorships | `sponsorships` | foundation id | `/sponsorships/asf` | **`/api/v1/sponsorships/asf.json`** |
-| Sponsor lists | `sponsor-lists` | foundation id | section of `/sponsorships/asf` | **`/api/v1/sponsor-lists/asf.json`** |
-| Sponsor lists history | `sponsor-lists-history` | foundation id | `/sponsorships/asf#history` | **`/api/v1/sponsor-lists-history/asf.json`**; `/history/sponsorships/asf.json` kept |
-| Platform crosswalk | `crosswalk` | foundation id | `/crosswalk` (docs) | `/api/v1/crosswalk/asf.json` unchanged |
-| Hosted projects | `projects` | foundation id | **`/projects/asf`** (stub left at `/projects-asf`) | **`/api/v1/projects/asf.json`**, **`/api/v1/projects/all.csv`** |
-| US 990 (ProPublica and IRS) | `tax-filings` | jurisdiction + foundation id | `/foundations/asf#taxes` | **`/api/v1/tax-filings/us/asf.json`** |
+| Foundations | `foundations` | foundation id | `/foundations/asf` | **`/api/v2/foundations/asf.json`**; source `_foundations/asf.md` and `/foundations/list.json` unchanged |
+| Entities | `entities` | entity id | `/entities/cncf` | **`/api/v2/entities/cncf.json`** |
+| Sponsors | `sponsors` | sponsor id | `/sponsors/google` | **`/api/v2/sponsors/google.json`** |
+| Sponsorships | `sponsorships` | foundation id | `/sponsorships/asf` | **`/api/v2/sponsorships/asf.json`** |
+| Sponsor lists | `sponsor-lists` | foundation id | section of `/sponsorships/asf` | **`/api/v2/sponsor-lists/asf.json`** |
+| Sponsor lists history | `sponsor-lists-history` | foundation id | `/sponsorships/asf#history` | **`/api/v2/sponsor-lists-history/asf.json`**; `/history/sponsorships/asf.json` kept |
+| Platform crosswalk | `crosswalk` | foundation id | `/crosswalk` (docs) | **`/api/v2/crosswalk/asf.json`**, moved from `/api/v1/crosswalk/` (decision 2) |
+| Hosted projects | `projects` | foundation id | **`/projects/asf`** (stub left at `/projects-asf`) | **`/api/v2/projects/asf.json`**, **`/api/v2/projects/all.csv`** |
+| US 990 (ProPublica and IRS) | `tax-filings` | jurisdiction + foundation id | `/foundations/asf#taxes` | **`/api/v2/tax-filings/us/asf.json`** |
 | 990 history | (same) | | | the filings list inside each record is the history |
-| Non-US tax data | `tax-filings` | jurisdiction + foundation id | `/foundations/<id>#taxes` | **`/api/v1/tax-filings/gb/<id>.json`** (ISO 3166 code) |
-| Budgets | `budgets` | foundation id | `/foundations/asf#budgets` | **`/api/v1/budgets/asf.json`** |
-| Leadership | `leadership` | foundation id | **`/leadership/asf`** | **`/api/v1/leadership/asf.json`** |
-| Leadership history | `leadership-history` | foundation id | section of `/leadership/asf` | **`/api/v1/leadership-history/asf.json`** |
+| Non-US tax data | `tax-filings` | jurisdiction + foundation id | `/foundations/<id>#taxes` | **`/api/v2/tax-filings/gb/<id>.json`** (ISO 3166 code) |
+| Budgets | `budgets` | foundation id | `/foundations/asf#budgets` | **`/api/v2/budgets/asf.json`** |
+| Leadership | `leadership` | foundation id | **`/leadership/asf`** | **`/api/v2/leadership/asf.json`** |
+| Leadership history | `leadership-history` | foundation id | section of `/leadership/asf` | **`/api/v2/leadership-history/asf.json`** |
 
 Where a dataset is mostly used for visualisations or the API (taxes, budgets, sponsor
 lists), the scheme gives it no page of its own; it appears as an anchored section of the
@@ -216,18 +219,18 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
 
 | URL | What | Standard |
 | --- | --- | --- |
-| **`/api/v1/catalog.jsonld`** | Every dataset, with title, description, license, publisher, update frequency, schema, page and download links | [DCAT 3](https://www.w3.org/TR/vocab-dcat-3/) with Schema.org `DataCatalog` terms |
-| **`/api/v1/{dataset}/index.json`** | One dataset: its DCAT `Dataset` record plus the list of record ids and URLs. Replaces the role of `list.json` for new datasets | DCAT, Schema.org `Dataset` |
-| **`/api/v1/context.jsonld`** | One JSON-LD context for all datasets; the crosswalk's own context stays where it is | [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/) |
-| **`/api/v1/vocab.jsonld`** | Our own `fdn:` terms, where no standard term fits | RDFS |
-| **`/api/v1/schemas/{dataset}.schema.json`** | Published copies of `_data/*-schema.json`, with matching `$id` URLs so validators can resolve them | JSON Schema |
-| **`/api/v1/openapi.yaml`** | OpenAPI that lists the static paths above, with `servers: https://fossfoundation.info/api/v1`. `/openapi/v1/openapi.yaml` stays, updated to match | [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0) |
-| **`/api/v1/{dataset}/all.csv-metadata.json`** | Column descriptions for CSV files; tools find it by this exact name | [CSV on the Web](https://www.w3.org/TR/tabular-data-primer/) |
+| **`/api/v2/catalog.jsonld`** | Every dataset, with title, description, license, publisher, update frequency, schema, page and download links | [DCAT 3](https://www.w3.org/TR/vocab-dcat-3/) with Schema.org `DataCatalog` terms |
+| **`/api/v2/{dataset}/index.json`** | One dataset: its DCAT `Dataset` record plus the list of record ids and URLs. Replaces the role of `list.json` for new datasets | DCAT, Schema.org `Dataset` |
+| **`/api/v2/context.jsonld`** | One JSON-LD context for all datasets; the crosswalk keeps its own context in `/api/v2/crosswalk/` until the two are merged | [JSON-LD 1.1](https://www.w3.org/TR/json-ld11/) |
+| **`/api/v2/vocab.jsonld`** | Our own `fdn:` terms, where no standard term fits | RDFS |
+| **`/api/v2/schemas/{dataset}.schema.json`** | Published copies of `_data/*-schema.json`, with matching `$id` URLs so validators can resolve them | JSON Schema |
+| **`/api/v2/openapi.yaml`** | OpenAPI that lists the static paths above, with `servers: https://fossfoundation.info/api/v2`. `/openapi/v1/openapi.yaml` stays as the v1 description | [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0) |
+| **`/api/v2/{dataset}/all.csv-metadata.json`** | Column descriptions for CSV files; tools find it by this exact name | [CSV on the Web](https://www.w3.org/TR/tabular-data-primer/) |
 
 ### How people and tools find the data
 
 - **Each record page** adds
-  `<link rel="alternate" type="application/ld+json" href="/api/v1/foundations/asf.json">`
+  `<link rel="alternate" type="application/ld+json" href="/api/v2/foundations/asf.json">`
   in its `<head>` and a visible "Data (JSON)" link, so a person or crawler on any page
   can get the machine version.
 - **Each dataset's docs page** (`/fdnmodel`, `/sponsors`, `/crosswalk`, `/taxes`…)
@@ -235,7 +238,7 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
   [Google Dataset Search](https://developers.google.com/search/docs/appearance/structured-data/dataset)
   and similar indexes read.
 - **`/data`** embeds the catalog as Schema.org `DataCatalog`, and links to
-  `/api/v1/catalog.jsonld` for DCAT harvesters (the format CKAN, data.europa.eu and
+  `/api/v2/catalog.jsonld` for DCAT harvesters (the format CKAN, data.europa.eu and
   other open data portals import).
 - **Every exported file** states its `license` (CC0-1.0), `dateModified`, and the
   `isBasedOn` source file in git, so a downloaded file cites itself.
@@ -258,7 +261,7 @@ ProPublica and IRS data both describe US 990 filings, so the proposal keeps them
 
 ### How the files are produced
 
-The `/api/v1/` files are outputs, never edited by hand, and the sources stay where they
+The `/api/v2/` files are outputs, never edited by hand, and the sources stay where they
 are. Two ways to produce them, both already used in this repository:
 
 1. **At site build time**, by a small Jekyll generator in `_plugins/` (plain Ruby, no new
@@ -276,21 +279,23 @@ Recommendation: 1 for record conversions, 2 for computed data (open question 5).
 
 Each step is its own small PR, after the decisions below.
 
-1. Record the naming rules on `/data` and in `AGENTS.md`; add the reserved-names and
+1. Move the crosswalk exports to `/api/v2/crosswalk/`, then delete `/api/v1/crosswalk/`
+   in its own PR (decision 2).
+2. Record the naming rules on `/data` and in `AGENTS.md`; add the reserved-names and
    id-pattern checks to existing tests.
-2. `/api/v1/foundations/` (records, `index.json`, `all.jsonl`), with `rel="alternate"`
+3. `/api/v2/foundations/` (records, `index.json`, `all.jsonl`), with `rel="alternate"`
    links on foundation pages and the shared `context.jsonld`.
-3. `/api/v1/catalog.jsonld` and the Schema.org `Dataset` blocks on dataset pages.
-4. Point `openapi.yaml` at the site, and publish the schemas under `/api/v1/schemas/`.
-5. The other existing datasets: sponsors, sponsorships, entities, sponsor lists and
+4. `/api/v2/catalog.jsonld` and the Schema.org `Dataset` blocks on dataset pages.
+5. Point `openapi.yaml` at the site, and publish the schemas under `/api/v2/schemas/`.
+6. The other existing datasets: sponsors, sponsorships, entities, sponsor lists and
    history, tax filings, projects (with the `/projects/<id>` move).
-6. New datasets (budgets, leadership, non-US taxes) start in this layout.
+7. New datasets (budgets, leadership, non-US taxes) start in this layout.
 
 ## Open questions
 
 1. **Scheme.** Adopt scheme A (dataset-first), with raw GitHub kept as "source files"?
 2. **History naming.** Separate `<dataset>-history` datasets (recommended), or a
-   `history.json` file under each record (`/api/v1/sponsor-lists/asf/history.json`)?
+   `history.json` file under each record (`/api/v2/sponsor-lists/asf/history.json`)?
    Either way `/history/sponsorships/` stays published.
 3. **Tax data.** One `tax-filings/{jurisdiction}/` dataset keyed by foundation id, with
    ProPublica and IRS as sources inside the record (recommended), or separate
@@ -304,5 +309,14 @@ Each step is its own small PR, after the decisions below.
    all datasets (stable, but oddly named), or start
    `https://fossfoundation.info/vocab#` for new terms and keep the crosswalk terms as
    they are?
-8. **Moving the OpenAPI file.** Publish it at `/api/v1/openapi.yaml` and keep
-   `/openapi/v1/` as a copy, or keep only `/openapi/v1/`?
+8. ~~**Moving the OpenAPI file.**~~ Answered by decision 1: the new spec is
+   `/api/v2/openapi.yaml`, and `/openapi/v1/` stays as the description of v1.
+
+## Decisions
+
+1. **New work uses `/api/v2/`** (Shane, 2026-11-02). `/openapi/v1/` stays for
+   historical compatibility as the description of the original raw-GitHub API, and the
+   new site-hosted structure is clearly v2 going forward.
+2. **The crosswalk moves to `/api/v2/crosswalk/`** (Shane, 2026-11-02). Its exports are
+   new and probably unused, so the tool and docs move to v2 and `/api/v1/crosswalk/` is
+   deleted, in a separate PR so the deletion can be tracked on its own.
