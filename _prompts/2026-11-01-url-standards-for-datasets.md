@@ -293,22 +293,22 @@ Each step is its own small PR, after the decisions below.
 
 ## Open questions
 
-1. **Scheme.** Adopt scheme A (dataset-first), with raw GitHub kept as "source files"?
+1. **Scheme.** Adopt scheme A (dataset-first), with raw GitHub kept as "source files"? **SC:** Yes, agreed.
 2. **History naming.** Separate `<dataset>-history` datasets (recommended), or a
    `history.json` file under each record (`/api/v2/sponsor-lists/asf/history.json`)?
-   Either way `/history/sponsorships/` stays published.
+   Either way `/history/sponsorships/` stays published. **SC:** Use separate `<dataset>-history` naming.
 3. **Tax data.** One `tax-filings/{jurisdiction}/` dataset keyed by foundation id, with
    ProPublica and IRS as sources inside the record (recommended), or separate
-   `propublica-990` and `irs-990` datasets?
+   `propublica-990` and `irs-990` datasets? **SC:** Use separate datasets because these are subtly different kinds of data; most researchers may only need one of these sets.
 4. **A `/foundations` page.** Add one (listing plus link to `/fdnmodel`), keeping
-   `/listing`?
+   `/listing`? **SC:** Yes, add the `/foundations` listing page.
 5. **Generation.** Jekyll generator for record conversions plus committed exports for
-   computed data (recommended), or committed exports for everything?
-6. **Citation metadata.** Add `CITATION.cff` and DOIs for dated releases now, or later?
+   computed data (recommended), or committed exports for everything? **SC:** Yes, agreed: keep Jekyll generator for the human focused parts of our published website; use committed exports as recommended for other data.  
+6. **Citation metadata.** Add `CITATION.cff` and DOIs for dated releases now, or later? **SC:** Add later; make this an Open Question For Maintainers at the end of this work. 
 7. **`fdn:` namespace.** It is `https://fossfoundation.info/crosswalk#` today. Keep it for
    all datasets (stable, but oddly named), or start
    `https://fossfoundation.info/vocab#` for new terms and keep the crosswalk terms as
-   they are?
+   they are? **SC:** Add a new vocab for all work going forward; the `fdn` name is a historical accident and is not a great namespace, because our focus is larger than just the foundations themselves.  We also need to add (as a future task; not this task) a Glossary of common terms on our site for human readers; much or all of the Glossary can probably be generated from selected key terms in our schemas. 
 8. ~~**Moving the OpenAPI file.**~~ Answered by decision 1: the new spec is
    `/api/v2/openapi.yaml`, and `/openapi/v1/` stays as the description of v1.
 
