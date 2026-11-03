@@ -1,6 +1,7 @@
 ---
 title: Sponsors
 excerpt: Key sponsors that fund several FOSS foundations, with lookups to authoritative corporate data.
+layout: default
 permalink: /sponsors
 parent: Data Models
 nav_order: 35
