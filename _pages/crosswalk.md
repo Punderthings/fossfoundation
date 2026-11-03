@@ -69,7 +69,7 @@ A package is a registry package or a source repository, identified by a purl wit
 | `about` | [schema:about](https://schema.org/about) | The release the evidence is about, as a versioned purl such as `pkg:pypi/pyperf@2.10.0`. |
 | `validThrough` | [schema:validThrough](https://schema.org/validThrough) | When it should be checked again (see freshness below). |
 | `method` | [schema:measurementTechnique](https://schema.org/measurementTechnique) | Human attestations only: `in-person`, `video-call`, `email-official-domain`, `signed-message` or `foundation-ticket`. |
-| <span id="confirmedWith"></span>`confirmedWith` | `fdn:confirmedWith`, a [schema:Person](https://schema.org/Person) | Human attestations only: the person at the organization who confirmed it, with optional `name` ([schema:name](https://schema.org/name)), `email` ([schema:email](https://schema.org/email)), `roleName` ([schema:roleName](https://schema.org/roleName)) and `memberOf` ([schema:memberOf](https://schema.org/memberOf), defaults to the foundation). Record an email only with the person's agreement: this repository is public. |
+| <span id="confirmedWith"></span>`confirmedWith` | `fdn:confirmedWith`, a [schema:Person](https://schema.org/Person) | Human attestations only: the person at the organization who confirmed it. Required `roleName` ([schema:roleName](https://schema.org/roleName)), plus `identifier` ([schema:identifier](https://schema.org/identifier)) pointing to their [person record](#people); optional `memberOf` ([schema:memberOf](https://schema.org/memberOf), defaults to the foundation). An inline `name` or `email` is allowed only with the person's agreement, since this repository is public; prefer `identifier`. |
 | <span id="supersedes"></span>`supersedes` | `fdn:supersedes` | Human attestations only: overrides an earlier contradiction; explain why in `detail`. |
 
 ### Evidence types
@@ -98,6 +98,28 @@ A package is a registry package or a source repository, identified by a purl wit
 ## Attestors {#attestors}
 
 [`_data/attestors.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors.json) lists the people whose human attestations count as confirmed: each is a [schema:Person](https://schema.org/Person) with a GitHub `login`, `name`, `sameAs` profile links and `dateAdded`. Adding someone is itself a reviewed pull request. This reflects the personal trust between people in foundation leadership: some confirmations of ownership can only be checked out of band by someone the foundation's leaders know.
+
+## People who confirmed links {#people}
+
+Each person behind a `human-attested` item has one record, validated by [`_data/attestations-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json). Crosswalk evidence points to it by `identifier`, an opaque `urn:uuid:` ([RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)) that is random, never derived from the person's details. The same schema covers both places a record can live:
+
+- **Public**, in [`_data/attestations.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations.json), only when the person agreed to publication (`consent.publish` is true).
+- **Private**, in the maintainers' private repository, which only maintainers can read. This is the default.
+
+| Field | Standard term | Meaning |
+| --- | --- | --- |
+| `identifier` | [schema:identifier](https://schema.org/identifier) | Opaque `urn:uuid:`; all zeros is reserved for test records. |
+| `visibility` | | `public` or `private`, as above. |
+| `name` | [schema:name](https://schema.org/name) | Optional. |
+| `email` | [schema:email](https://schema.org/email) | Preferably at the foundation's own domain. |
+| `roleName`, `memberOf` | [schema:roleName](https://schema.org/roleName), [schema:memberOf](https://schema.org/memberOf) | Role at the organization, and its `_foundations` identifier. |
+| `recordedBy` | [dcterms:creator](http://purl.org/dc/terms/creator) | GitHub login of the attestor. |
+| `dateCreated`, `dateModified` | [schema:dateCreated](https://schema.org/dateCreated), [schema:dateModified](https://schema.org/dateModified) | When the record was made and last changed. |
+| `consent` | [GDPR Art. 7](https://gdpr-info.eu/art-7-gdpr/) | `dateGiven`, `method` (the evidence methods above), `evidence` (where to find it again), `purpose` ([Art. 5(1)(b)](https://gdpr-info.eu/art-5-gdpr/)), `legalBasis` (normally [Art. 6(1)(a)](https://gdpr-info.eu/art-6-gdpr/)), `publish`, and `withdrawn`. |
+| `retainUntil` | [GDPR Art. 5(1)(e)](https://gdpr-info.eu/art-5-gdpr/) | Date to review whether the record is still needed; one year by default. |
+| `usedIn` | | Crosswalk files whose evidence uses this identifier. |
+
+Add a record with `uv run fdncrosswalk add-person` in `assets/python/fdncrosswalk`. It asks the questions above, makes the identifier, saves the record to the public file or to the private repository's `attestations.json`, and prints the `confirmedWith` to put in the evidence.
 
 ## Steward {#steward}
 

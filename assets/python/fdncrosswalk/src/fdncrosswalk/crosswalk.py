@@ -32,8 +32,9 @@ SHORT_FRESHNESS: Final[timedelta] = timedelta(days=90)
 
 @dataclass(frozen=True)
 class Person:
-    email: str
     roleName: str
+    identifier: str | None = None
+    email: str | None = None
     name: str | None = None
     memberOf: str | None = None
 

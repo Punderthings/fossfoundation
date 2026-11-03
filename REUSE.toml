@@ -31,3 +31,10 @@ path = ["AGENTS.md", "_prompts/**"]
 precedence = "override"
 SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
 SPDX-License-Identifier = "Apache-2.0"
+
+# Public person records behind human-attested evidence: a new dataset, CC0-1.0.
+[[annotations]]
+path = "_data/attestations.json"
+precedence = "override"
+SPDX-FileCopyrightText = "FOSSFoundation.info contributors"
+SPDX-License-Identifier = "CC0-1.0"

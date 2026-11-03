@@ -177,14 +177,32 @@
     "person": {
       "type": "object",
       "title": "Person confirmed with",
-      "description": "The person at the organization who confirmed the link.",
+      "description": "The person at the organization who confirmed the link. Give identifier to point to their record in _data/attestations.json or the maintainers' private repository (validated by _data/attestations-schema.json), so no email appears here; an inline email is allowed only with the person's agreement.",
       "$comment": "A Schema.org Person (https://schema.org/Person) in an OrganizationRole (https://schema.org/OrganizationRole).",
       "required": [
-        "email",
         "roleName"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "identifier"
+          ]
+        },
+        {
+          "required": [
+            "email"
+          ]
+        }
       ],
       "additionalProperties": false,
       "properties": {
+        "identifier": {
+          "title": "Person record",
+          "description": "Opaque identifier of the person's record, as urn:uuid:<random UUID>. Created by fdncrosswalk add-person.",
+          "$comment": "Schema.org identifier: https://schema.org/identifier; UUID URN: RFC 9562 https://www.rfc-editor.org/rfc/rfc9562",
+          "type": "string",
+          "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
         "name": {
           "title": "Name",
           "description": "The person's name. Optional; leave it out if they prefer.",
@@ -193,7 +211,7 @@
         },
         "email": {
           "title": "Email",
-          "description": "The person's email address. Record it only with their agreement, since this repository is public.",
+          "description": "The person's email address. Prefer identifier; record an email here only with their agreement, since this repository is public.",
           "$comment": "Schema.org email: https://schema.org/email",
           "type": "string",
           "format": "email"
