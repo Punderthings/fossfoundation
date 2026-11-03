@@ -47,6 +47,7 @@ uv run fdncrosswalk sync-csv          # fill purl and codeRepository in _data/pr
 uv run fdncrosswalk probe hub.docker.com apache   # suggest evidence from a registry API
 uv run fdncrosswalk probe pypi.org pyperf
 uv run fdncrosswalk probe npmjs.org @psf
+uv run fdncrosswalk add-person        # guided: add a person record for human-attested evidence
 uv run pytest
 ```
 
@@ -54,6 +55,15 @@ Every ecosyste.ms URL carries `mailto=` a polite email, read from the `ECOSYSTEM
 environment variable (or `--mailto`), so requests use the
 [polite pool](https://ecosyste.ms/api). Never commit the address itself.
 Probes only suggest evidence; review it and copy what holds up into the crosswalk file.
+
+`add-person` asks for the person's details and consent, makes a random `urn:uuid:` identifier, and
+saves the record, validated by `_data/attestations-schema.json`, to either `_data/attestations.json`
+(public, only if the person agreed to publication) or the private repository's `attestations.json`.
+By default that is a clone at `../fossfoundation-private/` beside this repository; pass
+`--private-file` for another path. It refuses to save a private record inside this repository, and
+prints the `confirmedWith` (identifier, role and organization, no email) for the crosswalk evidence.
+`--visibility public|private` skips the first question, and `--test` makes a test record with the
+all-zeros identifier.
 
 `--today YYYY-MM-DD` judges staleness as of that date. Exports are published under CC0-1.0.
 

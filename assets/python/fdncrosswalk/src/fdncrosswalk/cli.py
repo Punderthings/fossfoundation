@@ -1,5 +1,5 @@
 """Command line: validate crosswalk files, report confidence, print ecosyste.ms lookups, probe registries,
-write the public exports and sync the project CSVs."""
+write the public exports, sync the project CSVs and add attestation person records."""
 
 import argparse
 import json
@@ -8,8 +8,8 @@ from dataclasses import asdict
 from datetime import date
 from pathlib import Path
 
-from fdncrosswalk import export, probes
-from fdncrosswalk.crosswalk import assess, load_attestors, load_dir
+from fdncrosswalk import attest, export, probes
+from fdncrosswalk.crosswalk import assess, load_attestors, load_dir, validate
 from fdncrosswalk.ecosystems import MAILTO, MAILTO_ENV, lookup_urls, package_lookup_urls
 
 REPO_ROOT = Path(__file__).resolve().parents[5]
@@ -18,6 +18,9 @@ DEFAULT_SCHEMA = REPO_ROOT / "_data" / "crosswalk-schema.json"
 DEFAULT_ATTESTORS = REPO_ROOT / "_data" / "attestors.json"
 ATTESTORS_SCHEMA = REPO_ROOT / "_data" / "attestors-schema.json"
 FOUNDATIONS_DIR = REPO_ROOT / "_foundations"
+PUBLIC_ATTESTATIONS = REPO_ROOT / "_data" / "attestations.json"
+ATTESTATIONS_SCHEMA = REPO_ROOT / "_data" / "attestations-schema.json"
+PRIVATE_ATTESTATIONS = REPO_ROOT.parent / "fossfoundation-private" / "attestations.json"
 DEFAULT_EXPORT_DIR = REPO_ROOT / export.EXPORT_PATH
 
 
@@ -38,7 +41,14 @@ def _today(args: argparse.Namespace) -> date:
 def cmd_validate(args: argparse.Namespace) -> int:
     crosswalks = _load(args)
     attestors = _attestors(args)
-    print(f"{len(crosswalks)} crosswalk files valid; {len(attestors)} attestors")
+    schema = json.loads(ATTESTATIONS_SCHEMA.read_text(encoding="utf-8"))
+    people = attest.read_records(PUBLIC_ATTESTATIONS)
+    errors = validate(people, schema)
+    if errors:
+        raise ValueError(f"{PUBLIC_ATTESTATIONS}: " + "; ".join(errors))
+    if any(p["visibility"] != "public" for p in people["attestations"]):
+        raise ValueError(f"{PUBLIC_ATTESTATIONS}: only public records belong in this repository")
+    print(f"{len(crosswalks)} crosswalk files valid; {len(attestors)} attestors; {len(people['attestations'])} public people")
     return 0
 
 
@@ -100,6 +110,42 @@ def cmd_sync_csv(args: argparse.Namespace) -> int:
     return 0
 
 
+def _inside(path: Path, root: Path) -> bool:
+    return path.resolve().is_relative_to(root.resolve())
+
+
+def cmd_add_person(args: argparse.Namespace) -> int:
+    ask, say = input, print
+    schema = json.loads(ATTESTATIONS_SCHEMA.read_text(encoding="utf-8"))
+    record = attest.interview(
+        ask,
+        say,
+        schema=schema,
+        foundations=(p.stem for p in FOUNDATIONS_DIR.glob("*.md")),
+        attestors=_attestors(args),
+        today=_today(args),
+        visibility=args.visibility,
+        test=args.test,
+    )
+    if record["visibility"] == "public":
+        path = Path(args.public_file)
+    else:
+        path = Path(args.private_file)
+        if _inside(path, REPO_ROOT):
+            raise ValueError(f"{path} is inside the public repository; private records must not be stored here")
+        if not path.parent.is_dir():
+            raise ValueError(f"{path.parent} not found; clone the private repository there or pass --private-file")
+    say(json.dumps(record, indent=2, ensure_ascii=False))
+    if not attest.yes(ask, say, f"Save this record to {path}?", True):
+        say("Not saved.")
+        return 1
+    attest.add_record(path, record, schema)
+    say(f"Saved. Commit {path.name} on a branch in that repository and open a pull request.")
+    say("In the crosswalk evidence (type human-attested), use this confirmedWith, which holds no email:")
+    say(json.dumps(attest.confirmed_with(record), indent=2))
+    return 0
+
+
 def cmd_probe(args: argparse.Namespace) -> int:
     if args.platform == "hub.docker.com":
         found = probes.docker_hub_org(args.name)
@@ -135,6 +181,14 @@ def main(argv: list[str] | None = None) -> int:
     sync = sub.add_parser("sync-csv", help="fill purl and codeRepository columns in _data/projects-*.csv")
     sync.add_argument("--data", default=str(REPO_ROOT / "_data"))
     sync.set_defaults(func=cmd_sync_csv)
+    person = sub.add_parser("add-person", help="ask questions and add a person record for human-attested evidence")
+    person.add_argument("--visibility", choices=["public", "private"], help="skip the public or private question")
+    person.add_argument("--public-file", default=str(PUBLIC_ATTESTATIONS), help="public attestations file")
+    person.add_argument(
+        "--private-file", default=str(PRIVATE_ATTESTATIONS), help="attestations file in the private repository clone"
+    )
+    person.add_argument("--test", action="store_true", help="make a test record with the all-zeros identifier")
+    person.set_defaults(func=cmd_add_person)
     args = parser.parse_args(argv)
     try:
         return args.func(args)

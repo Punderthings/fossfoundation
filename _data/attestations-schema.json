@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json",
+  "$comment": "One schema for both sides of a person record behind human-attested crosswalk evidence: public records in _data/attestations.json (people who agreed to be published) and private records in the maintainers' private repository. Field meanings are documented at https://fossfoundation.info/crosswalk#people. Vocabularies: Schema.org Person https://schema.org/Person and OrganizationRole https://schema.org/OrganizationRole, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/. Consent fields record what a controller must be able to show under GDPR Art. 7(1) https://gdpr-info.eu/art-7-gdpr/.",
+  "title": "Attestation Person Records Schema",
+  "description": "People at a foundation who confirmed, out of band to a trusted attestor, that an account or package belongs to that foundation. Crosswalk evidence points to a record by its opaque identifier (confirmedWith.identifier), so contact details can stay private. Add records with `fdncrosswalk add-person`.",
+  "type": "object",
+  "required": [
+    "attestations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attestations": {
+      "title": "Person records",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/attestation"
+      }
+    }
+  },
+  "definitions": {
+    "attestation": {
+      "type": "object",
+      "required": [
+        "identifier",
+        "visibility",
+        "email",
+        "roleName",
+        "memberOf",
+        "recordedBy",
+        "dateCreated",
+        "consent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "identifier": {
+          "title": "Opaque identifier",
+          "description": "A random UUID as a URN, the same value as confirmedWith.identifier in crosswalk evidence. Never derived from the person's email or name, so it cannot be used to look them up. urn:uuid:00000000-0000-0000-0000-000000000000 is reserved for test records. Never reuse an identifier for a different person.",
+          "$comment": "Schema.org identifier: https://schema.org/identifier; UUID URN: RFC 9562 https://www.rfc-editor.org/rfc/rfc9562",
+          "type": "string",
+          "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+        },
+        "visibility": {
+          "title": "Visibility",
+          "description": "public: stored in this public repository's _data/attestations.json, because the person agreed to have their details published (consent.publish must be true). private: stored only in the maintainers' private repository.",
+          "type": "string",
+          "enum": [
+            "public",
+            "private"
+          ]
+        },
+        "testRecord": {
+          "title": "Test record",
+          "description": "True for example data that refers to no real person.",
+          "type": "boolean"
+        },
+        "name": {
+          "title": "Name",
+          "description": "The person's name. Optional; leave it out if they prefer.",
+          "$comment": "Schema.org name: https://schema.org/name",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "description": "The person's email address, preferably at the foundation's own domain.",
+          "$comment": "Schema.org email: https://schema.org/email",
+          "type": "string",
+          "format": "email"
+        },
+        "roleName": {
+          "title": "Role",
+          "description": "The person's role at the organization when they confirmed, for example VP Infrastructure. Also copied into the public crosswalk evidence.",
+          "$comment": "Schema.org roleName on an OrganizationRole: https://schema.org/roleName",
+          "type": "string"
+        },
+        "memberOf": {
+          "title": "Organization",
+          "description": "Identifier of the organization the role is at: the file name of a _foundations/<identifier>.md file.",
+          "$comment": "Schema.org memberOf: https://schema.org/memberOf",
+          "type": "string"
+        },
+        "recordedBy": {
+          "title": "Recorded by",
+          "description": "GitHub login of the attestor who spoke with the person. Their attestations count as confirmed only if the login is listed in _data/attestors.json.",
+          "$comment": "Dublin Core creator: http://purl.org/dc/terms/creator",
+          "type": "string"
+        },
+        "dateCreated": {
+          "title": "Date recorded",
+          "$comment": "Schema.org dateCreated: https://schema.org/dateCreated",
+          "type": "string",
+          "format": "date"
+        },
+        "dateModified": {
+          "title": "Date last changed",
+          "$comment": "Schema.org dateModified: https://schema.org/dateModified",
+          "type": "string",
+          "format": "date"
+        },
+        "consent": {
+          "title": "Consent",
+          "description": "How and when the person agreed to us keeping (and, for public records, publishing) these details.",
+          "$comment": "GDPR Art. 7 conditions for consent: https://gdpr-info.eu/art-7-gdpr/",
+          "type": "object",
+          "required": [
+            "dateGiven",
+            "method",
+            "purpose",
+            "legalBasis"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "dateGiven": {
+              "title": "Date given",
+              "type": "string",
+              "format": "date"
+            },
+            "method": {
+              "title": "Method",
+              "description": "How consent was given; the same values as the crosswalk evidence method (https://fossfoundation.info/crosswalk#evidence).",
+              "$comment": "Schema.org measurementTechnique: https://schema.org/measurementTechnique",
+              "type": "string",
+              "enum": [
+                "in-person",
+                "video-call",
+                "email-official-domain",
+                "signed-message",
+                "foundation-ticket"
+              ]
+            },
+            "evidence": {
+              "title": "Where to find it",
+              "description": "Where the consent can be found again, for example a mail archive link or ticket number. Do not paste the message itself.",
+              "$comment": "Dublin Core source: http://purl.org/dc/terms/source",
+              "type": "string"
+            },
+            "purpose": {
+              "title": "Purpose",
+              "description": "What the person agreed we may use the details for.",
+              "$comment": "GDPR Art. 5(1)(b), purpose limitation: https://gdpr-info.eu/art-5-gdpr/",
+              "type": "string"
+            },
+            "legalBasis": {
+              "title": "Legal basis",
+              "description": "Link to the GDPR article relied on; normally Art. 6(1)(a), consent: https://gdpr-info.eu/art-6-gdpr/",
+              "type": "string",
+              "format": "uri"
+            },
+            "publish": {
+              "title": "Agreed to publication",
+              "description": "True when the person agreed to have this record published in the public repository. Required for public records.",
+              "type": "boolean"
+            },
+            "withdrawn": {
+              "title": "Date withdrawn",
+              "description": "Date consent was withdrawn. Delete the record instead where possible (GDPR Art. 17: https://gdpr-info.eu/art-17-gdpr/).",
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "retainUntil": {
+          "title": "Review by",
+          "description": "Date to review whether the record is still needed; one year after it was recorded by default.",
+          "$comment": "GDPR Art. 5(1)(e), storage limitation: https://gdpr-info.eu/art-5-gdpr/",
+          "type": "string",
+          "format": "date"
+        },
+        "usedIn": {
+          "title": "Used in",
+          "description": "Crosswalk files whose evidence points at this identifier.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "visibility": {
+            "const": "public"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "consent": {
+            "required": [
+              "publish"
+            ],
+            "properties": {
+              "publish": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

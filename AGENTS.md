@@ -55,6 +55,7 @@ say in the PR which way you read it.
 | `_data/foundation-template.md` | Template for new foundations | hand |
 | `_data/crosswalk/<id>.json` | Foundation accounts on code hosts and registries, with evidence | hand |
 | `_data/attestors.json` | Logins whose `human-attested` evidence counts as confirmed | maintainers only |
+| `_data/attestations.json` | Public person records behind `human-attested` evidence, only for people who agreed to publication; private ones live in the maintainers' private repository | `fdncrosswalk add-person` |
 | `_data/projects-*.csv` | Projects hosted by each foundation | scrapers, then hand review |
 | `_data/sponsorships/*.json` | Sponsor reports | generated (`assets/ruby/sponsor_reports.rb`) |
 | `history/sponsorships/` | Monthly sponsor history with provenance | generated (`assets/ruby/sponsor_archive.rb`) |
