@@ -11,6 +11,7 @@ The crosswalk records which accounts and packages on code hosts and package regi
 
 - Data: [`_data/crosswalk/<foundation>.json`](https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk), validated by [`_data/crosswalk-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json).
 - Simple export: the `purl` and `codeRepository` columns of `_data/projects-<foundation>.csv` hold each hosted project's main package and repository, copied from the crosswalk.
+- Evidence and attestations: every link carries [evidence](#evidence); confirmations made in person are recorded by trusted [attestors](#attestors), with [records of the people who confirmed them](#people), following the [attestor workflow](#attestor-workflow).
 - Linked-data exports: [`/api/v2/crosswalk/`](#exports).
 - File overview: [Crosswalk Data Files](/crosswalk-files).
 - Tool: [`assets/python/fdncrosswalk`](https://github.com/Punderthings/fossfoundation/tree/main/assets/python/fdncrosswalk).
@@ -97,14 +98,37 @@ A package is a registry package or a source repository, identified by a purl wit
 
 ## Attestors {#attestors}
 
-[`_data/attestors.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors.json) lists the people whose human attestations count as confirmed: each is a [schema:Person](https://schema.org/Person) with a GitHub `login`, `name`, `sameAs` profile links and `dateAdded`. Adding someone is itself a reviewed pull request. This reflects the personal trust between people in foundation leadership: some confirmations of ownership can only be checked out of band by someone the foundation's leaders know.
+Some links can't be proved from public pages. A Docker Hub organization, an npm scope or a PyPI organization may carry no domain check and no link back to the foundation's site, yet the foundation's own infrastructure team knows it is theirs. For those, the crosswalk accepts `human-attested` evidence: a person confirmed the link directly, out of band, with someone at the organization.
+
+**Attestors** are the small group of people whose human attestations the project trusts enough to count as **confirmed**. They are usually people in or close to FOSS foundation leadership, such as officers, directors, or infrastructure staff, who personally know the leaders of other foundations. An attestor does not have to work for the foundation whose link they confirm; what counts is that they confirmed it with someone there. This mirrors how trust already works between foundation leaders: some confirmations of ownership can only be made by someone the foundation's leaders know.
+
+For a researcher, the key facts are:
+
+- Every `human-attested` evidence item names its attestor in `creator`, as a GitHub login. Join it to [`_data/attestors.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors.json) to see who they are.
+- An attestation by a listed attestor gives **confirmed**. The same evidence recorded by anyone else counts only as **probable** (see [confidence](#confidence)).
+- Attestors are always public. The person they confirmed with may not be; see [people who confirmed links](#people).
+- Adding someone to the list is itself a reviewed pull request, merged by a maintainer, so the list's git history shows when and by whom each attestor was added.
+
+Each attestor is a [schema:Person](https://schema.org/Person), validated by [`_data/attestors-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors-schema.json):
+
+| Field | Standard term | Meaning |
+| --- | --- | --- |
+| `login` | [schema:identifier](https://schema.org/identifier) | GitHub login; matches `creator` on their evidence. |
+| `name` | [schema:name](https://schema.org/name) | The attestor's name. |
+| `sameAs` | [schema:sameAs](https://schema.org/sameAs) | Profile URLs that identify the person, such as GitHub, ORCID or Wikidata. |
+| `dateAdded` | [dcterms:dateAccepted](http://purl.org/dc/terms/dateAccepted) | When the maintainers accepted them as an attestor. |
+| `keyFingerprint` | | Optional fingerprint of the OpenPGP or SSH key they sign commits with. |
 
 ## People who confirmed links {#people}
 
-Each person behind a `human-attested` item has one record, validated by [`_data/attestations-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json). Crosswalk evidence points to it by `identifier`, an opaque `urn:uuid:` ([RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)) that is random, never derived from the person's details. The same schema covers both places a record can live:
+Behind every `human-attested` item there are two people: the attestor who recorded it, and the person at the organization who confirmed it to them. That second person is typically an officer, director, or staff member responsible for the accounts in question, for example a foundation's head of infrastructure or its executive director.
 
-- **Public**, in [`_data/attestations.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations.json), only when the person agreed to publication (`consent.publish` is true).
-- **Private**, in the maintainers' private repository, which only maintainers can read. This is the default.
+What a researcher can always see in the public evidence is that person's **role** (`roleName`), their **organization** (`memberOf`, a `_foundations` identifier), **how** they confirmed it (`method`), and **when** (`observed`). Their name and email are kept in a separate **person record**, which is private unless they agreed to publication. This keeps personal information out of a public repository, as the [GDPR](https://gdpr-info.eu/) and our own privacy rules expect, while still letting maintainers tie every attestation to a real, reachable person if it is ever questioned.
+
+Each person has one record, validated by [`_data/attestations-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json). Crosswalk evidence points to it by `identifier`, an opaque `urn:uuid:` ([RFC 9562](https://www.rfc-editor.org/rfc/rfc9562)) that is random, never derived from the person's details, so the public data can't be used to look a person up. The same identifier is used for every link that person confirmed, so you can count distinct people without knowing who they are. The same schema covers both places a record can live:
+
+- **Public**, in [`_data/attestations.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations.json), only when the person agreed to publication (`consent.publish` is true). These records are CC0-1.0.
+- **Private**, in the maintainers' private repository, which only maintainers can read. This is the default. If you need a private record checked for research or legal reasons, ask the maintainers; personal details are never shared without the person's consent.
 
 | Field | Standard term | Meaning |
 | --- | --- | --- |
@@ -120,6 +144,64 @@ Each person behind a `human-attested` item has one record, validated by [`_data/
 | `usedIn` | | Crosswalk files whose evidence uses this identifier. |
 
 Add a record with `uv run fdncrosswalk add-person` in `assets/python/fdncrosswalk`. It asks the questions above, makes the identifier, saves the record to the public file or to the private repository's `attestations.json`, and prints the `confirmedWith` to put in the evidence.
+
+## Attestor workflow {#attestor-workflow}
+
+This section walks through the whole process, from becoming an attestor to keeping an attestation current.
+
+### Why become an attestor
+
+- **Your foundation's accounts get confirmed** even where no public proof exists. Without an attestation, an account with only a profile claim or a naming convention stays "probable".
+- **It protects users of your software.** The crosswalk tells package users, security tools, and verifiers of [EU Cyber Resilience Act](#steward) attestations which accounts may legitimately carry a foundation's releases, and it flags look-alike accounts as rejected.
+- **It helps peers.** Leaders at smaller foundations often have no time to publish proof for every account; an attestor they already know can confirm it in one conversation.
+- **It improves research.** Confirmed links let researchers measure a foundation's software without guessing which accounts are really its own.
+
+Being an attestor is a small, occasional task: a few confirmations a year, each renewed yearly.
+
+### How maintainers check an attestor
+
+1. The candidate opens an issue or pull request that adds their entry to `_data/attestors.json`: GitHub login, name, `sameAs` profile links, and, if they sign commits, their key fingerprint. They say which organization they are connected to and in what role.
+2. A maintainer checks that the role is real, preferably on the organization's own leadership or team page, and confirms it with the candidate directly, using one of the evidence methods: in person, a video call, email from the organization's official domain, a signed message, or a ticket in the organization's own tracker.
+3. The maintainer checks that the GitHub login belongs to that person, for example through the profile links or signed commits.
+4. The maintainer merges the pull request, which records `dateAdded`. Attestors are added only by maintainers.
+
+`_data/attestors.json` does not yet store the attestor's own organization or role; the connection is recorded in the pull request that added them. Whether to add such a field is an open question for maintainers.
+
+### How an attestor adds evidence
+
+Start with a clone of this repository, and, for private person records, a clone of the maintainers' private repository next to it (maintainers only; other attestors send the person's details to a maintainer, who records them).
+
+1. **Confirm out of band.** Ask your contact at the organization to confirm that the account or package is theirs, using one of the methods above. Ask, too, whether they agree to their email (and name, if they give it) being kept privately, or published.
+2. **Make the person record.** If this person has no record yet, run `uv run fdncrosswalk add-person` in `assets/python/fdncrosswalk`. It asks whether the record is public or private; choose public only if they agreed to publication. It prints a `confirmedWith` block. If they already have a record, reuse its `identifier`.
+3. **Add the evidence item.** In `_data/crosswalk/<foundation>.json`, add an item like this to the account's or package's `evidence` list, using your own login and the printed `confirmedWith`:
+
+   ```json
+   {
+     "type": "human-attested",
+     "creator": "your-github-login",
+     "method": "video-call",
+     "confirmedWith": {
+       "identifier": "urn:uuid:00000000-0000-0000-0000-000000000000",
+       "roleName": "Director of Infrastructure",
+       "memberOf": "example"
+     },
+     "source": "https://github.com/Punderthings/fossfoundation/pull/123",
+     "observed": "2026-11-03",
+     "detail": "The foundation's director of infrastructure confirmed on a video call that it controls this organization."
+   }
+   ```
+
+   This example uses the all-zeros test identifier and placeholder values. `source` is the pull request that records the attestation; open the pull request first, then fill in its URL in a follow-up commit. To override an earlier `contradiction`, add `"supersedes": true` and explain why in `detail`.
+4. **Check and export.** From `assets/python/fdncrosswalk`, run `uv run fdncrosswalk validate`, then `uv run fdncrosswalk export` to refresh the [exports](#exports), and `uv run fdncrosswalk report` to see the new confidence.
+5. **Open the pull request.** Commit the crosswalk file and the regenerated exports together. A maintainer reviews and merges it. A private person record goes in its own pull request in the private repository.
+
+### Keeping attestations current
+
+- **Renew yearly.** A human attestation is fresh for one year after `observed`, unless `validThrough` says otherwise; then the link is marked [stale](#stale). To renew, confirm again, update `observed`, and keep the same `identifier`.
+- **Changes at the organization.** If your contact leaves their role, or the account changes hands, update or remove the evidence.
+- **Consent withdrawn.** Delete the person record, and remove or replace the evidence that uses its identifier. A maintainer decides whether git history also needs rewriting to complete an erasure request.
+
+Today steps 2 and 3 mean copying the printed block by hand. Tools that could automate more of this workflow are proposed in [`_prompts/2026-11-03-attestor-evidence-tooling.md`](https://github.com/Punderthings/fossfoundation/blob/main/_prompts/2026-11-03-attestor-evidence-tooling.md).
 
 ## Steward {#steward}
 
