@@ -2,7 +2,7 @@
 
 2026-11-03 · Shane Curcuru, with Claude
 
-Status: draft (future task; nothing here is built yet)
+Status: decided; items 1, 2 and 5 implemented in #90; items 3 and 4 are future questions for maintainers
 
 ## Prompt
 
@@ -70,3 +70,48 @@ dependencies. Items 3 and 4 add GitHub configuration. **SC:** Complete items 1, 
 5. Can attestors who are not maintainers create private person records, given that only
    maintainers can read the private repository? The documented workflow has them send
    the person's details to a maintainer. **SC:** No, only fossfoundation maintainers can add data to the private repository; maintainers of this project are central to the trust model of that private data, and trust or confirmations there can come out of band or via other communication channels.
+
+## Decisions
+
+Shane answered on 2026-11-04, inline above (**SC:**).
+
+1. **Build `fdncrosswalk attest`, `attest --renew`, and the renewal list in `report`**
+   (items 1, 2 and 5) in #90. As built: `attest <foundation>` takes `--target` and
+   `--creator` or asks for them; the creator comes from `--creator` or a question, not the
+   git configuration, because a git user name is not always a GitHub login. `report` also
+   lists evidence whose source is still pending.
+2. **`source` may be the placeholder `pending`** until the pull request that records the
+   attestation exists. The crosswalk schema allows it, `attest` uses it by default,
+   `report` lists it, and the JSON-LD exports leave a pending source out, since it is not
+   an IRI. How to fill it in later is a future question below.
+3. **`_data/attestors.json` gains optional `roleName` and `memberOf`.** They are optional
+   because some attestors are not directly associated with a foundation listed here; some
+   are associated with an entity or another project. `memberOf` is a `_foundations` or
+   `_entities` identifier, or the website URL of an organization not listed;
+   `fdncrosswalk validate` checks it.
+4. **`confirmedWith` may point to the attestor's own person record** when the attestor is
+   the officer who confirms the link. The consent `method` in person records gains the
+   value `self`, for an attestor recording their own details.
+5. **Only maintainers of this project add data to the private repository.** "Maintainers
+   of this project are central to the trust model of that private data, and trust or
+   confirmations there can come out of band or via other communication channels." Other
+   attestors send a person's details to a maintainer, who creates the record.
+
+## Future questions for maintainers
+
+These need maintainers' feedback before any GitHub automation is added, since a new
+workflow needs approval under `AGENTS.md`.
+
+- **Filling in `source` (item 3).** Proposed plan: a small GitHub Actions job runs on pull
+  requests that change `_data/crosswalk/`. It finds `human-attested` items whose source is
+  `pending` and either (a) comments on the pull request with the exact lines to change, or
+  (b) after merge, opens a follow-up pull request that replaces `pending` with the merged
+  pull request's URL and regenerates the exports. Option (a) needs no write access; (b) needs
+  a token that can push a branch. Alternatives: keep `pending` and accept the git history
+  as the record, or allow the commit URL instead. Which, if any?
+- **An issue form for foundations (item 4).** Proposed plan: a `.github/ISSUE_TEMPLATE`
+  form, "Confirm our accounts", with fields for the foundation identifier, the accounts or
+  packages to confirm, the requester's role, and how they prefer to be contacted (with a
+  reminder not to post personal emails publicly). A maintainer or attestor then confirms
+  out of band and runs `fdncrosswalk attest`. Should requests come through public issues,
+  or only through a private channel?

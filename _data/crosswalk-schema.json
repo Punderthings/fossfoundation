@@ -259,10 +259,17 @@
         },
         "source": {
           "title": "Source",
-          "description": "URL where the evidence can be checked again. For human-attested evidence, the pull request or signed commit that recorded it.",
+          "description": "URL where the evidence can be checked again. For human-attested evidence, the pull request or signed commit that recorded it, or the placeholder pending until that URL is known.",
           "$comment": "Dublin Core source: http://purl.org/dc/terms/source",
           "type": "string",
-          "format": "uri"
+          "anyOf": [
+            {
+              "format": "uri"
+            },
+            {
+              "const": "pending"
+            }
+          ]
         },
         "observed": {
           "title": "Observed",

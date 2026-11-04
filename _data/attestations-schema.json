@@ -117,7 +117,7 @@
             },
             "method": {
               "title": "Method",
-              "description": "How consent was given; the same values as the crosswalk evidence method (https://fossfoundation.info/crosswalk#evidence).",
+              "description": "How consent was given; the same values as the crosswalk evidence method (https://fossfoundation.info/crosswalk#evidence), plus self when the attestor is recording their own details.",
               "$comment": "Schema.org measurementTechnique: https://schema.org/measurementTechnique",
               "type": "string",
               "enum": [
@@ -125,7 +125,8 @@
                 "video-call",
                 "email-official-domain",
                 "signed-message",
-                "foundation-ticket"
+                "foundation-ticket",
+                "self"
               ]
             },
             "evidence": {

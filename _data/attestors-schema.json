@@ -48,6 +48,18 @@
             "type": "string",
             "format": "date"
           },
+          "roleName": {
+            "title": "Role",
+            "description": "Optional. The attestor's own role at the organization in memberOf, for example Board Member or VP Infrastructure. Leave both out when the attestor is not associated with one organization.",
+            "$comment": "Schema.org roleName (OrganizationRole): https://schema.org/roleName",
+            "type": "string"
+          },
+          "memberOf": {
+            "title": "Organization",
+            "description": "Optional. The organization the attestor is associated with: the identifier of a _foundations or _entities record, or, for an organization not listed on this site, the URL of its website.",
+            "$comment": "Schema.org memberOf: https://schema.org/memberOf",
+            "type": "string"
+          },
           "keyFingerprint": {
             "title": "Signing key fingerprint",
             "description": "Fingerprint of the OpenPGP or SSH key the attestor signs commits with, if any.",

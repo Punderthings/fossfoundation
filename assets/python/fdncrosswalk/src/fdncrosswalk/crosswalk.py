@@ -23,6 +23,8 @@ SUPPORTING: Final[frozenset[str]] = frozenset(
 )
 HUMAN_ATTESTED: Final[str] = "human-attested"
 CONTRADICTING: Final[str] = "contradiction"
+# Placeholder source for human-attested evidence until the pull request that records it has a URL.
+PENDING_SOURCE: Final[str] = "pending"
 
 # How long evidence stays fresh when it has no validThrough date. Contradictions never expire.
 LONG_LIVED: Final[frozenset[str]] = frozenset({"steward-declared", HUMAN_ATTESTED})
@@ -152,17 +154,19 @@ def validate(data: dict[str, Any], schema: dict[str, Any]) -> list[str]:
     return [f"{'/'.join(str(p) for p in e.absolute_path) or '(root)'}: {e.message}" for e in errors]
 
 
-def _evidence(data: dict[str, Any]) -> Evidence:
+def evidence_from_dict(data: dict[str, Any]) -> Evidence:
+    """One evidence item from its JSON form."""
     person = data.get("confirmedWith")
     return Evidence(**{**data, "confirmedWith": Person(**person) if person else None})
 
 
+
 def from_dict(data: dict[str, Any]) -> Crosswalk:
     accounts = tuple(
-        Account(**{**a, "evidence": tuple(_evidence(e) for e in a["evidence"])}) for a in data["accounts"]
+        Account(**{**a, "evidence": tuple(evidence_from_dict(e) for e in a["evidence"])}) for a in data["accounts"]
     )
     packages = tuple(
-        Package(**{**p, "evidence": tuple(_evidence(e) for e in p["evidence"])}) for p in data.get("packages", [])
+        Package(**{**p, "evidence": tuple(evidence_from_dict(e) for e in p["evidence"])}) for p in data.get("packages", [])
     )
     return Crosswalk(identifier=data["identifier"], accounts=accounts, packages=packages)
 

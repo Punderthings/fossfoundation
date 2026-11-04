@@ -63,7 +63,7 @@ A package is a registry package or a source repository, identified by a purl wit
 | Field | Standard term | Meaning |
 | --- | --- | --- |
 | `type` | [dcterms:type](http://purl.org/dc/terms/type) | One of the evidence types below. |
-| `source` | [dcterms:source](http://purl.org/dc/terms/source) | URL where anyone can check the evidence again; for human attestations, the pull request or signed commit that recorded it. |
+| `source` | [dcterms:source](http://purl.org/dc/terms/source) | URL where anyone can check the evidence again; for human attestations, the pull request or signed commit that recorded it, or `pending` until that pull request exists (exports leave a pending source out). |
 | `observed` | [prov:generatedAtTime](https://www.w3.org/TR/prov-o/#generatedAtTime) | Date last checked, or the date a human attestation was done. |
 | `detail` | [dcterms:description](http://purl.org/dc/terms/description) | One sentence on what the source shows. |
 | `creator` | [dcterms:creator](http://purl.org/dc/terms/creator) | Who recorded it: a GitHub login, or `fdncrosswalk/<version>`. |
@@ -117,6 +117,7 @@ Each attestor is a [schema:Person](https://schema.org/Person), validated by [`_d
 | `name` | [schema:name](https://schema.org/name) | The attestor's name. |
 | `sameAs` | [schema:sameAs](https://schema.org/sameAs) | Profile URLs that identify the person, such as GitHub, ORCID or Wikidata. |
 | `dateAdded` | [dcterms:dateAccepted](http://purl.org/dc/terms/dateAccepted) | When the maintainers accepted them as an attestor. |
+| `roleName`, `memberOf` | [schema:roleName](https://schema.org/roleName), [schema:memberOf](https://schema.org/memberOf) | Optional. The attestor's own role, and the organization they are associated with: a `_foundations` or `_entities` identifier, or the website URL of an organization not listed here. Left out for attestors not associated with one organization. |
 | `keyFingerprint` | | Optional fingerprint of the OpenPGP or SSH key they sign commits with. |
 
 ## People who confirmed links {#people}
@@ -139,7 +140,7 @@ Each person has one record, validated by [`_data/attestations-schema.json`](http
 | `roleName`, `memberOf` | [schema:roleName](https://schema.org/roleName), [schema:memberOf](https://schema.org/memberOf) | Role at the organization, and its `_foundations` identifier. |
 | `recordedBy` | [dcterms:creator](http://purl.org/dc/terms/creator) | GitHub login of the attestor. |
 | `dateCreated`, `dateModified` | [schema:dateCreated](https://schema.org/dateCreated), [schema:dateModified](https://schema.org/dateModified) | When the record was made and last changed. |
-| `consent` | [GDPR Art. 7](https://gdpr-info.eu/art-7-gdpr/) | `dateGiven`, `method` (the evidence methods above), `evidence` (where to find it again), `purpose` ([Art. 5(1)(b)](https://gdpr-info.eu/art-5-gdpr/)), `legalBasis` (normally [Art. 6(1)(a)](https://gdpr-info.eu/art-6-gdpr/)), `publish`, and `withdrawn`. |
+| `consent` | [GDPR Art. 7](https://gdpr-info.eu/art-7-gdpr/) | `dateGiven`, `method` (the evidence methods above, or `self` when attestors record their own details), `evidence` (where to find it again), `purpose` ([Art. 5(1)(b)](https://gdpr-info.eu/art-5-gdpr/)), `legalBasis` (normally [Art. 6(1)(a)](https://gdpr-info.eu/art-6-gdpr/)), `publish`, and `withdrawn`. |
 | `retainUntil` | [GDPR Art. 5(1)(e)](https://gdpr-info.eu/art-5-gdpr/) | Date to review whether the record is still needed; one year by default. |
 | `usedIn` | | Crosswalk files whose evidence uses this identifier. |
 
@@ -160,48 +161,47 @@ Being an attestor is a small, occasional task: a few confirmations a year, each 
 
 ### How maintainers check an attestor
 
-1. The candidate opens an issue or pull request that adds their entry to `_data/attestors.json`: GitHub login, name, `sameAs` profile links, and, if they sign commits, their key fingerprint. They say which organization they are connected to and in what role.
+1. The candidate opens an issue or pull request that adds their entry to `_data/attestors.json`: GitHub login, name, `sameAs` profile links, and, if they sign commits, their key fingerprint. If they are associated with an organization, they add its identifier as `memberOf` and their `roleName`.
 2. A maintainer checks that the role is real, preferably on the organization's own leadership or team page, and confirms it with the candidate directly, using one of the evidence methods: in person, a video call, email from the organization's official domain, a signed message, or a ticket in the organization's own tracker.
 3. The maintainer checks that the GitHub login belongs to that person, for example through the profile links or signed commits.
 4. The maintainer merges the pull request, which records `dateAdded`. Attestors are added only by maintainers.
 
-`_data/attestors.json` does not yet store the attestor's own organization or role; the connection is recorded in the pull request that added them. Whether to add such a field is an open question for maintainers.
+`memberOf` and `roleName` are optional, because some attestors are not associated with one foundation listed here; they may work with an entity, another project, or several organizations. `fdncrosswalk validate` checks that a `memberOf` names a `_foundations` or `_entities` record, or is a website URL.
 
 ### How an attestor adds evidence
 
-Start with a clone of this repository, and, for private person records, a clone of the maintainers' private repository next to it (maintainers only; other attestors send the person's details to a maintainer, who records them).
+Start with a clone of this repository. Only maintainers of this project add data to the private repository, because they are central to the trust model for that data; if you are not a maintainer, send the person's details to a maintainer by whatever channel you both trust, and they create the private record and give you its identifier.
 
-1. **Confirm out of band.** Ask your contact at the organization to confirm that the account or package is theirs, using one of the methods above. Ask, too, whether they agree to their email (and name, if they give it) being kept privately, or published.
-2. **Make the person record.** If this person has no record yet, run `uv run fdncrosswalk add-person` in `assets/python/fdncrosswalk`. It asks whether the record is public or private; choose public only if they agreed to publication. It prints a `confirmedWith` block. If they already have a record, reuse its `identifier`.
-3. **Add the evidence item.** In `_data/crosswalk/<foundation>.json`, add an item like this to the account's or package's `evidence` list, using your own login and the printed `confirmedWith`:
+1. **Confirm out of band.** Ask your contact at the organization to confirm that the account or package is theirs, using one of the methods above. Ask, too, whether they agree to their email (and name, if they give it) being kept privately, or published. If you are yourself the officer responsible for the account, you can confirm it with yourself: your person record then uses the consent method `self`.
+2. **Run the guided tool.** From `assets/python/fdncrosswalk`, run `uv run fdncrosswalk attest <foundation> --creator <your-login>`. It lists the foundation's accounts and packages to pick from, then asks how and when the link was confirmed, the identifier of the person's record, and one sentence on what they confirmed. Leave the identifier empty to create the person record on the spot, as `uv run fdncrosswalk add-person` does; choose a public record only if the person agreed to publication.
+3. **Check what it wrote.** The tool shows the evidence item before saving it, then validates the file and regenerates the [exports](#exports). The item looks like this:
 
    ```json
    {
      "type": "human-attested",
+     "source": "pending",
+     "observed": "2026-11-03",
+     "detail": "The foundation's director of infrastructure confirmed on a video call that it controls this organization.",
      "creator": "your-github-login",
      "method": "video-call",
      "confirmedWith": {
        "identifier": "urn:uuid:00000000-0000-0000-0000-000000000000",
        "roleName": "Director of Infrastructure",
        "memberOf": "example"
-     },
-     "source": "https://github.com/Punderthings/fossfoundation/pull/123",
-     "observed": "2026-11-03",
-     "detail": "The foundation's director of infrastructure confirmed on a video call that it controls this organization."
+     }
    }
    ```
 
-   This example uses the all-zeros test identifier and placeholder values. `source` is the pull request that records the attestation; open the pull request first, then fill in its URL in a follow-up commit. To override an earlier `contradiction`, add `"supersedes": true` and explain why in `detail`.
-4. **Check and export.** From `assets/python/fdncrosswalk`, run `uv run fdncrosswalk validate`, then `uv run fdncrosswalk export` to refresh the [exports](#exports), and `uv run fdncrosswalk report` to see the new confidence.
-5. **Open the pull request.** Commit the crosswalk file and the regenerated exports together. A maintainer reviews and merges it. A private person record goes in its own pull request in the private repository.
+   This example uses the all-zeros test identifier and placeholder values. If the link has `contradiction` evidence, the tool asks whether your attestation overrides it, and adds `"supersedes": true`; explain why in `detail`.
+4. **Open the pull request.** Commit the crosswalk file and the regenerated exports together. `source` starts as the placeholder `pending`; once the pull request exists, replace it with the pull request's URL, or leave that to the maintainer who merges it. `uv run fdncrosswalk report` lists any evidence whose source is still pending. A maintainer reviews and merges the pull request. A new private person record goes in its own pull request in the private repository.
 
 ### Keeping attestations current
 
-- **Renew yearly.** A human attestation is fresh for one year after `observed`, unless `validThrough` says otherwise; then the link is marked [stale](#stale). To renew, confirm again, update `observed`, and keep the same `identifier`.
+- **Renew yearly.** A human attestation is fresh for one year after `observed`, unless `validThrough` says otherwise; then the link is marked [stale](#stale). `uv run fdncrosswalk attest --renew --creator <your-login>` lists your attestations that are stale or go stale within 60 days. For each one you confirmed again, it updates `observed` and `method` and sets `source` back to `pending` for the new pull request, keeping the same person identifier. `uv run fdncrosswalk report` lists the attestations due for every attestor.
 - **Changes at the organization.** If your contact leaves their role, or the account changes hands, update or remove the evidence.
 - **Consent withdrawn.** Delete the person record, and remove or replace the evidence that uses its identifier. A maintainer decides whether git history also needs rewriting to complete an erasure request.
 
-Today steps 2 and 3 mean copying the printed block by hand. Tools that could automate more of this workflow are proposed in [`_prompts/2026-11-03-attestor-evidence-tooling.md`](https://github.com/Punderthings/fossfoundation/blob/main/_prompts/2026-11-03-attestor-evidence-tooling.md).
+The plan and decisions behind these tools, and ideas for GitHub automation later, are in [`_prompts/2026-11-03-attestor-evidence-tooling.md`](https://github.com/Punderthings/fossfoundation/blob/main/_prompts/2026-11-03-attestor-evidence-tooling.md).
 
 ## Steward {#steward}
 
