@@ -52,21 +52,21 @@ band, makes a person record with `fdncrosswalk add-person`, copies the printed
    attestor, to `fdncrosswalk report`, so a monthly review can ping each attestor.
 
 Items 1, 2 and 5 are changes to the existing `fdncrosswalk` tool and need no new
-dependencies. Items 3 and 4 add GitHub configuration.
+dependencies. Items 3 and 4 add GitHub configuration. **SC:** Complete items 1, 2, and 5 now in this PR.  Add a Future Questions For Maintainers item with a brief description of the plan to implement items 3 and 4 so that maintainers can provide feedback on how to add GitHub automations later.
 
 ## Open questions
 
 1. Build `fdncrosswalk attest` (and `--renew`) as recommended, or keep the manual
-   workflow for now while there are few attestors?
+   workflow for now while there are few attestors? **SC:** Yes, please build the new fdncrosswalk features here.
 2. For `source`, keep the pull request URL (needs a follow-up commit or a CI step), or
-   allow a placeholder or the commit URL?
+   allow a placeholder or the commit URL? **SC:** Allow a placeholder; add a Future Questions For Maintainers about deciding changes here later.
 3. Should `_data/attestors.json` record each attestor's own organization and role
    (for example `memberOf` and `roleName`, as in the person records)? Today that
    connection is recorded only in the pull request that added them. This is a schema
-   change.
+   change. **SC:** Yes, add these entries, however make them optional; some attestors may not be directly associated with a foundation listed here; some may be associated with an entity or some other non-foundation project.
 4. When an attestor is themselves an officer of the foundation whose account they
    confirm, should `confirmedWith` point to their own person record, or should a
-   different evidence type or method be used?
+   different evidence type or method be used? **SC:** confirmedWith can point to their own record if appropriate; also add a type of method for the consent recorded that is "self", for cases where an attestor is the person adding themselves.
 5. Can attestors who are not maintainers create private person records, given that only
    maintainers can read the private repository? The documented workflow has them send
-   the person's details to a maintainer.
+   the person's details to a maintainer. **SC:** No, only fossfoundation maintainers can add data to the private repository; maintainers of this project are central to the trust model of that private data, and trust or confirmations there can come out of band or via other communication channels.
