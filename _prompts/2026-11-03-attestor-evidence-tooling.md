@@ -96,6 +96,17 @@ Shane answered on 2026-11-04, inline above (**SC:**).
    of this project are central to the trust model of that private data, and trust or
    confirmations there can come out of band or via other communication channels." Other
    attestors send a person's details to a maintainer, who creates the record.
+6. **`memberOf` on attestors is a list of pairs** (Shane, 2026-11-05, replacing the single
+   `roleName` and `memberOf` of decision 3): each item has `memberOf` and an optional
+   `roleName`, following the Schema.org Role pattern (a `memberOf` whose items are
+   `OrganizationRole`s). "An attestor may be an officer at one foundation, and a director at
+   a second foundation, or might serve as an attestor for several foundations."
+7. **Attestations are volunteer observations, not legal attestations** (Shane, 2026-11-05).
+   Docs and schemas say that attestations in our data "are provided on a volunteer basis,
+   and while they may represent informed observations, they have not been legally reviewed
+   to qualify as 'attestations' under the CRA or other legislation. While we may seek legal
+   advice on how our tools directly comply with the CRA, we do not currently claim they are
+   certified to do so." The full statement is at `/crosswalk#legal-status`.
 
 ## Future questions for maintainers
 

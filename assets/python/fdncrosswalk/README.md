@@ -80,8 +80,13 @@ within 60 days; for each one you confirmed again it updates `observed` and `meth
 `validThrough`, and sets the source back to `pending` for the new pull request. `report` ends with
 the same list for every attestor, plus any evidence whose source is still pending.
 
-`validate` also checks that each attestor's optional `memberOf` is a `_foundations` or `_entities`
-identifier, or a website URL.
+`validate` also checks that each organization in an attestor's optional `memberOf` list is a
+`_foundations` or `_entities` identifier, or a website URL.
+
+Attestations recorded with these tools are given by volunteers. They may represent informed
+observations, but they have not been legally reviewed to qualify as attestations under the EU Cyber
+Resilience Act or other legislation, and the tools are not certified to comply with it; see
+<https://fossfoundation.info/crosswalk#legal-status>.
 
 `--today YYYY-MM-DD` judges staleness as of that date. Exports are published under CC0-1.0.
 

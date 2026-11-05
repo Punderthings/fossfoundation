@@ -145,11 +145,13 @@ def test_export_leaves_out_pending_source():
 
 
 def test_attestors_may_record_their_own_organization():
-    entry = {"login": "someone", "name": "Some One", "dateAdded": "2026-11-04", "roleName": "Board Member",
-             "memberOf": "asf"}
+    roles = [{"memberOf": "asf", "roleName": "VP Infrastructure"}, {"memberOf": "python", "roleName": "Director"},
+             {"memberOf": "https://example.org/"}]
+    entry = {"login": "someone", "name": "Some One", "dateAdded": "2026-11-04", "memberOf": roles}
     assert validate({"attestors": [entry]}, ATTESTORS_SCHEMA) == []
-    assert validate({"attestors": [{k: v for k, v in entry.items() if k not in ("roleName", "memberOf")}]},
-                    ATTESTORS_SCHEMA) == []
+    assert validate({"attestors": [{k: v for k, v in entry.items() if k != "memberOf"}]}, ATTESTORS_SCHEMA) == []
+    assert validate({"attestors": [entry | {"memberOf": "asf"}]}, ATTESTORS_SCHEMA)
+    assert validate({"attestors": [entry | {"memberOf": [{"roleName": "Director"}]}]}, ATTESTORS_SCHEMA)
 
 
 def test_consent_method_self_is_allowed():
@@ -187,9 +189,11 @@ def test_cli_renew_needs_creator(workdir, capsys):
 
 def test_validate_rejects_unknown_attestor_organization(tmp_path, capsys):
     path = tmp_path / "attestors.json"
-    entry = {"login": "someone", "name": "Some One", "dateAdded": "2026-11-04", "memberOf": "not-a-foundation"}
+    good = {"memberOf": "https://example.org/", "roleName": "Director"}
+    entry = {"login": "someone", "name": "Some One", "dateAdded": "2026-11-04",
+             "memberOf": [good, {"memberOf": "not-a-foundation"}]}
     path.write_text(json.dumps({"attestors": [entry]}), encoding="utf-8")
     assert cli.main(["--attestors", str(path), "validate"]) == 1
-    assert "memberOf" in capsys.readouterr().err
-    path.write_text(json.dumps({"attestors": [entry | {"memberOf": "https://example.org/"}]}), encoding="utf-8")
+    assert "not-a-foundation" in capsys.readouterr().err
+    path.write_text(json.dumps({"attestors": [entry | {"memberOf": [good, {"memberOf": "asf"}]}]}), encoding="utf-8")
     assert cli.main(["--attestors", str(path), "validate"]) == 0

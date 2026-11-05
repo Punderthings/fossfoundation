@@ -52,10 +52,11 @@ def cmd_validate(args: argparse.Namespace) -> int:
         raise ValueError(f"{PUBLIC_ATTESTATIONS}: only public records belong in this repository")
     known = {p.stem for p in (*FOUNDATIONS_DIR.glob("*.md"), *ENTITIES_DIR.glob("*.md"))}
     for attestor in json.loads(Path(args.attestors).read_text(encoding="utf-8"))["attestors"]:
-        org = attestor.get("memberOf")
-        if org and not org.startswith(("https://", "http://")) and org not in known:
-            raise ValueError(f"{args.attestors}: {attestor['login']}: memberOf {org!r} is not a _foundations or "
-                             "_entities identifier, or a website URL")
+        for role in attestor.get("memberOf", []):
+            org = role["memberOf"]
+            if not org.startswith(("https://", "http://")) and org not in known:
+                raise ValueError(f"{args.attestors}: {attestor['login']}: memberOf {org!r} is not a _foundations or "
+                                 "_entities identifier, or a website URL")
     print(f"{len(crosswalks)} crosswalk files valid; {len(attestors)} attestors; {len(people['attestations'])} public people")
     return 0
 

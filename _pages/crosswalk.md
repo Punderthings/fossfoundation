@@ -79,7 +79,7 @@ A package is a registry package or a source repository, identified by a purl wit
 | --- | --- | --- |
 | `steward-declared` | The foundation, on its own site or in policy | confirmed |
 | `platform-verified` | The platform, after checking a domain or identity, e.g. the [GitHub Verified badge](https://docs.github.com/en/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization) | confirmed |
-| `human-attested` | A trusted person who confirmed it out of band with someone at the organization | confirmed if the recorder is a listed [attestor](#attestors), otherwise probable |
+| `human-attested` | A trusted person who confirmed it out of band with someone at the organization; a volunteer observation, not a legal attestation (see [legal status](#legal-status)) | confirmed if the recorder is a listed [attestor](#attestors), otherwise probable |
 | `profile-claim` | The account holder, in its own profile | probable |
 | `program-badge` | A platform program, e.g. Docker-Sponsored Open Source | probable |
 | `publish-provenance` | A signed build record, e.g. [PyPI attestations (PEP 740)](https://peps.python.org/pep-0740/) or [npm provenance](https://docs.npmjs.com/generating-provenance-statements) | probable |
@@ -117,8 +117,26 @@ Each attestor is a [schema:Person](https://schema.org/Person), validated by [`_d
 | `name` | [schema:name](https://schema.org/name) | The attestor's name. |
 | `sameAs` | [schema:sameAs](https://schema.org/sameAs) | Profile URLs that identify the person, such as GitHub, ORCID or Wikidata. |
 | `dateAdded` | [dcterms:dateAccepted](http://purl.org/dc/terms/dateAccepted) | When the maintainers accepted them as an attestor. |
-| `roleName`, `memberOf` | [schema:roleName](https://schema.org/roleName), [schema:memberOf](https://schema.org/memberOf) | Optional. The attestor's own role, and the organization they are associated with: a `_foundations` or `_entities` identifier, or the website URL of an organization not listed here. Left out for attestors not associated with one organization. |
+| `memberOf` | [schema:memberOf](https://schema.org/memberOf), each item a [schema:OrganizationRole](https://schema.org/OrganizationRole) | Optional. A list of the organizations the attestor is associated with, each a pair of `memberOf` (a `_foundations` or `_entities` identifier, or the website URL of an organization not listed here) and an optional `roleName` ([schema:roleName](https://schema.org/roleName)). For example, an officer at one foundation and a director at another, or an attestor for several foundations. Left out for attestors not associated with any organization. |
 | `keyFingerprint` | | Optional fingerprint of the OpenPGP or SSH key they sign commits with. |
+
+For example, an attestor who is an officer at one foundation and a director at another:
+
+```json
+{
+  "login": "your-github-login",
+  "name": "Your Name",
+  "dateAdded": "2026-11-05",
+  "memberOf": [
+    { "memberOf": "example", "roleName": "Treasurer" },
+    { "memberOf": "https://example.org/", "roleName": "Director" }
+  ]
+}
+```
+
+### Legal status of attestations {#legal-status}
+
+Attestations in our data and schemas are provided by volunteers. They may represent informed observations by people who know the organizations involved, but they have not been legally reviewed to qualify as "attestations" under the [EU Cyber Resilience Act](#steward) or any other legislation. We may seek legal advice on how our tools could directly support CRA compliance, but we do not currently claim that the crosswalk, its evidence, or our tools are certified to do so. Treat a `human-attested` link as a documented, good-faith confirmation, and check the organization's own statements wherever a legal decision depends on it.
 
 ## People who confirmed links {#people}
 
@@ -153,7 +171,7 @@ This section walks through the whole process, from becoming an attestor to keepi
 ### Why become an attestor
 
 - **Your foundation's accounts get confirmed** even where no public proof exists. Without an attestation, an account with only a profile claim or a naming convention stays "probable".
-- **It protects users of your software.** The crosswalk tells package users, security tools, and verifiers of [EU Cyber Resilience Act](#steward) attestations which accounts may legitimately carry a foundation's releases, and it flags look-alike accounts as rejected.
+- **It protects users of your software.** The crosswalk helps package users, security tools, and people checking [EU Cyber Resilience Act](#steward) attestations see which accounts may legitimately carry a foundation's releases, and it flags look-alike accounts as rejected. Your confirmations are volunteer observations, not legal attestations; see [legal status](#legal-status).
 - **It helps peers.** Leaders at smaller foundations often have no time to publish proof for every account; an attestor they already know can confirm it in one conversation.
 - **It improves research.** Confirmed links let researchers measure a foundation's software without guessing which accounts are really its own.
 
@@ -161,12 +179,12 @@ Being an attestor is a small, occasional task: a few confirmations a year, each 
 
 ### How maintainers check an attestor
 
-1. The candidate opens an issue or pull request that adds their entry to `_data/attestors.json`: GitHub login, name, `sameAs` profile links, and, if they sign commits, their key fingerprint. If they are associated with an organization, they add its identifier as `memberOf` and their `roleName`.
-2. A maintainer checks that the role is real, preferably on the organization's own leadership or team page, and confirms it with the candidate directly, using one of the evidence methods: in person, a video call, email from the organization's official domain, a signed message, or a ticket in the organization's own tracker.
+1. The candidate opens an issue or pull request that adds their entry to `_data/attestors.json`: GitHub login, name, `sameAs` profile links, and, if they sign commits, their key fingerprint. If they are associated with any organizations, they list each one in `memberOf`, with their `roleName` there.
+2. A maintainer checks that each role is real, preferably on the organization's own leadership or team page, and confirms it with the candidate directly, using one of the evidence methods: in person, a video call, email from the organization's official domain, a signed message, or a ticket in the organization's own tracker.
 3. The maintainer checks that the GitHub login belongs to that person, for example through the profile links or signed commits.
 4. The maintainer merges the pull request, which records `dateAdded`. Attestors are added only by maintainers.
 
-`memberOf` and `roleName` are optional, because some attestors are not associated with one foundation listed here; they may work with an entity, another project, or several organizations. `fdncrosswalk validate` checks that a `memberOf` names a `_foundations` or `_entities` record, or is a website URL.
+`memberOf` is optional, and so is each `roleName` in it, because some attestors are not associated with a foundation listed here; they may work with an entity, another project, or several organizations, with a different role at each. `fdncrosswalk validate` checks that each `memberOf` names a `_foundations` or `_entities` record, or is a website URL.
 
 ### How an attestor adds evidence
 
@@ -205,7 +223,7 @@ The plan and decisions behind these tools, and ideas for GitHub automation later
 
 ## Steward {#steward}
 
-`fdn:steward` links a foundation to an account or package it stewards. It is a sub-property of [schema:publisher](https://schema.org/publisher). Where the foundation has said so publicly, it carries the meaning of **open-source software steward** in Article 3(14) of the [EU Cyber Resilience Act (Regulation (EU) 2024/2847)](https://eur-lex.europa.eu/eli/reg/2024/2847/oj). In paraphrase, that is a legal person, other than a manufacturer, that gives sustained support to the development of specific free and open-source software intended for commercial activities and ensures its viability; see Article 3(14) for the exact wording. The crosswalk tells verifiers of CRA attestations which registry accounts may carry a steward's releases.
+`fdn:steward` links a foundation to an account or package it stewards. It is a sub-property of [schema:publisher](https://schema.org/publisher). Where the foundation has said so publicly, it carries the meaning of **open-source software steward** in Article 3(14) of the [EU Cyber Resilience Act (Regulation (EU) 2024/2847)](https://eur-lex.europa.eu/eli/reg/2024/2847/oj). In paraphrase, that is a legal person, other than a manufacturer, that gives sustained support to the development of specific free and open-source software intended for commercial activities and ensures its viability; see Article 3(14) for the exact wording. The crosswalk can help people checking CRA attestations see which registry accounts may carry a steward's releases. It is volunteer-maintained information, not a certified compliance tool; see [legal status](#legal-status).
 
 Other terms: <span id="wikidataId"></span>`fdn:wikidataId` is the foundation's [Wikidata](https://www.wikidata.org/) item.
 
