@@ -1,5 +1,6 @@
 """Command line: validate crosswalk files, report confidence, print ecosyste.ms lookups, probe registries,
-write the public exports, sync the project CSVs and add attestation person records."""
+write the public exports, sync the project CSVs, add attestation person records, and add or renew
+human-attested evidence."""
 
 import argparse
 import json
@@ -9,7 +10,7 @@ from datetime import date
 from pathlib import Path
 
 from fdncrosswalk import attest, export, probes
-from fdncrosswalk.crosswalk import assess, load_attestors, load_dir, validate
+from fdncrosswalk.crosswalk import PENDING_SOURCE, assess, load_attestors, load_dir, validate
 from fdncrosswalk.ecosystems import MAILTO, MAILTO_ENV, lookup_urls, package_lookup_urls
 
 REPO_ROOT = Path(__file__).resolve().parents[5]
@@ -18,6 +19,7 @@ DEFAULT_SCHEMA = REPO_ROOT / "_data" / "crosswalk-schema.json"
 DEFAULT_ATTESTORS = REPO_ROOT / "_data" / "attestors.json"
 ATTESTORS_SCHEMA = REPO_ROOT / "_data" / "attestors-schema.json"
 FOUNDATIONS_DIR = REPO_ROOT / "_foundations"
+ENTITIES_DIR = REPO_ROOT / "_entities"
 PUBLIC_ATTESTATIONS = REPO_ROOT / "_data" / "attestations.json"
 ATTESTATIONS_SCHEMA = REPO_ROOT / "_data" / "attestations-schema.json"
 PRIVATE_ATTESTATIONS = REPO_ROOT.parent / "fossfoundation-private" / "attestations.json"
@@ -48,6 +50,13 @@ def cmd_validate(args: argparse.Namespace) -> int:
         raise ValueError(f"{PUBLIC_ATTESTATIONS}: " + "; ".join(errors))
     if any(p["visibility"] != "public" for p in people["attestations"]):
         raise ValueError(f"{PUBLIC_ATTESTATIONS}: only public records belong in this repository")
+    known = {p.stem for p in (*FOUNDATIONS_DIR.glob("*.md"), *ENTITIES_DIR.glob("*.md"))}
+    for attestor in json.loads(Path(args.attestors).read_text(encoding="utf-8"))["attestors"]:
+        for role in attestor.get("memberOf", []):
+            org = role["memberOf"]
+            if not org.startswith(("https://", "http://")) and org not in known:
+                raise ValueError(f"{args.attestors}: {attestor['login']}: memberOf {org!r} is not a _foundations or "
+                                 "_entities identifier, or a website URL")
     print(f"{len(crosswalks)} crosswalk files valid; {len(attestors)} attestors; {len(people['attestations'])} public people")
     return 0
 
@@ -68,7 +77,30 @@ def cmd_report(args: argparse.Namespace) -> int:
             project = f" [{package.project}]" if package.project else ""
             level = _level(assess(package, attestors, today))
             print(f"{cw.identifier}\t{level}\tpackage\t{package.purl}{project}")
+    documents = _documents(args)
+    renewals = attest.due(documents, today)
+    pending = [
+        (data["identifier"], label, item)
+        for data in documents
+        for label, entry in attest.targets(data).items()
+        for item in entry["evidence"]
+        if item["source"] == PENDING_SOURCE
+    ]
+    if renewals or pending:
+        print("# human attestations to renew or finish, by attestor")
+        rows = [(d.evidence.get("creator", ""), "stale" if d.stale else "renew", d.foundation, d.target,
+                 f"expires {d.expires.isoformat()}") for d in renewals]
+        rows += [(item.get("creator", ""), "source pending", fdn, label, f"observed {item['observed']}")
+                 for fdn, label, item in pending]
+        for row in sorted(rows):
+            print("\t".join(row))
     return 0
+
+
+def _documents(args: argparse.Namespace) -> list[dict]:
+    """The raw crosswalk documents, validated, for tools that edit them."""
+    _load(args)
+    return [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path(args.dir).glob("*.json"))]
 
 
 def cmd_urls(args: argparse.Namespace) -> int:
@@ -115,7 +147,16 @@ def _inside(path: Path, root: Path) -> bool:
 
 
 def cmd_add_person(args: argparse.Namespace) -> int:
-    ask, say = input, print
+    record = _add_person(args, input, print)
+    if record is None:
+        return 1
+    print("In the crosswalk evidence (type human-attested), use this confirmedWith, which holds no email:")
+    print(json.dumps(attest.confirmed_with(record), indent=2))
+    return 0
+
+
+def _add_person(args: argparse.Namespace, ask, say) -> dict | None:
+    """Interview, confirm and save a person record; return it, or None if not saved."""
     schema = json.loads(ATTESTATIONS_SCHEMA.read_text(encoding="utf-8"))
     record = attest.interview(
         ask,
@@ -138,11 +179,76 @@ def cmd_add_person(args: argparse.Namespace) -> int:
     say(json.dumps(record, indent=2, ensure_ascii=False))
     if not attest.yes(ask, say, f"Save this record to {path}?", True):
         say("Not saved.")
-        return 1
+        return None
     attest.add_record(path, record, schema)
     say(f"Saved. Commit {path.name} on a branch in that repository and open a pull request.")
-    say("In the crosswalk evidence (type human-attested), use this confirmedWith, which holds no email:")
-    say(json.dumps(attest.confirmed_with(record), indent=2))
+    return record
+
+
+def _people(args: argparse.Namespace) -> dict[str, dict]:
+    """Person records available here: the public file, plus the private one if a maintainer has it."""
+    records = {}
+    for path in (Path(args.public_file), Path(args.private_file)):
+        records.update({r["identifier"]: r for r in attest.read_records(path)["attestations"]})
+    return records
+
+
+def _finish(args: argparse.Namespace, changed: list[Path]) -> None:
+    for path in changed:
+        print(f"updated {path}")
+    if not args.no_export:
+        cmd_export(argparse.Namespace(**{**vars(args), "out": str(DEFAULT_EXPORT_DIR)}))
+    print("Commit the crosswalk files and exports together and open a pull request. Then replace any "
+          f"source {PENDING_SOURCE!r} with that pull request's URL, or leave it for a maintainer.")
+
+
+def cmd_attest(args: argparse.Namespace) -> int:
+    ask, say = input, print
+    schema = json.loads(Path(args.schema).read_text(encoding="utf-8"))
+    methods = attest.evidence_methods(schema)
+    if args.renew:
+        documents = _documents(args)
+        if args.foundation:
+            documents = [d for d in documents if d["identifier"] == args.foundation]
+        if not args.creator:
+            raise ValueError("--renew needs --creator, your GitHub login")
+        creator = args.creator
+        items = attest.due(documents, _today(args), creator)
+        if not items:
+            say(f"No attestations by {creator} are stale or due within {attest.RENEW_WINDOW.days} days.")
+            return 0
+        renewed = attest.renew(ask, say, items, methods=methods, today=_today(args))
+        changed = sorted({Path(args.dir) / f"{d.foundation}.json" for d in renewed})
+        by_id = {d["identifier"]: d for d in documents}
+        for path in changed:
+            attest.save_crosswalk(path, by_id[path.stem], schema)
+        _finish(args, changed)
+        return 0
+    if not args.foundation:
+        raise ValueError("name the foundation whose crosswalk to add evidence to, or use --renew")
+    path = Path(args.dir) / f"{args.foundation}.json"
+    if not path.exists():
+        raise ValueError(f"{path} not found; crosswalk files are named by foundation identifier")
+    _load(args)
+    data = json.loads(path.read_text(encoding="utf-8"))
+
+    def new_person() -> dict:
+        record = _add_person(args, ask, say)
+        if record is None:
+            raise ValueError("no person record saved, so no evidence was added")
+        return record
+
+    target, item = attest.evidence_interview(
+        ask, say, data=data, methods=methods, attestors=_attestors(args), people=_people(args),
+        new_person=new_person, today=_today(args), target=args.target, creator=args.creator,
+    )
+    say(json.dumps(item, indent=2, ensure_ascii=False))
+    if not attest.yes(ask, say, f"Add this evidence to {target} in {path}?", True):
+        say("Not saved.")
+        return 1
+    attest.targets(data)[target]["evidence"].append(item)
+    attest.save_crosswalk(path, data, schema)
+    _finish(args, [path])
     return 0
 
 
@@ -189,6 +295,19 @@ def main(argv: list[str] | None = None) -> int:
     )
     person.add_argument("--test", action="store_true", help="make a test record with the all-zeros identifier")
     person.set_defaults(func=cmd_add_person)
+    att = sub.add_parser("attest", help="ask questions and add human-attested evidence, or renew it with --renew")
+    att.add_argument("foundation", nargs="?", help="crosswalk to add evidence to (a foundation identifier)")
+    att.add_argument("--target", help="account as <platform>/<name>, or package purl; asked if left out")
+    att.add_argument("--creator", help="your GitHub login, as listed in _data/attestors.json")
+    att.add_argument("--renew", action="store_true", help="re-confirm your attestations that are stale or due soon")
+    att.add_argument("--no-export", action="store_true", help="skip regenerating the exports")
+    att.add_argument("--visibility", choices=["public", "private"], help="for a new person record")
+    att.add_argument("--public-file", default=str(PUBLIC_ATTESTATIONS), help="public attestations file")
+    att.add_argument(
+        "--private-file", default=str(PRIVATE_ATTESTATIONS), help="attestations file in the private repository clone"
+    )
+    att.add_argument("--test", action="store_true", help="make any new person record a test record")
+    att.set_defaults(func=cmd_attest)
     args = parser.parse_args(argv)
     try:
         return args.func(args)

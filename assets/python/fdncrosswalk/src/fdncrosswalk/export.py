@@ -11,7 +11,7 @@ from datetime import date
 from pathlib import Path
 from typing import Any, Final
 
-from fdncrosswalk.crosswalk import Account, Crosswalk, Package, assess
+from fdncrosswalk.crosswalk import PENDING_SOURCE, Account, Crosswalk, Package, assess
 from fdncrosswalk.ecosystems import PURL_HOSTS, PURL_REGISTRIES, owner_host, page_url, purl_type
 
 SITE: Final[str] = "https://fossfoundation.info"
@@ -32,6 +32,8 @@ def _evidence(item: Account | Package) -> list[dict[str, Any]]:
     out = []
     for e in item.evidence:
         data = _drop_empty(asdict(e))
+        if data.get("source") == PENDING_SOURCE:
+            del data["source"]  # not an IRI yet; leave it out of the linked data
         if "confirmedWith" in data:
             data["confirmedWith"] = _drop_empty(data["confirmedWith"])
         out.append(data)

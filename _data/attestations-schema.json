@@ -3,7 +3,7 @@
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json",
   "$comment": "One schema for both sides of a person record behind human-attested crosswalk evidence: public records in _data/attestations.json (people who agreed to be published) and private records in the maintainers' private repository. Field meanings are documented at https://fossfoundation.info/crosswalk#people. Vocabularies: Schema.org Person https://schema.org/Person and OrganizationRole https://schema.org/OrganizationRole, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/. Consent fields record what a controller must be able to show under GDPR Art. 7(1) https://gdpr-info.eu/art-7-gdpr/.",
   "title": "Attestation Person Records Schema",
-  "description": "People at a foundation who confirmed, out of band to a trusted attestor, that an account or package belongs to that foundation. Crosswalk evidence points to a record by its opaque identifier (confirmedWith.identifier), so contact details can stay private. Add records with `fdncrosswalk add-person`.",
+  "description": "People at a foundation who confirmed, out of band to a trusted attestor, that an account or package belongs to that foundation. Crosswalk evidence points to a record by its opaque identifier (confirmedWith.identifier), so contact details can stay private. Add records with `fdncrosswalk add-person`. Attestations here are given by volunteers. They may represent informed observations, but they have not been legally reviewed to qualify as attestations under the EU Cyber Resilience Act or other legislation, and the project does not claim its tools are certified to comply with it. See https://fossfoundation.info/crosswalk#legal-status.",
   "type": "object",
   "required": [
     "attestations"
@@ -117,7 +117,7 @@
             },
             "method": {
               "title": "Method",
-              "description": "How consent was given; the same values as the crosswalk evidence method (https://fossfoundation.info/crosswalk#evidence).",
+              "description": "How consent was given; the same values as the crosswalk evidence method (https://fossfoundation.info/crosswalk#evidence), plus self when the attestor is recording their own details.",
               "$comment": "Schema.org measurementTechnique: https://schema.org/measurementTechnique",
               "type": "string",
               "enum": [
@@ -125,7 +125,8 @@
                 "video-call",
                 "email-official-domain",
                 "signed-message",
-                "foundation-ticket"
+                "foundation-ticket",
+                "self"
               ]
             },
             "evidence": {

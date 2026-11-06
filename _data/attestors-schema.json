@@ -3,7 +3,7 @@
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors-schema.json",
   "$comment": "Each attestor is a Schema.org Person (https://schema.org/Person). Documented at https://fossfoundation.info/crosswalk#attestors",
   "title": "Crosswalk Attestors Schema",
-  "description": "People whose human-attested crosswalk evidence counts as confirmed. Adding someone is itself a reviewed pull request.",
+  "description": "People whose human-attested crosswalk evidence counts as confirmed. Adding someone is itself a reviewed pull request. Attestations here are given by volunteers. They may represent informed observations, but they have not been legally reviewed to qualify as attestations under the EU Cyber Resilience Act or other legislation, and the project does not claim its tools are certified to comply with it. See https://fossfoundation.info/crosswalk#legal-status.",
   "type": "object",
   "required": [
     "attestors"
@@ -47,6 +47,34 @@
             "$comment": "Dublin Core dateAccepted: http://purl.org/dc/terms/dateAccepted",
             "type": "string",
             "format": "date"
+          },
+          "memberOf": {
+            "title": "Organizations",
+            "description": "Optional. The organizations the attestor is associated with, each with their role there if they have one: for example an officer at one foundation and a director at another, or an attestor for several foundations. Leave it out when the attestor is not associated with any organization.",
+            "$comment": "Schema.org memberOf with OrganizationRole items, following the Schema.org Role pattern: https://schema.org/memberOf, https://schema.org/OrganizationRole",
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "memberOf"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "memberOf": {
+                  "title": "Organization",
+                  "description": "The identifier of a _foundations or _entities record, or, for an organization not listed on this site, the URL of its website.",
+                  "$comment": "Schema.org memberOf: https://schema.org/memberOf",
+                  "type": "string"
+                },
+                "roleName": {
+                  "title": "Role",
+                  "description": "Optional. The attestor's role at that organization, for example Board Member or VP Infrastructure.",
+                  "$comment": "Schema.org roleName (OrganizationRole): https://schema.org/roleName",
+                  "type": "string"
+                }
+              }
+            }
           },
           "keyFingerprint": {
             "title": "Signing key fingerprint",

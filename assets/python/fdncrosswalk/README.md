@@ -48,6 +48,8 @@ uv run fdncrosswalk probe hub.docker.com apache   # suggest evidence from a regi
 uv run fdncrosswalk probe pypi.org pyperf
 uv run fdncrosswalk probe npmjs.org @psf
 uv run fdncrosswalk add-person        # guided: add a person record for human-attested evidence
+uv run fdncrosswalk attest asf        # guided: add human-attested evidence to a crosswalk file
+uv run fdncrosswalk attest --renew --creator <login>   # re-confirm your attestations that are due
 uv run pytest
 ```
 
@@ -65,9 +67,31 @@ prints the `confirmedWith` (identifier, role and organization, no email) for the
 `--visibility public|private` skips the first question, and `--test` makes a test record with the
 all-zeros identifier.
 
+`attest <foundation>` lists that crosswalk's accounts and packages (or takes `--target
+<platform>/<name>` or a purl), then asks for your login (`--creator`), the method, the date, the
+person's record identifier, a one-sentence detail and the source. Leave the identifier empty to
+create the person record on the spot, as `add-person` does. The source defaults to the placeholder
+`pending`, to be replaced by the pull request URL once it exists; exports leave a pending source out.
+If the link has `contradiction` evidence it asks whether the attestation supersedes it. It then adds
+the evidence item, validates the file, and regenerates the exports (skip with `--no-export`).
+
+`attest --renew --creator <login>` lists your `human-attested` items that are stale or go stale
+within 60 days; for each one you confirmed again it updates `observed` and `method`, drops
+`validThrough`, and sets the source back to `pending` for the new pull request. `report` ends with
+the same list for every attestor, plus any evidence whose source is still pending.
+
+`validate` also checks that each organization in an attestor's optional `memberOf` list is a
+`_foundations` or `_entities` identifier, or a website URL.
+
+Attestations recorded with these tools are given by volunteers. They may represent informed
+observations, but they have not been legally reviewed to qualify as attestations under the EU Cyber
+Resilience Act or other legislation, and the tools are not certified to comply with it; see
+<https://fossfoundation.info/crosswalk#legal-status>.
+
 `--today YYYY-MM-DD` judges staleness as of that date. Exports are published under CC0-1.0.
 
 The library API is `fdncrosswalk.load_dir`, `assess`, `confidence`, `load_attestors`, `lookup_urls`,
-`package_lookup_urls`, `write_exports` and the functions in
+`package_lookup_urls`, `write_exports`, the evidence helpers in `fdncrosswalk.attest` (`targets`,
+`evidence_item`, `due`, `save_crosswalk`) and the functions in
 `fdncrosswalk.probes`, which take a `fetch` callable so they can run against recorded responses.
 Tests run offline from `tests/fixtures/`, which hold trimmed real responses recorded on 2026-10-28.
