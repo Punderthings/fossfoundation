@@ -11,11 +11,11 @@ addressRegion:
 newProjects: "yes"
 softwareType: various
 wikidataId:
-boardSize:
+boardSize: 4
 boardType:
 boardurl: https://www.opensourceeurope.org/about/
 teamurl: https://www.opensourceeurope.org/about/
-missionurl: https://www.opensourceeurope.org/about/
+missionurl: https://www.opensourceeurope.org/docs/about/mission-vision-and-impact-areas/#mission
 bylawsurl:
 numberOfEmployees:
 governanceOrg:
@@ -40,7 +40,7 @@ licenses:
 claPolicy:
 securityurl:
 ethicsPolicy:
-conducturl:
+conducturl: https://www.opensourceeurope.org/docs/about/community-guidelines/
 conductEvents:
 conductProjects:
 conductSource:
