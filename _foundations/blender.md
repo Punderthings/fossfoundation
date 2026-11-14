@@ -11,20 +11,20 @@ addressRegion:
 newProjects:
 softwareType:
 wikidataId: Q883799
-boardSize: '2'
+boardSize: 4
 boardType:
-boardurl: https://www.blender.org/about/foundation/
+boardurl: https://www.blender.org/about/people/
 teamurl: https://www.blender.org/about/people/
-missionurl:
+missionurl: https://www.blender.org/about/foundation/
 bylawsurl:
 numberOfEmployees:
-governanceOrg:
+governanceOrg: Board plus a Supervisory Board, since January 2026
 governanceTech:
 projectsNotable: Blender
 projectsList: https://projects.blender.org
 projectsServices:
 fiscalHost:
-eventurl:
+eventurl: https://conference.blender.org/
 nonprofitStatus: Stichting
 taxID: NL811166223
 taxIDLocal:
@@ -39,9 +39,9 @@ sponsorList: https://fund.blender.org/#credits
 sponsorships:
 licenses: GPL, Apache-2.0
 claPolicy:
-securityurl:
+securityurl: https://developer.blender.org/docs/handbook/bug_reports/vulnerability_reports/
 ethicsPolicy:
-conducturl:
+conducturl: https://developer.blender.org/docs/handbook/communication/code_of_conduct/
 conductEvents: https://conference.blender.org/code-of-conduct/
 conductProjects: 
 - https://developer.blender.org/docs/handbook/communication/code_of_conduct/
