@@ -10,10 +10,10 @@ addressCountry: US
 addressRegion: CO
 newProjects:
 softwareType: hardware
-wikidataId:
-boardSize:
+wikidataId: Q27926243
+boardSize: 7
 boardType:
-boardurl:
+boardurl: https://oshwa.org/team/
 teamurl: https://oshwa.org/team/
 missionurl: https://oshwa.org/about/
 bylawsurl: https://resources.oshwa.org/files/organization/oshwa-bylaws.pdf
