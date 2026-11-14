@@ -10,7 +10,7 @@ addressCountry: US
 addressRegion: MA
 newProjects:
 softwareType: privacy, anonymity
-wikidataId:
+wikidataId: Q20857740
 boardSize:
 boardType:
 boardurl:
@@ -25,7 +25,7 @@ projectsList:
 projectsServices:
 eventurl:
 nonprofitStatus: Nonprofit501c3
-taxID:
+taxID: 20-8096820
 taxIDLocal:
 budgetUsd:
 budgetYear:
@@ -39,7 +39,7 @@ sponsorships:
 licenses:
 claPolicy:
 securityurl: https://www.torproject.org/contact/
-ethicsPolicy:
+ethicsPolicy: https://gitweb.torproject.org/company/policies.git/plain/corpdocs/Tor-Conflict-of-Interest-Policy.pdf
 conducturl: https://community.torproject.org/policies/code_of_conduct/
 conductEvents:
 conductProjects:
