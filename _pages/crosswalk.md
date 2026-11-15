@@ -21,8 +21,8 @@ The crosswalk records which accounts and packages on code hosts and package regi
 The crosswalk is held to a higher standard than our other datasets.  Many of its links are plain facts that can be derived from public pages, but some are read as a foundation's **official control** of an account or package namespace, which people may rely on when deciding whose releases to trust.  So:
 
 - Every link needs at least one [evidence](#evidence) item, with a source anyone can check again and the date it was observed.
-- Its [confidence](#confidence) is computed from that evidence, never set by hand.  Only **confirmed** links rest on a statement by the foundation itself, the platform's own verification, or a listed [attestor](#attestors).  Treat **probable** and **unconfirmed** links as leads, not as proof of ownership; the [`stewards.jsonl`](#exports) export includes probable links, so filter on `confidence` when that matters.
-- A maintainer reviews every change.  Links can also record who last reviewed them, and when, in `lastReviewed` and `reviewedBy`; these are optional, and not yet filled in on existing links.
+- Its [confidence](#confidence) is computed from that evidence, never set by hand.  Only **confirmed** links rest on a statement by the foundation itself, the platform's own verification, or a listed [attestor](#attestors).  **Probable** and **unconfirmed** links are leads, not proof of ownership.  We keep probable links in the exports, including [`stewards.jsonl`](#exports), each marked with its `confidence`, so you can judge for yourself how to use them.
+- A maintainer reviews every pull request, but checking each link against its evidence takes time, and some areas have no reviewer yet.  So `lastReviewed` and `reviewedBy` are optional, and filled in when a person has actually checked the link: a link without them has **not yet been checked** by a reviewer.  Marking those links in the exports is planned.
 
 [How We Source Data](data#sourcing) compares this with our other datasets.
 

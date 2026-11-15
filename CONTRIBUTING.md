@@ -39,8 +39,9 @@ specification, in an SPDX header or in [`REUSE.toml`](REUSE.toml).
   - **Sponsors:** give a source URL and the date you checked it for each value, in
     the record's `sources`.
   - **Platform crosswalk:** the highest bar. Every link needs evidence anyone can
-    check again, with the date you observed it; see
-    [Platform Crosswalk](https://fossfoundation.info/crosswalk#accuracy).
+    check again, with the date you observed it. Add `lastReviewed` and `reviewedBy`
+    only when you checked the link yourself; a link without them counts as not yet
+    checked. See [Platform Crosswalk](https://fossfoundation.info/crosswalk#accuracy).
 - **Keep descriptions factual.** The Markdown sentence at the end of each foundation file,
   and any other descriptive text, is factual and neutral, never marketing.
 - **Officers get a say.** Changes to the descriptive text about a foundation should come

@@ -131,7 +131,8 @@ uvx reuse lint
     can check again and its `observed` date. Record only the evidence type the source
     actually shows (a matching name is only `name-match`), and never add
     `human-attested` evidence except for a listed attestor recording their own
-    attestation.
+    attestation. Add `lastReviewed` and `reviewedBy` only for a person who actually
+    checked the link; a link without them counts as not yet checked.
 - **Use well-known vocabularies.** Prefer Schema.org and Dublin Core, then other widely
   used schemas and taxonomies such as OpenMetadata, OpenSSF, NTEE, and
   taxonomy.ecosyste.ms, plus SPDX and REUSE for licensing, purl, ISO 8601 dates, and

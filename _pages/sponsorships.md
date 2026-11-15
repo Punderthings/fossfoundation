@@ -41,7 +41,7 @@ These models are for rough comparisons across foundations, not for accounting.  
 
 ### How Sourcing Is Recorded
 
-Because the figures are approximate, we record when and how each sponsor list was captured, rather than a source for each sponsor.  Each current list in `_data/sponsorships/<entity>.json` has *parseDate* and *lastChecked* (lists last written before *lastChecked* was added have only *parseDate*).  Each list recorded in `history/sponsorships/<entity>.json` has its *source*, meaning how it was captured (such as `archive-wayback` or `archive-git`), and its *ref*, the capture's URL where there is one.  Each model links the pages it models (*levelurl*, *sponsorurl*) and the date its levels took effect (*effectiveDate*).  [How We Source Data](data#sourcing) compares this with our other datasets.
+Because the figures are approximate, we record when and how each sponsor list was captured, rather than a source for each sponsor.  Each current list in `_data/sponsorships/<entity>.json` has *parseDate* and *lastChecked* (*lastChecked* is new, and is filled in as each list is next scanned).  Each list recorded in `history/sponsorships/<entity>.json` has its *source*, meaning how it was captured (such as `archive-wayback` or `archive-git`), and its *ref*, the capture's URL where there is one.  Each model links the pages it models (*levelurl*, *sponsorurl*) and the date its levels took effect (*effectiveDate*).  [How We Source Data](data#sourcing) compares this with our other datasets.
 
 ## Model Structure
 

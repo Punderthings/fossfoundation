@@ -3,7 +3,7 @@
 
 2026-11-15 · Shane Curcuru, with Claude
 
-Status: draft
+Status: decided
 
 ## Prompt
 
@@ -98,3 +98,25 @@ estimates, but not why or how rough they are.
    per-field sources, the recommendation is to drop the proposed per-foundation
    evidence files and let each checker PR's description, which lists what it fetched,
    be the record.
+
+## Decisions
+
+Shane answered the open questions on 2026-11-15:
+
+- **SC:** "Ignore the lack of lastChecked, lastReviewed by data; those are new features
+  so we'll fill in going forward once tooling is done." The docs describe these fields
+  as filled in going forward, not as gaps.
+1. Keep `sources` on `_sponsors/`: "key fields like lookup identifier, LEI, CIK should
+   have sources."
+2. Git history is enough to record when ProPublica files were downloaded; "that
+   provides a stable date we could use to display."
+3. Crosswalk links don't require review data (`lastReviewed`, `reviewedBy`), "but we
+   should ensure that links without a value are marked as not checked (or some similar
+   value)", since reviewers take time to catch up and some areas have none. Docs now say
+   a link without them has not yet been checked. **Follow-up:** mark unreviewed links in
+   the `fdncrosswalk export` output, in a separate PR (it changes the published exports).
+4. Keep probable links in the exports, marked with their `confidence`; "users can make
+   their own judgement as to how to use the data."
+5. No per-foundation evidence files for the foundation checker (#97). **Follow-up, in
+   that plan:** checker PRs use consistent, searchable text or a tag, so one
+   foundation's history is easy to find in git and GitHub.
