@@ -79,25 +79,19 @@ A package is a registry package or a source repository, identified by a purl wit
 | `creator` | [dcterms:creator](http://purl.org/dc/terms/creator) | Who recorded it: a GitHub login, or `fdncrosswalk/<version>`. |
 | `about` | [schema:about](https://schema.org/about) | The release the evidence is about, as a versioned purl such as `pkg:pypi/pyperf@2.10.0`. |
 | `validThrough` | [schema:validThrough](https://schema.org/validThrough) | When it should be checked again (see freshness below). |
-| `method` | [schema:measurementTechnique](https://schema.org/measurementTechnique) | Human attestations only: `in-person`, `video-call`, `email-official-domain`, `signed-message` or `foundation-ticket`. |
+| `method` | [schema:measurementTechnique](https://schema.org/measurementTechnique) | Human attestations only: {% assign methods = site.data.crosswalk-schema.definitions.evidence.properties.method.enum %}{% for m in methods %}`{{ m }}`{% unless forloop.last %}{% if forloop.rindex == 2 %} or {% else %}, {% endif %}{% endunless %}{% endfor %}. |
 | <span id="confirmedWith"></span>`confirmedWith` | `fdn:confirmedWith`, a [schema:Person](https://schema.org/Person) | Human attestations only: the person at the organization who confirmed it. Required `roleName` ([schema:roleName](https://schema.org/roleName)), plus `identifier` ([schema:identifier](https://schema.org/identifier)) pointing to their [person record](#people); optional `memberOf` ([schema:memberOf](https://schema.org/memberOf), defaults to the foundation). An inline `name` or `email` is allowed only with the person's agreement, since this repository is public; prefer `identifier`. |
 | <span id="supersedes"></span>`supersedes` | `fdn:supersedes` | Human attestations only: overrides an earlier contradiction; explain why in `detail`. |
 
 ### Evidence types
 
+This table is read from the evidence types in [`crosswalk-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json), which `fdncrosswalk` also reads to compute confidence and freshness.
+
 | Type | Who asserts it | Gives |
 | --- | --- | --- |
-| `steward-declared` | The foundation, on its own site or in policy | confirmed |
-| `platform-verified` | The platform, after checking a domain or identity, e.g. the [GitHub Verified badge](https://docs.github.com/en/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization) | confirmed |
-| `human-attested` | A trusted person who confirmed it out of band with someone at the organization; a volunteer observation, not a legal attestation (see [legal status](#legal-status)) | confirmed if the recorder is a listed [attestor](#attestors), otherwise probable |
-| `profile-claim` | The account holder, in its own profile | probable |
-| `program-badge` | A platform program, e.g. Docker-Sponsored Open Source | probable |
-| `publish-provenance` | A signed build record, e.g. [PyPI attestations (PEP 740)](https://peps.python.org/pep-0740/) or [npm provenance](https://docs.npmjs.com/generating-provenance-statements) | probable |
-| `repository-link` | The publisher, in package metadata | probable |
-| `namespace-convention` | A documented naming rule, e.g. [Maven Central namespaces](https://central.sonatype.org/register/namespace/) | probable |
-| `name-match` | Nobody; the names are the same | unconfirmed |
-| `contradiction` | Any source showing someone else controls it | rejected |
-
+{% for kind in site.data.crosswalk-schema.definitions.evidence.properties.type.oneOf -%}
+| `{{ kind.const }}` | {{ kind['x-asserted-by'] }} | {% if kind['x-attestor-only'] %}{{ kind['x-gives'] }} if the recorder is a listed [attestor](#attestors), otherwise probable{% else %}{{ kind['x-gives'] }}{% endif %} |
+{% endfor %}
 ## Confidence {#confidence}
 
 `fdn:confidence` is computed, never stored by hand, by `fdncrosswalk`:
