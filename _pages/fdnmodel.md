@@ -15,6 +15,7 @@ Each foundation is stored as a single `_foundations/<identifier>.md` file, for e
 
 - **Keep Updates Simple** Each foundation is a separate text-based document, making updates simple to make and review via GitHub PRs to ensure data accuracy.
 - **Enough Structured Data** Metadata follows a [simple schema](https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json), with a goal to be "good enough" for common research cases.  Researchers needing more structured data are welcome to collaborate and add new fields or features.
+- **Checked By Reviewers** Most fields are plain facts that a reviewer can check at a glance against the organization's own site, which each PR links.  Records don't store per-field sources or check dates; the PR and git history are the record.  See [How We Source Data](data#sourcing).
 - **Human Readable Formats** Using YAML and Markdown with GitHub Pages ensures the directory can be simple to understand for anyone, and can be a resource for anyone in open source who wants to learn about foundations.
 
 ## Inclusion Criteria
@@ -75,5 +76,5 @@ Our key needs are:
 
 - Adding more data!  If you are associated with a foundation that fits our criteria, please [add your organization's data](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md)!
 - Suggesting improvements to the data model, so that it can be useful for a broader set of [research purposes](/research) or for lookup purposes like [Issue #38](https://github.com/Punderthings/fossfoundation/issues/38).
-- Verifying and dating existing records, since most fields don't yet record when they were last checked.
+- Checking existing records against each organization's own site, and fixing what has changed.
 - Improving linting / data validation for foundation records, especially on pre-PR hooks.  The crosswalk already has a validator (`fdncrosswalk validate`).

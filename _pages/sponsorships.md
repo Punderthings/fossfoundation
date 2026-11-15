@@ -29,6 +29,20 @@ Since many projects with well-known sponsorship programs use separate entities a
 - **Only Public Data** We track the actual sponsorships listed by entities themselves, not press releases or statements by sponsors.
 - **Financial Figures Are Approximate** While sponsorship level amounts are taken directly from entity programs, the actual funds a specific sponsor may pay any year could vary.  All financial numbers, especially top-line reports, are estimates only.
 
+## How Approximate This Is {#accuracy}
+
+These models are for rough comparisons across foundations, not for accounting.  Foundations publish very different amounts of detail about their programs, so every figure on these pages is an approximation:
+
+- **Levels are mapped by judgment.** A person reading each organization's prospectus maps its tiers to our metalevels, so `first` at two foundations can mean quite different programs.
+- **Amounts are published list prices.** *value* is the price the organization advertises, or the top of the range when it varies.  What a sponsor actually pays may be discounted, bundled, or negotiated.
+- **Sponsor lists are what the page showed.** A scan can miss sponsors a page doesn't link, or misread a page after a redesign.  The tools keep the previous list when a scan looks wrong, but can't catch every error.
+- **History is best-effort.** Past lists come from archives and git history where they exist, at most one per month, and short gaps are bridged (see [`sponsor_archive`](#current-tooling)).
+- **Income estimates are list prices times the sponsors listed** on July 1 of each year, with in-kind levels discounted.  They are not an organization's reported income; for that, see its [US 990 figures](taxes) where it has them.
+
+### How Sourcing Is Recorded
+
+Because the figures are approximate, we record when and how each sponsor list was captured, rather than a source for each sponsor.  Each current list in `_data/sponsorships/<entity>.json` has *parseDate* and *lastChecked* (lists last written before *lastChecked* was added have only *parseDate*).  Each list recorded in `history/sponsorships/<entity>.json` has its *source*, meaning how it was captured (such as `archive-wayback` or `archive-git`), and its *ref*, the capture's URL where there is one.  Each model links the pages it models (*levelurl*, *sponsorurl*) and the date its levels took effect (*effectiveDate*).  [How We Source Data](data#sourcing) compares this with our other datasets.
+
 ## Model Structure
 
 Sponsorships are dated, to enable future review of sponsorships over time via using the [Wayback Machine](https://archive.org/) or similar tools to capture past listed sponsors.  Other fields used include: (see also [prototype sponsorships-schema.json](https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json))

@@ -109,10 +109,29 @@ uvx reuse lint
 
 ## Data rules
 
-- **Cite the source.** Each new or changed fact needs a URL you actually checked,
-  preferably on the organization's own site, and the date you checked it where the
-  schema has a field for it. If you can't verify a value, leave the field out. Never
-  fill a field from memory or inference.
+- **Cite the source, at the level each dataset needs.** Never fill a field from memory
+  or inference; if you can't verify a value, leave the field out. Datasets are checked
+  as carefully as their use calls for. The human-facing explanation is
+  [How We Source Data](_pages/data.md) (<https://fossfoundation.info/data#sourcing>),
+  and [CONTRIBUTING.md](CONTRIBUTING.md#rules-for-data) gives people the same rules:
+  - `_foundations/`, `_entities/`, `_data/projects-*.csv`: check each changed fact on a
+    page you actually fetched, preferably the organization's own site, and link it in
+    the PR. Don't add per-field source or check-date fields; the PR and git history
+    are the record.
+  - Tax data (`_data/p990/`, `_data/taxes/`): only the tools copy it, exactly as
+    published. Never edit or "correct" a figure. The tool, the source named in each
+    file, and the commit record when and how it was copied.
+  - `_sponsorships/`: cite the organization's own pages (`levelurl`, `sponsorurl`).
+    Sponsor lists and history are generated, and the tools record the date and method
+    of each scan. These numbers are approximate; don't present them as exact.
+  - `_sponsors/`: give each value a `sources` entry with its URL and `observed` date,
+    as the schema requires.
+  - `_data/crosswalk/`: the highest bar, because links can be read as a foundation's
+    official control of a namespace. Every link needs evidence with a `source` anyone
+    can check again and its `observed` date. Record only the evidence type the source
+    actually shows (a matching name is only `name-match`), and never add
+    `human-attested` evidence except for a listed attestor recording their own
+    attestation.
 - **Use well-known vocabularies.** Prefer Schema.org and Dublin Core, then other widely
   used schemas and taxonomies such as OpenMetadata, OpenSSF, NTEE, and
   taxonomy.ecosyste.ms, plus SPDX and REUSE for licensing, purl, ISO 8601 dates, and
