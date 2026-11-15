@@ -3,7 +3,7 @@
 
 2026-11-15 · Shane Curcuru, with Claude
 
-Status: draft, **SC:** comments added to draft.
+Status: decided (2026-11-15); implementation in progress. **SC:** comments added to draft.
 
 ## Prompt
 
@@ -283,3 +283,30 @@ Each step is one pull request that can be reviewed on its own.
 5. **`nonprofitStatus` enum.** Leave it for a separate data cleanup, or start that cleanup
    now? **SC:** Yes, do that as a PR as noted in this plan; this is an important cleanup to do.
 6. **Where to start.** Begin with step 1 of the suggested order, or a different one? **SC:** Agreed; begin implementing these PRs.
+
+## Decisions
+
+Shane Curcuru answered every open question on 2026-11-15, in the **SC:** notes above.
+
+1. **New schema keywords.** Use `x-` keywords, and document each schema's keywords in its
+   top-level `$comment`. The keyword for fields shown by another include is `x-includes`
+   (not `x-display`), naming a file in `_includes/`.
+2. **OpenAPI v1.** Generate `openapi/v1/foundation-schema.yaml` from the JSON Schema as
+   version 1.1.0, because the changes add fields that earlier users of v1 will want. The
+   pull request says clearly what changed, so it can be cited later.
+3. **`sponsorship-levels.json`.** Keep it for now, generated from the schema and marked
+   deprecated. Whether to keep it at all is a future decision.
+4. **Dataset registry.** Add `_data/datasets.yml`, together with the DCAT catalog step of
+   the URL standards plan.
+5. **`nonprofitStatus` enum.** Clean up the values and add the enum in its own pull
+   request, as part of this plan.
+6. **Where to start.** Start with step 1 and carry on through the suggested order, one
+   pull request per step.
+
+Also decided: leave the `projects-*.csv` files and their pages alone. They were an
+experiment.
+
+## Future tasks
+
+- Redesign how hosted projects (`projects-*.csv`) are stored and displayed.
+- Decide whether to keep the deprecated `_data/sponsorship-levels.json`.
