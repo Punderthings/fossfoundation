@@ -9,12 +9,13 @@ from scenario import PAGES
 from fdncheck.check import known_ids, run_check
 from fdncheck.propose import report
 from fdncheck.records import foundation
+from fdncheck.records.schema import load_catalog
 
 
 def result(repo):
     record = foundation.load_id(repo, "acme")
     fetcher = DictFetcher(PAGES)
-    return run_check(record, fetcher, known_ids(repo)), fetcher
+    return run_check(record, fetcher, load_catalog(repo), known_ids(repo)), fetcher
 
 
 def summary(findings):

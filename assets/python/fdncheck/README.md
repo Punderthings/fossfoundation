@@ -24,8 +24,11 @@ This is **phase 1**: URL fields (class A) and references to other collections (c
 
 "Same site" means the same host, ignoring a leading `www.`, or one host being a subdomain of
 the other. Values that aren't `http(s)` URLs (for example `mailto:`) are not fetched.
-`fdncheck fields` prints, for every schema field, its class and whether fdncheck may change it;
-that table lives in [`records/catalog.py`](src/fdncheck/records/catalog.py).
+Each field's class is the `x-check` keyword on its property in
+[`_data/foundations-schema.json`](../../../_data/foundations-schema.json) (`url`, `fact`,
+`count`, `choice`, `text` or `reference`). What fdncheck may do with each class is `POLICY` in
+[`records/catalog.py`](src/fdncheck/records/catalog.py). `fdncheck fields` prints both for every
+field, and fails if a field has no `x-check` or one that disagrees with its type or format.
 
 ## Use
 

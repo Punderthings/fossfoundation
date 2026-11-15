@@ -9,7 +9,7 @@ from fdncheck.detect.compare import check_joins, check_urls
 from fdncheck.extract.links import page_observations
 from fdncheck.fetch import Fetcher, Snapshot
 from fdncheck.propose import frontmatter
-from fdncheck.records.catalog import url_targets
+from fdncheck.records.catalog import Catalog
 from fdncheck.records.foundation import Record, ids_in
 
 
@@ -33,12 +33,12 @@ def known_ids(root: Path) -> dict[str, frozenset[str]]:
     return {name: ids_in(root / name) for name in ("_entities", "_sponsorships", "_foundations")}
 
 
-def run_check(record: Record, fetcher: Fetcher, known: dict[str, frozenset[str]]) -> CheckResult:
+def run_check(record: Record, fetcher: Fetcher, catalog: Catalog, known: dict[str, frozenset[str]]) -> CheckResult:
     snapshots: dict[str, Snapshot] = {}
-    for _field, url in url_targets(record.data):
+    for _field, url in catalog.url_targets(record.data):
         if url not in snapshots:  # several fields often share a page; fetch it once
             snapshots[url] = fetcher.get(url)
     observations = {url: page_observations(snap) for url, snap in snapshots.items()}
-    findings = check_joins(record.identifier, record.data, known, record.path.stem)
-    findings += check_urls(record.identifier, record.data, snapshots, observations)
+    findings = check_joins(record.identifier, record.data, catalog, known, record.path.stem)
+    findings += check_urls(record.identifier, record.data, catalog, snapshots, observations)
     return CheckResult(record, findings, snapshots)

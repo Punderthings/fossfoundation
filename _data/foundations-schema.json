@@ -3,6 +3,7 @@
   "$id": "https://fossfoundation.info/foundations/asf.json",
   "type": "object",
   "title": "FOSS Foundation Schema",
+  "$comment": "x-check on each property says how fdncheck (assets/python/fdncheck) checks the field against the foundation's own website: url = fetched, and a permanent same-site redirect may update it; fact = a short fact such as a name, date or identifier, flagged for a person to check; count = a number, flagged; choice = an enumerated or yes/no value, never inferred; text = descriptive text, never edited, only watched for changes on its source page; reference = an identifier that must exist in this site's data. Validators ignore unknown keywords; the x- prefix keeps it valid as an OpenAPI extension.",
   "required": [
     "identifier",
     "commonName",
@@ -13,45 +14,53 @@
   ],
   "properties": {
     "identifier": {
+      "x-check": "reference",
       "section": "General",
       "title": "Used as filename or fragment reference",
       "description": "Common name; lowercased; used for lookups.",
       "type": "string"
     },
     "commonName": {
+      "x-check": "fact",
       "title": "Common Name",
       "description": "Commonly used name in public.",
       "type": "string"
     },
     "legalName": {
+      "x-check": "fact",
       "title": "Legal Name",
       "description": "Official name of the organization.",
       "type": "string"
     },
     "description": {
+      "x-check": "text",
       "title": "Description",
       "description": "One sentence brief overview of organization.",
       "type": "string"
     },
     "contacturl": {
+      "x-check": "url",
       "title": "Contact Us",
       "description": "Contact Us or similar URL, if any.",
       "type": "string",
       "format": "url"
     },
     "website": {
+      "x-check": "url",
       "title": "Website",
       "description": "Primary website homepage.",
       "type": "string",
       "format": "url"
     },
     "foundingDate": {
+      "x-check": "fact",
       "title": "Founding Date",
       "description": "Date organization was legally incorporated (or similar).",
       "type": "string",
       "format": "date"
     },
     "dissolutionDate": {
+      "x-check": "fact",
       "$comment": "EXCLUDE this field if organization still active",
       "title": "Dissolution Date",
       "description": "Date organization was dissolved (only include if needed).",
@@ -59,164 +68,200 @@
       "format": "date"
     },
     "addressCountry": {
+      "x-check": "fact",
       "title": "Location",
       "description": "Country organization is incorporated in; ISO 3166-1 alpha-2.",
       "type": "string"
     },
     "addressRegion": {
+      "x-check": "fact",
       "title": "State",
       "description": "State, Province, District, or similar region organization is incorporated in.",
       "type": "string"
     },
     "newProjects": {
+      "x-check": "choice",
       "title": "Accepts new projects?",
       "description": "Does this organization actively accept new projects for hosting?",
       "type": "string"
     },
     "softwareType": {
+      "x-check": "choice",
       "title": "Software Types",
       "description": "What general kind(s) of software does this org create? May be 'various'.",
       "type": "string"
     },
     "wikidataId": {
+      "x-check": "fact",
       "title": "Wikidata ID",
       "description": "Wikidata ID for lookups.",
       "type": "string",
       "format": "urlfragment~https://www.wikidata.org/wiki/"
     },
     "boardSize": {
+      "x-check": "count",
       "section": "Governance",
       "title": "Board Size",
       "description": "Number of board of director seats.",
       "type": "number"
     },
     "boardType": {
+      "x-check": "choice",
       "title": "Board Type",
       "description": "Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.",
       "type": "string"
     },
     "boardurl": {
+      "x-check": "url",
       "title": "Board Website",
       "description": "Official board information URL.",
       "type": "string",
       "format": "url"
     },
     "teamurl": {
+      "x-check": "url",
       "title": "Team, staff, or employee roster URL.",
       "description": "Team, staff, or employee roster URL.",
       "type": "string",
       "format": "url"
     },
     "missionurl": {
+      "x-check": "url",
       "title": "Misson Statement",
       "description": "Mission statement or other overview of organizational goals URL.",
       "type": "string",
       "format": "url"
     },
     "bylawsurl": {
+      "x-check": "url",
       "title": "Bylaws Website",
       "description": "Corporate bylaws URL.",
       "type": "string",
       "format": "url"
     },
     "numberOfEmployees": {
+      "x-check": "count",
       "title": "Approx Number Of Paid Staff",
       "description": "Approximate number of paid employees or equivalents.",
       "type": "number"
     },
     "governanceOrg": {
+      "x-check": "text",
       "title": "Governance Description",
       "description": "Brief description of corporate or organizational governance.",
       "type": "string"
     },
     "governanceTech": {
+      "x-check": "text",
       "title": "Project Governance Description",
       "description": "Brief description of project-level technical governance.",
       "type": "string"
     },
     "projectsNotable": {
+      "x-check": "text",
       "title": "Example Projects Hosted",
       "description": "Example list of highly notable software products.",
       "type": "string"
     },
     "projectsList": {
+      "x-check": "url",
       "title": "Project List Website",
       "description": "Official URL listing of sub-projects hosted.",
       "type": "string",
       "format": "url"
     },
     "projectsServices": {
+      "x-check": "text",
       "title": "Services Provided",
       "description": "Brief description of services offered to hosted projects.",
       "type": "string"
     },
+    "fiscalHost": {
+      "x-check": "choice",
+      "title": "Fiscal Host Type",
+      "description": "If a fiscal host, enter the type of services provided: direct funding, indirect funding, employee services, etc. Values in use: direct, indirect, full. Not the same as fiscalHost in the sponsorships schema, which holds the _foundations identifier of a program's host.",
+      "type": "string"
+    },
     "eventurl": {
+      "x-check": "url",
       "title": "Events Listing",
       "description": "Link to any event calendar or overview page.",
       "type": "string",
       "format": "url"
     },    
     "nonprofitStatus": {
+      "x-check": "choice",
       "$comment": "TODO: enum based on https://schema.org/NonprofitType",
       "title": "Nonprofit Type",
       "description": "Specific type of non-profit; types: https://schema.org/NonprofitType",
       "type": "string"
     },
     "taxID": {
+      "x-check": "fact",
       "section": "Funding",
       "title": "Tax Authority ID",
       "description": "US IRS EIN/TIN, or other country's tax identifier (if any).",
       "type": "string"
     },
     "taxIDLocal": {
+      "x-check": "fact",
       "title": "Local Tax Authority ID",
       "description": "Per-state, province, or similar tax ID for the corporate entity.",
       "type": "string"
     },
     "budgetUsd": {
+      "x-check": "choice",
       "title": "Budget in USD",
       "description": "Approximate annual budget in USD.",
       "type": "string"
     },
     "budgetYear": {
+      "x-check": "choice",
       "title": "Budget Year",
       "description": "Year budgetUsd number was recorded.",
       "type": "string"
     },
     "budgeturl": {
+      "x-check": "url",
       "title": "Budget Website",
       "description": "Official budget or other financial information URL.",
       "type": "string",
       "format": "url"
     },
     "budgetTransparent": {
+      "x-check": "choice",
       "title": "Budget Transparency",
       "description": "Is the official budget shared publicly and fully on a regular schedule?",
       "type": "string"
     },
     "funding": {
+      "x-check": "choice",
       "title": "Funding Sources",
       "description": "Primary funding sources in rough order: (corporate) sponsors; (individual) donations; grants; other.",
       "type": "string"
     },
     "donateurl": {
+      "x-check": "url",
       "title": "Donation Link",
       "description": "Link to donate or financial contribution URL.",
       "type": "string",
       "format": "url"
     },
     "sponsorurl": {
+      "x-check": "url",
       "title": "Sponsor List Website",
       "description": "Official listing of sponsors URL.",
       "type": "string",
       "format": "url"
     },
     "sponsorList": {
+      "x-check": "text",
       "title": "Example Sponsors",
       "description": "Example listing of top-level annual recurring sponsors.",
       "type": "string"
     },
     "sponsorships": {
+      "x-check": "reference",
       "title": "Sponsorship Program Model",
       "description": "Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json",
       "type": "array",
@@ -227,41 +272,48 @@
       "uniqueItems": true
     },
     "licenses": {
+      "x-check": "choice",
       "section": "Policy",
       "title": "Licenses Used",
       "description": "Licenses used on software provided if there is a policy; SPDX Identifiers.",
       "type": "string"
     },
     "claPolicy": {
+      "x-check": "choice",
       "title": "CLA Policy",
       "description": "Does the organization use CLAs, DCOs, or other required incoming grants from developers?",
       "type": "string"
     },
     "securityurl": {
+      "x-check": "url",
       "title": "Security Policy",
       "description": "Link to any security reporting, advisory, or similar URL.",
       "type": "string",
       "format": "url"
     },    
     "ethicsPolicy": {
+      "x-check": "url",
       "title": "Ethics/COI Policy",
       "description": "Link to any primary ethics or COI policies posted.",
       "type": "string",
       "format": "url"
     },
     "conducturl": {
+      "x-check": "url",
       "title": "Code Of Conduct Website",
       "description": "Link to official Code of Conduct.",
       "type": "string",
       "format": "url"
     },
     "conductEvents": {
+      "x-check": "url",
       "title": "Event Code Of Conduct Website",
       "description": "Link to official event-related Code of Conduct.",
       "type": "string",
       "format": "url"
     },
     "conductProjects": {
+      "x-check": "url",
       "title": "Per-Project Codes Of Conduct",
       "description": "Links to any hosted project or initiative COCs.",
       "type": "array",
@@ -272,6 +324,7 @@
       "uniqueItems": true
     },
     "conductSource": {
+      "x-check": "reference",
       "title": "Source Of Code Of Conduct",
       "description": "Cited sources or inspirations for Code of Conduct policy; see opensourceconduct.com.",
      "type": "array",
@@ -282,71 +335,84 @@
       "uniqueItems": true
     },
     "conductLinked": {
+      "x-check": "choice",
       "title": "Where Code Of Conduct Linked",
       "description": "Where is the Code of Conduct linked from the organization's homepage?",
       "type": "string"
     },
     "conductReport": {
+      "x-check": "text",
       "title": "How To Report COC Violations",
       "description": "Brief description of how to report violations of the Code of Conduct.",
       "type": "string"
     },
     "diversityPolicy": {
+      "x-check": "url",
       "title": "Diversity Policy Website",
       "description": "Diversity, inclusion, or other related policies or informational page.",
       "type": "string",
       "format": "url"
     },
     "diversityDescription": {
+      "x-check": "text",
       "title": "Description Of Diversity Policy",
       "description": "Brief description of the diversityPolicy link.",
       "type": "string"
     },
     "brandPrimary": {
+      "x-check": "text",
       "section": "Trademark",
       "title": "Primary Brand Name",
       "description": "What is the primary brand name/mark of the organization?",
       "type": "string"
     },
     "brandSecondary": {
+      "x-check": "text",
       "title": "Secondary Brand Name(s)",
       "description": "Example listing of any major secondary brand names/marks.",
       "type": "string"
     },
     "brandReg": {
+      "x-check": "choice",
       "title": "Is Primary Brand Registered?",
       "description": "Is the primary brand a registered trademark in at least one jurisdiction?",
       "type": "string"
     },
     "brandPolicy": {
+      "x-check": "url",
       "title": "Trademark Policy Website",
       "description": "Link to official trademark usage policies.",
       "type": "string",
       "format": "url"
     },
     "brandUse": {
+      "x-check": "url",
       "title": "Trademark Usage Website",
       "description": "Link to official trademark FAQ or other policies.",
       "type": "string",
       "format": "url"
     },
     "brandComments": {
+      "x-check": "text",
       "title": "Trademark Policy Description",
       "description": "Brief description of trademark usage policies",
       "type": "string"
     },
     "logo": {
+      "x-check": "url",
       "title": "Official Logo Link",
       "description": "Official organizational logo URL.",
       "type": "string",
       "format": "url"
     },
     "logoReg": {
+      "x-check": "choice",
       "title": "Is Logo Registered?",
       "description": "Is the official logo a registered trademark? (yes/no/or major countries registered in).",
       "type": "string"
     },
     "subOrganization": {
+      "x-check": "reference",
       "title": "Sub Entities Governed",
       "description": "Identifiers of subprojects tracked in _entities data.",
       "type": "array",

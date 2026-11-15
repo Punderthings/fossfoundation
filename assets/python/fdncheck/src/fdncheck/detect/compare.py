@@ -7,7 +7,7 @@ from fdncheck.detect import Finding
 from fdncheck.detect.policy import decide_url
 from fdncheck.extract import Observation
 from fdncheck.fetch import Snapshot
-from fdncheck.records.catalog import CATALOG, url_targets
+from fdncheck.records.catalog import Catalog
 
 
 def _as_list(value: object) -> list:
@@ -16,7 +16,9 @@ def _as_list(value: object) -> list:
     return value if isinstance(value, list) else [value]
 
 
-def check_joins(identifier: str, data: dict, known: Mapping[str, frozenset[str]], filename: str) -> list[Finding]:
+def check_joins(
+    identifier: str, data: dict, catalog: Catalog, known: Mapping[str, frozenset[str]], filename: str
+) -> list[Finding]:
     """Class G: the identifier matches the file name, and referenced ids exist in their collections."""
     findings: list[Finding] = []
     if data.get("identifier") != filename:
@@ -30,7 +32,7 @@ def check_joins(identifier: str, data: dict, known: Mapping[str, frozenset[str]]
                 f"identifier does not match the file name {filename}.md",
             )
         )
-    for spec in CATALOG.values():
+    for spec in catalog:
         if not spec.joins or spec.joins not in known:
             continue
         for value in _as_list(data.get(spec.name)):
@@ -44,12 +46,13 @@ def check_joins(identifier: str, data: dict, known: Mapping[str, frozenset[str]]
 def check_urls(
     identifier: str,
     data: dict,
+    catalog: Catalog,
     snapshots: Mapping[str, Snapshot],
     observations: Mapping[str, list[Observation]],
 ) -> list[Finding]:
-    """Class A: one Finding per (field, url), in catalog order."""
+    """url fields (class A): one Finding per (field, url), in schema order."""
     findings: list[Finding] = []
-    for field, url in url_targets(data):
+    for field, url in catalog.url_targets(data):
         snapshot = snapshots[url]
         needs_js = any(o.method == "page:needs-javascript" for o in observations.get(url, []))
         findings.append(decide_url(identifier, field, url, snapshot, needs_js))

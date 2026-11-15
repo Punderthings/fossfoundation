@@ -119,9 +119,11 @@ Non-goals:
 
 ## Field catalog: what can be checked, and how
 
-The `records` layer holds this catalog as data (one entry per schema field), so the
-choices are reviewable in one place and a test fails if the schema gains a field the
-catalog doesn't cover.
+Each field's class is stored in the schema itself, as an `x-check` keyword on its
+property in `_data/foundations-schema.json` (decision 10): `url` (A), `fact` (C),
+`count` (D), `choice` (E), `text` (F) or `reference` (G). Class B uses the `url`
+fields. The `records` layer reads it, and a test fails if a field has no class or one
+that disagrees with its type or format.
 
 | Class | Fields | Check | Can update? |
 | --- | --- | --- | --- |
@@ -129,13 +131,13 @@ catalog doesn't cover.
 | **B. Missing URL discovery** | the same URL fields when empty | Look for links on the homepage and its footer: `rel` values (`license`, `privacy-policy`), well-known paths (`/.well-known/security.txt`), and link text in a short, reviewed word list per field ("Code of Conduct", "Bylaws", "Donate") | Flag only. Link text is a heuristic. |
 | **C. Structured facts** | `legalName`, `foundingDate`, `addressCountry`, `addressRegion`, `taxID`, `wikidataId`, `logo` | Schema.org JSON-LD or microdata on the site (`Organization.legalName`, `foundingDate`, `address`, `taxID`, `sameAs` to Wikidata, `logo`); footer legal lines matched by narrow patterns (e.g. "Stichting …", "… is a 501(c)(3)", "EIN 12-3456789", "KvK 12345678") | Update only from Schema.org markup the foundation itself published, and only when the existing value is empty or the markup is unambiguous. Footer pattern matches are flagged. |
 | **D. Counts** | `boardSize`, `numberOfEmployees` | Count items matched by a per-foundation selector on `boardurl` / `teamurl` | Flag only, with the count and the selector. Rosters include emeritus, observers and staff. |
-| **E. Enumerations and yes/no** | `newProjects`, `brandReg`, `logoReg`, `claPolicy`, `budgetTransparent`, `nonprofitStatus`, `boardType`, `funding`, `licenses`, `softwareType` | Not inferred. Optional per-foundation rule can flag a phrase appearing or disappearing (e.g. "no longer accepting new projects") | Never |
+| **E. Enumerations and yes/no** | `newProjects`, `brandReg`, `logoReg`, `claPolicy`, `budgetTransparent`, `nonprofitStatus`, `boardType`, `funding`, `licenses`, `softwareType`, `budgetUsd`, `budgetYear`, `conductLinked`, `fiscalHost` | Not inferred. Optional per-foundation rule can flag a phrase appearing or disappearing (e.g. "no longer accepting new projects") | Never |
 | **F. Descriptive text** | `description`, body sentence, `governanceOrg`, `governanceTech`, `projectsNotable`, `projectsServices`, `conductReport`, `diversityDescription`, `brandComments`, `sponsorList`, `brandPrimary`, `brandSecondary` | Change-watch: hash the extracted main text of the page the field came from (the matching URL field, e.g. `missionurl` for `description`) and report when it changes | Never. The PR body says "the mission page changed since <date>; consider re-reading it". |
-| **G. Joins and generated** | `identifier`, `sponsorships`, `subOrganization`, `conductSource`, `conductLinked`, `fiscalHost` | Validate that referenced ids exist | Never |
+| **G. Joins and generated** | `identifier`, `sponsorships`, `subOrganization`, `conductSource` | Validate that referenced ids exist | Never |
 
-Per-field confidence is stated in the catalog, not guessed at run time. A maintainer
-who wants a field moved from "flag" to "update" changes one catalog line in a reviewed
-PR.
+Per-field confidence is stated in the schema, not guessed at run time. Moving a field
+to another class is a one-line, reviewed schema change; letting a class update values is
+a reviewed change to `POLICY` in `records/catalog.py`.
 
 ## Architecture
 
@@ -589,6 +591,17 @@ written):
    fdncrosswalk until tested; after several phases, review shared utilities to combine.
 9. **SC** (#99): lastChecked and lastReviewed are new features, filled in going forward,
    so the checker doesn't report their absence.
+10. **SC** (2026-11-15): **each field's check class lives in the schema**, as an
+    `x-check` keyword on every property of `_data/foundations-schema.json`, rather than
+    in a separate catalog in code. Validators ignore unknown keywords, and the `x-`
+    prefix is the OpenAPI extension convention. The code keeps only what each class may
+    do (`POLICY`) and a consistency test. Other datasets' schemas can use the same
+    keyword when a tool checks them.
+11. **SC** (2026-11-15): **`fiscalHost` added to `foundations-schema.json`** as a string,
+    using the title and description already in `openapi/v1/foundation-schema.yaml`.
+    Records use it for the kind of hosting (`direct`, `indirect`, `full`), so its class
+    is `choice`; `fiscalHost` in `sponsorships-schema.json` instead holds a
+    `_foundations` identifier.
 
 ### Future decision for maintainers
 
@@ -596,6 +609,11 @@ written):
   detailed history of the foundation pages we check (for example archived snapshots of
   each page a change was based on) to the project? Today, workflow artifacts keep each
   run's snapshots for 90 days, and nothing longer.
+- **An identifier type for the schemas.** SC: in the future, design a custom schema
+  class that stands for an identifier of a foundation, host, sponsor or similar entity,
+  so fields such as `fiscalHost`, `sponsorships` and `subOrganization` say what kind of
+  identifier they hold and tools can check it exists. Today these use plain strings or
+  the `jjresolver~…` format.
 
 ## Next step
 

@@ -1,12 +1,12 @@
 # SPDX-License-Identifier: Apache-2.0
-"""foundations-schema.json: loading, record validation, and catalog coverage."""
+"""foundations-schema.json: loading, the field catalog it defines, and record validation."""
 
 import json
 from pathlib import Path
 
 import jsonschema
 
-from fdncheck.records.catalog import CATALOG
+from fdncheck.records.catalog import Catalog
 from fdncheck.records.foundation import Record, jsonable
 
 
@@ -14,9 +14,8 @@ def load_schema(root: Path) -> dict:
     return json.loads((root / "_data" / "foundations-schema.json").read_text(encoding="utf-8"))
 
 
-def uncovered_fields(schema: dict) -> list[str]:
-    """Schema properties the catalog doesn't describe; a test keeps this empty."""
-    return [name for name in schema.get("properties", {}) if name not in CATALOG]
+def load_catalog(root: Path) -> Catalog:
+    return Catalog(load_schema(root))
 
 
 def validate(record: Record, schema: dict) -> list[str]:
