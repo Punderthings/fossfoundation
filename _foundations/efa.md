@@ -24,7 +24,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 eventurl:
-nonprofitStatus: Incorporated association; ACNC registered charity
+nonprofitStatus: AUIncorporatedAssociation; AUACNCCharity
 taxID:
 taxIDLocal:
 budgetUsd:

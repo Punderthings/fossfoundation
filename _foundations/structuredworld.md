@@ -11,7 +11,7 @@ addressRegion: București
 boardurl: https://sw.foundation/governance
 missionurl: https://sw.foundation/statute
 bylawsurl: https://sw.foundation/ro/statute
-nonprofitStatus: ""
+nonprofitStatus: ROAsociatie
 taxID: "55841868"
 ---
 

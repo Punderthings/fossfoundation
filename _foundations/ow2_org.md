@@ -24,7 +24,7 @@ projectsNotable:
 projectsList: https://projects.ow2.org/view/wiki/
 projectsServices: https://tc.ow2.org/view/wiki/Project%20lifecycle
 eventurl: https://www.ow2.org/view/Events/
-nonprofitStatus: French 1901 Non-profit Association
+nonprofitStatus: FRAssociation1901
 taxID:
 taxIDLocal:
 budgetUsd:

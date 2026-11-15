@@ -2,7 +2,7 @@
 
 2026-11-15 · Shane Curcuru, with Claude
 
-Status: draft
+Status: decided (2026-11-15); implemented in #110
 
 ## Prompt
 
@@ -118,3 +118,46 @@ organization's own site, which the data rules require:
    (`AUIncorporatedAssociation; AUACNCCharity`), or one per foundation?
 3. **Empty values.** `nonprofitStatus` is required. Until its source is checked, should
    `lpi_org` keep an empty value, or should there be an `Unknown` value?
+
+## Decisions
+
+1. **Values outside Schema.org** (Shane Curcuru, 2026-11-15, choosing "Country code plus
+   local form"): use Schema.org values where one fits, otherwise our own values named for
+   the ISO 3166 country code and the local legal form or status, each defined in the
+   schema.
+
+Questions 2 and 3 were not answered separately. PR #110 follows the proposal: where a
+source states both a legal form and a status, record both (`efa`, `tdf`). Empty values
+mean "unknown", since fdncheck's validator skips blank fields; after the checks below,
+no record is empty.
+
+## Result
+
+The schema lists every value in `definitions/nonprofitType` (all Schema.org
+`NonprofitType` members, plus 14 of our own). `nonprofitStatus` has a `pattern` built
+from that list, and `x-values` points to it. fdncheck's
+`tests/test_nonprofit_types.py` checks that the pattern matches the list and that every
+record validates. The table on [the foundation model page](../_pages/fdnmodel.md) is
+read from the same list.
+
+These are the six records that needed a source. Each was checked on the organization's
+own site on 2026-11-15:
+
+| Record | Value | Source and what it shows |
+| --- | --- | --- |
+| blender | `NLStichting` | <https://www.blender.org/about/foundation/>: "Stichting Blender Foundation", with a Chamber of Commerce number; no page mentions ANBI |
+| eclipse | `BEAISBL; Nonprofit501c6` | <https://www.eclipse.org/org/>: "Eclipse Foundation AISBL", "an international non-profit association". The site does not mention the US entity's 501(c)(6), which is kept from the existing record and still unverified |
+| fsfe | `DEeV` | <https://fsfe.org/about/legal/imprint.html>: "Free Software Foundation Europe e.V.", Vereinsregister VR 17030. Charitable status is not stated, so it is left out |
+| tdf | `DEStiftung; DEGemeinnuetzig` | <https://www.libreoffice.org/imprint/> (where TDF's imprint redirects): "gemeinnützige rechtsfähige Stiftung des bürgerlichen Rechts" |
+| joomla | `USStateNonprofit` | <https://www.opensourcematters.org/organisation/finances/financial-filings.html>: "registered as a Not for Profit Corporation to the NYS Charities Bureau"; no IRS status is stated |
+| lpi_org | `CANonprofit` | <https://www.lpi.org/impressum/>: "Linux Professional Institute Inc.", Saint John, NB, "a non profit organization"; no charity registration is stated |
+
+## Future tasks
+
+- The categories page could group its "Non-US Nonprofits" column by country prefix.
+- `nonprofit` in `_sponsorships/` is a separate field with its own values (`kde.md` still
+  says `DEAssociation`); decide whether it should use the same list.
+- `openssl` has `addressRegion: DE`, Germany's country code, not Delaware's state code.
+- Foundations whose only status is `USStateNonprofit` don't show amounts in US dollars,
+  because the dollar check matches only IRS types. This is the same as before the cleanup.
+

@@ -36,7 +36,13 @@ Note that foundations are incorporated under many different forms around the wor
 * In the UK, non-profit status and charity status are distinct: a UK foundation might be registered as a [company limited by guarantee][clg] that does not allow profit distribution; and this organization may or may not have [charity status][charitable-purposes].
 * …and other jurisdictions operate differently.
 
-For this reason, when deciding whether an organization should be classified as a foundation, it's important to understand the requirements for non-profit status in that organization's specific jurisdiction.  Records give the type in `nonprofitStatus`, using [Schema.org NonprofitType](https://schema.org/NonprofitType) values.
+For this reason, when deciding whether an organization should be classified as a foundation, it's important to understand the requirements for non-profit status in that organization's specific jurisdiction.  Records give the type in `nonprofitStatus`, using [Schema.org NonprofitType](https://schema.org/NonprofitType) values where one fits.  Schema.org covers only US, UK, and Dutch types, so other countries use our own values, named for the [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code and the local legal form or status.  An organization with more than one, such as a German foundation that is also recognized as charitable, lists them joined with `; `.  The values below are read from the schema's `definitions/nonprofitType`.
+
+| Value | Meaning |
+| --- | --- |
+{%- for t in site.data["foundations-schema"].definitions.nonprofitType.oneOf %}
+| `{{ t.const }}` | {{ t.description }} |
+{%- endfor %}
 
 [clg]: https://en.wikipedia.org/wiki/Company_limited_by_guarantee
 [charitable-purposes]: https://www.gov.uk/setting-up-charity/charitable-purposes

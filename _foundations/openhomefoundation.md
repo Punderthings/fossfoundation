@@ -9,7 +9,7 @@ newProjects: yes
 softwareType: smart home
 wikidataId: Q132690397
 taxID: CHE-416.988.952
-nonprofitStatus: stiftung
+nonprofitStatus: CHStiftung
 boardSize: 4
 boardType: non-paid
 boardurl: https://www.openhomefoundation.org/organization/#board-members

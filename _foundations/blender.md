@@ -25,7 +25,7 @@ projectsList: https://projects.blender.org
 projectsServices:
 fiscalHost:
 eventurl: https://conference.blender.org/
-nonprofitStatus: Stichting
+nonprofitStatus: NLStichting
 taxID: NL811166223
 taxIDLocal:
 budgetUsd:
