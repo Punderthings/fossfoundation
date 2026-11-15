@@ -3,7 +3,7 @@
 
 2026-11-15 · Shane Curcuru, with Claude
 
-Status: draft
+Status: draft, **SC:** comments added to draft.
 
 ## Prompt
 
@@ -71,7 +71,7 @@ The few fields shown by other includes (`sponsorurl`, `sponsorList`, `sponsorshi
 by `foundation-sponsorships.html`) would be marked with one new keyword, for example
 `"x-display": "foundation-sponsorships.html"`, so the loop calls that include instead of
 printing the field. The taxes include and the US-dollar logic stay as they are, after the
-loop's Funding fields.
+loop's Funding fields. **SC:** Agreed, except call the new keyword "x-includes" to match the `_includes` directory where those Jekyll files are kept.
 
 **Effort and benefit.** Small to medium. Benefit is high: a new or renamed field, title or
 description shows up on all 95 foundation pages with no template edit. It can be checked
@@ -248,7 +248,7 @@ question 4).
   its own nearly identical page. A [CSVW](https://www.w3.org/TR/tabular-metadata/) or
   [Table Schema](https://datapackage.org/standard/table-schema/) description, which the
   URL standards plan already expects for CSV datasets, would document the columns once,
-  and the pages could be generated from the registry in finding 7. Low priority.
+  and the pages could be generated from the registry in finding 7. Low priority. **SC:** For now, ignore these example `projects-*.csv` files; they were an experiment; add a future task to re-design how we store and display these; leave them alone until them.
 - **Ruby test commands in `AGENTS.md`.** Each test file is listed by name, so a new test
   file is easy to miss. A loop over `assets/ruby/test/*_test.rb` would always run them
   all. Changing `AGENTS.md` needs a maintainer's go-ahead.
@@ -272,14 +272,14 @@ Each step is one pull request that can be reviewed on its own.
    (`x-display`, `x-inkind`, `x-term`, `x-gives`, `x-freshness-days`), following
    `x-check` from PR #102. Is that the convention to use, and should each schema's
    top-level `$comment` document its `x-` keywords, as the foundations schema now does
-   for `x-check`?
+   for `x-check`? **SC:** Agreed.
 2. **OpenAPI v1.** Generate `openapi/v1/foundation-schema.yaml` from the JSON Schema, which
    adds eight fields, removes `uniqueEntityID`, and changes `conductSource` to an array in
-   the published description? Or freeze v1 as it is and only derive v2?
+   the published description? Or freeze v1 as it is and only derive v2? **SC:** Generate a new v1 schema; these are only additions, and they will be valuable to previous users still using that version; call it version 1.1.0 and include a clear comment in any PR so we can refer to the change if asked.
 3. **`sponsorship-levels.json`.** Remove it once labels live in the schema, or keep it as a
-   generated file for anyone who reads it directly?
+   generated file for anyone who reads it directly? **SC:** Keep this for now but label it as deprecated; add a future note to decide if we keep this or not.
 4. **Dataset registry.** Add `_data/datasets.yml` as the single list of datasets, and do it
-   together with the DCAT catalog step?
+   together with the DCAT catalog step? **SC:** Agreed, this is a great simplification of our metadata.
 5. **`nonprofitStatus` enum.** Leave it for a separate data cleanup, or start that cleanup
-   now?
-6. **Where to start.** Begin with step 1 of the suggested order, or a different one?
+   now? **SC:** Yes, do that as a PR as noted in this plan; this is an important cleanup to do.
+6. **Where to start.** Begin with step 1 of the suggested order, or a different one? **SC:** Agreed; begin implementing these PRs.
