@@ -1,0 +1,30 @@
+---
+# SPDX-License-Identifier: CC0-1.0
+identifier: acme
+commonName: Acme Foundation
+legalName: Acme Foundation Inc.
+description: A made-up foundation for fdncheck tests.
+contacturl: mailto:hello@example.org
+website: http://acme.example.org/
+foundingDate: '2001'
+addressCountry: US
+boardurl: https://acme.example.org/board
+teamurl: https://acme.example.org/board
+missionurl: https://acme.example.org/about
+donateurl: https://acme.example.org/donate
+sponsorurl: https://acme.example.org/sponsors#list
+securityurl: https://acme.example.org/security
+conducturl: https://acme.example.org/coc
+conductProjects:
+- https://acme.example.org/old-coc
+- 'https://acme.example.org/project-coc'
+brandPolicy:
+nonprofitStatus: Nonprofit501c3
+sponsorships:
+- acme
+- missingmodel
+subOrganization:
+- acmeproject
+---
+
+Acme Foundation is a made-up foundation used only in tests.

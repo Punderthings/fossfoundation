@@ -103,6 +103,13 @@ uv run fdncrosswalk validate      # after any change to _data/crosswalk/
 uv run fdncrosswalk export        # after any change to _data/crosswalk/ or the schema
 uvx ruff check                    # Python lint (config in pyproject.toml)
 
+# Foundation website checker (Python 3.14+, uv); see its README
+cd ../fdncheck                    # from assets/python/fdncrosswalk
+uv sync --group test
+uv run pytest
+uv run fdncheck check <identifier>   # read-only report for one foundation
+uvx ruff check
+
 # Licensing (REUSE), from the repository root
 uvx reuse lint
 ```
