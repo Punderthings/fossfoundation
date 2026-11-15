@@ -113,10 +113,17 @@ Shane answered the open questions on 2026-11-15:
 3. Crosswalk links don't require review data (`lastReviewed`, `reviewedBy`), "but we
    should ensure that links without a value are marked as not checked (or some similar
    value)", since reviewers take time to catch up and some areas have none. Docs now say
-   a link without them has not yet been checked. **Follow-up:** mark unreviewed links in
-   the `fdncrosswalk export` output, in a separate PR (it changes the published exports).
+   a link without them has not yet been checked. Every link still needs evidence with
+   a source URL (SC: "OK").
 4. Keep probable links in the exports, marked with their `confidence`; "users can make
    their own judgement as to how to use the data."
 5. No per-foundation evidence files for the foundation checker (#97). **Follow-up, in
    that plan:** checker PRs use consistent, searchable text or a tag, so one
    foundation's history is easy to find in git and GitHub.
+
+## Future tasks
+
+- **Mark unreviewed crosswalk links in the exports.** Have `fdncrosswalk export` mark
+  links that have no `lastReviewed`/`reviewedBy` as not yet checked, for example with a
+  computed term next to `confidence` and `stale`. This changes the published exports,
+  so it needs its own PR. SC (2026-11-15): not needed now; keep as a note for later.
