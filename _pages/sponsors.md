@@ -29,6 +29,16 @@ The first set includes every sponsor that the current sponsor lists show at **3 
 
 Rarely, a sponsor is not a legal organization; some foundations list individual people as sponsors. This dataset records organizations only. Whether researchers would want individual sponsors classified differently is an open question for future research, recorded in the plan, and any data about people follows our privacy rules.
 
+## How approximate this is {#accuracy}
+
+A sponsor record ties together sponsor lists from many foundations, so it carries their approximations too; see [how approximate sponsorship data is](sponsorships#accuracy).
+
+- **Matching is by domain.** A sponsor is counted at a foundation when that foundation's sponsor list links one of the record's `domains`. A sponsor listed without a link, or under a domain we haven't mapped, is missed.
+- **Counts and estimates are rough.** "Sponsorship programs now" and the estimated totals on each sponsor's page come from the latest scans, priced at published list prices.
+- **Lookups are matched by judgment.** A sponsoring brand doesn't always match one legal entity, so identifiers such as `leiCode` are added only where the match is clear, and left out where several entities could match.
+
+The lookup identifiers themselves are exact values from their registries, and each one's `sources` entry says where and when it was checked.
+
 ## What a record stores
 
 - **`identifier`**: our stable id and file name. It shares one namespace with `_foundations` and `_entities`, and is never renamed or reused.
