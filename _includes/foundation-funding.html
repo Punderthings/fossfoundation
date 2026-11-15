@@ -1,0 +1,21 @@
+{%- comment -%}
+  SPDX-License-Identifier: Apache-2.0
+  Tax filings and sponsorships subsections of a foundation's Funding section. Included by
+  _includes/schema-fields.html for the schema properties marked
+  "x-includes": "foundation-funding.html" (sponsorurl, sponsorList, sponsorships).
+{%- endcomment -%}
+{%- comment -%}
+  Amounts are shown in US dollars ($ via the money filters) only when every listed nonprofit type
+  is a US IRS type (schema.org USNonprofitType: Nonprofit501a, Nonprofit501c3, ..., Nonprofit527).
+{%- endcomment -%}
+{%- assign usd_amounts = false -%}
+{%- assign nonprofit_types = page.nonprofitStatus | default: "" | split: ";" -%}
+{%- if nonprofit_types.size > 0 -%}
+  {%- assign usd_amounts = true -%}
+  {%- for nonprofit_type in nonprofit_types -%}
+    {%- assign nonprofit_type = nonprofit_type | strip -%}
+    {%- unless nonprofit_type contains "Nonprofit501" or nonprofit_type == "Nonprofit527" -%}{%- assign usd_amounts = false -%}{%- endunless -%}
+  {%- endfor -%}
+{%- endif %}
+{% include foundation-taxes.html usd=usd_amounts %}
+{% include foundation-sponsorships.html usd=usd_amounts %}
