@@ -89,6 +89,7 @@ bundle exec ruby assets/ruby/test/money_filter_test.rb   # minitest, one file at
 bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
 bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
 bundle exec ruby assets/ruby/test/sponsors_test.rb
+bundle exec ruby assets/ruby/test/openapi_builder_test.rb
 bundle exec ruby assets/ruby/sponsors.rb --check   # after any change to _sponsors/
 unset BUNDLE_GEMFILE
 

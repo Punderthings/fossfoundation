@@ -47,15 +47,15 @@
     "creativecommons.org",
     "Creative Commons"
   ],
-  "djangoevents": [
-    "defna.org",
-    "Django Events",
-    "Django Events Foundation North America"
-  ],
   "django": [
     "djangoproject.com",
     "Django",
     "Django Software Foundation"
+  ],
+  "djangoevents": [
+    "defna.org",
+    "Django Events",
+    "Django Events Foundation North America"
   ],
   "dotnet": [
     "dotnetfoundation.org",
@@ -71,6 +71,11 @@
     "eclipse.org",
     "Eclipse",
     "Eclipse Foundation AISBL"
+  ],
+  "efa": [
+    "efa.org.au",
+    "Electronic Frontiers Australia",
+    "Electronic Frontiers Australia Inc"
   ],
   "eff": [
     "eff.org",
@@ -101,7 +106,7 @@
     "Free Software Foundation Europe e.V."
   ],
   "fsfse": [
-    "freesoftwaresupport.net",
+    "web.archive.org/web/20250113135919/http://freesoftwaresupport.net",
     "Free Software Support Network"
   ],
   "fsharp": [
@@ -170,6 +175,11 @@
     "foundation.llvm.org",
     "LLVM",
     "LLVM Foundation"
+  ],
+  "lpi": [
+    "lpi.org",
+    "Linux Professional Institute",
+    "Linux Professional Institute (LPI)"
   ],
   "matrix": [
     "matrix.org",
@@ -246,6 +256,16 @@
     "Open Robotics",
     "Open Source Robotics Foundation Inc"
   ],
+  "opensourceeurope": [
+    "opensourceeurope.org",
+    "Open Source Europe",
+    "Open Collective Europe ASBL"
+  ],
+  "openssl": [
+    "openssl.foundation",
+    "OpenSSL Foundation",
+    "OpenSSL Software Foundation Inc"
+  ],
   "openstack": [
     "openinfra.org",
     "Open Infra",
@@ -280,9 +300,18 @@
     "OSGeo",
     "Open Source Geospatial Foundation"
   ],
+  "oshwa": [
+    "oshwa.org",
+    "Open Source Hardware Association"
+  ],
   "osi": [
     "opensource.org",
     "Open Source Initiative"
+  ],
+  "ow2_org": [
+    "ow2.org",
+    "OW2",
+    "OW2 Association"
   ],
   "owasp": [
     "owasp.org",
@@ -299,7 +328,7 @@
     "Yet Another Society, (DBA) The Perl And Raku Foundation"
   ],
   "plone": [
-    "plone.org/foundation/committees/ip/policy",
+    "plone.org",
     "Plone",
     "Plone Foundation"
   ],
@@ -369,6 +398,20 @@
     "SPI",
     "Software in the Public Interest"
   ],
+  "spritely": [
+    "spritely.institute",
+    "Spritely Institute",
+    "Spritely Networked Communities Institute"
+  ],
+  "stewardshiplab": [
+    "stewardshiplab.org",
+    "Software Stewardship Lab"
+  ],
+  "structuredworld": [
+    "sw.foundation",
+    "Structured World",
+    "Asociația „STRUCTURED WORLD”"
+  ],
   "tdf": [
     "documentfoundation.org",
     "The Document Foundation"
@@ -377,6 +420,11 @@
     "techmatters.org",
     "Tech Matters",
     "Technology Matters"
+  ],
+  "tor": [
+    "torproject.org",
+    "Tor Project",
+    "The Tor Project, Inc."
   ],
   "tug": [
     "tug.org",
