@@ -83,7 +83,7 @@ One package per kind of work, with data flowing one way:
 
 | Package | Job | Network? |
 | --- | --- | --- |
-| [`fetch`](src/fdncheck/fetch/) | Web scraping: `HttpFetcher` returns a `Snapshot` (final URL, status, every redirect hop, body, time); `store` saves and replays them | **only here** |
+| [`fetch`](src/fdncheck/fetch/) | Web scraping with `urllib`: `HttpFetcher` returns a `Snapshot` (final URL, status, every redirect hop, body, time); `store` saves and replays them | **only here** |
 | [`extract`](src/fdncheck/extract/) | Pure functions from a `Snapshot` to `Observation`s (title, needs-JavaScript) | no |
 | [`records`](src/fdncheck/records/) | Our data and schema: load records, validate them, and the field catalog | no |
 | [`detect`](src/fdncheck/detect/) | Update detection: the URL policy and joins, giving `Finding`s (update, flag, unchecked, ok) | no |
@@ -92,13 +92,15 @@ One package per kind of work, with data flowing one way:
 [`check.run_check`](src/fdncheck/check.py) runs them for one foundation, and
 [`cli.py`](src/fdncheck/cli.py) is the command line.
 
-Tests use small hand-written pages and `httpx.MockTransport`; they never use the network.
+Tests use small hand-written pages and a fake transport in place of `urllib`; they never use the network.
 
 ## Dependencies
 
+HTTP uses the standard library's `urllib.request`, with automatic redirects turned off so
+each hop is recorded. Third-party packages:
+
 | Package | License | Used for |
 | --- | --- | --- |
-| [httpx](https://www.python-httpx.org/) | BSD-3-Clause | HTTP, with each redirect recorded |
 | [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/) (with soupsieve) | MIT | HTML parsing |
 | [PyYAML](https://pyyaml.org/) | MIT | Reading front matter |
 | [jsonschema](https://python-jsonschema.readthedocs.io/) | MIT | Validating records against `foundations-schema.json` |
