@@ -3,7 +3,7 @@
 
 2026-11-14 · Shane Curcuru, with Claude
 
-Status: draft (open questions below); implementation not started.
+Status: draft (open questions below); implementation not started, **SC:** comments, answers added.
 
 ## Prompt
 
@@ -298,6 +298,8 @@ All need ASF Category A licenses; none is added until approved (open question 5)
 | `playwright` | Apache-2.0 | JavaScript rendering, opt-in per foundation | skip JS sites in phase 1 |
 | `pytest`, `ruff` | MIT | test and lint (dev only) | none |
 
+**SC:** All above dependency packages are approved, except skip JS sites in phase 1: add Playwright dependency in phase 2.
+
 Playwright also downloads a browser build. It goes in an optional dependency group
 (`uv sync --extra browser`) so maintainers who don't need JS rendering never install it.
 
@@ -461,33 +463,41 @@ sponsor) comes before turning on the schedule.
    (a schema change). Recommend (b): it answers CONTRIBUTING's open question, gives
    change-watch and de-duplication the state they need, and leaves `_foundations` and
    its published API alone. It is a new dataset, so it needs your approval.
-2. **What happens to a foundation that has only flags?** (a) Commit only the evidence
+   **SC:** See PR #99 and review the different rules for evidence; foundation updates generally use the git history for tracking.
+3. **What happens to a foundation that has only flags?** (a) Commit only the evidence
    file, so it still gets a PR (needs 1b); (b) one issue per foundation, updated in
    place; (c) a single weekly summary issue. Recommend (a) if 1b is chosen, else (b).
-3. **Which token opens the PRs?** With the default `GITHUB_TOKEN`, the required `build`
+   **SC:** (c) a single summary issue based on whatever scans were done that run; batch these together to report to maintainers for investigation.
+4. **Which token opens the PRs?** With the default `GITHUB_TOKEN`, the required `build`
    check won't run on the PRs. Options: (a) a GitHub App installed on the repo,
    with its key as a repository secret (recommended: scoped, not tied to a person);
    (b) a fine-grained personal token from a maintainer (tied to one person,
    expires); (c) default token, and a maintainer closes and reopens or pushes to each
    PR to start the check.
-4. **Is "update" allowed at all for facts, or should every change be a flag at first?**
+   **SC:** (a), include human-readable documentation about this app so it's easy to understand the security issues for maintainers.
+5. **Is "update" allowed at all for facts, or should every change be a flag at first?**
    Recommend: in phases 1 to 3, only URL redirects (class A) are ever applied; class C
    starts as flag-only and moves to update after a trial, field by field.
-5. **Dependencies.** Approve the table above (httpx, beautifulsoup4, extruct, PyYAML,
+   **SC:** Agreed with recommend.
+6. **Dependencies.** Approve the table above (httpx, beautifulsoup4, extruct, PyYAML,
    jsonschema, optional playwright; pytest and ruff for development), or say which to
    replace with standard-library code.
-6. **Only the foundation's own site?** AGENTS.md prefers it. Third-party registries
+   **SC:** approved, except move playwright to a phase 2 so we can quickly test phase 1 on basic sites.
+7. **Only the foundation's own site?** AGENTS.md prefers it. Third-party registries
    (IRS exempt organization data, GLEIF, national company registers such as the Dutch
    KvK, Wikidata) are more reliable for `legalName`, `taxID` and `foundingDate`. Recommend
    own site only for this tool, with registries as a later, separate checker that only
    flags.
-7. **Archive snapshots.** Should the tool ask the Internet Archive to save each page it
+   **SC:** Keep as own sites only; external registries change very slowly and will probably be a maintainer task to review.
+8. **Archive snapshots.** Should the tool ask the Internet Archive to save each page it
    cites, and put the archive URL in the evidence, so the citation survives a redesign?
    That adds a third-party call per page; recommend yes, but only on non-dry runs.
-8. **Tool name and place.** `fdncheck` in `assets/python/fdncheck/` in this repository,
+   **SC:** No, we do not need this extra work; add a future decision to maintainers asking how important this kind of detailed history is to our project.
+9. **Tool name and place.** `fdncheck` in `assets/python/fdncheck/` in this repository,
    or something else? Shared fetch code with fdncrosswalk could later become a small
    library; recommend not sharing until both need the same thing.
-
+   **SC:** Agreed, in this repository, separate code until tested; after we've done several phases and testing make a note to review any shared utilities we can combine.
+   
 ## Decisions
 
-None yet.
+**SC:** See answers and additional comments above.
