@@ -4,7 +4,7 @@ from conftest import FIXTURES, REPO_ROOT
 
 from fdncheck.propose.frontmatter import EditError, apply, replace_value
 from fdncheck.records import foundation
-from fdncheck.records.catalog import url_targets
+from fdncheck.records.schema import load_catalog
 
 TEXT = (FIXTURES / "acme-foundation.txt").read_text(encoding="utf-8")
 
@@ -57,6 +57,6 @@ def test_body_text_is_never_edited():
 def test_real_records_round_trip_byte_for_byte(path):
     """Replacing every URL with itself leaves every real record unchanged."""
     record = foundation.load(path)
-    targets = url_targets(record.data)
+    targets = load_catalog(REPO_ROOT).url_targets(record.data)
     assert targets or record.identifier == "biobricks"
     assert apply(record.text, [(f, u, u) for f, u in targets]) == record.text

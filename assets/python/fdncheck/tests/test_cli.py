@@ -39,7 +39,7 @@ def test_propose_shows_diff_then_writes(repo, tmp_path, capsys):
 
 def test_fields_lists_the_catalog(repo, capsys):
     assert main(["--root", str(repo), "fields"]) == 0
-    assert "website\tA\tTrue\t1\t-" in capsys.readouterr().out
+    assert "website\turl\tTrue\t1\t-" in capsys.readouterr().out
 
 
 def test_validate_and_unknown_id(repo, capsys):

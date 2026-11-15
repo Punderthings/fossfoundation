@@ -18,8 +18,8 @@ from fdncheck.fetch.http import HttpFetcher
 from fdncheck.fetch.store import SavingFetcher, StoredFetcher
 from fdncheck.propose import report
 from fdncheck.records import foundation
-from fdncheck.records.catalog import CATALOG
-from fdncheck.records.schema import load_schema, uncovered_fields, validate
+from fdncheck.records.catalog import KEYWORD
+from fdncheck.records.schema import load_catalog, load_schema, validate
 
 
 def find_root(start: Path) -> Path:
@@ -39,15 +39,14 @@ def _fetcher(args: argparse.Namespace) -> Fetcher:
 
 
 def cmd_fields(args: argparse.Namespace) -> int:
-    schema = load_schema(args.root)
-    print("field\tclass\tmay_update\tchecked_in_phase\tjoins")
-    for name in schema.get("properties", {}):
-        spec = CATALOG.get(name)
-        if spec:
-            print(f"{name}\t{spec.cls}\t{spec.may_update}\t{spec.checked_in_phase or '-'}\t{spec.joins or '-'}")
-    for name in uncovered_fields(schema):
-        print(f"{name}\t?\tnot in catalog", file=sys.stderr)
-    return 1 if uncovered_fields(schema) else 0
+    catalog = load_catalog(args.root)
+    print(f"field\t{KEYWORD}\tmay_update\tchecked_in_phase\tjoins")
+    for spec in catalog:
+        print(f"{spec.name}\t{spec.check}\t{spec.may_update}\t{spec.checked_in_phase or '-'}\t{spec.joins or '-'}")
+    problems = catalog.problems()
+    for problem in problems:
+        print(f"fdncheck: schema: {problem}", file=sys.stderr)
+    return 1 if problems else 0
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
@@ -65,7 +64,7 @@ def cmd_validate(args: argparse.Namespace) -> int:
 
 def cmd_fetch(args: argparse.Namespace) -> int:
     record = foundation.load_id(args.root, args.id)
-    result = run_check(record, _fetcher(args), known_ids(args.root))
+    result = run_check(record, _fetcher(args), load_catalog(args.root), known_ids(args.root))
     for url, snap in result.snapshots.items():
         hops = "".join(f" {s}→{u}" for s, u in snap.redirects)
         print(f"{snap.status or snap.error}\t{url}{hops}")
@@ -74,7 +73,7 @@ def cmd_fetch(args: argparse.Namespace) -> int:
 
 def _check(args: argparse.Namespace):
     record = foundation.load_id(args.root, args.id)
-    result = run_check(record, _fetcher(args), known_ids(args.root))
+    result = run_check(record, _fetcher(args), load_catalog(args.root), known_ids(args.root))
     if args.json:
         Path(args.json).write_text(report.findings_json(args.id, result.findings), encoding="utf-8")
     text = report.markdown(args.id, result.findings, include_ok=getattr(args, "all", False))
@@ -115,7 +114,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--root", type=Path, help="repository root (default: found above the current folder)")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    sub.add_parser("fields", help="print the field catalog: how each schema field is checked")
+    sub.add_parser("fields", help="print each schema field's x-check class and what fdncheck may do with it")
 
     def with_source(p: argparse.ArgumentParser) -> None:
         p.add_argument("id", help="foundation identifier, e.g. blender")
