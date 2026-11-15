@@ -23,9 +23,25 @@ specification, in an SPDX header or in [`REUSE.toml`](REUSE.toml).
 
 ## Rules For Data
 
-- **Cite a source you checked.** Every new or changed fact needs a URL you actually
-  checked, preferably on the organization's own website. If you can't verify a value,
-  leave the field out. No guessing, and no filling fields from memory.
+- **Cite a source you checked, at the level each dataset needs.** No guessing, and no
+  filling fields from memory; if you can't verify a value, leave the field out. Each
+  dataset is checked as carefully as its use calls for, as explained in
+  [How We Source Data](https://fossfoundation.info/data#sourcing). AI agents follow the
+  same rules in [AGENTS.md](AGENTS.md#data-rules). In short:
+  - **Foundations, entities, and hosted projects:** link the page you checked,
+    preferably on the organization's own website, in the PR. These records don't store
+    per-field sources; the PR and git history are the record.
+  - **Tax data:** downloaded by our tools exactly as published. Never edit or correct
+    the figures by hand.
+  - **Sponsorship models:** link the organization's own sponsorship pages. Sponsor
+    lists and history are written by our tools, which record when and how each list
+    was scanned.
+  - **Sponsors:** give a source URL and the date you checked it for each value, in
+    the record's `sources`.
+  - **Platform crosswalk:** the highest bar. Every link needs evidence anyone can
+    check again, with the date you observed it. Add `lastReviewed` and `reviewedBy`
+    only when you checked the link yourself; a link without them counts as not yet
+    checked. See [Platform Crosswalk](https://fossfoundation.info/crosswalk#accuracy).
 - **Keep descriptions factual.** The Markdown sentence at the end of each foundation file,
   and any other descriptive text, is factual and neutral, never marketing.
 - **Officers get a say.** Changes to the descriptive text about a foundation should come
@@ -49,8 +65,9 @@ specification, in an SPDX header or in [`REUSE.toml`](REUSE.toml).
 
 - Make sure you are adding or updating accurate data, following the rules above.
 - Review which [datasets are manual updates versus generated files](AGENTS.md#repository-map).
-- In the PR, say where you checked each changed fact. (How to record when each field was
-  last verified is still an open design question.)
+- In the PR, say where you checked each changed fact. Foundation records don't store
+  when each field was last checked; the PR and git history do (see
+  [How We Source Data](https://fossfoundation.info/data#sourcing)).
 - Submit a GitHub PR for the `_foundations/<identifier>.md` or other file.
 
 ## How To Add A New Foundation

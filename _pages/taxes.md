@@ -29,6 +29,15 @@ We record this data from **two different sources**, which have different tools a
 - **Fiscal Years** Many foundations don't use the calendar year, so "the 2024 filing" can mean different periods.  Match filings on the month the fiscal year ends, not on a year label.
 - **US Only** Making direct comparisons from 990 forms to other country tax (or similar) forms will be challenging.
 
+## How We Source Tax Data {#sourcing}
+
+Tax data is copied from government filings or a trusted aggregator, exactly as published.  We don't check or correct individual figures, even ones that look wrong (see *Data Errors* above), so a copied file always matches its source.  What we record is **when and how we copied it**:
+
+- **How:** the tool that downloaded it (listed for each dataset below), and the source named inside each file: ProPublica files carry `data_source` and `api_version`; UK Charity Commission files carry `data_source` and `parseDate`; IRS 990 filings carry their IRS object id, processing year, and source.
+- **When:** the git commit that added or updated each file, and `parseDate` where the file has one.
+
+[How We Source Data](data#sourcing) compares this with our other datasets.
+
 ## ProPublica 990 {#propublica-990}
 
 [ProPublica's Nonprofit Explorer](https://projects.propublica.org/nonprofits/) makes it simple to report on annual tax-reported income, expenses, and more for US based foundations.  ProPublica builds its data from official IRS data releases of processed tax filings.
