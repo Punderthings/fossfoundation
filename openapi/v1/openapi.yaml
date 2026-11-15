@@ -3,7 +3,7 @@ info:
   description: |
     Proposed OpenAPI spec for FOSS Foundations, providing 
     read-only access to _foundations, _sponsorships, _entities.
-  version: "1.0.0"
+  version: "1.1.0"
   title: FOSS Foundations Info
   termsOfService: "https://fossfoundation.info/colophon"
   contact:
