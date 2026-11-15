@@ -3,7 +3,8 @@
 
 2026-11-14 · Shane Curcuru, with Claude
 
-Status: draft (open questions below); implementation not started, **SC:** comments, answers added.
+Status: decided (2026-11-15, see Decisions); implementation not started. **SC:** comments, answers added.
+Updated 2026-11-15 to follow [How we source each dataset](2026-11-15-data-sourcing-levels.md) (#99).
 
 ## Prompt
 
@@ -49,11 +50,17 @@ Status: draft (open questions below); implementation not started, **SC:** commen
   (for example a URL that now permanently redirects). Everything heuristic goes in the
   PR body as "not sure, please check", with the source URL. Descriptive text fields are
   never edited by the tool; it only reports that the page they came from changed.
-- **Every finding carries its evidence**: the URL fetched, the final URL, the HTTP
-  status, the time, a short quote or selector of what was matched, and the rule that
-  matched it. Where that evidence is kept after the PR merges is open question 1.
-- **One branch and one draft PR per foundation**, created by a small script in a
-  GitHub Actions workflow that maintainers start by hand or on a schedule. The same
+- **Every finding carries its evidence in the PR, not in new files**: the URL fetched,
+  the final URL, the HTTP status, the time, a short quote or selector of what was
+  matched, and the rule that matched it. Following the
+  [sourcing levels](2026-11-15-data-sourcing-levels.md) decided in #99, foundation
+  records get no per-field sources and no evidence files; the PR text and git history
+  are the record, and every checker PR, commit and issue carries the same searchable
+  tags (see [Finding one foundation's history](#finding-one-foundations-history)).
+- **Items a person should check go in one summary issue per run**, covering every
+  foundation scanned in that run, so maintainers investigate them in one batch.
+- **One branch and one draft PR per foundation with changes**, created by a small
+  script in a GitHub Actions workflow, opened by a GitHub App that maintainers start by hand or on a schedule. The same
   commands run on a laptop with the same result, using `--offline` against saved pages.
 - **Rollout in phases**: URL health and redirects first (highest value, lowest risk),
   then structured facts, then the scheduled workflow, then change-watch for text
@@ -61,16 +68,19 @@ Status: draft (open questions below); implementation not started, **SC:** commen
 
 ## What exists today
 
-- **90 foundation records**, one Markdown file each, with YAML front matter described by
+- **96 foundation records**, one Markdown file each, with YAML front matter described by
   [foundations-schema.json](../_data/foundations-schema.json). About 25 fields are URLs
   (`format: url`), about 20 are short facts (names, dates, country, tax id, counts, yes/no
   values), and about 15 are short descriptive text.
-- **No per-field sources or "last checked" dates** in `_foundations`. CONTRIBUTING says
-  how to record when a field was last verified "is still an open design question". Today
-  the source of a change lives only in the PR that made it.
-- **Precedents to follow**: the crosswalk's `evidence` objects (`type`, `source`,
-  `observed`, `detail`, `creator`) in [crosswalk-schema.json](../_data/crosswalk-schema.json);
-  per-source CSS selectors for sponsor lists in `_sponsorships/*.md`; provenance in
+- **No per-field sources or "last checked" dates** in `_foundations`, and none are
+  wanted. [How We Source Data](../_pages/data.md) (`/data#sourcing`, from #99) says
+  foundation records need a maintainer's check against the organization's own site,
+  linked in the PR, and that "the pull request, with its links, and git history are the
+  record". AGENTS.md and CONTRIBUTING.md say the same. That is the level this tool
+  works to: it makes the reviewer's check fast and repeatable, not a new kind of
+  provenance. Crosswalk-style evidence objects stay with the crosswalk, which needs a
+  higher bar.
+- **Precedents to follow**: per-source CSS selectors for sponsor lists in `_sponsorships/*.md`; provenance in
   `history/sponsorships/`; the stubbed `fetch` arguments in fdncrosswalk's `probes.py`.
 - **Earlier refreshes were agentic.** PR #96 (Blender, Bytecode Alliance) used an LLM to
   read the sites and summarize them. The values were checked, but nobody can rerun that
@@ -102,7 +112,9 @@ Non-goals:
   summarize a page.
 - Adding new foundations, deleting values, or renaming identifiers.
 - Fetching third-party registries (IRS, GLEIF, Wikidata, national company registers).
-  Those are good cross-checks but are a separate source class; see open question 6.
+  They change slowly, and reviewing them stays a maintainer task (decided 2026-11-15).
+- Archiving the pages it checks (for example in the Internet Archive); see the future
+  question under Decisions.
 - Replacing the sponsor scrapers in `assets/ruby/` (a separate migration).
 
 ## Field catalog: what can be checked, and how
@@ -153,8 +165,7 @@ assets/python/fdncheck/
                           update/flag/none decision table
     propose/              Output; writes files, never fetches
       frontmatter.py      Minimal line edit of changed keys only
-      report.py           PR title and body (Markdown), JSON findings
-      evidence.py         Evidence file writer (if decision 1 keeps one)
+      report.py           PR body, run summary issue (Markdown), JSON findings
     cli.py                Subcommands below
   rules/<id>.yaml         Optional per-foundation rules (see below)
   tests/
@@ -286,7 +297,8 @@ snapshots.
 
 ### Dependencies (to approve before anything is installed)
 
-All need ASF Category A licenses; none is added until approved (open question 5).
+All need ASF Category A licenses. Approved 2026-11-15, with Playwright moved to
+phase 2.
 
 | Package | License | Why | Alternative |
 | --- | --- | --- | --- |
@@ -300,16 +312,18 @@ All need ASF Category A licenses; none is added until approved (open question 5)
 
 **SC:** All above dependency packages are approved, except skip JS sites in phase 1: add Playwright dependency in phase 2.
 
-Playwright also downloads a browser build. It goes in an optional dependency group
-(`uv sync --extra browser`) so maintainers who don't need JS rendering never install it.
+Playwright also downloads a browser build. It is added in phase 2, in an optional
+dependency group (`uv sync --extra browser`), so maintainers who don't need JS rendering
+never install it. Phase 1 skips sites that need JavaScript and reports them under
+"Could not check". `extruct` is also first used in phase 2.
 
-## Evidence, review and the PR
+## Review and the PR
 
 ### What a PR looks like
 
 One branch per foundation, `fdncheck/<id>`, and one draft PR titled
-`Check <commonName> (<id>) against its website`. The diff touches
-`_foundations/<id>.md` (and the evidence file, if decision 1 keeps one). The body:
+`fdncheck(<id>): update <fields>`, labelled `fdncheck`, only for a foundation that has a
+change to propose. The diff touches only `_foundations/<id>.md`. The body:
 
 ```markdown
 ## Summary
@@ -329,7 +343,10 @@ fdncheck 0.1.0 checked 14 URLs for blender on 2026-12-01 (UTC).
 - https://… blocked by robots.txt
 
 Reproduce: `uv run fdncheck propose blender --offline <artifact>`; snapshots are in
-the workflow run's artifacts for 90 days.
+the workflow run's artifacts for 90 days. These items are also in the run's summary
+issue (#NNN).
+
+Foundation: blender · Checked-by: fdncheck/0.1.0 · Checked-on: 2026-12-01
 
 Posted by fdncheck on behalf of the FOSSFoundation.info maintainers
 ```
@@ -338,11 +355,35 @@ The PR template checklist is filled in by the script; only items the tool did ar
 ticked, so "I verified the site builds" stays for the reviewer (or for the required
 `build` check).
 
-### When there are flags but no changes
+### Items to check: one summary issue per run
 
-A PR needs a diff, so a foundation with only "please check" items can't get a PR unless
-the diff includes the evidence file (decision 1) or the flags go somewhere else. Open
-question 2.
+Every run, manual or scheduled, ends with one issue titled
+`fdncheck run <YYYY-MM-DD>: <m> items to check in <k> foundations`, labelled
+`fdncheck`. It batches the "Please check" and "Could not check" items for every
+foundation scanned in that run, grouped under a `fdncheck(<id>)` heading per
+foundation, and links that run's PRs and workflow artifacts. A foundation with items
+but no changes appears only there. Maintainers work through the issue and close it;
+any fix is a normal PR.
+
+### Finding one foundation's history
+
+Every checker output names the foundation `identifier` the same way, so one
+foundation's checks are easy to find in git and on GitHub (decision 5 in #99):
+
+| Where | Convention | How to search |
+| --- | --- | --- |
+| Branch | `fdncheck/<id>` | `git branch -r --list 'origin/fdncheck/*'` |
+| PR titles and summary issue headings | `fdncheck(<id>)` | GitHub: `label:fdncheck "fdncheck(blender)"` (finds PRs and summary issues) |
+| Label | `fdncheck` on every PR and summary issue | GitHub: `label:fdncheck` |
+| Commit subject | `fdncheck(<id>): update <fields>` | `git log --oneline --grep='^fdncheck(blender)'` |
+| Commit trailers | `Foundation: <id>`, `Checked-by: fdncheck/<version>`, `Checked-on: <YYYY-MM-DD>` | `git log --grep='^Foundation: blender$'` |
+| PR body | last line `Foundation: <id> · Checked-by: … · Checked-on: …` | GitHub full-text search |
+
+The trailers survive because this repository merges PRs with merge commits rather than
+squashing. `git log _foundations/<id>.md`, the method `/data#sourcing` already gives,
+still lists every change to a record, by people or by the checker; the tags pick out
+the checker's own changes and checks. The checker is not generative AI, so its commits
+carry `Checked-by:` rather than `Generated-by:`.
 
 ### Avoiding noise
 
@@ -350,11 +391,13 @@ question 2.
   the same foundation already has the same hash, nothing is pushed. If it differs, the
   branch is force-updated and the body replaced (one open PR per foundation, never a
   pile).
-- A flag that was already reported and not acted on is shown once, then listed under
-  "still open" rather than repeated as new. This needs state from the previous run
-  (decision 1).
+- An item that was in the previous summary issue and is still found is listed under
+  "Still open since <date>" rather than as new. The script reads the previous items
+  from a hidden `<!-- fdncheck-state … -->` JSON block in the last summary issue (item
+  keys and, from phase 5, page hashes), so no state is committed to the repository.
+  Opening a new summary issue closes the previous one with a link to it.
 - `run --max N` caps PRs per run (default 10), and the schedule rotates through
-  foundations so each is checked about monthly without a 90-PR burst.
+  foundations so each is checked about monthly without a 96-PR burst.
 
 ## GitHub workflow
 
@@ -384,19 +427,37 @@ jobs:
       - uses: actions/upload-artifact@<sha> # vX   (snapshots + reports, 90 days)
       - if: ${{ !inputs.dry_run }}
         run: .github/scripts/fdncheck-pr.sh out/
-        env: { GH_TOKEN: <see open question 3> }
+        env: { GH_TOKEN: <installation token from the GitHub App, see below> }
 ```
 
 Notes:
 
 - `fdncheck-pr.sh` uses only `git` and the `gh` CLI preinstalled on GitHub runners, so
   no third-party PR action is needed. It opens PRs as drafts, adds a `fdncheck` label,
-  and requests review from the maintainers.
-- The repository setting "Allow GitHub Actions to create and approve pull requests" must
-  be turned on for the default token to open PRs.
-- **PRs opened with the default `GITHUB_TOKEN` don't trigger other workflows**, so the
-  required `build` check never runs on them and they can't merge without a push from a
-  person. That is open question 3.
+  requests review from the maintainers, and writes the run's summary issue.
+- **A GitHub App opens the PRs and issues** (decided 2026-11-15). PRs opened with the
+  default `GITHUB_TOKEN` don't trigger other workflows, so the required `build` check
+  would never run on them. The workflow turns the App's private key (a repository
+  secret) into a short-lived installation token with GitHub's
+  `actions/create-github-app-token` action, pinned to a SHA.
+
+### The GitHub App, for maintainers
+
+Phase 3 adds a page for maintainers (`_pages/` or the tool README; it is linked from
+both) that explains, in plain language:
+
+- **What it can do**: installed only on this repository, with `contents: write`
+  (push `fdncheck/*` branches), `pull_requests: write` and `issues: write`, and
+  nothing else (no admin, workflows, secrets or org access).
+- **What it can't do**: approve or merge; branch protection on `main` still requires a
+  maintainer's review, and the workflow only pushes `fdncheck/*` branches.
+- **Where the key lives**: one repository secret, readable only by workflows on `main`
+  (not by PRs from forks); who can see and rotate it, and how to rotate or revoke it.
+- **Risks and limits**: anyone who can change the workflow on `main` can use the token,
+  so workflow changes get the same review as code; the JavaScript-rendering job gets no
+  token (see Risks); how to turn the whole thing off (disable the workflow, or suspend
+  the App).
+- **Who owns it**: the App is owned by the repository's organization, not a person.
 - A manual run defaults to `dry_run: true`: it uploads the reports as artifacts and
   writes them to the run summary, and opens nothing.
 - `--rotation` picks the foundations whose number modulo 4 matches the ISO week modulo
@@ -427,10 +488,11 @@ Notes:
 | --- | --- | --- |
 | 0 | This plan; decisions on the open questions | No |
 | 1 | `fdncheck` with `fetch`, `extract.links`, `records`, `detect`, `propose`; classes A and G; `fields`, `fetch`, `check`, `propose` commands; tests | Only when a maintainer runs `propose --write` and opens a PR by hand |
-| 2 | Class C (Schema.org and legal patterns), class D with per-foundation rules for a few foundations; fix `openapi_builder.rb` so `list.json` regenerates (separate Ruby PR, prerequisite) | Same |
-| 3 | `run`, `fdncheck-pr.sh`, the workflow with `workflow_dispatch` only; dry-run by default | PRs on demand |
+| 2 | Playwright for JavaScript sites; class C (Schema.org and legal patterns, flag-only at first), class D with per-foundation rules for a few foundations; fix `openapi_builder.rb` so `list.json` regenerates (separate Ruby PR, prerequisite) | Same |
+| 3 | `run`, `fdncheck-pr.sh`, the summary issue, the GitHub App and its maintainer page, the workflow with `workflow_dispatch` only; dry-run by default | PRs on demand |
 | 4 | Schedule turned on after a few manual runs look right | Weekly rotation |
-| 5 | Class B discovery and class F change-watch, which need stored state from earlier runs | Flags only |
+| 5 | Class B discovery and class F change-watch, using page hashes from the state block in the last summary issue | Flags only |
+| After | Review utilities shared with fdncrosswalk (fetching, YAML and JSON loading) and combine what both use | No |
 
 Each phase is its own PR. A trial on 3 to 5 foundations of different kinds (a US 501(c)(3)
 with a static site, a European Stichting or e.V., a JavaScript-heavy site, a fiscal
@@ -447,7 +509,7 @@ sponsor) comes before turning on the schedule.
   registrable-domain rule; off-domain redirects are flags.
 - **Load on foundation sites.** About 15 pages per foundation per month, at one request
   per second, honoring robots.txt.
-- **Reviewer fatigue.** Caps per run, no duplicate PRs, and flags shown once.
+- **Reviewer fatigue.** Caps per run, no duplicate PRs, and one summary issue per run.
 - **JavaScript rendering runs third-party code** in the CI runner. The job has a
   write token; rendering should run in a separate job with `contents: read` and no
   token, passing snapshots to the PR job as an artifact.
@@ -500,4 +562,57 @@ sponsor) comes before turning on the schedule.
    
 ## Decisions
 
-**SC:** See answers and additional comments above.
+Shane answered every open question on 2026-11-15 (his **SC:** notes above, kept as
+written):
+
+1. **Evidence storage: no evidence files.** Foundation updates use the PR and git
+   history as the record, per [data sourcing levels](2026-11-15-data-sourcing-levels.md)
+   (#99, decision 5). The companion-file design and `propose/evidence.py` are dropped,
+   and checker output follows
+   [Finding one foundation's history](#finding-one-foundations-history).
+2. **Items to check: one summary issue per run**, batching every foundation scanned in
+   that run, for maintainers to investigate together.
+3. **Token: a GitHub App**, with a plain-language maintainer page on its permissions and
+   security ([The GitHub App, for maintainers](#the-github-app-for-maintainers)).
+4. **Updates vs flags: as recommended.** Phases 1 to 3 apply only class A URL
+   redirects; class C starts flag-only and moves to update field by field after a trial.
+5. **Dependencies: approved** (httpx, beautifulsoup4, extruct, PyYAML, jsonschema;
+   pytest and ruff for development), with Playwright added in phase 2 so phase 1 can be
+   tested quickly on basic sites.
+6. **Sources: the foundation's own sites only.** External registries change slowly and
+   will probably stay a maintainer review task.
+7. **Archive snapshots: no.**
+8. **Name and place: `fdncheck` in `assets/python/fdncheck/`**, separate from
+   fdncrosswalk until tested; after several phases, review shared utilities to combine.
+9. **SC** (#99): lastChecked and lastReviewed are new features, filled in going forward,
+   so the checker doesn't report their absence.
+
+### Future decision for maintainers
+
+- **How much page history do we need?** SC asked to record this: how important is a
+  detailed history of the foundation pages we check (for example archived snapshots of
+  each page a change was based on) to the project? Today, workflow artifacts keep each
+  run's snapshots for 90 days, and nothing longer.
+
+## Next step
+
+**Phase 1, as its own PR.** Create `assets/python/fdncheck/` (Python 3.14+, uv) with:
+
+- the `fetch` (static HTTP only), `extract.links`, `records`, `detect` and `propose`
+  layers, covering class A (URL health and permanent same-domain redirects, the only
+  automatic updates) and class G (referenced ids exist);
+- the `fields`, `fetch`, `check` and `propose` commands, with `--offline` replay;
+- dependencies httpx, beautifulsoup4, PyYAML and jsonschema, with pytest and ruff for
+  development;
+- synthetic HTML fixtures and golden tests with no network, a byte-identical round-trip
+  test over every `_foundations/*.md`, a catalog-vs-schema coverage test, and a README;
+- the searchable commit subject and trailers above, written by `propose` for a
+  maintainer to use when opening a PR by hand.
+
+No workflow, GitHub App, schedule or data change in that PR. When it merges, a
+maintainer runs `uv run fdncheck check <id>` on three to five foundations of different
+kinds and judges the findings before phase 2.
+
+In parallel, a small separate Ruby PR fixes `openapi_builder.rb` so
+`_foundations/list.json` can be regenerated, which phase 2 needs before it can change
+`website` or `legalName`.
