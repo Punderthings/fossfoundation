@@ -52,6 +52,7 @@ say in the PR which way you read it.
 | `_sponsors/<id>.md` | Key sponsors of several foundations: domains (the join key to sponsor data) and lookup identifiers; CC0 | hand |
 | `_entities/<id>.md` | Non-foundation entities: projects that are not legal corporations, often with a fiscal host (e.g. CNCF) | hand |
 | `_data/*-schema.json` | JSON Schemas for each dataset; field docs live here | hand, with approval |
+| `_data/datasets.yml` | Registry of every dataset: page, paths, schemas, license, sourcing; drives the tables on `/data` and the catalog | hand |
 | `_data/foundation-template.md` | Template for new foundations | hand |
 | `_data/crosswalk/<id>.json` | Foundation accounts on code hosts and registries, with evidence | hand |
 | `_data/attestors.json` | Logins whose `human-attested` evidence counts as confirmed | maintainers only |
@@ -60,6 +61,7 @@ say in the PR which way you read it.
 | `_data/sponsorships/*.json` | Sponsor reports | generated (`assets/ruby/sponsor_reports.rb`) |
 | `history/sponsorships/` | Monthly sponsor history with provenance | generated (`assets/ruby/sponsor_archive.rb`) |
 | `api/v2/crosswalk/` | JSON-LD exports, CC0 | generated (`fdncrosswalk export`) |
+| `api/v2/catalog.jsonld` | DCAT catalog of the datasets, CC0 | generated (`assets/ruby/openapi_builder.rb`) |
 | `_foundations/list.json` | Lookup of alternate ids | generated (`assets/ruby/openapi_builder.rb`) |
 | `_pages/` | Site pages (Jekyll, just-the-docs theme) | hand |
 | `_layouts/`, `_includes/`, `_plugins/`, `_sass/` | Site templates and Liquid filters | hand |
@@ -90,6 +92,7 @@ bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
 bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
 bundle exec ruby assets/ruby/test/sponsors_test.rb
 bundle exec ruby assets/ruby/test/openapi_builder_test.rb
+bundle exec ruby assets/ruby/test/datasets_test.rb     # after any change to _data/datasets.yml
 bundle exec ruby assets/ruby/sponsors.rb --check   # after any change to _sponsors/
 unset BUNDLE_GEMFILE
 

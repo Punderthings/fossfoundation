@@ -4,7 +4,8 @@ module OpenapiBuilder
   DESCRIPTION = <<-HEREDOC
   OpenapiBuilder: Simplistic CI tool to update openapi bits.
     Run from project root: ruby assets/ruby/openapi_builder.rb
-    Writes _foundations/list.json from the _foundations/*.md records.
+    Writes _foundations/list.json from the _foundations/*.md records, and
+    api/v2/catalog.jsonld (DCAT 3) from the _data/datasets.yml registry.
   HEREDOC
   module_function
   require 'date'
@@ -59,6 +60,132 @@ module OpenapiBuilder
     return list
   end
 
+  DATASETS_FILE = '_data/datasets.yml'.freeze
+  CATALOG_FILE = 'api/v2/catalog.jsonld'.freeze
+  GITHUB_REPO = 'https://github.com/Punderthings/fossfoundation'.freeze
+  RAW_FILES = 'https://raw.githubusercontent.com/Punderthings/fossfoundation/main/'.freeze
+  SPDX_LICENSES = 'https://spdx.org/licenses/'.freeze
+  MEDIA_TYPES = 'https://www.iana.org/assignments/media-types/'.freeze
+  FREQUENCIES = 'http://publications.europa.eu/resource/authority/frequency/'.freeze
+  CATALOG_CONTEXT = {
+    'dcat' => 'http://www.w3.org/ns/dcat#',
+    'dct' => 'http://purl.org/dc/terms/',
+    'foaf' => 'http://xmlns.com/foaf/0.1/',
+    'rdfs' => 'http://www.w3.org/2000/01/rdf-schema#',
+    'schema' => 'https://schema.org/'
+  }.freeze
+
+  # Markdown from the registry as plain text for the catalog
+  # @param text with Markdown links, bold, and code spans
+  # @return string
+  def plain_text(text)
+    text.to_s.gsub(/\[([^\]]+)\]\([^)]+\)/, '\1').delete('*`').gsub(/\s+/, ' ').strip
+  end
+
+  # Where a distribution can be fetched: a directory on GitHub, a file under
+  # api/ on the website, or any other file as raw GitHub content
+  # @param path in the repository; a directory ends in /
+  # @param site url of the website
+  # @return hash with dcat:accessURL, and dcat:downloadURL for a file
+  def distribution_urls(path, site)
+    return { 'dcat:accessURL' => { '@id' => "#{GITHUB_REPO}/tree/main/#{path.chomp('/')}" } } if path.end_with?('/')
+
+    url = { '@id' => path.start_with?('api/') ? "#{site}/#{path}" : "#{RAW_FILES}#{path}" }
+    { 'dcat:accessURL' => url, 'dcat:downloadURL' => url }
+  end
+
+  # One file or directory of a dataset as a DCAT Distribution
+  # @param dist hash from a registry distributions entry
+  # @param site url of the website
+  # @return hash
+  def catalog_distribution(dist, site)
+    out = { '@type' => 'dcat:Distribution', 'dct:title' => dist['path'] }.merge(distribution_urls(dist['path'], site))
+    out['dcat:mediaType'] = { '@id' => "#{MEDIA_TYPES}#{dist['mediaType']}" } if dist['mediaType']
+    out['dct:license'] = { '@id' => "#{SPDX_LICENSES}#{dist['license']}" } if dist['license']
+    out
+  end
+
+  # Schema, license, and provenance of a dataset, where the registry has them
+  # @param entry hash from the registry datasets list
+  # @param src the dataset's sourcing entry, or nil
+  # @return hash
+  def catalog_dataset_details(entry, src)
+    out = {}
+    schemas = entry.fetch('schemas', []).map { |s| { '@id' => "#{GITHUB_REPO}/blob/main/_data/#{s}" } }
+    out['dct:conformsTo'] = schemas unless schemas.empty?
+    license = common_license(entry.fetch('distributions', []))
+    out['dct:license'] = { '@id' => SPDX_LICENSES + license } if license
+    out['dct:provenance'] = catalog_provenance(src) if src
+    out
+  end
+
+  # The license of a whole dataset, when every distribution states the same one
+  # @param dists array of registry distributions entries
+  # @return SPDX id, or nil
+  def common_license(dists)
+    licenses = dists.map { |d| d['license'] }.uniq
+    licenses.first if licenses.size == 1
+  end
+
+  # How a group of datasets is checked and sourced, as a DCAT provenance statement
+  # @param src hash from the registry sourcing list
+  # @return hash
+  def catalog_provenance(src)
+    { '@type' => 'dct:ProvenanceStatement', 'rdfs:label' => plain_text("#{src['checks']} #{src['stored']}") }
+  end
+
+  # One registry entry as a DCAT Dataset
+  # @param entry hash from the registry datasets list
+  # @param sourcing hash of sourcing identifier => sourcing entry
+  # @param site url of the website
+  # @return hash
+  def catalog_dataset(entry, sourcing, site)
+    {
+      '@id' => "#{site}/#{CATALOG_FILE}##{entry['identifier']}", '@type' => 'dcat:Dataset',
+      'dct:identifier' => entry['identifier'], 'dct:title' => entry['title'],
+      'dct:description' => plain_text(entry['description']),
+      'dcat:landingPage' => { '@id' => "#{site}/#{entry['page']}" }, 'dct:publisher' => { '@id' => site },
+      'dct:accrualPeriodicity' => { '@id' => FREQUENCIES + entry.fetch('frequency', 'IRREG') }
+    }.merge(catalog_dataset_details(entry, sourcing[entry['sourcing']]),
+            'dcat:distribution' => entry.fetch('distributions', []).map { |d| catalog_distribution(d, site) })
+  end
+
+  # Build the DCAT catalog of published datasets
+  # @param registry hash read from _data/datasets.yml
+  # @param config hash read from _config.yml (title, description, url)
+  # @return hash, as JSON-LD
+  def build_catalog(registry, config)
+    site = config['url']
+    sourcing = registry.fetch('sourcing', []).to_h { |s| [s['identifier'], s] }
+    published = registry['datasets'].select { |d| d['status'] == 'published' }
+    catalog_header(config).merge('dcat:dataset' => published.map { |d| catalog_dataset(d, sourcing, site) })
+  end
+
+  # The catalog's own description, license, and source
+  # @param config hash read from _config.yml (title, description, url)
+  # @return hash
+  def catalog_header(config)
+    site = config['url']
+    {
+      '@context' => CATALOG_CONTEXT, '@id' => "#{site}/#{CATALOG_FILE}",
+      '@type' => ['dcat:Catalog', 'schema:DataCatalog'],
+      'dct:title' => config['title'], 'dct:description' => config['description'],
+      'foaf:homepage' => { '@id' => "#{site}/data" },
+      'dct:publisher' => { '@id' => site, '@type' => 'foaf:Agent', 'foaf:name' => config['title'] },
+      'dct:license' => { '@id' => "#{SPDX_LICENSES}CC0-1.0" },
+      'schema:isBasedOn' => { '@id' => "#{GITHUB_REPO}/blob/main/#{DATASETS_FILE}" }
+    }
+  end
+
+  # The catalog as written to CATALOG_FILE
+  # @param root of the repository
+  # @return string
+  def catalog_json(root)
+    registry = YAML.safe_load_file(File.join(root, DATASETS_FILE))
+    config = YAML.safe_load_file(File.join(root, '_config.yml'))
+    "#{JSON.pretty_generate(build_catalog(registry, config))}\n"
+  end
+
   # ### #### ##### ######
   # Main method for command line use
   if __FILE__ == $PROGRAM_NAME
@@ -67,5 +194,6 @@ module OpenapiBuilder
     File.open(File.join(dir, 'list.json'), "w") do |f|
       f.write(JSON.pretty_generate(list))
     end
+    File.write(File.join(Dir.pwd, CATALOG_FILE), catalog_json(Dir.pwd))
   end
 end

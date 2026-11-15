@@ -50,4 +50,26 @@ class OpenapiBuilderTest < Minitest::Test
     list = OpenapiBuilder.build_list(dir)
     assert_equal Dir.glob(File.join(dir, '*.md')).size, list.size
   end
+
+  def test_plain_text_drops_markdown
+    text = "see [attestors](crosswalk#attestors)\nand **`code`**"
+    assert_equal 'see attestors and code', OpenapiBuilder.plain_text(text)
+  end
+
+  def test_distribution_urls
+    site = 'https://example.org'
+    dir = OpenapiBuilder.catalog_distribution({ 'path' => '_data/p990/', 'mediaType' => 'application/json' }, site)
+    assert_equal 'https://github.com/Punderthings/fossfoundation/tree/main/_data/p990', dir['dcat:accessURL']['@id']
+    refute dir.key?('dcat:downloadURL')
+    refute dir.key?('dct:license')
+    file = OpenapiBuilder.catalog_distribution({ 'path' => 'api/v2/x.json', 'license' => 'CC0-1.0' }, site)
+    assert_equal 'https://example.org/api/v2/x.json', file['dcat:downloadURL']['@id']
+    assert_equal 'https://spdx.org/licenses/CC0-1.0', file['dct:license']['@id']
+  end
+
+  def test_mixed_licenses_stay_on_distributions
+    dists = [{ 'path' => 'a/', 'license' => 'Apache-2.0' }, { 'path' => 'b/', 'license' => 'CC0-1.0' }]
+    entry = { 'identifier' => 'x', 'title' => 'X', 'page' => 'x', 'description' => 'X', 'distributions' => dists }
+    refute OpenapiBuilder.catalog_dataset(entry, {}, 'https://example.org').key?('dct:license')
+  end
 end
