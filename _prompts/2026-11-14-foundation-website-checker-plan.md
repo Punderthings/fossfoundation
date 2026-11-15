@@ -302,7 +302,7 @@ phase 2.
 
 | Package | License | Why | Alternative |
 | --- | --- | --- | --- |
-| `httpx` | BSD-3-Clause | HTTP with redirect history and timeouts | stdlib `urllib` (no redirect chain without extra code) |
+| ~~`httpx`~~ | BSD-3-Clause | HTTP with redirect history and timeouts | stdlib `urllib`, chosen instead (decision 5) |
 | `beautifulsoup4` | MIT | HTML parsing, CSS selectors via `soupsieve` (MIT) | `lxml` (BSD-3-Clause) alone |
 | `extruct` | BSD-3-Clause | JSON-LD, microdata, RDFa in one call | parse `<script type="application/ld+json">` ourselves |
 | `PyYAML` | MIT | Read front matter and rules | `ruamel.yaml` (MIT) if we also want round-trip writing |
@@ -578,7 +578,10 @@ written):
    redirects; class C starts flag-only and moves to update field by field after a trial.
 5. **Dependencies: approved** (httpx, beautifulsoup4, extruct, PyYAML, jsonschema;
    pytest and ruff for development), with Playwright added in phase 2 so phase 1 can be
-   tested quickly on basic sites.
+   tested quickly on basic sites. **Revised 2026-11-15** (Shane, on #101): use the
+   standard library's `urllib` instead of httpx, which pulled in `certifi` (MPL-2.0, ASF
+   Category B), "so we can both avoid MPL-2.0 and so we have fewer dependencies by using
+   a standard library."
 6. **Sources: the foundation's own sites only.** External registries change slowly and
    will probably stay a maintainer review task.
 7. **Archive snapshots: no.**
@@ -602,8 +605,8 @@ written):
   layers, covering class A (URL health and permanent same-domain redirects, the only
   automatic updates) and class G (referenced ids exist);
 - the `fields`, `fetch`, `check` and `propose` commands, with `--offline` replay;
-- dependencies httpx, beautifulsoup4, PyYAML and jsonschema, with pytest and ruff for
-  development;
+- dependencies beautifulsoup4, PyYAML and jsonschema, with pytest and ruff for
+  development, and `urllib` for HTTP (decision 5);
 - synthetic HTML fixtures and golden tests with no network, a byte-identical round-trip
   test over every `_foundations/*.md`, a catalog-vs-schema coverage test, and a README;
 - the searchable commit subject and trailers above, written by `propose` for a
