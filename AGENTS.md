@@ -91,6 +91,7 @@ bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
 bundle exec ruby assets/ruby/test/sponsors_test.rb
 bundle exec ruby assets/ruby/test/openapi_builder_test.rb
 bundle exec ruby assets/ruby/test/schema_utils_test.rb
+bundle exec ruby assets/ruby/test/sponsorship_levels_test.rb
 bundle exec ruby assets/ruby/sponsors.rb --check   # after any change to _sponsors/
 unset BUNDLE_GEMFILE
 

@@ -3,6 +3,7 @@
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json",
   "type": "object",
   "title": "Foundation Sponsorship Models Schema",
+  "$comment": "Keywords of our own, which validators ignore: x-inkind (true on each levels property that is a services or in-kind level). The levels properties are the single list of metalevels; see the $comment on levels.",
   "required": [
     "identifier",
     "sponsorurl",
@@ -153,62 +154,101 @@
       "type": "string"
     },
     "levels": {
+      "$comment": "The single list of sponsorship metalevels, in rank order from highest to lowest. Each level's title is its display label; x-inkind: true marks levels of services or in-kind donations, which reports discount when estimating what a sponsor gives. assets/ruby/sponsor_utils.rb reads the order and the in-kind levels from here; _data/sponsorship-levels.json is generated from the titles and is deprecated.",
       "type": "object",
       "properties": {
         "first": {
+          "title": "Top-level Sponsors",
           "description": "Top or highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "second": {
+          "title": "Second-level Sponsors",
           "description": "Second highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "third": {
+          "title": "Third-level Sponsors",
           "description": "Third highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "fourth": {
+          "title": "Fourth-level Sponsors",
           "description": "Fourth highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "fifth": {
+          "title": "Fifth-level Sponsors",
           "description": "Fifth highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "sixth": {
+          "title": "Sixth-level Sponsors",
           "description": "Sixth highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "seventh": {
+          "title": "Seventh-level Sponsors",
           "description": "Seventh highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "eighth": {
+          "title": "Eighth-level Sponsors",
           "description": "Eighth highest sponsorship level benefits.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
+        "community": {
+          "title": "Community Sponsors",
+          "description": "Community group or other similar sponsorship level benefits.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
         "firstinkind": {
+          "title": "Top-level InKind Sponsors",
           "description": "Top or highest sponsorship level benefits for services / in-kind donors.",
+          "x-inkind": true,
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "secondinkind": {
+          "title": "Second-level InKind Sponsors",
           "description": "Second sponsorship level benefits for services / in-kind donors.",
+          "x-inkind": true,
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "thirdinkind": {
+          "title": "Third-level InKind Sponsors",
           "description": "Third sponsorship level benefits for services / in-kind donors.",
+          "x-inkind": true,
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "fourthinkind": {
+          "title": "Fourth-level InKind Sponsors",
           "description": "Fourth sponsorship level benefits for services / in-kind donors.",
+          "x-inkind": true,
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "startuppartners": {
+          "title": "Startup Partner Sponsors",
+          "description": "Startup partner sponsors, a separate level some programs offer to startup companies.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "academic": {
+          "title": "Academic Sponsors",
+          "description": "Academic or research institution sponsors.",
+          "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
+        },
+        "enduser": {
+          "title": "End User Sponsors",
+          "description": "End user sponsors: organizations that use the hosted software, a separate level in some programs, such as CNCF's.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
         "grants": {
+          "title": "Grantmakers",
           "description": "Government, institutional or other funding grants.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         },
-        "community": {
-          "description": "Community group or other similar sponsorship level benefits.",
+        "listed": {
+          "title": "Listed Sponsors (level not published)",
+          "description": "Sponsors named on a historical sponsor list that did not give their level; counted, but not priced.",
           "$ref": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorshiplevels-schema.json"
         }
       }
