@@ -19,7 +19,9 @@ An optional **packages** list holds purls (e.g. `pkg:pypi/numpy`) with their `co
 their own evidence. The first package listed for a project is copied to the `purl` and
 `codeRepository` columns of `_data/projects-<foundation>.csv` by `sync-csv`.
 
-Confidence is computed from the evidence types, never stored:
+Confidence is computed from the evidence types, never stored. Each type's level, whether it needs a listed
+attestor, and its freshness window are defined once, on its entry in `_data/crosswalk-schema.json`
+(`x-gives`, `x-attestor-only`, `x-freshness-days`), and read from there; this table summarizes them:
 
 | Confidence | When |
 | --- | --- |
