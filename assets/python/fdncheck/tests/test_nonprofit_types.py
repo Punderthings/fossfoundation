@@ -22,6 +22,13 @@ def test_values_are_unique_and_described():
         assert item["description"].strip(), item["const"]
 
 
+def test_our_own_values_have_a_country_prefix():
+    for item in load_schema(REPO_ROOT)["definitions"]["nonprofitType"]["oneOf"]:
+        if "https://schema.org/" not in item["description"] and item["const"] != "Unknown":
+            assert re.fullmatch(r"[A-Z]{2}-[A-Za-z0-9]+", item["const"]), item["const"]
+            assert item["description"].startswith(item["const"][:2] + ":"), item["const"]
+
+
 def test_property_points_at_the_values():
     prop = load_schema(REPO_ROOT)["properties"]["nonprofitStatus"]
     assert prop["x-values"] == "#/definitions/nonprofitType"
@@ -37,7 +44,7 @@ def test_pattern_lists_exactly_the_values():
 def test_pattern_accepts_lists_and_rejects_free_text():
     pattern = re.compile(load_schema(REPO_ROOT)["properties"]["nonprofitStatus"]["pattern"])
     assert pattern.match("Nonprofit501c3")
-    assert pattern.match("BEAISBL; Nonprofit501c6")
+    assert pattern.match("BE-AISBL; Nonprofit501c6")
     assert not pattern.match("charitable")
     assert not pattern.match("Nonprofit501c3;Nonprofit501c6")
     assert not pattern.match("Nonprofit501c3 ")

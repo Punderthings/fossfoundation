@@ -24,7 +24,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 eventurl: https://community.joomla.org/events.html
-nonprofitStatus: USStateNonprofit
+nonprofitStatus: US-StateNonprofit
 taxID:
 taxIDLocal:
 budgetUsd:

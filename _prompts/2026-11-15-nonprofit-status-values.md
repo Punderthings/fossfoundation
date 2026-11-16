@@ -152,9 +152,42 @@ own site on 2026-11-15:
 | joomla | `USStateNonprofit` | <https://www.opensourcematters.org/organisation/finances/financial-filings.html>: "registered as a Not for Profit Corporation to the NYS Charities Bureau"; no IRS status is stated |
 | lpi_org | `CANonprofit` | <https://www.lpi.org/impressum/>: "Linux Professional Institute Inc.", Saint John, NB, "a non profit organization"; no charity registration is stated |
 
+## Review changes (2026-11-16)
+
+Shane's review of #110 (2026-11-16):
+
+2. **Dashed values.** "Make any nonprofit type values we define (not in Schema.org) be in
+   the form of US-StateNonprofit, with a dash separating; this makes it easy to see these
+   are non-standard values we define." All 13 of our own values are renamed (`DEeV` to
+   `DE-eV`, `USStateNonprofit` to `US-StateNonprofit`, and so on); a test checks the form.
+3. **Newer Schema.org types.** "Use any 'new' values from Schema.org, like
+   DENonprofitType and ITNonprofitType since these are likely to become standards." Both
+   are in Schema.org's pending area (checked 2026-11-16); their 7 German and 9 Italian
+   values are added. Schema.org has no French, Swiss, Belgian, Australian or Canadian
+   types yet. The German values each mean a legal form that is also charitable
+   (gemeinnützig), so our own `DEGemeinnuetzig` is dropped, and `DE-eV` and `DE-Stiftung`
+   now mean one without a recorded charitable status. Three records change, each checked
+   on the organization's own site on 2026-11-16:
+
+   | Record | Value | Source and what it shows |
+   | --- | --- | --- |
+   | tdf | `DEFoundationCharity` | <https://www.libreoffice.org/imprint/>: "gemeinnützige rechtsfähige Stiftung des bürgerlichen Rechts" (the same source as before; one Schema.org value now says both parts) |
+   | fsfe | `DERegisteredAssociationCharity` | <https://fsfe.org/about/legal/>: "FSFE was set up as a charitable, registered association ("e.V.") under German law" |
+   | kde | `DERegisteredAssociationCharity` | <https://kde.org/community/donations/>: "KDE e.V. ... is based in Germany, and thus donations are tax-deductible in Germany" (tax-deductible donations to an e.V. require charitable status) |
+
+4. **Legal form and tax status.** "Keep both legal form and tax status when they both
+   exist currently; this is a future research question for maintainers how to change (if
+   at all)." `efa` and `eclipse` keep both values. See Future tasks.
+5. **Unknown.** "Add the recommended `Unknown` value." Added; no record uses it today.
+6. **Categories page.** "Make the categories page group non-US nonprofits by country
+   prefix in this PR." The third column is now "Other Types, by Country", grouped by the
+   country code at the start of each value's description in the schema (US-only types
+   other than 501(c)(3) and 501(c)(6) are grouped under US).
+
 ## Future tasks
 
-- The categories page could group its "Non-US Nonprofits" column by country prefix.
+- Research question for maintainers: whether, and how, to change records that list both
+  a legal form and a tax status (Shane, 2026-11-16).
 - `nonprofit` in `_sponsorships/` is a separate field with its own values (`kde.md` still
   says `DEAssociation`); decide whether it should use the same list.
 - `openssl` has `addressRegion: DE`, Germany's country code, not Delaware's state code.

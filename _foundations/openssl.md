@@ -24,7 +24,7 @@ projectsNotable: OpenSSL
 projectsList: https://openssl-projects.org/
 projectsServices:
 eventurl: https://openssl.foundation/insights/events
-nonprofitStatus: USStateNonprofit
+nonprofitStatus: US-StateNonprofit
 taxID:
 taxIDLocal:
 budgetUsd:

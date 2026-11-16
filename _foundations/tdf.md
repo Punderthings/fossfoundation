@@ -24,7 +24,7 @@ projectsNotable: LibreOffice
 projectsList:
 projectsServices:
 eventurl: https://www.libreoffice.org/events/
-nonprofitStatus: DEStiftung; DEGemeinnuetzig
+nonprofitStatus: DEFoundationCharity
 taxID:
 taxIDLocal:
 budgetUsd: 1.5M

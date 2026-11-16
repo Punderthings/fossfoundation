@@ -24,7 +24,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 eventurl:
-nonprofitStatus: USStateNonprofit
+nonprofitStatus: US-StateNonprofit
 taxID:
 taxIDLocal: '2463313'
 budgetUsd:

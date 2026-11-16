@@ -73,11 +73,35 @@ layout: default
           <ul id="Nonprofit501c6">
           {% for fdn in site.foundations %}{% if fdn.nonprofitStatus == 'Nonprofit501c6' %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a></li>{% endif %}{% endfor %}
           </ul>
-          <h4>Non-US Nonprofits</h4>
-          <ul id="nonus">
-          {% assign otherfdn = site.foundations | where_exp: 'fdn', "fdn.nonprofitStatus != 'Nonprofit501c3' and fdn.nonprofitStatus != 'Nonprofit501c6'" %}
-          {% for fdn in otherfdn %}<li><a href="/foundations/{{ fdn.identifier }}">{{ fdn.commonName }}</a> <span class="label label-blue">{{ fdn.nonprofitStatus }}</span></li>{% endfor %}
+          <h4>Other Types, by Country</h4>
+          {%- comment -%} Country is the code before ':' in the schema's description of the first listed value {%- endcomment -%}
+          {%- assign types = site.data["foundations-schema"].definitions.nonprofitType.oneOf -%}
+          {%- assign otherfdn = site.foundations | where_exp: 'fdn', "fdn.nonprofitStatus != 'Nonprofit501c3' and fdn.nonprofitStatus != 'Nonprofit501c6'" -%}
+          {%- assign rows = "" | split: "" -%}
+          {%- for fdn in otherfdn -%}
+            {%- assign first = fdn.nonprofitStatus | split: ";" | first | strip -%}
+            {%- assign country = "Unknown" -%}
+            {%- for t in types -%}{%- if t.const == first -%}{%- assign country = t.description | split: ":" | first -%}{%- endif -%}{%- endfor -%}
+            {%- assign row = country | append: "|" | append: fdn.commonName | append: "|" | append: fdn.identifier | append: "|" | append: fdn.nonprofitStatus -%}
+            {%- assign rows = rows | push: row -%}
+          {%- endfor -%}
+          {%- assign rows = rows | sort -%}
+          {%- assign current = "" -%}
+          {%- for row in rows -%}
+            {%- assign f = row | split: "|" -%}
+            {%- if f[0] != current -%}
+              {%- unless current == "" %}
           </ul>
+              {%- endunless %}
+          <h5 id="nonprofit-{{ f[0] | downcase }}">{{ f[0] }}</h5>
+          <ul>
+              {%- assign current = f[0] -%}
+            {%- endif %}
+            <li><a href="/foundations/{{ f[2] }}">{{ f[1] }}</a> <span class="label label-blue">{{ f[3] }}</span></li>
+          {%- endfor -%}
+          {%- unless current == "" %}
+          </ul>
+          {%- endunless %}
         </td>
       </tr>
     </tbody>

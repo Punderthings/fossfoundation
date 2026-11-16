@@ -24,7 +24,7 @@ projectsNotable:
 projectsList: https://opencollective.com/europe
 projectsServices: fiscal hosting
 eventurl:
-nonprofitStatus: BEASBL
+nonprofitStatus: BE-ASBL
 taxID: 0680.493.996
 taxIDLocal:
 budgetUsd:
