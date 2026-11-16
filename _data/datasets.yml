@@ -121,6 +121,8 @@ datasets:
     status: published
     maintained: generated (downloaded by [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb))
     schemaNote: ProPublica's format
+    # No license: ProPublica's own data, credited on taxes#propublica-credit; see Future
+    # tasks in _prompts/2026-11-15-derive-lists-from-schemas.md
     distributions:
       - { path: _data/p990/, mediaType: application/json }
     sourcing: exact
@@ -144,6 +146,8 @@ datasets:
 
 # How each group of datasets is sourced: the sourcing table on /data#sourcing, and
 # each dataset's provenance statement in the catalog. Markdown.
+  # Not listed yet: UK Charity Commission data in _data/taxes/uk-*.json, until we have
+  # more examples and a parser for it (noted on /data)
 sourcing:
   - identifier: browsing
     datasets: "[Foundations](fdnmodel), [entities](entities), [hosted projects](projects)"

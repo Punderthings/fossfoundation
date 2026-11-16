@@ -38,7 +38,7 @@ Each dataset has its own page, which documents its fields, schema, and tools.  *
 
 **Crosswalk evidence** records why we believe each crosswalk link.  Most evidence is a public page anyone can check again; `human-attested` evidence is a confirmation that a trusted [attestor](crosswalk#attestors) got out of band from someone at the organization.  These attestations are given by volunteers and have not been legally reviewed to qualify as attestations under the EU Cyber Resilience Act or other legislation; see their [legal status](crosswalk#legal-status).  Records of those people are kept private by default, and are public only when the person agreed.
 
-**Non-US Tax Data** Some countries post nonprofit financial data; most do not.  Our [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb) tool can download UK Charity Commission data, stored as [`_data/taxes/uk-<charity number>.json`](https://github.com/Punderthings/fossfoundation/tree/main/_data/taxes), and we are **looking for help** in modeling foundations outside the US!
+**Non-US Tax Data** Some countries post nonprofit financial data; most do not.  Our [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb) tool can download UK Charity Commission data, stored as [`_data/taxes/uk-<charity number>.json`](https://github.com/Punderthings/fossfoundation/tree/main/_data/taxes), and we are **looking for help** in modeling foundations outside the US!  This UK data is not yet listed as a dataset: once we have more examples and a parser for it, we will add it as a proper dataset.
 
 ## How We Source Data {#sourcing}
 

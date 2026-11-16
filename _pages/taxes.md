@@ -47,6 +47,10 @@ Tax data is copied from government filings or a trusted aggregator, exactly as p
 - **Tools:** [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb) `-r` reads foundation records for EINs, then uses the Ruby [`propublica990`](https://github.com/Punderthings/propublica990) library to download and cache ProPublica's JSON and write a summary CSV, `_data/p990/foundations_990_common.csv`.  Note that Jekyll doesn't always like subdirectories that start with digits.
 - **Best for:** a quick, long-running financial overview of many foundations, in a widely used format.
 
+### ProPublica Credit {#propublica-credit}
+
+Our US tax data starts from the work of [ProPublica](https://www.propublica.org/), the nonprofit newsroom, and its [Nonprofit Explorer](https://projects.propublica.org/nonprofits/), which turns the IRS's raw filings into data anyone can search and download.  We thank ProPublica and the Nonprofit Explorer team it credits, Andrea Suozzo, Alec Glassford, Ash Ngu and Brandon Roberts, for making this data free and easy to reuse.  The files in `_data/p990/` are ProPublica's work, copied unchanged; they are not covered by this site's own licenses.
+
 ## IRS 990 {#irs-990}
 
 The IRS publishes the e-filed 990 returns themselves as XML, every month.  Reading them directly gives recent years as soon as the IRS releases them, and far more detail than ProPublica's summary.
