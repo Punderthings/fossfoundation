@@ -7,16 +7,6 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "fdn": "https://fossfoundation.info/crosswalk#",
     "identifier": "schema:identifier",
-    "name": "schema:name",
-    "wikidataId": "fdn:wikidataId",
-    "license": {
-      "@id": "schema:license",
-      "@type": "@id"
-    },
-    "dateModified": {
-      "@id": "schema:dateModified",
-      "@type": "xsd:date"
-    },
     "accounts": {
       "@id": "fdn:account",
       "@container": "@set"
@@ -31,33 +21,31 @@
       "@type": "@id"
     },
     "kind": "fdn:accountKind",
+    "name": "schema:name",
     "platformId": "schema:identifier",
     "url": {
       "@id": "schema:url",
       "@type": "@id"
     },
-    "sameAs": {
-      "@id": "schema:sameAs",
-      "@type": "@id"
-    },
     "project": "fdn:project",
-    "account": "fdn:publishedUnder",
-    "purl": "schema:identifier",
-    "codeRepository": {
-      "@id": "schema:codeRepository",
-      "@type": "@id"
-    },
     "lastReviewed": {
       "@id": "schema:lastReviewed",
       "@type": "xsd:date"
     },
     "reviewedBy": "schema:reviewedBy",
-    "confidence": "fdn:confidence",
-    "stale": "fdn:stale",
     "evidence": {
       "@id": "prov:wasDerivedFrom",
       "@container": "@set"
     },
+    "purl": "schema:identifier",
+    "codeRepository": {
+      "@id": "schema:codeRepository",
+      "@type": "@id"
+    },
+    "account": "fdn:publishedUnder",
+    "email": "schema:email",
+    "roleName": "schema:roleName",
+    "memberOf": "schema:memberOf",
     "type": "dcterms:type",
     "source": {
       "@id": "dcterms:source",
@@ -72,14 +60,26 @@
     "about": "schema:about",
     "method": "schema:measurementTechnique",
     "confirmedWith": "fdn:confirmedWith",
-    "email": "schema:email",
-    "roleName": "schema:roleName",
-    "memberOf": "schema:memberOf",
     "validThrough": {
       "@id": "schema:validThrough",
       "@type": "xsd:date"
     },
     "supersedes": "fdn:supersedes",
+    "wikidataId": "fdn:wikidataId",
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:date"
+    },
+    "sameAs": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "confidence": "fdn:confidence",
+    "stale": "fdn:stale",
     "steward": "fdn:steward"
   }
 }
