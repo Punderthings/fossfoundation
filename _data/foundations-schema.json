@@ -3,7 +3,7 @@
   "$id": "https://fossfoundation.info/foundations/asf.json",
   "type": "object",
   "title": "FOSS Foundation Schema",
-  "$comment": "x-check on each property says how fdncheck (assets/python/fdncheck) checks the field against the foundation's own website: url = fetched, and a permanent same-site redirect may update it; fact = a short fact such as a name, date or identifier, flagged for a person to check; count = a number, flagged; choice = an enumerated or yes/no value, never inferred; text = descriptive text, never edited, only watched for changes on its source page; reference = an identifier that must exist in this site's data. Validators ignore unknown keywords; the x- prefix keeps it valid as an OpenAPI extension.",
+  "$comment": "x-check on each property says how fdncheck (assets/python/fdncheck) checks the field against the foundation's own website: url = fetched, and a permanent same-site redirect may update it; fact = a short fact such as a name, date or identifier, flagged for a person to check; count = a number, flagged; choice = an enumerated or yes/no value, never inferred; text = descriptive text, never edited, only watched for changes on its source page; reference = an identifier that must exist in this site's data. Validators ignore unknown keywords; the x- prefix keeps it valid as an OpenAPI extension. Foundation pages render every property from this schema, in order, with its title and description (_includes/schema-fields.html); a property with x-includes is rendered instead by the named file in _includes, which is included once, at the first such property.",
   "required": [
     "identifier",
     "commonName",
@@ -248,6 +248,7 @@
       "format": "url"
     },
     "sponsorurl": {
+      "x-includes": "foundation-funding.html",
       "x-check": "url",
       "title": "Sponsor List Website",
       "description": "Official listing of sponsors URL.",
@@ -255,12 +256,14 @@
       "format": "url"
     },
     "sponsorList": {
+      "x-includes": "foundation-funding.html",
       "x-check": "text",
       "title": "Example Sponsors",
       "description": "Example listing of top-level annual recurring sponsors.",
       "type": "string"
     },
     "sponsorships": {
+      "x-includes": "foundation-funding.html",
       "x-check": "reference",
       "title": "Sponsorship Program Model",
       "description": "Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json",
