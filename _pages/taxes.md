@@ -49,7 +49,7 @@ Tax data is copied from government filings or a trusted aggregator, exactly as p
 
 ### ProPublica Credit {#propublica-credit}
 
-Our US tax data starts from the work of [ProPublica](https://www.propublica.org/), the nonprofit newsroom, and its [Nonprofit Explorer](https://projects.propublica.org/nonprofits/), which turns the IRS's raw filings into data anyone can search and download.  We thank ProPublica and the Nonprofit Explorer team it credits, Andrea Suozzo, Alec Glassford, Ash Ngu and Brandon Roberts, for making this data free and easy to reuse.  The files in `_data/p990/` are ProPublica's work, copied unchanged; they are not covered by this site's own licenses.
+Our US tax data starts from the work of [ProPublica](https://www.propublica.org/), the nonprofit newsroom, and its [Nonprofit Explorer](https://projects.propublica.org/nonprofits/), which turns the IRS's raw filings into data anyone can search and download.  We thank ProPublica and the Nonprofit Explorer team it credits, Andrea Suozzo, Alec Glassford, Ash Ngu and Brandon Roberts, for making this data free and easy to reuse.  The files in `_data/p990/` are ProPublica's work, copied unchanged.
 
 ## IRS 990 {#irs-990}
 
