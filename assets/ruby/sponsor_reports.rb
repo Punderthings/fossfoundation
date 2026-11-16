@@ -49,7 +49,7 @@ module SponsorReports
         orgtotal += amtlvl
         # For the sponsor's report, discount inkind levels
         # TODO somehow mark amountvaries levels?
-        sponsoramt = /inkind/.match?(lvl) ? (lvlamt * INKIND_DISCOUNT).round(0) : lvlamt
+        sponsoramt = SponsorUtils::INKIND_LEVELS.include?(lvl) ? (lvlamt * INKIND_DISCOUNT).round(0) : lvlamt
         ary.each do | sponsorurl |
           report[SPONSORS_REPORT][sponsorurl] += sponsoramt
         end
@@ -255,6 +255,9 @@ s parseDate.') do |date|
     report[SPONSOR_RECORDS_REPORT] = report_sponsor_records(sponsors, report, Sponsors.load_all)
     File.open(File.join(outdir, 'org-funding.json'), "w") do |f|
       f.write(JSON.pretty_generate(report))
+    end
+    if outdir == sponsorships_dir # Deprecated level labels, generated from the schema
+      File.write(SponsorUtils::LEVEL_LABELS_FILE, "#{JSON.pretty_generate(SponsorUtils.level_labels)}\n")
     end
     if Dir.exist?(SponsorUtils::DEFAULT_HISTORY_DIR)
       File.write(File.join(outdir, 'sponsor-history.json'),

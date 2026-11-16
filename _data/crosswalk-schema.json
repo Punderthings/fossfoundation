@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json",
-  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v2/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427). Keywords of our own, which validators ignore: x-term on each property names the vocabulary term its key maps to; assets/python/fdncrosswalk builds the JSON-LD context from them (x-term-type marks a link where the format does not say so).",
+  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v2/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427). Keywords of our own, which validators ignore: x-asserted-by, x-gives, x-attestor-only and x-freshness-days on each evidence type; assets/python/fdncrosswalk computes confidence and freshness from them, and the crosswalk page renders its evidence-type table from them. x-term on each property names the vocabulary term its key maps to; fdncrosswalk builds the JSON-LD context from them (x-term-type marks a link where the format does not say so).",
   "type": "object",
   "title": "Foundation Platform Crosswalk Schema",
   "description": "Accounts and packages a foundation (or one of its hosted projects) controls on code hosts and package registries, each with the evidence for that link. Confidence is computed from the evidence by assets/python/fdncrosswalk, never stored. Holds identifiers only: metrics such as stars or downloads stay in ecosyste.ms.",
@@ -264,21 +264,81 @@
       "properties": {
         "type": {
           "title": "Evidence type",
-          "description": "steward-declared: the foundation's own site or policy names it. platform-verified: the platform checked a domain or identity for it. human-attested: a trusted person confirmed it out of band with someone at the organization; a volunteer observation, not a legally reviewed attestation under the EU Cyber Resilience Act or other legislation (https://fossfoundation.info/crosswalk#legal-status). profile-claim: the account's own profile names the foundation or its website. program-badge: a platform program badge, such as Docker Hub's open source badge. publish-provenance: a trusted-publishing attestation shows releases built in a repository owned by another linked account. repository-link: package metadata points into a linked code host account. namespace-convention: the name follows a documented convention tied to the foundation's domain or forge account. name-match: same name only. contradiction: evidence that someone else controls it.",
-          "$comment": "Dublin Core type: http://purl.org/dc/terms/type",
+          "description": "What kind of evidence this is; each type below says what it shows, who asserts it (x-asserted-by), the confidence it gives (x-gives), and how many days it stays fresh without validThrough (x-freshness-days; contradictions never expire). human-attested gives confirmed only when recorded by a listed attestor (x-attestor-only), and probable otherwise.",
+          "$comment": "Dublin Core type: http://purl.org/dc/terms/type. Each type is a oneOf entry with const and description, the usual JSON Schema form for a documented enum.",
           "x-term": "dcterms:type",
           "type": "string",
-          "enum": [
-            "steward-declared",
-            "platform-verified",
-            "human-attested",
-            "profile-claim",
-            "program-badge",
-            "publish-provenance",
-            "repository-link",
-            "namespace-convention",
-            "name-match",
-            "contradiction"
+          "oneOf": [
+            {
+              "const": "steward-declared",
+              "description": "The foundation's own site or policy names it.",
+              "x-asserted-by": "The foundation, on its own site or in policy",
+              "x-gives": "confirmed",
+              "x-freshness-days": 365
+            },
+            {
+              "const": "platform-verified",
+              "description": "The platform checked a domain or identity for it.",
+              "x-asserted-by": "The platform, after checking a domain or identity, e.g. the [GitHub Verified badge](https://docs.github.com/en/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)",
+              "x-gives": "confirmed",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "human-attested",
+              "description": "A trusted person confirmed it out of band with someone at the organization; a volunteer observation, not a legally reviewed attestation under the EU Cyber Resilience Act or other legislation (https://fossfoundation.info/crosswalk#legal-status).",
+              "x-asserted-by": "A trusted person who confirmed it out of band with someone at the organization; a volunteer observation, not a legal attestation (see [legal status](#legal-status))",
+              "x-gives": "confirmed",
+              "x-attestor-only": true,
+              "x-freshness-days": 365
+            },
+            {
+              "const": "profile-claim",
+              "description": "The account's own profile names the foundation or its website.",
+              "x-asserted-by": "The account holder, in its own profile",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "program-badge",
+              "description": "A platform program badge, such as Docker Hub's open source badge.",
+              "x-asserted-by": "A platform program, e.g. Docker-Sponsored Open Source",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "publish-provenance",
+              "description": "A trusted-publishing attestation shows releases built in a repository owned by another linked account.",
+              "x-asserted-by": "A signed build record, e.g. [PyPI attestations (PEP 740)](https://peps.python.org/pep-0740/) or [npm provenance](https://docs.npmjs.com/generating-provenance-statements)",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "repository-link",
+              "description": "Package metadata points into a linked code host account.",
+              "x-asserted-by": "The publisher, in package metadata",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "namespace-convention",
+              "description": "The name follows a documented convention tied to the foundation's domain or forge account.",
+              "x-asserted-by": "A documented naming rule, e.g. [Maven Central namespaces](https://central.sonatype.org/register/namespace/)",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "name-match",
+              "description": "Same name only.",
+              "x-asserted-by": "Nobody; the names are the same",
+              "x-gives": "unconfirmed",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "contradiction",
+              "description": "Evidence that someone else controls it.",
+              "x-asserted-by": "Any source showing someone else controls it",
+              "x-gives": "rejected"
+            }
           ]
         },
         "source": {

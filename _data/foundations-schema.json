@@ -3,7 +3,7 @@
   "$id": "https://fossfoundation.info/foundations/asf.json",
   "type": "object",
   "title": "FOSS Foundation Schema",
-  "$comment": "x-check on each property says how fdncheck (assets/python/fdncheck) checks the field against the foundation's own website: url = fetched, and a permanent same-site redirect may update it; fact = a short fact such as a name, date or identifier, flagged for a person to check; count = a number, flagged; choice = an enumerated or yes/no value, never inferred; text = descriptive text, never edited, only watched for changes on its source page; reference = an identifier that must exist in this site's data. Validators ignore unknown keywords; the x- prefix keeps it valid as an OpenAPI extension.",
+  "$comment": "x-check on each property says how fdncheck (assets/python/fdncheck) checks the field against the foundation's own website: url = fetched, and a permanent same-site redirect may update it; fact = a short fact such as a name, date or identifier, flagged for a person to check; count = a number, flagged; choice = an enumerated or yes/no value, never inferred; text = descriptive text, never edited, only watched for changes on its source page; reference = an identifier that must exist in this site's data. Validators ignore unknown keywords; the x- prefix keeps it valid as an OpenAPI extension. Foundation pages render every property from this schema, in order, with its title and description (_includes/schema-fields.html); a property with x-includes is rendered instead by the named file in _includes, which is included once, at the first such property. assets/ruby/openapi_builder.rb generates openapi/v1/foundation-schema.yaml from this schema, copying only standard keywords.",
   "required": [
     "identifier",
     "commonName",
@@ -17,7 +17,7 @@
       "x-check": "reference",
       "section": "General",
       "title": "Used as filename or fragment reference",
-      "description": "Common name; lowercased; used for lookups.",
+      "description": "Shortest unique and human-recognizable reference to org; lowercased; used for lookups.",
       "type": "string"
     },
     "commonName": {
@@ -29,7 +29,7 @@
     "legalName": {
       "x-check": "fact",
       "title": "Legal Name",
-      "description": "Official name of the organization.",
+      "description": "The official name of the organization, e.g. the registered company name.",
       "type": "string"
     },
     "description": {
@@ -48,7 +48,7 @@
     "website": {
       "x-check": "url",
       "title": "Website",
-      "description": "Primary website homepage.",
+      "description": "Primary website homepage that users would look for.",
       "type": "string",
       "format": "url"
     },
@@ -71,7 +71,8 @@
       "x-check": "fact",
       "title": "Location",
       "description": "Country organization is incorporated in; ISO 3166-1 alpha-2.",
-      "type": "string"
+      "type": "string",
+      "pattern": "^[A-Z][A-Z]$"
     },
     "addressRegion": {
       "x-check": "fact",
@@ -96,6 +97,7 @@
       "title": "Wikidata ID",
       "description": "Wikidata ID for lookups.",
       "type": "string",
+      "pattern": "^Q[1-9]\\d*$",
       "format": "urlfragment~https://www.wikidata.org/wiki/"
     },
     "boardSize": {
@@ -108,13 +110,13 @@
     "boardType": {
       "x-check": "choice",
       "title": "Board Type",
-      "description": "Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; etc.",
+      "description": "Approximate type of board: (non-paid) member elected; (paid) sponsor elected; appointed; self-perpetuating; etc.",
       "type": "string"
     },
     "boardurl": {
       "x-check": "url",
       "title": "Board Website",
-      "description": "Official board information URL.",
+      "description": "Official board information URL, typically with a list of directors.",
       "type": "string",
       "format": "url"
     },
@@ -166,7 +168,7 @@
     "projectsList": {
       "x-check": "url",
       "title": "Project List Website",
-      "description": "Official URL listing of sub-projects hosted.",
+      "description": "Official URL listing of all sub-projects hosted.",
       "type": "string",
       "format": "url"
     },
@@ -209,16 +211,22 @@
       "description": "Per-state, province, or similar tax ID for the corporate entity.",
       "type": "string"
     },
+    "uniqueEntityID": {
+      "x-check": "fact",
+      "title": "Unique Entity ID",
+      "description": "US Government UEI string used for grants or contracts.",
+      "type": "string"
+    },
     "budgetUsd": {
       "x-check": "choice",
       "title": "Budget in USD",
-      "description": "Approximate annual budget in USD.",
+      "description": "Approximate annual budget in USD; estimate.",
       "type": "string"
     },
     "budgetYear": {
       "x-check": "choice",
       "title": "Budget Year",
-      "description": "Year budgetUsd number was recorded.",
+      "description": "Fiscal year budgetUsd number was entered for.",
       "type": "string"
     },
     "budgeturl": {
@@ -248,19 +256,22 @@
       "format": "url"
     },
     "sponsorurl": {
+      "x-includes": "foundation-funding.html",
       "x-check": "url",
       "title": "Sponsor List Website",
-      "description": "Official listing of sponsors URL.",
+      "description": "Official listing of sponsors from a published sponsorship program URL.",
       "type": "string",
       "format": "url"
     },
     "sponsorList": {
+      "x-includes": "foundation-funding.html",
       "x-check": "text",
       "title": "Example Sponsors",
-      "description": "Example listing of top-level annual recurring sponsors.",
+      "description": "Example listing of top-level annual recurring sponsors from the most recent year.",
       "type": "string"
     },
     "sponsorships": {
+      "x-includes": "foundation-funding.html",
       "x-check": "reference",
       "title": "Sponsorship Program Model",
       "description": "Name(s) of mapping files defining sponsorship levels, listings, etc.; see sponsorships-schema.json",
@@ -275,7 +286,7 @@
       "x-check": "choice",
       "section": "Policy",
       "title": "Licenses Used",
-      "description": "Licenses used on software provided if there is a policy; SPDX Identifiers.",
+      "description": "Licenses used on software provided if there is a policy; SPDX Identifiers or 'various'.",
       "type": "string"
     },
     "claPolicy": {
@@ -337,7 +348,7 @@
     "conductLinked": {
       "x-check": "choice",
       "title": "Where Code Of Conduct Linked",
-      "description": "Where is the Code of Conduct linked from the organization's homepage?",
+      "description": "Describe where the Code of Conduct is linked from the website - footer, header, navigation, none?",
       "type": "string"
     },
     "conductReport": {
@@ -363,7 +374,7 @@
       "x-check": "text",
       "section": "Trademark",
       "title": "Primary Brand Name",
-      "description": "What is the primary brand name/mark of the organization?",
+      "description": "What is the primary brand name/trademark of the organization?",
       "type": "string"
     },
     "brandSecondary": {
@@ -375,7 +386,7 @@
     "brandReg": {
       "x-check": "choice",
       "title": "Is Primary Brand Registered?",
-      "description": "Is the primary brand a registered trademark in at least one jurisdiction?",
+      "description": "Is the primary brand a registered trademark in at least one jurisdiction? (yes/no/or major countries registered in).",
       "type": "string"
     },
     "brandPolicy": {
@@ -395,13 +406,13 @@
     "brandComments": {
       "x-check": "text",
       "title": "Trademark Policy Description",
-      "description": "Brief description of trademark usage policies",
+      "description": "Brief description of trademark usage policies.",
       "type": "string"
     },
     "logo": {
       "x-check": "url",
       "title": "Official Logo Link",
-      "description": "Official organizational logo URL.",
+      "description": "Official organizational logo URL; prefer SVG when available.",
       "type": "string",
       "format": "url"
     },

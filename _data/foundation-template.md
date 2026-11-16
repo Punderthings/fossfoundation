@@ -23,10 +23,12 @@ governanceTech: # Project Governance Description
 projectsNotable: # Example Projects Hosted
 projectsList: # Project List Website
 projectsServices: # Services Provided
+fiscalHost: # Fiscal Host Type
 eventurl: # Events Listing
 nonprofitStatus: # Nonprofit Type
 taxID: # Tax Authority ID
 taxIDLocal: # Local Tax Authority ID
+uniqueEntityID: # Unique Entity ID
 budgetUsd: # Budget in USD
 budgetYear: # Budget Year
 budgeturl: # Budget Website
