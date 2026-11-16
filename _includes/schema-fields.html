@@ -1,0 +1,52 @@
+{%- comment -%}
+  SPDX-License-Identifier: Apache-2.0
+  Renders one record's fields from a JSON Schema in _data, in schema order, so pages
+  never repeat field names, titles or descriptions by hand.
+  Parameters: schema (for example site.data.foundations-schema), record (usually page).
+  - A property's "section" keyword starts a new <section> with an <h2>.
+  - A property with "x-includes" is rendered by that file in _includes instead, included
+    once, at the first property that names it, whether or not the record has a value.
+  - Values are rendered by _includes/schema-value.html, from the property's format.
+{%- endcomment -%}
+{%- assign sf_record = include.record -%}
+{%- assign sf_done = "|" -%}
+{%- assign sf_open = false -%}
+{%- for sf_pair in include.schema.properties -%}
+  {%- assign sf_name = sf_pair[0] -%}
+  {%- assign sf_prop = sf_pair[1] -%}
+  {%- if sf_prop.section -%}
+    {%- if sf_open %}
+  </section>
+    {%- endif -%}
+    {%- assign sf_id = sf_prop.section | downcase %}
+  <section id="{{ sf_id }}-section">
+    <h2 id="{{ sf_id }}">{{ sf_prop.section }}</h2>
+    {%- assign sf_open = true -%}
+  {%- endif -%}
+  {%- assign sf_include = sf_prop['x-includes'] -%}
+  {%- if sf_include -%}
+    {%- assign sf_key = sf_include | append: "|" | prepend: "|" -%}
+    {%- unless sf_done contains sf_key -%}
+      {%- assign sf_done = sf_done | append: sf_include | append: "|" %}
+    {% include {{ sf_include }} %}
+    {%- endunless -%}
+    {%- continue -%}
+  {%- endif -%}
+  {%- assign sf_value = sf_record[sf_name] -%}
+  {%- unless sf_value -%}{%- continue -%}{%- endunless -%}
+  {%- assign sf_format = sf_prop.format | default: sf_prop.items.format | default: "" -%}
+  {%- if sf_prop.type == "array" %}
+    <abbr title="{{ sf_prop.description }}">{{ sf_prop.title }}</abbr>:
+    <ul>
+      {%- for sf_item in sf_value %}
+      <li>{% include schema-value.html name=sf_name value=sf_item format=sf_format %}</li>
+      {%- endfor %}
+    </ul>
+    <br/>
+  {%- else %}
+    <abbr title="{{ sf_prop.description }}">{{ sf_prop.title }}</abbr>: {% include schema-value.html name=sf_name value=sf_value format=sf_format %}<br/>
+  {%- endif -%}
+{%- endfor -%}
+{%- if sf_open %}
+  </section>
+{%- endif %}

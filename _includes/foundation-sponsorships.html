@@ -8,8 +8,15 @@
 {%- if page.sponsorurl or page.sponsorList or page.sponsorships or own_program -%}
   <div id="sponsorships-section" class="funding-subsection">
     <h3 id="sponsorships">Sponsorships</h3>
-    {% if page.sponsorurl %}<abbr title="Official listing of sponsors URL.">Sponsor List Website</abbr>: <a itemprop="sponsorurl" href="{{ page.sponsorurl }}">{{ page.sponsorurl }}</a><br/>{% endif %}
-    {% if page.sponsorList %}<abbr title="Example listing of top-level annual recurring sponsors.">Example Sponsors</abbr>: <span itemprop="sponsorList">{{ page.sponsorList }}</span><br/>{% endif %}
+    {%- assign fs_props = site.data.foundations-schema.properties -%}
+    {%- assign fs_names = "sponsorurl,sponsorList" | split: "," -%}
+    {%- for fs_name in fs_names -%}
+      {%- if page[fs_name] -%}
+        {%- assign fs_prop = fs_props[fs_name] -%}
+        {%- assign fs_value = page[fs_name] %}
+    <abbr title="{{ fs_prop.description }}">{{ fs_prop.title }}</abbr>: {% include schema-value.html name=fs_name value=fs_value format=fs_prop.format %}<br/>
+      {%- endif -%}
+    {%- endfor %}
     {%- if own_program %}
     <abbr title="This foundation's own sponsorship program model: levels, prices, and benefits.">Sponsorship Program Model</abbr>: <span itemprop="sponsorships"><a href="/sponsorships/{{ own_program.identifier }}">{{ own_program.commonName | default: own_program.identifier }}</a></span><br/>
     {%- endif -%}

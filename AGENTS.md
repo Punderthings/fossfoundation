@@ -52,7 +52,7 @@ say in the PR which way you read it.
 | `_sponsors/<id>.md` | Key sponsors of several foundations: domains (the join key to sponsor data) and lookup identifiers; CC0 | hand |
 | `_entities/<id>.md` | Non-foundation entities: projects that are not legal corporations, often with a fiscal host (e.g. CNCF) | hand |
 | `_data/*-schema.json` | JSON Schemas for each dataset; field docs live here | hand, with approval |
-| `_data/foundation-template.md` | Template for new foundations | hand |
+| `_data/foundation-template.md` | Template for new foundations | generated (`assets/ruby/schema_utils.rb -a template`) |
 | `_data/crosswalk/<id>.json` | Foundation accounts on code hosts and registries, with evidence | hand |
 | `_data/attestors.json` | Logins whose `human-attested` evidence counts as confirmed | maintainers only |
 | `_data/attestations.json` | Public person records behind `human-attested` evidence, only for people who agreed to publication; private ones live in the maintainers' private repository | `fdncrosswalk add-person` |
@@ -90,6 +90,7 @@ bundle exec ruby assets/ruby/test/sponsor_utils_test.rb
 bundle exec ruby assets/ruby/test/sponsor_archive_test.rb
 bundle exec ruby assets/ruby/test/sponsors_test.rb
 bundle exec ruby assets/ruby/test/openapi_builder_test.rb
+bundle exec ruby assets/ruby/test/schema_utils_test.rb
 bundle exec ruby assets/ruby/test/sponsorship_levels_test.rb
 bundle exec ruby assets/ruby/sponsors.rb --check   # after any change to _sponsors/
 unset BUNDLE_GEMFILE
