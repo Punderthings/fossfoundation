@@ -65,7 +65,7 @@ module SchemaUtils
 
   # Parse a JSON Schema file into a hash
   def parse_schema(infile)
-    schema = JSON.parse(File.read(infile))
+    schema = JSON.parse(File.read(infile, encoding: 'UTF-8'))
     return schema
   end
 

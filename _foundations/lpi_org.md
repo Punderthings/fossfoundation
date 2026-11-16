@@ -25,7 +25,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 eventurl: https://www.lpi.org/events/
-nonprofitStatus:
+nonprofitStatus: CA-Nonprofit
 taxID: '876037722'
 taxIDLocal:
 budgetUsd:

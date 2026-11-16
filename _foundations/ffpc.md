@@ -25,7 +25,7 @@ projectsNotable: Signalen, OpenZaak, Omgevingsbeleid, Standard for Public Code, 
 projectsList: https://publiccode.net/codebases/
 projectsServices: Codebase stewardship
 eventurl:
-nonprofitStatus: algemeen nut beogende instelling
+nonprofitStatus: NonprofitANBI
 taxID: 860102294
 taxIDLocal:
 budgetUsd:

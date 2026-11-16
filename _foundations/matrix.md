@@ -24,7 +24,7 @@ projectsNotable: Matrix Spec, Matrix Rust SDK, Matrix JS SDK
 projectsList: https://matrix.org/ecosystem
 projectsServices:
 eventurl:
-nonprofitStatus: CommunityInterestCompany 
+nonprofitStatus: UK-CommunityInterestCompany
 taxID: 11648710
 taxIDLocal: GB-COH-11648710
 budgetUsd:

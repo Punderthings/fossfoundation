@@ -24,7 +24,7 @@ projectsNotable: OpenSSL
 projectsList: https://openssl-projects.org/
 projectsServices:
 eventurl: https://openssl.foundation/insights/events
-nonprofitStatus: Delaware non-profit corporation
+nonprofitStatus: US-StateNonprofit
 taxID:
 taxIDLocal:
 budgetUsd:

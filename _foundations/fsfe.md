@@ -25,7 +25,7 @@ projectsNotable:
 projectsList: https://fsfe.org/activities/activities.en.html
 projectsServices:
 eventurl: https://fsfe.org/events/events.en.html
-nonprofitStatus: charitable e.V.
+nonprofitStatus: DERegisteredAssociationCharity
 taxID: DE234323337
 taxIDLocal: Hamburg VR 17030
 budgetUsd:

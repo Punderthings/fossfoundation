@@ -24,7 +24,7 @@ projectsNotable:
 projectsList:
 projectsServices:
 eventurl:
-nonprofitStatus: New Mexico non profit
+nonprofitStatus: US-StateNonprofit
 taxID:
 taxIDLocal: '2463313'
 budgetUsd:
