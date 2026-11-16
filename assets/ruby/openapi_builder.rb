@@ -4,7 +4,8 @@ module OpenapiBuilder
   DESCRIPTION = <<-HEREDOC
   OpenapiBuilder: Simplistic CI tool to update openapi bits.
     Run from project root: ruby assets/ruby/openapi_builder.rb
-    Writes _foundations/list.json from the _foundations/*.md records, and
+    Writes _foundations/list.json from the _foundations/*.md records,
+    openapi/v1/foundation-schema.yaml from _data/foundations-schema.json, and
     api/v2/catalog.jsonld (DCAT 3) from the _data/datasets.yml registry.
   HEREDOC
   module_function
@@ -58,6 +59,63 @@ module OpenapiBuilder
       # TODO are there any other alternate lookup methods to include?
     end
     return list
+  end
+
+  ROOT = File.expand_path('../..', __dir__)
+  FOUNDATIONS_SCHEMA = File.join(ROOT, '_data', 'foundations-schema.json')
+  FOUNDATION_OPENAPI = File.join(ROOT, 'openapi', 'v1', 'foundation-schema.yaml')
+  # Version of the v1 API description; 1.1.0 is the first one generated from the JSON Schema
+  OPENAPI_VERSION = '1.1.0'.freeze
+  # JSON Schema keywords copied into the OpenAPI 3.0 schema; our own keywords (x-check,
+  # x-includes, section) and non-standard formats are left out
+  OPENAPI_KEYWORDS = %w[title description type format pattern enum items uniqueItems].freeze
+  # Our formats that have an OpenAPI equivalent; any others are left out
+  OPENAPI_FORMATS = { 'url' => 'uri', 'uri' => 'uri', 'date' => 'date' }.freeze
+  OPENAPI_HEADER = <<~HEADER.freeze
+    # GENERATED FILE: do not edit. Change _data/foundations-schema.json, then run
+    #   ruby assets/ruby/openapi_builder.rb
+    # Version 1.1.0 (2026-11-15) is the first version generated from the JSON Schema.
+  HEADER
+  OPENAPI_INFO = {
+    'version' => OPENAPI_VERSION,
+    'title' => 'FOSS Foundation metadata schema',
+    'description' => 'Fields describing a FOSS foundation for https://fossfoundation.info/data'
+  }.freeze
+  OPENAPI_SERVERS = [{ 'description' => 'SwaggerHub API Auto Mocking',
+                       'url' => 'https://virtserver.swaggerhub.com/ShaneCurcuru/foundation-schema/1.0.0' }].freeze
+
+  # Convert one JSON Schema property to OpenAPI 3.0
+  # @param prop hash of a JSON Schema property
+  # @return hash with only the OpenAPI keywords, formats mapped
+  def openapi_property(prop)
+    prop.slice(*OPENAPI_KEYWORDS).filter_map do |key, value|
+      case key
+      when 'format' then [key, OPENAPI_FORMATS[value]] if OPENAPI_FORMATS[value]
+      when 'items' then [key, openapi_property(value)]
+      else [key, value]
+      end
+    end.to_h
+  end
+
+  # Build the v1 OpenAPI description of a foundation record from the JSON Schema
+  # @param schema hash of _data/foundations-schema.json
+  # @return hash to write as openapi/v1/foundation-schema.yaml
+  def build_foundation_openapi(schema)
+    foundation = {
+      'type' => 'object',
+      'title' => 'FOSS Foundation metadata schema',
+      'required' => schema['required'],
+      'properties' => schema['properties'].transform_values { |prop| openapi_property(prop) }
+    }
+    { 'openapi' => '3.0.0', 'info' => OPENAPI_INFO, 'paths' => {}, 'servers' => OPENAPI_SERVERS,
+      'components' => { 'schemas' => { 'Foundation' => foundation } } }
+  end
+
+  # The text of openapi/v1/foundation-schema.yaml
+  # @param schema hash of _data/foundations-schema.json
+  # @return string of YAML with a header comment
+  def foundation_openapi_yaml(schema)
+    OPENAPI_HEADER + YAML.dump(JSON.parse(JSON.generate(build_foundation_openapi(schema))), line_width: -1)
   end
 
   DATASETS_FILE = '_data/datasets.yml'.freeze
@@ -194,6 +252,8 @@ module OpenapiBuilder
     File.open(File.join(dir, 'list.json'), "w") do |f|
       f.write(JSON.pretty_generate(list))
     end
+    schema = JSON.parse(File.read(FOUNDATIONS_SCHEMA, encoding: 'UTF-8'))
+    File.write(FOUNDATION_OPENAPI, foundation_openapi_yaml(schema))
     File.write(File.join(Dir.pwd, CATALOG_FILE), catalog_json(Dir.pwd))
   end
 end

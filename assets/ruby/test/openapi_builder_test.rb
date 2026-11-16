@@ -51,6 +51,29 @@ class OpenapiBuilderTest < Minitest::Test
     assert_equal Dir.glob(File.join(dir, '*.md')).size, list.size
   end
 
+  def schema
+    JSON.parse(File.read(OpenapiBuilder::FOUNDATIONS_SCHEMA, encoding: 'UTF-8'))
+  end
+
+  def test_committed_openapi_schema_matches_json_schema
+    committed = File.read(OpenapiBuilder::FOUNDATION_OPENAPI, encoding: 'UTF-8')
+    assert_equal OpenapiBuilder.foundation_openapi_yaml(schema), committed,
+                 'Regenerate with: ruby assets/ruby/openapi_builder.rb'
+  end
+
+  def test_openapi_property_keeps_standard_keywords_only
+    prop = { 'x-check' => 'url', 'section' => 'General', 'title' => 'Site', 'type' => 'string', 'format' => 'url',
+             'items' => { 'type' => 'string', 'format' => 'jjresolver~entities~identifier~name~/entities/' } }
+    assert_equal({ 'title' => 'Site', 'type' => 'string', 'format' => 'uri', 'items' => { 'type' => 'string' } },
+                 OpenapiBuilder.openapi_property(prop))
+  end
+
+  def test_openapi_schema_has_every_field_and_the_same_required_list
+    foundation = OpenapiBuilder.build_foundation_openapi(schema).dig('components', 'schemas', 'Foundation')
+    assert_equal schema['properties'].keys, foundation['properties'].keys
+    assert_equal schema['required'], foundation['required']
+  end
+
   def test_plain_text_drops_markdown
     text = "see [attestors](crosswalk#attestors)\nand **`code`**"
     assert_equal 'see attestors and code', OpenapiBuilder.plain_text(text)
