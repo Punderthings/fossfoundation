@@ -3,8 +3,8 @@
       <a id="{{ fdn.identifier }}" href="/foundations/{{ fdn.identifier }}">{{ fdn.legalName }}</a>
     </h2>
     {% if fdn.website %}
-      <abbr title="Primary website homepage.">Website</abbr>: <a href="{{ fdn.website }}">{{ fdn.website }}</a><br/>
+      <abbr title="{{ site.data.foundations-schema.properties.website.description }}">{{ site.data.foundations-schema.properties.website.title }}</abbr>: <a href="{{ fdn.website }}">{{ fdn.website }}</a><br/>
     {% endif %}
-    <abbr title="Specific type of non-profit; US or other country type.">Nonprofit Type</abbr>: {{ fdn.nonprofitStatus }}<br/>
+    <abbr title="{{ site.data.foundations-schema.properties.nonprofitStatus.description }}">{{ site.data.foundations-schema.properties.nonprofitStatus.title }}</abbr>: {{ fdn.nonprofitStatus }}<br/>
     {{ fdn.description }}
   </li>
