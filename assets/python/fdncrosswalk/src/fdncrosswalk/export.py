@@ -134,9 +134,68 @@ def steward_rows(
     return rows
 
 
-def context() -> dict[str, Any]:
+# The crosswalk schema names the vocabulary term of each of its keys (x-term); the context is built
+# from it, plus the few keys that only the exports add. vocabulary() keeps its own wording, written
+# for linked-data readers, and a test checks that it defines every fdn: term the context uses.
+SCHEMA_PATH: Final[Path] = Path(__file__).resolve().parents[5] / "_data" / "crosswalk-schema.json"
+DATE_TYPE: Final[dict[str, str]] = {"@type": "xsd:date"}
+LINK_TYPE: Final[dict[str, str]] = {"@type": "@id"}
+TERM_TYPES: Final[dict[str, str]] = {"uri": "@id", "date": "xsd:date"}  # schema format -> JSON-LD @type
+# Keys that only the exports add, with their terms.
+EXPORT_TERMS: Final[dict[str, Any]] = {
+    "wikidataId": "fdn:wikidataId",
+    "license": {"@id": "schema:license", **LINK_TYPE},
+    "dateModified": {"@id": "schema:dateModified", **DATE_TYPE},
+    "sameAs": {"@id": "schema:sameAs", **LINK_TYPE},
+    "confidence": "fdn:confidence",
+    "stale": "fdn:stale",
+    "steward": "fdn:steward",
+}
+def _load_schema() -> dict[str, Any]:
+    return json.loads(SCHEMA_PATH.read_text(encoding="utf-8"))
+
+
+def _resolve(schema: dict[str, Any], prop: dict[str, Any]) -> dict[str, Any]:
+    """A property with a local $ref merged over the definition it points to."""
+    ref = prop.get("$ref", "")
+    if not ref.startswith("#/"):
+        return prop
+    target: Any = schema
+    for part in ref.removeprefix("#/").split("/"):
+        target = target[part]
+    return {**_resolve(schema, target), **prop}
+
+
+def schema_terms(schema: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Every key with an x-term, from the top level and each definition, as key -> resolved property.
+
+    A key used in several places must map to the same term everywhere, because the context is flat.
+    """
+    found: dict[str, dict[str, Any]] = {}
+    for holder in [schema, *schema.get("definitions", {}).values()]:
+        for key, prop in holder.get("properties", {}).items():
+            prop = _resolve(schema, prop)
+            if "x-term" not in prop:
+                continue
+            if key in found and _term_entry(found[key]) != _term_entry(prop):
+                raise ValueError(f"{key}: maps to different terms in different places")
+            found.setdefault(key, prop)
+    return found
+
+
+def _term_entry(prop: dict[str, Any]) -> Any:
+    entry: dict[str, Any] = {"@id": prop["x-term"]}
+    term_type = prop.get("x-term-type") or TERM_TYPES.get(prop.get("format", ""))
+    if term_type:
+        entry["@type"] = term_type
+    if prop.get("type") == "array":
+        entry["@container"] = "@set"
+    return entry["@id"] if len(entry) == 1 else entry
+
+
+def context(schema: dict[str, Any] | None = None) -> dict[str, Any]:
     """JSON-LD context mapping crosswalk keys to Schema.org, Dublin Core, PROV-O and our own terms."""
-    date_type = {"@type": "xsd:date"}
+    terms = {key: _term_entry(prop) for key, prop in schema_terms(schema or _load_schema()).items()}
     return {
         "@context": {
             "@version": 1.1,
@@ -145,42 +204,8 @@ def context() -> dict[str, Any]:
             "prov": "http://www.w3.org/ns/prov#",
             "xsd": "http://www.w3.org/2001/XMLSchema#",
             "fdn": VOCAB,
-            "identifier": "schema:identifier",
-            "name": "schema:name",
-            "wikidataId": "fdn:wikidataId",
-            "license": {"@id": "schema:license", "@type": "@id"},
-            "dateModified": {"@id": "schema:dateModified", **date_type},
-            "accounts": {"@id": "fdn:account", "@container": "@set"},
-            "packages": {"@id": "fdn:package", "@container": "@set"},
-            "platform": "fdn:platform",
-            "host": {"@id": "fdn:host", "@type": "@id"},
-            "kind": "fdn:accountKind",
-            "platformId": "schema:identifier",
-            "url": {"@id": "schema:url", "@type": "@id"},
-            "sameAs": {"@id": "schema:sameAs", "@type": "@id"},
-            "project": "fdn:project",
-            "account": "fdn:publishedUnder",
-            "purl": "schema:identifier",
-            "codeRepository": {"@id": "schema:codeRepository", "@type": "@id"},
-            "lastReviewed": {"@id": "schema:lastReviewed", **date_type},
-            "reviewedBy": "schema:reviewedBy",
-            "confidence": "fdn:confidence",
-            "stale": "fdn:stale",
-            "evidence": {"@id": "prov:wasDerivedFrom", "@container": "@set"},
-            "type": "dcterms:type",
-            "source": {"@id": "dcterms:source", "@type": "@id"},
-            "observed": {"@id": "prov:generatedAtTime", **date_type},
-            "detail": "dcterms:description",
-            "creator": "dcterms:creator",
-            "about": "schema:about",
-            "method": "schema:measurementTechnique",
-            "confirmedWith": "fdn:confirmedWith",
-            "email": "schema:email",
-            "roleName": "schema:roleName",
-            "memberOf": "schema:memberOf",
-            "validThrough": {"@id": "schema:validThrough", **date_type},
-            "supersedes": "fdn:supersedes",
-            "steward": "fdn:steward",
+            **terms,
+            **EXPORT_TERMS,
         }
     }
 

@@ -11,24 +11,39 @@ import jsonschema
 # Ordered strongest first; "rejected" means evidence shows someone else controls the account.
 CONFIDENCE_LEVELS: Final[tuple[str, ...]] = ("confirmed", "probable", "unconfirmed", "rejected")
 
-CONFIRMING: Final[frozenset[str]] = frozenset({"steward-declared", "platform-verified"})
-SUPPORTING: Final[frozenset[str]] = frozenset(
-    {
-        "profile-claim",
-        "program-badge",
-        "publish-provenance",
-        "repository-link",
-        "namespace-convention",
-    }
-)
 HUMAN_ATTESTED: Final[str] = "human-attested"
 CONTRADICTING: Final[str] = "contradiction"
 # Placeholder source for human-attested evidence until the pull request that records it has a URL.
 PENDING_SOURCE: Final[str] = "pending"
+# The evidence types, with what each gives and how long it stays fresh, are defined in the schema.
+SCHEMA_PATH: Final[Path] = Path(__file__).resolve().parents[5] / "_data" / "crosswalk-schema.json"
 
-# How long evidence stays fresh when it has no validThrough date. Contradictions never expire.
-LONG_LIVED: Final[frozenset[str]] = frozenset({"steward-declared", HUMAN_ATTESTED})
-LONG_FRESHNESS: Final[timedelta] = timedelta(days=365)
+
+@dataclass(frozen=True)
+class EvidenceType:
+    """One evidence type, as the crosswalk schema defines it."""
+
+    name: str
+    gives: str  # a CONFIDENCE_LEVELS value
+    attestor_only: bool = False  # gives its level only when recorded by a listed attestor, else one level lower
+    freshness_days: int | None = None  # None: never expires
+
+
+def evidence_types(schema: dict[str, Any]) -> dict[str, EvidenceType]:
+    """The evidence types of a crosswalk schema, in schema order, from the x- keywords on each oneOf entry."""
+    entries = schema["definitions"]["evidence"]["properties"]["type"]["oneOf"]
+    return {
+        e["const"]: EvidenceType(e["const"], e["x-gives"], e.get("x-attestor-only", False), e.get("x-freshness-days"))
+        for e in entries
+    }
+
+
+EVIDENCE_TYPES: Final[dict[str, EvidenceType]] = evidence_types(json.loads(SCHEMA_PATH.read_text(encoding="utf-8")))
+CONFIRMING: Final[frozenset[str]] = frozenset(
+    t.name for t in EVIDENCE_TYPES.values() if t.gives == "confirmed" and not t.attestor_only
+)
+SUPPORTING: Final[frozenset[str]] = frozenset(t.name for t in EVIDENCE_TYPES.values() if t.gives == "probable")
+# Freshness for a type the schema doesn't list; validation rejects such types, so this is only a fallback.
 SHORT_FRESHNESS: Final[timedelta] = timedelta(days=90)
 
 
@@ -111,7 +126,8 @@ def expires(item: Evidence) -> date | None:
         return None
     if item.validThrough:
         return date.fromisoformat(item.validThrough)
-    window = LONG_FRESHNESS if item.type in LONG_LIVED else SHORT_FRESHNESS
+    kind = EVIDENCE_TYPES.get(item.type)
+    window = timedelta(days=kind.freshness_days) if kind and kind.freshness_days else SHORT_FRESHNESS
     return date.fromisoformat(item.observed) + window
 
 

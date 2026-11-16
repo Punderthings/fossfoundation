@@ -1,0 +1,171 @@
+# SPDX-License-Identifier: CC0-1.0
+# The registry of this directory's datasets: the one hand-edited list that the
+# Datasets and sourcing tables on /data (_pages/data.md), the Schema.org markup on
+# dataset pages (_includes/head_custom.html), and the DCAT catalog
+# api/v2/catalog.jsonld (written by assets/ruby/openapi_builder.rb) are built from.
+# After a change here, run `ruby assets/ruby/openapi_builder.rb` and commit the
+# regenerated catalog; assets/ruby/test/datasets_test.rb checks both.
+#
+# Each dataset has:
+#   identifier     dataset name used in URLs (see _prompts/2026-11-01-url-standards-for-datasets.md)
+#   title          name, as the first column of the Datasets table
+#   page           site page that documents it, relative to the site root, optionally with #anchor
+#   description    what it holds; Markdown links allowed (they become plain text in the catalog)
+#   status         published, in-progress (not yet published here), or planned
+#   maintained     how it is maintained, as the Maintained column; Markdown
+#   schemas        schema files in _data/, if it has any
+#   schemaNote     Schema column text, when there is no schema file to link
+#   distributions  where its files are: path in this repository (a directory ends in /),
+#                  mediaType, and license (SPDX id, as REUSE.toml declares it; leave it
+#                  out where the license of copied third-party data is not settled)
+#   where          Where it lives column text, when the paths alone don't say enough
+#   frequency      how often it changes, as a frequency from
+#                  http://publications.europa.eu/resource/authority/frequency;
+#                  default IRREG, since no dataset is updated on a fixed schedule
+#   sourcing       identifier of the sourcing entry below that applies to it
+datasets:
+  - identifier: foundations
+    title: Foundations
+    page: fdnmodel
+    description: "One record per non-profit FOSS organization: legal identity, governance, policies, funding"
+    status: published
+    maintained: hand-edited
+    schemas: [foundations-schema.json]
+    distributions:
+      - { path: _foundations/, mediaType: text/markdown, license: Apache-2.0 }
+    sourcing: browsing
+  - identifier: entities
+    title: Entities
+    page: entities
+    description: Self-organized projects that are not legal corporations, and typically use a fiscal host, such as CNCF
+    status: published
+    maintained: hand-edited
+    schemaNote: work in progress
+    distributions:
+      - { path: _entities/, mediaType: text/markdown, license: Apache-2.0 }
+    sourcing: browsing
+  - identifier: sponsors
+    title: Sponsors
+    page: sponsors
+    description: "Key sponsors that fund several foundations: the domains that join them to sponsor data, and lookup identifiers such as LEI, SEC CIK, and Wikidata"
+    status: published
+    maintained: hand-edited
+    schemas: [sponsors-schema.json]
+    distributions:
+      - { path: _sponsors/, mediaType: text/markdown, license: CC0-1.0 }
+    sourcing: approximate
+  - identifier: sponsorships
+    title: Sponsorships
+    page: sponsorships
+    description: Ordinal levels of recurring sponsorship programs, drawn from each organization's own prospectus
+    status: published
+    maintained: hand-edited
+    schemas: [sponsorships-schema.json]
+    distributions:
+      - { path: _sponsorships/, mediaType: text/markdown, license: Apache-2.0 }
+    sourcing: approximate
+  - identifier: sponsor-lists
+    title: Sponsor lists and history
+    page: sponsorships
+    description: Current sponsor lists, monthly history with provenance, and summary reports
+    status: published
+    maintained: generated
+    schemaNote: described on [Sponsorship Models](sponsorships)
+    distributions:
+      - { path: _data/sponsorships/, mediaType: application/json, license: Apache-2.0 }
+      - { path: history/sponsorships/, mediaType: application/json, license: Apache-2.0 }
+    sourcing: approximate
+  - identifier: crosswalk
+    title: Platform crosswalk
+    page: crosswalk
+    description: Which code host and package registry accounts belong to a foundation, with evidence
+    status: published
+    maintained: hand-edited; its [JSON-LD exports](crosswalk#exports) in `api/v2/crosswalk/` are generated
+    schemas: [crosswalk-schema.json]
+    distributions:
+      - { path: _data/crosswalk/, mediaType: application/json, license: Apache-2.0 }
+      - { path: api/v2/crosswalk/, mediaType: application/ld+json, license: CC0-1.0 }
+    where: "[`_data/crosswalk/`](https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk)"
+    sourcing: highest
+  - identifier: projects
+    title: Hosted projects
+    page: projects
+    description: Projects hosted by some foundations, for context
+    status: published
+    maintained: scraped, then reviewed by hand
+    schemaNote: CSV, with column names in the header row
+    distributions:
+      - { path: _data/projects-asf.csv, mediaType: text/csv, license: Apache-2.0 }
+      - { path: _data/projects-numfocus.csv, mediaType: text/csv, license: Apache-2.0 }
+      - { path: _data/projects-sfc.csv, mediaType: text/csv, license: Apache-2.0 }
+      - { path: _data/projects-spi.csv, mediaType: text/csv, license: Apache-2.0 }
+    where: "`_data/projects-<identifier>.csv`"
+    sourcing: browsing
+  - identifier: crosswalk-evidence
+    title: Crosswalk evidence and attestations
+    page: crosswalk#evidence
+    description: "Why each crosswalk link is believed: the evidence items inside each crosswalk file, the [attestors](crosswalk#attestors) whose confirmations count, and [records of the people who confirmed links](crosswalk#people)"
+    status: published
+    maintained: hand-edited; attestors by maintainers only; evidence with `fdncrosswalk attest`, person records with `fdncrosswalk add-person`
+    schemas: [crosswalk-schema.json, attestors-schema.json, attestations-schema.json]
+    distributions:
+      - { path: _data/crosswalk/, mediaType: application/json, license: Apache-2.0 }
+      - { path: _data/attestors.json, mediaType: application/json, license: Apache-2.0 }
+      - { path: _data/attestations.json, mediaType: application/json, license: CC0-1.0 }
+    where: "evidence in [`_data/crosswalk/`](https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk); [`_data/attestors.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors.json); public person records in [`_data/attestations.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations.json), private ones in the maintainers' private repository"
+    sourcing: highest
+  - identifier: propublica-990
+    title: ProPublica 990 tax data
+    page: taxes#propublica-990
+    description: "ProPublica Nonprofit Explorer's summary of IRS 990 filings for US foundations: about 70 totals per filing, a year or more after filing"
+    status: published
+    maintained: generated (downloaded by [`foundation_reporter`](https://github.com/Punderthings/fossfoundation/blob/main/assets/ruby/foundation_reporter.rb))
+    schemaNote: ProPublica's format
+    # No license: ProPublica's own data, credited on taxes#propublica-credit; see Future
+    # tasks in _prompts/2026-11-15-derive-lists-from-schemas.md
+    distributions:
+      - { path: _data/p990/, mediaType: application/json }
+    sourcing: exact
+  - identifier: irs-990
+    title: IRS 990 tax data
+    page: taxes#irs-990
+    description: Line-item detail parsed from the IRS's own 990 e-file XML, including recent years ProPublica has not parsed yet
+    status: in-progress
+    maintained: "in progress: generated by [`foss990parser`](https://github.com/Punderthings/foss990parser)"
+    schemaNote: "[Frictionless Data](https://frictionlessdata.io/) package written by the tool"
+    where: not yet published here
+    sourcing: exact
+  - identifier: budgets
+    title: Budgets
+    page: budgets
+    description: "Planned: actual or estimated budget figures from organizations' own reports"
+    status: planned
+    maintained: planned
+    schemaNote: not yet
+    where: not yet
+
+# How each group of datasets is sourced: the sourcing table on /data#sourcing, and
+# each dataset's provenance statement in the catalog. Markdown.
+  # Not listed yet: UK Charity Commission data in _data/taxes/uk-*.json, until we have
+  # more examples and a parser for it (noted on /data)
+sourcing:
+  - identifier: browsing
+    datasets: "[Foundations](fdnmodel), [entities](entities), [hosted projects](projects)"
+    accuracy: "**Good enough for browsing and general research.**  Most fields are plain facts, such as a website, a founding year, or a board size, that a reviewer can check at a glance; hosted project lists are best-effort snapshots."
+    checks: "A maintainer checks each change against the organization's own site, which the pull request links.  Descriptive text also follows the [officers get a say](https://github.com/Punderthings/fossfoundation/blob/main/CONTRIBUTING.md#rules-for-data) rule."
+    stored: "No per-field sources or check dates.  The pull request, with its links, and git history are the record: `git log _foundations/<identifier>.md` lists every change to one record."
+  - identifier: exact
+    datasets: "[US 990 and other tax data](taxes)"
+    accuracy: "**Exactly as published.**  Figures come from government filings or a trusted aggregator such as ProPublica, and we copy them, never correct them."
+    checks: "Our tools download the data; review checks that the copy ran cleanly, not each figure."
+    stored: "When and how we copied it: the tool that downloaded it, the source named inside each file, and the git commit that added it.  See [how we source tax data](taxes#sourcing)."
+  - identifier: approximate
+    datasets: "[Sponsorship models](sponsorships), [sponsor lists and history](sponsorships), [sponsors](sponsors)"
+    accuracy: "**Approximate, for rough comparison.**  Foundations publish very different amounts of detail, so our models can only approximate each program; each page says [how approximate](sponsorships#accuracy)."
+    checks: "Models are written by hand from each organization's own sponsorship pages.  Sponsor lists are scanned by our tools.  Sponsor records are looked up in authoritative registries such as GLEIF and SEC EDGAR."
+    stored: "The dates and method of each scan: when each sponsor list was first seen and last confirmed, and where each past list came from, such as an Internet Archive capture.  Models link the pages they model and the date their levels took effect.  Sponsor records list a source and date for each lookup value."
+  - identifier: highest
+    datasets: "[Platform crosswalk](crosswalk)"
+    accuracy: "**The highest.**  Some links are read as a foundation's official control of an account or package namespace, so users expect them to be right and to have been checked by people."
+    checks: "Every link needs evidence that anyone can check again, its [confidence](crosswalk#confidence) is computed from that evidence, only listed [attestors](crosswalk#attestors) can confirm a link out of band, and a maintainer reviews every change."
+    stored: "Evidence items on every link: its type, a source URL, the date observed, and who recorded it, plus records of attestors and of the people who confirmed links.  Once a reviewer has checked a link, it also records who and when; a link without that has not yet been checked.  See [crosswalk accuracy](crosswalk#accuracy)."

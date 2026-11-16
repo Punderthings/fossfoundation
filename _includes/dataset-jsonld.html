@@ -1,0 +1,52 @@
+{%- comment -%}
+SPDX-License-Identifier: Apache-2.0
+One dataset from _data/datasets.yml as a Schema.org Dataset object (JSON, no
+@context unless standalone), for the head_custom.html markup.  Parameters:
+dataset=registry entry; standalone=true for a block of its own on the dataset's
+page, which adds @context and the catalog it is part of.
+Files get a DataDownload each; directories are linked from the Dataset's
+description page only, since a DataDownload names a single file.
+{%- endcomment -%}
+{%- assign d = include.dataset -%}
+{%- assign licenses = d.distributions | map: "license" | compact | uniq -%}
+{%- assign licensed = d.distributions | map: "license" | compact -%}
+{%- capture description %}{{ d.description | markdownify | strip_html | strip_newlines | strip }}{% endcapture -%}
+{
+  {%- if include.standalone %}
+  "@context": "https://schema.org",
+  "includedInDataCatalog": { "@type": "DataCatalog", "@id": {{ site.url | append: "/api/v2/catalog.jsonld" | jsonify }}, "url": {{ site.url | append: "/data" | jsonify }} },
+  {%- endif %}
+  "@type": "Dataset",
+  "@id": {{ site.url | append: "/api/v2/catalog.jsonld#" | append: d.identifier | jsonify }},
+  "identifier": {{ d.identifier | jsonify }},
+  "name": {{ d.title | jsonify }},
+  "description": {{ description | jsonify }},
+  "url": {{ site.url | append: "/" | append: d.page | jsonify }},
+  {%- if licenses.size == 1 and licensed.size == d.distributions.size %}
+  "license": {{ "https://spdx.org/licenses/" | append: licenses[0] | jsonify }},
+  {%- endif %}
+  "isAccessibleForFree": true,
+  "publisher": { "@type": "Organization", "@id": {{ site.url | jsonify }}, "name": {{ site.title | jsonify }}, "url": {{ site.url | jsonify }} },
+  "distribution": [
+    {%- assign first = true -%}
+    {%- for f in d.distributions -%}
+    {%- assign last = f.path | slice: -1 -%}
+    {%- if last != "/" -%}
+    {%- if f.path contains "api/" -%}
+    {%- assign url = site.url | append: "/" | append: f.path -%}
+    {%- else -%}
+    {%- assign url = "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/" | append: f.path -%}
+    {%- endif %}{% unless first %},{% endunless %}
+    {
+      "@type": "DataDownload",
+      "contentUrl": {{ url | jsonify }},
+      "encodingFormat": {{ f.mediaType | jsonify }}
+      {%- if f.license %},
+      "license": {{ "https://spdx.org/licenses/" | append: f.license | jsonify }}
+      {%- endif %}
+    }
+    {%- assign first = false -%}
+    {%- endif -%}
+    {%- endfor %}
+  ]
+}
