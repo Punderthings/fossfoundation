@@ -125,6 +125,7 @@ module OpenapiBuilder
     File.open(File.join(dir, 'list.json'), "w") do |f|
       f.write(JSON.pretty_generate(list))
     end
-    File.write(FOUNDATION_OPENAPI, foundation_openapi_yaml(JSON.parse(File.read(FOUNDATIONS_SCHEMA))))
+    schema = JSON.parse(File.read(FOUNDATIONS_SCHEMA, encoding: 'UTF-8'))
+    File.write(FOUNDATION_OPENAPI, foundation_openapi_yaml(schema))
   end
 end

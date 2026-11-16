@@ -52,11 +52,12 @@ class OpenapiBuilderTest < Minitest::Test
   end
 
   def schema
-    JSON.parse(File.read(OpenapiBuilder::FOUNDATIONS_SCHEMA))
+    JSON.parse(File.read(OpenapiBuilder::FOUNDATIONS_SCHEMA, encoding: 'UTF-8'))
   end
 
   def test_committed_openapi_schema_matches_json_schema
-    assert_equal OpenapiBuilder.foundation_openapi_yaml(schema), File.read(OpenapiBuilder::FOUNDATION_OPENAPI),
+    committed = File.read(OpenapiBuilder::FOUNDATION_OPENAPI, encoding: 'UTF-8')
+    assert_equal OpenapiBuilder.foundation_openapi_yaml(schema), committed,
                  'Regenerate with: ruby assets/ruby/openapi_builder.rb'
   end
 
