@@ -15,7 +15,7 @@ GitHub Pages and Just-The-Docs handle the static site build, and every PR must p
 
 ### When Adding Or Changing A Foundation
 
-- Run `bundle exec ruby assets/ruby/openapi_builder.rb` to regenerate the `_foundations/list.json` lookup used by the [OpenAPI](openapi) getFoundations endpoint.
+- Run `bundle exec ruby assets/ruby/openapi_builder.rb` to regenerate the `_foundations/list.json` lookup used by the [OpenAPI](openapi) getFoundations endpoint, and the `/api/v2/catalog.jsonld` dataset catalog from `_data/datasets.yml`.
 - Optionally run `bundle exec ruby assets/ruby/schema_utils.rb -a normalize` to put front matter in the default field order.
 
 ### US 990 Tax Data

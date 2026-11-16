@@ -1,0 +1,502 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/"
+  },
+  "@id": "https://fossfoundation.info/api/v2/catalog.jsonld",
+  "@type": [
+    "dcat:Catalog",
+    "schema:DataCatalog"
+  ],
+  "dct:title": "FOSS Foundations Directory",
+  "dct:description": "Comprehensive metadata directory about non-profit FOSS Foundations.",
+  "foaf:homepage": {
+    "@id": "https://fossfoundation.info/data"
+  },
+  "dct:publisher": {
+    "@id": "https://fossfoundation.info",
+    "@type": "foaf:Agent",
+    "foaf:name": "FOSS Foundations Directory"
+  },
+  "dct:license": {
+    "@id": "https://spdx.org/licenses/CC0-1.0"
+  },
+  "schema:isBasedOn": {
+    "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/datasets.yml"
+  },
+  "dcat:dataset": [
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#foundations",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "foundations",
+      "dct:title": "Foundations",
+      "dct:description": "One record per non-profit FOSS organization: legal identity, governance, policies, funding",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/fdnmodel"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:conformsTo": [
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/foundations-schema.json"
+        }
+      ],
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "A maintainer checks each change against the organization's own site, which the pull request links. Descriptive text also follows the officers get a say rule. No per-field sources or check dates. The pull request, with its links, and git history are the record: git log _foundations/<identifier>.md lists every change to one record."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_foundations/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_foundations"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/markdown"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#entities",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "entities",
+      "dct:title": "Entities",
+      "dct:description": "Self-organized projects that are not legal corporations, and typically use a fiscal host, such as CNCF",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/entities"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "A maintainer checks each change against the organization's own site, which the pull request links. Descriptive text also follows the officers get a say rule. No per-field sources or check dates. The pull request, with its links, and git history are the record: git log _foundations/<identifier>.md lists every change to one record."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_entities/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_entities"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/markdown"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#sponsors",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "sponsors",
+      "dct:title": "Sponsors",
+      "dct:description": "Key sponsors that fund several foundations: the domains that join them to sponsor data, and lookup identifiers such as LEI, SEC CIK, and Wikidata",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/sponsors"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:conformsTo": [
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsors-schema.json"
+        }
+      ],
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/CC0-1.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Models are written by hand from each organization's own sponsorship pages. Sponsor lists are scanned by our tools. Sponsor records are looked up in authoritative registries such as GLEIF and SEC EDGAR. The dates and method of each scan: when each sponsor list was first seen and last confirmed, and where each past list came from, such as an Internet Archive capture. Models link the pages they model and the date their levels took effect. Sponsor records list a source and date for each lookup value."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_sponsors/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_sponsors"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/markdown"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/CC0-1.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#sponsorships",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "sponsorships",
+      "dct:title": "Sponsorships",
+      "dct:description": "Ordinal levels of recurring sponsorship programs, drawn from each organization's own prospectus",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/sponsorships"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:conformsTo": [
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json"
+        }
+      ],
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Models are written by hand from each organization's own sponsorship pages. Sponsor lists are scanned by our tools. Sponsor records are looked up in authoritative registries such as GLEIF and SEC EDGAR. The dates and method of each scan: when each sponsor list was first seen and last confirmed, and where each past list came from, such as an Internet Archive capture. Models link the pages they model and the date their levels took effect. Sponsor records list a source and date for each lookup value."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_sponsorships/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_sponsorships"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/markdown"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#sponsor-lists",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "sponsor-lists",
+      "dct:title": "Sponsor lists and history",
+      "dct:description": "Current sponsor lists, monthly history with provenance, and summary reports",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/sponsorships"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Models are written by hand from each organization's own sponsorship pages. Sponsor lists are scanned by our tools. Sponsor records are looked up in authoritative registries such as GLEIF and SEC EDGAR. The dates and method of each scan: when each sponsor list was first seen and last confirmed, and where each past list came from, such as an Internet Archive capture. Models link the pages they model and the date their levels took effect. Sponsor records list a source and date for each lookup value."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/sponsorships/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_data/sponsorships"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "history/sponsorships/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/history/sponsorships"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#crosswalk",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "crosswalk",
+      "dct:title": "Platform crosswalk",
+      "dct:description": "Which code host and package registry accounts belong to a foundation, with evidence",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/crosswalk"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:conformsTo": [
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json"
+        }
+      ],
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Every link needs evidence that anyone can check again, its confidence is computed from that evidence, only listed attestors can confirm a link out of band, and a maintainer reviews every change. Evidence items on every link: its type, a source URL, the date observed, and who recorded it, plus records of attestors and of the people who confirmed links. Once a reviewer has checked a link, it also records who and when; a link without that has not yet been checked. See crosswalk accuracy."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/crosswalk/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "api/v2/crosswalk/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/api/v2/crosswalk"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/ld+json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/CC0-1.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#projects",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "projects",
+      "dct:title": "Hosted projects",
+      "dct:description": "Projects hosted by some foundations, for context",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/projects"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:license": {
+        "@id": "https://spdx.org/licenses/Apache-2.0"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "A maintainer checks each change against the organization's own site, which the pull request links. Descriptive text also follows the officers get a say rule. No per-field sources or check dates. The pull request, with its links, and git history are the record: git log _foundations/<identifier>.md lists every change to one record."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/projects-asf.csv",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-asf.csv"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-asf.csv"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/csv"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/projects-numfocus.csv",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-numfocus.csv"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-numfocus.csv"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/csv"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/projects-sfc.csv",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-sfc.csv"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-sfc.csv"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/csv"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/projects-spi.csv",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-spi.csv"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/projects-spi.csv"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/text/csv"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#crosswalk-evidence",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "crosswalk-evidence",
+      "dct:title": "Crosswalk evidence and attestations",
+      "dct:description": "Why each crosswalk link is believed: the evidence items inside each crosswalk file, the attestors whose confirmations count, and records of the people who confirmed links",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/crosswalk#evidence"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:conformsTo": [
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json"
+        },
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestors-schema.json"
+        },
+        {
+          "@id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/attestations-schema.json"
+        }
+      ],
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Every link needs evidence that anyone can check again, its confidence is computed from that evidence, only listed attestors can confirm a link out of band, and a maintainer reviews every change. Evidence items on every link: its type, a source URL, the date observed, and who recorded it, plus records of attestors and of the people who confirmed links. Once a reviewer has checked a link, it also records who and when; a link without that has not yet been checked. See crosswalk accuracy."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/crosswalk/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_data/crosswalk"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/attestors.json",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/attestors.json"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/attestors.json"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/Apache-2.0"
+          }
+        },
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/attestations.json",
+          "dcat:accessURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/attestations.json"
+          },
+          "dcat:downloadURL": {
+            "@id": "https://raw.githubusercontent.com/Punderthings/fossfoundation/main/_data/attestations.json"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          },
+          "dct:license": {
+            "@id": "https://spdx.org/licenses/CC0-1.0"
+          }
+        }
+      ]
+    },
+    {
+      "@id": "https://fossfoundation.info/api/v2/catalog.jsonld#propublica-990",
+      "@type": "dcat:Dataset",
+      "dct:identifier": "propublica-990",
+      "dct:title": "ProPublica 990 tax data",
+      "dct:description": "ProPublica Nonprofit Explorer's summary of IRS 990 filings for US foundations: about 70 totals per filing, a year or more after filing",
+      "dcat:landingPage": {
+        "@id": "https://fossfoundation.info/taxes#propublica-990"
+      },
+      "dct:publisher": {
+        "@id": "https://fossfoundation.info"
+      },
+      "dct:accrualPeriodicity": {
+        "@id": "http://publications.europa.eu/resource/authority/frequency/IRREG"
+      },
+      "dct:provenance": {
+        "@type": "dct:ProvenanceStatement",
+        "rdfs:label": "Our tools download the data; review checks that the copy ran cleanly, not each figure. When and how we copied it: the tool that downloaded it, the source named inside each file, and the git commit that added it. See how we source tax data."
+      },
+      "dcat:distribution": [
+        {
+          "@type": "dcat:Distribution",
+          "dct:title": "_data/p990/",
+          "dcat:accessURL": {
+            "@id": "https://github.com/Punderthings/fossfoundation/tree/main/_data/p990"
+          },
+          "dcat:mediaType": {
+            "@id": "https://www.iana.org/assignments/media-types/application/json"
+          }
+        }
+      ]
+    }
+  ]
+}

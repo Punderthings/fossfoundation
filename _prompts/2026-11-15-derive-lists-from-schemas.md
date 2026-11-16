@@ -310,3 +310,13 @@ experiment.
 
 - Redesign how hosted projects (`projects-*.csv`) are stored and displayed.
 - Decide whether to keep the deprecated `_data/sponsorship-levels.json`.
+- Determine the specific license statement for ProPublica's data in `_data/p990/`,
+  and whether it is worth continuing to update it now that we have the broader IRS
+  990 dataset. Until then it has no license in `REUSE.toml` or the catalog, and
+  `_pages/taxes.md` credits ProPublica (decided by Shane on PR #109, 2026-11-16).
+- Add the UK Charity Commission data (`_data/taxes/uk-*.json`) as a proper dataset
+  once we have more examples and a parser for it; until then `/data` only mentions it.
+- Replace the placeholder `$id` in `_data/foundations-schema.json`
+  (`https://fossfoundation.info/foundations/asf.json`). Recommended: the site URLs
+  from step 5 of the URL standards plan, `https://fossfoundation.info/api/v2/schemas/foundations.schema.json`,
+  and the same pattern for every schema (the others now point at GitHub `blob` pages).

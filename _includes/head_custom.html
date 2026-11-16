@@ -1,0 +1,35 @@
+{%- comment -%}
+SPDX-License-Identifier: Apache-2.0
+Schema.org markup for dataset discovery, built from _data/datasets.yml: a
+Dataset block on each dataset's documentation page, and the whole DataCatalog on
+/data.  Machine-readable DCAT is api/v2/catalog.jsonld, from openapi_builder.rb.
+{%- endcomment -%}
+{%- assign page_path = page.url | remove_first: "/" -%}
+{%- assign published = site.data.datasets.datasets | where: "status", "published" -%}
+{%- if page_path == "data" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "@id": {{ site.url | append: "/api/v2/catalog.jsonld" | jsonify }},
+  "name": {{ site.title | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "url": {{ site.url | append: "/data" | jsonify }},
+  "publisher": { "@type": "Organization", "@id": {{ site.url | jsonify }}, "name": {{ site.title | jsonify }}, "url": {{ site.url | jsonify }} },
+  "dataset": [
+    {%- for d in published %}
+    {% include dataset-jsonld.html dataset=d %}{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- else -%}
+{%- for d in published -%}
+{%- assign dpage = d.page | split: "#" | first -%}
+{%- if dpage == page_path %}
+<script type="application/ld+json">
+{% include dataset-jsonld.html dataset=d standalone=true %}
+</script>
+{%- endif -%}
+{%- endfor -%}
+{%- endif %}
