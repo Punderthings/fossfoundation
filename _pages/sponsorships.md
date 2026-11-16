@@ -23,12 +23,21 @@ Since many projects with well-known sponsorship programs use separate entities a
   - Ordinal levels `first, second`, etc. are traditional sponsorship tiers in descending amount.
   - In-kind levels `firstinkind, secondinkind` etc. are in-kind or services sponsorships.  These are counted at full level for the entity, but are discounted in reporting when counting the value sponsors are giving overall (since services typically don't cost the sponsor as much as cold hard cash).
   - `community` is a common type of level for community groups, supporters, associated entities, or the like.  It usually has a very low or zero amount cost.
-  - A few other types of levels are commonly seen, so we have mapped them to *similar enough* categories `academic, grants, enduser`. 
+  - A few other types of levels are commonly seen, so we have mapped them to *similar enough* categories `academic, grants, enduser`.  See [all metalevels](#metalevels) below. 
 - **Not Event Sponsorships** We focus on sponsorship relationships with entities that generally expect a recurring payment.  Event-specific sponsorships, even for recurring events, are not currently tracked (although we'd be happy to have contributions to do so!)
 - **Traditional Sponsorships** The focus here are on traditional "give our nonprofit a check, and we'll showcase your logo" sponsorships.  Different models need to be built to showcase various pass-through and bundling-funds entities like Tidelift, Open Source Collective, and the like.
 - **Only Public Data** We track the actual sponsorships listed by entities themselves, not press releases or statements by sponsors.
 - **Financial Figures Are Approximate** While sponsorship level amounts are taken directly from entity programs, the actual funds a specific sponsor may pay any year could vary.  All financial numbers, especially top-line reports, are estimates only.
 
+## Metalevels {#metalevels}
+
+Every sponsorship model maps its levels to these metalevels, listed from highest to lowest rank.  The list, labels, and meanings come from the `levels` properties of [`sponsorships-schema.json`](https://github.com/Punderthings/fossfoundation/blob/main/_data/sponsorships-schema.json), which our tools also read, so this table is always current.  In-kind levels are discounted when estimating what a sponsor gives.  The older label file `_data/sponsorship-levels.json` is generated from the same titles and is deprecated.
+
+| Metalevel | Label | Meaning | In-kind |
+| --- | --- | --- | --- |
+{% for level in site.data.sponsorships-schema.properties.levels.properties -%}
+| `{{ level[0] }}` | {{ level[1].title }} | {{ level[1].description }} | {% if level[1]['x-inkind'] %}yes{% endif %} |
+{% endfor %}
 ## How Approximate This Is {#accuracy}
 
 These models are for rough comparisons across foundations, not for accounting.  Foundations publish very different amounts of detail about their programs, so every figure on these pages is an approximation:

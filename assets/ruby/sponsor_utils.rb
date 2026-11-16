@@ -51,15 +51,22 @@ module SponsorUtils
 
   # NOTE OWASP parsing css may be fragile; relies on nth-of-type
 
-  # Map all sponsorships to common-ish levels
+  # Sponsorship metalevels, in rank order, and which are in-kind, read from the levels
+  # properties of _data/sponsorships-schema.json, the single list of levels:
   # - Ordinals are cash sponsorships in order
   # - 'inkind'* is services donations (primarily services, not cash)
   # - community is widely used as a separate level
   # - grants covers any sort of government/institution grants
+  # - listed is for historical lists that name sponsors without their level (counted, not priced)
   # TODO: Define a more rigorous and smaller set of categories,
   #   to map some unusual ones (cncf:enduser, etc.) to simpler ones
-  # - listed is for historical lists that name sponsors without their level (counted, not priced)
-  SPONSOR_METALEVELS = %w[ first second third fourth fifth sixth seventh eighth community firstinkind secondinkind thirdinkind fourthinkind startuppartners academic enduser grants listed ]
+  SPONSORSHIPS_SCHEMA_FILE = File.expand_path('../../_data/sponsorships-schema.json', __dir__)
+  SPONSORSHIPS_SCHEMA = JSON.parse(File.read(SPONSORSHIPS_SCHEMA_FILE)).freeze
+  LEVEL_SCHEMAS = SPONSORSHIPS_SCHEMA.dig('properties', 'levels', 'properties').freeze
+  SPONSOR_METALEVELS = LEVEL_SCHEMAS.keys.freeze
+  INKIND_LEVELS = LEVEL_SCHEMAS.select { |_lvl, prop| prop['x-inkind'] }.keys.freeze
+  # Deprecated display labels, generated from each level's title; see level_labels
+  LEVEL_LABELS_FILE = File.expand_path('../../_data/sponsorship-levels.json', __dir__)
   SPONSORSHIPS_DIR = '_sponsorships'
   DEFAULT_OUTDIR = '_data/sponsorships'
   PARSE_DATE = 'parseDate'
@@ -68,7 +75,7 @@ module SponsorUtils
   LAST_CHECKED = 'lastChecked'
   DEFAULT_HISTORY_DIR = 'history/sponsorships'
   ALL_SPONSORSHIPS_FILE = '_data/allsponsorships.json' # Early 2024 combined data, used by --backfill-git
-  SOURCE_TYPES = %w[css landscape landscapejson json yaml static].freeze
+  SOURCE_TYPES = SPONSORSHIPS_SCHEMA.dig('properties', 'sourcetype', 'enum').freeze
 
   # Editable list of hostnames/domains that belong to one sponsor org; see file for format
   HOST_ALIASES_FILE = File.expand_path('../../_data/host_aliases.json', __dir__)
@@ -110,6 +117,13 @@ module SponsorUtils
   class ParseError < StandardError; end
 
   # @return true if verbose logging is on
+  # Display label of each metalevel, in rank order: the title of its levels property in
+  # the schema. Written to the deprecated _data/sponsorship-levels.json by sponsor_reports.
+  # @return hash of level => label
+  def level_labels
+    LEVEL_SCHEMAS.transform_values { |prop| prop['title'] }
+  end
+
   def verbose?
     @verbose == true
   end
