@@ -1,0 +1,31 @@
+{%- comment -%}
+  SPDX-License-Identifier: Apache-2.0
+  Renders one field value for _includes/schema-fields.html, from the schema's format.
+  Parameters: name (the field), value, format (the property's or its items' format).
+  - url: a link to the value.
+  - urlfragment~PREFIX: a link to PREFIX followed by the value (Wikidata ids).
+  - jjresolver~COLLECTION~KEY~NAME~PREFIX: the item in site[COLLECTION] whose KEY is the
+    value, shown by its NAME and linked to PREFIX followed by its KEY; the plain value
+    when there is no such item.
+  - anything else: the plain value.
+{%- endcomment -%}
+{%- assign sv_parts = include.format | split: "~" -%}
+{%- case sv_parts[0] -%}
+{%- when "url" -%}
+<a itemprop="{{ include.name }}" href="{{ include.value }}">{{ include.value }}</a>
+{%- when "urlfragment" -%}
+<a itemprop="{{ include.name }}" href="{{ sv_parts[1] }}{{ include.value }}">{{ include.value }}</a>
+{%- when "jjresolver" -%}
+{%- comment -%} Liquid can't look up a key written as sv_parts[N] inside brackets, so name each key first. {%- endcomment -%}
+{%- assign sv_collection = sv_parts[1] -%}
+{%- assign sv_key = sv_parts[2] -%}
+{%- assign sv_label = sv_parts[3] -%}
+{%- assign sv_match = site[sv_collection] | where: sv_key, include.value | first -%}
+{%- if sv_match -%}
+<span itemprop="{{ include.name }}"><a href="{{ sv_parts[4] }}{{ sv_match[sv_key] }}">{{ sv_match[sv_label] }}</a></span>
+{%- else -%}
+<span itemprop="{{ include.name }}">{{ include.value }}</span>
+{%- endif -%}
+{%- else -%}
+<span itemprop="{{ include.name }}">{{ include.value }}</span>
+{%- endcase -%}

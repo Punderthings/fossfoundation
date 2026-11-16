@@ -63,125 +63,28 @@ module SchemaUtils
   return lines
   end
 
-  # Emit liquid template for a single value
-  # @param fieldname string of this schema object
-  # @param schema hash to process and emit liquid for
-  # @return fragment string of liquid statement
-  def emit_schema_valuespan(fieldname, schema)
-    liquid = ''
-    if 'url'.eql?(schema.fetch('format', ''))
-      liquid << "<a itemprop=\"#{fieldname}\" href=\"{{ page.#{fieldname} }}\">{{ page.#{fieldname} }}</a>"
-    else
-      liquid << "<span itemprop=\"#{fieldname}\">{{ page.#{fieldname} }}</span>"
-    end
-    return liquid
-  end
-
-  # Emit liquid template for a scalar field
-  # @param parentname string of this schema object that contains this field
-  # @param fieldname string of this schema object
-  # @param schema hash to process and emit liquid for
-  # @param indent to use at this level
-  # @param linesep to use if needed
-  # @return single line string of liquid statements
-  def emit_schema_scalar(parentname, fieldname, schema, indent, linesep)
-    name_hack = parentname ? "#{parentname}.#{fieldname}" : fieldname
-    liquid = "#{indent}{% if page.#{name_hack} %}"
-    liquid << "<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>: "
-    liquid << emit_schema_valuespan(name_hack, schema)
-    liquid << "#{linesep}" if linesep
-    liquid << "{% endif %}\n"
-    return liquid
-  end
-
-  # Emit liquid template for array as a title and ul list
-  # @param fieldName string of this schema object
-  # @param schema hash to process and emit liquid for
-  # @param indent to use at this level
-  # @param linesep to use if needed
-  # @return multiline string of liquid statements
-  def emit_schema_array(fieldname, schema, indent, linesep)
-    liquid = "#{indent}{% if page.#{fieldname} %}\n"
-    liquid << "#{indent}<abbr title=\"#{schema['description']}\">#{schema['title']}</abbr>:\n"
-    liquid << "#{indent}<ul>\n" # TODO: add class for styling
-    liquid << "#{indent}  {% for loopitem in page.#{fieldname} %}\n"
-    liquid << "#{indent}  <li><span itemprop=\"#{fieldname}\">{{ loopitem }}</span></li>\n" # FIXME: process format:url as well
-    liquid << "#{indent}  {% endfor %}\n"
-    liquid << "#{indent}</ul>\n"
-    liquid << "#{indent}#{linesep}" if linesep
-    liquid << "#{indent}{% endif %}\n"
-    return liquid
-  end
-
-  # HACK emit liquid template for nested hash/array schema objects (recursive)
-  # @param parentname string of this schema object that contains other objects
-  # @param schema hash to process and emit liquid for
-  # @param indent to use at this level
-  # @param linesep to use if needed
-  # @return multiline string of liquid statements
-  def emit_schema_object(parentname, childname, schema, indent, linesep)
-    liquid = ''
-    name_hack = parentname ? "#{parentname}.#{childname}" : childname
-    properties = schema['properties']
-    properties.each do |itmname, hash|
-      if 'object'.eql?(hash['type'])
-        liquid << "#{indent}{% if page.#{name_hack}.#{childname}.#{itmname} %}\n"
-        liquid << emit_schema_object(name_hack, itmname, hash, indent, linesep)
-        liquid << linesep if linesep
-        liquid << "{% endif %}\n"
-      else
-        liquid << emit_schema_scalar(name_hack, itmname, hash, indent, linesep)
-      end
-    end
-    return liquid
-  end
-
   # Parse a JSON Schema file into a hash
   def parse_schema(infile)
     schema = JSON.parse(File.read(infile))
     return schema
   end
 
-  # Transform JSON Schema into partial Jekyll Liquid templates
-  def schema2liquid(schema, linesep)
-    liquid = ''
-    indent = '    ' # FIXME if we want to nest inside existing layout
-    fieldnames = []
-    properties = schema['properties']
-    firstsection = true
-    properties.each do |fieldname, hash|
-      fieldnames << fieldname
-      section = hash.fetch('section', nil)
-      if section
-        if firstsection
-          firstsection = false
-        else
-          liquid << "  </section>\n"
-        end
-        liquid << "  <section id=\"#{section.downcase}-section\">\n"
-        liquid << "#{indent}<h2 id=\"#{section.downcase}\">#{section}</h2>\n"
-      end
-      if 'object'.eql?(hash['type'])
-        liquid << emit_schema_object(nil, fieldname, hash, indent, linesep)
-      elsif 'array'.eql?(hash['type'])
-        liquid << emit_schema_array(fieldname, hash, indent, linesep)
-      else
-        liquid << emit_schema_scalar(nil, fieldname, hash, indent, linesep)
-      end
-    end
-    liquid << "  </section>\n"
-    puts "--- DEBUG List of fieldnames parsed:"
-    puts "#{fieldnames}"
-    return liquid
+  # Field names in schema order, leaving out fields whose $comment starts with EXCLUDE
+  # @param schema hash of a JSON Schema
+  # @return array of property names
+  def schema_fieldnames(schema)
+    schema['properties'].reject { |_name, prop| prop.fetch('$comment', '').start_with?('EXCLUDE') }.keys
   end
 
-  # Transform JSON Schema into template.md file for the type
+  # Transform JSON Schema into template.md file for the type: one empty field per line,
+  # each followed by its title as a YAML comment, then the body
+  # @param schema hash of a JSON Schema
+  # @param body string for the Markdown body
+  # @return string of the whole template file
   def schema2template(schema, body)
     template = "---\n"
-    properties = schema['properties']
-    properties.each do |fieldname, hash|
-      next if hash.fetch('$comment', '').start_with?('EXCLUDE')
-      template << "#{fieldname}:\n"
+    schema_fieldnames(schema).each do |fieldname|
+      template << "#{fieldname}: # #{schema['properties'][fieldname]['title']}\n"
     end
     template << "---\n\n#{body}\n"
     return template
@@ -203,9 +106,20 @@ module SchemaUtils
   end
 
   YAML_SEP = '---'
-  # FIXME: Don't include dissolutionDate in default fields (usage currently rare)
-  # TODO: coordinate with schema definition automatically (generate this from foundation-schema.json ?)
-  FOUNDATION_FIELDNAMES = %w[identifier	commonName	legalName	description	contacturl	website	foundingDate	addressCountry	addressRegion	newProjects	softwareType	wikidataId	boardSize	boardType	boardurl	teamurl	missionurl	bylawsurl	numberOfEmployees	governanceOrg	governanceTech	projectsNotable	projectsList	projectsServices	eventurl	nonprofitStatus	taxID	taxIDLocal	budgetUsd	budgetYear	budgeturl	budgetTransparent	funding	donateurl	sponsorurl	sponsorList	sponsorships	licenses	claPolicy	securityurl	ethicsPolicy	conducturl	conductEvents	conductSource	conductLinked	diversityPolicy	diversityDescription	brandPrimary	brandSecondary	brandReg	brandPolicy	brandUse	brandComments	logo	logoReg	subOrganization]
+  FOUNDATIONS_SCHEMA = File.expand_path('../../_data/foundations-schema.json', __dir__)
+  FOUNDATION_TEMPLATE = File.expand_path('../../_data/foundation-template.md', __dir__)
+  FOUNDATION_TEMPLATE_BODY = [
+    'FOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and ',
+    'then fill in as much data as you can verify against official sources (from that ',
+    'foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The ',
+    'data schema is in the foundations-schema.json file.  Then replace this section (i.e. the ',
+    'content of a Jekyll document) with a one sentence factual description of the organization ',
+    'as a whole.  Submit a PR with this new identifier.md file in the _foundations directory.',
+  ].join.freeze
+  # Front matter order for foundations, read from the schema; dissolutionDate is left out
+  # (its $comment starts with EXCLUDE) so normalize only keeps it, at the end, where used.
+  FOUNDATION_FIELDNAMES = schema_fieldnames(parse_schema(FOUNDATIONS_SCHEMA)).freeze
+
   # Normalize a .md file to have frontmatter fields in schema order
   # NOTE lossy; loses comments; places all non-schema fields at end of frontmatter
   # @param filename to read with frontmatter (markdown body left as-is)
@@ -277,13 +191,11 @@ module SchemaUtils
       opts.on('-oOUTFILE', '--out OUTFILE', 'Output filename for operation') do |out|
         options[:out] = out
       end
-      opts.on('-tTEMPLATEOUT', '--template TEMPLATEOUT', 'Output filename for template data') do |outtemplate|
-        options[:outtemplate] = outtemplate
-      end
       opts.on('-iINFILE', '--in INFILE', 'Input filename for operation') do |infile|
         options[:infile] = infile
       end
-      opts.on('-aACTION', '--action ACTION', 'What action/operation to do: jekyll, csv, liquid, json, normalize') do |action|
+      opts.on('-aACTION', '--action ACTION',
+              'What action/operation to do: jekyll, csv, template, json, normalize') do |action|
         options[:action] = action
       end
       begin
@@ -302,11 +214,7 @@ module SchemaUtils
   if __FILE__ == $PROGRAM_NAME
     options = parse_commandline
     options[:infile] ||= '_data/foundations-schema.json'
-    options[:action] ||= 'liquid'
-    if 'liquid'.eql?(options[:action])
-      options[:out] ||= '_includes/foundation-fields.html'
-      options[:outtemplate] ||= '_data/foundation-template.md'
-    end
+    options[:action] ||= 'template'
     outext = '.md'
 
     case options[:action]
@@ -318,17 +226,10 @@ module SchemaUtils
       puts "BEGIN #{__FILE__}.csv2jsonschema(#{options[:infile]}, #{options[:out]})"
       lines = csv2jsonschema(options[:infile], options[:out])
       puts "END parsed csv rows: #{lines}"
-    when 'liquid' # Produce both liquid layout and template.md
-      linesep = "<br/>"
-      body = "FOUNDATION_TEMPLATE To add a listing for a new non-profit foundation, copy this file and then fill in as much data as you can verify against official sources (from that foundation, not just wikipedia or the like) in the YAML frontmatter fields above.  The data schema is in the foundations-schema.json file.  Then replace this section (i.e. the content of a Jekyll document) with a one sentence factual description of the organization as a whole.  Submit a PR with this new identifier.md file in the _foundations directory."
-      puts "BEGIN #{__FILE__}.schema2liquid(#{options[:infile]}, #{linesep})"
-      schema = parse_schema(options[:infile])
-      lines = schema2liquid(schema, linesep)
-      File.write(options[:out], lines)
-      puts "...wrote liquid to #{options[:out]}; WARNING: manual tweaking likely needed"
-      lines = schema2template(schema, body)
-      File.write(options[:outtemplate], lines)
-      puts "END wrote template to #{options[:outtemplate]}"
+    when 'template' # Write the foundation template from the schema
+      options[:out] ||= FOUNDATION_TEMPLATE
+      File.write(options[:out], schema2template(parse_schema(options[:infile]), FOUNDATION_TEMPLATE_BODY))
+      puts "END wrote template to #{options[:out]}"
     when 'json'
       puts "BEGIN #{__FILE__}.json2jekyll(#{options[:infile]}, #{options[:out]})"
       if File.directory?(options[:infile])
