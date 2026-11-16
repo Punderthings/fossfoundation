@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://github.com/Punderthings/fossfoundation/blob/main/_data/crosswalk-schema.json",
-  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v2/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427).",
+  "$comment": "Field meanings and the standards they map to are documented at https://fossfoundation.info/crosswalk and in the JSON-LD context api/v2/crosswalk/context.jsonld. Vocabularies: Schema.org https://schema.org/, Dublin Core https://www.dublincore.org/specifications/dublin-core/dcmi-terms/, W3C PROV-O https://www.w3.org/TR/prov-o/, Package URL https://github.com/package-url/purl-spec (ECMA-427). Keywords of our own, which validators ignore: x-asserted-by, x-gives, x-attestor-only and x-freshness-days on each evidence type; assets/python/fdncrosswalk computes confidence and freshness from them, and the crosswalk page renders its evidence-type table from them. x-term on each property names the vocabulary term its key maps to; fdncrosswalk builds the JSON-LD context from them (x-term-type marks a link where the format does not say so).",
   "type": "object",
   "title": "Foundation Platform Crosswalk Schema",
   "description": "Accounts and packages a foundation (or one of its hosted projects) controls on code hosts and package registries, each with the evidence for that link. Confidence is computed from the evidence by assets/python/fdncrosswalk, never stored. Holds identifiers only: metrics such as stars or downloads stay in ecosyste.ms.",
@@ -15,11 +15,13 @@
       "title": "Foundation identifier",
       "description": "Matches the identifier of a file in _foundations/.",
       "$comment": "Schema.org identifier: https://schema.org/identifier",
+      "x-term": "schema:identifier",
       "type": "string"
     },
     "accounts": {
       "title": "Accounts",
       "description": "Orgs, namespaces or owners on code hosts and registries. Include rejected look-alike accounts so they are not added again by mistake.",
+      "x-term": "fdn:account",
       "type": "array",
       "items": {
         "$ref": "#/definitions/account"
@@ -28,6 +30,7 @@
     "packages": {
       "title": "Packages",
       "description": "Packages and source repositories that belong to the foundation or one of its hosted projects. For each project, list its main package first: it is copied to the purl column of _data/projects-<foundation>.csv.",
+      "x-term": "fdn:package",
       "type": "array",
       "items": {
         "$ref": "#/definitions/package"
@@ -50,6 +53,7 @@
           "title": "Platform",
           "description": "Code host or registry, using the ecosyste.ms host or registry name where one exists.",
           "$comment": "ecosyste.ms registries: https://packages.ecosyste.ms/api/v1/registries; hosts: https://repos.ecosyste.ms/api/v1/hosts",
+          "x-term": "fdn:platform",
           "type": "string",
           "enum": [
             "github.com",
@@ -65,12 +69,14 @@
         "host": {
           "title": "Self-hosted instance",
           "description": "Base URL of a self-hosted forge (for example https://gitlab.eclipse.org) when platform does not name the instance.",
+          "x-term": "fdn:host",
           "type": "string",
           "format": "uri"
         },
         "kind": {
           "title": "Account kind",
           "description": "organization: a forge or registry org account; namespace: a name prefix such as an npm scope or Maven groupId; user: a single owner account.",
+          "x-term": "fdn:accountKind",
           "type": "string",
           "enum": [
             "organization",
@@ -81,30 +87,35 @@
         "name": {
           "title": "Name",
           "description": "Login, scope (with @), groupId, or owner handle exactly as the platform spells it. Joins to the ecosyste.ms owner login or namespace name.",
+          "x-term": "schema:name",
           "type": "string"
         },
         "platformId": {
           "title": "Platform id",
           "description": "The platform's stable numeric id for the account, which survives renames (GitHub's org id, also served as the ecosyste.ms owner uuid). Lets tools detect a renamed or re-registered account.",
           "$comment": "Maps to Schema.org identifier (https://schema.org/identifier); see OpenSSF advice on rename attacks: https://repos.openssf.org/trusted-publishers-for-all-package-repositories",
+          "x-term": "schema:identifier",
           "type": "string"
         },
         "url": {
           "title": "URL",
           "description": "Public page for the account on the platform.",
           "$comment": "Schema.org url: https://schema.org/url",
+          "x-term": "schema:url",
           "type": "string",
           "format": "uri"
         },
         "project": {
           "title": "Hosted project",
           "description": "Identifier of a hosted project (as in _data/projects-*.csv, where the foundation has one) when the account belongs to that project rather than to the foundation itself.",
+          "x-term": "fdn:project",
           "type": "string"
         },
         "lastReviewed": {
           "title": "Last reviewed",
           "description": "Date a person last reviewed this whole account and its evidence.",
           "$comment": "Schema.org lastReviewed: https://schema.org/lastReviewed",
+          "x-term": "schema:lastReviewed",
           "type": "string",
           "format": "date"
         },
@@ -112,11 +123,13 @@
           "title": "Reviewed by",
           "description": "GitHub login of the person who last reviewed this account.",
           "$comment": "Schema.org reviewedBy: https://schema.org/reviewedBy",
+          "x-term": "schema:reviewedBy",
           "type": "string"
         },
         "evidence": {
           "title": "Evidence",
           "description": "Why we believe the foundation or project controls this account. At least one item.",
+          "x-term": "prov:wasDerivedFrom",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -137,6 +150,7 @@
           "title": "Package URL",
           "description": "Package or source repository as a purl without a version, for example pkg:pypi/numpy or pkg:github/apache/kafka. Joins to the ecosyste.ms package or repository purl and to the papers index.",
           "$comment": "Package URL (ECMA-427): https://github.com/package-url/purl-spec; maps to Schema.org identifier (https://schema.org/identifier) as CodeMeta does: https://codemeta.github.io/terms/",
+          "x-term": "schema:identifier",
           "type": "string",
           "pattern": "^pkg:[a-z0-9.+-]+/[^@]+$"
         },
@@ -144,17 +158,20 @@
           "title": "Code repository",
           "description": "URL of the package's source repository.",
           "$comment": "Schema.org and CodeMeta codeRepository: https://schema.org/codeRepository",
+          "x-term": "schema:codeRepository",
           "type": "string",
           "format": "uri"
         },
         "account": {
           "title": "Account",
           "description": "The account the package is published under, as <platform or host>/<name>, matching an entry in accounts.",
+          "x-term": "fdn:publishedUnder",
           "type": "string"
         },
         "project": {
           "title": "Hosted project",
           "description": "Identifier of the hosted project the package belongs to.",
+          "x-term": "fdn:project",
           "type": "string"
         },
         "lastReviewed": {
@@ -166,6 +183,7 @@
         "evidence": {
           "title": "Evidence",
           "description": "Why we believe the package belongs to the foundation or project. At least one item.",
+          "x-term": "prov:wasDerivedFrom",
           "type": "array",
           "minItems": 1,
           "items": {
@@ -200,6 +218,7 @@
           "title": "Person record",
           "description": "Opaque identifier of the person's record, as urn:uuid:<random UUID>. Created by fdncrosswalk add-person.",
           "$comment": "Schema.org identifier: https://schema.org/identifier; UUID URN: RFC 9562 https://www.rfc-editor.org/rfc/rfc9562",
+          "x-term": "schema:identifier",
           "type": "string",
           "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
         },
@@ -207,12 +226,14 @@
           "title": "Name",
           "description": "The person's name. Optional; leave it out if they prefer.",
           "$comment": "Schema.org name: https://schema.org/name",
+          "x-term": "schema:name",
           "type": "string"
         },
         "email": {
           "title": "Email",
           "description": "The person's email address. Prefer identifier; record an email here only with their agreement, since this repository is public.",
           "$comment": "Schema.org email: https://schema.org/email",
+          "x-term": "schema:email",
           "type": "string",
           "format": "email"
         },
@@ -220,12 +241,14 @@
           "title": "Role",
           "description": "The person's role at the organization, for example VP Infrastructure.",
           "$comment": "Schema.org roleName: https://schema.org/roleName",
+          "x-term": "schema:roleName",
           "type": "string"
         },
         "memberOf": {
           "title": "Organization",
           "description": "Identifier of the organization the role is at; defaults to this crosswalk's foundation.",
           "$comment": "Schema.org memberOf: https://schema.org/memberOf",
+          "x-term": "schema:memberOf",
           "type": "string"
         }
       }
@@ -241,26 +264,89 @@
       "properties": {
         "type": {
           "title": "Evidence type",
-          "description": "steward-declared: the foundation's own site or policy names it. platform-verified: the platform checked a domain or identity for it. human-attested: a trusted person confirmed it out of band with someone at the organization; a volunteer observation, not a legally reviewed attestation under the EU Cyber Resilience Act or other legislation (https://fossfoundation.info/crosswalk#legal-status). profile-claim: the account's own profile names the foundation or its website. program-badge: a platform program badge, such as Docker Hub's open source badge. publish-provenance: a trusted-publishing attestation shows releases built in a repository owned by another linked account. repository-link: package metadata points into a linked code host account. namespace-convention: the name follows a documented convention tied to the foundation's domain or forge account. name-match: same name only. contradiction: evidence that someone else controls it.",
-          "$comment": "Dublin Core type: http://purl.org/dc/terms/type",
+          "description": "What kind of evidence this is; each type below says what it shows, who asserts it (x-asserted-by), the confidence it gives (x-gives), and how many days it stays fresh without validThrough (x-freshness-days; contradictions never expire). human-attested gives confirmed only when recorded by a listed attestor (x-attestor-only), and probable otherwise.",
+          "$comment": "Dublin Core type: http://purl.org/dc/terms/type. Each type is a oneOf entry with const and description, the usual JSON Schema form for a documented enum.",
+          "x-term": "dcterms:type",
           "type": "string",
-          "enum": [
-            "steward-declared",
-            "platform-verified",
-            "human-attested",
-            "profile-claim",
-            "program-badge",
-            "publish-provenance",
-            "repository-link",
-            "namespace-convention",
-            "name-match",
-            "contradiction"
+          "oneOf": [
+            {
+              "const": "steward-declared",
+              "description": "The foundation's own site or policy names it.",
+              "x-asserted-by": "The foundation, on its own site or in policy",
+              "x-gives": "confirmed",
+              "x-freshness-days": 365
+            },
+            {
+              "const": "platform-verified",
+              "description": "The platform checked a domain or identity for it.",
+              "x-asserted-by": "The platform, after checking a domain or identity, e.g. the [GitHub Verified badge](https://docs.github.com/en/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)",
+              "x-gives": "confirmed",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "human-attested",
+              "description": "A trusted person confirmed it out of band with someone at the organization; a volunteer observation, not a legally reviewed attestation under the EU Cyber Resilience Act or other legislation (https://fossfoundation.info/crosswalk#legal-status).",
+              "x-asserted-by": "A trusted person who confirmed it out of band with someone at the organization; a volunteer observation, not a legal attestation (see [legal status](#legal-status))",
+              "x-gives": "confirmed",
+              "x-attestor-only": true,
+              "x-freshness-days": 365
+            },
+            {
+              "const": "profile-claim",
+              "description": "The account's own profile names the foundation or its website.",
+              "x-asserted-by": "The account holder, in its own profile",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "program-badge",
+              "description": "A platform program badge, such as Docker Hub's open source badge.",
+              "x-asserted-by": "A platform program, e.g. Docker-Sponsored Open Source",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "publish-provenance",
+              "description": "A trusted-publishing attestation shows releases built in a repository owned by another linked account.",
+              "x-asserted-by": "A signed build record, e.g. [PyPI attestations (PEP 740)](https://peps.python.org/pep-0740/) or [npm provenance](https://docs.npmjs.com/generating-provenance-statements)",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "repository-link",
+              "description": "Package metadata points into a linked code host account.",
+              "x-asserted-by": "The publisher, in package metadata",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "namespace-convention",
+              "description": "The name follows a documented convention tied to the foundation's domain or forge account.",
+              "x-asserted-by": "A documented naming rule, e.g. [Maven Central namespaces](https://central.sonatype.org/register/namespace/)",
+              "x-gives": "probable",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "name-match",
+              "description": "Same name only.",
+              "x-asserted-by": "Nobody; the names are the same",
+              "x-gives": "unconfirmed",
+              "x-freshness-days": 90
+            },
+            {
+              "const": "contradiction",
+              "description": "Evidence that someone else controls it.",
+              "x-asserted-by": "Any source showing someone else controls it",
+              "x-gives": "rejected"
+            }
           ]
         },
         "source": {
           "title": "Source",
           "description": "URL where the evidence can be checked again. For human-attested evidence, the pull request or signed commit that recorded it, or the placeholder pending until that URL is known.",
           "$comment": "Dublin Core source: http://purl.org/dc/terms/source",
+          "x-term": "dcterms:source",
+          "x-term-type": "@id",
           "type": "string",
           "anyOf": [
             {
@@ -275,6 +361,7 @@
           "title": "Observed",
           "description": "Date the evidence was last checked, or the date a human attestation was done.",
           "$comment": "W3C PROV-O generatedAtTime: https://www.w3.org/TR/prov-o/#generatedAtTime",
+          "x-term": "prov:generatedAtTime",
           "type": "string",
           "format": "date"
         },
@@ -282,18 +369,21 @@
           "title": "Detail",
           "description": "What the source shows, in one sentence.",
           "$comment": "Dublin Core description: http://purl.org/dc/terms/description",
+          "x-term": "dcterms:description",
           "type": "string"
         },
         "creator": {
           "title": "Recorded by",
           "description": "Who recorded the evidence: a person's GitHub login, or fdncrosswalk/<version> for the probe tool. For human-attested evidence, the attestor's login as listed in _data/attestors.json.",
           "$comment": "Dublin Core creator: http://purl.org/dc/terms/creator",
+          "x-term": "dcterms:creator",
           "type": "string"
         },
         "about": {
           "title": "About",
           "description": "The specific release the evidence is about, as a purl with a version, for example pkg:pypi/pyperf@2.10.0.",
           "$comment": "Schema.org about: https://schema.org/about",
+          "x-term": "schema:about",
           "type": "string",
           "pattern": "^pkg:[a-z0-9.+-]+/.+@.+$"
         },
@@ -301,6 +391,7 @@
           "title": "Method",
           "description": "How a human attestation was confirmed.",
           "$comment": "Schema.org measurementTechnique: https://schema.org/measurementTechnique",
+          "x-term": "schema:measurementTechnique",
           "type": "string",
           "enum": [
             "in-person",
@@ -311,18 +402,21 @@
           ]
         },
         "confirmedWith": {
+          "x-term": "fdn:confirmedWith",
           "$ref": "#/definitions/person"
         },
         "validThrough": {
           "title": "Valid through",
           "description": "Date after which the evidence should be checked again. Defaults to one year after observed for human-attested and steward-declared evidence, and 90 days for the rest.",
           "$comment": "Schema.org validThrough: https://schema.org/validThrough",
+          "x-term": "schema:validThrough",
           "type": "string",
           "format": "date"
         },
         "supersedes": {
           "title": "Supersedes contradictions",
           "description": "Set true on a human-attested item, by a listed attestor and observed after the contradiction, to override earlier contradiction evidence; explain why in detail.",
+          "x-term": "fdn:supersedes",
           "type": "boolean"
         }
       },
